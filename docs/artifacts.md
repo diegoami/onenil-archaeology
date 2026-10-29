@@ -5,7 +5,8 @@ fresh clone (a cloud session included) has it, except the original game.
 
 | What | Where |
 | --- | --- |
-| The project's own outputs: findings, run records, measurements, reports, fixtures holding no original byte | **Committed** |
+| The project's own outputs: findings, run records, measurements, reports, fixtures holding no original byte; listings and decompiles generated from the unpacked executables (CLAUDE.md rule 14) | **Committed** |
+| The unpacked executables | Regenerated into `.cache/` by `tools/static/unlzexe.py`, never committed |
 | The same, over ~50 MB | A **GitHub release**, linked from the document that uses it |
 | The original game's bytes: One-Nil 95 and 96 (`1-095.EXE`, `1-0.EXE`, `ALTER.EXE`, `INSTALL.EXE`, `HELP.EXE`, the league data `*.DAT`, `1-0.PAL`, `1-0.TFN`, the saves `SAVE1.1-0`), emulator savestates and anything embedding them | The owner's **private Google Drive folder** `1-0`, pulled into the git-ignored `.cache/` |
 
