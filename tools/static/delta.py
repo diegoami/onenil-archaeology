@@ -12,9 +12,9 @@ difflib over those masked digests:
   same      identical masked bytes at the same offset
   moved     identical masked bytes at another offset
   operands  a routine in a replaced run of the alignment, paired by order with one of the other
-            edition, whose instructions are the same but some immediate or displacement differs
-            (every immediate and displacement zeroed, capstone's imm/disp offsets): typically a
-            string or variable that moved, not changed logic
+            edition, whose decoded instructions are the same once every immediate and
+            displacement is zeroed (capstone's imm/disp offsets) and whose bytes not decoded as
+            code are ignored: a string, constant or variable that moved or changed, not the code
   changed   paired the same way, and its instructions differ
   new       in 96 only (a replaced or inserted run longer on the 96 side; its extra routines)
   removed   in 95 only
@@ -70,22 +70,26 @@ class Routines:
         return hashlib.sha256(bytes(raw)).hexdigest()
 
     def skeleton_digest(self, a, b):
-        """The routine's instructions with every immediate and displacement zeroed; bytes that
-        are not decoded as code are kept."""
-        raw = bytearray(self.img.data[a:b])
+        """The routine's decoded instructions with every immediate and displacement zeroed; bytes
+        that are not decoded as code (its string constants, tables) are left out."""
+        out = bytearray()
         x = a
         while x < b:
             i = self.dis.ins.get(x)
             if i is None:
                 x += 1
                 continue
-            for off, size in ((i.imm_offset, i.imm_size), (i.disp_offset, i.disp_size)):
-                if off and size:
-                    raw[x - a + off:x - a + off + size] = bytes(size)
-            if i.bytes[0] in (0x9A, 0xEA) and i.size == 5:
-                raw[x - a + 1:x - a + 5] = bytes(4)
+            raw = bytearray(i.bytes)
+            if raw[0] in (0x9A, 0xEA) and i.size == 5:
+                raw[1:5] = bytes(4)  # capstone's imm_size is not usable here
+            else:
+                for off, size in ((i.imm_offset, i.imm_size), (i.disp_offset, i.disp_size)):
+                    if off and size:
+                        end = min(off + size, i.size)  # never past the instruction
+                        raw[off:end] = bytes(end - off)
+            out += raw
             x += i.size
-        return hashlib.sha256(bytes(raw)).hexdigest()
+        return hashlib.sha256(bytes(out)).hexdigest()
 
     def addr(self, a):
         s = self.img.segment_of(a)

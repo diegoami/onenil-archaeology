@@ -13,7 +13,7 @@ segment	2317	library	a unit init (2317:0000) storing far pointers through 24BC:1
 routine	0000:0000	program	the main program: unit inits, then 1B55:7BDE, 1B55:0CF2 ... (seg_0000_01.asm)
 routine	0AB9:EAB6	match	the matchday loop: for each fixture 1..[DS:D686] of the round, 0AB9:E479 then 1998:1B99 (either club managed); called by the week advance 01EF:4D08
 routine	0AB9:E1F2	match	plays a match: seeds the RNG (0AB9:19CA), calls 1998:00BA/00CD/045C/0C7A and the match screens; its only caller is 0AB9:EAB6
-routine	0AB9:19CA	match	the match seed: RandSeed low word := b0 + 58*b1 of the record at [DS:D7D2], then fills DS:CF71..D06F with random(16)-1 (232A:076D)
+routine	0AB9:19CA	match	the match seed: RandSeed low word := b0 + 58*b1 of the record at [DS:D7D2], then fills DS:CF72..D070 with random(16)-1 (232A:076D)
 routine	0AB9:E008	match	calls the commentary print 0AB9:0577 and the penalty shoot-out 0AB9:8434
 routine	0AB9:0577	match	prints the match commentary ("Do you want to print the match commentary", "FINAL SCORE: ")
 routine	0AB9:03E4	match	reads the commentary table DS:0382 + 0x15*k (string[20]: "makes a pass", "tackle by", ...) at 0AB9:0403

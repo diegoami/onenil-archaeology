@@ -1,7 +1,7 @@
 ; the area of every routine (tools/static/index.py; method in its docstring); anchors in static/areas.tsv
 ; counts: program 11, runtime 111, library 135, match 299, tactics 4, squad 16, transfers 21, staff 6, finance 7, competitions 8, season 88, career 2, save-load 20, unknown 211
 routine	area	basis
-0000:0000	program	96 pair: 0000:0000 operands
+0000:0000	program	96 pair: 0000:0000 changed
 0005:0002	program	96 pair: 0006:0002 same
 0005:0112	unknown	96 pair: 0006:0112 same
 0005:0149	career	96 pair: 0006:0149 same
@@ -19,14 +19,14 @@ routine	area	basis
 0005:0F7B	season	96 pair: 0006:0F7B same
 0005:108F	season	96 pair: 0006:108F same
 0005:10BF	season	96 pair: 0006:10BF same
-0005:1197	season	96 pair: 0006:1197 changed
+0005:1197	season	96 pair: 0006:1197 operands
 0005:144B	season	96 pair: 0006:144B same
 0005:14E2	season	96 pair: 0006:14E2 same
 0005:16B7	season	96 pair: 0006:16B7 same
 0005:175A	season	96 pair: 0006:175A same
 0005:17DC	season	96 pair: 0006:17DC same
 0005:1A67	season	96 pair: 0006:1A67 same
-0005:1B52	season	96 pair: 0006:1B52 changed
+0005:1B52	season	96 pair: 0006:1B52 operands
 01EE:0000	season	96 pair: 01EF:0000 same
 01EE:01B2	season	96 pair: 01EF:01B2 same
 01EE:03BD	season	96 pair: 01EF:03BD same
@@ -112,8 +112,8 @@ routine	area	basis
 01EE:48DB	season	96 pair: 01EF:48DB same
 01EE:49EE	unknown	96 pair: 01EF:49EE same
 01EE:4A8F	season	96 pair: 01EF:4A8F same
-01EE:4ACD	season	96 pair: 01EF:4ACD changed
-01EE:4CD8	season	96 pair: 01EF:4D08 changed
+01EE:4ACD	season	96 pair: 01EF:4ACD operands
+01EE:4CD8	season	96 pair: 01EF:4D08 operands
 06E4:0000	unknown	96 pair: 06E8:0000 same
 06E4:0030	season	96 pair: 06E8:0030 same
 06E4:01DF	unknown	96 pair: 06E8:01DF same
@@ -386,7 +386,7 @@ routine	area	basis
 0AB5:8A0F	tactics	96 pair: 0AB9:8A0F same
 0AB5:8A62	tactics	96 pair: 0AB9:8A62 same
 0AB5:8B0B	tactics	96 pair: 0AB9:8B0B same
-0AB5:8D6F	squad	96 pair: 0AB9:8D6F changed
+0AB5:8D6F	squad	96 pair: 0AB9:8D6F operands
 0AB5:95B3	unknown	96 pair: 0AB9:95B3 same
 0AB5:95D1	match	96 pair: 0AB9:95D1 same
 0AB5:966F	unknown	96 pair: 0AB9:966F same
@@ -440,11 +440,11 @@ routine	area	basis
 0AB5:C3C6	match	96 pair: 0AB9:C3C6 same
 0AB5:C4B3	match	96 pair: 0AB9:C4B3 same
 0AB5:C4CD	match	96 pair: 0AB9:C4CD changed
-0AB5:C860	match	96 pair: 0AB9:C866 changed
-0AB5:CBEA	match	96 pair: 0AB9:CBF0 changed
+0AB5:C860	match	96 pair: 0AB9:C866 operands
+0AB5:CBEA	match	96 pair: 0AB9:CBF0 operands
 0AB5:D1D7	match	96 pair: 0AB9:D1DD moved
-0AB5:D298	match	96 pair: 0AB9:D29E changed
-0AB5:D5D0	match	96 pair: 0AB9:D5D6 changed
+0AB5:D298	match	96 pair: 0AB9:D29E operands
+0AB5:D5D0	match	96 pair: 0AB9:D5D6 operands
 0AB5:D8FE	match	96 pair: 0AB9:D904 moved
 0AB5:D97D	match	96 pair: 0AB9:D983 moved
 0AB5:DA3B	match	96 pair: 0AB9:DA41 moved
@@ -461,7 +461,7 @@ routine	area	basis
 0AB5:E874	match	96 pair: 0AB9:E87A moved
 0AB5:E8ED	match	96 pair: 0AB9:E8F3 moved
 0AB5:EAB0	match	96 pair: 0AB9:EAB6 moved
-0AB5:ED89	program	96 pair: 0AB9:ED8F changed
+0AB5:ED89	program	96 pair: 0AB9:ED8F operands
 1994:0008	unknown	96 pair: 1998:0008 same
 1994:0058	match	96 pair: 1998:0058 same
 1994:0085	match	96 pair: 1998:0085 same
@@ -530,7 +530,7 @@ routine	area	basis
 1B51:091D	save-load	96 pair: 1B55:091D same
 1B51:0AE5	save-load	96 pair: 1B55:0AE5 same
 1B51:0BA1	save-load	96 pair: 1B55:0BA1 same
-1B51:0C3A	save-load	96 pair: 1B55:0C3A changed
+1B51:0C3A	save-load	96 pair: 1B55:0C3A operands
 1B51:0CBB	save-load	96 pair: 1B55:0CF2 changed
 1B51:0D48	save-load	96 pair: 1B55:0DE2 changed
 1B51:0DA0	save-load	96 pair: 1B55:0E40 operands
@@ -693,7 +693,7 @@ routine	area	basis
 1B51:799E	season	96 pair: 1B55:7A5D moved
 1B51:7A5A	transfers	96 pair: 1B55:7B19 moved
 1B51:7AA4	season	96 pair: 1B55:7B63 moved
-1B51:7B1F	save-load	96 pair: 1B55:7BDE changed
+1B51:7B1F	save-load	96 pair: 1B55:7BDE operands
 2306:0000	runtime	96 pair: 2316:0000 same
 2307:0000	library	96 pair: 2317:0000 same
 231A:0008	library	96 pair: 232A:0008 same
