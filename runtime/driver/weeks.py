@@ -8,7 +8,8 @@ and wait for the main menu (record T04-load-r<nnnn>: the screens, and whether a 
 registration text appears); turn "Watch match" off in Game configuration (an in-game option, so a
 week's match is played without the watched pitch); then for each week select PLAY NEXT GAME, play the
 game from the pre-match screen, pass every "press any key" and "any other key to continue" screen
-with Space, answer N to any (Y/N) question, offer an expiring contract on the default terms (Return
+with Space, wait while a match is on screen (Space when it stands still for 15 s), answer N to any
+(Y/N) question, offer an expiring contract on the default terms (Return
 through the PLAYER CONTRACT categories), until the main menu is back (record T04-week-r<nnnn>,
 starting from the savestate the previous record ended with). Stops at a screen it does not know, and
 records it. Savestates (they hold the game's memory) are kept in .cache/states/T04/ and pushed to
@@ -35,7 +36,9 @@ ROOT = driver.ROOT
 STATES = ROOT / ".cache" / "states" / "T04"
 LOAD_WAIT = 3.0       # seconds after Y before the first savestate (see the docstring)
 SCREEN_WAIT = 2.0     # seconds after a key that changes the screen, before the next read
-MAX_SCREENS = 80      # screens per week before the week is called stuck
+MAX_SCREENS = 400     # reads per week before the week is called stuck (a match takes many)
+MATCH_POLL = 3.0      # seconds between reads while a match is on screen
+STALL_READS = 5       # equal reads of a match screen (about 15 s) before Space is pressed
 NEEDLES = ("REGISTER", "purchase", "Runtime error")  # texts a screen must not show
 
 
@@ -87,7 +90,7 @@ def base_record(d, run_id, experiment, rep, commit, start_state, obs, status, st
 
 def play_week(d, obs, keys):
     """From the main menu to the next main menu. Returns the menu screen."""
-    step = 0
+    step, stall, last_digest, match_sc = 0, 0, None, None
     screens.select(d, "PLAY NEXT GAME")
     d.keys("Return"); keys.append("PLAY NEXT GAME: Return")
     time.sleep(SCREEN_WAIT)
@@ -96,8 +99,27 @@ def play_week(d, obs, keys):
         text, low = sc.text(), sc.text().lower()
         step += 1
         if "GAME NAME" in text and "PLAY NEXT GAME" in text:
+            if match_sc is not None:
+                obs += screen_obs(match_sc[0], f"screen {match_sc[0]} (match, last read)", match_sc[1])
             obs += screen_obs(step, "main menu after the week", sc)
             return sc
+        if "commentary" in text and ("versus" in text or "spacebar-commentary" in text):
+            # a match on screen (watched or the quick-result board): wait while it changes; when it
+            # stands still for STALL_READS reads in a row, press Space (a half-time board waits for a key).
+            # Recorded: its first read, each read before a Space, and its last read (when it is left).
+            stall = stall + 1 if sc.digest() == last_digest else 0
+            if last_digest is None:
+                obs += screen_obs(step, f"screen {step} (match, first read)", sc)
+            last_digest, match_sc = sc.digest(), (step, sc)
+            if stall >= STALL_READS:
+                obs += screen_obs(step, f"screen {step} (match, unchanged for {STALL_READS} reads)", sc)
+                d.keys("space"); keys.append("match screen unchanged for %d reads: Space" % STALL_READS)
+                stall = 0
+            time.sleep(MATCH_POLL)
+            continue
+        if match_sc is not None:
+            obs += screen_obs(match_sc[0], f"screen {match_sc[0]} (match, last read)", match_sc[1])
+            match_sc, last_digest, stall = None, None, 0
         obs += screen_obs(step, f"screen {step}", sc)
         if "PLAY GAME" in text and "Change tactics" in text:
             screens.select(d, "PLAY GAME"); d.keys("Return"); keys.append("pre-match: PLAY GAME, Return")

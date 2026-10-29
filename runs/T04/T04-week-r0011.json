@@ -1,0 +1,108 @@
+{
+  "schema": "run/1",
+  "run_id": "T04-week-r0011",
+  "experiment": "T04-week",
+  "arm": "save1-weeks",
+  "rep": 11,
+  "code_commit": "052b13e",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@052b13e",
+    "platform": "python-3.14.4/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.4",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screens read from DOSBox-X savestates (component Vga)"
+    },
+    {
+      "level": "I2",
+      "what": "a savestate is written at each read (save of emulator state; neutrality not tested)"
+    }
+  ],
+  "start_state": {
+    "id": "T04-week-r0010",
+    "sha256": "cef6b82a3e733e9f4c3f1a36bf1056ec733902186262550376287b5fdbd137b2",
+    "restore": "the same DOSBox-X session, continued from the end of T04-week-r0010 (its last savestate's sha256 given), not restored"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/driver/weeks.py",
+    "sha256": "8ee8717f3391cb6726cfe83f8994bb5caf62c9a7efdb937232860cd061bbc9ef",
+    "keys": [
+      "PLAY NEXT GAME: Return",
+      "pre-match: PLAY GAME, Return"
+    ]
+  },
+  "observations": [
+    {
+      "step": 1,
+      "source": "screen",
+      "field": "screen 1: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "c7524f950e626e0fe3894845602c94de096e7e63dc635be1e32b2d89fc5e8fec"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "screen 1: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│League match #2  │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence            tentative │  ║ C Hendry     ║C║\n│ Sheffield Wed-- │ │ fitness                 supreme │  ║ G Le Saux    ║b║\n│     versus      │ │ energy              electrified │  ║ H Berg       ║B║\n│ Blackburn R---- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 3│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ Sheffield Wed-- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "screen 1: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 2,
+      "source": "screen",
+      "field": "screen 2: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "45aa3078dbc50520d050e715457d332a5cf827ab5803fa2594c6b696e0b1c21a"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌LEAGUE MATCH #2──────commentary──────┐\n│SHEFFIELD WED--│ 1│┌──────┐█   █ █   │ │Williams BOOKED                      │\n├versus─────────┼──┤│ 24101│├▀▀▀▄ ├▀▀▀▄ │**** GOAL **** by Sinton             │\n│BLACKBURN R----│ 2│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Sheffield Wed-- │─┐┌─│ Blackburn R---- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│A Sinton       │ 40│ │   │    │ │    │ │ │     │   │    │ │C Sutton       │  2│\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │C Sutton       │  9│\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 99,
+      "source": "save",
+      "field": "sha256 of the savestate of the last read (kept in .cache/states/T04/, pushed to the owner's Drive)",
+      "value": "f0bc84a2cb22c087e9cfde61145b50e32529ecc9e0c89f0517fc1eccdaa2e2ba"
+    },
+    {
+      "step": 99,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[157.181,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[157.182,\"savestate complete after 1 polls of 0.05s\"],[157.198,\"menu: 'PLAY NEXT GAME' highlighted\"],[157.279,\"key Return held 0.08s (raw keycode 36)\"],[159.802,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[159.804,\"savestate complete after 1 polls of 0.05s\"],[160.341,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[160.342,\"savestate complete after 1 polls of 0.05s\"],[160.356,\"menu: 'PLAY GAME' highlighted\"],[160.437,\"key Return held 0.08s (raw keycode 36)\"],[162.961,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[162.963,\"savestate complete after 1 polls of 0.05s\"]]"
+    }
+  ],
+  "outputs": [],
+  "started": "2026-10-29T13:19:43.939Z",
+  "ended": "2026-10-29T13:19:50.275Z",
+  "status": "aborted: RuntimeError: an unknown screen (step 2); stopping"
+}
