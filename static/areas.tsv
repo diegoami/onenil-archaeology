@@ -1,0 +1,74 @@
+; The anchors of the area index (T02), hand-curated: 1-0.EXE (One-Nil 96) addresses. tools/static/index.py
+; assigns every other routine from these (see its docstring) and maps the result to 1-095.EXE by
+; static/delta-95-96.tsv. Areas: program, runtime, library, match, tactics, squad, transfers, staff,
+; finance, competitions, season, career, save-load, unknown. Evidence cites the listing (static/1-0-exe/).
+scope	address	area	evidence
+segment	26C9	runtime	TP7 System: entry's first far call; F01 item 3; 12 routines byte-identical to goal2's System (T02 match)
+segment	245A	runtime	TP7 Crt: delay calibration 245A:007B..009F (F01 item 4)
+segment	26B8	runtime	TP7 Dos: 26B8:0000/003E/00A7 byte-identical to goal2's dos_find_first/next, dos_msdos
+segment	2316	runtime	a unit whose init is empty (2316:0000 push bp; mov bp,sp; leave; retf)
+segment	24BC	library	the studio's library ("(c) new era software" at 24BC:1EDA): screen, keys, Y/N, printer, the LCG 24BC:0CDC (constants 7ABD/1B0F as goal2's 214B:0688)
+segment	232A	library	the game's helpers over 24BC: loads 1-0.tfn (232A:0008) and 1-0.pal (232A:005E), Y/N prompts, print screen, random(n) 232A:076D
+segment	2317	library	a unit init (2317:0000) storing far pointers through 24BC:1485
+routine	0000:0000	program	the main program: unit inits, then 1B55:7BDE, 1B55:0CF2 ... (seg_0000_01.asm)
+routine	0AB9:EAB6	match	the matchday loop: for each fixture 1..[DS:D686] of the round, 0AB9:E479 then 1998:1B99 (either club managed); called by the week advance 01EF:4D08
+routine	0AB9:E1F2	match	plays a match: seeds the RNG (0AB9:19CA), calls 1998:00BA/00CD/045C/0C7A and the match screens; its only caller is 0AB9:EAB6
+routine	0AB9:19CA	match	the match seed: RandSeed low word := b0 + 58*b1 of the record at [DS:D7D2], then fills DS:CF72..D070 with random(16)-1 (232A:076D)
+routine	0AB9:E008	match	calls the commentary print 0AB9:0577 and the penalty shoot-out 0AB9:8434
+routine	0AB9:0577	match	prints the match commentary ("Do you want to print the match commentary", "FINAL SCORE: ")
+routine	0AB9:03E4	match	reads the commentary table DS:0382 + 0x15*k (string[20]: "makes a pass", "tackle by", ...) at 0AB9:0403
+routine	0AB9:09BD	match	reads the commentary table DS:0382 + 0x15*k at 0AB9:09E8
+routine	0AB9:8434	match	"penalty shoot out"
+routine	0AB9:CBF0	match	the substitution screen ("MAKE SUBSTITUTION", "REQUEST SUBSTITION", "NO MORE SUBS"); called by 0AB9:D1DD and the weekly loop 0006:1B52
+routine	0AB9:C866	match	substitution checks ("Illegal substitution", "Your final substitute must be a goalkeeper")
+routine	0AB9:D29E	match	team-sheet checks ("has insufficient players", "has an ineligible player in the first team")
+routine	0AB9:1CBB	match	tests a player record's slot (+7) < 12: which side, as goal's 22 slots
+routine	0AB9:0000	match	tests slot = 1 or 12: a goalkeeper slot
+routine	0AB9:8B0B	tactics	tactic names ("stay back", "stay in box", "throw the ball", "short passes")
+routine	0AB9:8A0F	tactics	"Protect zone"
+routine	0AB9:8A62	tactics	"Protect zone"
+routine	0AB9:ABD9	tactics	"Goalkeepers cannot be repositioned"
+routine	0AB9:8D6F	squad	"(Retiring this year)"
+routine	0AB9:A0A4	squad	"You can't sack trialists", "Get rid of", "It will cost you"
+routine	0AB9:C0A3	squad	" is not 18 yet"
+routine	1B55:4C4A	squad	"Can't play", "too young to tell"
+routine	1B55:5A60	squad	"Your chairman thinks you have enough trialists"
+routine	1B55:5CFB	squad	"You have a full squad"
+routine	0AB9:BAF6	transfers	"REJECTED: ", " wants to leave"
+routine	0AB9:BEA4	transfers	"REJECTED: not enough money offered!", "CONTRACT ACCEPTED"
+routine	01EF:07CC	transfers	"Do you accept, "
+routine	01EF:0D49	transfers	"Your chairman thinks you have enough players", " doesn't want to join you"
+routine	01EF:311D	transfers	" is not interested in joining you", " agrees to join you. Okay"
+routine	01EF:1569	transfers	"You don't have a scout", "There are no players fitting these conditions"
+routine	1B55:66EE	transfers	"You can't sell youth players", "has been placed on the transfer market"
+routine	01EF:36E5	staff	": your assistant has joined "
+routine	01EF:2FF3	staff	"Unemployed", "None"
+routine	01EF:32DE	staff	"Sack "
+routine	01EF:3377	staff	"SACK"
+routine	06E8:36EA	finance	" PAY ", "Your chairman overrules you"
+routine	06E8:3B6B	finance	"Not enough"
+routine	1B55:2B43	finance	"Ok...improvements will take a few months"
+routine	1B55:2DB9	finance	"Your stadium will be ready in ", "You don't have enough money"
+routine	1B55:3875	finance	"Your chairman won't release the money"
+routine	1B55:11C2	competitions	"Round 1".."Quarter Finals"
+routine	1B55:1334	competitions	"QF L#1", "SF L#1"
+routine	1B55:18BB	competitions	"1st leg:  v", "2nd leg:  v"
+routine	1B55:6F7F	competitions	"ON WINNING ", "ON GAINING PROMOTION"
+routine	01EF:3EE3	competitions	"No league results to see"
+routine	0006:14E2	season	"Cannot find seasonal info for this year"
+routine	0006:1A67	season	"No history available until a full season is completed"
+routine	0006:1B52	season	the weekly loop ("No game this week"); calls the week advance 01EF:4D08 and the substitution screen
+routine	01EF:4D08	season	the week advance: increments byte 0 of [DS:D7D2], calls the matchday loop 0AB9:EAB6
+routine	0006:0149	career	"You can't choose the same team"
+routine	0006:01D0	career	" are not interested", " agree to employ you - ok"
+routine	1B55:0055	save-load	"Cannot load file "
+routine	1B55:013C	save-load	"TRIA", ".DAT"
+routine	1B55:030C	save-load	".1-0"
+routine	1B55:03A5	save-load	"Looking for saved games...", "*.1-0"
+routine	1B55:05D8	save-load	"Finding data files...", "*.DAT"
+routine	1B55:0AE5	save-load	".1-0"
+routine	1B55:0C3A	save-load	loads or saves through 232A:1250 / 232A:121C with DS:D73E, then 1B55:091D
+routine	1B55:0CF2	save-load	"Do you want to load a saved game" (the start-up question)
+routine	1B55:0DE2	save-load	the save loop over 1B55:0C3A
+routine	1B55:0E40	save-load	"Are you sure you want to quit", "Do you want to save this game"
+routine	1B55:7BDE	save-load	"save1.1-0", "Type install to install to hard disk"

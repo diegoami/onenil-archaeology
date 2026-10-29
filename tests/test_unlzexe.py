@@ -8,7 +8,7 @@ from unittest import mock
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "tools", "static"))  # ported from goal2-archaeology tests/static at aefd8d30
+sys.path.insert(0, os.path.join(ROOT, "tools", "static"))  # ported from goal2-archaeology tests/static/test_unlzexe.py at 774473eb
 sys.path.insert(0, HERE)
 
 import lzexe_fixture as fx  # noqa: E402

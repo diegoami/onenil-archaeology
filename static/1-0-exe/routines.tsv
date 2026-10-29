@@ -1,0 +1,948 @@
+; 1-0.EXE (One-Nil 96), routines found (a routine runs to the next routine start in its segment)
+; packed 1-0.EXE sha256 89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a (LZEXE 0.91)
+; unpacked (tools/static/unlzexe.py) sha256 887ed2a92767950e5309b2052409f875668605939b69e00737aa3047022b9f51
+; tool: capstone 5.0.9 (pip package; core library 5.0.1280) (CS_ARCH_X86, CS_MODE_16), recursive descent from the entry point, far calls and near calls/jumps, then routine prologues (55 89 E5 / 55 8B EC / C8 iw 00) in what remains; tools/static/listing.py
+; addresses are SEGMENT:OFFSET with SEGMENT the image paragraph before relocation; image offset = SEGMENT*16+OFFSET
+; int21_ah is AH from the nearest preceding mov in the same routine (?? = not seen);
+; string_refs: `mov di, imm16 / push ds|cs / push di` whose imm16 points into an ASCII run (>= 4 printable bytes)
+segment:offset	size	instructions	found_by	callers	int21_ah	other_int	ds_direct_operands	string_refs (first 4)
+0000:0000	95	26	entry	0			0	
+0006:0002	272	110	call	1			7	
+0006:0112	24	9	call	1			3	
+0006:0149	89	34	call	1			2	CS:012A=You can't choose the same team
+0006:01D0	248	89	call	1			3	CS:01A2= are not interested | CS:01B6= agree to employ you - ok
+0006:02CA	630	236	call	1			12	
+0006:0540	207	72	call	3			3	
+0006:060F	54	20	call	1			0	
+0006:0645	64	27	call	1			1	
+0006:0685	216	76	call	1			2	
+0006:075D	68	21	call	1			5	
+0006:07A1	766	294	call	7			12	
+0006:0AA0	183	75	call	1			6	
+0006:0B57	193	64	far	1			3	
+0006:0C1E	861	346	call	1			5	
+0006:0F7B	276	104	call	2			7	
+0006:108F	48	20	call	2			0	
+0006:10BF	214	82	call	1			10	
+0006:1197	692	267	call	2			15	
+0006:144B	108	44	call	2			1	
+0006:14E2	469	182	call	1			13	CS:14B7=*Cannot find seasonal info for this 
+0006:16B7	163	60	call	1			2	
+0006:175A	128	45	call	3			5	
+0006:17DC	595	241	call	1			2	
+0006:1A67	217	82	call	1			6	CS:1A2F=5No history available until a full s
+0006:1B52	814	301	far	1			15	CS:1B40=No game this week
+0006:1E82	5	4	far	1			0	
+01EF:0000	434	154	call	2			6	
+01EF:01B2	523	175	call	1			11	
+01EF:03BD	231	82	call	3			3	
+01EF:04A4	206	69	call	3			5	
+01EF:0572	180	67	call	1			10	
+01EF:0626	124	46	call	1			1	
+01EF:06A2	106	39	call	1			3	
+01EF:070C	176	63	call	1			2	
+01EF:07CC	851	282	call	1			27	CS:07BC=Do you accept, 
+01EF:0B1F	483	169	call	1			15	
+01EF:0D49	105	39	call	3			2	CS:0D02=,Your chairman thinks you have enoug | CS:0D2F= doesn't want to join you
+01EF:0DB2	203	76	call	2			8	
+01EF:0E7D	39	13	call	3			0	
+01EF:0EA4	244	96	far	1			6	
+01EF:0F98	171	59	far	1			8	
+01EF:1043	110	36	call	1			6	
+01EF:10B1	138	45	call	1			3	
+01EF:113B	98	32	call	1			2	
+01EF:119D	106	34	call	1			3	
+01EF:1207	113	36	call	1			3	
+01EF:1278	172	57	call	1			3	
+01EF:1324	153	60	call	2			3	
+01EF:13BD	359	123	call	2			5	
+01EF:1569	1059	408	far	1			32	CS:1524=You don't have a scout-There are no  | CS:153B=You don't have a scout-There are no 
+01EF:198E	41	16	call	8			0	
+01EF:19B7	676	258	call	1			2	
+01EF:1C5B	245	93	call	1			4	
+01EF:1D7A	304	120	far	2			9	CS:1D50=)Not available until after league ma
+01EF:1EAA	328	115	call	7			2	
+01EF:1FF2	336	133	call	2			4	
+01EF:2142	174	82	call	1			1	
+01EF:21F0	222	78	call	3			3	
+01EF:22CE	97	37	call	1			1	
+01EF:232F	138	49	call	1			2	
+01EF:23B9	299	102	call	5			13	
+01EF:24E4	216	77	call	1			4	
+01EF:25BC	65	22	call	8			3	
+01EF:25FD	484	182	call	2			3	
+01EF:27E1	256	89	call,far	2			6	
+01EF:28E1	61	21	call	4			1	
+01EF:291E	176	66	call	2			5	
+01EF:29CE	230	77	call	2			7	
+01EF:2AB4	100	34	call	1			2	
+01EF:2B18	441	141	call	1			9	
+01EF:2CD1	199	57	call	2			8	
+01EF:2D98	66	22	call	2			1	
+01EF:2DDA	66	23	call	6			2	
+01EF:2E1C	76	26	call	6			2	
+01EF:2E68	146	54	call	3			2	
+01EF:2EFA	233	81	call	3			8	
+01EF:2FF3	238	91	call	1			4	CS:2FE3=Unemployed | CS:2FEE=None
+01EF:311D	443	161	call	1			12	CS:30E1=! is not interested in joining you | CS:3103= agrees to join you. Okay
+01EF:32DE	84	31	call	1			2	CS:32D8=Sack 
+01EF:3332	32	11	call	1			2	
+01EF:3352	32	11	call	1			2	
+01EF:3377	429	171	call	1			13	CS:3372=SACK
+01EF:3524	254	102	far	1			8	
+01EF:3622	104	36	call	1			1	
+01EF:368A	62	24	call	2			1	
+01EF:36E5	193	64	call	1			2	CS:36C8=: your assistant has joined 
+01EF:37A6	282	103	call	1			5	
+01EF:38C0	112	38	call,far	2			2	
+01EF:3930	199	74	call	2			6	
+01EF:39F7	42	17	call	1			0	
+01EF:3A21	69	28	call	1			2	
+01EF:3A66	246	89	call	1			2	
+01EF:3B5C	341	122	call	1			4	
+01EF:3CB1	41	14	call	1			0	
+01EF:3CDA	255	79	far	1			9	
+01EF:3DD9	241	91	call	1			2	
+01EF:3EE3	224	84	call,far	2			7	CS:3ECA=No league results to see
+01EF:3FC3	222	78	call	3			3	
+01EF:40A1	331	116	call	1			7	
+01EF:41EC	59	22	call	1			0	
+01EF:4227	222	78	call	3			3	
+01EF:4305	331	116	call	1			7	
+01EF:4450	129	46	call	1			1	
+01EF:44D1	425	178	call	2			0	
+01EF:467A	201	78	call	1			4	
+01EF:4743	171	64	call,far	3			5	
+01EF:47EE	142	52	call	2			3	
+01EF:487C	95	40	call	2			3	
+01EF:48DB	275	107	far	2			4	
+01EF:49EE	161	62	far	1			1	
+01EF:4A8F	62	22	call	4			0	
+01EF:4ACD	441	159	call	1			5	
+01EF:4D08	633	228	far	1			5	CS:4CB6=/TO CONTINUE PLAYING YOU MUST REGIST
+06E8:0000	48	20	call,far	7			4	
+06E8:0030	431	150	call	1			7	
+06E8:01DF	59	21	call,far	3			1	
+06E8:021A	94	34	call	1			2	
+06E8:0278	264	87	call	1			7	
+06E8:0380	347	114	call	1			5	
+06E8:04DB	64	20	call	1			1	
+06E8:051B	123	43	call	1			2	
+06E8:0596	193	64	call	1			4	
+06E8:0657	39	14	call	5			0	
+06E8:067E	549	186	far	1			2	
+06E8:08A3	131	51	call	4			0	
+06E8:0926	136	43	call	2			0	
+06E8:09AE	150	57	call	1			2	
+06E8:0A44	141	48	call	10			1	
+06E8:0AD1	338	148	far	3			3	
+06E8:0C23	69	23	call	7			1	
+06E8:0C68	104	36	call	1			1	
+06E8:0CD0	252	83	call	2			1	
+06E8:0DCC	169	62	call	3			2	
+06E8:0E75	441	169	far	1			10	
+06E8:102E	60	20	call	1			0	
+06E8:106A	23	8	far	1			0	
+06E8:1081	251	88	call	4			3	
+06E8:117C	143	53	call	1			8	
+06E8:120B	377	129	call	1			1	
+06E8:1384	354	137	far	4			4	
+06E8:14E6	252	91	call	2			3	
+06E8:15E2	51	21	far	3			0	
+06E8:1615	59	24	far	2			1	
+06E8:1650	159	58	call	1			3	
+06E8:16EF	87	30	call	1			1	
+06E8:1746	328	121	call	8			3	
+06E8:188E	159	60	call	1			1	
+06E8:192D	198	85	call	1			11	
+06E8:19F3	183	67	call	2			2	
+06E8:1AAA	135	59	call	1			5	
+06E8:1B31	131	53	call,far	7			5	
+06E8:1BB4	58	19	call	1			1	
+06E8:1BEE	54	18	call	1			0	
+06E8:1C24	98	34	call	1			1	
+06E8:1C86	201	75	call	1			2	
+06E8:1D4F	69	24	call	4			0	
+06E8:1D94	111	42	call	2			1	
+06E8:1E05	147	56	call	3			0	
+06E8:1E98	879	372	far	1			4	
+06E8:2207	615	229	call	1			23	
+06E8:246E	123	49	call	1			2	
+06E8:24E9	170	54	call	1			5	
+06E8:2593	84	29	call	1			1	
+06E8:25E7	220	75	call	1			4	
+06E8:26C3	231	85	far	1			8	
+06E8:27AA	140	52	call	1			1	
+06E8:2836	175	58	call	1			1	
+06E8:28E5	113	40	call	1			1	
+06E8:2956	145	51	call	1			2	
+06E8:29E7	143	51	call	1			3	
+06E8:2A76	139	53	call	1			1	
+06E8:2B01	34	17	far	1			0	
+06E8:2B23	126	45	call	1			2	
+06E8:2BA1	329	117	call	1			7	
+06E8:2CEA	91	30	call,far	3			3	
+06E8:2D45	129	45	call	1			2	
+06E8:2DC6	491	177	call,far	2			6	
+06E8:2FB1	209	78	call	3			9	
+06E8:3082	73	28	call,far	2			4	
+06E8:30CB	88	35	call	1			2	
+06E8:3123	448	158	call	2			3	
+06E8:32E3	149	56	far	1			5	
+06E8:3378	183	63	call	1			5	
+06E8:342F	64	21	call,far	2			1	
+06E8:346F	263	92	call	1			2	
+06E8:3576	133	47	call	2			4	
+06E8:35FB	205	70	call	2			1	
+06E8:36EA	819	296	call	1			27	CS:36C8= PAY  | CS:36CE=Your chairman overrules you
+06E8:3A1D	323	116	far	1			8	
+06E8:3B6B	415	150	far	1			14	CS:3B60=Not enough
+0AB9:0000	32	12	call	29			0	
+0AB9:0020	64	23	call	1			0	
+0AB9:0060	118	43	call	2			0	
+0AB9:00D6	109	46	call	3			1	
+0AB9:0143	196	87	call	3			1	
+0AB9:0207	208	84	call	1			4	
+0AB9:02D7	103	45	call	2			0	
+0AB9:033E	125	50	call	4			3	
+0AB9:03BB	39	15	call	2			0	
+0AB9:03E4	286	111	call	1			0	
+0AB9:0577	1092	423	call	1			21	CS:0502=)Do you want to print the match comm | CS:052C=Printing..... | CS:053A= versus  | CS:0547=FINAL SCORE: 
+0AB9:09BD	406	161	call	2			0	
+0AB9:0B53	555	219	call	2			15	
+0AB9:0D7E	199	70	call	1			2	
+0AB9:0E45	253	92	call	1			4	
+0AB9:0F42	82	31	call	1			0	
+0AB9:0F94	108	41	call	6			7	
+0AB9:1000	185	64	call	5			0	
+0AB9:10B9	767	289	call	5			10	
+0AB9:13B8	157	55	call	4			1	
+0AB9:1455	228	92	call	5			0	
+0AB9:1539	278	101	call	1			3	
+0AB9:164F	849	326	call	6			14	
+0AB9:19A0	42	13	call	12			4	
+0AB9:19CA	78	26	call	1			4	
+0AB9:1A18	32	10	call	4			3	
+0AB9:1A38	20	9	call	3			1	
+0AB9:1A4C	150	53	call	19			4	
+0AB9:1AE2	244	83	call	24			4	
+0AB9:1BD6	72	35	call	9			0	
+0AB9:1C1E	96	38	call	4			2	
+0AB9:1C7E	35	11	call	12			0	
+0AB9:1CA1	26	8	call	16			0	
+0AB9:1CBB	27	10	call	33			0	
+0AB9:1CD6	22	9	call	43			1	
+0AB9:1CEC	78	36	call	1			3	
+0AB9:1D3A	79	37	call	4			2	
+0AB9:1D89	46	19	call	2			2	
+0AB9:1DB7	43	21	call	42			1	
+0AB9:1DE2	50	24	call	5			2	
+0AB9:1E14	20	10	call	6			0	
+0AB9:1E28	38	21	call	9			0	
+0AB9:1E4E	35	17	call	25			0	
+0AB9:1E71	46	16	call	1			1	
+0AB9:1E9F	45	15	call	15			0	
+0AB9:1ECC	64	31	call	62			2	
+0AB9:1F0C	39	14	call	2			2	
+0AB9:1F33	43	20	call	7			0	
+0AB9:1F5E	59	28	call	11			0	
+0AB9:1F99	29	11	call	12			0	
+0AB9:1FB6	29	11	call	4			1	
+0AB9:1FD3	86	45	call	7			1	
+0AB9:2029	86	45	call	4			1	
+0AB9:207F	70	34	call	3			0	
+0AB9:20C5	48	22	call	2			0	
+0AB9:20F5	52	24	call	14			0	
+0AB9:2129	52	24	call	4			0	
+0AB9:215D	122	54	call	5			1	
+0AB9:21D7	301	125	call	5			4	
+0AB9:2304	35	15	call	6			0	
+0AB9:2327	452	186	call	1			0	
+0AB9:24EB	26	15	call	7			0	
+0AB9:2505	288	111	call	1			8	
+0AB9:2625	789	331	call	10			50	
+0AB9:293A	652	256	call	6			35	
+0AB9:2BC6	119	52	call	2			5	
+0AB9:2C3D	71	32	call	1			2	
+0AB9:2C84	48	22	call	1			1	
+0AB9:2CB4	25	10	call	2			1	
+0AB9:2CCD	231	94	call	4			8	
+0AB9:2DB4	159	62	call	1			1	
+0AB9:2E53	129	52	call	2			4	
+0AB9:2ED4	22	12	call	4			0	
+0AB9:2EEA	20	11	call	4			0	
+0AB9:2EFE	172	78	call	2			3	
+0AB9:2FAA	198	81	call	3			1	
+0AB9:3070	40	20	call	2			0	
+0AB9:3098	106	50	call	2			1	
+0AB9:3102	83	36	call	1			2	
+0AB9:3155	266	99	call	1			1	
+0AB9:325F	123	50	call	6			1	
+0AB9:32DA	191	68	call	5			1	
+0AB9:3399	116	50	call	1			1	
+0AB9:340D	255	115	call	1			0	
+0AB9:350C	236	103	call	1			1	
+0AB9:35F8	107	45	call	2			1	
+0AB9:3663	481	175	call	1			1	
+0AB9:3846	305	130	call	2			7	
+0AB9:3977	426	195	call	5			3	
+0AB9:3B21	57	20	call	6			0	
+0AB9:3B5A	117	45	call	2			1	
+0AB9:3BCF	360	156	call	2			1	
+0AB9:3D37	47	20	call	2			0	
+0AB9:3D66	772	315	call	1			11	
+0AB9:406A	89	29	call	1			4	
+0AB9:40C3	189	77	call	2			6	
+0AB9:4180	152	65	call	1			4	
+0AB9:4218	79	29	call	1			0	
+0AB9:4267	363	153	call	1			9	
+0AB9:43D2	68	26	call	1			4	
+0AB9:4416	118	51	call	1			1	
+0AB9:448C	391	170	call	1			13	
+0AB9:4613	82	28	call	1			2	
+0AB9:4665	111	42	call	1			9	
+0AB9:46D4	119	52	call	1			7	
+0AB9:474B	73	27	call	3			4	
+0AB9:4794	93	42	call	3			2	
+0AB9:47F1	702	297	call	2			29	
+0AB9:4AB1	99	42	call	2			1	
+0AB9:4B14	56	25	call	2			2	
+0AB9:4B4C	31	13	call	3			1	
+0AB9:4B6B	122	48	call	2			2	
+0AB9:4BE5	538	234	call	1			11	
+0AB9:4DFF	93	37	call	2			4	
+0AB9:4E5C	78	31	call	2			5	
+0AB9:4EAA	235	104	call	1			3	
+0AB9:4F95	238	97	call	2			5	
+0AB9:5083	484	179	call	2			16	
+0AB9:5267	79	30	call	1			0	
+0AB9:52B6	198	83	call	2			4	
+0AB9:537C	91	37	call	2			5	
+0AB9:53D7	267	110	call	1			7	
+0AB9:54E2	269	105	call	2			14	
+0AB9:55EF	47	19	call	1			3	
+0AB9:561E	208	76	call	1			7	
+0AB9:56EE	58	26	call	1			2	
+0AB9:5728	87	34	call	1			4	
+0AB9:577F	100	36	call	5			1	
+0AB9:57E3	287	118	call	5			24	
+0AB9:5902	148	59	call	4			0	
+0AB9:5996	33	16	call	4			0	
+0AB9:59B7	79	36	call	1			3	
+0AB9:5A06	80	36	call	2			5	
+0AB9:5A56	43	17	call	1			2	
+0AB9:5A81	53	21	call	3			2	
+0AB9:5AB6	107	49	call	1			3	
+0AB9:5B21	49	23	call	2			2	
+0AB9:5B52	112	45	call	1			3	
+0AB9:5BC2	134	60	call	1			3	
+0AB9:5C48	89	34	call	1			3	
+0AB9:5CA1	35	16	call	1			1	
+0AB9:5CC4	91	33	call	1			2	
+0AB9:5D1F	132	52	call	1			5	
+0AB9:5DA3	102	45	call	1			2	
+0AB9:5E09	170	65	call	1			7	
+0AB9:5EB3	248	105	call	1			5	
+0AB9:5FAB	287	105	call	1			7	
+0AB9:60CA	571	256	call	1			19	
+0AB9:6305	222	77	call	2			14	
+0AB9:63E3	166	58	call	1			6	
+0AB9:6489	192	73	call	2			1	
+0AB9:6549	64	23	call	1			1	
+0AB9:6589	583	229	call	2			13	
+0AB9:67D0	121	51	call	9			1	
+0AB9:6849	236	99	call	2			5	
+0AB9:6935	131	48	call	2			6	
+0AB9:69B8	194	80	call	2			6	
+0AB9:6A7A	181	68	call	1			5	
+0AB9:6B2F	415	151	call	8			11	
+0AB9:6CCE	181	69	call	2			8	
+0AB9:6D83	61	24	call	4			3	
+0AB9:6DC0	104	46	call	7			8	
+0AB9:6E28	326	125	call	6			14	
+0AB9:6F6E	42	13	call	7			6	
+0AB9:6F98	317	104	call	1			6	
+0AB9:70D5	486	205	call	1			4	
+0AB9:72BB	360	159	call	3			10	
+0AB9:7423	375	147	call	1			8	
+0AB9:759A	75	30	call	2			0	
+0AB9:75E5	39	16	call	1			6	
+0AB9:760C	258	100	call	1			3	
+0AB9:770E	414	159	call	2			7	
+0AB9:78B7	310	119	call	2			8	CS:78AC=turbo | CS:78B2=    
+0AB9:79ED	21	9	call	2			1	
+0AB9:7A02	377	156	call	5			14	
+0AB9:7B7B	196	67	call	1			21	
+0AB9:7C3F	149	52	call	4			8	
+0AB9:7CD4	127	49	call	1			4	
+0AB9:7D53	51	18	call	2			4	
+0AB9:7D86	77	31	call	1			5	
+0AB9:7DD3	160	57	call	1			10	
+0AB9:7E73	75	25	call	1			9	
+0AB9:7EBE	50	20	call	1			4	
+0AB9:7EF0	870	327	call	1			18	
+0AB9:8256	254	99	call	1			0	
+0AB9:8354	206	78	call	1			5	
+0AB9:8434	357	136	call	1			15	CS:8422=penalty shoot out
+0AB9:8599	202	72	call	2			4	
+0AB9:8663	134	52	call	2			2	
+0AB9:86E9	497	174	call	1			29	
+0AB9:88DA	153	56	call	1			20	
+0AB9:8973	143	51	call	2			4	
+0AB9:8A0F	68	30	call	1			1	CS:8A02=Protect zone
+0AB9:8A62	167	63	call	2			4	CS:8A53=Protect zone
+0AB9:8B0B	585	220	call	1			9	DS:8608=stay back | DS:0B70=stay in box | DS:0B90=throw the ball | DS:8648=short passes
+0AB9:8D6F	2116	846	call	1			20	CS:8D54=(Retiring this year)
+0AB9:95B3	30	11	call,far	15			1	
+0AB9:95D1	158	60	call	1			12	
+0AB9:966F	147	54	call,far	3			7	
+0AB9:9702	60	25	call,far	2			1	
+0AB9:973E	168	59	call	2			3	
+0AB9:97E6	30	12	call	1			0	
+0AB9:9804	60	22	call	2			1	
+0AB9:9840	66	25	call	1			0	
+0AB9:9882	322	118	call,far	3			1	
+0AB9:99C4	163	56	call	2			2	
+0AB9:9A67	219	74	call	3			5	
+0AB9:9B42	362	126	call	1			7	
+0AB9:9CAC	583	209	call	4			6	
+0AB9:9EF3	123	41	call	1			2	
+0AB9:9F6E	98	34	call	1			1	
+0AB9:9FD0	152	56	call	2			0	
+0AB9:A0A4	408	145	call	2			7	CS:A068=You can't sack trialists | CS:A081=Get rid of  | CS:A08D=It will cost you  | CS:A09F=. Ok
+0AB9:A23C	273	103	call	3			1	
+0AB9:A34D	137	49	call	2			1	
+0AB9:A3D6	142	51	call	1			1	
+0AB9:A464	142	51	call	1			1	
+0AB9:A4F2	204	90	call	1			2	
+0AB9:A5BE	85	28	call	1			1	
+0AB9:A613	302	105	call	1			3	
+0AB9:A741	122	41	call	1			2	
+0AB9:A7BB	124	42	call	1			2	
+0AB9:A837	105	44	call	3			2	
+0AB9:A8A0	171	59	call	1			1	
+0AB9:A94B	619	236	call	3			9	
+0AB9:ABD9	121	42	call	3			5	CS:ABB6="Goalkeepers cannot be repositioned
+0AB9:AC52	53	17	call	2			2	
+0AB9:AC87	187	81	call	2			4	
+0AB9:AD43	141	53	call,far	3			13	
+0AB9:ADD0	232	86	call	1			6	
+0AB9:AEB8	573	208	call	2			9	
+0AB9:B0F5	380	138	call	1			6	
+0AB9:B271	445	168	call	2			24	
+0AB9:B42E	254	93	call	1			7	
+0AB9:B52C	68	24	call	1			0	
+0AB9:B570	325	113	call	1			5	
+0AB9:B6BD	1054	408	call	2			22	DS:22BE=move8 | CS:B6B5=       
+0AB9:BAF6	131	47	call	1			2	CS:BADB=REJECTED:  | CS:BAE6= wants to leave
+0AB9:BB79	47	19	call	1			1	
+0AB9:BBA8	56	24	call	1			1	
+0AB9:BBE2	377	149	call	1			3	
+0AB9:BD5B	242	82	call	1			10	
+0AB9:BEA4	434	159	call	1			5	CS:BE4D="REJECTED: not enough money offered! | CS:BE70="REJECTED: not enough money offered! | CS:BE92=CONTRACT ACCEPTED
+0AB9:C056	62	27	call	2			2	
+0AB9:C0A3	663	240	call,far	7			18	CS:C094= is not 18 yet
+0AB9:C358	110	39	call	2			3	CS:C33C=Your chairman won't let you
+0AB9:C3C6	237	84	call	1			7	
+0AB9:C4B3	24	9	call	8			4	
+0AB9:C4CD	766	290	call	1			25	
+0AB9:C866	775	293	call	1			16	CS:C7CB=There is no player here*Your final s | CS:C7E3=There is no player here*Your final s | CS:C80E=Illegal substitution,You cannot have | CS:C823=Illegal substitution,You cannot have
+0AB9:CBF0	1517	581	call,far	3			49	CS:CB6D=               | CS:CB7C=NO MORE SUBS   | CS:CB8B=MAKE SUBSTITUTION | CS:CB9D=REQUEST SUBSTITION
+0AB9:D1DD	97	36	call	1			5	
+0AB9:D29E	814	309	call	1			8	CS:D23E= has insufficient players+ has an in | CS:D258= has insufficient players+ has an in | CS:D284= has too many  | DS:8724=goalkeeper
+0AB9:D5D6	814	324	call	7			31	CS:D5CC=CONTINUE 
+0AB9:D904	127	42	call	4			1	
+0AB9:D983	190	69	call	3			0	
+0AB9:DA41	286	115	call	2			9	
+0AB9:DB68	94	33	call	3			9	CS:DB5F=HANG ON 
+0AB9:DBC6	316	132	call	1			2	
+0AB9:DD02	774	283	call	1			27	
+0AB9:E008	490	166	call	1			21	
+0AB9:E1F2	647	232	call	1			28	
+0AB9:E479	81	30	call	3			1	
+0AB9:E4CA	104	34	call	2			3	
+0AB9:E532	189	72	call	2			7	
+0AB9:E5EF	138	49	call	2			6	
+0AB9:E679	513	178	call	2			7	
+0AB9:E87A	121	43	call	1			2	
+0AB9:E8F3	451	155	call	1			12	
+0AB9:EAB6	729	267	far	1			21	
+0AB9:ED8F	88	32	far	1			14	
+1998:0008	80	31	prologue	0			7	
+1998:0058	45	17	call	2			2	
+1998:0085	17	9	call	1			0	
+1998:0096	21	10	call	2			0	
+1998:00AB	15	8	call,far	2			0	
+1998:00BA	19	9	far	1			0	
+1998:00CD	9	6	far	1			0	
+1998:00D6	42	15	call,far	8			3	
+1998:0100	52	19	call	1			1	
+1998:0134	38	14	far	2			1	
+1998:015A	134	50	call	2			2	
+1998:01E0	75	25	far	7			4	
+1998:022B	72	24	call,far	3			0	
+1998:0273	108	44	call,far	2			1	
+1998:02DF	89	38	call,far	5			2	
+1998:0338	98	43	call	1			3	
+1998:039A	65	28	call	1			3	
+1998:03DB	122	44	call	2			4	
+1998:045C	959	386	far	5			23	
+1998:081B	48	22	far	1			0	
+1998:084B	48	22	far	4			0	
+1998:087B	196	66	call,far	5			3	
+1998:093F	72	27	far	6			6	
+1998:0987	28	10	far	3			1	
+1998:09A3	70	29	far	3			1	
+1998:09E9	45	14	far	1			1	
+1998:0A16	297	110	far	3			8	
+1998:0B3F	55	22	call,far	6			0	
+1998:0B76	36	15	far	3			2	
+1998:0B9E	133	58	far	3			0	
+1998:0C23	87	28	call,far	7			1	
+1998:0C7A	255	92	far	1			3	
+1998:0D79	53	18	far	2			0	
+1998:0DAE	39	13	call,far	11			0	
+1998:0DD5	80	25	call	4			1	
+1998:0E25	225	98	call	2			1	
+1998:0F06	120	44	call	1			2	
+1998:0F7E	332	114	call	2			7	
+1998:10CA	92	32	call	1			2	
+1998:1126	198	74	far	1			8	
+1998:11EC	210	81	call	3			3	
+1998:12BE	214	80	call,far	3			1	
+1998:1394	101	33	far	2			3	
+1998:13F9	172	60	call	2			4	
+1998:14A5	169	60	call	4			1	
+1998:154E	172	58	call	3			2	
+1998:15FA	183	61	far	1			4	
+1998:16B1	443	164	far	1			4	
+1998:186C	43	14	call,far	3			2	
+1998:1897	770	270	far	3			10	
+1998:1B99	54	18	call,far	4			2	
+1B55:0000	40	14	far	2			0	
+1B55:0055	106	47	call	1			0	CS:0028=Cannot load file " | CS:003B=" - program terminated - 
+1B55:00C1	107	46	call,far	7			0	
+1B55:013C	282	118	call	1			3	CS:012C=TRIA | CS:0137=.DAT
+1B55:0258	81	32	call	1			0	
+1B55:02A9	94	40	call	1			1	
+1B55:030C	92	37	call	2			0	CS:0307=.1-0
+1B55:03A5	278	112	call	1			8	CS:0368=Looking for saved games... | CS:0383=*.1-0 | CS:0389=Cannot find any saved games
+1B55:04BB	80	30	call	1			0	
+1B55:050B	54	21	call	2			6	
+1B55:0541	94	40	call	1			1	
+1B55:05D8	344	137	call	1			6	CS:059F=Finding data files... | CS:05B5=*.DAT | CS:05BB=Cannot find any data files
+1B55:0730	425	164	call	2			13	
+1B55:08D9	62	23	call	28			0	
+1B55:091D	449	203	call	1			21	CS:0917=.....
+1B55:0AE5	188	81	call	1			2	CS:0AE0=.1-0
+1B55:0BA1	153	62	call	1			5	
+1B55:0C3A	95	33	call	4			2	
+1B55:0CF2	178	75	far	1			2	CS:0C99= Do you want to load a saved game7To | CS:0CBA= Do you want to load a saved game7To
+1B55:0DE2	34	14	call,far	4			0	
+1B55:0E40	58	24	far	1			1	CS:0E04=Are you sure you want to quit | CS:0E22=Do you want to save this game
+1B55:0E7A	40	16	call,far	47			2	
+1B55:0EA2	65	23	call,far	5			1	
+1B55:0EE3	88	39	call,far	33			2	DS:0F10=---------------
+1B55:0F3B	88	39	call,far	5			2	DS:0F10=---------------
+1B55:0F95	137	56	call,far	7			0	
+1B55:101E	143	57	call,far	27			2	
+1B55:10AF	218	83	call	1			2	
+1B55:11C2	237	110	call	1			0	CS:1189=Round 1 | CS:1191=Round 2 | CS:1199=Round 3 | CS:11A1=Quarter Finals
+1B55:12B1	71	29	call,far	3			0	
+1B55:1334	245	109	call	1			0	CS:12F8=QF L#1 | CS:12FF=QF L#2 | CS:1306=SF L#1 | CS:130D=SF L#2
+1B55:142B	279	114	call,far	6			0	
+1B55:1542	139	60	call,far	7			2	
+1B55:15CF	172	71	call	2			3	
+1B55:167D	184	74	call,far	5			3	
+1B55:1735	99	37	call,far	11			2	
+1B55:1798	42	15	far	4			0	
+1B55:17C2	55	21	far	1			1	
+1B55:17F9	100	35	call,far	4			2	
+1B55:185D	70	28	call	1			0	
+1B55:18BB	274	107	far	2			4	CS:18A3=1st leg:  v | CS:18AF=2nd leg:  v
+1B55:19CD	79	27	call	2			1	
+1B55:1A1C	111	46	call,far	2			2	
+1B55:1A8B	79	27	call	2			1	
+1B55:1ADA	180	72	call,far	5			3	
+1B55:1B8E	36	13	call,far	12			2	
+1B55:1BB2	73	28	call	1			0	
+1B55:1BFB	158	59	call	1			1	
+1B55:1C99	218	81	far	1			4	
+1B55:1D7E	274	104	call,far	2			2	CS:1D73=Large chin
+1B55:1E90	100	41	call,far	2			3	
+1B55:1EF4	82	35	call,far	3			2	
+1B55:1F46	171	68	call	1			2	
+1B55:1FF1	192	78	far	7			2	
+1B55:20B1	94	31	call	4			3	
+1B55:210F	304	104	call	2			3	
+1B55:223F	194	57	call	2			13	
+1B55:2301	450	145	far	1			22	
+1B55:24C3	408	130	far	1			18	
+1B55:265B	98	33	call,far	13			2	
+1B55:26BD	67	24	far	3			1	
+1B55:2700	53	18	call,far	4			0	
+1B55:2735	281	101	call	2			4	
+1B55:284E	558	203	far	1			34	
+1B55:2A7C	83	28	far	1			1	
+1B55:2ACF	75	30	call	1			4	
+1B55:2B43	518	186	call	1			9	CS:2B1A=(Ok...improvements will take a few m
+1B55:2DB9	319	122	call	1			4	CS:2D49=Your stadium will be ready in  | CS:2D68= weeks-Your stadium is as big as it' | CS:2D6F= weeks-Your stadium is as big as it' | CS:2D9D=You don't have enough money
+1B55:2EFA	526	220	call	1			6	
+1B55:3108	22	10	far	4			1	
+1B55:311E	257	92	call	1			20	
+1B55:321F	260	88	call	1			3	
+1B55:3323	311	123	call,far	2			6	
+1B55:345A	87	37	far	3			3	
+1B55:34B1	202	70	call,far	3			4	
+1B55:357B	122	42	call,far	2			2	
+1B55:35F5	89	32	call	2			2	
+1B55:364E	37	13	call,far	7			0	
+1B55:3673	66	19	call	5			1	
+1B55:36B5	95	42	far	3			0	
+1B55:3714	118	38	call	2			2	
+1B55:378A	197	76	far	1			6	
+1B55:3875	85	38	far	3			0	CS:384F=%Your chairman won't release the mon
+1B55:38CA	37	13	far	1			0	
+1B55:38EF	531	199	far	2			7	
+1B55:3B02	151	63	call,far	2			1	
+1B55:3B99	233	85	call,far	9			2	
+1B55:3C82	99	39	call	2			0	
+1B55:3CE5	136	50	call	1			3	
+1B55:3D6D	418	148	far	2			5	
+1B55:3F0F	266	94	call	1			1	
+1B55:4019	198	69	far	1			1	
+1B55:40DF	58	21	call,far	3			1	
+1B55:4119	257	101	call,far	2			9	
+1B55:421A	187	59	call,far	3			4	
+1B55:42D7	517	205	far	1			10	
+1B55:44DC	97	39	call,far	30			3	
+1B55:453D	32	11	call,far	9			3	
+1B55:455D	222	78	call	3			3	
+1B55:463B	89	31	call	3			1	
+1B55:4694	197	74	far	1			8	
+1B55:4759	51	21	far	7			1	
+1B55:478C	176	62	far	1			4	
+1B55:483C	33	12	far	9			0	
+1B55:485D	378	138	call,far	8			4	
+1B55:49D7	96	33	far	6			1	
+1B55:4A37	88	29	call,far	2			3	
+1B55:4A8F	141	47	call,far	4			2	
+1B55:4B1C	46	15	call,far	5			1	
+1B55:4B4A	227	83	call,far	10			2	
+1B55:4C4A	194	78	far	1			2	CS:4C2D=Can't play | CS:4C38=too young to tell
+1B55:4D0C	182	62	far	1			1	
+1B55:4DC2	74	28	far	2			2	
+1B55:4E0C	117	46	call,far	14			1	
+1B55:4E81	62	23	call,far	6			1	
+1B55:4EBF	70	26	far	5			1	
+1B55:4F05	132	50	call,far	3			1	
+1B55:4F89	130	48	call,far	41			1	
+1B55:500B	224	84	far	2			1	
+1B55:50EB	409	150	call,far	5			2	
+1B55:5284	215	82	call,far	5			1	
+1B55:535B	107	40	call	3			1	
+1B55:53C6	53	19	call,far	3			1	
+1B55:53FB	171	64	call,far	6			2	
+1B55:54A6	112	36	call,far	2			2	
+1B55:5516	284	104	call	1			3	
+1B55:5634	179	69	far	2			0	
+1B55:56E7	654	227	call	1			10	
+1B55:5975	76	25	call	2			1	
+1B55:59C1	112	42	call	1			2	
+1B55:5A60	220	89	call	1			6	CS:5A31=.Your chairman thinks you have enoug
+1B55:5B3C	66	21	call	1			1	
+1B55:5B7E	177	59	call	1			3	
+1B55:5C2F	63	19	call	2			1	
+1B55:5C6E	59	21	far	10			0	
+1B55:5CA9	60	20	call,far	10			0	
+1B55:5CFB	98	39	call,far	2			2	CS:5CE5=You have a full squad
+1B55:5D5D	106	35	call	2			2	
+1B55:5DC7	149	59	far	1			4	
+1B55:5E5C	29	11	call	2			1	
+1B55:5E79	759	273	far	1			19	
+1B55:6170	276	99	call,far	3			6	
+1B55:6284	132	46	far	1			1	
+1B55:6308	72	23	call	3			2	
+1B55:6350	247	78	call,far	2			8	
+1B55:6447	192	67	far	5			3	
+1B55:6507	80	27	call,far	6			1	
+1B55:6557	332	134	call,far	5			3	
+1B55:66EE	156	58	far	2			3	CS:66A3=You can't sell youth players | CS:66C0=Sell ' has been placed on the transf | CS:66C6=Sell ' has been placed on the transf
+1B55:678A	51	21	call,far	2			2	
+1B55:67BD	41	17	call,far	5			0	
+1B55:67E6	37	15	call	2			1	
+1B55:680B	42	15	call	3			1	
+1B55:6835	182	62	call	2			3	
+1B55:68EB	896	329	far	1			6	
+1B55:6C6B	153	57	far	2			3	
+1B55:6D04	224	77	call	1			3	
+1B55:6DE4	92	35	call	1			0	
+1B55:6E40	52	25	call	2			0	
+1B55:6E74	107	39	far	1			3	
+1B55:6EDF	134	60	call	4			2	
+1B55:6F7F	273	104	call,far	2			4	DS:1318=ON WINNING  | CS:6F65=THE  | CS:6F6A=ON GAINING PROMOTION
+1B55:7090	212	89	call	1			4	
+1B55:7164	230	79	far	1			6	
+1B55:724A	140	49	call,far	14			2	
+1B55:72D6	255	98	call	5			5	
+1B55:73D5	93	44	far	1			1	
+1B55:7432	70	23	call	1			2	
+1B55:7478	55	19	call	2			2	
+1B55:74AF	146	52	far	1			7	
+1B55:7541	327	116	call	3			3	
+1B55:7688	239	89	call	1			2	
+1B55:7777	175	62	call,far	5			2	
+1B55:7826	248	92	call	3			3	
+1B55:791E	58	22	call,far	2			0	
+1B55:795A	53	25	call,far	4			0	
+1B55:7991	204	85	far	1			2	
+1B55:7A5D	188	85	far	2			1	
+1B55:7B19	74	27	far	1			2	
+1B55:7B63	76	28	far	1			2	
+1B55:7BDE	48	21	far	1			0	CS:7BAF=save1.1-0$Type install to install to | CS:7BB9=save1.1-0$Type install to install to
+2316:0000	5	4	far	1			0	
+2317:0000	290	114	far	1			0	
+232A:0008	78	30	call	1			0	CS:0000=1-0.tfn
+232A:005E	39	18	call	1			0	CS:0056=1-0.pal
+232A:0085	19	12	far	5			0	
+232A:0098	61	27	far	39			0	
+232A:00D5	35	16	call,far	25			0	
+232A:00F8	37	17	call,far	17			0	
+232A:011D	39	19	far	1			0	
+232A:0144	35	16	far	1			0	
+232A:0167	94	37	far	4			2	
+232A:01C5	30	13	far	9			0	
+232A:01E3	32	13	far	9			0	
+232A:0203	43	17	far	21			1	
+232A:022E	18	9	call,far	12			1	
+232A:0240	22	11	far	2			1	
+232A:0256	22	11	far	1			2	
+232A:026C	23	10	call,far	3			0	
+232A:0283	137	58	far	59			1	
+232A:030C	145	61	far	13			2	
+232A:039D	126	53	call,far	79			1	
+232A:041B	134	56	call,far	94			2	
+232A:04A1	102	42	call	1			1	
+232A:0507	40	20	far	8			1	
+232A:052F	25	12	call,far	165			0	
+232A:0555	392	171	call,far	5			3	CS:054D=? (Y/N)
+232A:06E5	136	60	call,far	14			2	CS:06DD=? (Y/N)
+232A:076D	22	7	far	153			0	
+232A:0783	18	8	far	3			0	
+232A:0795	52	21	call,far	5			1	
+232A:07C9	45	19	far	79			0	
+232A:07F6	46	22	far	1			0	
+232A:0869	306	108	call	1			7	CS:0824=$Do you want to print out this scree | CS:0849=something's up with the printer
+232A:099B	36	15	call,far	46			2	
+232A:09BF	159	54	call	1			5	
+232A:0A60	346	135	call	2			1	
+232A:0BBA	162	54	call	3			1	
+232A:0C5C	516	206	far	2			9	
+232A:0E60	100	39	call,far	4			1	
+232A:0EC4	82	37	call,far	23			1	
+232A:0F16	117	47	far	1			1	
+232A:0F8B	43	20	far	9			2	
+232A:0FB6	33	12	call	12			0	
+232A:0FD7	435	192	far	6			1	
+232A:1194	79	29	far	4			3	CS:118A=try again
+232A:11E3	37	14	call,far	14			1	
+232A:1208	20	9	far	24			0	
+232A:121C	52	24	far	1			0	
+232A:1250	52	24	far	4			0	
+232A:1284	60	28	call	2			0	
+232A:12C0	52	19	far	1			8	
+245A:0000	13	6	jump,prologue	0			0	
+245A:000D	46	23	far	1			0	
+245A:003B	104	44	call	1	25:1		8	
+245A:00A3	77	30	call	1			1	
+245A:00F0	72	30	call	1			6	
+245A:014E	41	16	call	1		16:2	2	
+245A:02C6	14	6	call,jump	1			0	
+245A:031A	34	14	call	1		16:1	3	
+245A:033C	43	13	call	2			0	
+245A:039F	173	76	prologue	0			2	
+245A:0482	7	3	call	2			0	
+245A:0489	89	43	call	8			5	
+245A:04E2	33	14	call	1			4	
+245A:0503	7	3	call	1			0	
+245A:050A	7	3	call	1			0	
+245A:0614	11	10	call,jump	12		10:1	0	
+24BC:0000	90	51	far	1			0	
+24BC:005A	62	33	call,far	5			0	
+24BC:0098	74	38	call	1			0	
+24BC:00E4	222	94	call	1			0	
+24BC:01C2	65	32	call,far	49			0	
+24BC:0203	31	15	far	39			0	
+24BC:0222	33	15	call,far	59			0	
+24BC:0243	22	9	call,far	2			0	
+24BC:0259	30	12	call,far	48			0	
+24BC:0277	29	16	call,far	3			0	
+24BC:0294	30	16	far	2			0	
+24BC:02B2	153	68	call	2			6	
+24BC:034B	34	16	call,far	30			0	
+24BC:036D	48	20	call,prologue	1			4	
+24BC:039D	60	28	call	1			0	
+24BC:03D9	41	16	far	1			0	
+24BC:0402	41	16	far	4			0	
+24BC:042B	97	37	call,far	8			0	
+24BC:048C	52	22	far	6			0	
+24BC:04C0	58	21	far	27			0	
+24BC:04FA	58	21	call,far	20			0	
+24BC:0534	52	24	call	1			0	
+24BC:0568	48	21	call,far	7			4	
+24BC:0598	48	21	call,far	7			4	
+24BC:05C8	111	53	call	3			5	
+24BC:0637	48	24	call	3			1	
+24BC:066F	79	37	call	18			0	CS:0667=ERROR: 
+24BC:06BE	52	25	call,far	3			0	
+24BC:0702	122	55	far	13			0	CS:06F6=hit any key
+24BC:0784	126	58	call	1			3	CS:077C=? (Y/N)
+24BC:0802	45	19	call	1			0	
+24BC:082F	79	30	call	2			0	
+24BC:087E	66	26	call	5			0	
+24BC:08C0	37	13	call	2			0	
+24BC:08E5	70	25	call	1			0	
+24BC:092B	100	37	call	1			1	
+24BC:098F	321	112	call	1			10	
+24BC:0AD8	319	121	prologue	0			17	
+24BC:0C17	65	29	call,far	4			9	
+24BC:0C58	41	17	call,far	12			2	
+24BC:0C81	31	11	far	1			3	
+24BC:0CA0	60	28	call	1			3	
+24BC:0CDC	37	19	call	3			0	
+24BC:0D01	27	11	far	1			1	
+24BC:0D1C	35	15	far	31			1	
+24BC:0D3F	32	15	far	38			1	
+24BC:0D5F	40	14	call	2			0	
+24BC:0E82	340	158	call	1			1	CS:0D87= not found | CS:0D92=Path not found | CS:0DA1=File access denied | CS:0DB4=Not enough memory
+24BC:0FD6	70	34	call	1			0	
+24BC:101C	56	20	call	1			4	
+24BC:1054	35	13	call,far	7			2	
+24BC:10A4	196	84	call	2			5	CS:1077=seeking #Drive not ready : Retry dis | CS:1080=seeking #Drive not ready : Retry dis
+24BC:116A	119	43	far	1			5	
+24BC:11E1	105	37	call,far	2			5	
+24BC:126D	96	42	far	2			0	CS:124A=printer not ready | CS:125C=printer off line
+24BC:12CD	55	25	call	1			1	
+24BC:1304	61	29	far	1			1	
+24BC:1341	63	29	call,far	2			1	
+24BC:1389	113	51	far	1			1	CS:1380=loading 
+24BC:13FA	35	14	far	1			0	
+24BC:141F	88	38	call	1			0	
+24BC:1485	90	39	call,far	26			0	CS:1477=Out of memory
+24BC:14EE	1033	443	far	2			3	
+24BC:18FF	80	31	prologue	0			7	
+24BC:194F	45	17	call,prologue	1			2	
+24BC:197C	21	10	call,prologue	1			0	
+24BC:1991	21	10	call,prologue	1			1	
+24BC:19A6	71	26	far	3			3	
+24BC:19ED	88	26	call	3			12	
+24BC:1A45	114	45	call	1			0	
+24BC:1AB7	30	11	call,prologue	1			0	
+24BC:1AD5	51	18	call,far	2			0	
+24BC:1B08	20	10	call	1			0	
+24BC:1B1C	20	10	call	1			0	
+24BC:1B30	83	36	call	1			5	
+24BC:1B83	20	10	call	2			0	
+24BC:1B97	81	44	call	1			0	
+24BC:1BE8	174	85	call	1			0	
+24BC:1C96	86	39	call	1			4	
+24BC:1CEC	155	70	call	1			8	
+24BC:1D87	40	15	call	2			0	
+24BC:1DDA	117	51	call	1			2	CS:1DAF=386 chip (or better) required | CS:1DCD=VGA required
+24BC:1E4F	54	25	call,prologue	1			1	
+24BC:1E8A	75	27	prologue	0			7	CS:1E85=BAMI
+24BC:1EEE	208	81	far	1			20	CS:1ED9=(c) new era software
+26B8:0000	62	33	far	2	1A:1,4E:1		0	
+26B8:003E	26	13	far	2	1A:1,4F:1		0	
+26B8:0058	36	22	call	2			1	
+26B8:007C	24	14	far	2	35:1		0	
+26B8:0094	19	10	far	6	25:1		0	
+26B8:00A7	11	10	far	5			0	
+26B8:00B2	93	60	far	16		00:1	0	
+26C9:0000	177	77	far	1	25:4,35:1		12	
+26C9:00B1	41	25	call	1			1	
+26C9:0116	218	92	far	12	25:1,4C:1		15	
+26C9:01F0	14	7	call,jump	3			0	
+26C9:01FE	12	5	call	1			0	
+26C9:020A	14	8	call	2			0	
+26C9:0218	7	4	call	2			0	
+26C9:021F	11	6	call	1			0	
+26C9:022A	8	4	call	1			0	
+26C9:0232	7	4	call,jump	3	06:1		0	
+26C9:028A	21	9	far	1			0	
+26C9:029F	26	11	prologue	0			0	
+26C9:0303	53	20	far	1			6	
+26C9:0353	203	88	call	1			10	
+26C9:041E	95	42	call	1			4	
+26C9:047D	95	45	call	2			4	
+26C9:04DC	17	8	call	2			0	
+26C9:04EE	83	44	call	2			0	
+26C9:056C	5	2	call,far	2			0	
+26C9:0571	78	30	call,far	2			1	
+26C9:05C6	60	21	call	3			1	
+26C9:0602	17	11	call	3			1	
+26C9:06A1	94	46	call	2			2	
+26C9:06FF	79	34	call	1			2	
+26C9:074E	87	42	call	2			2	
+26C9:07A5	30	12	prologue	0			0	
+26C9:07E5	33	13	far	1			0	
+26C9:0806	27	10	prologue	0			1	
+26C9:0821	14	7	call	3			1	
+26C9:082F	14	7	call	3			1	
+26C9:083D	35	16	prologue	0			0	
+26C9:0878	44	20	far	1			0	
+26C9:08A4	79	38	far	1	30:1		1	
+26C9:08FA	50	24	call	1			1	
+26C9:092C	81	40	far	1	19:1,47:1		0	
+26C9:097D	65	27	prologue	0	0E:1,19:1		1	
+26C9:09BE	21	9	prologue	0			0	
+26C9:09D3	21	9	prologue	0			0	
+26C9:09E8	27	17	call	3			0	
+26C9:0A03	15	9	call	3	??:1		1	
+26C9:0A12	24	9	far	76			0	
+26C9:0A2A	61	25	far	40			1	
+26C9:0A67	166	78	far	24			1	
+26C9:0B53	26	12	far	69			0	
+26C9:0B6D	36	16	call,far	113			0	
+26C9:0B91	65	29	call,far	15			0	
+26C9:0BD2	44	19	call,far	140			0	
+26C9:0BFE	70	38	far	21			0	
+26C9:0C44	43	20	far	4			0	
+26C9:0C6F	18	8	far	36			0	
+26C9:0C81	27	11	far	4			0	
+26C9:0C9C	95	46	far	4			0	
+26C9:0CFB	111	50	far	8			0	
+26C9:0D94	22	9	far	8			0	
+26C9:0DAA	33	13	far	8			0	
+26C9:0E1F	32	18	far	13			0	
+26C9:0FB1	4	1	call	4			0	
+26C9:0FB5	195	97	call	8			0	
+26C9:1078	258	121	call,jump	7			0	
+26C9:117B	119	58	call	7			0	
+26C9:11F2	23	14	call	3			0	
+26C9:1209	19	10	call,jump	1			0	
+26C9:121C	60	29	call	3			0	
+26C9:1258	110	51	call	2			0	
+26C9:12C6	6	3	far	1			0	
+26C9:12D8	6	3	far	1			0	
+26C9:12DE	10	5	far	1			0	
+26C9:12EC	4	2	far	2			0	
+26C9:12F8	26	10	far	1			0	
+26C9:1312	10	8	call	2			0	
+26C9:131C	10	8	call	1			0	
+26C9:1330	10	8	call	1			0	
+26C9:139F	95	44	prologue	0			0	
+26C9:149C	133	62	far	1			0	
+26C9:1545	115	56	far	1			0	
+26C9:15E8	225	98	prologue	0			0	
+26C9:1717	6	2	call	2			0	
+26C9:171D	25	16	call	1			0	
+26C9:1736	63	27	call	2			0	
+26C9:181A	13	5	far	2	2C:1		2	
+26C9:1827	28	13	call	1			0	
+26C9:1843	32	16	call,jump	1			0	
+26C9:1863	167	82	call	1			0	
+26C9:190A	75	39	far	3			0	
+26C9:1955	49	22	prologue	0			0	
+26C9:1986	19	8	far	20			0	
+26C9:1999	18	10	call	1			0	
