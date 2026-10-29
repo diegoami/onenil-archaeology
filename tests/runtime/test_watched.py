@@ -16,6 +16,7 @@ class Classify(unittest.TestCase):
         self.assertEqual(watched.classify("x\n   press any key")[0], "space")
         self.assertEqual(watched.classify("or any other key to continue")[0], "space")
         self.assertEqual(watched.classify("PLAYER CONTRACT")[0], "Return")
+        self.assertEqual(watched.classify("commentary\n spacebar-view commentary  P-print commentary  any other key to exit")[0], "n")
         self.assertEqual(watched.classify("Do you want to print the match commentary (Y/N) ?")[0], "n")
 
     def test_a_match_without_a_prompt_is_not_answered_at_once(self):

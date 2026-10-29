@@ -17,7 +17,8 @@ match runs by itself for minutes, so a screen that is not one of those is read s
 every MATCH_POLL s) and no key is pressed while it changes. When a match screen (one showing
 "commentary") stands still for STALL_READS reads in a row it is taken as a key wait and Space is
 pressed, as weeks.py does on a match board; any other screen that stands still stops the run (an
-unknown screen, recorded). A screen still changing after MAX_LIVE s stops the run too.
+unknown screen, recorded). The watched match's full-time screen ("spacebar-view commentary P-print
+commentary ◄┘-bench any other key to exit") gets n, a key with no other use there. A screen still changing after MAX_LIVE s stops the run too.
 
 Recorded, as weeks.py records screens: every screen a key was pressed at (its digest field holds
 "chars+attributes", the screens runtime/emul/match.py's compare() looks for); of a changing screen,
@@ -67,6 +68,10 @@ def classify(text):
         return ("menu", "main menu")
     if "PLAY GAME" in text and "Change tactics" in text:
         return ("PLAY GAME", "pre-match: PLAY GAME, Return")
+    if "any other key to exit" in low:
+        # the watched match's full-time screen: Space views the commentary, P prints it, Return is the
+        # bench (T10-r0001 pressed Space here and stayed in the commentary viewer); n is "any other key"
+        return ("n", "full-time screen of the watched match (any other key to exit): n")
     if "press any key" in low or "any other key to continue" in low or "hit any key" in low:
         return ("space", "any-key screen: Space")
     if "PLAYER CONTRACT" in text:
@@ -189,7 +194,9 @@ def main(argv=None):
     commit = cycle.git("rev-parse", "--short", "HEAD")
     out_dir = ROOT / a.out
     out_dir.mkdir(parents=True, exist_ok=True)
-    rep = 1 + max((int(p.stem.split("-r")[1]) for p in out_dir.glob("T10-r*.json")), default=0)
+    # run numbers also skip savestates kept by a run that left no record (T10-r0001, interrupted)
+    rep = 1 + max([int(p.stem.split("-r")[1]) for p in out_dir.glob("T10-r*.json")]
+                  + [int(p.stem.split("-")[1][1:]) for p in STATES.glob("T10-r*.sav")], default=0)
     run_id = f"T10-r{rep:04d}"
     st = start_state(a.state)
     d = driver.Driver(st.config, workdir=driver.SCRATCH / "watched")
