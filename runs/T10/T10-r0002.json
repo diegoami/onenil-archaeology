@@ -1,0 +1,449 @@
+{
+  "schema": "run/1",
+  "run_id": "T10-r0002",
+  "experiment": "T10",
+  "arm": "watched-week",
+  "rep": 2,
+  "code_commit": "ff45f4e",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@ff45f4e",
+    "platform": "python-3.14.7/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.7",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screens read from DOSBox-X savestates (component Vga)"
+    },
+    {
+      "level": "I2",
+      "what": "a savestate is written at each read (save of emulator state; neutrality not tested)"
+    },
+    {
+      "level": "I2",
+      "what": "the start state loaded into a running DOSBox-X (a restore)"
+    }
+  ],
+  "start_state": {
+    "id": "T05-r0001 end savestate",
+    "sha256": "64af71e7e4d2e1dcc366825a2a3958f1395ab686cb684e5073939cf88ef79539",
+    "restore": "fresh DOSBox-X process; C: mounted from a copy of One-Nil 96's files (records/T01/inventory.json); 1-0 run to its title screen, a key, then the savestate loaded (driver.Driver.launch, the load key) and its screen digest awaited; host clock not controlled"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/driver/watched.py",
+    "sha256": "1b5cb9670a2feebce1a1ed5f85a9614e964ef88ab9ae5f12c6d89efc0f89adaa",
+    "keys": [
+      "PLAY NEXT GAME: Return",
+      "pre-match: PLAY GAME, Return",
+      "any-key screen: Space",
+      "pre-match: PLAY GAME, Return",
+      "full-time screen of the watched match (any other key to exit): n",
+      "any-key screen: Space",
+      "any-key screen: Space",
+      "any-key screen: Space"
+    ],
+    "settings": {
+      "MATCH_POLL": 10.0,
+      "STALL_READS": 3,
+      "SCREEN_WAIT": 2.0,
+      "MAX_LIVE": 1200,
+      "INTERMEDIATE_EVERY": 6
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "screen",
+      "field": "the start state restored: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "2eb6ffb296cb2e54b46b8601735d202f54b81cca195335933858e0385cc1b952"
+    },
+    {
+      "step": 0,
+      "source": "ui-text",
+      "field": "the start state restored: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence              worried │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness              reasonable │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy                   lively │  ╟────────────────────╢\n├ 452,000         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ P St Germain--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Fernandez       ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ EUROPEAN        │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.     │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├Friendly #1      ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       home │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 0,
+      "source": "ui-text",
+      "field": "the start state restored: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 2,
+      "source": "screen",
+      "field": "screen 2: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "4361807016fd9da25b466b543b95a406849896b03eccbd58a300436f52ed18d7"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│Friendly #1      │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence              worried │  ║ C Hendry     ║C║\n│ Blackburn R---- │ │ fitness              reasonable │  ║ G Le Saux    ║b║\n│     versus      │ │ energy                   lively │  ║ H Berg       ║B║\n│ P St Germain--- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 9│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ P St Germain--- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 2,
+      "source": "save",
+      "field": "screen 2: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "0a107ab8a12311ee9d010bfd5793eabb2155e5eb47763f2e629a9f04bf849871"
+    },
+    {
+      "step": 3,
+      "source": "screen",
+      "field": "screen 3 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "31cffbb5961561f4c1aa8d0d976e089b6eac854db67ebf5cab14f3c57e720485"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3 (match, first read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ┌───┐ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 0│┌──────┐│   │ │   │ │                                     │\n├versus─────────┼──┤│ 25841│├───┤ ├───┤ │Sutton wins the toss                 │\n│P ST GERMAIN---│ 0│└──────┘│   │ │   │ │Sutton to take kick off              │\n└───────────────┴──┘  NIL   └───┘ └───┘ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬───────────ô────────────────────────┐░░\n░░│                                    │   Æ                                │░░\n░░│                         ô          │            ¥                       │░░\n░░├───────────┐            ô           │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │         ¥              │           │░░\n░░├───┐       │                Æ Æ     │       ö                │       ┌───┤░░\n░┌┘   │       │                        │                        │       │   └┐░\n░│    │       │                 ô òö ¥ •Æ     ò                 │       │    │░\n░└┐   │       │                       ô│   ò                    │       │   ┌┘░\n░░├───┘       │                        │Æ   ò                   │       └───┤░░\n░░│           │                    ò   │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░└─────────────────────────ô──────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3 (match, first read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 3,
+      "source": "screen",
+      "field": "screen 3, read 6 (after 63 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "bce752f044cc9b173384913361392acde0b8d0ae62161c17e71317769a93a716"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3, read 6 (after 63 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌▀▀▀▄ ▄▀▀▀▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 0│┌──────┐│   █ █   █ │shot from Guerin                     │\n├versus─────────┼──┤│ 25841│├───▄ ▄▀▀▀▄ │Flowers has no chance                │\n│P ST GERMAIN---│ 1│└──────┘│   █ █   █ │**** GOAL **** by Guerin             │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬──────────────────¥─────────────────┐░░\n░░│                           ô        │                                    │░░\n░░│                                    │                                    │░░\n░░├───────────┐                        │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │      ô                 │           │░░\n░░├───┐       │                        │                        │       ┌───┤░░\n░┌┘   │       │                        │  ô               ô     │       │   └•░\n░│☺   │       │                    ô   ○         ô         ☺    │       │    │░\n░└┐   │       │        Æ               │                        │       │   ┌┘░\n░░├───┘       │       Æ                │                        │       └───┤░░\n░░│           │                      ¥ │    £     Æ             │           │░░\n░░│           │                        │          ò ¥ôò         │           │░░\n░░├───────────┘          Æ             │           ôö           └─────ô─────┤░░\n░░│                                    │             Æ                      │░░\n░░│                                    │          Æ                         │░░\n░░└──────────────────────────────────¥─┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 3,
+      "source": "screen",
+      "field": "screen 3, read 12 (after 127 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "4f23262d1c2a9457048983c9a47326596c780bc44aa582fd220dcd82c9822d07"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3, read 12 (after 127 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───┐ ▄───┐ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 0│┌──────┐█   │ █   │ │Le Guen wins the ball                │\n├versus─────────┼──┤│ 25841│▄▀▀▀▄ ▄▀▀▀▄ │knocked on by Le Guen                │\n│P ST GERMAIN---│ 1│└──────┘█   █ █   █ │Wilcox intercepts                    │\n└───────────────┴──┘  NIL   └▀▀▀▀ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬──────────────────────Æ─────────────┐░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░├───────────┐                        │                  Æ     ┌───────────┤░░\n░░│           │          Æ             │ô                       │           │░░\n░░│           │                        │                        │           │░░\n░░├───┐       │                        │ ö                  ¥   │       ┌───┤░░\n░┌┘   │       │         ö              │                £       │       │   └┐░\n░│    │       │                        ○                     ö  │       │   ☺│░\n░└┐ ☺ │       │                        │   ô ô               ò  │       │   ┌┘░\n░░├───┘       │             £ô         │               £   ö  ò │       └───┤░░\n░░│           │                        │                        │           │░░\n░░│           │     •öò                │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                                    │               ö                    │░░\n░░│                                    │  Æ                                 │░░\n░░└───────────────────Æ────────────────┴────────────────────ô───────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 3,
+      "source": "screen",
+      "field": "screen 3, read 18 (after 190 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "18be1bf684331754aa7ea449e8f7d82708b2904f02a9ff0fb05a4a25c2640617"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3, read 18 (after 190 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄▀▀▀▀ ▄───▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐█   │ █   █ │good ball for Shearer                │\n├versus─────────┼──┤│ 25841│├▀▀▀▄ ├▀▀▀▄ │Shearer on the ball                  │\n│P ST GERMAIN---│ 1│└──────┘│   █ │   █ │Shearer makes a run                  │\n└───────────────┴──┘  NIL   └▀▀▀▀ └───┘ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬─────────────────────────ô──────────┐░░\n░░│                                    │                                    │░░\n░░│                                    │         Æ                          │░░\n░░├───────────┐                        │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │                      ô │           ò   Æ        │           │░░\n░░├───┐       │                        │   ö                    │       ┌───┤░░\n░┌┘   │       │                      ô │         ¥              │       │   └┐░\n░│☺   │       │ö                  ô ô  ○      ò                 │       │   ☺│░\n░└┐   │       │                        │    ô                   │       │   ┌┘░\n░░├───┘       │                        │     ö¥ö                │       └───┤░░\n░░│           │              ò         │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───────────┘                    ò   │                        └ô──────────┤░░\n░░│                               ò    │   Æ      Æ                         │░░\n░░│                                    │                                    │░░\n░░└────────────ô───────────────────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 3,
+      "source": "screen",
+      "field": "screen 3 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "2fbc456845f6a86ac7bfb82ec4ead600ea64bba8fb29f1c074a8f71dc61e205e"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3 (match, last read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄───┐ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐█   █ █   │ │challenge by Roche                   │\n├versus─────────┼──┤│ 25841│├▀▀▀▄ ▄▀▀▀▄ │Roche wins the ball                  │\n│P ST GERMAIN---│ 1│└──────┘│   █ █   █ │knocked on by Roche                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬────────────────────¥───────────────┐░░\n░░│                                 ö  │                                    │░░\n░░│                                    │                                    │░░\n░░├───────────┐          ô             │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │           ¥            │           │░░\n░░├───┐       │ £   ¥                  │                        │       ┌───┤░░\n░┌┘   │       │  Æ ¥                   │                   ò£   │       │   └┐░\n░│☺   │       │                        ○                   öò   │       │   ☺│░\n░└┐   │       │                        │     ò           ¥      │       │   ┌┘░\n░░├───┘   ô   │                        │            ¥           │       └───┤░░\n░░│           │                        │             ò          │           │░░\n░░│           │                        │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                     £             ô│       ô                            │░░\n░░│           Æ            ò           │                                    │░░\n░░└────•──────¥────────────────────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "screen 3 (match, last read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 4,
+      "source": "screen",
+      "field": "screen 4: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "bda187f1fbe8db58c28343b10fee36772aca4cb3625b22f819a47804059c6048"
+    },
+    {
+      "step": 4,
+      "source": "ui-text",
+      "field": "screen 4: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐█   █ █   │ │Roche wins the ball                  │\n├versus─────────┼──┤│ 25841│├▀▀▀▄ ├▀▀▀▄ │knocked on by Roche                  │\n│P ST GERMAIN---│ 1│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n (half time  1:1 ) ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ P St Germain--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐         Corners      0  ││  Corners      0     ┌─────────┐     │\n │ │ Scorers │         Free kicks   0  ││  Free kicks   0     │ Scorers │     │\n┌──┴─────────┴──┬min┐  Penalties    0  ││  Penalties    0  ┌──┴─────────┴──┬min┐\n│A Shearer      │ 35│  Shots        2  ││  Shots        3  │V Guerin       │ 12│\n│               │   │  On target    2  ││  On target    2  │               │   │\n│               │   │  Saves        2  ││  Saves        1  │               │   │\n│               │   │  Fouls        0  ││  Fouls        0  │               │   │\n│               │   │  Bookings     0  ││  Bookings     0  │               │   │\n│               │   │  Red cards    0  └┘  Red cards    0  │               │   │\n│               │   │            ┌───┬───┬───50───┬───┬───┐│               │   │\n│               │   │  Possession:■■■■■■■■■■■■■■■■■■■■■■■■:│               │   │\n│               │   │  Territory :■■■■■■■■■■■■■■■■■■■■■■■■:│               │   │\n│               │   │       ┌──┐─┬─┌──┐─┬─ ┌──┐─┬─ ┌──┌──┐ │               │   │\n│               │   │ MATCH └──┐ │ ├──┤ │ │└──┐ │ ││  └──┐ │               │   │\n└───────────────┴───┘       └──┘ │ │  │ │ │└──┘ │ │└──└──┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 4,
+      "source": "ui-text",
+      "field": "screen 4: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 4,
+      "source": "save",
+      "field": "screen 4: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "e84a0524574f414f934577d07bbe0c4e18240b1effa92152ec5e5404302de808"
+    },
+    {
+      "step": 5,
+      "source": "screen",
+      "field": "screen 5: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "a81744f045ad766fee31d68e4b0b7c83c042588858dc3fb5aa0276b70e9a8243"
+    },
+    {
+      "step": 5,
+      "source": "ui-text",
+      "field": "screen 5: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│Friendly #1      │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence              worried │  ║ C Hendry     ║C║\n│ Blackburn R---- │ │ fitness              reasonable │  ║ G Le Saux    ║b║\n│     versus      │ │ energy                  not bad │  ║ H Berg       ║B║\n│ P St Germain--- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 7│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ P St Germain--- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 5,
+      "source": "ui-text",
+      "field": "screen 5: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 5,
+      "source": "save",
+      "field": "screen 5: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "305db2b70a94114cc433ce64dda39dcbd3578ad911383a1af0c75d78f0d3d875"
+    },
+    {
+      "step": 6,
+      "source": "screen",
+      "field": "screen 6 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "39c41eb15a548c92a950a9aac8e9c85b828410b44f5e6d791ed1c85496256171"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6 (match, first read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐█   █ █   │ │knocked on by Roche                  │\n├versus─────────┼──┤│ 25841│├▀▀▀▄ ├▀▀▀▄ │---- HALF TIME ----                  │\n│P ST GERMAIN---│ 1│└──────┘│   █ │   █ │Weah to take kick off                │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬──────────Æ─────────────────────────┐░░\n░░│                                £   │   Æ                                │░░\n░░│                        Æ           │          ¥                         │░░\n░░├───────────┐                        │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │              ô         │      £ ö☺              │           │░░\n░░├───┐       │                        │                        │       ┌───┤░░\n░┌┘   │       │                ò       │       ¥                │       │   └┐░\n░│    │       │                 ò  ¥ ¥ •Æ    £¥                 │       │    │░\n░└┐   │       │                       Æ│                        │       │   ┌┘░\n░░├───┘       │                    ö   │Æ                       │       └───┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░└────────────────────────Æ───────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6 (match, first read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 6,
+      "source": "screen",
+      "field": "screen 6, read 6 (after 63 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "faf283d0f174b2c9a521a0deb225f8d278e261097a9a039031c477dd80e35918"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6, read 6 (after 63 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌▀▀▀▄ ▄───▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   █ █   █ │Wilcox throws the ball               │\n├versus─────────┼──┤│ 25841│├▀▀▀▄ ├▀▀▀▄ │Le Saux on the ball                  │\n│P ST GERMAIN---│ 2│└──────┘│   █ │   █ │Le Saux makes a run                  │\n└───────────────┴──┘  NIL   └▀▀▀▀ └───┘ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬─────────────────────────────────£──┐░░\n░░│                                    │           ¥                  ô     │░░\n░░│                                    │                     £•             │░░\n░░├───────────┐                        │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───┐       │                       ò│                        │       ┌───┤░░\n░┌┘   │       │                        │ ¥           ò          │       │   └┐░\n░│☺   │       │                        ○                        │öò     │ô  ☺│░\n░└┐   │       │                        │       òö   ö £         │  ò    │   ┌┘░\n░░├───┘       │                       ô│ò                       │       └───┤░░\n░░│           │                        │             ò          │           │░░\n░░│           │                        │                       Æ│ö          │░░\n░░├───────────┘                        │                       £└───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░└───────────────────────────────────£┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 6,
+      "source": "screen",
+      "field": "screen 6, read 12 (after 127 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "773c56ef4d3a74652f45a43fb69e3f3093d1c865dfd617b8eecf00ba0863f10a"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6, read 12 (after 127 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌▀▀▀▄ ▄───┐ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   █ █   │ │Wilcox collects                      │\n├versus─────────┼──┤│ 25841│▄▀▀▀▀ ▄▀▀▀▄ │pass by Wilcox                       │\n│P ST GERMAIN---│ 2│└──────┘█   │ █   █ │*** THROW IN ***                     │\n└───────────────┴──┘  NIL   └▀▀▀▀ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────ô──────────────ô────────Æ────────────────────────────────────┐░░\n░░│                                    │                                    │░░\n░░│         ò                          │                                    │░░\n░░├──────────ôÆ                        │                        ┌───────────┤░░\n░░│           │ ¥                      │                        │           │░░\n░░│   ¥     ô │                        │                        │           │░░\n░░├───┐       │                        │                        │       ┌───┤░░\n░┌┘   │    ò  │                      ¥ ¥                        │       │   └┐░\n░│☺   │ ¥     │                        ○                        │       │   ☺│░\n░└┐   │     £ │                        │                        │       │   ┌┘░\n░░├───┘       │                        │                        │       └───┤░░\n░░│           │Æ                       │                        │           │░░\n░░│           │  ¥      ô              │                        │           │░░\n░░├£ô─────────┘                        │                        └───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░«Æ───────────────────────────────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 6,
+      "source": "screen",
+      "field": "screen 6, read 18 (after 190 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "3a5a8acdb4d863d21522bc72943b14450891fbd4a27c1f911d944fe19518670e"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6, read 18 (after 190 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───▄ ▄───▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   █ █   █ │tackle by Hendry                     │\n├versus─────────┼──┤│ 25841│├───▄ ├▀▀▀▄ │dodged by Ginola                     │\n│P ST GERMAIN---│ 3│└──────┘│   █ │   █ │Ginola makes a run                   │\n└───────────────┴──┘  NIL   └───┘ └───┘ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬────Æ──────────────£─Æ──────────────┐░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░├───────────┐              ¥         │                        ┌───────────┤░░\n░░│           │                        │                 ô      │           │░░\n░░│           │                        │                        │           │░░\n░░├───┐       │               ò        │             ôòö        │       ┌───┤░░\n░┌┘   │       │                        │                        │       │   └┐░\n░│☺   │       │                        Æ ô            ¥         │       │   ☺│░\n░└┐   │       │                        │               òÆ       │       │   ┌┘░\n░░├───┘       │                     ò  │               ö        │       └───┤░░\n░░│           │                    •   │                        │           │░░\n░░│           │                       £│         £    Æ         │           │░░\n░░├───────────┘                        │                     ¥  └───────────┤░░\n░░│                                   ô│               ô                    │░░\n░░│                                    │                                    │░░\n░░└──────────────────────────Æ─────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 6,
+      "source": "screen",
+      "field": "screen 6, read 24 (after 253 s): sha256 of the text page (an intermediate read, not a key wait)",
+      "value": "cfe945ea582cdbfedc6f5b40399a91262dce564131aceaa5aeefc337059b153d"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6, read 24 (after 253 s): text, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ┌▀▀▀▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ │   █ │good ball for Roche                  │\n├versus─────────┼──┤│ 25841│├───┤ ▄▀▀▀▀ │Roche on the ball                    │\n│P ST GERMAIN---│ 4│└──────┘│   │ █   │ │Roche makes a run                    │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬─ô──────────────────────────────────┐░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░├────────ò─ô┐                        │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │  ò                     │                        │           │░░\n░░├───ò      ö│                        │                        │       ┌───┤░░\n░┌┘   │    ò  ö   ö                    │                        │       │   └┐░\n░│☺   │       │    Æô       ô          ○ ô                      │       │   ☺│░\n░└┐   │    ¥ ò│ô       òö              │                        │       │   ┌┘░\n░░├───┘       │  ö ö                   │                        │       └───┤░░\n░░│           │                        │                        │           │░░\n░░│    £      •  Æ                     │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░└───ô────────────────────────────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 6,
+      "source": "screen",
+      "field": "screen 6 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "c952810c4ad13019b551efd280fef0639534dc8c30908504ca7ae4b27e66c7dd"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6 (match, last read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ █   █ │Atkins collects                      │\n├versus─────────┼──┤│ 25841│├───┤ ▄───▄ │Atkins makes a pass                  │\n│P ST GERMAIN---│ 4│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀£▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────£¥─☺────────£───────────Æ────────────────────────────────────┐░░\n░░│               Æ    ô ôÆ Æ         ö│          Æ   Æ       Æ ☺           │░░\n░░│                             ô      │                                    │░░\n░░├───────────┐                        │                        ┌───────────┤░░\n░░│           │                     ¥  │                        │           │░░\n░░│           │                        ò                        │           │░░\n░░├───┐       │                 •      │                        │       ┌───┤░░\n░┌┘   │       │                        │                        │       │   └┐░\n░│    │       │                        ○                        │       │    │░\n░└┐   │       │                        │                        │       │   ┌┘░\n░░├───┘       │                        │                        │       └───┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░└────────────────────────────────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  ↓↑-display ←→-speed 23     R-result   spacebar-commentary  F9-♫  Esc,◄┘-bench"
+    },
+    {
+      "step": 6,
+      "source": "ui-text",
+      "field": "screen 6 (match, last read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 7,
+      "source": "screen",
+      "field": "screen 7: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "38340da443459843583a62a3121d4c5c90e52ba8962b0b604eae211a1621c106"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ █   █ │Atkins collects                      │\n├versus─────────┼──┤│ 25841│├───┤ ▄───▄ │Atkins makes a pass                  │\n│P ST GERMAIN---│ 4│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▀Æ•░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░┌────────────────────────────────────┬────────────────────────────────────┐░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░├───────────┐                        │                        ┌───────────┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───┐       │                        │                        │       ┌───┤░░\n░┌┘   │       │                        │                        │       │   └┐░\n░│    │       │                        ○                        │       │    │░\n░└┐   │       │                        │                        │       │   ┌┘░\n░░├───┘       │                        │                        │       └───┤░░\n░░│           │                        │                        │           │░░\n░░│           │                        │                        │           │░░\n░░├───────────┘                        │                        └───────────┤░░\n░░│                                    │                                    │░░\n░░│                                    │                                    │░░\n░░└────────────────────────────────────┴────────────────────────────────────┘░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n  spacebar-view commentary  P-print commentary  ◄┘-bench  any other key to exit"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 7,
+      "source": "save",
+      "field": "screen 7: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "b32e4cae3b95d593b75f7014737ee1e69a6de0964f5ed2eef7fa6a455938ecfc"
+    },
+    {
+      "step": 8,
+      "source": "screen",
+      "field": "screen 8: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "3d7514d889afe4e6525d5e68766b8583d79393ef4cba79f9862b792bd54cf9ed"
+    },
+    {
+      "step": 8,
+      "source": "ui-text",
+      "field": "screen 8: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌FRIENDLY #1──────────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ █   █ │Atkins collects                      │\n├versus─────────┼──┤│ 25841│├───┤ ▄───▄ │Atkins makes a pass                  │\n│P ST GERMAIN---│ 4│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n (half time  1:1 ) ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ P St Germain--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐         Corners      0  ││  Corners      2     ┌─────────┐     │\n │ │ Scorers │         Free kicks   0  ││  Free kicks   0     │ Scorers │     │\n┌──┴─────────┴──┬min┐  Penalties    0  ││  Penalties    0  ┌──┴─────────┴──┬min┐\n│A Shearer      │ 35│  Shots        2  ││  Shots        9  │V Guerin       │ 12│\n│               │   │  On target    2  ││  On target    8  │J Cobos        │ 48│\n│               │   │  Saves        7  ││  Saves        1  │V Guerin       │ 65│\n│               │   │  Fouls        0  ││  Fouls        0  │G Weah         │ 80│\n│               │   │  Bookings     0  ││  Bookings     0  │               │   │\n│               │   │  Red cards    0  └┘  Red cards    0  │               │   │\n│               │   │            ┌───┬───┬───50───┬───┬───┐│               │   │\n│               │   │  Possession:■■■■■■■■■■■■■■■■■■■■■■■■:│               │   │\n│               │   │  Territory :■■■■■■■■■■■■■■■■■■■■■■■■:│               │   │\n│               │   │ ┌──────────────────────────────────┐ │               │   │\n│               │   │ │  MAN OF THE MATCH D Ginola       │ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 8,
+      "source": "ui-text",
+      "field": "screen 8: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 8,
+      "source": "save",
+      "field": "screen 8: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "569896a64a29d142ad501479e110d34f644131e1d896cfaca9a5ee54fa1ade30"
+    },
+    {
+      "step": 9,
+      "source": "screen",
+      "field": "screen 9: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "79364b8b77812f990aa062aa158f868f241a964ad0218ef91eb918c1015b800a"
+    },
+    {
+      "step": 9,
+      "source": "ui-text",
+      "field": "screen 9: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────────────────────────┐\n│ CASH FLOW FOR     Blackburn R---- │ ┌─Cash out───────────────────────────────╖\n└───────────────────────────────────┘ ├────────────────────────┬─┬─┬─┬─┬─┬─┬─┬─╢\n╓─Cash in─────────────────────────────┤ Player salaries        │ │ │ │5│7,3│2│0║\n╟─────────────────────┬─┬─┬─┬─┬─┬─┬─┬─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Gate receipts       │ │ │ │3│8,7│6│1│ Win bonuses            │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Prize money         │ │ │ │ │ │ │ │0│ Staff salaries         │ │ │ │ │4,2│0│0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ TV coverage         │ │ │ │ │ │ │ │0│ Ground maintenance     │ │ │ │ │7,7│5│0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Radio coverage      │ │ │ │ │ │ │ │0│ Players bought         │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Players sold        │ │ │ │ │ │ │ │0│ Contracts              │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Sponsorship         │ │ │ │ │ │ │ │0│ Interest               │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Directors hand-out  │ │ │ │ │ │ │ │0│ Sundries               │ │ │ │ │ │ │ │0║\n╟─────────────────┬─┬─┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────┬─┬─┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ TOTAL IN        │ │ │ │ │ │3│8,7│6│1│ TOTAL OUT          │ │ │ │ │ │6│9,2│7│0║\n╚═════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧════════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝\n╔═════════════════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤════════════════════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗\n║ Club funds      │ │ │ │ │4│2│1,4│9│1│ Overdraft facility │ │ │ │2,9│2│0,0│0│0║\n╚═════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧════════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝\n      Hit INS to increase your stadium capacity or any other key to continue"
+    },
+    {
+      "step": 9,
+      "source": "ui-text",
+      "field": "screen 9: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 9,
+      "source": "save",
+      "field": "screen 9: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "b85d34a770515950f9e8b25b6c77f2197a0db7e62219a8c6845452f6d98fb97c"
+    },
+    {
+      "step": 10,
+      "source": "screen",
+      "field": "screen 10: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "1f40215065d34b02c8816114c5eac9fc096631e8c69d088cbce01c48ac49682a"
+    },
+    {
+      "step": 10,
+      "source": "ui-text",
+      "field": "screen 10: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "         ┌─TRANSFER─NEWS──────────────────────────────────────────────┐\n         ├─PLAYER───────────────FROM─────────────────TO───────────────┤\n         │ M.Kree........       Bor. Dortmund--      Werder Bremen--  │\n         │ D.May.........       Manchester Utd-      Wimbledon------  │\n         │ M.Carruthers..       Stoke City-----      Sheffield Utd--  │\n         │ F.Digby.......       Swindon Town---      W.B.A----------  │\n         │ L.Martin......       Blackpool------      York City------  │\n         │ J.Vaughan.....       Preston NE-----      Fulham---------  │\n         │ M.Frydek......       Sparta Prague--      Kosice---------  │\n         │ A.Millen......       Hibernian------      Panathinaikos--  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         └────────────────────────────────────────────────────────────┘\n\n\n\n\n\n\n\n\n\n                                press any key"
+    },
+    {
+      "step": 10,
+      "source": "ui-text",
+      "field": "screen 10: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 10,
+      "source": "save",
+      "field": "screen 10: sha256 of the savestate of this read (.cache/states/T10/)",
+      "value": "1b56be998c1680c23ddf14b0dd7c71ad2169f914636ce3015dc260b2be0b70a5"
+    },
+    {
+      "step": 11,
+      "source": "screen",
+      "field": "main menu after the week: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "48e12f6307b6103c5aa8074222337b6cb816032ceda60ad1015f2915d447c72c"
+    },
+    {
+      "step": 11,
+      "source": "ui-text",
+      "field": "main menu after the week: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence              nervous │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness           not quite fit │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy                   mobile │  ╟────────────────────╢\n├ 421,491         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ Sevilla-------- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Aragones        ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ EUROPEAN        │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.     │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├Friendly #2      ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       away │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 11,
+      "source": "ui-text",
+      "field": "main menu after the week: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 999,
+      "source": "save",
+      "field": "sha256 of the savestate of the last read (kept in .cache/states/T10/, copied to the owner's Drive)",
+      "value": "946c684325dfb05eb92b4375f64f1a0a8f9e725cab9a463216357482ef0b96ae"
+    },
+    {
+      "step": 999,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[0.118,\"mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print\"],[0.237,\"Xvfb poll: answered after 2 polls of 0.1s\"],[0.237,\"Xvfb :236 answering\"],[0.297,\"dosbox-x started\"],[0.559,\"window found after 3 polls of 0.1s\"],[0.569,\"window focused\"],[1.096,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[1.102,\"savestate complete after 1 polls of 0.05s\"],[1.684,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[1.687,\"savestate complete after 1 polls of 0.05s\"],[1.735,\"title screen: matched after 2 savestate polls\"],[1.735,\"DOS clock read back: '10/29/2026\\\\n19:50:07'\"],[2.262,\"emulator key Print (for host+l) held 0.52s (raw keycode 107)\"],[2.262,\"Host+L sent (T05-r0001)\"],[2.788,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[2.789,\"savestate complete after 1 polls of 0.05s\"],[2.816,\"restore T05-r0001: matched after 1 savestate polls\"],[3.343,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[3.348,\"savestate complete after 1 polls of 0.05s\"],[3.928,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[3.932,\"savestate complete after 1 polls of 0.05s\"],[3.979,\"menu: 'PLAY NEXT GAME' highlighted\"],[4.063,\"key Return held 0.08s (raw keycode 36)\"],[6.589,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[6.592,\"savestate complete after 1 polls of 0.05s\"],[7.158,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[7.162,\"savestate complete after 1 polls of 0.05s\"],[7.214,\"menu: 'PLAY GAME' highlighted\"],[7.298,\"key Return held 0.08s (raw keycode 36)\"],[9.824,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[9.828,\"savestate complete after 1 polls of 0.05s\"],[20.395,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[20.399,\"savestate complete after 1 polls of 0.05s\"],[30.976,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[30.977,\"savestate complete after 1 polls of 0.05s\"],[41.524,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[41.527,\"savestate complete after 1 polls of 0.05s\"],[52.085,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[52.087,\"savestate complete after 1 polls of 0.05s\"],[62.635,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[62.64,\"savestate complete after 1 polls of 0.05s\"],[73.201,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[73.203,\"savestate complete after 1 polls of 0.05s\"],[83.751,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[83.753,\"savestate complete after 1 polls of 0.05s\"],[94.314,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[94.317,\"savestate complete after 1 polls of 0.05s\"],[104.874,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[104.878,\"savestate complete after 1 polls of 0.05s\"],[115.439,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[115.441,\"savestate complete after 1 polls of 0.05s\"],[125.986,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[125.991,\"savestate complete after 1 polls of 0.05s\"],[136.562,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[136.564,\"savestate complete after 1 polls of 0.05s\"],[147.114,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[147.118,\"savestate complete after 1 polls of 0.05s\"],[157.719,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[157.725,\"savestate complete after 1 polls of 0.05s\"],[168.284,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[168.289,\"savestate complete after 1 polls of 0.05s\"],[178.855,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[178.86,\"savestate complete after 1 polls of 0.05s\"],[189.418,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[189.421,\"savestate complete after 1 polls of 0.05s\"],[200.001,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[200.006,\"savestate complete after 1 polls of 0.05s\"],[210.573,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[210.575,\"savestate complete after 1 polls of 0.05s\"],[221.122,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[221.126,\"savestate complete after 1 polls of 0.05s\"],[231.688,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[231.692,\"savestate complete after 1 polls of 0.05s\"],[242.249,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[242.252,\"savestate complete after 1 polls of 0.05s\"],[252.801,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[252.806,\"savestate complete after 1 polls of 0.05s\"],[252.921,\"key space held 0.08s (raw keycode 65)\"],[255.447,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[255.449,\"savestate complete after 1 polls of 0.05s\"],[256.012,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[256.016,\"savestate complete after 1 polls of 0.05s\"],[256.047,\"menu: 'PLAY GAME' highlighted\"],[256.129,\"key Return held 0.08s (raw keycode 36)\"],[258.656,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[258.657,\"savestate complete after 1 polls of 0.05s\"],[269.205,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[269.209,\"savestate complete after 1 polls of 0.05s\"],[279.772,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[279.775,\"savestate complete after 1 polls of 0.05s\"],[290.322,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[290.327,\"savestate complete after 1 polls of 0.05s\"],[300.886,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[300.891,\"savestate complete after 1 polls of 0.05s\"],[311.465,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[311.469,\"savestate complete after 1 polls of 0.05s\"],[322.015,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[322.018,\"savestate complete after 1 polls of 0.05s\"],[332.565,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[332.57,\"savestate complete after 1 polls of 0.05s\"],[343.142,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[343.147,\"savestate complete after 1 polls of 0.05s\"],[353.702,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[353.705,\"savestate complete after 1 polls of 0.05s\"],[364.257,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[364.259,\"savestate complete after 1 polls of 0.05s\"],[374.81,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[374.812,\"savestate complete after 1 polls of 0.05s\"],[385.36,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[385.361,\"savestate complete after 1 polls of 0.05s\"],[395.907,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[395.909,\"savestate complete after 1 polls of 0.05s\"],[406.464,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[406.466,\"savestate complete after 1 polls of 0.05s\"],[417.012,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[417.017,\"savestate complete after 1 polls of 0.05s\"],[427.585,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[427.587,\"savestate complete after 1 polls of 0.05s\"],[438.131,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[438.134,\"savestate complete after 1 polls of 0.05s\"],[448.679,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[448.682,\"savestate complete after 1 polls of 0.05s\"],[459.228,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[459.232,\"savestate complete after 1 polls of 0.05s\"],[469.777,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[469.779,\"savestate complete after 1 polls of 0.05s\"],[480.325,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[480.329,\"savestate complete after 1 polls of 0.05s\"],[490.886,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[490.888,\"savestate complete after 1 polls of 0.05s\"],[501.431,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[501.433,\"savestate complete after 1 polls of 0.05s\"],[511.973,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[511.975,\"savestate complete after 1 polls of 0.05s\"],[522.518,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[522.524,\"savestate complete after 1 polls of 0.05s\"],[533.063,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[533.064,\"savestate complete after 1 polls of 0.05s\"],[543.602,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[543.604,\"savestate complete after 1 polls of 0.05s\"],[543.702,\"key n held 0.08s (raw keycode 57)\"],[546.224,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[546.226,\"savestate complete after 1 polls of 0.05s\"],[546.322,\"key space held 0.08s (raw keycode 65)\"],[548.845,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[548.846,\"savestate complete after 1 polls of 0.05s\"],[548.943,\"key space held 0.08s (raw keycode 65)\"],[551.466,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[551.467,\"savestate complete after 1 polls of 0.05s\"],[551.566,\"key space held 0.08s (raw keycode 65)\"],[554.089,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[554.09,\"savestate complete after 1 polls of 0.05s\"],[554.61,\"dosbox-x pid 2477351 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group\"],[554.618,\"dosbox-x pid 2477351 ended by SIGKILL 0.508s after the first signal\"],[554.633,\"Xvfb pid 2477344 ended by SIGTERM 0.016s after the first signal\"],[554.633,\"terminated\"]]"
+    }
+  ],
+  "outputs": [],
+  "started": "2026-10-29T18:50:07.597Z",
+  "ended": "2026-10-29T18:59:22.270Z",
+  "status": "completed"
+}
