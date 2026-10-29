@@ -1,0 +1,262 @@
+{
+  "schema": "run/1",
+  "run_id": "T04-r0002",
+  "experiment": "T04",
+  "arm": "restore-title-key-n",
+  "rep": 2,
+  "code_commit": "30a6840",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@30a6840",
+    "platform": "python-3.14.4/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.4",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screen and BIOS data area (0040:0049, 0040:006C) read from DOSBox-X savestates (Host+S; components Vga and Memory)"
+    },
+    {
+      "level": "I2",
+      "what": "a savestate is written at each read, and one is loaded (Host+L) at the start and at the reset (save and load of emulator state; neutrality not tested)"
+    }
+  ],
+  "start_state": {
+    "id": "title",
+    "sha256": "2980840c8af46b130de211eb4c64d3a50dae7b6bcd1350986c72f82a4d3c6402",
+    "restore": "fresh DOSBox-X process (config sha256 0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58) with C: mounted from the folder the savestate was made with, recreated from the verified copy of One-Nil 96 (records/T01/inventory.json); 1-0 run to its title screen; key n to change the screen; then Host+L (the emulator's load key: F12+L before issue 244, Print Screen alone since; see driver.py) loads the savestate whose sha256 is given; polled until the screen digest equals the one stored with it (bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5); host clock and seed not controlled"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/driver/cycle.py",
+    "sha256": "39f0ac6bae470622dba9384025124f0312f32f9f25831edff737ce845c290a83",
+    "args": [
+      "--start-state",
+      "title",
+      "--key",
+      "n"
+    ]
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "log",
+      "field": "host UTC time at launch",
+      "value": "2026-10-29T13:11:22.338Z"
+    },
+    {
+      "step": 0,
+      "source": "log",
+      "field": "host local time at launch, with UTC offset, and zone name",
+      "value": "2026-10-29T14:11:22.338+01:00 CET"
+    },
+    {
+      "step": 0,
+      "source": "log",
+      "field": "before restore (title screen displaced by the key): host UTC time just before the savestate was requested",
+      "value": "2026-10-29T13:11:24.280Z"
+    },
+    {
+      "step": 0,
+      "source": "log",
+      "field": "before restore (title screen displaced by the key): host local time with UTC offset, and zone name, at the same instant",
+      "value": "2026-10-29T14:11:24.280+01:00 CET"
+    },
+    {
+      "step": 0,
+      "source": "screen",
+      "field": "before restore (title screen displaced by the key): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "dc7a027472ac977c081dd65a0af338c419a2e5a6aafc55c1518703f0307f65e4"
+    },
+    {
+      "step": 0,
+      "source": "ui-text",
+      "field": "before restore (title screen displaced by the key): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "\n\n\n\n                       ▐▀▀▌ ▐▀▀▌ ▐▀▀▌         ▐▀▀▌  ▌  ▐\n                       ▐  ▌ ▐  ▌ ▐▄▄▌         ▐  ▌  ▌  ▐        (c)\n                       ▐  ▌ ▐  ▌ ▐      ▀▀▀   ▐  ▌  ▌  ▐          NEW\n                       ▐  ▌ ▐  ▌ ▐      '96   ▐  ▌  ▌  ▐            ERA\n                       ▐██▌ ▐  ▌ ▐██          ▐  ▌  ▌  ▐██            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\nPlease enter name of new game   :  ☻ave1▒▒▒▒.1-0     ■■■■■■■■■■■■■■■■■■■■■■■■■■■"
+    },
+    {
+      "step": 0,
+      "source": "memory",
+      "addr": "0x449",
+      "field": "before restore (title screen displaced by the key): 1 byte at 0040:0049 (BIOS video mode), guest memory from the savestate, hex",
+      "value": "03"
+    },
+    {
+      "step": 0,
+      "source": "memory",
+      "addr": "0x46c",
+      "field": "before restore (title screen displaced by the key): 4 bytes at 0040:006C (BIOS timer tick count), guest memory from the savestate, as a little-endian dword (bytes in memory order)",
+      "value": "0x000e3104 (04 31 0e 00)"
+    },
+    {
+      "step": 0,
+      "source": "save",
+      "field": "screen sha256 stored with the start state",
+      "value": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5"
+    },
+    {
+      "step": 0,
+      "source": "log",
+      "field": "before: host UTC time just before the savestate was requested",
+      "value": "2026-10-29T13:11:25.333Z"
+    },
+    {
+      "step": 0,
+      "source": "log",
+      "field": "before: host local time with UTC offset, and zone name, at the same instant",
+      "value": "2026-10-29T14:11:25.333+01:00 CET"
+    },
+    {
+      "step": 0,
+      "source": "screen",
+      "field": "before: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5"
+    },
+    {
+      "step": 0,
+      "source": "ui-text",
+      "field": "before: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "\n\n\n\n                       ▐▀▀▌ ▐▀▀▌ ▐▀▀▌         ▐▀▀▌  ▌  ▐\n                       ▐  ▌ ▐  ▌ ▐▄▄▌         ▐  ▌  ▌  ▐        (c)\n                       ▐  ▌ ▐  ▌ ▐      ▀▀▀   ▐  ▌  ▌  ▐          NEW\n                       ▐  ▌ ▐  ▌ ▐      '96   ▐  ▌  ▌  ▐            ERA\n                       ▐██▌ ▐  ▌ ▐██          ▐  ▌  ▌  ▐██            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\n■■■■■■■■■■■■■■■■■■■ Do you want to load a saved game? (Y/N) ■■■■■■■■■■■■■■■■■■■■"
+    },
+    {
+      "step": 0,
+      "source": "memory",
+      "addr": "0x449",
+      "field": "before: 1 byte at 0040:0049 (BIOS video mode), guest memory from the savestate, hex",
+      "value": "03"
+    },
+    {
+      "step": 0,
+      "source": "memory",
+      "addr": "0x46c",
+      "field": "before: 4 bytes at 0040:006C (BIOS timer tick count), guest memory from the savestate, as a little-endian dword (bytes in memory order)",
+      "value": "0x000e304d (4d 30 0e 00)"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "DOSBox-X config of the session, host paths replaced by <work> and <game>",
+      "value": "[sdl]\nfullscreen=false\noutput=surface\nmapperfile=<work>/mapper.map\n[mixer]\nnosound=true\n[midi]\nmididevice=none\n[dosbox]\nmachine=svga_s3\nmemsize=16\nsaveremark=false\ncaptures=<work>/cap\n[cpu]\ncore=normal\ncputype=auto\ncycles=20000\n[autoexec]\nmount c <game>\nc:\nmount d <work>/dosclock\ndate /t > d:\\clock.txt\ntime /t >> d:\\clock.txt\nc:\n1-0\nexit\n"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "sha256 of that config text (UTF-8)",
+      "value": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "after: host UTC time just before the savestate was requested",
+      "value": "2026-10-29T13:11:26.491Z"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "after: host local time with UTC offset, and zone name, at the same instant",
+      "value": "2026-10-29T14:11:26.491+01:00 CET"
+    },
+    {
+      "step": 1,
+      "source": "screen",
+      "field": "after: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "d5a2fa4860140204a418d569c8a748f67998874721ff448df54e5b22b969ed85"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "after: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "\n\n\n\n                       ▐▀▀▌ ▐▀▀▌ ▐▀▀▌         ▐▀▀▌  ▌  ▐\n                       ▐  ▌ ▐  ▌ ▐▄▄▌         ▐  ▌  ▌  ▐        (c)\n                       ▐  ▌ ▐  ▌ ▐      ▀▀▀   ▐  ▌  ▌  ▐          NEW\n                       ▐  ▌ ▐  ▌ ▐      '96   ▐  ▌  ▌  ▐            ERA\n                       ▐██▌ ▐  ▌ ▐██          ▐  ▌  ▌  ▐██            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\nPlease enter name of new game   :  Save1▒▒▒▒.1-0     ■■■■■■■■■■■■■■■■■■■■■■■■■■■"
+    },
+    {
+      "step": 1,
+      "source": "memory",
+      "addr": "0x449",
+      "field": "after: 1 byte at 0040:0049 (BIOS video mode), guest memory from the savestate, hex",
+      "value": "03"
+    },
+    {
+      "step": 1,
+      "source": "memory",
+      "addr": "0x46c",
+      "field": "after: 4 bytes at 0040:006C (BIOS timer tick count), guest memory from the savestate, as a little-endian dword (bytes in memory order)",
+      "value": "0x000e305f (5f 30 0e 00)"
+    },
+    {
+      "step": 2,
+      "source": "log",
+      "field": "reset (Host+L again): host UTC time just before the savestate was requested",
+      "value": "2026-10-29T13:11:27.552Z"
+    },
+    {
+      "step": 2,
+      "source": "log",
+      "field": "reset (Host+L again): host local time with UTC offset, and zone name, at the same instant",
+      "value": "2026-10-29T14:11:27.552+01:00 CET"
+    },
+    {
+      "step": 2,
+      "source": "screen",
+      "field": "reset (Host+L again): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "reset (Host+L again): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "\n\n\n\n                       ▐▀▀▌ ▐▀▀▌ ▐▀▀▌         ▐▀▀▌  ▌  ▐\n                       ▐  ▌ ▐  ▌ ▐▄▄▌         ▐  ▌  ▌  ▐        (c)\n                       ▐  ▌ ▐  ▌ ▐      ▀▀▀   ▐  ▌  ▌  ▐          NEW\n                       ▐  ▌ ▐  ▌ ▐      '96   ▐  ▌  ▌  ▐            ERA\n                       ▐██▌ ▐  ▌ ▐██          ▐  ▌  ▌  ▐██            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\n■■■■■■■■■■■■■■■■■■■ Do you want to load a saved game? (Y/N) ■■■■■■■■■■■■■■■■■■■■"
+    },
+    {
+      "step": 2,
+      "source": "memory",
+      "addr": "0x449",
+      "field": "reset (Host+L again): 1 byte at 0040:0049 (BIOS video mode), guest memory from the savestate, hex",
+      "value": "03"
+    },
+    {
+      "step": 2,
+      "source": "memory",
+      "addr": "0x46c",
+      "field": "reset (Host+L again): 4 bytes at 0040:006C (BIOS timer tick count), guest memory from the savestate, as a little-endian dword (bytes in memory order)",
+      "value": "0x000e304d (4d 30 0e 00)"
+    },
+    {
+      "step": 3,
+      "source": "log",
+      "field": "lines of DOSBox-X's own output (dosbox.out) that mention save, load or corrupt (Save_Remark lines left out), in order",
+      "value": "LOG: Active save slot: 1 [Empty]\nLOG: [14:11:22]: Saved. (Slot 1)\nLOG: [14:11:23]: Saved. (Slot 1)\nLOG: [14:11:23]: Saved. (Slot 1)\nLOG: [14:11:24]: Saved. (Slot 1)\nLOG: Loading state from slot: 1\nLOG: [14:11:24]: Loaded. (Slot 1)\nLOG: [14:11:25]: Saved. (Slot 1)\nLOG: [14:11:26]: Saved. (Slot 1)\nLOG: [14:11:26]: Saved. (Slot 1)\nLOG: Loading state from slot: 1\nLOG: [14:11:27]: Loaded. (Slot 1)\nLOG: [14:11:27]: Saved. (Slot 1)"
+    },
+    {
+      "step": 3,
+      "source": "process",
+      "field": "dosbox-x and Xvfb after SIGTERM to their process groups (SIGKILL to the group after 0.5 s when SIGTERM is ignored, see log)",
+      "value": "both exited"
+    },
+    {
+      "step": 3,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[0.012,\"mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print\"],[0.116,\"Xvfb poll: answered after 2 polls of 0.1s\"],[0.116,\"Xvfb :293 answering\"],[0.132,\"dosbox-x started\"],[0.252,\"window found after 2 polls of 0.1s\"],[0.253,\"window focused\"],[0.776,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[0.777,\"savestate complete after 1 polls of 0.05s\"],[1.314,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[1.315,\"savestate complete after 1 polls of 0.05s\"],[1.328,\"title screen: matched after 2 savestate polls\"],[1.328,\"DOS clock read back: '10/29/2026\\\\n14:11:21'\"],[1.409,\"key n held 0.08s (raw keycode 57)\"],[1.933,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[1.933,\"savestate complete after 1 polls of 0.05s\"],[2.464,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[2.465,\"savestate complete after 1 polls of 0.05s\"],[2.473,\"displaced by n: changed and stable after 2 savestate polls\"],[2.995,\"emulator key Print (for host+l) held 0.52s (raw keycode 107)\"],[2.995,\"Host+L sent (title)\"],[3.518,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[3.519,\"savestate complete after 1 polls of 0.05s\"],[3.533,\"restore title: matched after 1 savestate polls\"],[3.616,\"key n held 0.08s (raw keycode 57)\"],[4.139,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[4.14,\"savestate complete after 1 polls of 0.05s\"],[4.676,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[4.677,\"savestate complete after 1 polls of 0.05s\"],[4.69,\"after key n: changed and stable after 2 savestate polls\"],[5.215,\"emulator key Print (for host+l) held 0.52s (raw keycode 107)\"],[5.215,\"Host+L sent (title)\"],[5.738,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[5.738,\"savestate complete after 1 polls of 0.05s\"],[5.747,\"restore title: matched after 1 savestate polls\"],[6.248,\"dosbox-x pid 424488 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group\"],[6.256,\"dosbox-x pid 424488 ended by SIGKILL 0.508s after the first signal\"],[6.259,\"Xvfb pid 424481 ended by SIGTERM 0.003s after the first signal\"],[6.259,\"terminated\"]]"
+    }
+  ],
+  "outputs": [],
+  "started": "2026-10-29T13:11:22.338Z",
+  "ended": "2026-10-29T13:11:28.615Z",
+  "status": "completed"
+}

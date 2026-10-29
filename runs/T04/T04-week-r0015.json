@@ -1,0 +1,275 @@
+{
+  "schema": "run/1",
+  "run_id": "T04-week-r0015",
+  "experiment": "T04-week",
+  "arm": "save1-weeks",
+  "rep": 15,
+  "code_commit": "9253999",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@9253999",
+    "platform": "python-3.14.4/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.4",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screens read from DOSBox-X savestates (component Vga)"
+    },
+    {
+      "level": "I2",
+      "what": "a savestate is written at each read (save of emulator state; neutrality not tested)"
+    }
+  ],
+  "start_state": {
+    "id": "T04-week-r0014",
+    "sha256": "e8c29484f66881786439d9ee00d63b2bb31aa5997047ec7e8cc46752dd65a0ff",
+    "restore": "the same DOSBox-X session, continued from the end of T04-week-r0014 (its last savestate's sha256 given), not restored"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/driver/weeks.py",
+    "sha256": "a03db02cd17b707f93336a99fd3c9172ecbc4d965d395c71202f24f0f769d682",
+    "keys": [
+      "PLAY NEXT GAME: Return",
+      "pre-match: PLAY GAME, Return",
+      "match screen unchanged for 5 reads: Space",
+      "pre-match: PLAY GAME, Return",
+      "match screen unchanged for 5 reads: Space",
+      "any-key screen: Space",
+      "any-key screen: Space"
+    ]
+  },
+  "observations": [
+    {
+      "step": 1,
+      "source": "screen",
+      "field": "screen 1: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "b83a4fe5769be082f1c47cc2a96b76c99fab6c444cd88cd24d25a7af8ab85294"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "screen 1: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│Friendly #4      │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence                shaky │  ║ C Hendry     ║C║\n│ Blackburn R---- │ │ fitness               match fit │  ║ G Le Saux    ║b║\n│     versus      │ │ energy                vivacious │  ║ H Berg       ║B║\n│ Zaglebie Lubin- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 9│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ Zaglebie Lubin- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "screen 1: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 2,
+      "source": "screen",
+      "field": "screen 2 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "5f0d874622ac647afaccf0f29ee7571f569bb967409b48a26ba0c211a6fce7d7"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2 (match, first read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌FRIENDLY #4──────────commentary──────┐\n│BLACKBURN R----│ 2│┌──────┐█   █ █   │ │**** GOAL **** by Wilcox             │\n├versus─────────┼──┤│ 20652│├▀▀▀▄ ├▀▀▀▄ │**** GOAL **** by Shearer            │\n│ZAGLEBIE LUBIN-│ 0│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Zaglebie Lubin- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│J Wilcox       │ 22│ │   │    │ │    │ │ │     │   │    │ │               │   │\n│A Shearer      │ 25│ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2 (match, first read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 7,
+      "source": "screen",
+      "field": "screen 7 (match, unchanged for 5 reads): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "5f0d874622ac647afaccf0f29ee7571f569bb967409b48a26ba0c211a6fce7d7"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, unchanged for 5 reads): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌FRIENDLY #4──────────commentary──────┐\n│BLACKBURN R----│ 2│┌──────┐█   █ █   │ │**** GOAL **** by Wilcox             │\n├versus─────────┼──┤│ 20652│├▀▀▀▄ ├▀▀▀▄ │**** GOAL **** by Shearer            │\n│ZAGLEBIE LUBIN-│ 0│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Zaglebie Lubin- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│J Wilcox       │ 22│ │   │    │ │    │ │ │     │   │    │ │               │   │\n│A Shearer      │ 25│ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, unchanged for 5 reads): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 7,
+      "source": "screen",
+      "field": "screen 7 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "5f0d874622ac647afaccf0f29ee7571f569bb967409b48a26ba0c211a6fce7d7"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, last read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌FRIENDLY #4──────────commentary──────┐\n│BLACKBURN R----│ 2│┌──────┐█   █ █   │ │**** GOAL **** by Wilcox             │\n├versus─────────┼──┤│ 20652│├▀▀▀▄ ├▀▀▀▄ │**** GOAL **** by Shearer            │\n│ZAGLEBIE LUBIN-│ 0│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Zaglebie Lubin- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│J Wilcox       │ 22│ │   │    │ │    │ │ │     │   │    │ │               │   │\n│A Shearer      │ 25│ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, last read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 8,
+      "source": "screen",
+      "field": "screen 8: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "fee8fb9db3d1b3425938d887a32d10c688cc760d90e346016898a6c83959d349"
+    },
+    {
+      "step": 8,
+      "source": "ui-text",
+      "field": "screen 8: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│Friendly #4      │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence              lacking │  ║ C Hendry     ║C║\n│ Blackburn R---- │ │ fitness               match fit │  ║ G Le Saux    ║b║\n│     versus      │ │ energy              no problems │  ║ H Berg       ║B║\n│ Zaglebie Lubin- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 7│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ Zaglebie Lubin- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 8,
+      "source": "ui-text",
+      "field": "screen 8: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 9,
+      "source": "screen",
+      "field": "screen 9 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "37f486dcf676fd5b42113e44571c3a39552d2ff4ad3668d786a64489a5c8f183"
+    },
+    {
+      "step": 9,
+      "source": "ui-text",
+      "field": "screen 9 (match, first read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌FRIENDLY #4──────────commentary──────┐\n│BLACKBURN R----│ 2│┌──────┐│   │ █   █ │Dziarmaga on for Gorski              │\n├versus─────────┼──┤│ 20652│├───┤ ▄───▄ │Bubnowicz on for Lew'dowski          │\n│ZAGLEBIE LUBIN-│ 0│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Zaglebie Lubin- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│J Wilcox       │ 22│ │   │    │ │    │ │ │     │   │    │ │               │   │\n│A Shearer      │ 25│ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 9,
+      "source": "ui-text",
+      "field": "screen 9 (match, first read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 14,
+      "source": "screen",
+      "field": "screen 14 (match, unchanged for 5 reads): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "37f486dcf676fd5b42113e44571c3a39552d2ff4ad3668d786a64489a5c8f183"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, unchanged for 5 reads): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌FRIENDLY #4──────────commentary──────┐\n│BLACKBURN R----│ 2│┌──────┐│   │ █   █ │Dziarmaga on for Gorski              │\n├versus─────────┼──┤│ 20652│├───┤ ▄───▄ │Bubnowicz on for Lew'dowski          │\n│ZAGLEBIE LUBIN-│ 0│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Zaglebie Lubin- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│J Wilcox       │ 22│ │   │    │ │    │ │ │     │   │    │ │               │   │\n│A Shearer      │ 25│ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, unchanged for 5 reads): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 14,
+      "source": "screen",
+      "field": "screen 14 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "37f486dcf676fd5b42113e44571c3a39552d2ff4ad3668d786a64489a5c8f183"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, last read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌FRIENDLY #4──────────commentary──────┐\n│BLACKBURN R----│ 2│┌──────┐│   │ █   █ │Dziarmaga on for Gorski              │\n├versus─────────┼──┤│ 20652│├───┤ ▄───▄ │Bubnowicz on for Lew'dowski          │\n│ZAGLEBIE LUBIN-│ 0│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Zaglebie Lubin- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│J Wilcox       │ 22│ │   │    │ │    │ │ │     │   │    │ │               │   │\n│A Shearer      │ 25│ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, last read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 15,
+      "source": "screen",
+      "field": "screen 15: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "963d16978bbb02efbdff0462fd353878a375b0c1be9e9f28de05d1632bc49c89"
+    },
+    {
+      "step": 15,
+      "source": "ui-text",
+      "field": "screen 15: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────────────────────────┐\n│ CASH FLOW FOR     Blackburn R---- │ ┌─Cash out───────────────────────────────╖\n└───────────────────────────────────┘ ├────────────────────────┬─┬─┬─┬─┬─┬─┬─┬─╢\n╓─Cash in─────────────────────────────┤ Player salaries        │ │ │ │5│7,3│2│0║\n╟─────────────────────┬─┬─┬─┬─┬─┬─┬─┬─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Gate receipts       │ │ │ │3│0,9│7│8│ Win bonuses            │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Prize money         │ │ │ │ │ │ │ │0│ Staff salaries         │ │ │ │ │4,2│0│0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ TV coverage         │ │ │ │ │ │ │ │0│ Ground maintenance     │ │ │ │ │7,7│5│0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Radio coverage      │ │ │ │ │ │ │ │0│ Players bought         │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Players sold        │ │ │ │ │ │ │ │0│ Contracts              │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Sponsorship         │ │ │ │ │ │ │ │0│ Interest               │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Directors hand-out  │ │ │ │ │ │ │ │0│ Sundries               │ │ │ │ │ │ │ │0║\n╟─────────────────┬─┬─┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────┬─┬─┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ TOTAL IN        │ │ │ │ │ │3│0,9│7│8│ TOTAL OUT          │ │ │ │ │ │6│9,2│7│0║\n╚═════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧════════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝\n╔═════════════════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤════════════════════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗\n║ Club funds      │ │ │ │ │3│8│2,0│2│7│ Overdraft facility │ │ │ │2,9│2│0,0│0│0║\n╚═════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧════════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝\n      Hit INS to increase your stadium capacity or any other key to continue"
+    },
+    {
+      "step": 15,
+      "source": "ui-text",
+      "field": "screen 15: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 16,
+      "source": "screen",
+      "field": "screen 16: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "3349ee82c03e6c3e66b06fda796864fe296294a5979ad0e8660c7db4d800df80"
+    },
+    {
+      "step": 16,
+      "source": "ui-text",
+      "field": "screen 16: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "         ┌─TRANSFER─NEWS──────────────────────────────────────────────┐\n         ├─PLAYER───────────────FROM─────────────────TO───────────────┤\n         │ P.Santos......       Porto----------      Roda-----------  │\n         │ A.Pearce......       Sheffield Wed--      Leicester City-  │\n         │ B.Parkin......       Bristol Rovers-      Omonia Nicosia-  │\n         │ W.Phillips....       Wrexham--------      Leyton Orient--  │\n         │ S.Rusnak......       Slo. Bratislava      Sparta Prague--  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         └────────────────────────────────────────────────────────────┘\n\n\n\n\n\n\n\n\n\n                                press any key"
+    },
+    {
+      "step": 16,
+      "source": "ui-text",
+      "field": "screen 16: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 17,
+      "source": "screen",
+      "field": "main menu after the week: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "b49ab86b462d4a326f07e932984d320d00bcc57404cec07b86095195f245f50a"
+    },
+    {
+      "step": 17,
+      "source": "ui-text",
+      "field": "main menu after the week: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence              lacking │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness               excellent │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy             full of life │  ╟────────────────────╢\n├ 382,027         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ Nottingham F--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Clark           ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ PREMIER LEAGUE  │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.   3 │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├League match #1  ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       home │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 17,
+      "source": "ui-text",
+      "field": "main menu after the week: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 99,
+      "source": "save",
+      "field": "sha256 of the savestate of the last read (kept in .cache/states/T04/, pushed to the owner's Drive)",
+      "value": "8b3d02d6bf48db13706196dedce3f7525a757fe1590efb15c8ccff5c87ce2994"
+    },
+    {
+      "step": 99,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[205.63,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[205.631,\"savestate complete after 1 polls of 0.05s\"],[205.644,\"menu: 'PLAY NEXT GAME' highlighted\"],[205.725,\"key Return held 0.08s (raw keycode 36)\"],[208.246,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[208.248,\"savestate complete after 1 polls of 0.05s\"],[208.781,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[208.783,\"savestate complete after 1 polls of 0.05s\"],[208.8,\"menu: 'PLAY GAME' highlighted\"],[208.881,\"key Return held 0.08s (raw keycode 36)\"],[211.402,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[211.403,\"savestate complete after 1 polls of 0.05s\"],[214.941,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[214.942,\"savestate complete after 1 polls of 0.05s\"],[218.474,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[218.475,\"savestate complete after 1 polls of 0.05s\"],[222.008,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[222.009,\"savestate complete after 1 polls of 0.05s\"],[225.544,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[225.546,\"savestate complete after 1 polls of 0.05s\"],[229.08,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[229.082,\"savestate complete after 1 polls of 0.05s\"],[229.176,\"key space held 0.08s (raw keycode 65)\"],[232.698,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[232.699,\"savestate complete after 1 polls of 0.05s\"],[233.233,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[233.234,\"savestate complete after 1 polls of 0.05s\"],[233.248,\"menu: 'PLAY GAME' highlighted\"],[233.329,\"key Return held 0.08s (raw keycode 36)\"],[235.859,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[235.86,\"savestate complete after 1 polls of 0.05s\"],[239.399,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[239.4,\"savestate complete after 1 polls of 0.05s\"],[242.937,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[242.938,\"savestate complete after 1 polls of 0.05s\"],[246.472,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[246.473,\"savestate complete after 1 polls of 0.05s\"],[250.006,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[250.008,\"savestate complete after 1 polls of 0.05s\"],[253.541,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[253.542,\"savestate complete after 1 polls of 0.05s\"],[253.635,\"key space held 0.08s (raw keycode 65)\"],[257.157,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[257.158,\"savestate complete after 1 polls of 0.05s\"],[257.251,\"key space held 0.08s (raw keycode 65)\"],[259.774,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[259.775,\"savestate complete after 1 polls of 0.05s\"],[259.867,\"key space held 0.08s (raw keycode 65)\"],[262.389,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[262.39,\"savestate complete after 1 polls of 0.05s\"]]"
+    }
+  ],
+  "outputs": [],
+  "started": "2026-10-29T13:24:11.253Z",
+  "ended": "2026-10-29T13:25:08.567Z",
+  "status": "completed"
+}
