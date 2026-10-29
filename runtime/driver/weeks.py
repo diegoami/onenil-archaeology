@@ -8,7 +8,8 @@ and wait for the main menu (record T04-load-r<nnnn>: the screens, and whether a 
 registration text appears); turn "Watch match" off in Game configuration (an in-game option, so a
 week's match is played without the watched pitch); then for each week select PLAY NEXT GAME, play the
 game from the pre-match screen, pass every "press any key" and "any other key to continue" screen
-with Space, answer N to any (Y/N) question, until the main menu is back (record T04-week-r<nnnn>,
+with Space, answer N to any (Y/N) question, offer an expiring contract on the default terms (Return
+through the PLAYER CONTRACT categories), until the main menu is back (record T04-week-r<nnnn>,
 starting from the savestate the previous record ended with). Stops at a screen it does not know, and
 records it. Savestates (they hold the game's memory) are kept in .cache/states/T04/ and pushed to
 the owner's Drive, never to git; records hold their sha256 (CLAUDE.md rule 14).
@@ -34,7 +35,7 @@ ROOT = driver.ROOT
 STATES = ROOT / ".cache" / "states" / "T04"
 LOAD_WAIT = 3.0       # seconds after Y before the first savestate (see the docstring)
 SCREEN_WAIT = 2.0     # seconds after a key that changes the screen, before the next read
-MAX_SCREENS = 40      # screens per week before the week is called stuck
+MAX_SCREENS = 80      # screens per week before the week is called stuck
 NEEDLES = ("REGISTER", "purchase", "Runtime error")  # texts a screen must not show
 
 
@@ -100,8 +101,12 @@ def play_week(d, obs, keys):
         obs += screen_obs(step, f"screen {step}", sc)
         if "PLAY GAME" in text and "Change tactics" in text:
             screens.select(d, "PLAY GAME"); d.keys("Return"); keys.append("pre-match: PLAY GAME, Return")
-        elif "press any key" in low or "any other key to continue" in low:
+        elif "press any key" in low or "any other key to continue" in low or "hit any key" in low:
             d.keys("space"); keys.append("any-key screen: Space")
+        elif "PLAYER CONTRACT" in text:
+            # Return steps through the categories to OFFER CONTRACT and then offers the terms shown
+            # (the game's defaults): the player is kept. A game decision, recorded with the keys.
+            d.keys("Return"); keys.append("contract screen: Return (next category; on OFFER CONTRACT, offer the default terms)")
         elif "(y/n)" in low:
             d.keys("n"); keys.append("(Y/N) question: N")
         else:
