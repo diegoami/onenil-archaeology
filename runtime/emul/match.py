@@ -169,6 +169,21 @@ class Week:
             g.press(*keys)
         raise guest.GuestError(f"no main menu after {max_screens} key waits")
 
+    def state_digests(self):
+        """The sha256 of the memory at each save block's destination (F03 R24-R51), as runtime/layouts.py
+        reads them: what the week left in the game's state, without its bytes."""
+        g, out = self.g, {}
+        for dest, size in save.BLOCKS:
+            off = int(dest.strip("[]").split(":")[1], 16)
+            addr = g.far(off) if dest.startswith("[") else g.DS * 16 + off
+            out[dest] = hashlib.sha256(g.mem(addr, size)).hexdigest()
+        return out
+
+    def files_written(self):
+        """Files the week created or changed in the guest's folder: name, size, sha256."""
+        return [{"name": n, "size": len(b), "sha256": hashlib.sha256(b).hexdigest()}
+                for n, b in sorted(self.g.files.items()) if self.files_at_start.get(n) != b]
+
 
 def compact_services(g):
     """T10: keep one entry of g.services per (interrupt, function) that end.services reports (AX for
@@ -187,21 +202,6 @@ def watched_pitch_running(g, text):
     low = text.lower()
     return (g.wait_caller != guest.READKEY_LOOP and "spacebar-commentary" in text
             and "press any key" not in low and "any other key" not in low)
-
-    def state_digests(self):
-        """The sha256 of the memory at each save block's destination (F03 R24-R51), as runtime/layouts.py
-        reads them: what the week left in the game's state, without its bytes."""
-        g, out = self.g, {}
-        for dest, size in save.BLOCKS:
-            off = int(dest.strip("[]").split(":")[1], 16)
-            addr = g.far(off) if dest.startswith("[") else g.DS * 16 + off
-            out[dest] = hashlib.sha256(g.mem(addr, size)).hexdigest()
-        return out
-
-    def files_written(self):
-        """Files the week created or changed in the guest's folder: name, size, sha256."""
-        return [{"name": n, "size": len(b), "sha256": hashlib.sha256(b).hexdigest()}
-                for n, b in sorted(self.g.files.items()) if self.files_at_start.get(n) != b]
 
 
 def result(board):
