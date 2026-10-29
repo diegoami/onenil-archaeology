@@ -1,0 +1,1250 @@
+; 1-095.EXE (One-Nil 95), strings (ASCII runs of 4 or more printable bytes, in code gaps and the data segment)
+; packed 1-095.EXE sha256 f659fb2d334500d6901fc8d6a0f06c85c0ccda2eb4a3035ae3bb0a0004d79192 (LZEXE 0.91)
+; unpacked (tools/static/unlzexe.py) sha256 8df646e017e0965a5d90a58181ca764219ad847833aad0b6cb58fc53372bfb2c
+; tool: tools/static/listing.py
+; addresses are SEGMENT:OFFSET with SEGMENT the image paragraph before relocation; image offset = SEGMENT*16+OFFSET
+; kind pstr = length-prefixed (Pascal) string, ascii = anything else; heuristic, not a parse
+segment:offset	image_offset	kind	text
+0005:012A	0017A	pstr	You can't choose the same team
+0005:01A2	001F2	pstr	 are not interested
+0005:01B6	00206	pstr	 agree to employ you - ok
+0005:14B7	01507	pstr	Cannot find seasonal info for this year...
+0005:1A2F	01A7F	pstr	No history available until a full season is completed
+0005:1B40	01B90	pstr	No game this week
+01EE:07BC	0269C	pstr	Do you accept, 
+01EE:0D02	02BE2	pstr	Your chairman thinks you have enough players
+01EE:0D2F	02C0F	pstr	 doesn't want to join you
+01EE:1525	03405	ascii	You don't have a scout-There are no players fitting these conditions
+01EE:1D50	03C30	pstr	Not available until after league match #4
+01EE:2FE3	04EC3	pstr	Unemployed
+01EE:2FEE	04ECE	pstr	None
+01EE:30E1	04FC1	pstr	 is not interested in joining you
+01EE:3103	04FE3	pstr	 agrees to join you. Okay
+01EE:32D8	051B8	pstr	Sack 
+01EE:3372	05252	pstr	SACK
+01EE:36C8	055A8	pstr	: your assistant has joined 
+01EE:3ECA	05DAA	pstr	No league results to see
+01EE:4C86	06B66	pstr	Do you want to save the full seasonal information
+06E4:36C8	0A508	pstr	 PAY 
+06E4:36CE	0A50E	pstr	Your chairman overrules you
+06E4:3B60	0A9A0	pstr	Not enough
+0AB5:0502	0B052	pstr	Do you want to print the match commentary
+0AB5:052C	0B07C	pstr	Printing.....
+0AB5:053A	0B08A	pstr	 versus 
+0AB5:0547	0B097	pstr	FINAL SCORE: 
+0AB5:0557	0B0A7	pstr	something's up with the printer
+0AB5:78AC	123FC	pstr	turbo
+0AB5:78B2	12402	pstr	    
+0AB5:8422	12F72	pstr	penalty shoot out
+0AB5:8A02	13552	pstr	Protect zone
+0AB5:8A53	135A3	pstr	Protect zone
+0AB5:8D54	138A4	pstr	(Retiring this year)
+0AB5:A068	14BB8	pstr	You can't sack trialists
+0AB5:A081	14BD1	pstr	Get rid of 
+0AB5:A08D	14BDD	pstr	It will cost you 
+0AB5:A09F	14BEF	pstr	. Ok
+0AB5:ABB6	15706	pstr	Goalkeepers cannot be repositioned
+0AB5:B6B5	16205	pstr	       
+0AB5:BADB	1662B	pstr	REJECTED: 
+0AB5:BAE6	16636	pstr	 wants to leave
+0AB5:BE4D	1699D	ascii	"REJECTED: not enough money offered!REJECTED: internationals demanded
+0AB5:BE92	169E2	pstr	CONTRACT ACCEPTED
+0AB5:C094	16BE4	pstr	 is not 18 yet
+0AB5:C33C	16E8C	pstr	Your chairman won't let you
+0AB5:C7C6	17316	ascii	There is no player here*Your final substitute must be a goalkeeper
+0AB5:C809	17359	ascii	Illegal substitution,You cannot have two goalkeepers on the pitch
+0AB5:C84A	1739A	pstr	 cannot play
+0AB5:C857	173A7	pstr	Nice try
+0AB5:CB67	176B7	pstr	              
+0AB5:CB76	176C6	pstr	NO MORE SUBS  
+0AB5:CB85	176D5	pstr	MAKE SUBSTITUTION
+0AB5:CB97	176E7	pstr	REQUEST SUBSTITION
+0AB5:CBAB	176FB	ascii	CANCEL SUB REQUESTED*Cannot hire youths after match has started
+0AB5:D239	17D89	ascii	 has insufficient players+ has an ineligible player in the first team
+0AB5:D27E	17DCE	pstr	 has too many 
+0AB5:D28F	17DDF	pstr	 has no 
+0AB5:D5C6	18116	pstr	CONTINUE 
+0AB5:DB59	186A9	pstr	HANG ON 
+1994:0000	19940	ascii	PSQRVW
+1B51:0028	1B538	pstr	Cannot load file "
+1B51:003B	1B54B	pstr	" - program terminated - 
+1B51:012C	1B63C	pstr	TRIA
+1B51:0137	1B647	pstr	.DAT
+1B51:0307	1B817	pstr	.1-0
+1B51:0368	1B878	pstr	Looking for saved games...
+1B51:0383	1B893	pstr	*.1-0
+1B51:0389	1B899	pstr	Cannot find any saved games
+1B51:059F	1BAAF	pstr	Finding data files...
+1B51:05B5	1BAC5	pstr	*.DAT
+1B51:05BB	1BACB	pstr	Cannot find any data files
+1B51:0917	1BE27	pstr	.....
+1B51:0AE0	1BFF0	pstr	.1-0
+1B51:0C9A	1C1AA	pstr	Do you want to load a saved game
+1B51:0D64	1C274	pstr	Are you sure you want to quit
+1B51:0D82	1C292	pstr	Do you want to save this game
+1B51:10E9	1C5F9	pstr	Round 1
+1B51:10F1	1C601	pstr	Round 2
+1B51:10F9	1C609	pstr	Round 3
+1B51:1101	1C611	pstr	Quarter Finals
+1B51:1110	1C620	pstr	Semi Finals
+1B51:111C	1C62C	pstr	Final
+1B51:1258	1C768	pstr	QF L#1
+1B51:125F	1C76F	pstr	QF L#2
+1B51:1266	1C776	pstr	SF L#1
+1B51:126D	1C77D	pstr	SF L#2
+1B51:1274	1C784	pstr	Final
+1B51:127A	1C78A	pstr	Final L#1
+1B51:1284	1C794	pstr	Final L#2
+1B51:128E	1C79E	pstr	Group
+1B51:1803	1CD13	pstr	1st leg:  v
+1B51:180F	1CD1F	pstr	2nd leg:  v
+1B51:1CD3	1D1E3	pstr	Large chin
+1B51:2A7A	1DF8A	pstr	Ok...improvements will take a few months
+1B51:2CA9	1E1B9	pstr	Your stadium will be ready in 
+1B51:2CC9	1E1D9	ascii	 weeks-Your stadium is as big as it's going to get!!
+1B51:2CFD	1E20D	pstr	You don't have enough money
+1B51:37AF	1ECBF	pstr	Your chairman won't release the money
+1B51:4B8D	2009D	pstr	Can't play
+1B51:4B98	200A8	pstr	too young to tell
+1B51:5972	20E82	pstr	Your chairman thinks you have enough trialists
+1B51:5C26	21136	pstr	You have a full squad
+1B51:65E4	21AF4	pstr	You can't sell youth players
+1B51:6602	21B12	ascii	Sell ' has been placed on the transfer market
+1B51:6EA6	223B6	pstr	THE 
+1B51:6EAB	223BB	pstr	ON GAINING PROMOTION
+1B51:7AF1	23001	ascii	save1.1-0$Type install to install to hard disk
+231A:0000	231A0	pstr	1-0.tfn
+231A:0056	231F6	pstr	1-0.pal
+231A:054D	236ED	pstr	? (Y/N)
+231A:06DD	2387D	pstr	? (Y/N)
+231A:0824	239C4	pstr	Do you want to print out this screen
+231A:0849	239E9	pstr	something's up with the printer
+231A:118A	2432A	pstr	try again
+244A:05AE	24A4E	ascii	tcQRW
+24AC:0667	25127	pstr	ERROR: 
+24AC:06F6	251B6	pstr	hit any key
+24AC:077C	2523C	pstr	? (Y/N)
+24AC:0AD0	25590	ascii	PSQRVW
+24AC:0D87	25847	pstr	 not found
+24AC:0D92	25852	pstr	Path not found
+24AC:0DA1	25861	pstr	File access denied
+24AC:0DB4	25874	pstr	Not enough memory
+24AC:0DC7	25887	ascii	Write error)Disk read error - read beyond end of file
+24AC:0DFC	258BC	pstr	Disk is full
+24AC:0E09	258C9	pstr	Disk is write-protected
+24AC:0E21	258E1	pstr	Device not ready
+24AC:0E32	258F2	pstr	Unknown command
+24AC:0E42	25902	pstr	Disk seek error
+24AC:0E52	25912	pstr	Device write fault
+24AC:0E65	25925	pstr	Device read fault
+24AC:0E77	25937	pstr	Dos error 
+24AC:1078	25B38	ascii	seeking #Drive not ready : Retry disk access
+24AC:124A	25D0A	pstr	printer not ready
+24AC:125C	25D1C	pstr	printer off line
+24AC:1380	25E40	pstr	loading 
+24AC:1477	25F37	pstr	Out of memory
+24AC:18F7	263B7	ascii	PSQRVW
+24AC:1DAF	2686F	pstr	386 chip (or better) required
+24AC:1DCD	2688D	pstr	VGA required
+24AC:1E85	26945	pstr	BAMI
+24AC:1ED9	26999	pstr	(c) new era software
+26B9:00FA	26C8A	ascii	X[YZ^_]
+26B9:023C	26DCC	ascii	!#$456789:;<=>?uRuntime error 
+26B9:025B	26DEB	ascii	 at 
+26B9:0264	26DF4	ascii	Portions Copyright (c) 1983,92 Borland
+26B9:1411	27FA1	ascii	<lr\
+26B9:15BC	2814C	ascii	`1pF,
+26B9:15C9	28159	ascii	!wS<
+26B9:15D9	28169	ascii	FXc~
+2854:0004	28544	pstr	bought
+2854:000B	2854B	pstr	sold
+2854:0014	28554	pstr	from
+2854:0032	28572	pstr	Round 1
+2854:0040	28580	pstr	Round 2
+2854:004E	2858E	pstr	Round 1
+2854:005C	2859C	pstr	Round 2
+2854:006A	285AA	pstr	Round 3
+2854:0078	285B8	pstr	Quarter Final
+2854:0086	285C6	pstr	Semi Final
+2854:0094	285D4	pstr	Runners-up
+2854:00A2	285E2	pstr	Group Stage
+2854:00B0	285F0	pstr	WINNERS
+2854:00E4	28624	pstr	FOREIGN
+2854:00ED	2862D	pstr	DOMESTIC
+2854:00F6	28636	pstr	SCOUT
+2854:014E	2868E	ascii	 !"#$%
+2854:018A	286CA	ascii	 !""%
+2854:01AE	286EE	ascii	3333335????????
+2854:0286	287C6	pstr	 Assistants 
+2854:0293	287D3	pstr	 Physios 
+2854:02A0	287E0	pstr	 Scouts 
+2854:02EE	2882E	ascii	dP<F2
+2854:0343	28883	ascii	#).3
+2854:0356	28896	ascii	JE39
+2854:0384	288C4	ascii	on for
+2854:0398	288D8	ascii	pass by
+2854:03AE	288EE	ascii	makes a pass
+2854:03C3	28903	ascii	throws the ball
+2854:03D7	28917	ascii	kick by
+2854:03EC	2892C	ascii	long kick from
+2854:0402	28942	ascii	makes a run
+2854:0416	28956	ascii	poor touch from
+2854:042B	2896B	ascii	good ball for
+2854:0440	28980	ascii	long pass to
+2854:0455	28995	ascii	high ball for
+2854:046A	289AA	ascii	tackle by
+2854:047F	289BF	ascii	dodged by
+2854:0495	289D5	ascii	dives
+2854:04AA	289EA	ascii	wins the ball
+2854:04BE	289FE	ascii	cross from
+2854:04D3	28A13	ascii	cross from
+2854:04E8	28A28	ascii	shot from
+2854:04FD	28A3D	ascii	volley from
+2854:0512	28A52	ascii	snap-shot from
+2854:0527	28A67	ascii	header from
+2854:053C	28A7C	ascii	cleared by
+2854:0551	28A91	ascii	headed clear by
+2854:0566	28AA6	ascii	punted away by
+2854:057B	28ABB	ascii	headed away by
+2854:0591	28AD1	ascii	on the ball
+2854:05A6	28AE6	ascii	hits the post
+2854:05BB	28AFB	ascii	hits the bar
+2854:05D0	28B10	ascii	has the ball
+2854:05E4	28B24	ascii	saved by
+2854:05F9	28B39	ascii	blocked by
+2854:060E	28B4E	ascii	deflected by
+2854:0623	28B63	ascii	headed on by
+2854:0638	28B78	ascii	knocked on by
+2854:064E	28B8E	ascii	intercepts
+2854:0663	28BA3	ascii	collects
+2854:0678	28BB8	ascii	beaten
+2854:068D	28BCD	ascii	has no chance
+2854:06A1	28BE1	ascii	**** GOAL **** by
+2854:06B6	28BF6	ascii	** OWN GOAL ** by
+2854:06CA	28C0A	pstr	over the bar
+2854:06DF	28C1F	pstr	just wide of post
+2854:06F6	28C36	ascii	to take throw in
+2854:0709	28C49	pstr	*** THROW IN ***
+2854:0720	28C60	ascii	to take corner
+2854:0733	28C73	pstr	*** CORNER ***
+2854:074A	28C8A	ascii	to take goal kick
+2854:075F	28C9F	ascii	to take penalty
+2854:0774	28CB4	ascii	to take free kick
+2854:0789	28CC9	ascii	to take kick off
+2854:079E	28CDE	ascii	BOOKED
+2854:07B3	28CF3	ascii	SENT OFF
+2854:07C8	28D08	ascii	INJURED
+2854:07DC	28D1C	ascii	FOUL by
+2854:07F2	28D32	ascii	is OFFSIDE
+2854:0807	28D47	ascii	is brought down
+2854:081A	28D5A	pstr	*** GOAL KICK ***
+2854:082F	28D6F	pstr	*** PENALTY ***
+2854:0844	28D84	pstr	*** FREE KICK ***
+2854:085B	28D9B	ascii	wins the toss
+2854:0870	28DB0	ascii	to shoot
+2854:0883	28DC3	pstr	---- PENALTIES ----
+2854:0898	28DD8	pstr	---- EXTRA TIME ----
+2854:08AD	28DED	pstr	---- FULL TIME ----
+2854:08C2	28E02	pstr	---- HALF TIME ----
+2854:08D8	28E18	ascii	challenge by
+2854:08EC	28E2C	pstr	* ADVANTAGE PLAYED *
+2854:0901	28E41	pstr	** LINESMAN FLAGS **
+2854:0B49	29089	ascii	ZZZ(ZZ
+2854:0B5A	2909A	pstr	zonal
+2854:0B65	290A5	pstr	man to man
+2854:0B70	290B0	pstr	stay in box
+2854:0B80	290C0	pstr	come out of box
+2854:0B90	290D0	pstr	throw the ball
+2854:0BA0	290E0	pstr	kick from hand
+2854:0BB0	290F0	pstr	left
+2854:0BB6	290F6	pstr	right
+2854:0BBC	290FC	pstr	contracted
+2854:0BC7	29107	pstr	none
+2854:0BD2	29112	pstr	listed
+2854:0BDD	2911D	pstr	on trial
+2854:0BEA	2912A	ascii	;=?A
+2854:0C76	291B6	pstr	 CAPTAIN
+2854:0C81	291C1	pstr	 CORNER
+2854:0C8C	291CC	pstr	PENALTY
+2854:0C97	291D7	pstr	FREE KICK
+2854:0CA2	291E2	pstr	GOAL KICK
+2854:0CAE	291EE	ascii	;=?A
+2854:0E6A	293AA	ascii	2Yla2aTKdKsuYaAw22AiAajdanaYaq<i
+2854:0E98	293D8	ascii	loading 
+2854:0EAE	293EE	pstr	Saving
+2854:0EB9	293F9	pstr	Loading
+2854:0ECC	2940C	ascii	Please enter name of new game 
+2854:0EF4	29434	ascii	.1-0
+2854:0F10	29450	pstr	---------------
+2854:0F30	29470	pstr	League match
+2854:0F40	29480	pstr	Friendly
+2854:0F50	29490	pstr	Friendly
+2854:0F60	294A0	pstr	League Cup
+2854:0F70	294B0	pstr	FA Cup
+2854:0F80	294C0	pstr	Euro cups
+2854:0F90	294D0	pstr	Eurpn Cup
+2854:0FA0	294E0	pstr	Cup Win.
+2854:0FB0	294F0	pstr	UEFA Cup
+2854:0FC0	29500	pstr	Testimonial
+2854:0FD0	29510	pstr	End of season
+2854:0FEB	2952B	ascii	34?Mf5E678G
+2854:0FF7	29537	ascii	@.ABC3
+2854:0FFE	2953E	ascii	CEF7GHIJKL4MNOPQRST3UVWXYZ[\]^@0 
+2854:1141	29681	ascii	!IYy
+2854:115E	2969E	ascii	!)Aay
+2854:1266	297A6	ascii	 0@P`p
+2854:128B	297CB	pstr	568<GDGCCCDCCCAAGC
+2854:12E2	29822	pstr	ABCDEFGHIJKLMNOPRSTVW
+2854:1318	29858	pstr	ON WINNING 
+2854:133F	2987F	ascii	Change information  
+2854:1355	29895	ascii	SPACEBAR
+2854:1362	298A2	ascii	Squad 
+2854:1381	298C1	ascii	WHICH POSITION ? 
+2854:1425	29965	ascii	select
+2854:1437	29977	ascii	move
+2854:144F	2998F	ascii	exit
+2854:1471	299B1	ascii	: Do you want to join -
+2854:148A	299CA	ascii	 ? (
+2854:14B0	299F0	ascii	  PLAYER CONTRACT 
+2854:14DD	29A1D	ascii	 Length 
+2854:14EE	29A2E	ascii	 1,2,3,4 years 
+2854:150C	29A4C	ascii	 Wage 
+2854:152B	29A6B	ascii	 Allow internationals 
+2854:1548	29A88	ascii	 yes/no 
+2854:155F	29A9F	ascii	 Signing on fee 
+2854:1588	29AC8	ascii	 OFFER CONTRACT 
+2854:15B1	29AF1	ascii	change
+2854:15C9	29B09	ascii	next category
+2854:15E8	29B28	ascii	last category
+2854:1616	29B56	ascii	OFFER CONTRACT
+2854:1635	29B75	ascii	last category
+2854:1655	29B95	ascii	first team
+2854:166E	29BAE	ascii	 CONTRACT DISCUSSIONS 
+2854:168A	29BCA	ascii	 HAVE ENDED IN 
+2854:16A1	29BE1	ascii	 DISAGREEMENT. 
+2854:16CE	29C0E	ascii	 CONTRACT DISCUSSIONS 
+2854:16EA	29C2A	ascii	 HAVE ENDED IN 
+2854:1701	29C41	ascii	 AGREEMENT.
+2854:1724	29C64	ascii	 BID REFUSED
+2854:1732	29C72	ascii	 : try again 
+2854:175C	29C9C	ascii	GIVE UP
+2854:17BD	29CFD	ascii	move
+2854:17F1	29D31	ascii	change
+2854:1827	29D67	ascii	exit
+2854:1896	29DD6	ascii	MAKE YOUR 
+2854:18AA	29DEA	ascii	OFFER 
+2854:1958	29E98	ascii	change
+2854:1964	29EA4	ascii	 (10
+2854:196D	29EAD	ascii	PgUp
+2854:1976	29EB6	ascii	PgDn
+2854:197F	29EBF	ascii	change
+2854:1993	29ED3	ascii	 Home
+2854:19A5	29EE5	ascii	change
+2854:19C9	29F09	ascii	make offer
+2854:1A92	29FD2	ascii	Pgup
+2854:1A9B	29FDB	ascii	Pgdn
+2854:1AA4	29FE4	ascii	Home
+2854:1AB5	29FF5	ascii	view commentary 
+2854:1AD0	2A010	pstr	play 
+2854:1AE7	2A027	ascii	division
+2854:1B00	2A040	ascii	watch game
+2854:1B16	2A056	ascii	(half time 
+2854:1B3E	2A07E	ascii	  MAN OF THE MATCH 
+2854:1B68	2A0A8	ascii	FIRST TEAM
+2854:1C07	2A147	ascii	move
+2854:1C1A	2A15A	ascii	select
+2854:1C61	2A1A1	ascii	 10 
+2854:1C67	2A1A7	ascii	 11 
+2854:1C7A	2A1BA	ascii	select the order for the 
+2854:1C95	2A1D5	ascii	PENALTY SHOOT OUT
+2854:1CBB	2A1FB	ascii	undo N
+2854:1CC6	2A206	ascii	substitution requested
+2854:1CE2	2A222	ascii	(first leg 
+2854:1D09	2A249	ascii	watchk
+2854:1D1B	2A25B	ascii	reserves
+2854:1D2A	2A26A	ascii	RESERVES
+2854:1D46	2A286	ascii	 TEAM CAPTAIN 
+2854:1D68	2A2A8	ascii	PLAYER SKILLS
+2854:1D8D	2A2CD	ascii	 Shot stopping 
+2854:1DA9	2A2E9	ascii	 Tackling (1 on 1) 
+2854:1DC7	2A307	ascii	 Handling crosses  
+2854:1DE5	2A325	ascii	 Goal kicking 
+2854:1E00	2A340	ascii	 Penalty stopping  
+2854:1E1E	2A35E	ascii	 Tackling 
+2854:1E35	2A375	ascii	 Blocking 
+2854:1E4C	2A38C	ascii	 Marking 
+2854:1E62	2A3A2	ascii	 Clearing 
+2854:1E79	2A3B9	ascii	 Jumping 
+2854:1E8F	2A3CF	ascii	 Short passing 
+2854:1EAB	2A3EB	ascii	 Long passing 
+2854:1EC6	2A406	ascii	 Crossing 
+2854:1EDD	2A41D	ascii	 Dribbling 
+2854:1EF5	2A435	ascii	 First touch 
+2854:1F0F	2A44F	ascii	 Finding space 
+2854:1F2B	2A46B	ascii	 Shooting power 
+2854:1F48	2A488	ascii	 Shooting accuracy 
+2854:1F66	2A4A6	ascii	 Heading power 
+2854:1F82	2A4C2	ascii	 Heading accuracy  
+2854:1FA0	2A4E0	ascii	 Penalty taking 
+2854:1FBD	2A4FD	ascii	 Free kick taking  
+2854:1FE6	2A526	ascii	Details
+2854:2012	2A552	ascii	 FEE SET BY TRIBUNAL 
+2854:2036	2A576	ascii	Do you agree to sell 
+2854:2059	2A599	ascii	) ? 
+2854:206E	2A5AE	ascii	LEAVING
+2854:2077	2A5B7	ascii	 the club.
+2854:2084	2A5C4	pstr	Press any key
+2854:20D2	2A612	ascii	H A S 
+2854:20EE	2A62E	ascii	R E T I R E D 
+2854:214A	2A68A	ascii	IS NO LONGER A 
+2854:2177	2A6B7	ascii	YOUTH PLAYER 
+2854:219F	2A6DF	ascii	 OFFER HIM A CONTRACT 
+2854:21CE	2A70E	ascii	 OR HE WILL LEAVE THE 
+2854:2200	2A740	ascii	CLUB IMMEDIATELY 
+2854:2234	2A774	ascii	Do you want to offer him a contract 
+2854:2266	2A7A6	ascii	) ? 
+2854:2277	2A7B7	ascii	PLEASE ENTER
+2854:228F	2A7CF	ascii	YOUR NAME
+2854:22B9	2A7F9	pstr	move8
+2854:22CA	2A80A	ascii	FIRST TEAM
+2854:237C	2A8BC	ascii	move
+2854:23B5	2A8F5	ascii	move
+2854:23C3	2A903	ascii	space
+2854:23CC	2A90C	pstr	pitch
+2854:23EE	2A92E	ascii	 Name 
+2854:2403	2A943	ascii	 Strips 
+2854:241A	2A95A	ascii	 Country 
+2854:2432	2A972	ascii	 League 
+2854:2449	2A989	ascii	 League position 
+2854:2469	2A9A9	ascii	 Stadium capacity 
+2854:248A	2A9CA	ascii	 Support 
+2854:24A2	2A9E2	ascii	 Squad size 
+2854:24D4	2AA14	ascii	make bid
+2854:24EF	2AA2F	ascii	leagues  
+2854:2505	2AA45	ascii	exit
+2854:2517	2AA57	ascii	buy player
+2854:2540	2AA80	ascii	Cash available
+2854:2579	2AAB9	ascii	Max. overdraft
+2854:25F1	2AB31	ascii	versus 
+2854:261A	2AB5A	ascii	Remaining subs
+2854:2651	2AB91	ascii	 Match stats 
+2854:266D	2ABAD	ascii	 PLAY GAME 
+2854:2687	2ABC7	ascii	 Change tactics  
+2854:26A7	2ABE7	ascii	move
+2854:26BD	2ABFD	ascii	select
+2854:26D6	2AC16	ascii	 Friendly arranged for 
+2854:26F7	2AC37	ascii	Press 
+2854:2715	2AC55	ascii	TRANSFER
+2854:2722	2AC62	ascii	NEWS
+2854:273A	2AC7A	ascii	PLAYER
+2854:2747	2AC87	ascii	FROM
+2854:2855	2AD95	ascii	OFFER 
+2854:28F3	2AE33	ascii	FOR 
+2854:291B	2AE5B	ascii	 FIXTURES FOR GAME # 
+2854:2AF1	2B031	ascii	move
+2854:2B19	2B059	ascii	exit  
+2854:2B35	2B075	ascii	wants you to manage 
+2854:2B4B	2B08B	ascii	Press
+2854:2B52	2B092	ascii	 ESC
+2854:2E0B	2B34B	ascii	p SUBSTITUTION OPPORTUNITY 
+2854:2E2D	2B36D	ascii	press any key  
+2854:2E45	2B385	ascii	HAS NO GOALKEEPER 
+2854:2E5B	2B39B	ascii	press any key  
+2854:2E73	2B3B3	ascii	Your chairman has transfer-listed your entire squad 
+2854:2EA9	2B3E9	ascii	Press 
+2854:2EC1	2B401	ascii	p SUBSTITUTION 
+2854:2ED5	2B415	ascii	on for 
+2854:2EE0	2B420	ascii	press any key 
+2854:2F00	2B440	ascii	 SELECT TRIAL PERIOD  
+2854:2F23	2B463	ascii	 Length 
+2854:2F34	2B474	ascii	 1,2,3,4 games 
+2854:2F5C	2B49C	ascii	change
+2854:2F76	2B4B6	ascii	accept
+2854:2FB4	2B4F4	ascii	 TRIAL PERIOD IS NOW  
+2854:2FD1	2B511	ascii	 OVER.YOU MUST DECIDE 
+2854:2FEE	2B52E	ascii	 ON A BASIC WAGE IF 
+2854:300B	2B54B	ascii	 YOU WANT TO KEEP 
+2854:3036	2B576	ascii	 Wage 
+2854:305F	2B59F	ascii	change
+2854:3079	2B5B9	ascii	offer wage
+2854:3097	2B5D7	ascii	forget it
+2854:30CF	2B60F	ascii	WAGE ACCEPTED 
+2854:30F5	2B635	ascii	A  L 
+2854:3143	2B683	ascii	PLEASE SELECT
+2854:315B	2B69B	ascii	YOUR
+2854:316A	2B6AA	ascii	NATIONALITY
+2854:3188	2B6C8	ascii	TRANSFERS
+2854:32C7	2B807	ascii	move
+2854:32E3	2B823	ascii	: STADIUM IMPROVEMENTS ARE NOW COMPLETED.
+2854:330E	2B84E	ascii	Press 
+2854:3324	2B864	ascii	Extra capacity: 
+2854:3340	2B880	ascii	change
+2854:3348	2B888	ascii	) costs: 
+2854:335C	2B89C	ascii	proceed 
+2854:336E	2B8AE	ascii	abort 
+2854:337C	2B8BC	ascii	  Top scorers (league and cups) 
+2854:33AF	2B8EF	ascii	  Team league statistics 
+2854:33DE	2B91E	ascii	  Best attack 
+2854:33F4	2B934	ascii	  Worst attack 
+2854:340B	2B94B	ascii	  Best defence 
+2854:3422	2B962	ascii	  Worst defence 
+2854:343A	2B97A	ascii	  Most home wins 
+2854:3453	2B993	ascii	  Most home defeats 
+2854:346F	2B9AF	ascii	  Most away wins 
+2854:3488	2B9C8	ascii	  Most away defeats 
+2854:34AD	2B9ED	ascii	  Current form 
+2854:34D2	2BA12	ascii	  Consecutive wins 
+2854:34ED	2BA2D	ascii	  Consecutive defeats 
+2854:350B	2BA4B	ascii	  Games without a win 
+2854:3529	2BA69	ascii	  Games without defeat 
+2854:3563	2BAA3	ascii	next division 
+2854:358D	2BACD	ascii	previous division 
+2854:3638	2BB78	ascii	  Corners 
+2854:364A	2BB8A	ascii	  Corners 
+2854:3683	2BBC3	ascii	 Scorers 
+2854:369A	2BBDA	ascii	  Free kicks 
+2854:36AF	2BBEF	ascii	  Free kicks 
+2854:36CC	2BC0C	ascii	 Scorers 
+2854:36FE	2BC3E	ascii	  Penalties 
+2854:3712	2BC52	ascii	  Penalties 
+2854:3740	2BC80	ascii	  Shots 
+2854:3750	2BC90	ascii	  Shots 
+2854:3770	2BCB0	ascii	  On target 
+2854:3784	2BCC4	ascii	  On target 
+2854:37A8	2BCE8	ascii	  Saves 
+2854:37B8	2BCF8	ascii	  Saves 
+2854:37D8	2BD18	ascii	  Fouls 
+2854:37E8	2BD28	ascii	  Fouls 
+2854:3808	2BD48	ascii	  Bookings 
+2854:381B	2BD5B	ascii	  Bookings 
+2854:383E	2BD7E	ascii	  Red cards 
+2854:3852	2BD92	ascii	  Red cards 
+2854:38A9	2BDE9	ascii	  Possession:
+2854:38D0	2BE10	ascii	  Territory :
+2854:3934	2BE74	ascii	 MATCH 
+2854:39BF	2BEFF	ascii	 STAFF for 
+2854:39E4	2BF24	ascii	MANAGER
+2854:39F9	2BF39	ascii	 Name 
+2854:3A0A	2BF4A	ascii	 Country 
+2854:3A1E	2BF5E	ascii	 Rating 
+2854:3A34	2BF74	ascii	ASSISTANT
+2854:3A4B	2BF8B	ascii	 Name 
+2854:3A5C	2BF9C	ascii	 Country 
+2854:3A70	2BFB0	ascii	 Rating 
+2854:3A86	2BFC6	ascii	PHYSIO
+2854:3A9A	2BFDA	ascii	 Name 
+2854:3AAB	2BFEB	ascii	 Country 
+2854:3ABF	2BFFF	ascii	 Rating 
+2854:3AD5	2C015	ascii	SCOUT
+2854:3AE8	2C028	ascii	 Name 
+2854:3AF9	2C039	ascii	 Country 
+2854:3B0D	2C04D	ascii	 Rating 
+2854:3B23	2C063	ascii	CHAIRMAN
+2854:3B39	2C079	ascii	 Name 
+2854:3B4A	2C08A	ascii	 Country 
+2854:3B5E	2C09E	ascii	 Rating 
+2854:3B91	2C0D1	ascii	 formation 
+2854:3BA5	2C0E5	ascii	FIRST TEAM AVERAGES
+2854:3BC1	2C101	ascii	 confidence 
+2854:3BD3	2C113	ascii	 fitness 
+2854:3BE2	2C122	ascii	 energy 
+2854:3BF0	2C130	ascii	 hardness 
+2854:3C03	2C143	ascii	RATINGS
+2854:3C23	2C163	ascii	 goalkeeper 
+2854:3C3D	2C17D	ascii	 defence 
+2854:3C54	2C194	ascii	 midfield 
+2854:3C6C	2C1AC	ascii	 attack 
+2854:3C9E	2C1DE	ascii	TEAM VALUE
+2854:3CC6	2C206	ascii	TACTICS
+2854:3CE8	2C228	ascii	 positioning 
+2854:3CFB	2C23B	ascii	 possession 
+2854:3D0D	2C24D	ascii	 passing 
+2854:3D1C	2C25C	ascii	 aggression 
+2854:3D2E	2C26E	ascii	 defence 
+2854:3D3D	2C27D	ascii	 protection 
+2854:3D4F	2C28F	ascii	 offside 
+2854:3D5E	2C29E	ascii	 marking 
+2854:3D7E	2C2BE	ascii	FIRST TEAM
+2854:3E1D	2C35D	ascii	SUBS
+2854:3EC2	2C402	ascii	 Please select the qualities of the players you are looking for.
+2854:3F2B	2C46B	ascii	 PRICE RANGE 
+2854:3F3F	2C47F	ascii	 POSITION 
+2854:3F50	2C490	ascii	 AGE 
+2854:3F5C	2C49C	ascii	 HARDNESS 
+2854:3F91	2C4D1	ascii	 up to 150,0
+2854:3FAB	2C4EB	ascii	 18-20 
+2854:3FB7	2C4F7	ascii	 soft 
+2854:3FDB	2C51B	ascii	 hard 
+2854:3FED	2C52D	ascii	 150,0
+2854:3FF5	2C535	ascii	 to 300,0
+2854:400C	2C54C	ascii	 21-23 
+2854:4039	2C579	ascii	 CONFIDENCE 
+2854:4051	2C591	ascii	 300,0
+2854:4059	2C599	ascii	 to 
+2854:405E	2C59E	ascii	 million 
+2854:4070	2C5B0	ascii	 24-26 
+2854:409B	2C5DB	ascii	 unconfident  
+2854:40B5	2C5F5	ascii	 mill to 3/4 mill 
+2854:40D2	2C612	ascii	 27-29 
+2854:40DE	2C61E	ascii	 confident 
+2854:4114	2C654	ascii	 3/4 mill to 1 mill 
+2854:4133	2C673	ascii	 30-32 
+2854:4141	2C681	ascii	 FITNESS 
+2854:4175	2C6B5	ascii	 1 mill to 2 mill 
+2854:4192	2C6D2	ascii	 over 32 
+2854:419E	2C6DE	ascii	 unfit 
+2854:41C3	2C703	ascii	 fit 
+2854:41D4	2C714	ascii	 2 mill to 4 mill 
+2854:4214	2C754	ascii	  select 
+2854:4224	2C764	ascii	 NATIONALITY 
+2854:423D	2C77D	ascii	 over 4 million 
+2854:4287	2C7C7	ascii	 DONE 
+2854:4297	2C7D7	ascii	 domestic 
+2854:42C0	2C800	ascii	 foreign 
+2854:42DE	2C81E	ascii	  or hit 
+2854:4303	2C843	ascii	move
+2854:4314	2C854	ascii	select
+2854:4321	2C861	ascii	spacebar
+2854:432B	2C86B	ascii	 to find players
+2854:4350	2C890	ascii	 GAME NAME: 
+2854:436C	2C8AC	ascii	saved game 
+2854:439A	2C8DA	ascii	Reposition 
+2854:43BF	2C8FF	ascii	 Club position 
+2854:43E7	2C927	ascii	 Sell 
+2854:4406	2C946	ascii	 Take off T.M 
+2854:442D	2C96D	ascii	 Change tactics  
+2854:4455	2C995	ascii	 New contract 
+2854:447C	2C9BC	ascii	 Fire 
+2854:449B	2C9DB	ascii	 Continue 
+2854:44C8	2CA08	ascii	move
+2854:44D8	2CA18	ascii	select  
+2854:451B	2CA5B	ascii	  HAS ONLY 10 WEEKS 
+2854:454D	2CA8D	ascii	OF HIS CONTRACT 
+2854:4578	2CAB8	ascii	 LEFT. DO YOU WANT TO 
+2854:45A7	2CAE7	ascii	 OFFER HIM A NEW ONE. 
+2854:4610	2CB50	ascii	 Players 
+2854:462B	2CB6B	ascii	 Next opponents 
+2854:464E	2CB8E	ascii	 Transfer market 
+2854:4672	2CBB2	ascii	 Use scout 
+2854:4690	2CBD0	ascii	 New staff 
+2854:46AE	2CBEE	ascii	 League tables 
+2854:46D0	2CC10	ascii	 League results 
+2854:46F3	2CC33	ascii	 Cup results 
+2854:4713	2CC53	ascii	 Weekly fixtures 
+2854:4737	2CC77	ascii	 Fixture list 
+2854:4758	2CC98	ascii	 Statistics 
+2854:4777	2CCB7	ascii	 Player/team history
+2854:479C	2CCDC	ascii	 Seasonal history 
+2854:47C1	2CD01	ascii	 Other teams 
+2854:47DF	2CD1F	ascii	 Game configuration 
+2854:4803	2CD43	ascii	Cashflow 
+2854:4827	2CD67	ascii	move
+2854:4838	2CD78	ascii	select
+2854:484D	2CD8D	ascii	  F7
+2854:4855	2CD95	pstr	Save
+2854:485C	2CD9C	ascii	  F10
+2854:4866	2CDA6	ascii	Quit 
+2854:48AC	2CDEC	ascii	I S 
+2854:48B9	2CDF9	ascii	R E T I R I N G 
+2854:48CF	2CE0F	ascii	  A T  T H E  E N D  
+2854:48EB	2CE2B	ascii	O F 
+2854:48F7	2CE37	ascii	  T H I S  Y E A R 
+2854:4931	2CE71	ascii	move player  
+2854:4943	2CE83	ascii	spacebar
+2854:4950	2CE90	ascii	more options 
+2854:4967	2CEA7	ascii	hire youth player 
+2854:4985	2CEC5	ascii	exit
+2854:4999	2CED9	ascii	PUT HERE 
+2854:49B8	2CEF8	ascii	 Type in an initial followed by your surname 
+2854:4A08	2CF48	ascii	Watch match
+2854:4A27	2CF67	ascii	 Sacking 
+2854:4A46	2CF86	ascii	 Auto save game  
+2854:4A6B	2CFAB	ascii	 Friendlies 
+2854:4A8D	2CFCD	ascii	 Auto player select 
+2854:4AB5	2CFF5	ascii	Continue 
+2854:4AE7	2D027	ascii	move
+2854:4AF7	2D037	ascii	select
+2854:4B1C	2D05C	ascii	spacebar
+2854:4B29	2D069	ascii	view commentary  
+2854:4B42	2D082	ascii	print commentary  
+2854:4B5D	2D09D	ascii	bench  any other key to exit 
+2854:4B83	2D0C3	ascii	PLAYER TRANSFER HISTORY 
+2854:4C1A	2D15A	ascii	more
+2854:4C2A	2D16A	ascii	team histories 
+2854:4C45	2D185	ascii	exit
+2854:4C5B	2D19B	ascii	Change information
+2854:4C8D	2D1CD	ascii	League tables
+2854:4CB6	2D1F6	ascii	 Cup results 
+2854:4CE4	2D224	ascii	 Fixture list 
+2854:4D15	2D255	ascii	 Statistics 
+2854:4D44	2D284	ascii	 Player/team history
+2854:4D79	2D2B9	ascii	 Squads 
+2854:4DA4	2D2E4	ascii	 CONTINUE 
+2854:4DC9	2D309	ascii	move
+2854:4DDA	2D31A	ascii	select
+2854:4E85	2D3C5	ascii	move
+2854:4E9A	2D3DA	ascii	division
+2854:4EB7	2D3F7	ascii	p CUP DRAW 
+2854:4EC9	2D409	ascii	press any key 
+2854:4EE3	2D423	ascii	press any key 
+2854:4EFD	2D43D	ascii	p RESULTS  
+2854:4F0F	2D44F	ascii	press any key 
+2854:4F31	2D471	ascii	division
+2854:4F4A	2D48A	ascii	select
+2854:4F55	2D495	ascii	team
+2854:503F	2D57F	ascii	PgDn
+2854:5048	2D588	ascii	PgUp
+2854:5051	2D591	ascii	more
+2854:5085	2D5C5	ascii	  YOU'VE BEEN  
+2854:50B6	2D5F6	ascii	SACKED
+2854:50DE	2D61E	ascii	 AND CURRENTLY 
+2854:510D	2D64D	ascii	HAVE 
+2854:5134	2D674	ascii	NO TEAM 
+2854:517F	2D6BF	ascii	NO TEAM 
+2854:519B	2D6DB	ascii	IS SHOWING ANY  
+2854:51BD	2D6FD	ascii	INTEREST 
+2854:51D7	2D717	ascii	 IN YOUR SERVICES  
+2854:51FC	2D73C	ascii	AT PRESENT 
+2854:55F1	2DB31	ascii	WANT TO HIRE 
+2854:5612	2DB52	ascii	YOU AS THEIR 
+2854:5633	2DB73	ascii	MANAGER.
+2854:5652	2DB92	ascii	NEXT WEEK 
+2854:5671	2DBB1	ascii	EUROPEAN CUP GROUP STAGE 
+2854:568E	2DBCE	ascii	Group A winner plays group B winner in final 
+2854:56C3	2DC03	ascii	GROUP A 
+2854:5834	2DD74	ascii	GROUP B 
+2854:59AF	2DEEF	ascii	EUROPEAN CUP GROUP STAGE TABLES
+2854:59DA	2DF1A	ascii	ON NEXT PAGE 
+2854:59FA	2DF3A	ascii	PLAY NEXT GAME 
+2854:5A11	2DF51	ascii	 Previous player 
+2854:5A34	2DF74	ascii	PLAY NEXT GAME 
+2854:5A5F	2DF9F	ascii	NEXT PLAYER 
+2854:5A7C	2DFBC	ascii	press any key
+2854:5D27	2E267	ascii	 RELEGATED TEAMS 
+2854:60A7	2E5E7	ascii	 PROMOTED TEAMS 
+2854:6335	2E875	ascii	 Esc
+2854:633E	2E87E	ascii	exit
+2854:6354	2E894	ascii	exit
+2854:635E	2E89E	ascii	GAME RATING
+2854:637D	2E8BD	ascii	select 
+2854:6386	2E8C6	ascii	taker 
+2854:6396	2E8D6	ascii	computer select 
+2854:63B9	2E8F9	ascii	division
+2854:63D2	2E912	ascii	apply for job
+2854:63F5	2E935	ascii	 ONE  
+2854:6409	2E949	ascii	commentary
+2854:643B	2E97B	ascii	versus
+2854:6487	2E9C7	ascii	 NIL  
+2854:66C5	2EC05	ascii	display 
+2854:66D5	2EC15	pstr	speed
+2854:66E6	2EC26	ascii	result
+2854:66F5	2EC35	ascii	spacebar
+2854:6702	2EC42	ascii	commentary  
+2854:672A	2EC6A	pstr	bench
+2854:6783	2ECC3	ascii	(c) 
+2854:67AC	2ECEC	ascii	NEW 
+2854:67C2	2ED02	ascii	'95 
+2854:67D5	2ED15	ascii	ERA 
+2854:67FC	2ED3C	ascii	1992-95 
+2854:680E	2ED4E	ascii	  Advanced management for football addicts 
+2854:6868	2EDA8	ascii	PLAYER DETAILS
+2854:6881	2EDC1	ascii	Age 
+2854:6887	2EDC7	ascii	Team 
+2854:6891	2EDD1	ascii	 Pos. 
+2854:6899	2EDD9	ascii	1st pos 
+2854:68A6	2EDE6	ascii	 Country 
+2854:68B1	2EDF1	ascii	Height  '  " 
+2854:68C0	2EE00	ascii	Wage 
+2854:68D0	2EE10	ascii	 Confidence 
+2854:68E6	2EE26	ascii	footed 
+2854:68F2	2EE32	ascii	 Fitness 
+2854:6904	2EE44	ascii	 leadership 
+2854:6920	2EE60	ascii	 Energy 
+2854:6938	2EE78	ascii	 Hardness 
+2854:6957	2EE97	ascii	 Contract status 
+2854:696D	2EEAD	ascii	 Games remaining 
+2854:6980	2EEC0	ascii	Value 
+2854:6995	2EED5	ascii	 Positioning 
+2854:69A7	2EEE7	ascii	 previous y/c 
+2854:69BC	2EEFC	ascii	 Possession 
+2854:69CD	2EF0D	ascii	 suspended 
+2854:69DF	2EF1F	ascii	 Passing 
+2854:69ED	2EF2D	ascii	 international  
+2854:6A02	2EF42	ascii	 Tackling 
+2854:6A11	2EF51	ascii	 injured 
+2854:6A21	2EF61	ascii	 Mark 
+2854:6A35	2EF75	ascii	Games
+2854:6A41	2EF81	ascii	Goals
+2854:6A57	2EF97	ascii	 substituted 
+2854:6A6B	2EFAB	ascii	 This season 
+2854:6A7D	2EFBD	ascii	 booked 
+2854:6A8C	2EFCC	ascii	 Club total: 
+2854:6A9E	2EFDE	ascii	 sent off 
+2854:6AB9	2EFF9	ascii	 RATING 
+2854:6AD9	2F019	ascii	Player skills
+2854:6AFC	2F03C	ascii	 TEAM 
+2854:6B13	2F053	ascii	 MANAGER 
+2854:6B2C	2F06C	pstr	 MONEY 
+2854:6B45	2F085	ascii	 LEAGUE POS. 
+2854:6B5A	2F09A	ascii	 SEASON 
+2854:6B74	2F0B4	ascii	 NEXT OPPONENTS  
+2854:6B94	2F0D4	ascii	 MANAGER 
+2854:6BAE	2F0EE	ascii	 LEAGUE 
+2854:6BC7	2F107	ascii	 LEAGUE POS. 
+2854:6BE1	2F121	ascii	COMPETITION 
+2854:6BFE	2F13E	ascii	VENUE 
+2854:6C27	2F167	pstr	next 
+2854:6C2F	2F16F	ascii	 Del
+2854:6C3E	2F17E	ascii	previous 
+2854:6C52	2F192	ascii	Print-out
+2854:6C5D	2F19D	ascii	 Esc
+2854:6C65	2F1A5	pstr	exit 
+2854:6C81	2F1C1	pstr	next 
+2854:6C96	2F1D6	pstr	last 
+2854:6CA7	2F1E7	ascii	Print-out 
+2854:6CBB	2F1FB	ascii	exit
+2854:6CE0	2F220	ascii	Currently viewing :
+2854:6D44	2F284	ascii	 Name 
+2854:6D97	2F2D7	ascii	 Country 
+2854:6DED	2F32D	ascii	 Rating 
+2854:6E3F	2F37F	ascii	 Current team 
+2854:6E9C	2F3DC	ascii	 Previous team 
+2854:6F00	2F440	ascii	 Cost per game 
+2854:6F61	2F4A1	ascii	 Signing-on bonus .
+2854:7042	2F582	pstr	Hire
+2854:7061	2F5A1	ascii	more
+2854:711C	2F65C	ascii	move
+2854:7134	2F674	ascii	select
+2854:714D	2F68D	ascii	@ Select your team, player 
+2854:717A	2F6BA	ascii	MANAGER OF THE MONTH
+2854:720A	2F74A	ascii	LEAGUE RESULTS 
+2854:721C	2F75C	ascii	PMATCH NO 
+2854:72F5	2F835	ascii	CUP INFO
+2854:7305	2F845	ascii	WINS
+2854:7320	2F860	ascii	DIVISIONAL TITLES
+2854:7340	2F880	ascii	DOMESTIC CUPS 
+2854:7372	2F8B2	ascii	 EUROPEAN CUPS 
+2854:73D2	2F912	ascii	RECORD WIN
+2854:73FF	2F93F	ascii	  v 
+2854:743F	2F97F	ascii	RECORD DEFEAT
+2854:745D	2F99D	ascii	TEAM LEAGUE STATS
+2854:7476	2F9B6	ascii	MOST
+2854:7481	2F9C1	ascii	  v 
+2854:7497	2F9D7	ascii	Most league points 
+2854:74C5	2FA05	ascii	Most league goals 
+2854:74FB	2FA3B	ascii	Consecutive wins 
+2854:752A	2FA6A	ascii	Consecutive defeats  
+2854:755B	2FA9B	ascii	Games without a win  
+2854:758C	2FACC	ascii	Games without defeat 
+2854:75B1	2FAF1	ascii	HISTORY + STATS
+2854:75E5	2FB25	ascii	PLAYER STATS
+2854:760A	2FB4A	ascii	 Top scorer (season)  
+2854:7636	2FB76	ascii	 Top scorer (total) 
+2854:7662	2FBA2	ascii	 Most club games 
+2854:76A1	2FBE1	ascii	 domestic league clubs only 
+2854:76BF	2FBFF	ascii	* super+domestic league only
+2854:76FB	2FC3B	pstr	next 
+2854:7711	2FC51	ascii	last
+2854:7725	2FC65	ascii	.A  
+2854:772D	2FC6D	pstr	EFA  
+2854:7737	2FC77	pstr	.W.C 
+2854:7751	2FC91	ascii	Print 
+2854:7761	2FCA1	ascii	exit
+2854:7BB0	300F0	ascii	PLEASE SELECT NUMBER OF PLAYERS
+2854:7C58	30198	ascii	move
+2854:7C6C	301AC	ascii	player game
+2854:7C87	301C7	ascii	match 
+2854:7C8E	301CE	ascii	,for 
+2854:7C96	301D6	pstr	age 
+2854:7C9D	301DD	ascii	club games 
+2854:7CAA	301EA	ascii	goals 
+2854:7CB2	301F2	ascii	avg 
+2854:7CB8	301F8	ascii	position 
+2854:7CD5	30215	ascii	 CASH FLOW FOR 
+2854:7CEE	3022E	ascii	Cash out
+2854:7D1B	3025B	ascii	Cash in
+2854:7D2A	3026A	ascii	 Player salaries 
+2854:7D7D	302BD	ascii	 Gate receipts 
+2854:7DA1	302E1	ascii	 Win bonuses 
+2854:7DF0	30330	ascii	 Prize money 
+2854:7E12	30352	ascii	 Staff salaries 
+2854:7E64	303A4	ascii	 TV coverage 
+2854:7E86	303C6	ascii	 Ground maintenance 
+2854:7EDA	3041A	ascii	 Radio coverage 
+2854:7EFF	3043F	ascii	 Players bought 
+2854:7F51	30491	ascii	 Players sold 
+2854:7F74	304B4	ascii	 Contracts 
+2854:7FC1	30501	ascii	 Sponsorship 
+2854:7FE3	30523	ascii	 Interest 
+2854:802F	3056F	ascii	 Directors hand-out  
+2854:8057	30597	ascii	 Sundries 
+2854:80AB	305EB	ascii	 TOTAL IN 
+2854:80CF	3060F	ascii	TOTAL OUT 
+2854:8158	30698	ascii	 Club funds 
+2854:8181	306C1	ascii	 Overdraft facility 
+2854:81E9	30729	ascii	  Hit 
+2854:81F6	30736	ascii	 to increase your stadium capacity or any other key to continue 
+2854:8265	307A5	ascii	  use 
+2854:8271	307B1	ascii	 to move  
+2854:8298	307D8	ascii	  hit 
+2854:82A4	307E4	ascii	 to select
+2854:82BB	307FB	ascii	  starting season 
+2854:832D	3086D	ascii	SEASONAL LEAGUE AND CUP HISTORY 
+2854:834F	3088F	ascii	YEAR : 
+2854:8372	308B2	ascii	EUROPEAN TROPHIES
+2854:8397	308D7	ascii	Winner
+2854:83A4	308E4	ascii	Runner-up
+2854:83B4	308F4	ascii	Own best
+2854:83CD	3090D	ascii	 European Cup 
+2854:83EB	3092B	ascii	 Cup Winners Cup 
+2854:840C	3094C	ascii	 U.E.F.A Cup 
+2854:8437	30977	ascii	DOMESTIC TROPHIES
+2854:845C	3099C	ascii	Winner
+2854:8469	309A9	ascii	Runner-up
+2854:8479	309B9	ascii	Own best
+2854:8492	309D2	ascii	 F.A Cup 
+2854:84AB	309EB	ascii	 League Cup 
+2854:84D5	30A15	ascii	THE LEAGUES
+2854:84FC	30A3C	ascii	Winner
+2854:8509	30A49	ascii	Runner-up
+2854:8519	30A59	ascii	Third
+2854:8525	30A65	ascii	L.P.
+2854:85A7	30AE7	ascii	next year  
+2854:85C1	30B01	ascii	previous year
+2854:85E2	30B22	ascii	full seasonal info 
+2854:8601	30B41	ascii	exit
+2854:8608	30B48	pstr	stay back
+2854:8618	30B58	pstr	push forward
+2854:8628	30B68	pstr	keep the ball
+2854:8638	30B78	pstr	pass quickly
+2854:8648	30B88	pstr	short passes
+2854:8658	30B98	pstr	long passes
+2854:8668	30BA8	pstr	avoid injury
+2854:8678	30BB8	pstr	go in hard
+2854:8688	30BC8	pstr	half pitch
+2854:8698	30BD8	pstr	full pitch
+2854:86A8	30BE8	pstr	sag back to box
+2854:86B8	30BF8	pstr	stand ground
+2854:86C8	30C08	pstr	play safe
+2854:86D8	30C18	pstr	offside trap
+2854:86E8	30C28	pstr	zonal
+2854:86F8	30C38	pstr	man to man
+2854:8716	30C56	ascii	GSCbBD
+2854:871D	30C5D	ascii	mMFwW
+2854:8724	30C64	pstr	goalkeeper
+2854:8737	30C77	pstr	sweeper
+2854:874A	30C8A	pstr	centre back
+2854:875D	30C9D	pstr	left back
+2854:8770	30CB0	pstr	right back
+2854:8783	30CC3	pstr	defensive midfield
+2854:8796	30CD6	pstr	central midfield
+2854:87A9	30CE9	pstr	left midfield
+2854:87BC	30CFC	pstr	right midfield
+2854:87CF	30D0F	pstr	forward midfield
+2854:87E2	30D22	pstr	left winger
+2854:87F5	30D35	pstr	right winger
+2854:8808	30D48	pstr	centre forward
+2854:881B	30D5B	pstr	striker
+2854:8876	30DB6	pstr	R#1 L#1
+2854:8886	30DC6	pstr	R#1 L#2
+2854:88C6	30E06	pstr	R#2 L#1
+2854:88D6	30E16	pstr	R#2 L#2
+2854:894E	30E8E	pstr	Final
+2854:89BE	30EFE	pstr	Final
+2854:8A0D	30F4D	ascii	 "$&(*,-/124678
+2854:8A1C	30F5C	pstr	none
+2854:8A2C	30F6C	pstr	demoralised
+2854:8A3C	30F7C	pstr	overawed
+2854:8A4C	30F8C	pstr	terrified
+2854:8A5C	30F9C	pstr	tearful
+2854:8A6C	30FAC	pstr	scared
+2854:8A7C	30FBC	pstr	worried
+2854:8A8C	30FCC	pstr	nervous
+2854:8A9C	30FDC	pstr	anxious
+2854:8AAC	30FEC	pstr	shaky
+2854:8ABC	30FFC	pstr	concerned
+2854:8ACC	3100C	pstr	lacking
+2854:8ADC	3101C	pstr	tentative
+2854:8AEC	3102C	pstr	below par
+2854:8AFC	3103C	pstr	could be worse
+2854:8B1C	3105C	pstr	not bad
+2854:8B2C	3106C	pstr	average
+2854:8B3C	3107C	pstr	fine
+2854:8B4C	3108C	pstr	acceptable
+2854:8B5C	3109C	pstr	positive
+2854:8B6C	310AC	pstr	assured
+2854:8B7C	310BC	pstr	confident
+2854:8B8C	310CC	pstr	jocular
+2854:8B9C	310DC	pstr	very confident
+2854:8BAC	310EC	pstr	bold
+2854:8BBC	310FC	pstr	ebullient
+2854:8BCC	3110C	pstr	brimming
+2854:8BDC	3111C	pstr	sky high
+2854:8BEC	3112C	pstr	phenomenal
+2854:8BFC	3113C	pstr	unbeatable
+2854:8C0C	3114C	pstr	over-confident
+2854:8C1C	3115C	pstr	wimpy
+2854:8C2C	3116C	pstr	soft
+2854:8C3C	3117C	pstr	weak
+2854:8C4C	3118C	pstr	gentle
+2854:8C5C	3119C	pstr	passive
+2854:8C6C	311AC	pstr	calm
+2854:8C7C	311BC	pstr	mild
+2854:8C8C	311CC	pstr	assertive
+2854:8C9C	311DC	pstr	tough
+2854:8CAC	311EC	pstr	aggressive
+2854:8CBC	311FC	pstr	pushy
+2854:8CCC	3120C	pstr	hard
+2854:8CDC	3121C	pstr	rough
+2854:8CEC	3122C	pstr	dangerous
+2854:8CFC	3123C	pstr	thuggish
+2854:8D0C	3124C	pstr	rubbish
+2854:8D3C	3127C	pstr	poor
+2854:8D4C	3128C	pstr	fair
+2854:8D5C	3129C	pstr	good
+2854:8D6C	312AC	pstr	very good
+2854:8D7C	312BC	pstr	talented
+2854:8D8C	312CC	pstr	excellent
+2854:8D9C	312DC	pstr	superb
+2854:8DAC	312EC	pstr	supremo
+2854:8DCC	3130C	pstr	GENIUS
+2854:8DDC	3131C	pstr	pretty dire
+2854:8DEC	3132C	pstr	very bad
+2854:8DFC	3133C	pstr	so-so
+2854:8E0C	3134C	pstr	eclectic
+2854:8E1C	3135C	pstr	incompetent
+2854:8E2C	3136C	pstr	amateurish
+2854:8E3C	3137C	pstr	uninformed
+2854:8E4C	3138C	pstr	sensible
+2854:8E5C	3139C	pstr	useful
+2854:8E6C	313AC	pstr	helpful
+2854:8E7C	313BC	pstr	exceptional
+2854:8E8C	313CC	pstr	professional
+2854:8E9C	313DC	pstr	blind
+2854:8EAC	313EC	pstr	myopic
+2854:8EBC	313FC	pstr	pathetic
+2854:8ECC	3140C	pstr	unselective
+2854:8EDC	3141C	pstr	capable
+2854:8EEC	3142C	pstr	middling
+2854:8EFC	3143C	pstr	keen
+2854:8F0C	3144C	pstr	observant
+2854:8F1C	3145C	pstr	vigilant
+2854:8F2C	3146C	pstr	prophetic
+2854:8F3C	3147C	pstr	clairvoyant
+2854:8F4C	3148C	pstr	flat broke
+2854:8F5C	3149C	pstr	miserly
+2854:8F6C	314AC	pstr	penny-pinching
+2854:8F7C	314BC	pstr	solvent
+2854:8F8C	314CC	pstr	well-off
+2854:8F9C	314DC	pstr	rich
+2854:8FAC	314EC	pstr	generous
+2854:8FBC	314FC	pstr	sympathetic
+2854:8FCC	3150C	pstr	opulent
+2854:8FDC	3151C	pstr	tycoon
+2854:8FEC	3152C	pstr	filthy rich
+2854:8FFC	3153C	pstr	injured
+2854:900C	3154C	pstr	big problems
+2854:901C	3155C	pstr	problems
+2854:902C	3156C	pstr	unfit
+2854:903C	3157C	pstr	adequate
+2854:904C	3158C	pstr	no problems
+2854:905C	3159C	pstr	above average
+2854:906C	315AC	pstr	reasonable
+2854:907C	315BC	pstr	not quite fit
+2854:908C	315CC	pstr	quite fit
+2854:90AC	315EC	pstr	very fit
+2854:90BC	315FC	pstr	match fit
+2854:90CC	3160C	pstr	supreme
+2854:90DC	3161C	pstr	total
+2854:90EC	3162C	pstr	can't play
+2854:90FC	3163C	pstr	nearly dead
+2854:910C	3164C	pstr	exhausted
+2854:911C	3165C	pstr	knackered
+2854:912C	3166C	pstr	can barely walk
+2854:913C	3167C	pstr	can just walk
+2854:914C	3168C	pstr	can hardly run
+2854:915C	3169C	pstr	can just run
+2854:916C	316AC	pstr	done in
+2854:917C	316BC	pstr	very tired
+2854:918C	316CC	pstr	tired
+2854:919C	316DC	pstr	fairly tired
+2854:91AC	316EC	pstr	likely to tire
+2854:91BC	316FC	pstr	active
+2854:91CC	3170C	pstr	lively
+2854:91DC	3171C	pstr	mobile
+2854:91EC	3172C	pstr	animated
+2854:91FC	3173C	pstr	very lively
+2854:920C	3174C	pstr	energetic
+2854:921C	3175C	pstr	vivacious
+2854:922C	3176C	pstr	full of life
+2854:923C	3177C	pstr	full of zip
+2854:924C	3178C	pstr	electrified
+2854:925C	3179C	pstr	galvanised
+2854:926C	317AC	pstr	hyperactive
+2854:927C	317BC	pstr	can run all day
+2854:928C	317CC	pstr	negligible
+2854:929C	317DC	pstr	limited
+2854:92AC	317EC	pstr	organiser
+2854:92BC	317FC	pstr	director
+2854:92CC	3180C	pstr	motivator
+2854:92DC	3181C	pstr	captain
+2854:92EC	3182C	pstr	tiny
+2854:92FC	3183C	pstr	very small
+2854:930C	3184C	pstr	massive
+2854:931C	3185C	pstr	huge
+2854:933C	3187C	pstr	very big
+2854:934C	3188C	pstr	small
+2854:937D	318BD	ascii	!"#$%&'
+2854:9385	318C5	ascii	()*+,-./
+2854:938E	318CE	ascii	01234
+2854:9397	318D7	ascii	56789:;<
+2854:93A0	318E0	ascii	_`ab123
+2854:93B3	318F3	ascii	defghijk89lGmm
+2854:93C2	31902	ascii	nopqrstuvwxy
+2854:93D5	31915	ascii	d{|}~
+2854:93EF	3192F	ascii	23456
+2854:9A21	31F61	ascii	>hBPF8J N
+2854:9A2C	31F6C	pstr	UNKNOWN
+2854:9A3C	31F7C	pstr	ALBANIA
+2854:9A4C	31F8C	pstr	AUSTRIA
+2854:9A5C	31F9C	pstr	BELGIUM
+2854:9A6C	31FAC	pstr	BULGARIA
+2854:9A7C	31FBC	pstr	CYPRUS
+2854:9A8C	31FCC	pstr	CZECHOSLOVAKIA
+2854:9A9C	31FDC	pstr	DENMARK
+2854:9AAC	31FEC	pstr	EIRE
+2854:9ABC	31FFC	pstr	ENGLAND
+2854:9ACC	3200C	pstr	FINLAND
+2854:9ADC	3201C	pstr	FRANCE
+2854:9AEC	3202C	pstr	GERMANY
+2854:9AFC	3203C	pstr	GREECE
+2854:9B0C	3204C	pstr	HUNGARY
+2854:9B1C	3205C	pstr	ICELAND
+2854:9B2C	3206C	pstr	ITALY
+2854:9B3C	3207C	pstr	LUXEMBOURG
+2854:9B4C	3208C	pstr	MALTA
+2854:9B5C	3209C	pstr	N.IRELAND
+2854:9B6C	320AC	pstr	THE NETHERLANDS
+2854:9B7C	320BC	pstr	NORWAY
+2854:9B8C	320CC	pstr	POLAND
+2854:9B9C	320DC	pstr	PORTUGAL
+2854:9BAC	320EC	pstr	ROMANIA
+2854:9BBC	320FC	pstr	SCOTLAND
+2854:9BCC	3210C	pstr	SPAIN
+2854:9BDC	3211C	pstr	SWEDEN
+2854:9BEC	3212C	pstr	SWITZERLAND
+2854:9BFC	3213C	pstr	TURKEY
+2854:9C0C	3214C	pstr	RUSSIA
+2854:9C1C	3215C	pstr	WALES
+2854:9C2C	3216C	pstr	YUGOSLAVIA
+2854:9C3C	3217C	pstr	ANTIGUA
+2854:9C4C	3218C	pstr	ARGENTINA
+2854:9C5C	3219C	pstr	BAHAMAS
+2854:9C6C	321AC	pstr	BARBADOS
+2854:9C7C	321BC	pstr	BOLIVIA
+2854:9C8C	321CC	pstr	BRAZIL
+2854:9C9C	321DC	pstr	CANADA
+2854:9CAC	321EC	pstr	CHILE
+2854:9CBC	321FC	pstr	COLUMBIA
+2854:9CCC	3220C	pstr	COSTA RICA
+2854:9CDC	3221C	pstr	CUBA
+2854:9CEC	3222C	pstr	DOMINICA
+2854:9CFC	3223C	pstr	ECUADOR
+2854:9D0C	3224C	pstr	EL SALVADOR
+2854:9D1C	3225C	pstr	GRENADA
+2854:9D2C	3226C	pstr	GUATEMALA
+2854:9D3C	3227C	pstr	GUYANA
+2854:9D4C	3228C	pstr	HAITI
+2854:9D5C	3229C	pstr	HONDURAS
+2854:9D6C	322AC	pstr	JAMAICA
+2854:9D7C	322BC	pstr	MEXICO
+2854:9D8C	322CC	pstr	NETH.ANTILLES
+2854:9D9C	322DC	pstr	NICARAGUA
+2854:9DAC	322EC	pstr	PANAMA
+2854:9DBC	322FC	pstr	PARAGUAY
+2854:9DCC	3230C	pstr	PERU
+2854:9DDC	3231C	pstr	PUERTO RICO
+2854:9DEC	3232C	pstr	SURINAM
+2854:9DFC	3233C	pstr	TRINIDAD
+2854:9E0C	3234C	pstr	U.S.A
+2854:9E1C	3235C	pstr	URUGUAY
+2854:9E2C	3236C	pstr	VENEZUELA
+2854:9E3C	3237C	pstr	ALGERIA
+2854:9E4C	3238C	pstr	ANGOLA
+2854:9E5C	3239C	pstr	BURKINO FASO
+2854:9E6C	323AC	pstr	CAMEROON
+2854:9E7C	323BC	pstr	CONGO
+2854:9E8C	323CC	pstr	EGYPT
+2854:9E9C	323DC	pstr	ETHIOPIA
+2854:9EAC	323EC	pstr	GABON
+2854:9EBC	323FC	pstr	GHANA
+2854:9ECC	3240C	pstr	GUINEA
+2854:9EDC	3241C	pstr	IVORY COAST
+2854:9EEC	3242C	pstr	KENYA
+2854:9EFC	3243C	pstr	LESOTHO
+2854:9F0C	3244C	pstr	LIBERIA
+2854:9F1C	3245C	pstr	LIBYA
+2854:9F2C	3246C	pstr	MADAGASCAR
+2854:9F3C	3247C	pstr	MALOWI
+2854:9F4C	3248C	pstr	MOROCCO
+2854:9F5C	3249C	pstr	MOZAMBIQUE
+2854:9F6C	324AC	pstr	NIGERIA
+2854:9F7C	324BC	pstr	SENEGAL
+2854:9F8C	324CC	pstr	SIERRA LEONE
+2854:9F9C	324DC	pstr	SOMALIA
+2854:9FAC	324EC	pstr	SOUTH AFRICA
+2854:9FBC	324FC	pstr	SUDAN
+2854:9FCC	3250C	pstr	TANZANIA
+2854:9FDC	3251C	pstr	TOGO
+2854:9FEC	3252C	pstr	TUNISIA
+2854:9FFC	3253C	pstr	UGANDA
+2854:A00C	3254C	pstr	ZAIRE
+2854:A01C	3255C	pstr	ZAMBIA
+2854:A02C	3256C	pstr	ZIMBABWE
+2854:A03C	3257C	pstr	AUSTRALIA
+2854:A04C	3258C	pstr	BANGLADESH
+2854:A05C	3259C	pstr	BURMA
+2854:A06C	325AC	pstr	CHINA
+2854:A07C	325BC	pstr	FIJI
+2854:A08C	325CC	pstr	HONG KONG
+2854:A09C	325DC	pstr	INDIA
+2854:A0AC	325EC	pstr	INDONESIA
+2854:A0BC	325FC	pstr	IRAN
+2854:A0CC	3260C	pstr	IRAQ
+2854:A0DC	3261C	pstr	ISRAEL
+2854:A0EC	3262C	pstr	JAPAN
+2854:A0FC	3263C	pstr	JORDAN
+2854:A10C	3264C	pstr	KUWAIT
+2854:A11C	3265C	pstr	LEBANON
+2854:A12C	3266C	pstr	MALAYSIA
+2854:A13C	3267C	pstr	NEPAL
+2854:A14C	3268C	pstr	NEW GUINEA
+2854:A15C	3269C	pstr	NEW ZEALAND
+2854:A16C	326AC	pstr	NORTH KOREA
+2854:A17C	326BC	pstr	OMAN
+2854:A18C	326CC	pstr	PAKISTAN
+2854:A19C	326DC	pstr	QATAR
+2854:A1AC	326EC	pstr	SAUDI ARABIA
+2854:A1BC	326FC	pstr	SINGAPORE
+2854:A1CC	3270C	pstr	SOUTH KOREA
+2854:A1DC	3271C	pstr	SRI LANKA
+2854:A1EC	3272C	pstr	SYRIA
+2854:A1FC	3273C	pstr	TAIWAN
+2854:A20C	3274C	pstr	THAILAND
+2854:A21C	3275C	pstr	U.A.E
+2854:A22C	3276C	pstr	YEMEN AR
+2854:A244	32784	pstr	away
+2854:A24C	3278C	pstr	home
+2854:A254	32794	pstr	neutral
+2854:A25D	3279D	ascii	!'+05
+2854:A30B	3284B	ascii	HANG ON A TICK 
+2854:A341	32881	ascii	1234567890-=
+2854:A34F	3288F	ascii	qwertyuiop[]
+2854:A35D	3289D	ascii	asdfghjkl;'`
+2854:A36A	328AA	ascii	#zxcvbnm,./
+2854:A39A	328DA	ascii	$%^&*()_+
+2854:A3A5	328E5	ascii	QWERTYUIOP{}
+2854:A3B3	328F3	ascii	ASDFGHJKL:@
+2854:A3C0	32900	ascii	~ZXCVBNM<>?
+2854:A3DC	3291C	ascii	789-456+1230.
+2854:A452	32992	ascii	   ????
