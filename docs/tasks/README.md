@@ -10,3 +10,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T06](T06.md): The Unicorn harness: run 96's match from a recorded state and trace its draws (#11).
 - [T07](T07.md): The match's structure: from 0AB9:E1F2 to every routine that draws (#39).
 - [T08](T08.md): A trace corpus: T04's weeks traced in the harness, each checked against DOSBox-X (#40).
+- [T09](T09.md): The match's ratings: where D983's four values come from (#43).
+- [T10](T10.md): The watched match: one week with Watch match on, in DOSBox-X and in the harness (#44).

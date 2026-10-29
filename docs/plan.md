@@ -54,8 +54,10 @@ replay those traces; a wrong reading shows as the first tick or call where the t
 | T06 | O-M2 | the Unicorn harness ported from goal2: the match seeded and run from a recorded state, its draws traced |
 | T07 | O-M3a | the match's structure: from `0AB9:E1F2` to its loop and every routine that draws, each draw site named by what it decides (static, with the traced callers as the map) |
 | T08 | O-M3a | a trace corpus: the weeks T04 played in DOSBox-X traced in the harness from their own start states, each compared with its DOSBox-X record |
+| T09 | O-M3a | the match's ratings: where `D983`'s four values come from, the formula checked against values read in the harness |
+| T10 | O-M3a | the watched match: week 1 with Watch match on, in DOSBox-X and in the harness, compared and traced |
 
-T01–T06 are merged. T07 and T08 can run in parallel. Later O-M3a tasks follow from T07: the
+T01–T08 are merged. T09 and T10 can run in parallel. Later O-M3a tasks follow from T07: the
 engine's routines read one area at a time (movement, contests, fouls, the result), each with routine
 traces in the harness, and onenil's first test replaying T08's corpus.
 
