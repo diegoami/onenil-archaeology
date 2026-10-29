@@ -72,11 +72,38 @@ class GuestTests(unittest.TestCase):
         self.assertEqual(g.game_timer_ticks, 3)
         self.assertEqual(g.irq0_period(), round(0x400 * guest.INSTR_PER_S / guest.PIT_HZ))
 
+    def test_a_divisor_written_by_the_guest_times_the_next_tick(self):
+        # mov al,36h; out 43h,al; mov al,0; out 40h,al; mov al,4; out 40h,al; jmp $   (#33)
+        g = machine(extra=[(0x10000, bytes.fromhex("b036e643b000e640b004e640ebfe"))])
+        g.put(0x1C * 4, struct.pack("<HH", 0x0000, 0x2100))
+        g.run(max_steps=100_000)
+        self.assertEqual(g.divisor, 0x400)
+        # the first tick comes one new period (17,164 instructions) after the write, not at the BIOS
+        # period's end (1,098,508): five ticks in 100,000 instructions, each into the game's handler
+        self.assertEqual(g.game_timer_ticks, 5)
+        # five ticks taken, the sixth due: 6 periods after the write, which ended a slice of < SLICE_MAX
+        self.assertLessEqual(g.next_irq0 - 6 * g.irq0_period(), guest.SLICE_MAX)
+        self.assertGreaterEqual(g.word_at(0x600), g.game_timer_ticks - 1)
+
+    def test_dos_calls_are_audited(self):
+        g = machine(extra=[(0x700, b"S.1-0\0"), (0x800, b"abc")])
+        g.set_reg("ds", 0); g.set_reg("dx", 0x700); g.set_reg("cx", 0); g.set_reg("ax", 0x3C00)
+        g._intr(g.mu, 0x21, None)
+        h = g.reg("ax")
+        g.set_reg("bx", h); g.set_reg("cx", 3); g.set_reg("dx", 0x800); g.set_reg("ax", 0x4000)
+        g._intr(g.mu, 0x21, None)
+        import hashlib
+        self.assertEqual([c["ah"] for c in g.dos_calls], ["3C", "40"])
+        self.assertEqual(g.dos_calls[0]["name"], "S.1-0")
+        self.assertEqual(g.dos_calls[1]["written"], {"length": 3, "sha256": hashlib.sha256(b"abc").hexdigest()})
+        self.assertEqual(g.dos_calls[1]["result"], {"ax": 3, "carry": False})
+        self.assertEqual(g.service_counts, {"int 21 fn 003C": 1, "int 21 fn 0040": 1})
+
     def test_the_divisor_is_read_from_port_40h(self):
         g = machine()
         g._out(g.mu, 0x43, 1, 0x36, None)
         g._out(g.mu, 0x40, 1, 0x00, None)
-        g._out(g.mu, 0x40, 1, 0x04, None)
+        g._out(g.mu, 0x40, 1, 0x04, None)   # stops the (not running) machine: harmless here
         self.assertEqual(g.divisor, 0x400)
 
     def test_a_poll_loop_without_readkey_is_not_a_key_wait(self):
