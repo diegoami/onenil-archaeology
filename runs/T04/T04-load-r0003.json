@@ -1,0 +1,164 @@
+{
+  "schema": "run/1",
+  "run_id": "T04-load-r0003",
+  "experiment": "T04-load",
+  "arm": "save1-weeks",
+  "rep": 3,
+  "code_commit": "9253999",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@9253999",
+    "platform": "python-3.14.4/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.4",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screens read from DOSBox-X savestates (component Vga)"
+    },
+    {
+      "level": "I2",
+      "what": "a savestate is written at each read (save of emulator state; neutrality not tested)"
+    }
+  ],
+  "start_state": {
+    "id": "fresh launch",
+    "sha256": null,
+    "restore": "fresh DOSBox-X process; C: mounted from a copy of One-Nil 96's files (records/T01/inventory.json), SAVE1.1-0 among them; 1-0 run to its title screen; host clock not controlled"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/driver/weeks.py",
+    "sha256": "a03db02cd17b707f93336a99fd3c9172ecbc4d965d395c71202f24f0f769d682",
+    "keys": [
+      "title: y",
+      "main menu: Game configuration, Return",
+      "Game configuration: Watch match, Return (toggle)",
+      "Game configuration: Continue, Return"
+    ]
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "screen",
+      "field": "title screen: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5"
+    },
+    {
+      "step": 0,
+      "source": "ui-text",
+      "field": "title screen: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "\n\n\n\n                       ▐▀▀▌ ▐▀▀▌ ▐▀▀▌         ▐▀▀▌  ▌  ▐\n                       ▐  ▌ ▐  ▌ ▐▄▄▌         ▐  ▌  ▌  ▐        (c)\n                       ▐  ▌ ▐  ▌ ▐      ▀▀▀   ▐  ▌  ▌  ▐          NEW\n                       ▐  ▌ ▐  ▌ ▐      '96   ▐  ▌  ▌  ▐            ERA\n                       ▐██▌ ▐  ▌ ▐██          ▐  ▌  ▌  ▐██            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\n■■■■■■■■■■■■■■■■■■■ Do you want to load a saved game? (Y/N) ■■■■■■■■■■■■■■■■■■■■"
+    },
+    {
+      "step": 0,
+      "source": "ui-text",
+      "field": "title screen: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 1,
+      "source": "screen",
+      "field": "after Y, the first screen that is a menu or a question: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "2eb6ffb296cb2e54b46b8601735d202f54b81cca195335933858e0385cc1b952"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "after Y, the first screen that is a menu or a question: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence              worried │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness              reasonable │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy                   lively │  ╟────────────────────╢\n├ 452,000         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ P St Germain--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Fernandez       ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ EUROPEAN        │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.     │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├Friendly #1      ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       home │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "after Y, the first screen that is a menu or a question: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 2,
+      "source": "screen",
+      "field": "Game configuration before the change: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "183378d1b0ca91c600446d289a4579f7017dc3a2a9fce1a14a10317564aa8eb8"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "Game configuration before the change: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤\n│ MANAGER         │ │ confidence              worried │\n├ Dalglish        ┤ │ fitness              reasonable │\n│ MONEY           │ │ energy                   lively │\n├ 452,000         ┤ │ hardness                average │ ╔════════════════════╦═╕\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤ ║ Watch match        ║√│\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│ ╟────────────────────╫─┤\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│ ║ Sacking            ║√│\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│ ╟────────────────────╫─┤\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│ ║ Auto save game     ║√│\n├ P St Germain--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤ ╟────────────────────╫─┤\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│ ║ Friendlies         ║√│\n├ Fernandez       ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤ ╟────────────────────╫─┤\n│ LEAGUE          │ │ positioning        push forward │ ║ Auto player select ║√│\n├ EUROPEAN        │ │ possession         pass quickly │ ╟────────────────────╫─┤\n│ LEAGUE POS.     │ │ passing            short passes │ ║ Continue           ║√│\n╞═════════════════╡ │ aggression           go in hard │ ╚════════════════════╩═╛\n│COMPETITION      │ │ defence              half pitch │\n├Friendly #1      ┤ │ protection      sag back to box │\n│VENUE       home │ │ offside            offside trap │\n└─────────────────┘ │ marking                   zonal │    ↑↓-move ◄┘-select\n                    └─────────────────────────────────┘\n"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "Game configuration before the change: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 3,
+      "source": "screen",
+      "field": "Game configuration after toggling Watch match: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "2c9f1a7163552856ceef6592f612ea2c8dc8b66ef00ed608f93a2eabe65dd56f"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "Game configuration after toggling Watch match: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤\n│ MANAGER         │ │ confidence              worried │\n├ Dalglish        ┤ │ fitness              reasonable │\n│ MONEY           │ │ energy                   lively │\n├ 452,000         ┤ │ hardness                average │ ╔════════════════════╦═╕\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤ ║ Watch match        ║x│\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│ ╟────────────────────╫─┤\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│ ║ Sacking            ║√│\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│ ╟────────────────────╫─┤\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│ ║ Auto save game     ║√│\n├ P St Germain--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤ ╟────────────────────╫─┤\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│ ║ Friendlies         ║√│\n├ Fernandez       ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤ ╟────────────────────╫─┤\n│ LEAGUE          │ │ positioning        push forward │ ║ Auto player select ║√│\n├ EUROPEAN        │ │ possession         pass quickly │ ╟────────────────────╫─┤\n│ LEAGUE POS.     │ │ passing            short passes │ ║ Continue           ║√│\n╞═════════════════╡ │ aggression           go in hard │ ╚════════════════════╩═╛\n│COMPETITION      │ │ defence              half pitch │\n├Friendly #1      ┤ │ protection      sag back to box │\n│VENUE       home │ │ offside            offside trap │\n└─────────────────┘ │ marking                   zonal │    ↑↓-move ◄┘-select\n                    └─────────────────────────────────┘\n"
+    },
+    {
+      "step": 3,
+      "source": "ui-text",
+      "field": "Game configuration after toggling Watch match: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 4,
+      "source": "screen",
+      "field": "main menu, ready for week 1: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "4f8a256001f1e89d61a1174acfa79eef5fe33793ce2aa744ce5997c112322747"
+    },
+    {
+      "step": 4,
+      "source": "ui-text",
+      "field": "main menu, ready for week 1: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence              worried │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness              reasonable │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy                   lively │  ╟────────────────────╢\n├ 452,000         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ P St Germain--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Fernandez       ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ EUROPEAN        │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.     │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├Friendly #1      ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       home │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 4,
+      "source": "ui-text",
+      "field": "main menu, ready for week 1: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 5,
+      "source": "save",
+      "field": "sha256 of the savestate of the last read (kept in .cache/states/T04/, pushed to the owner's Drive)",
+      "value": "841b0d3fb4398724a3cdb9db1cf015606ba78fcc02c734fca6b4fff1292221d7"
+    },
+    {
+      "step": 5,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[0.014,\"mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print\"],[0.118,\"Xvfb poll: answered after 2 polls of 0.1s\"],[0.118,\"Xvfb :241 answering\"],[0.135,\"dosbox-x started\"],[0.255,\"window found after 2 polls of 0.1s\"],[0.257,\"window focused\"],[0.779,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[0.78,\"savestate complete after 1 polls of 0.05s\"],[1.325,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[1.326,\"savestate complete after 1 polls of 0.05s\"],[1.347,\"title screen: matched after 2 savestate polls\"],[1.347,\"DOS clock read back: '10/29/2026\\\\n14:20:45'\"],[1.43,\"key y held 0.08s (raw keycode 29)\"],[4.952,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[4.953,\"savestate complete after 1 polls of 0.05s\"],[4.967,\"after Y: matched after 1 savestate polls\"],[5.49,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[5.491,\"savestate complete after 1 polls of 0.05s\"],[5.59,\"key Down held 0.08s (raw keycode 116)\"],[6.412,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[6.413,\"savestate complete after 1 polls of 0.05s\"],[6.508,\"key Down held 0.08s (raw keycode 116)\"],[7.33,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[7.331,\"savestate complete after 1 polls of 0.05s\"],[7.429,\"key Down held 0.08s (raw keycode 116)\"],[8.251,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[8.253,\"savestate complete after 1 polls of 0.05s\"],[8.348,\"key Down held 0.08s (raw keycode 116)\"],[9.17,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[9.171,\"savestate complete after 1 polls of 0.05s\"],[9.264,\"key Down held 0.08s (raw keycode 116)\"],[10.087,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[10.088,\"savestate complete after 1 polls of 0.05s\"],[10.182,\"key Down held 0.08s (raw keycode 116)\"],[11.004,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[11.006,\"savestate complete after 1 polls of 0.05s\"],[11.1,\"key Down held 0.08s (raw keycode 116)\"],[11.923,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[11.924,\"savestate complete after 1 polls of 0.05s\"],[12.018,\"key Down held 0.08s (raw keycode 116)\"],[12.84,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[12.841,\"savestate complete after 1 polls of 0.05s\"],[12.936,\"key Down held 0.08s (raw keycode 116)\"],[13.758,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[13.759,\"savestate complete after 1 polls of 0.05s\"],[13.854,\"key Down held 0.08s (raw keycode 116)\"],[14.676,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[14.678,\"savestate complete after 1 polls of 0.05s\"],[14.774,\"key Down held 0.08s (raw keycode 116)\"],[15.596,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[15.597,\"savestate complete after 1 polls of 0.05s\"],[15.693,\"key Down held 0.08s (raw keycode 116)\"],[16.517,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[16.518,\"savestate complete after 1 polls of 0.05s\"],[16.616,\"key Down held 0.08s (raw keycode 116)\"],[17.439,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[17.44,\"savestate complete after 1 polls of 0.05s\"],[17.54,\"key Down held 0.08s (raw keycode 116)\"],[18.362,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[18.363,\"savestate complete after 1 polls of 0.05s\"],[18.463,\"key Down held 0.08s (raw keycode 116)\"],[19.286,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[19.287,\"savestate complete after 1 polls of 0.05s\"],[19.301,\"menu: 'Game config' highlighted\"],[19.382,\"key Return held 0.08s (raw keycode 36)\"],[21.904,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[21.905,\"savestate complete after 1 polls of 0.05s\"],[21.923,\"menu: 'Watch match' highlighted\"],[22.005,\"key Return held 0.08s (raw keycode 36)\"],[23.528,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[23.529,\"savestate complete after 1 polls of 0.05s\"],[24.061,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[24.063,\"savestate complete after 1 polls of 0.05s\"],[24.158,\"key Down held 0.08s (raw keycode 116)\"],[24.98,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[24.981,\"savestate complete after 1 polls of 0.05s\"],[25.08,\"key Down held 0.08s (raw keycode 116)\"],[25.902,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[25.904,\"savestate complete after 1 polls of 0.05s\"],[25.998,\"key Down held 0.08s (raw keycode 116)\"],[26.82,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[26.821,\"savestate complete after 1 polls of 0.05s\"],[26.919,\"key Down held 0.08s (raw keycode 116)\"],[27.741,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[27.743,\"savestate complete after 1 polls of 0.05s\"],[27.837,\"key Down held 0.08s (raw keycode 116)\"],[28.659,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[28.66,\"savestate complete after 1 polls of 0.05s\"],[28.673,\"menu: 'Continue' highlighted\"],[28.754,\"key Return held 0.08s (raw keycode 36)\"],[31.276,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[31.277,\"savestate complete after 1 polls of 0.05s\"],[31.288,\"main menu: matched after 1 savestate polls\"]]"
+    }
+  ],
+  "outputs": [],
+  "started": "2026-10-29T13:20:46.144Z",
+  "ended": "2026-10-29T13:21:17.454Z",
+  "status": "completed"
+}

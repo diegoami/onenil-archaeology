@@ -1,0 +1,446 @@
+{
+  "schema": "run/1",
+  "run_id": "T04-week-r0016",
+  "experiment": "T04-week",
+  "arm": "save1-weeks",
+  "rep": 16,
+  "code_commit": "9253999",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@9253999",
+    "platform": "python-3.14.4/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.4",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screens read from DOSBox-X savestates (component Vga)"
+    },
+    {
+      "level": "I2",
+      "what": "a savestate is written at each read (save of emulator state; neutrality not tested)"
+    }
+  ],
+  "start_state": {
+    "id": "T04-week-r0015",
+    "sha256": "8b3d02d6bf48db13706196dedce3f7525a757fe1590efb15c8ccff5c87ce2994",
+    "restore": "the same DOSBox-X session, continued from the end of T04-week-r0015 (its last savestate's sha256 given), not restored"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/driver/weeks.py",
+    "sha256": "a03db02cd17b707f93336a99fd3c9172ecbc4d965d395c71202f24f0f769d682",
+    "keys": [
+      "PLAY NEXT GAME: Return",
+      "pre-match: PLAY GAME, Return",
+      "match screen unchanged for 5 reads: Space",
+      "pre-match: PLAY GAME, Return",
+      "match screen unchanged for 5 reads: Space",
+      "any-key screen: Space",
+      "any-key screen: Space",
+      "any-key screen: Space",
+      "contract screen: Return (next category; on OFFER CONTRACT, offer the default terms)",
+      "contract screen: Return (next category; on OFFER CONTRACT, offer the default terms)",
+      "contract screen: Return (next category; on OFFER CONTRACT, offer the default terms)",
+      "contract screen: Return (next category; on OFFER CONTRACT, offer the default terms)",
+      "contract screen: Return (next category; on OFFER CONTRACT, offer the default terms)",
+      "any-key screen: Space",
+      "any-key screen: Space",
+      "any-key screen: Space"
+    ]
+  },
+  "observations": [
+    {
+      "step": 1,
+      "source": "screen",
+      "field": "screen 1: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "0f8a0c0cabc090892b6fe81aa6dbc27db10f9c9f182f77a6ba57971efbfbfb8f"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "screen 1: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│League match #1  │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence              lacking │  ║ C Hendry     ║C║\n│ Blackburn R---- │ │ fitness               excellent │  ║ G Le Saux    ║b║\n│     versus      │ │ energy             full of life │  ║ H Berg       ║B║\n│ Nottingham F--- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 3│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ Nottingham F--- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "screen 1: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 2,
+      "source": "screen",
+      "field": "screen 2 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "6079c3c03b9aed065bfba185430358f8866c8959c9bc180c235382158f8c42c9"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2 (match, first read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌LEAGUE MATCH #1──────commentary──────┐\n│BLACKBURN R----│ 0│┌──────┐█   █ █   │ │Gemmill BOOKED                       │\n├versus─────────┼──┤│ 30989│├▀▀▀▄ ├▀▀▀▄ │Pearce BOOKED                        │\n│NOTTINGHAM F---│ 0│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Nottingham F--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│               │   │ │   │    │ │    │ │ │     │   │    │ │               │   │\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 2,
+      "source": "ui-text",
+      "field": "screen 2 (match, first read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 7,
+      "source": "screen",
+      "field": "screen 7 (match, unchanged for 5 reads): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "6079c3c03b9aed065bfba185430358f8866c8959c9bc180c235382158f8c42c9"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, unchanged for 5 reads): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌LEAGUE MATCH #1──────commentary──────┐\n│BLACKBURN R----│ 0│┌──────┐█   █ █   │ │Gemmill BOOKED                       │\n├versus─────────┼──┤│ 30989│├▀▀▀▄ ├▀▀▀▄ │Pearce BOOKED                        │\n│NOTTINGHAM F---│ 0│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Nottingham F--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│               │   │ │   │    │ │    │ │ │     │   │    │ │               │   │\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, unchanged for 5 reads): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 7,
+      "source": "screen",
+      "field": "screen 7 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "6079c3c03b9aed065bfba185430358f8866c8959c9bc180c235382158f8c42c9"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, last read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ▄───▄ ▄▀▀▀▀ ┌LEAGUE MATCH #1──────commentary──────┐\n│BLACKBURN R----│ 0│┌──────┐█   █ █   │ │Gemmill BOOKED                       │\n├versus─────────┼──┤│ 30989│├▀▀▀▄ ├▀▀▀▄ │Pearce BOOKED                        │\n│NOTTINGHAM F---│ 0│└──────┘│   █ │   █ │---- HALF TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Nottingham F--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│               │   │ │   │    │ │    │ │ │     │   │    │ │               │   │\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 7,
+      "source": "ui-text",
+      "field": "screen 7 (match, last read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 8,
+      "source": "screen",
+      "field": "screen 8: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "30d4701234c97dc26db48e44025a66609d86193fea1a3e85fcd89c26e481f43a"
+    },
+    {
+      "step": 8,
+      "source": "ui-text",
+      "field": "screen 8: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "Blackburn R----     ┌─Blackburn R----─────────────────┐  ╔═FIRST TEAM═══╦═╗\n┌─────────────────┐ │ formation                 4-4-2 │  ║ T Flowers    ║G║\n│League match #1  │ ├─FIRST TEAM AVERAGES─────────────┤  ║ I Pearce     ║C║\n├─────────────────┤ │ confidence              lacking │  ║ C Hendry     ║C║\n│ Blackburn R---- │ │ fitness               excellent │  ║ G Le Saux    ║b║\n│     versus      │ │ energy                   active │  ║ H Berg       ║B║\n│ Nottingham F--- │ │ hardness                average │  ║ M Atkins     ║D║\n└─────────────────┘ ├─RATINGS────────┬────┬───┬───┬───┤  ║ T Sherwood   ║Ç║\n┌─────────────────┐ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ J Wilcox     ║w║\n│ Remaining subs 3│ │ defence        │■■■■■■■■■■■■■■■■│  ║ S Ripley     ║W║\n└─────────────────┘ │ midfield       │■■■■■■■■■■■■■■■■│  ║ C Sutton     ║¢║\n╔═════════════════╗ │ attack         │■■■■■■■■■■■■■■■■│  ║ A Shearer    ║$║\n║ Nottingham F--- ║ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ╟─SUBS─────────╫─╢\n╟─────────────────╢ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ T Gale       ║C║\n║ Match stats     ║ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ P Warhurst   ║¢║\n╟─────────────────╢ │ positioning        push forward │  ║ R Slater     ║D║\n║ PLAY GAME       ║ │ possession         pass quickly │  ╟──────────────╫─╢\n╟─────────────────╢ │ passing            short passes │  ║ N Marker     ║C║\n║ Change tactics  ║ │ aggression           go in hard │  ║ M Newell     ║$║\n╟─↑↓-move─────────╢ │ defence              half pitch │  ║ A Wright     ║B║\n╙─◄┘-select───────╜ │ protection      sag back to box │  ║ B Mimms      ║G║\n                    │ offside            offside trap │  ║              ║ ║\n                    │ marking                   zonal │  ║              ║ ║\n                    └─────────────────────────────────┘  ╚══════════════╩═╝\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 8,
+      "source": "ui-text",
+      "field": "screen 8: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 9,
+      "source": "screen",
+      "field": "screen 9 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "9d396cd74d48a96d8f9b48baf6f735bfdb109fe44cde7e01584dd135e35f69d4"
+    },
+    {
+      "step": 9,
+      "source": "ui-text",
+      "field": "screen 9 (match, first read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌LEAGUE MATCH #1──────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ █   █ │**** GOAL **** by Bohinen            │\n├versus─────────┼──┤│ 30989│├───┤ ▄───▄ │**** GOAL **** by Ripley             │\n│NOTTINGHAM F---│ 1│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Nottingham F--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│S Ripley       │ 68│ │   │    │ │    │ │ │     │   │    │ │L Bohinen      │ 67│\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 9,
+      "source": "ui-text",
+      "field": "screen 9 (match, first read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 14,
+      "source": "screen",
+      "field": "screen 14 (match, unchanged for 5 reads): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "9d396cd74d48a96d8f9b48baf6f735bfdb109fe44cde7e01584dd135e35f69d4"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, unchanged for 5 reads): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌LEAGUE MATCH #1──────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ █   █ │**** GOAL **** by Bohinen            │\n├versus─────────┼──┤│ 30989│├───┤ ▄───▄ │**** GOAL **** by Ripley             │\n│NOTTINGHAM F---│ 1│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Nottingham F--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│S Ripley       │ 68│ │   │    │ │    │ │ │     │   │    │ │L Bohinen      │ 67│\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, unchanged for 5 reads): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 14,
+      "source": "screen",
+      "field": "screen 14 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "9d396cd74d48a96d8f9b48baf6f735bfdb109fe44cde7e01584dd135e35f69d4"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, last read): text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────┬──┐  ONE   ┌───┐ ▄▀▀▀▄ ┌LEAGUE MATCH #1──────commentary──────┐\n│BLACKBURN R----│ 1│┌──────┐│   │ █   █ │**** GOAL **** by Bohinen            │\n├versus─────────┼──┤│ 30989│├───┤ ▄───▄ │**** GOAL **** by Ripley             │\n│NOTTINGHAM F---│ 1│└──────┘│   │ █   █ │---- FULL TIME ----                  │\n└───────────────┴──┘  NIL   └───┘ └▀▀▀▀ └─────────────────────────────────────┘\n                   ┌─────────────────┐    ┌─────────────────┐\n ┌─────────────────│ Blackburn R---- │─┐┌─│ Nottingham F--- │─────────────────┐\n │                 └─────────────────┘ ││ └─────────────────┘                 │\n │ ┌─────────┐        ┌──────────────────────────────────┐    ┌─────────┐     │\n │ │ Scorers │        ├──────────────────────────────────┤    │ Scorers │     │\n┌──┴─────────┴──┬min┐ │   ┌────┐ ┬    ┬ ┬ ┌──── ┬   ┬    │ ┌──┴─────────┴──┬min┐\n│S Ripley       │ 68│ │   │    │ │    │ │ │     │   │    │ │L Bohinen      │ 67│\n│               │   │ │   │    │ │    │ │ │     ├───┴┐   │ │               │   │\n│               │   │ │   │    │ │    │ │ │     │    │   │ │               │   │\n│               │   │ │   └───┼┘ └────┤ ┴ └──── ┴    ┴   │ │               │   │\n│               │   │ │                                  │ │               │   │\n│               │   │ │ ┌────┐┌──── ┌──── ┬   ┬ ┬  ──┬── │ │               │   │\n│               │   │ │ │    ││     │     │   │ │    │   │ │               │   │\n│               │   │ │ ├───┬┘├───  └───┐ │   │ │    │   │ │               │   │\n│               │   │ │ │   │ │         │ │   │ │    │   │ │               │   │\n│               │   │ │ ┴   ┴ └──── ────┘ └───┤ └─── ┴   │ │               │   │\n│               │   │ ├──────────────────────────────────┤ │               │   │\n└───────────────┴───┘ └──────────────────────────────────┘ └───────────────┴───┘\n └────────────────────────────────────────────────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 14,
+      "source": "ui-text",
+      "field": "screen 14 (match, last read): which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 15,
+      "source": "screen",
+      "field": "screen 15: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "23ba0897eefe6bfd78b4a973ed1659fdf035386e552a58b13189250533fa6a88"
+    },
+    {
+      "step": 15,
+      "source": "ui-text",
+      "field": "screen 15: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "LEAGUE RESULTS\n\nMATCH NO #1\n\n                  ┌─PREMIER LEAGUE────────────────────────┐\n                  │ --------Arsenal  1v1  Coventry City-- │\n                  │                                       │\n                  │ ----Blackburn R  1v1  Nottingham F--- │\n                  │                                       │\n                  │ --------Everton  1v4  Liverpool------ │\n                  │                                       │\n                  │ ------Leeds Utd  1v2  Q.P.R---------- │\n                  │                                       │\n                  │ --Newcastle Utd  3v0  Sheffield Wed-- │\n                  │                                       │\n                  │ ----Tottenham H  2v0  Southampton---- │\n                  │                                       │\n                  │ ---West Ham Utd  2v4  Manchester Utd- │\n                  │                                       │\n                  │ ------Wimbledon  1v1  Chelsea-------- │\n                  └───────────────────────────────────────┘\n\n\n\n                                press any key"
+    },
+    {
+      "step": 15,
+      "source": "ui-text",
+      "field": "screen 15: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 16,
+      "source": "screen",
+      "field": "screen 16: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "6397e7fb5a3084d6c997dc5ac8aa6ef88525c12640109f9a8bef7d66a6a3de68"
+    },
+    {
+      "step": 16,
+      "source": "ui-text",
+      "field": "screen 16: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "\n      PREMIER LEAGUE\n ┌──┬─────────────────┬──P─┬─HW─┬─HD─┬─HL─┬─AW─┬─AD─┬─AL─┬───F─┬───A─┬─PTS─┐\n │ 1│ Liverpool------ │  1 │  0 │  0 │  0 │  1 │  0 │  0 │   4 │   1 │   2 │\n │ 2│ Newcastle Utd-- │  1 │  1 │  0 │  0 │  0 │  0 │  0 │   3 │   0 │   2 │\n │ 3│ Manchester Utd- │  1 │  0 │  0 │  0 │  1 │  0 │  0 │   4 │   2 │   2 │\n │ 4│ Tottenham H---- │  1 │  1 │  0 │  0 │  0 │  0 │  0 │   2 │   0 │   2 │\n │ 5│ Q.P.R---------- │  1 │  0 │  0 │  0 │  1 │  0 │  0 │   2 │   1 │   2 │\n │ 6│ Wimbledon------ │  1 │  0 │  1 │  0 │  0 │  0 │  0 │   1 │   1 │   1 │\n │ 7│ Arsenal-------- │  1 │  0 │  1 │  0 │  0 │  0 │  0 │   1 │   1 │   1 │\n │ 8│ Chelsea-------- │  1 │  0 │  0 │  0 │  0 │  1 │  0 │   1 │   1 │   1 │\n │ 9│ Nottingham F--- │  1 │  0 │  0 │  0 │  0 │  1 │  0 │   1 │   1 │   1 │\n │10│ Coventry City-- │  1 │  0 │  0 │  0 │  0 │  1 │  0 │   1 │   1 │   1 │\n │11│ Blackburn R---- │  1 │  0 │  1 │  0 │  0 │  0 │  0 │   1 │   1 │   1 │\n │12│ Leeds Utd------ │  1 │  0 │  0 │  1 │  0 │  0 │  0 │   1 │   2 │   0 │\n │13│ West Ham Utd--- │  1 │  0 │  0 │  1 │  0 │  0 │  0 │   2 │   4 │   0 │\n │14│ Southampton---- │  1 │  0 │  0 │  0 │  0 │  0 │  1 │   0 │   2 │   0 │\n │15│ Everton-------- │  1 │  0 │  0 │  1 │  0 │  0 │  0 │   1 │   4 │   0 │\n │16│ Sheffield Wed-- │  1 │  0 │  0 │  0 │  0 │  0 │  1 │   0 │   3 │   0 │\n └──┴─────────────────┴────┴────┴────┴────┴────┴────┴────┴─────┴─────┴─────┘\n\n\n\n\n                                press any key"
+    },
+    {
+      "step": 16,
+      "source": "ui-text",
+      "field": "screen 16: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 17,
+      "source": "screen",
+      "field": "screen 17: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "3df9de631a4386a3a78487e58a3bc6a3d4d6a5e637931fda76de16f5e26ef21b"
+    },
+    {
+      "step": 17,
+      "source": "ui-text",
+      "field": "screen 17: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌───────────────────────────────────┐\n│ CASH FLOW FOR     Blackburn R---- │ ┌─Cash out───────────────────────────────╖\n└───────────────────────────────────┘ ├────────────────────────┬─┬─┬─┬─┬─┬─┬─┬─╢\n╓─Cash in─────────────────────────────┤ Player salaries        │ │ │ │5│7,3│2│0║\n╟─────────────────────┬─┬─┬─┬─┬─┬─┬─┬─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Gate receipts       │ │ │ │6│1,9│7│8│ Win bonuses            │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Prize money         │ │ │ │ │ │ │ │0│ Staff salaries         │ │ │ │ │4,2│0│0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ TV coverage         │ │ │ │ │ │ │ │0│ Ground maintenance     │ │ │ │ │7,7│5│0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Radio coverage      │ │ │ │ │ │ │ │0│ Players bought         │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Players sold        │ │ │ │ │ │ │ │0│ Contracts              │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Sponsorship         │ │ │ │ │ │ │ │0│ Interest               │ │ │ │ │ │ │ │0║\n╟─────────────────────┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────────┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ Directors hand-out  │ │ │ │ │ │ │ │0│ Sundries               │ │ │ │1│6,5│0│0║\n╟─────────────────┬─┬─┼─┼─┼─┼─┼─┼─┼─┼─┼────────────────────┬─┬─┼─┼─┼─┼─┼─┼─┼─┼─╢\n║ TOTAL IN        │ │ │ │ │ │6│1,9│7│8│ TOTAL OUT          │ │ │ │ │ │8│5,7│7│0║\n╚═════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧════════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝\n╔═════════════════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤════════════════════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗\n║ Club funds      │ │ │ │ │3│5│8,2│3│5│ Overdraft facility │ │ │ │2,8│2│0,0│0│0║\n╚═════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧════════════════════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝\n      Hit INS to increase your stadium capacity or any other key to continue"
+    },
+    {
+      "step": 17,
+      "source": "ui-text",
+      "field": "screen 17: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 18,
+      "source": "screen",
+      "field": "screen 18: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "c20ea063496097d58edd43dee254e35d734dde014388c1c32f78f68da5b86ec4"
+    },
+    {
+      "step": 18,
+      "source": "ui-text",
+      "field": "screen 18: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │ ►│ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │  │ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │  │ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │  │ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤  │ OFFER CONTRACT       │\n├─────────────Games───Goals────Avg──┤ substituted    │  ├──────────────────────┤\n│ This season     0       0   0.00  │ booked         │  ├─←↑↓→-change──────────┤\n│ Club total:    60      25   0.41  │ sent off       │  ├─◄┘-next category─────┤\n├───────────────────────────────────┴────────────────┤  └Esc-last category─────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n"
+    },
+    {
+      "step": 18,
+      "source": "ui-text",
+      "field": "screen 18: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 19,
+      "source": "screen",
+      "field": "screen 19: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "cf3153f364d3c21b674d690ccfd03778b7df1593989525ce432ac088e5938d82"
+    },
+    {
+      "step": 19,
+      "source": "ui-text",
+      "field": "screen 19: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │  │ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │ ►│ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │  │ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │  │ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤  │ OFFER CONTRACT       │\n├─────────────Games───Goals────Avg──┤ substituted    │  ├──────────────────────┤\n│ This season     0       0   0.00  │ booked         │  ├─←↑↓→-change──────────┤\n│ Club total:    60      25   0.41  │ sent off       │  ├─◄┘-next category─────┤\n├───────────────────────────────────┴────────────────┤  └Esc-last category─────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n"
+    },
+    {
+      "step": 19,
+      "source": "ui-text",
+      "field": "screen 19: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 20,
+      "source": "screen",
+      "field": "screen 20: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "1986b175bf318f82edfdcaa5f5e100acc8c4e2f0977329a7dc0b707d1248aea6"
+    },
+    {
+      "step": 20,
+      "source": "ui-text",
+      "field": "screen 20: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │  │ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │  │ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │ ►│ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │  │ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤  │ OFFER CONTRACT       │\n├─────────────Games───Goals────Avg──┤ substituted    │  ├──────────────────────┤\n│ This season     0       0   0.00  │ booked         │  ├─←↑↓→-change──────────┤\n│ Club total:    60      25   0.41  │ sent off       │  ├─◄┘-next category─────┤\n├───────────────────────────────────┴────────────────┤  └Esc-last category─────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n"
+    },
+    {
+      "step": 20,
+      "source": "ui-text",
+      "field": "screen 20: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 21,
+      "source": "screen",
+      "field": "screen 21: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "278f3aa4076fef7517665a185015cc1020f426b42a61b378d52aedd0ff00dc61"
+    },
+    {
+      "step": 21,
+      "source": "ui-text",
+      "field": "screen 21: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │  │ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │  │ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │  │ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │ ►│ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤  │ OFFER CONTRACT       │\n├─────────────Games───Goals────Avg──┤ substituted    │  ├──────────────────────┤\n│ This season     0       0   0.00  │ booked         │  ├─←↑↓→-change──────────┤\n│ Club total:    60      25   0.41  │ sent off       │  ├─◄┘-next category─────┤\n├───────────────────────────────────┴────────────────┤  └Esc-last category─────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n"
+    },
+    {
+      "step": 21,
+      "source": "ui-text",
+      "field": "screen 21: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 22,
+      "source": "screen",
+      "field": "screen 22: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "59a6ca51b29814adf35d523edf9bb5b1f6d4791bc984ff19bee41d7467937430"
+    },
+    {
+      "step": 22,
+      "source": "ui-text",
+      "field": "screen 22: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │  │ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │  │ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │  │ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │  │ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤ ►│ OFFER CONTRACT       │\n├─────────────Games───Goals────Avg──┤ substituted    │  ├──────────────────────┤\n│ This season     0       0   0.00  │ booked         │  ├──────────────────────┤\n│ Club total:    60      25   0.41  │ sent off       │  ├─◄┘-OFFER CONTRACT────┤\n├───────────────────────────────────┴────────────────┤  └Esc-last category─────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n"
+    },
+    {
+      "step": 22,
+      "source": "ui-text",
+      "field": "screen 22: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 23,
+      "source": "screen",
+      "field": "screen 23: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "d87c7cb86c861dc58303f24cf0af79993f4b7c854ca178b3bf5947e594e83d87"
+    },
+    {
+      "step": 23,
+      "source": "ui-text",
+      "field": "screen 23: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │  │ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │  │ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │  │ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │  │ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤ ►│ OFFER CONTRACT       │\n├─────────────Games───Goals────Avg──┤ substituted    │  ├──────────────────────┤\n│ This season     0       0   0.00  │ booked         │  ├──────────────────────┤\n│ Club total:    60      25   0.41  │ sent off       │  ├─◄┘-OFFER CONTRACT────┤\n├───────────────────────────────────┴────────────────┤  └Esc-last category─────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n                        CONTRACT ACCEPTED : hit any key"
+    },
+    {
+      "step": 23,
+      "source": "ui-text",
+      "field": "screen 23: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 24,
+      "source": "screen",
+      "field": "screen 24: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "3b84538c596780599a77c3a9b6b49a29170603a62f09079d67a64b78a415bcc7"
+    },
+    {
+      "step": 24,
+      "source": "ui-text",
+      "field": "screen 24: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─PLAYER DETAILS─────────────────────────────────────┐  ┌──────────────────────┐\n│ M Newell        Age 29  Team Blackburn R----       │  │  PLAYER CONTRACT     │\n│ Pos. striker            1st pos striker            │  ├──────────────────────┤\n│ Country ENGLAND         Height 5'10\"   Wage 3950   │  │ M Newell             │\n├────────────────────────────────────────────────────┤  ├──────────────────────┤\n│ Confidence overawed■■■■■■■■         left footed    │  │ Length               │\n│ Fitness    below par■■■■■■■ leadership director    │  │ 1,2,3,4 years        │\n│ Energy     can just run■■■■                        │  ├──────────────────────┤\n│ Hardness   aggressive■■■■■■                        │  │ Wage                 │\n├────────────────────────────────────────────────────┤  │ 3800                 │\n│ Contract status contracted                         │  ├──────────────────────┤\n│ Games remaining 0            Value 1,375,000       │  │ Allow internationals │\n├───────────────────────────────────┬────────────────┤  │ yes/no               │\n│ Positioning     push forward      │ previous y/c   │  ├──────────────────────┤\n│ Possession      pass quickly      │ suspended      │  │ Signing on fee       │\n│ Passing         short passes      │ international  │  │ 190000               │\n│ Tackling        go in hard        │ injured        │  ├──────────────────────┤\n│ Mark            zonal             ├────────────────┤ ►│ CONTRACT DISCUSSIONS │\n├─────────────Games───Goals────Avg──┤ substituted    │  │ HAVE ENDED IN        │\n│ This season     0       0   0.00  │ booked         │  │ AGREEMENT....        │\n│ Club total:    60      25   0.41  │ sent off       │  ├──────────────────────┤\n├───────────────────────────────────┴────────────────┤  └──────────────────────┘\n│ RATING very good■■■■■■■                            │\n└─INS-Player skills──────────────────────────────────┘\n                                press any key"
+    },
+    {
+      "step": 24,
+      "source": "ui-text",
+      "field": "screen 24: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 25,
+      "source": "screen",
+      "field": "screen 25: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "182a31840e4aad0b916376b58b20d1d0e56eac7eeb2e049fa252dca1f0d8d70a"
+    },
+    {
+      "step": 25,
+      "source": "ui-text",
+      "field": "screen 25: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "         ┌─TRANSFER─NEWS──────────────────────────────────────────────┐\n         ├─PLAYER───────────────FROM─────────────────TO───────────────┤\n         │ C.Fleming.....       Oldham Ath-----      Portsmouth-----  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         │ ..............       ---------------      ---------------  │\n         └────────────────────────────────────────────────────────────┘\n\n\n\n\n\n\n\n\n\n                                press any key"
+    },
+    {
+      "step": 25,
+      "source": "ui-text",
+      "field": "screen 25: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 26,
+      "source": "screen",
+      "field": "main menu after the week: text screen 80x25, chars+attributes (4000 bytes), sha256",
+      "value": "66039abc267549c06bbdac0ca7e9c797237d5df5c45bbd59dc3d07411b80cb98"
+    },
+    {
+      "step": 26,
+      "source": "ui-text",
+      "field": "main menu after the week: text screen rows 0-24, CP437 decoded, trailing blanks trimmed",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence            tentative │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness                 supreme │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy              electrified │  ╟────────────────────╢\n├ 358,235         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.  11 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ Sheffield Wed-- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Pleat           ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ PREMIER LEAGUE  │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.  16 │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├League match #2  ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       away │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 26,
+      "source": "ui-text",
+      "field": "main menu after the week: which of REGISTER, purchase, Runtime error the screen shows",
+      "value": "none"
+    },
+    {
+      "step": 99,
+      "source": "save",
+      "field": "sha256 of the savestate of the last read (kept in .cache/states/T04/, pushed to the owner's Drive)",
+      "value": "2f634978859f7c07b3519e4278d8aaf70c2c70b93ad48362408fbcfa210576a1"
+    },
+    {
+      "step": 99,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[262.944,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[262.946,\"savestate complete after 1 polls of 0.05s\"],[262.959,\"menu: 'PLAY NEXT GAME' highlighted\"],[263.04,\"key Return held 0.08s (raw keycode 36)\"],[265.573,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[265.574,\"savestate complete after 1 polls of 0.05s\"],[266.106,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[266.107,\"savestate complete after 1 polls of 0.05s\"],[266.121,\"menu: 'PLAY GAME' highlighted\"],[266.202,\"key Return held 0.08s (raw keycode 36)\"],[268.724,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[268.726,\"savestate complete after 1 polls of 0.05s\"],[272.261,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[272.262,\"savestate complete after 1 polls of 0.05s\"],[275.796,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[275.797,\"savestate complete after 1 polls of 0.05s\"],[279.331,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[279.332,\"savestate complete after 1 polls of 0.05s\"],[282.865,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[282.866,\"savestate complete after 1 polls of 0.05s\"],[286.401,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[286.402,\"savestate complete after 1 polls of 0.05s\"],[286.496,\"key space held 0.08s (raw keycode 65)\"],[290.018,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[290.019,\"savestate complete after 1 polls of 0.05s\"],[290.558,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[290.559,\"savestate complete after 1 polls of 0.05s\"],[290.576,\"menu: 'PLAY GAME' highlighted\"],[290.657,\"key Return held 0.08s (raw keycode 36)\"],[293.179,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[293.18,\"savestate complete after 1 polls of 0.05s\"],[296.714,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[296.715,\"savestate complete after 1 polls of 0.05s\"],[300.253,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[300.254,\"savestate complete after 1 polls of 0.05s\"],[303.793,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[303.794,\"savestate complete after 1 polls of 0.05s\"],[307.339,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[307.34,\"savestate complete after 1 polls of 0.05s\"],[310.878,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[310.879,\"savestate complete after 1 polls of 0.05s\"],[310.971,\"key space held 0.08s (raw keycode 65)\"],[314.493,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[314.494,\"savestate complete after 1 polls of 0.05s\"],[314.586,\"key space held 0.08s (raw keycode 65)\"],[317.108,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[317.109,\"savestate complete after 1 polls of 0.05s\"],[317.201,\"key space held 0.08s (raw keycode 65)\"],[319.732,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[319.733,\"savestate complete after 1 polls of 0.05s\"],[319.826,\"key space held 0.08s (raw keycode 65)\"],[322.348,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[322.349,\"savestate complete after 1 polls of 0.05s\"],[322.445,\"key Return held 0.08s (raw keycode 36)\"],[324.968,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[324.969,\"savestate complete after 1 polls of 0.05s\"],[325.063,\"key Return held 0.08s (raw keycode 36)\"],[327.585,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[327.586,\"savestate complete after 1 polls of 0.05s\"],[327.683,\"key Return held 0.08s (raw keycode 36)\"],[330.204,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[330.206,\"savestate complete after 1 polls of 0.05s\"],[330.298,\"key Return held 0.08s (raw keycode 36)\"],[332.82,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[332.821,\"savestate complete after 1 polls of 0.05s\"],[332.914,\"key Return held 0.08s (raw keycode 36)\"],[335.445,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[335.446,\"savestate complete after 1 polls of 0.05s\"],[335.541,\"key space held 0.08s (raw keycode 65)\"],[338.066,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[338.067,\"savestate complete after 1 polls of 0.05s\"],[338.185,\"key space held 0.08s (raw keycode 65)\"],[340.707,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[340.709,\"savestate complete after 1 polls of 0.05s\"],[340.803,\"key space held 0.08s (raw keycode 65)\"],[343.325,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[343.326,\"savestate complete after 1 polls of 0.05s\"]]"
+    }
+  ],
+  "outputs": [],
+  "started": "2026-10-29T13:25:08.567Z",
+  "ended": "2026-10-29T13:26:29.506Z",
+  "status": "completed"
+}
