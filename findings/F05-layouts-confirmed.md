@@ -28,5 +28,7 @@
    Friendlies, Auto player select, F04) are likely +0xF2…+0xF6, on by default for a new game; only
    +0xF2 is shown.
 5. `[derived]` O-M1's exit check is met: a league-file claim (R05, R06) and the save's layout
-   (R24–R51) are confirmed by a run of the original. Which league file a save uses is chosen by
-   something not yet read: SAVE1 holds the year 1995 and byte 9 (F03 item 7), and ENGL-95 was loaded.
+   (R24–R51) are confirmed by a run of the original. SAVE1 holds byte 9 and the year 1995 (F03
+   item 7) and ENGL-95 was loaded; the file-name routine `1B55:013C` reads exactly `DS:DCD8` (a name
+   table at `DCD8*0x10 - 0x65D4`) and `DS:DCDA` (through `1B55:00C1`), so the name is likely built
+   from those two, not yet read in detail.
