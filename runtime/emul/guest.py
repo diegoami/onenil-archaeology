@@ -54,8 +54,8 @@ bound, not a count of instructions executed, and exceeds it by less than SLICE_M
 many instructions after the stop as the schedule says (after a key wait, the rest of the slice is
 time spent waiting for the key). The audit (#34): `service_counts` (calls per interrupt and
 function), `mouse_answers` (what each mouse read answered), `dos_calls` (every INT 21h call in
-order: its inputs, a file name, the length and sha256 of written bytes, the AX and carry it
-returned).
+order: its input AX, BX, CX, DX, DS, ES, a file name, the length and sha256 of written bytes, and the
+AX, BX, CX, DX, ES and carry it returned, #37). The mouse answers are a histogram, not in call order.
 """
 import io
 import struct
@@ -369,7 +369,8 @@ class Guest:
             elif intno == 0x21:
                 call = self._dos_inputs(ah)
                 self._int21(ah)
-                call["result"] = {"ax": self.reg("ax"), "carry": bool(self.reg("eflags") & CF)}
+                call["result"] = {**{k: self.reg(k) for k in ("ax", "bx", "cx", "dx", "es")},
+                                  "carry": bool(self.reg("eflags") & CF)}
                 self.dos_calls.append(call)
             elif intno == 0x10 and ah == 0x0F:
                 self.set_reg("ax", 0x5003)
@@ -403,7 +404,8 @@ class Guest:
         """An INT 21h call's decoded inputs, for the audit: the function, the registers it reads, the
         file name it names, and for a write its length and the sha256 of the bytes (never the bytes)."""
         r = self.reg
-        call = {"ah": "%02X" % ah, "at": self.where(), "bx": r("bx"), "cx": r("cx"), "dx": r("dx")}
+        call = {"ah": "%02X" % ah, "at": self.where(),
+                "in": {k: r(k) for k in ("ax", "bx", "cx", "dx", "ds", "es")}}
         if ah in (0x3C, 0x3D, 0x41, 0x4E):
             call["name"] = self._asciiz(r("ds"), r("dx"))
         if ah == 0x40:
