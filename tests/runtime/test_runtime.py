@@ -75,6 +75,11 @@ class ValidateTests(unittest.TestCase):
         self.assertTrue(self.check(record(arm="/home/someone/x")))
         self.assertTrue(self.check(record(started="2026-10-29T11:00:00Z")))
 
+    def test_a_long_value_fails_unless_it_is_a_log(self):
+        big = "x" * 70000
+        self.assertTrue(self.check(record(observations=[{"step": 0, "source": "ui-text", "field": "t", "value": big}])))
+        self.assertEqual(self.check(record(observations=[{"step": 0, "source": "log", "field": "events", "value": big}])), [])
+
 
 if __name__ == "__main__":
     unittest.main()

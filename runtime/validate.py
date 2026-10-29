@@ -7,7 +7,8 @@ this project. Exit 0 when every record holds, 1 otherwise.
 A record is valid when it has every field below with the right type; `run_id` is its file name and
 unique; `status` is "completed" or starts with "aborted:"; every observation has `step`, `source`,
 `field` and `value`, steps never fall; every sha256 field is 64 hex digits; `started` <= `ended` (ISO
-UTC); no host path (`/home/`, `/tmp/`) and no savestate or game bytes (no value over 64 KB) appear.
+UTC); no host path (`/home/`, `/tmp/`) and no savestate or game bytes (no value over 64 KB, logs
+excepted) appear.
 The format follows goal2-archaeology's run/1 records (its tools/validate_runs.py, which uses the
 game-archaeologist validator); this is a smaller, local check of the same shape.
 """
@@ -65,7 +66,9 @@ def check(path, seen):
         if bad in text:
             errs.append(f"{path}: a host path ({bad}) in the record")
     for o in rec["observations"]:
-        if len(str(o.get("value", ""))) > 65536:
+        # bytes of a savestate or of the game would be long; a log of waits and polls can be too,
+        # and is exempt (T04-week-r0018 logs 400 reads)
+        if o.get("source") != "log" and len(str(o.get("value", ""))) > 65536:
             errs.append(f"{path}: an observation value over 64 KB ({o['field'][:40]})")
     return errs
 
