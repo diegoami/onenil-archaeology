@@ -1,0 +1,20 @@
+; 1-0.EXE routines byte-equal (masked) to a GOAL.EXE routine (tools/static/goal2_match.py)
+; 1-0.EXE sha256 89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a; GOAL.EXE sha256 a6928b0bb7cda0303ac8daf8690efc56ef1792dddaccb5c6f3d85af1f68d3664
+routine_96	size	goal_routine	goal2_name
+26B8:0000	62	235C:00DE	dos_find_first
+26B8:003E	26	235C:011C	dos_find_next
+26B8:00A7	11	235C:0000	dos_msdos
+26C9:01F0	14	23E4:0194	sys_print_cs_asciiz_0194
+26C9:01FE	12	23E4:01A2	sys_print_dec3_01A2
+26C9:020A	14	23E4:01AE	sys_print_dec_digit_01AE
+26C9:021F	11	23E4:01C3	sys_print_hex_byte_01C3
+26C9:022A	8	23E4:01CE	sys_print_hex_nibble_01CE
+26C9:0B53	26	23E4:062A	sys_str_store_062A
+26C9:0B91	65	23E4:0676	sys_str_copy_0676
+26C9:0BD2	44	23E4:06B7	sys_str_concat_06B7
+26C9:0C44	43	23E4:072F	sys_str_compare_072F
+26C9:117B	119	23E4:0B57	sys_real_div_0B57
+26C9:11F2	23	23E4:0BCE	sys_real_compare_0BCE
+26C9:1209	19	23E4:0BE5	sys_real_compare_mag_0BE5
+26C9:1312	10	23E4:0CDF	sys_real_add_near_0CDF
+26C9:1955	49	23E4:1341	sys_val_1341

@@ -1,0 +1,943 @@
+; the area of every routine (tools/static/index.py; method in its docstring); anchors in static/areas.tsv
+; counts: program 12, runtime 111, library 135, match 299, tactics 4, squad 16, transfers 21, staff 6, finance 7, competitions 8, season 88, career 2, save-load 20, unknown 211
+routine	area	basis
+0000:0000	program	anchor
+0006:0002	program	callers: 0006:0AA0
+0006:0112	unknown	unknown
+0006:0149	career	anchor
+0006:01D0	career	anchor
+0006:02CA	unknown	unknown
+0006:0540	unknown	unknown
+0006:060F	unknown	unknown
+0006:0645	unknown	unknown
+0006:0685	unknown	unknown
+0006:075D	unknown	unknown
+0006:07A1	unknown	unknown
+0006:0AA0	program	callers: 0006:0B57
+0006:0B57	program	callers: 0000:0000
+0006:0C1E	season	callers: 0006:0F7B
+0006:0F7B	season	callers: 0006:14E2 0006:1B52
+0006:108F	season	callers: 0006:10BF
+0006:10BF	season	callers: 0006:1B52
+0006:1197	season	callers: 0006:14E2 0006:1B52
+0006:144B	season	callers: 0006:14E2 0006:1B52
+0006:14E2	season	anchor
+0006:16B7	season	callers: 0006:17DC
+0006:175A	season	callers: 0006:17DC
+0006:17DC	season	callers: 0006:1A67
+0006:1A67	season	anchor
+0006:1B52	season	anchor
+0006:1E82	program	callers: 0000:0000
+01EF:0000	season	callers: 01EF:01B2
+01EF:01B2	season	callers: 01EF:4D08
+01EF:03BD	season	callers: 01EF:0572
+01EF:04A4	season	callers: 01EF:0572
+01EF:0572	season	callers: 01EF:0E7D
+01EF:0626	unknown	unknown
+01EF:06A2	transfers	callers: 01EF:0D49
+01EF:070C	transfers	callers: 01EF:0B1F
+01EF:07CC	transfers	anchor
+01EF:0B1F	transfers	callers: 01EF:0D49
+01EF:0D49	transfers	anchor
+01EF:0DB2	unknown	unknown
+01EF:0E7D	season	callers: 01EF:0EA4
+01EF:0EA4	season	callers: 0006:1B52
+01EF:0F98	unknown	unknown
+01EF:1043	transfers	callers: 01EF:1324
+01EF:10B1	transfers	callers: 01EF:1324
+01EF:113B	transfers	callers: 01EF:1324
+01EF:119D	transfers	callers: 01EF:1324
+01EF:1207	transfers	callers: 01EF:1324
+01EF:1278	transfers	callers: 01EF:1324
+01EF:1324	transfers	callers: 01EF:13BD
+01EF:13BD	transfers	callers: 01EF:1569
+01EF:1569	transfers	anchor
+01EF:198E	season	callers: 01EF:19B7
+01EF:19B7	season	callers: 01EF:1D7A
+01EF:1C5B	season	callers: 01EF:1D7A
+01EF:1D7A	season	callers: 0006:14E2 0006:1B52
+01EF:1EAA	unknown	unknown
+01EF:1FF2	unknown	unknown
+01EF:2142	unknown	unknown
+01EF:21F0	unknown	unknown
+01EF:22CE	unknown	unknown
+01EF:232F	unknown	unknown
+01EF:23B9	unknown	unknown
+01EF:24E4	unknown	unknown
+01EF:25BC	unknown	unknown
+01EF:25FD	unknown	unknown
+01EF:27E1	unknown	unknown
+01EF:28E1	unknown	unknown
+01EF:291E	unknown	unknown
+01EF:29CE	season	callers: 01EF:4D08
+01EF:2AB4	unknown	unknown
+01EF:2B18	unknown	unknown
+01EF:2CD1	unknown	unknown
+01EF:2D98	unknown	unknown
+01EF:2DDA	unknown	unknown
+01EF:2E1C	unknown	unknown
+01EF:2E68	unknown	unknown
+01EF:2EFA	season	callers: 01EF:3524
+01EF:2FF3	staff	anchor
+01EF:311D	transfers	anchor
+01EF:32DE	staff	anchor
+01EF:3332	staff	callers: 01EF:3377
+01EF:3352	staff	callers: 01EF:3377
+01EF:3377	staff	anchor
+01EF:3524	season	callers: 0006:1B52
+01EF:3622	season	callers: 01EF:3A66
+01EF:368A	unknown	unknown
+01EF:36E5	staff	anchor
+01EF:37A6	season	callers: 01EF:4D08
+01EF:38C0	unknown	unknown
+01EF:3930	season	callers: 01EF:39F7 01EF:3A21
+01EF:39F7	season	callers: 01EF:3A66
+01EF:3A21	season	callers: 01EF:3A66
+01EF:3A66	season	callers: 01EF:4D08
+01EF:3B5C	program	callers: 01EF:3CB1
+01EF:3CB1	program	callers: 01EF:3CDA
+01EF:3CDA	program	callers: 0000:0000
+01EF:3DD9	competitions	callers: 01EF:3EE3
+01EF:3EE3	competitions	anchor
+01EF:3FC3	season	callers: 01EF:41EC
+01EF:40A1	season	callers: 01EF:41EC
+01EF:41EC	season	callers: 01EF:4ACD
+01EF:4227	season	callers: 01EF:4450
+01EF:4305	season	callers: 01EF:4450
+01EF:4450	season	callers: 01EF:4ACD
+01EF:44D1	season	callers: 01EF:467A 01EF:47EE
+01EF:467A	season	callers: 01EF:4743
+01EF:4743	season	callers: 0006:14E2 0006:1B52 01EF:4ACD
+01EF:47EE	season	callers: 01EF:487C
+01EF:487C	season	callers: 01EF:48DB 01EF:4ACD
+01EF:48DB	season	callers: 0006:14E2 0006:1B52
+01EF:49EE	unknown	unknown
+01EF:4A8F	season	callers: 01EF:4D08
+01EF:4ACD	season	callers: 01EF:4D08
+01EF:4D08	season	anchor
+06E8:0000	unknown	unknown
+06E8:0030	season	callers: 06E8:067E
+06E8:01DF	unknown	unknown
+06E8:021A	season	callers: 06E8:067E
+06E8:0278	season	callers: 06E8:067E
+06E8:0380	season	callers: 06E8:067E
+06E8:04DB	season	callers: 06E8:067E
+06E8:051B	season	callers: 06E8:067E
+06E8:0596	season	callers: 06E8:067E
+06E8:0657	season	callers: 06E8:067E
+06E8:067E	season	callers: 01EF:4D08
+06E8:08A3	unknown	unknown
+06E8:0926	unknown	unknown
+06E8:09AE	unknown	unknown
+06E8:0A44	unknown	unknown
+06E8:0AD1	unknown	unknown
+06E8:0C23	unknown	unknown
+06E8:0C68	unknown	unknown
+06E8:0CD0	unknown	unknown
+06E8:0DCC	unknown	unknown
+06E8:0E75	unknown	unknown
+06E8:102E	season	callers: 06E8:1384
+06E8:106A	season	callers: 01EF:4D08
+06E8:1081	season	callers: 06E8:1384
+06E8:117C	season	callers: 06E8:1384
+06E8:120B	season	callers: 06E8:1384
+06E8:1384	season	callers: 01EF:4A8F 01EF:4D08
+06E8:14E6	season	callers: 06E8:15E2 06E8:1615
+06E8:15E2	season	callers: 01EF:48DB 01EF:4ACD
+06E8:1615	season	callers: 01EF:48DB 01EF:4ACD
+06E8:1650	unknown	unknown
+06E8:16EF	unknown	unknown
+06E8:1746	unknown	unknown
+06E8:188E	unknown	unknown
+06E8:192D	unknown	unknown
+06E8:19F3	unknown	unknown
+06E8:1AAA	unknown	unknown
+06E8:1B31	unknown	unknown
+06E8:1BB4	unknown	unknown
+06E8:1BEE	unknown	unknown
+06E8:1C24	unknown	unknown
+06E8:1C86	unknown	unknown
+06E8:1D4F	unknown	unknown
+06E8:1D94	unknown	unknown
+06E8:1E05	unknown	unknown
+06E8:1E98	unknown	unknown
+06E8:2207	unknown	unknown
+06E8:246E	unknown	unknown
+06E8:24E9	unknown	unknown
+06E8:2593	unknown	unknown
+06E8:25E7	unknown	unknown
+06E8:26C3	unknown	unknown
+06E8:27AA	unknown	unknown
+06E8:2836	unknown	unknown
+06E8:28E5	unknown	unknown
+06E8:2956	unknown	unknown
+06E8:29E7	unknown	unknown
+06E8:2A76	unknown	unknown
+06E8:2B01	unknown	unknown
+06E8:2B23	season	callers: 06E8:2BA1
+06E8:2BA1	season	callers: 06E8:3A1D
+06E8:2CEA	unknown	unknown
+06E8:2D45	unknown	unknown
+06E8:2DC6	unknown	unknown
+06E8:2FB1	unknown	unknown
+06E8:3082	unknown	unknown
+06E8:30CB	unknown	unknown
+06E8:3123	unknown	unknown
+06E8:32E3	unknown	unknown
+06E8:3378	unknown	unknown
+06E8:342F	unknown	unknown
+06E8:346F	unknown	unknown
+06E8:3576	unknown	unknown
+06E8:35FB	finance	callers: 06E8:36EA
+06E8:36EA	finance	anchor
+06E8:3A1D	season	callers: 01EF:4D08
+06E8:3B6B	finance	anchor
+0AB9:0000	match	anchor
+0AB9:0020	match	callers: 0AB9:0060
+0AB9:0060	match	callers: 0AB9:00D6
+0AB9:00D6	match	callers: 0AB9:7B7B 0AB9:8354 0AB9:DD02
+0AB9:0143	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:0207	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:02D7	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:033E	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:03BB	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:03E4	match	anchor
+0AB9:0577	match	anchor
+0AB9:09BD	match	anchor
+0AB9:0B53	match	callers: 0AB9:78B7 0AB9:E008
+0AB9:0D7E	match	roots: 0AB9:4665 0AB9:5083 0AB9:537C 0AB9:53D7 ...
+0AB9:0E45	match	roots: 0AB9:4665 0AB9:5083 0AB9:537C 0AB9:53D7 ...
+0AB9:0F42	match	roots: 0AB9:4665 0AB9:5083 0AB9:537C 0AB9:53D7 ...
+0AB9:0F94	match	roots: 0AB9:4665 0AB9:5083 0AB9:537C 0AB9:53D7 ...
+0AB9:1000	unknown	unknown
+0AB9:10B9	unknown	unknown
+0AB9:13B8	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:1455	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:1539	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:164F	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:19A0	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:19CA	match	anchor
+0AB9:1A18	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:1A38	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:1A4C	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:1AE2	match	roots: 0AB9:537C 0AB9:53D7 0AB9:54E2 0AB9:59B7 ...
+0AB9:1BD6	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:1C1E	match	roots: 0AB9:7A02 0AB9:7CD4 0AB9:7D53 0AB9:DBC6
+0AB9:1C7E	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:1CA1	unknown	unknown
+0AB9:1CBB	match	anchor
+0AB9:1CD6	match	roots: 0AB9:4665 0AB9:4F95 0AB9:5083 0AB9:5267 ...
+0AB9:1CEC	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:1D3A	match	roots: 0AB9:4F95 0AB9:537C 0AB9:53D7 0AB9:59B7 ...
+0AB9:1D89	match	roots: 0AB9:4665 0AB9:5083 0AB9:537C 0AB9:53D7 ...
+0AB9:1DB7	match	roots: 0AB9:4665 0AB9:5083 0AB9:537C 0AB9:53D7 ...
+0AB9:1DE2	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:1E14	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:1E28	match	roots: 0AB9:53D7 0AB9:7A02 0AB9:DBC6
+0AB9:1E4E	match	roots: 0AB9:5267 0AB9:52B6 0AB9:7A02 0AB9:7CD4 ...
+0AB9:1E71	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:1E9F	match	roots: 0AB9:4665 0AB9:5083 0AB9:52B6 0AB9:537C ...
+0AB9:1ECC	match	roots: 0AB9:4F95 0AB9:537C 0AB9:53D7 0AB9:59B7 ...
+0AB9:1F0C	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:1F33	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:1F5E	match	roots: 0AB9:4F95 0AB9:7A02 0AB9:DBC6
+0AB9:1F99	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:1FB6	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:1FD3	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2029	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:207F	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:20C5	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:20F5	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:2129	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:215D	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:21D7	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:2304	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2327	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:24EB	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2505	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2625	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:293A	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2BC6	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2C3D	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2C84	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2CB4	match	roots: 0AB9:5083 0AB9:7A02 0AB9:DBC6
+0AB9:2CCD	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2DB4	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2E53	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2ED4	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2EEA	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2EFE	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:2FAA	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3070	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3098	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3102	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3155	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:325F	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:32DA	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3399	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:340D	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:350C	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:35F8	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3663	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3846	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3977	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3B21	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3B5A	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3BCF	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3D37	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:3D66	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:406A	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:40C3	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4180	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4218	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4267	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:43D2	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4416	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:448C	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4613	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4665	match	callers: 0AB9:46D4
+0AB9:46D4	match	callers: 0AB9:7A02
+0AB9:474B	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4794	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:47F1	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4AB1	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4B14	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4B4C	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4B6B	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4BE5	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4DFF	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4E5C	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4EAA	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:4F95	match	callers: 0AB9:5267 0AB9:7CD4
+0AB9:5083	match	callers: 0AB9:53D7 0AB9:DD02
+0AB9:5267	match	callers: 0AB9:52B6
+0AB9:52B6	match	callers: 0AB9:53D7 0AB9:DD02
+0AB9:537C	match	callers: 0AB9:54E2
+0AB9:53D7	match	callers: 0AB9:54E2
+0AB9:54E2	match	callers: 0AB9:55EF 0AB9:7423
+0AB9:55EF	match	callers: 0AB9:7423
+0AB9:561E	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:56EE	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5728	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:577F	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:57E3	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:5902	match	roots: 0AB9:537C 0AB9:53D7 0AB9:5A06 0AB9:7423 ...
+0AB9:5996	match	roots: 0AB9:537C 0AB9:53D7 0AB9:5A06 0AB9:7423 ...
+0AB9:59B7	match	callers: 0AB9:7423
+0AB9:5A06	match	callers: 0AB9:55EF 0AB9:7423
+0AB9:5A56	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5A81	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:5AB6	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:5B21	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:5B52	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5BC2	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5C48	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5CA1	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5CC4	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5D1F	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5DA3	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5E09	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5EB3	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:5FAB	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:60CA	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6305	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:63E3	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6489	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6549	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6589	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:67D0	match	roots: 0AB9:5083 0AB9:52B6 0AB9:537C 0AB9:53D7 ...
+0AB9:6849	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6935	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:69B8	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6A7A	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:6B2F	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:6CCE	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6D83	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:6DC0	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:6E28	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:6F6E	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:6F98	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:70D5	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:72BB	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:7423	match	callers: 0AB9:7A02
+0AB9:759A	match	callers: 0AB9:75E5
+0AB9:75E5	match	callers: 0AB9:7C3F
+0AB9:760C	match	callers: 0AB9:7C3F
+0AB9:770E	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+0AB9:78B7	match	callers: 0AB9:7A02 0AB9:DD02
+0AB9:79ED	match	roots: 0AB9:7A02 0AB9:DBC6
+0AB9:7A02	match	callers: 0AB9:7C3F 0AB9:7CD4 0AB9:7D53 0AB9:8354
+0AB9:7B7B	match	callers: 0AB9:7C3F
+0AB9:7C3F	match	callers: 0AB9:7D86 0AB9:7DD3 0AB9:7E73 0AB9:7EBE
+0AB9:7CD4	match	callers: 0AB9:E008
+0AB9:7D53	match	callers: 0AB9:E008
+0AB9:7D86	match	callers: 0AB9:E008
+0AB9:7DD3	match	callers: 0AB9:E008
+0AB9:7E73	match	callers: 0AB9:E008
+0AB9:7EBE	match	callers: 0AB9:E008
+0AB9:7EF0	match	callers: 0AB9:8434
+0AB9:8256	match	callers: 0AB9:8434
+0AB9:8354	match	callers: 0AB9:8434
+0AB9:8434	match	anchor
+0AB9:8599	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:8663	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:86E9	match	callers: 0AB9:E1F2
+0AB9:88DA	match	callers: 0AB9:E1F2
+0AB9:8973	unknown	unknown
+0AB9:8A0F	tactics	anchor
+0AB9:8A62	tactics	anchor
+0AB9:8B0B	tactics	anchor
+0AB9:8D6F	squad	anchor
+0AB9:95B3	unknown	unknown
+0AB9:95D1	match	callers: 0AB9:CBF0
+0AB9:966F	unknown	unknown
+0AB9:9702	unknown	unknown
+0AB9:973E	match	callers: 0AB9:97E6 0AB9:9804
+0AB9:97E6	match	callers: 0AB9:9840
+0AB9:9804	match	callers: 0AB9:9840
+0AB9:9840	match	callers: 0AB9:EAB6
+0AB9:9882	unknown	unknown
+0AB9:99C4	match	callers: 0AB9:9A67 0AB9:9CAC
+0AB9:9A67	match	callers: 0AB9:9B42
+0AB9:9B42	match	callers: 0AB9:9CAC
+0AB9:9CAC	match	callers: 0AB9:E1F2 0AB9:EAB6
+0AB9:9EF3	match	callers: 0AB9:E1F2
+0AB9:9F6E	match	roots: 0AB9:537C 0AB9:53D7 0AB9:54E2 0AB9:59B7 ...
+0AB9:9FD0	unknown	unknown
+0AB9:A0A4	squad	anchor
+0AB9:A23C	match	callers: 0AB9:A34D 0AB9:A4F2 0AB9:E1F2
+0AB9:A34D	match	callers: 0AB9:A4F2
+0AB9:A3D6	match	callers: 0AB9:A4F2
+0AB9:A464	match	callers: 0AB9:A4F2
+0AB9:A4F2	match	callers: 0AB9:52B6
+0AB9:A5BE	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:A613	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:A741	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:A7BB	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:A837	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:A8A0	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:A94B	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:ABD9	tactics	anchor
+0AB9:AC52	match	callers: 0AB9:C4CD 0AB9:CBF0
+0AB9:AC87	unknown	unknown
+0AB9:AD43	unknown	unknown
+0AB9:ADD0	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:AEB8	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:B0F5	match	callers: 0AB9:B271
+0AB9:B271	match	callers: 0AB9:C4CD 0AB9:CBF0
+0AB9:B42E	match	callers: 0AB9:E008
+0AB9:B52C	match	callers: 0AB9:B570
+0AB9:B570	match	callers: 0AB9:E1F2
+0AB9:B6BD	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:BAF6	transfers	anchor
+0AB9:BB79	squad	callers: 0AB9:BBE2
+0AB9:BBA8	squad	callers: 0AB9:BBE2
+0AB9:BBE2	squad	callers: 0AB9:C0A3
+0AB9:BD5B	squad	callers: 0AB9:C0A3
+0AB9:BEA4	transfers	anchor
+0AB9:C056	squad	callers: 0AB9:C0A3
+0AB9:C0A3	squad	anchor
+0AB9:C358	match	callers: 0AB9:C4CD 0AB9:CBF0
+0AB9:C3C6	match	callers: 0AB9:CBF0
+0AB9:C4B3	match	callers: 0AB9:C4CD
+0AB9:C4CD	match	callers: 0AB9:CBF0
+0AB9:C866	match	anchor
+0AB9:CBF0	match	anchor
+0AB9:D1DD	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:D29E	match	anchor
+0AB9:D5D6	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+0AB9:D904	match	callers: 0AB9:E008 0AB9:E8F3
+0AB9:D983	match	callers: 0AB9:DD02 0AB9:E8F3
+0AB9:DA41	match	callers: 0AB9:8434 0AB9:E1F2
+0AB9:DB68	match	callers: 0AB9:78B7 0AB9:E1F2
+0AB9:DBC6	match	callers: 0AB9:DD02
+0AB9:DD02	match	callers: 0AB9:7C3F
+0AB9:E008	match	anchor
+0AB9:E1F2	match	anchor
+0AB9:E479	match	callers: 0AB9:EAB6
+0AB9:E4CA	match	callers: 0AB9:E532
+0AB9:E532	match	callers: 0AB9:E679
+0AB9:E5EF	match	callers: 0AB9:EAB6
+0AB9:E679	match	callers: 0AB9:EAB6
+0AB9:E87A	match	callers: 0AB9:EAB6
+0AB9:E8F3	match	callers: 0AB9:EAB6
+0AB9:EAB6	match	anchor
+0AB9:ED8F	program	callers: 0000:0000
+1998:0008	unknown	unknown
+1998:0058	match	callers: 1998:00AB 1998:00BA
+1998:0085	match	callers: 1998:00BA
+1998:0096	match	callers: 1998:00AB 1998:00BA
+1998:00AB	match	callers: 0AB9:78B7 1998:00CD
+1998:00BA	match	callers: 0AB9:E1F2
+1998:00CD	match	callers: 0AB9:E1F2
+1998:00D6	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+1998:0100	match	roots: 0AB9:7A02 0AB9:DBC6
+1998:0134	match	roots: 0AB9:7A02 0AB9:DBC6
+1998:015A	match	roots: 0AB9:52B6 0AB9:537C 0AB9:53D7 0AB9:7423 ...
+1998:01E0	match	roots: 0AB9:52B6 0AB9:537C 0AB9:53D7 0AB9:7423 ...
+1998:022B	match	roots: 0AB9:537C 0AB9:53D7 0AB9:54E2 0AB9:59B7 ...
+1998:0273	match	roots: 0AB9:537C 0AB9:53D7 0AB9:54E2 0AB9:59B7 ...
+1998:02DF	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:0338	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:039A	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:03DB	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:045C	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:081B	match	callers: 0AB9:7423
+1998:084B	match	roots: 0AB9:7423 0AB9:7A02 0AB9:DBC6
+1998:087B	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:760C ...
+1998:093F	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+1998:0987	match	callers: 0AB9:86E9
+1998:09A3	match	roots: 0AB9:760C 0AB9:7A02 0AB9:DBC6
+1998:09E9	match	callers: 0AB9:86E9
+1998:0A16	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+1998:0B3F	match	roots: 0AB9:537C 0AB9:53D7 0AB9:7423 0AB9:7A02 ...
+1998:0B76	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:0B9E	unknown	unknown
+1998:0C23	match	callers: 0AB9:A23C 0AB9:A34D 0AB9:A3D6 0AB9:A464 ...
+1998:0C7A	match	callers: 0AB9:E1F2
+1998:0D79	squad	callers: 0AB9:C0A3
+1998:0DAE	unknown	unknown
+1998:0DD5	match	callers: 1998:0E25 1998:0F7E
+1998:0E25	match	callers: 1998:0F06
+1998:0F06	match	callers: 1998:1126
+1998:0F7E	match	callers: 1998:10CA
+1998:10CA	match	callers: 1998:1126
+1998:1126	match	callers: 0AB9:E679
+1998:11EC	unknown	unknown
+1998:12BE	unknown	unknown
+1998:1394	match	roots: 0AB9:7A02 0AB9:97E6 0AB9:DBC6
+1998:13F9	unknown	unknown
+1998:14A5	unknown	unknown
+1998:154E	unknown	unknown
+1998:15FA	season	callers: 01EF:4D08
+1998:16B1	season	callers: 01EF:4D08
+1998:186C	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1998:1897	match	callers: 0AB9:E679 0AB9:EAB6
+1998:1B99	match	callers: 0AB9:973E 0AB9:EAB6 1998:1126
+1B55:0000	unknown	unknown
+1B55:0055	save-load	anchor
+1B55:00C1	unknown	unknown
+1B55:013C	save-load	anchor
+1B55:0258	save-load	callers: 1B55:02A9
+1B55:02A9	save-load	callers: 1B55:03A5
+1B55:030C	save-load	anchor
+1B55:03A5	save-load	anchor
+1B55:04BB	save-load	callers: 1B55:0541
+1B55:050B	save-load	callers: 1B55:05D8
+1B55:0541	save-load	callers: 1B55:05D8
+1B55:05D8	save-load	anchor
+1B55:0730	save-load	callers: 1B55:0CF2
+1B55:08D9	save-load	callers: 1B55:091D
+1B55:091D	save-load	callers: 1B55:0C3A
+1B55:0AE5	save-load	anchor
+1B55:0BA1	save-load	callers: 1B55:0CF2
+1B55:0C3A	save-load	anchor
+1B55:0CF2	save-load	anchor
+1B55:0DE2	save-load	anchor
+1B55:0E40	save-load	anchor
+1B55:0E7A	unknown	unknown
+1B55:0EA2	unknown	unknown
+1B55:0EE3	unknown	unknown
+1B55:0F3B	unknown	unknown
+1B55:0F95	unknown	unknown
+1B55:101E	unknown	unknown
+1B55:10AF	unknown	unknown
+1B55:11C2	competitions	anchor
+1B55:12B1	unknown	unknown
+1B55:1334	competitions	anchor
+1B55:142B	unknown	unknown
+1B55:1542	unknown	unknown
+1B55:15CF	unknown	unknown
+1B55:167D	unknown	unknown
+1B55:1735	unknown	unknown
+1B55:1798	unknown	unknown
+1B55:17C2	match	callers: 0AB9:D904
+1B55:17F9	unknown	unknown
+1B55:185D	competitions	callers: 1B55:18BB
+1B55:18BB	competitions	anchor
+1B55:19CD	unknown	unknown
+1B55:1A1C	unknown	unknown
+1B55:1A8B	unknown	unknown
+1B55:1ADA	unknown	unknown
+1B55:1B8E	unknown	unknown
+1B55:1BB2	program	callers: 1B55:1C99
+1B55:1BFB	program	callers: 1B55:1C99
+1B55:1C99	program	callers: 0006:0AA0
+1B55:1D7E	unknown	unknown
+1B55:1E90	unknown	unknown
+1B55:1EF4	unknown	unknown
+1B55:1F46	unknown	unknown
+1B55:1FF1	unknown	unknown
+1B55:20B1	match	callers: 1B55:210F
+1B55:210F	match	callers: 1B55:2301
+1B55:223F	match	callers: 1B55:2301
+1B55:2301	match	callers: 0AB9:E679
+1B55:24C3	match	callers: 0AB9:E679
+1B55:265B	unknown	unknown
+1B55:26BD	unknown	unknown
+1B55:2700	unknown	unknown
+1B55:2735	match	callers: 1B55:284E
+1B55:284E	match	callers: 0AB9:E1F2
+1B55:2A7C	unknown	unknown
+1B55:2ACF	finance	callers: 1B55:2DB9
+1B55:2B43	finance	anchor
+1B55:2DB9	finance	anchor
+1B55:2EFA	unknown	unknown
+1B55:3108	unknown	unknown
+1B55:311E	unknown	unknown
+1B55:321F	unknown	unknown
+1B55:3323	unknown	unknown
+1B55:345A	unknown	unknown
+1B55:34B1	unknown	unknown
+1B55:357B	unknown	unknown
+1B55:35F5	unknown	unknown
+1B55:364E	unknown	unknown
+1B55:3673	unknown	unknown
+1B55:36B5	unknown	unknown
+1B55:3714	season	callers: 1B55:378A
+1B55:378A	season	callers: 01EF:4D08
+1B55:3875	finance	anchor
+1B55:38CA	season	callers: 06E8:0380
+1B55:38EF	season	callers: 0006:1B52 06E8:067E
+1B55:3B02	unknown	unknown
+1B55:3B99	unknown	unknown
+1B55:3C82	unknown	unknown
+1B55:3CE5	unknown	unknown
+1B55:3D6D	unknown	unknown
+1B55:3F0F	unknown	unknown
+1B55:4019	unknown	unknown
+1B55:40DF	unknown	unknown
+1B55:4119	unknown	unknown
+1B55:421A	unknown	unknown
+1B55:42D7	season	callers: 0006:1B52
+1B55:44DC	unknown	unknown
+1B55:453D	unknown	unknown
+1B55:455D	season	callers: 1B55:4694
+1B55:463B	season	callers: 1B55:4694
+1B55:4694	season	callers: 01EF:1D7A
+1B55:4759	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1B55:478C	unknown	unknown
+1B55:483C	unknown	unknown
+1B55:485D	unknown	unknown
+1B55:49D7	unknown	unknown
+1B55:4A37	unknown	unknown
+1B55:4A8F	unknown	unknown
+1B55:4B1C	unknown	unknown
+1B55:4B4A	unknown	unknown
+1B55:4C4A	squad	anchor
+1B55:4D0C	squad	callers: 0AB9:8D6F
+1B55:4DC2	squad	callers: 0AB9:8D6F
+1B55:4E0C	unknown	unknown
+1B55:4E81	unknown	unknown
+1B55:4EBF	unknown	unknown
+1B55:4F05	unknown	unknown
+1B55:4F89	unknown	unknown
+1B55:500B	match	roots: 0AB9:537C 0AB9:53D7 0AB9:59B7 0AB9:5A06 ...
+1B55:50EB	unknown	unknown
+1B55:5284	unknown	unknown
+1B55:535B	unknown	unknown
+1B55:53C6	unknown	unknown
+1B55:53FB	unknown	unknown
+1B55:54A6	unknown	unknown
+1B55:5516	unknown	unknown
+1B55:5634	unknown	unknown
+1B55:56E7	unknown	unknown
+1B55:5975	squad	callers: 1B55:59C1
+1B55:59C1	squad	callers: 1B55:5A60
+1B55:5A60	squad	anchor
+1B55:5B3C	match	callers: 1B55:5E79
+1B55:5B7E	unknown	unknown
+1B55:5C2F	unknown	unknown
+1B55:5C6E	unknown	unknown
+1B55:5CA9	unknown	unknown
+1B55:5CFB	squad	anchor
+1B55:5D5D	transfers	callers: 1B55:5DC7
+1B55:5DC7	transfers	callers: 01EF:0D49
+1B55:5E5C	unknown	unknown
+1B55:5E79	match	callers: 0AB9:CBF0
+1B55:6170	unknown	unknown
+1B55:6284	unknown	unknown
+1B55:6308	unknown	unknown
+1B55:6350	unknown	unknown
+1B55:6447	unknown	unknown
+1B55:6507	unknown	unknown
+1B55:6557	unknown	unknown
+1B55:66EE	transfers	anchor
+1B55:678A	unknown	unknown
+1B55:67BD	unknown	unknown
+1B55:67E6	unknown	unknown
+1B55:680B	unknown	unknown
+1B55:6835	unknown	unknown
+1B55:68EB	unknown	unknown
+1B55:6C6B	unknown	unknown
+1B55:6D04	season	callers: 1B55:6E40
+1B55:6DE4	season	callers: 1B55:6E40
+1B55:6E40	season	callers: 1B55:6E74
+1B55:6E74	season	callers: 01EF:4D08
+1B55:6EDF	competitions	callers: 1B55:6F7F
+1B55:6F7F	competitions	anchor
+1B55:7090	season	callers: 1B55:7164
+1B55:7164	season	callers: 01EF:4D08
+1B55:724A	unknown	unknown
+1B55:72D6	match	callers: 1B55:73D5
+1B55:73D5	match	callers: 0AB9:E87A
+1B55:7432	unknown	unknown
+1B55:7478	unknown	unknown
+1B55:74AF	unknown	unknown
+1B55:7541	unknown	unknown
+1B55:7688	unknown	unknown
+1B55:7777	unknown	unknown
+1B55:7826	unknown	unknown
+1B55:791E	unknown	unknown
+1B55:795A	season	callers: 0006:14E2 0006:1A67 0006:1B52 1B55:7991
+1B55:7991	season	callers: 01EF:4D08
+1B55:7A5D	season	callers: 0006:14E2
+1B55:7B19	transfers	callers: 0AB9:BAF6
+1B55:7B63	season	callers: 01EF:01B2
+1B55:7BDE	save-load	anchor
+2316:0000	runtime	segment
+2317:0000	library	segment
+232A:0008	library	segment
+232A:005E	library	segment
+232A:0085	library	segment
+232A:0098	library	segment
+232A:00D5	library	segment
+232A:00F8	library	segment
+232A:011D	library	segment
+232A:0144	library	segment
+232A:0167	library	segment
+232A:01C5	library	segment
+232A:01E3	library	segment
+232A:0203	library	segment
+232A:022E	library	segment
+232A:0240	library	segment
+232A:0256	library	segment
+232A:026C	library	segment
+232A:0283	library	segment
+232A:030C	library	segment
+232A:039D	library	segment
+232A:041B	library	segment
+232A:04A1	library	segment
+232A:0507	library	segment
+232A:052F	library	segment
+232A:0555	library	segment
+232A:06E5	library	segment
+232A:076D	library	segment
+232A:0783	library	segment
+232A:0795	library	segment
+232A:07C9	library	segment
+232A:07F6	library	segment
+232A:0869	library	segment
+232A:099B	library	segment
+232A:09BF	library	segment
+232A:0A60	library	segment
+232A:0BBA	library	segment
+232A:0C5C	library	segment
+232A:0E60	library	segment
+232A:0EC4	library	segment
+232A:0F16	library	segment
+232A:0F8B	library	segment
+232A:0FB6	library	segment
+232A:0FD7	library	segment
+232A:1194	library	segment
+232A:11E3	library	segment
+232A:1208	library	segment
+232A:121C	library	segment
+232A:1250	library	segment
+232A:1284	library	segment
+232A:12C0	library	segment
+245A:0000	runtime	segment
+245A:000D	runtime	segment
+245A:003B	runtime	segment
+245A:00A3	runtime	segment
+245A:00F0	runtime	segment
+245A:014E	runtime	segment
+245A:02C6	runtime	segment
+245A:031A	runtime	segment
+245A:033C	runtime	segment
+245A:039F	runtime	segment
+245A:0482	runtime	segment
+245A:0489	runtime	segment
+245A:04E2	runtime	segment
+245A:0503	runtime	segment
+245A:050A	runtime	segment
+245A:0614	runtime	segment
+24BC:0000	library	segment
+24BC:005A	library	segment
+24BC:0098	library	segment
+24BC:00E4	library	segment
+24BC:01C2	library	segment
+24BC:0203	library	segment
+24BC:0222	library	segment
+24BC:0243	library	segment
+24BC:0259	library	segment
+24BC:0277	library	segment
+24BC:0294	library	segment
+24BC:02B2	library	segment
+24BC:034B	library	segment
+24BC:036D	library	segment
+24BC:039D	library	segment
+24BC:03D9	library	segment
+24BC:0402	library	segment
+24BC:042B	library	segment
+24BC:048C	library	segment
+24BC:04C0	library	segment
+24BC:04FA	library	segment
+24BC:0534	library	segment
+24BC:0568	library	segment
+24BC:0598	library	segment
+24BC:05C8	library	segment
+24BC:0637	library	segment
+24BC:066F	library	segment
+24BC:06BE	library	segment
+24BC:0702	library	segment
+24BC:0784	library	segment
+24BC:0802	library	segment
+24BC:082F	library	segment
+24BC:087E	library	segment
+24BC:08C0	library	segment
+24BC:08E5	library	segment
+24BC:092B	library	segment
+24BC:098F	library	segment
+24BC:0AD8	library	segment
+24BC:0C17	library	segment
+24BC:0C58	library	segment
+24BC:0C81	library	segment
+24BC:0CA0	library	segment
+24BC:0CDC	library	segment
+24BC:0D01	library	segment
+24BC:0D1C	library	segment
+24BC:0D3F	library	segment
+24BC:0D5F	library	segment
+24BC:0E82	library	segment
+24BC:0FD6	library	segment
+24BC:101C	library	segment
+24BC:1054	library	segment
+24BC:10A4	library	segment
+24BC:116A	library	segment
+24BC:11E1	library	segment
+24BC:126D	library	segment
+24BC:12CD	library	segment
+24BC:1304	library	segment
+24BC:1341	library	segment
+24BC:1389	library	segment
+24BC:13FA	library	segment
+24BC:141F	library	segment
+24BC:1485	library	segment
+24BC:14EE	library	segment
+24BC:18FF	library	segment
+24BC:194F	library	segment
+24BC:197C	library	segment
+24BC:1991	library	segment
+24BC:19A6	library	segment
+24BC:19ED	library	segment
+24BC:1A45	library	segment
+24BC:1AB7	library	segment
+24BC:1AD5	library	segment
+24BC:1B08	library	segment
+24BC:1B1C	library	segment
+24BC:1B30	library	segment
+24BC:1B83	library	segment
+24BC:1B97	library	segment
+24BC:1BE8	library	segment
+24BC:1C96	library	segment
+24BC:1CEC	library	segment
+24BC:1D87	library	segment
+24BC:1DDA	library	segment
+24BC:1E4F	library	segment
+24BC:1E8A	library	segment
+24BC:1EEE	library	segment
+26B8:0000	runtime	segment
+26B8:003E	runtime	segment
+26B8:0058	runtime	segment
+26B8:007C	runtime	segment
+26B8:0094	runtime	segment
+26B8:00A7	runtime	segment
+26B8:00B2	runtime	segment
+26C9:0000	runtime	segment
+26C9:00B1	runtime	segment
+26C9:0116	runtime	segment
+26C9:01F0	runtime	segment
+26C9:01FE	runtime	segment
+26C9:020A	runtime	segment
+26C9:0218	runtime	segment
+26C9:021F	runtime	segment
+26C9:022A	runtime	segment
+26C9:0232	runtime	segment
+26C9:028A	runtime	segment
+26C9:029F	runtime	segment
+26C9:0303	runtime	segment
+26C9:0353	runtime	segment
+26C9:041E	runtime	segment
+26C9:047D	runtime	segment
+26C9:04DC	runtime	segment
+26C9:04EE	runtime	segment
+26C9:056C	runtime	segment
+26C9:0571	runtime	segment
+26C9:05C6	runtime	segment
+26C9:0602	runtime	segment
+26C9:06A1	runtime	segment
+26C9:06FF	runtime	segment
+26C9:074E	runtime	segment
+26C9:07A5	runtime	segment
+26C9:07E5	runtime	segment
+26C9:0806	runtime	segment
+26C9:0821	runtime	segment
+26C9:082F	runtime	segment
+26C9:083D	runtime	segment
+26C9:0878	runtime	segment
+26C9:08A4	runtime	segment
+26C9:08FA	runtime	segment
+26C9:092C	runtime	segment
+26C9:097D	runtime	segment
+26C9:09BE	runtime	segment
+26C9:09D3	runtime	segment
+26C9:09E8	runtime	segment
+26C9:0A03	runtime	segment
+26C9:0A12	runtime	segment
+26C9:0A2A	runtime	segment
+26C9:0A67	runtime	segment
+26C9:0B53	runtime	segment
+26C9:0B6D	runtime	segment
+26C9:0B91	runtime	segment
+26C9:0BD2	runtime	segment
+26C9:0BFE	runtime	segment
+26C9:0C44	runtime	segment
+26C9:0C6F	runtime	segment
+26C9:0C81	runtime	segment
+26C9:0C9C	runtime	segment
+26C9:0CFB	runtime	segment
+26C9:0D94	runtime	segment
+26C9:0DAA	runtime	segment
+26C9:0E1F	runtime	segment
+26C9:0FB1	runtime	segment
+26C9:0FB5	runtime	segment
+26C9:1078	runtime	segment
+26C9:117B	runtime	segment
+26C9:11F2	runtime	segment
+26C9:1209	runtime	segment
+26C9:121C	runtime	segment
+26C9:1258	runtime	segment
+26C9:12C6	runtime	segment
+26C9:12D8	runtime	segment
+26C9:12DE	runtime	segment
+26C9:12EC	runtime	segment
+26C9:12F8	runtime	segment
+26C9:1312	runtime	segment
+26C9:131C	runtime	segment
+26C9:1330	runtime	segment
+26C9:139F	runtime	segment
+26C9:149C	runtime	segment
+26C9:1545	runtime	segment
+26C9:15E8	runtime	segment
+26C9:1717	runtime	segment
+26C9:171D	runtime	segment
+26C9:1736	runtime	segment
+26C9:181A	runtime	segment
+26C9:1827	runtime	segment
+26C9:1843	runtime	segment
+26C9:1863	runtime	segment
+26C9:190A	runtime	segment
+26C9:1955	runtime	segment
+26C9:1986	runtime	segment
+26C9:1999	runtime	segment

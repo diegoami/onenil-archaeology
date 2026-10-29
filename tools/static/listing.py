@@ -3,7 +3,7 @@
 
     python3 tools/static/listing.py <1-0.EXE or 1-095.EXE> <output directory>
 
-Ported from goal2-archaeology tools/static/listing.py at aefd8d30. It unpacks the file
+Ported from goal2-archaeology tools/static/listing.py at 774473eb. It unpacks the file
 (tools/static/unlzexe.py), refuses any input whose sha256 is not one of the two known ones
 (records/T01/inventory.json), and disassembles the code segments with capstone (the version pinned in
 tools/static/requirements.txt; it refuses another version, because another version may
