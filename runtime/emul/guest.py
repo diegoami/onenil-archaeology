@@ -25,7 +25,9 @@ to a hook and does not vector through the IVT; DOSBox-X's own BIOS is callbacks 
   per second; divisor 0x10000 until the game writes another through port 40h, as 1998:0096 does with
   0x400 for a match). At cycles 20000 (F04) the guest runs INSTR_PER_S instructions a second, so IRQ 0
   comes every divisor * INSTR_PER_S / 1,193,182 instructions, while IF is set (it waits, pending,
-  while IF is clear). IVT entry 8 is the BIOS's (DOSBox-X's, segment F000, not runnable): its tick is
+  while IF is clear). A write of a new divisor ends the running slice at that instruction, and the
+  next IRQ 0 comes one new period after it (#33). [designed] Whether DOSBox-X restarts the count at
+  the write or at the end of the current count is not checked; this restarts it at the write. IVT entry 8 is the BIOS's (DOSBox-X's, segment F000, not runnable): its tick is
   done here as DOSBox-X's INT8_Handler does it, the dword 0040:006C + 1, then INT 1Ch, which enters
   the game's handler when one is installed (the match's 1998:0000: it counts DS:D088 down and takes
   1 off 0040:006C at 63 of each 64 ticks, keeping the BIOS clock at 18.2 a second). The midnight
@@ -46,8 +48,14 @@ to a hook and does not vector through the IVT; DOSBox-X's own BIOS is callbacks 
   in `unsupported` and leaves the registers as they were, so a run that met one can say so.
 
 Every service call is logged in `services` (interrupt, AX, the guest's CS:IP as an image address).
-`budget` counts the instructions the run allowed (slices given to Unicorn); a slice that ends early
-at a key wait still counts whole, so it is an upper bound, not a count of instructions executed.
+`budget` counts the instructions the run allowed (slices given to Unicorn, SLICE_MAX at most each);
+a slice that ends early (at a key wait, or at a divisor write) still counts whole, so it is an upper
+bound, not a count of instructions executed, and exceeds it by less than SLICE_MAX per early end. The next IRQ 0 is scheduled against it, so after an early end it comes as
+many instructions after the stop as the schedule says (after a key wait, the rest of the slice is
+time spent waiting for the key). The audit (#34): `service_counts` (calls per interrupt and
+function), `mouse_answers` (what each mouse read answered), `dos_calls` (every INT 21h call in
+order: its inputs, a file name, the length and sha256 of written bytes, the AX and carry it
+returned).
 """
 import io
 import struct
@@ -75,6 +83,8 @@ INSTR_PER_S = 20_000_000     # cycles 20000 (F04): DOSBox-X's normal core runs a
 PIT_HZ = 1_193_182
 KEY_HOLD = 1_600_000         # 0.08 s at INSTR_PER_S: runtime/driver/driver.py's KEY_HOLD
 IF_RETRY = 200               # instructions to the next look when an interrupt waits for IF
+SLICE_MAX = 1_000            # instructions per Unicorn slice at most: a slice that ends early (a key
+                             # wait, a divisor write) counts whole, so the clock is off by < SLICE_MAX
 READKEY_LOOP = "24BC:0C41"   # readkey 24BC:0C17's call of keypressed returns here (0C3E: push cs; call 0C58)
 KEYPRESSED = "24BC:0C58"       # F06: keypressed, polled by every key wait seen
 SCAN = {"Return": 0x1C, "space": 0x39, "Escape": 0x01, "Down": 0x50, "Up": 0x48, "Left": 0x4B,
@@ -124,7 +134,11 @@ class Guest:
         self.files = dict(files or {})          # upper-case name -> bytes
         self.clock = clock or {"date": (1995, 8, 1, 2), "time": (10, 0, 0, 0)}  # (y, m, d, weekday), (h, m, s, cs)
         self.waiting_for_key = False
-        self.services = []                      # (int, ah, image CS:IP)
+        self.services = []                      # (int, AX, image CS:IP)
+        self.service_counts = {}                # "int NN fn XXXX" -> calls
+        self.mouse_answers = {}                 # "ax=0003 -> bx,cx,dx" -> calls
+        self.dos_calls = []                     # every INT 21h call: function, decoded inputs, result
+        self._retime = False
         self.handles = {}                       # DOS handle -> [name, position, bytearray, writable]
         self.dta = None
         self.find_state = None
@@ -220,6 +234,8 @@ class Guest:
                 d = self._pit_latch[0] | (self._pit_latch[1] << 8)
                 self.divisor = d or 0x10000
                 self._pit_latch = []
+                self._retime = True             # the next IRQ 0: one new period after this write
+                uc.emu_stop()
 
     def _keypressed(self, g):
         """At an entry of keypressed: deliver a scancode through IRQ 1, or count a poll."""
@@ -296,7 +312,7 @@ class Guest:
         if self.next_irq0 is None:
             self.next_irq0 = self.budget + self.irq0_period()
         while allowed < max_steps:
-            n = max(1, min(self.next_irq0 - self.budget, max_steps - allowed))
+            n = max(1, min(self.next_irq0 - self.budget, max_steps - allowed, SLICE_MAX))
             cs, ip = self.reg("cs"), self.reg("ip")
             self.mu.emu_start(cs * 16 + ip, 0x110000, count=n)
             self.budget += n
@@ -305,6 +321,10 @@ class Guest:
                 raise self.error
             if self.waiting_for_key:
                 return True
+            if self._retime:
+                self._retime = False
+                self.next_irq0 = self.budget + self.irq0_period()
+                continue
             if self.budget >= self.next_irq0:
                 if self.reg("eflags") & 0x200:
                     self._irq0()
@@ -315,7 +335,10 @@ class Guest:
 
     # -- services --------------------------------------------------------------------------------
     def _log(self, n):
-        self.services.append((n, self.reg("ax"), self.where()))
+        ax = self.reg("ax")
+        self.services.append((n, ax, self.where()))
+        key = "int %02X fn %04X" % (n, ax if n == 0x33 else ax >> 8)
+        self.service_counts[key] = self.service_counts.get(key, 0) + 1
 
     def _unsupported(self, n):
         self.unsupported.append((n, self.reg("ax"), self.where()))
@@ -335,6 +358,8 @@ class Guest:
                 ax = self.reg("ax")
                 if ax == 0x0003:          # no button; the position the game last set: no movement
                     self.set_reg("bx", 0); self.set_reg("cx", self.mouse[0]); self.set_reg("dx", self.mouse[1])
+                    key = "ax=0003 -> bx,cx,dx = 0,%d,%d" % self.mouse
+                    self.mouse_answers[key] = self.mouse_answers.get(key, 0) + 1
                 elif ax == 0x0004:        # set position (24BC:0AAA recentres it at 100, 100)
                     self.mouse = (self.reg("cx"), self.reg("dx"))
                 elif ax == 0x0000:
@@ -342,7 +367,10 @@ class Guest:
                 else:
                     self._unsupported(intno)
             elif intno == 0x21:
+                call = self._dos_inputs(ah)
                 self._int21(ah)
+                call["result"] = {"ax": self.reg("ax"), "carry": bool(self.reg("eflags") & CF)}
+                self.dos_calls.append(call)
             elif intno == 0x10 and ah == 0x0F:
                 self.set_reg("ax", 0x5003)
                 self.set_reg("bx", self.reg("bx") & 0x00FF)
@@ -370,6 +398,19 @@ class Guest:
     def _fail(self, code):
         self.set_reg("ax", code)
         self.set_flag(CF, True)
+
+    def _dos_inputs(self, ah):
+        """An INT 21h call's decoded inputs, for the audit: the function, the registers it reads, the
+        file name it names, and for a write its length and the sha256 of the bytes (never the bytes)."""
+        r = self.reg
+        call = {"ah": "%02X" % ah, "at": self.where(), "bx": r("bx"), "cx": r("cx"), "dx": r("dx")}
+        if ah in (0x3C, 0x3D, 0x41, 0x4E):
+            call["name"] = self._asciiz(r("ds"), r("dx"))
+        if ah == 0x40:
+            import hashlib
+            data = self.mem(r("ds") * 16 + r("dx"), r("cx"))
+            call["written"] = {"length": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+        return call
 
     def _int21(self, ah):
         r = self.reg

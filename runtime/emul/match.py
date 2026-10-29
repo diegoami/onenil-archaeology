@@ -254,6 +254,9 @@ def main(argv=None):
            "services": sorted({f"int {n:02X} ax {ax:04X}" if n == 0x33 else f"int {n:02X} ah {ax >> 8:02X}"
                                for n, ax, _ in w.g.services}),
            "unsupported": [f"int {n:02X} ax {ax:04X} at {at}" for n, ax, at in w.g.unsupported],
+           "service_counts": dict(sorted(w.g.service_counts.items())),
+           "mouse_answers": dict(sorted(w.g.mouse_answers.items())),
+           "dos_calls": w.g.dos_calls,
            "files_written": w.files_written(), "state_digests": w.state_digests()}
     out = ROOT / a.out
     out.mkdir(parents=True, exist_ok=True)
