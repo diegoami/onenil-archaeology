@@ -66,4 +66,7 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     records traces of the original's routines and matches, and onenil's Rust tests replay them
     ([docs/plan.md](docs/plan.md)).
 16. [designed: owner, 2026-10-29] **One-Nil 96 is the target.** onenil reproduces `1-0.EXE`; 95 is
-    read as a delta, and a finding names the edition(s) it holds for.
+    read as a delta, and a finding names the edition(s) it holds for. [designed: owner, 2026-10-29,
+    after F01] The 96 copy is a limited build (loading a saved game refused, a registration stop):
+    it stays the target, runs start from DOSBox-X savestates, and the stop's condition is found
+    statically (T02); if it blocks a full season, the target is decided again.
