@@ -8,3 +8,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T04](T04.md): Runtime: drive One-Nil 96 under DOSBox-X, and does it load a saved game (#7).
 - [T05](T05.md): The layouts confirmed by a run: league and save blocks read back from 96's memory (#10).
 - [T06](T06.md): The Unicorn harness: run 96's match from a recorded state and trace its draws (#11).
+- [T07](T07.md): The match's structure: from 0AB9:E1F2 to every routine that draws (#39).
+- [T08](T08.md): A trace corpus: T04's weeks traced in the harness, each checked against DOSBox-X (#40).
