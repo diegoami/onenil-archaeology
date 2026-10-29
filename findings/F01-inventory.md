@@ -62,6 +62,10 @@
    GAME" (`01EF:4CA4`); 95 has none of them, and no "register" or "purchase" text at all.
    `[derived]` In 96, saving works, loading a saved game is refused, and play stops at some point
    until registered. When, and on what condition, is not established (T02, then a run).
+   **Superseded by F02 items 11–13** (2026-10-29): the limited-build texts are switched off in this
+   build (the load test is compiled with a constant false; nothing references the other two
+   texts), so the derivation above is wrong pending a run. The `01EF:4CA4` above is the word
+   "REGISTER"; the string starts at `01EF:4C86`.
 10. `[confirmed]` In 96, the units at `0006` (`1-0.EXE`) and `0007` (`ALTER.EXE`) gained an
     initialization section that is empty (`push bp; mov bp,sp; leave; retf`): one more entry far
     call, no effect. The year string changes from "1992-95 " to "1992-96 " in both programs.

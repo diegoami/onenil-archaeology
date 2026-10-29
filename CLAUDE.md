@@ -67,6 +67,7 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     ([docs/plan.md](docs/plan.md)).
 16. [designed: owner, 2026-10-29] **One-Nil 96 is the target.** onenil reproduces `1-0.EXE`; 95 is
     read as a delta, and a finding names the edition(s) it holds for. [designed: owner, 2026-10-29,
-    after F01] The 96 copy is a limited build (loading a saved game refused, a registration stop):
-    it stays the target, runs start from DOSBox-X savestates, and the stop's condition is found
-    statically (T02); if it blocks a full season, the target is decided again.
+    after F01; amended after F02] The 96 copy carries the texts of a limited build (loading
+    refused, a registration stop), but F02 found them switched off at compile time: it stays the
+    target, runs start from DOSBox-X savestates, and a run confirms that it loads saved games and
+    never stops (T04); if it does stop, the target is decided again.
