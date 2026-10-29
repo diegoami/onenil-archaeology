@@ -1,0 +1,377 @@
+{
+ "tool": "tools/data/save.py",
+ "files": {
+  "One-Nil95/SAVE1.1-0": {
+   "sha256": "74e42dc7ad746353a78b9dcbe0b7a79a38fe0979f015c5767cb1c2797c5f2ce2",
+   "size": 194426,
+   "blocks": [
+    {
+     "destination": "DS:DCD8",
+     "offset": 0,
+     "size": 1,
+     "sha256": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+     "value": 9
+    },
+    {
+     "destination": "DS:DCDA",
+     "offset": 1,
+     "size": 2,
+     "sha256": "5b691f3c3432581e9d3bd139cdb4c1f1cc6db3495f3e481c07ec0eb79c1a9aa5",
+     "value": 1994
+    },
+    {
+     "destination": "[DS:D7BA]",
+     "offset": 3,
+     "size": 31368,
+     "sha256": "e9ab9e0347007f97a43feaf75b32dab97564e2524a886a4b1aded3f76735b2b4",
+     "shape": "3921 players x 8 bytes"
+    },
+    {
+     "destination": "[DS:D7BE]",
+     "offset": 31371,
+     "size": 58815,
+     "sha256": "306aab977dd04bdfff74e080a1ab7404dd2935022ad4416c5d3b754d3e053cad",
+     "shape": "3921 players x 15 bytes"
+    },
+    {
+     "destination": "[DS:D7C2]",
+     "offset": 90186,
+     "size": 10912,
+     "sha256": "0ea516525aab4874bbc9c3356d630272e0d647c4dd46ed19cc0b07a6fdc4c1de",
+     "shape": "176 clubs x 62 bytes"
+    },
+    {
+     "destination": "[DS:D7C6]",
+     "offset": 101098,
+     "size": 2112,
+     "sha256": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+     "shape": "176 clubs x 12 bytes"
+    },
+    {
+     "destination": "[DS:D7CA]",
+     "offset": 103210,
+     "size": 30624,
+     "sha256": "a53c94a7afe9506d7ec253a86b6129f3d8d2aacfa932e2b7ed11052d6575920b",
+     "shape": "176 clubs x 174 bytes"
+    },
+    {
+     "destination": "[DS:D7CE]",
+     "offset": 133834,
+     "size": 10208,
+     "sha256": "8369c8426f639bd09ef750ba8473fba6fd3b9129b7fbe1331085a36616643f2f",
+     "shape": "176 clubs x 58 bytes"
+    },
+    {
+     "destination": "[DS:D7D2]",
+     "offset": 144042,
+     "size": 247,
+     "sha256": "0f737c5ba83fa1c065684db46248eba618c3128075d404d635291cc6f280c958"
+    },
+    {
+     "destination": "DS:D7D6",
+     "offset": 144289,
+     "size": 176,
+     "sha256": "ed3106ec34fcbd70d9dfc07875d9ab13dfb5c7ebd783b95ecaffe49c0fdda633"
+    },
+    {
+     "destination": "DS:DCA6",
+     "offset": 144465,
+     "size": 8,
+     "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+     "destination": "DS:DCAE",
+     "offset": 144473,
+     "size": 8,
+     "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+     "destination": "[DS:DCB6]",
+     "offset": 144481,
+     "size": 96,
+     "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+     "destination": "DS:DCBA",
+     "offset": 144577,
+     "size": 2,
+     "sha256": "cbe2268747c9c8072c7f9926f2288f270637dc55bb9d14d3368361d5e47d25be"
+    },
+    {
+     "destination": "[DS:DE84]",
+     "offset": 144579,
+     "size": 2,
+     "sha256": "240ffa461655b1f9e0cca7f890d74410396c5455388ea636be1d6898c3f4d6b4",
+     "value": 23260
+    },
+    {
+     "destination": "[DS:DCBC]",
+     "offset": 144581,
+     "size": 1770,
+     "sha256": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3"
+    },
+    {
+     "destination": "[DS:DCC0]",
+     "offset": 146351,
+     "size": 8096,
+     "sha256": "aa95a8e4d875b25841484bc908ca29d2c4f59c2885e0b3235b63c6df63997a85",
+     "shape": "176 clubs x 46 bytes"
+    },
+    {
+     "destination": "[DS:DCC4]",
+     "offset": 154447,
+     "size": 188,
+     "sha256": "acfa2372c77bbece722fb7d9bf466c4738610ce6230787b03b3dc4aabd9e5bc1"
+    },
+    {
+     "destination": "[DS:DCC8]",
+     "offset": 154635,
+     "size": 4004,
+     "sha256": "a12f05b2988ad6b9bae175e84fbf13408012757d309dba639d2f4883ef4ad572",
+     "shape": "1001 names_1001 x 4 bytes"
+    },
+    {
+     "destination": "[DS:DCD4]",
+     "offset": 158639,
+     "size": 1001,
+     "sha256": "bd81dedae9036dd1aba65a0d236adcd3d3859a32829213d6cbcefb84787b8582"
+    },
+    {
+     "destination": "[DS:DCCC]",
+     "offset": 159640,
+     "size": 11011,
+     "sha256": "5615ea6ec0c6949a147868f5709d4884f3cdfcd3225f7d19623c05a5c9447539",
+     "shape": "1001 names_1001 x 11 bytes"
+    },
+    {
+     "destination": "[DS:DCD0]",
+     "offset": 170651,
+     "size": 1001,
+     "sha256": "ad91d09291aec020d08569de4ccf9ba48811f7f9e8c821808e88555ca8b19cc4"
+    },
+    {
+     "destination": "[DS:D7AA]",
+     "offset": 171652,
+     "size": 3921,
+     "sha256": "c6633f0be74f2b44ba97ca467ae40c73557d5df2c5d77ed8d7d0852a08363d55"
+    },
+    {
+     "destination": "DS:D936",
+     "offset": 175573,
+     "size": 176,
+     "sha256": "92dc148a0d227f90bbe4c61ab6c7e818fe9468b6464c9b1b7ff0cc64477ea9f1"
+    },
+    {
+     "destination": "DS:D9E6",
+     "offset": 175749,
+     "size": 176,
+     "sha256": "14b5f07952c133a83f4f0ae2fb400f47213cb0672ec52613efcef2063328b36d"
+    },
+    {
+     "destination": "[DS:DCDC]",
+     "offset": 175925,
+     "size": 464,
+     "sha256": "7c4c2b940c41426e36a4cf6c83afababacfb8bb1a1dc39162a95bb812e1d109f"
+    },
+    {
+     "destination": "DS:DCE0",
+     "offset": 176389,
+     "size": 1,
+     "sha256": "084fed08b978af4d7d196a7446a86b58009e636b611db16211b65a9aadff29c5"
+    },
+    {
+     "destination": "[DS:DCE2]",
+     "offset": 176390,
+     "size": 18036,
+     "sha256": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3"
+    }
+   ]
+  },
+  "One-Nil96/SAVE1.1-0": {
+   "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+   "size": 194426,
+   "blocks": [
+    {
+     "destination": "DS:DCD8",
+     "offset": 0,
+     "size": 1,
+     "sha256": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+     "value": 9
+    },
+    {
+     "destination": "DS:DCDA",
+     "offset": 1,
+     "size": 2,
+     "sha256": "2478f80dfeeb8baa2ddf7ff28ac8daf29188bead47cc4cd78a69c76a84621cec",
+     "value": 1995
+    },
+    {
+     "destination": "[DS:D7BA]",
+     "offset": 3,
+     "size": 31368,
+     "sha256": "88ad40cd4cefda890d27b3246486fa5452b870ab416282ae5ecec9fb70683c66",
+     "shape": "3921 players x 8 bytes"
+    },
+    {
+     "destination": "[DS:D7BE]",
+     "offset": 31371,
+     "size": 58815,
+     "sha256": "18df11a2e66f9f26425155b51e174ab30185d57a2964054dd18591546386ba51",
+     "shape": "3921 players x 15 bytes"
+    },
+    {
+     "destination": "[DS:D7C2]",
+     "offset": 90186,
+     "size": 10912,
+     "sha256": "82ec12718ae36b109e6dcf054a4cf7e78d215aa8931c57f40bf321224867d882",
+     "shape": "176 clubs x 62 bytes"
+    },
+    {
+     "destination": "[DS:D7C6]",
+     "offset": 101098,
+     "size": 2112,
+     "sha256": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+     "shape": "176 clubs x 12 bytes"
+    },
+    {
+     "destination": "[DS:D7CA]",
+     "offset": 103210,
+     "size": 30624,
+     "sha256": "efabd56a9400ddf06dc1ac6b549aa230f56db7a3aa674f85927b17ddc72b51e9",
+     "shape": "176 clubs x 174 bytes"
+    },
+    {
+     "destination": "[DS:D7CE]",
+     "offset": 133834,
+     "size": 10208,
+     "sha256": "8369c8426f639bd09ef750ba8473fba6fd3b9129b7fbe1331085a36616643f2f",
+     "shape": "176 clubs x 58 bytes"
+    },
+    {
+     "destination": "[DS:D7D2]",
+     "offset": 144042,
+     "size": 247,
+     "sha256": "400c29a71373e75ec824d5f082085c9bf70ee28e8d8e3cf4c47f4e8e42e49dcd"
+    },
+    {
+     "destination": "DS:D7D6",
+     "offset": 144289,
+     "size": 176,
+     "sha256": "7d93e243cccdd63c9f0f949d296bdf5f2e1e7b5fe450e52400c2e0e17da2e7f4"
+    },
+    {
+     "destination": "DS:DCA6",
+     "offset": 144465,
+     "size": 8,
+     "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+     "destination": "DS:DCAE",
+     "offset": 144473,
+     "size": 8,
+     "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+     "destination": "[DS:DCB6]",
+     "offset": 144481,
+     "size": 96,
+     "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+     "destination": "DS:DCBA",
+     "offset": 144577,
+     "size": 2,
+     "sha256": "1c53d1a46b3330cc470eecfb6a3d9b8d61cebe92f81c6551c5c6afe5a35071d5"
+    },
+    {
+     "destination": "[DS:DE84]",
+     "offset": 144579,
+     "size": 2,
+     "sha256": "240ffa461655b1f9e0cca7f890d74410396c5455388ea636be1d6898c3f4d6b4",
+     "value": 23260
+    },
+    {
+     "destination": "[DS:DCBC]",
+     "offset": 144581,
+     "size": 1770,
+     "sha256": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3"
+    },
+    {
+     "destination": "[DS:DCC0]",
+     "offset": 146351,
+     "size": 8096,
+     "sha256": "aa95a8e4d875b25841484bc908ca29d2c4f59c2885e0b3235b63c6df63997a85",
+     "shape": "176 clubs x 46 bytes"
+    },
+    {
+     "destination": "[DS:DCC4]",
+     "offset": 154447,
+     "size": 188,
+     "sha256": "1fc5c9751dd36622db72ae1e271728fbc98d8e88c896f2e0f6808759ded712ad"
+    },
+    {
+     "destination": "[DS:DCC8]",
+     "offset": 154635,
+     "size": 4004,
+     "sha256": "4c89ee10bc150dac35e0bd33eeaf0dec919f7aeb279e19e00aa182b99fdb1163",
+     "shape": "1001 names_1001 x 4 bytes"
+    },
+    {
+     "destination": "[DS:DCD4]",
+     "offset": 158639,
+     "size": 1001,
+     "sha256": "457e30c6e9909c60e9d7c2c4cdab4bbdccdfb087c24fd28e211aed0b8a8fd7c1"
+    },
+    {
+     "destination": "[DS:DCCC]",
+     "offset": 159640,
+     "size": 11011,
+     "sha256": "e7604388afc9c2a9bd7f854e5cd9127a7e80d9a1b94aba11f1b43756ce3d82d7",
+     "shape": "1001 names_1001 x 11 bytes"
+    },
+    {
+     "destination": "[DS:DCD0]",
+     "offset": 170651,
+     "size": 1001,
+     "sha256": "a541eeef2cd7e9af7b285ccbe311555c2cebd6f6afa74ed419bf6a681b55ecfe"
+    },
+    {
+     "destination": "[DS:D7AA]",
+     "offset": 171652,
+     "size": 3921,
+     "sha256": "2f75d9f9da523c4513798c825cdfcf1173af162b4f3eff8330adacafad928fc7"
+    },
+    {
+     "destination": "DS:D936",
+     "offset": 175573,
+     "size": 176,
+     "sha256": "f5cdb7000d05aeb72a4958faabf68c347ab7e4180f92852070ac8a1ac286b998"
+    },
+    {
+     "destination": "DS:D9E6",
+     "offset": 175749,
+     "size": 176,
+     "sha256": "4bdc6ab7058bfb77791c7ad404f673839e34d028afb2d78ff5ae96edbd7e0742"
+    },
+    {
+     "destination": "[DS:DCDC]",
+     "offset": 175925,
+     "size": 464,
+     "sha256": "7c4c2b940c41426e36a4cf6c83afababacfb8bb1a1dc39162a95bb812e1d109f"
+    },
+    {
+     "destination": "DS:DCE0",
+     "offset": 176389,
+     "size": 1,
+     "sha256": "dbc1b4c900ffe48d575b5da5c638040125f65db0fe3e24494b76ea986457d986"
+    },
+    {
+     "destination": "[DS:DCE2]",
+     "offset": 176390,
+     "size": 18036,
+     "sha256": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3"
+    }
+   ]
+  }
+ }
+}
