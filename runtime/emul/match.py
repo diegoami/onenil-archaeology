@@ -9,7 +9,10 @@ The start state is a savestate the T04 or T05 records name by sha256, found in .
 main menu the run does what runtime/driver/weeks.py does in DOSBox-X, closed-loop on the guest's own text
 page: select PLAY NEXT GAME, PLAY GAME on the pre-match screen, Space at a key wait on a match board or a
 "press any key" / "hit any key" / "any other key to continue" screen, Return through a PLAYER CONTRACT
-screen, N at a (Y/N) question, until the main menu is back. Keys go in through the game's own keyboard
+screen, N at a (Y/N) question, until the main menu is back. With Watch match on (T10), as
+runtime/driver/watched.py: no key while the watched pitch runs (a stop of the guest at polls from outside
+readkey's loop on a screen with "spacebar-commentary" and no key prompt is a "run-on" event, and the run
+goes on), n at the watched full-time screen ("any other key to exit"). Keys go in through the game's own keyboard
 handler (runtime/emul/guest.py).
 
 Each run writes, never overwriting (CLAUDE.md rule 13):
@@ -112,17 +115,29 @@ class Week:
         self.draws += 1
         self._pending = None
 
-    def play(self, max_screens=60, step_budget=400_000_000):
+    def play(self, max_screens=60, step_budget=400_000_000, max_run_on=2000):
         g = self.g
-        for i in range(max_screens):
+        i = run_on = 0
+        while i < max_screens:
             if not g.run(max_steps=step_budget):
                 raise guest.GuestError(f"no key wait within {step_budget} instructions (at {g.where()})")
             sc = g.screen()
             text, low = sc.text(), sc.text().lower()
+            if watched_pitch_running(g, text):
+                # T10: the watched pitch polls keypressed on every tick (1998:00F1) and runs on; the
+                # guest stops it after OTHER_STALL_POLLS such polls. runtime/driver/watched.py presses
+                # nothing while the pitch changes, so no key here either: the run goes on.
+                self.events.append({"kind": "run-on", "n": run_on, "digest": sc.digest(), "draws": self.draws,
+                                    "caller": g.wait_caller})
+                run_on += 1
+                if run_on > max_run_on:
+                    raise guest.GuestError(f"the watched pitch still running after {max_run_on} stops")
+                continue
             ev = {"kind": "screen", "i": i, "digest": sc.digest(), "draws": self.draws}
+            i += 1
             hi = [t for _, t in screens.highlighted(sc)]
-            if "FULL TIME" in text and "press any key" in low:
-                self.board = (text, sc.digest())   # the full-time board: the week's result
+            if "FULL TIME" in text and ("press any key" in low or "any other key to exit" in low):
+                self.board = (text, sc.digest())   # the full-time board (T10: or the watched one): the week's result
             if "GAME NAME" in text and "PLAY NEXT GAME" in text:
                 if self.started:
                     ev["action"] = "main menu after the week: stop"
@@ -130,6 +145,10 @@ class Week:
                     return sc
                 keys = ["Return"] if any(t.startswith("PLAY NEXT GAME") for t in hi) else ["Down"]
                 self.started = keys == ["Return"]
+            elif "commentary" in text and "any other key to exit" in low:
+                # T10: the watched match's full-time screen (Space views the commentary, P prints it,
+                # Return is the bench); runtime/driver/watched.py presses n
+                keys = ["n"]
             elif "commentary" in text and ("versus" in text or "spacebar-commentary" in text):
                 keys = ["space"]
             elif "PLAY GAME" in text and "Change tactics" in text:
@@ -143,11 +162,19 @@ class Week:
             else:
                 ev["action"] = "unknown screen: stop"
                 self.events.append(ev)
-                raise guest.GuestError(f"unknown screen at key wait {i}")
+                raise guest.GuestError(f"unknown screen at key wait {ev['i']}")
             ev["action"] = " ".join(keys)
             self.events.append(ev)
             g.press(*keys)
         raise guest.GuestError(f"no main menu after {max_screens} key waits")
+
+
+def watched_pitch_running(g, text):
+    """T10: the watched pitch (its footer "spacebar-commentary", no key prompt) stopped by polls of
+    keypressed from outside readkey's loop: the match runs on and waits for no key."""
+    low = text.lower()
+    return (g.wait_caller != guest.READKEY_LOOP and "spacebar-commentary" in text
+            and "press any key" not in low and "any other key" not in low)
 
     def state_digests(self):
         """The sha256 of the memory at each save block's destination (F03 R24-R51), as runtime/layouts.py
@@ -257,6 +284,7 @@ def main(argv=None):
         status = "completed with unsupported services"
     end = {"kind": "end", "status": status, "draws": w.draws,
            "screens": sum(e["kind"] == "screen" for e in w.events),
+           "run_on_stops": sum(e["kind"] == "run-on" for e in w.events),
            "instruction_budget": w.g.budget, "timer_ticks": w.g.timer_ticks,
            "game_timer_ticks": w.g.game_timer_ticks,
            "result": result(w.board) if w.board else None,
