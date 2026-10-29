@@ -11,33 +11,43 @@ to a hook and does not vector through the IVT; DOSBox-X's own BIOS is callbacks 
 
 - The keyboard: the game reads keys through its own IRQ 1 handler (IVT 9 -> 24BC:0AD0, which reads
   the scancode at port 60h and stores the key at DS:DE8C), polled by keypressed 24BC:0C58. A queued
-  key is delivered as the hardware would: at an entry of 24BC:0C58 the machine pushes FLAGS, CS and
-  IP, clears IF and enters the handler through the guest's IVT entry 9, with port 60h answering the
-  key's make code, then, at the next poll, its break code (`in` and `out` are served by a hook; port
-  60h the scancode, others 0). A key wait is readkey 24BC:0C17 blocking: STALL_POLLS polls of 24BC:0C58
-  from its loop (returning to 24BC:0C41) with nothing queued stop the machine at that entry
-  (`waiting_for_key`); polls from elsewhere (a match polls on every tick and goes on) answer "no key"
-  and stop the machine only after OTHER_STALL_POLLS of them in a row. `press()` and `run()` resume.
-- INT 16h (the BIOS keyboard) answers "no key" (AH=01h: ZF=1); a read (AH=00h) with nothing queued is
-  an error (the game does not read keys through it, as far as seen).
+  key goes in as the hardware would, at entries of 24BC:0C58 and only while IF is set: the machine
+  pushes FLAGS, CS and IP, clears IF and TF and enters the handler through the guest's IVT entry 9,
+  with port 60h answering the make code; the poll it interrupted then runs; the break code goes in
+  the same way at the first poll after KEY_HOLD instructions (0.08 s at cycles 20000, as T04's driver
+  holds a key), and the next key's make only after that. `in` and `out` are served by hooks: port 60h
+  answers the scancode, other ports 0; writes to the timer chip are read (below), others dropped.
+  A key wait is readkey 24BC:0C17 blocking: STALL_POLLS polls of 24BC:0C58 from its loop (returning
+  to 24BC:0C41) with nothing queued or held stop the machine at that entry (`waiting_for_key`); polls
+  from elsewhere (a match polls on every tick and goes on) answer "no key" and stop the machine only
+  after OTHER_STALL_POLLS of them in a row. `press()` and `run()` resume it.
+- The timer (F06 item 2): channel 0 of the timer chip interrupts every `divisor` input clocks (1,193,182
+  per second; divisor 0x10000 until the game writes another through port 40h, as 1998:0096 does with
+  0x400 for a match). At cycles 20000 (F04) the guest runs INSTR_PER_S instructions a second, so IRQ 0
+  comes every divisor * INSTR_PER_S / 1,193,182 instructions, while IF is set (it waits, pending,
+  while IF is clear). IVT entry 8 is the BIOS's (DOSBox-X's, segment F000, not runnable): its tick is
+  done here as DOSBox-X's INT8_Handler does it, the dword 0040:006C + 1, then INT 1Ch, which enters
+  the game's handler when one is installed (the match's 1998:0000: it counts DS:D088 down and takes
+  1 off 0040:006C at 63 of each 64 ticks, keeping the BIOS clock at 18.2 a second). The midnight
+  wrap of 0040:006C and the floppy-motor count are not modelled.
+- INT 16h (the BIOS keyboard) answers "no key" to AH=01h (ZF=1); a read (AH=00h) is an error (the
+  game reads keys through IRQ 1).
 - INT 33h, the mouse: AX=0003h answers no button and the position last set with AX=0004h (100, 100
-  by default): no movement. The game turns movement away from (100, 100) into cursor keys
-  (24BC:098F, 0A6F-0AA6) and recentres the mouse; AX=0000h answers installed with 2 buttons; others
-  leave the registers.
+  until the game sets one); AX=0004h sets it; AX=0000h answers installed with 2 buttons. The game polls
+  the mouse only while its enabled flag is set, and turns a position outside x 70..130, y 80..120
+  into cursor keys (24BC:0996, 0A6F-0AA0), then recentres it at (100, 100); a stationary mouse at the
+  last position set gives no keys. This is a controlled input, not the savestate's mouse driver.
 - INT 21h: the clock (2Ah date, 2Ch time) from `clock`, fixed; vectors (25h set, 35h get) through the
   IVT in guest memory; files (3Ch create, 3Dh open, 3Eh close, 3Fh read, 40h write, 42h seek, 41h
   delete, 4Eh/4Fh find, 1Ah set DTA, 2Fh get DTA) against an in-memory folder `files` seeded from the
-  game folder: writes never reach the host's files. Others: AX unchanged, carry clear, logged.
-- INT 10h: the video BIOS; AH=0Fh answers mode 3, 80 columns; everything else is logged and ignored
-  (the game writes its text page itself; the font and palette calls change nothing in memory).
-- Any other interrupt: logged and ignored.
-- The BIOS tick count 0040:006C advances by one at each read of it (`tick_per_read`), so a loop that
-  waits for the tick to change ends; deterministic.
-- The timer: the match installs its own INT 1Ch handler (1998:00BA -> 1998:0000) and speeds the timer
-  chip up (divisor 0x400); `run()` enters that handler every TIMER_EVERY instructions while it is
-  installed (see run()). The BIOS's own timer (INT 8, 1Ch at F000) is not run.
+  game folder: writes never reach the host's files.
+- INT 10h AH=0Fh answers mode 3, 80 columns.
+- Anything else (another INT 21h, 10h or 33h function, another interrupt) is not served: it is logged
+  in `unsupported` and leaves the registers as they were, so a run that met one can say so.
 
-Every service call is logged in `services` (interrupt, AH, the guest's CS:IP as an image address).
+Every service call is logged in `services` (interrupt, AX, the guest's CS:IP as an image address).
+`budget` counts the instructions the run allowed (slices given to Unicorn); a slice that ends early
+at a key wait still counts whole, so it is an upper bound, not a count of instructions executed.
 """
 import io
 import struct
@@ -50,7 +60,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "runtime" / "driver"))
 import savestate  # noqa: E402
 from unicorn import (Uc, UC_ARCH_X86, UC_MODE_16, UC_HOOK_INTR, UC_HOOK_CODE,  # noqa: E402
-                     UC_HOOK_MEM_READ, UC_HOOK_INSN)
+                     UC_HOOK_INSN)
 from unicorn import x86_const as X  # noqa: E402
 
 DS_PARAGRAPH = 0x2864          # static/1-0-exe/README.md (F02)
@@ -61,8 +71,10 @@ BDA_TICKS = 0x46C
 TEXT_PAGE = 0xB8000
 STALL_POLLS = 3              # polls by readkey's own loop: it blocks until a key
 OTHER_STALL_POLLS = 200_000  # polls from elsewhere in a row with no key delivered
-TIMER_EVERY = 17_000         # instructions per timer tick: about 20,000 instructions per ms (cycles 20000,
-                             # F04) over 1,193,182 / 0x400 = 1,165 ticks per s (1998:00C5 sets divisor 0x400)
+INSTR_PER_S = 20_000_000     # cycles 20000 (F04): DOSBox-X's normal core runs about 20,000 instructions per ms
+PIT_HZ = 1_193_182
+KEY_HOLD = 1_600_000         # 0.08 s at INSTR_PER_S: runtime/driver/driver.py's KEY_HOLD
+IF_RETRY = 200               # instructions to the next look when an interrupt waits for IF
 READKEY_LOOP = "24BC:0C41"   # readkey 24BC:0C17's call of keypressed returns here (0C3E: push cs; call 0C58)
 KEYPRESSED = "24BC:0C58"       # F06: keypressed, polled by every key wait seen
 SCAN = {"Return": 0x1C, "space": 0x39, "Escape": 0x01, "Down": 0x50, "Up": 0x48, "Left": 0x4B,
@@ -111,29 +123,33 @@ class Guest:
             self.mu.reg_write(getattr(X, f"UC_X86_REG_{name}"), value)
         self.files = dict(files or {})          # upper-case name -> bytes
         self.clock = clock or {"date": (1995, 8, 1, 2), "time": (10, 0, 0, 0)}  # (y, m, d, weekday), (h, m, s, cs)
-        self.queue = []                         # BIOS key words waiting
         self.waiting_for_key = False
         self.services = []                      # (int, ah, image CS:IP)
         self.handles = {}                       # DOS handle -> [name, position, bytearray, writable]
         self.dta = None
         self.find_state = None
         self.polls = 0
-        self.tick_per_read = True
         self.error = None
-        self.steps = 0
+        self.budget = 0                         # instructions allowed so far (see the docstring)
+        self.divisor = 0x10000                  # timer chip channel 0
+        self._pit_latch = []
+        self.next_irq0 = None                   # budget at which IRQ 0 is due
+        self.unsupported = []                   # (int, AX, image CS:IP) of calls not served
+        self.held_since = None                  # budget when the held key's make went in
+        self._resume_at = None                  # the linear address an IRQ 1 returned to
         self.scancodes = []                     # make/break codes still to deliver
         self.port60 = 0
         self.mouse = (100, 100)
         self.other_polls = 0
         self.wait_caller = None
-        self.timer_ticks = 0
+        self.timer_ticks = 0                    # IRQ 0 ticks taken
+        self.game_timer_ticks = 0               # of them, ticks that entered the game's INT 1Ch handler
         self.keys_delivered = []                # (key name, image CS:IP of the poll it came at)
         self.mu.hook_add(UC_HOOK_INTR, self._intr)
         self.mu.hook_add(UC_HOOK_INSN, self._in, None, 1, 0, X.UC_X86_INS_IN)
-        self.mu.hook_add(UC_HOOK_INSN, lambda uc, port, size, value, d: None, None, 1, 0, X.UC_X86_INS_OUT)
+        self.mu.hook_add(UC_HOOK_INSN, self._out, None, 1, 0, X.UC_X86_INS_OUT)
         if data is not None or memory:
             self.code_hook(KEYPRESSED, self._keypressed)
-        self.mu.hook_add(UC_HOOK_MEM_READ, self._tick_read, begin=BDA_TICKS, end=BDA_TICKS + 3)
 
     # -- addresses, memory, registers ------------------------------------------------------------
     def seg(self, paragraph):
@@ -195,24 +211,37 @@ class Guest:
     def _in(self, uc, port, size, data):
         return self.port60 if port == 0x60 else 0
 
+    def _out(self, uc, port, size, value, data):
+        if port == 0x43:
+            self._pit_latch = []                # a new mode word: the divisor's two bytes follow
+        elif port == 0x40:
+            self._pit_latch.append(value & 0xFF)
+            if len(self._pit_latch) == 2:
+                d = self._pit_latch[0] | (self._pit_latch[1] << 8)
+                self.divisor = d or 0x10000
+                self._pit_latch = []
+
     def _keypressed(self, g):
-        """At an entry of keypressed: deliver the next scancode through IRQ 1, or count a poll."""
-        if self.scancodes:
-            name, code = self.scancodes.pop(0)
+        """At an entry of keypressed: deliver a scancode through IRQ 1, or count a poll."""
+        here = self.reg("cs") * 16 + self.reg("ip")
+        if self._resume_at == here:             # the IRET of a key's IRQ 1: the poll runs now
+            self._resume_at = None
+            return
+        if self.scancodes and self.reg("eflags") & 0x200:
+            name, code = self.scancodes[0]
+            if code >= 0x80 and self.budget < self.held_since + KEY_HOLD:
+                return                          # still held
+            self.scancodes.pop(0)
             if code < 0x80:
                 self.keys_delivered.append((name, self.where()))
+                self.held_since = self.budget
             self.port60 = code
-            ss, sp = self.reg("ss"), self.reg("sp")
-            frame = struct.pack("<HHH", self.reg("ip"), self.reg("cs"), self.reg("eflags") & 0xFFFF)
-            sp = (sp - 6) & 0xFFFF
-            self.put(ss * 16 + sp, frame)
-            self.set_reg("sp", sp)
-            self.set_flag(0x200, False)
-            off, seg = struct.unpack("<HH", self.mem(9 * 4, 4))
-            self.set_reg("cs", seg)
-            self.set_reg("ip", off)
+            self._interrupt(9)
+            self._resume_at = here
             self.polls = self.other_polls = 0
             return
+        if self.scancodes:
+            return                              # a key is held or waits for IF: no key wait
         # A key wait is readkey 24BC:0C17 blocking: its loop calls keypressed from 0C3E (returning
         # to 24BC:0C41). Polls from anywhere else (a match polls on every tick) answer "no key" and
         # count only towards OTHER_STALL_POLLS, a loop that only polls.
@@ -241,49 +270,67 @@ class Guest:
         """The game's own INT 1Ch handler is installed (not the BIOS's, segment F000)."""
         return struct.unpack("<HH", self.mem(0x1C * 4, 4))[1] != 0xF000
 
+    def irq0_period(self):
+        return max(1, round(self.divisor * INSTR_PER_S / PIT_HZ))
+
+    def _irq0(self):
+        """One timer tick, as DOSBox-X's BIOS does it: 0040:006C + 1, then INT 1Ch (the game's handler,
+        when installed). IVT entry 8 must be the BIOS's: a game handler there is not modelled."""
+        if struct.unpack("<HH", self.mem(8 * 4, 4))[1] != 0xF000:
+            raise GuestError("IVT entry 8 is not the BIOS's: a game timer handler is not modelled")
+        t = int.from_bytes(self.mem(BDA_TICKS, 4), "little")
+        self.put(BDA_TICKS, ((t + 1) & 0xFFFFFFFF).to_bytes(4, "little"))
+        self.timer_ticks += 1
+        if self.timer_hooked():
+            self._interrupt(0x1C)
+            self.game_timer_ticks += 1
+
     def run(self, max_steps=200_000_000):
         """Run guest code until it waits for a key with none queued (returns True), or max_steps
-        instructions pass (returns False). Guest code runs in slices of TIMER_EVERY instructions;
-        between two slices, while the game's own INT 1Ch handler is installed (the match's timer,
-        1998:0000, which counts DS:D088 down) and IF is set, one timer interrupt enters it
-        (`timer_ticks` counts them). Deterministic: the same start state and keys give the same run."""
+        instructions are allowed (returns False). Guest code runs in slices that end at the next
+        IRQ 0 (the timer chip, see the docstring); the tick is taken when IF is set, else looked at
+        again IF_RETRY instructions later. Deterministic: the same start state and keys give the
+        same run."""
         self.waiting_for_key = False
-        done = 0
-        while done < max_steps:
+        allowed = 0
+        if self.next_irq0 is None:
+            self.next_irq0 = self.budget + self.irq0_period()
+        while allowed < max_steps:
+            n = max(1, min(self.next_irq0 - self.budget, max_steps - allowed))
             cs, ip = self.reg("cs"), self.reg("ip")
-            self.mu.emu_start(cs * 16 + ip, 0x110000, count=TIMER_EVERY)
-            done += TIMER_EVERY
+            self.mu.emu_start(cs * 16 + ip, 0x110000, count=n)
+            self.budget += n
+            allowed += n
             if self.error is not None:
                 raise self.error
             if self.waiting_for_key:
-                self.steps += done
                 return True
-            if self.timer_hooked() and self.reg("eflags") & 0x200:
-                self._interrupt(0x1C)
-                self.timer_ticks += 1
-        self.steps += done
+            if self.budget >= self.next_irq0:
+                if self.reg("eflags") & 0x200:
+                    self._irq0()
+                    self.next_irq0 += self.irq0_period()
+                else:
+                    self.next_irq0 = self.budget + IF_RETRY
         return False
 
     # -- services --------------------------------------------------------------------------------
-    def _tick_read(self, uc, access, address, size, value, data):
-        if self.tick_per_read and address == BDA_TICKS:
-            t = int.from_bytes(uc.mem_read(BDA_TICKS, 4), "little")
-            uc.mem_write(BDA_TICKS, ((t + 1) & 0xFFFFFFFF).to_bytes(4, "little"))
+    def _log(self, n):
+        self.services.append((n, self.reg("ax"), self.where()))
 
-    def _log(self, n, ah):
-        self.services.append((n, ah, self.where()))
-
-    def _back_to_int(self, uc):
-        """Point IP back at the 2-byte `int nn` just executed, so that a resumed run repeats it."""
-        self.set_reg("ip", (self.reg("ip") - 2) & 0xFFFF)
-        self.waiting_for_key = True
-        uc.emu_stop()
+    def _unsupported(self, n):
+        self.unsupported.append((n, self.reg("ax"), self.where()))
 
     def _intr(self, uc, intno, data):
         try:
+            self._log(intno)
             ah = (self.reg("ax") >> 8) & 0xFF
             if intno == 0x16:
-                self._int16(uc, ah)
+                if ah in (0x01, 0x11):
+                    self.set_flag(ZF, True)
+                elif ah in (0x00, 0x10):
+                    raise GuestError(f"INT 16h read at {self.where()}: the game reads keys through IRQ 1")
+                else:
+                    self._unsupported(intno)
             elif intno == 0x33:
                 ax = self.reg("ax")
                 if ax == 0x0003:          # no button; the position the game last set: no movement
@@ -292,26 +339,18 @@ class Guest:
                     self.mouse = (self.reg("cx"), self.reg("dx"))
                 elif ax == 0x0000:
                     self.set_reg("ax", 0xFFFF); self.set_reg("bx", 2)
+                else:
+                    self._unsupported(intno)
             elif intno == 0x21:
-                self._log(0x21, ah)
                 self._int21(ah)
-            elif intno == 0x10:
-                self._log(0x10, ah)
-                if ah == 0x0F:
-                    self.set_reg("ax", 0x5003)
-                    self.set_reg("bx", self.reg("bx") & 0x00FF)
+            elif intno == 0x10 and ah == 0x0F:
+                self.set_reg("ax", 0x5003)
+                self.set_reg("bx", self.reg("bx") & 0x00FF)
             else:
-                self._log(intno, ah)
+                self._unsupported(intno)
         except Exception as e:  # noqa: BLE001
             self.error = e
             uc.emu_stop()
-
-    def _int16(self, uc, ah):
-        self._log(0x16, ah)
-        if ah in (0x01, 0x11):
-            self.set_flag(ZF, True)
-        elif ah in (0x00, 0x10):
-            raise GuestError(f"INT 16h read at {self.where()}: the game reads keys through IRQ 1 elsewhere")
 
     # -- DOS -------------------------------------------------------------------------------------
     def _asciiz(self, seg, off):
@@ -418,7 +457,7 @@ class Guest:
             self.put(dta, rec)
             self._ok(0)
         else:
-            self._ok(r("ax"))
+            self._unsupported(0x21)
 
 
 def _match(pattern, name):
