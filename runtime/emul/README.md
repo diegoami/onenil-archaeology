@@ -21,6 +21,12 @@ deadline, #33; their draws, screens and state digests equal `-r0003`'s); and
 wrong (#23), and its clock was another model (a tick every 17,000 instructions, plus one per read of
 0040:006C). Its draws (`n`, seeds, values) and screens are identical to `-week-r0001`'s.
 
+The corpus (T08): `python3 runtime/emul/corpus.py` runs the week of every completed T04 week record
+from its start state with `--compare` against it (`--experiment T08`: traces under `traces/T08/`,
+records `runs/T08/T08-r<nnnn>.json`), skipping weeks already run, and writes `traces/T08/index.json`
+(per week: the record, the start state, the trace and its sha256, the run, the verdict, the result,
+the draws).
+
 ## The trace
 
 One JSON object per line, keys sorted, in the order things happened. Every line has `kind`.

@@ -3,6 +3,7 @@
 
     python3 runtime/emul/match.py --state <sha256> [--out traces/T06] [--runs runs/T06]
                                   [--compare runs/T04/<week record>.json] [--max-screens 60]
+                                  [--experiment T06]
 
 The start state is a savestate the T04 or T05 records name by sha256, found in .cache/states/. From its
 main menu the run does what runtime/driver/weeks.py does in DOSBox-X, closed-loop on the guest's own text
@@ -13,7 +14,7 @@ handler (runtime/emul/guest.py).
 
 Each run writes, never overwriting (CLAUDE.md rule 13):
   <out>/<state sha256[:16]>-week-r<nnnn>.jsonl   the trace (format: runtime/emul/README.md)
-  <runs>/T06-r<nnnn>.json                         a run record: the code commit, the state, the
+  <runs>/<experiment>-r<nnnn>.json                a run record: the code commit, the state, the
                                                   settings, the game files' sha256, the trace's
                                                   sha256, the result, the comparison
 The code under runtime/emul/ must be committed first, so the record names the code that ran.
@@ -219,6 +220,7 @@ def main(argv=None):
     ap.add_argument("--runs", default="runs/T06")
     ap.add_argument("--max-screens", type=int, default=60)
     ap.add_argument("--compare", help="a T04 week record from the same start state")
+    ap.add_argument("--experiment", default="T06", help="the run records' experiment and id prefix (T08: runtime/emul/corpus.py)")
     a = ap.parse_args(argv)
     dirty = git("status", "--porcelain", "--", "runtime/emul")
     if dirty:
@@ -274,8 +276,8 @@ def main(argv=None):
             print("  " + line)
     runs = ROOT / a.runs
     runs.mkdir(parents=True, exist_ok=True)
-    rid = f"T06-r{next_number(runs, 'T06-r*.json'):04d}"
-    rec = {"schema": "run/1", "run_id": rid, "experiment": "T06", "arm": "unicorn-week", "rep": int(rid[-4:]),
+    rid = f"{a.experiment}-r{next_number(runs, f'{a.experiment}-r*.json'):04d}"
+    rec = {"schema": "run/1", "run_id": rid, "experiment": a.experiment, "arm": "unicorn-week", "rep": int(rid[-4:]),
            "code_commit": commit, "machine": cycle.machine_id(),
            "artifact": {"set": "One-Nil96 (records/T01/inventory.json)", "variant": None},
            "runtime": {"harness": f"runtime/emul/match.py@{commit}", "unicorn": unicorn.__version__,
