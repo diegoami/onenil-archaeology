@@ -53,7 +53,7 @@ replay those traces; a wrong reading shows as the first tick or call where the t
 | T05 | O-M1 | the layouts confirmed by a run: a league block and save blocks read back from 96's memory after a load |
 | T06 | O-M2 | the Unicorn harness ported from goal2: the match seeded and run from a recorded state, its draws traced |
 
-T01–T05 are merged.
+T01–T06 are merged.
 
 ## Risks
 
