@@ -2,7 +2,7 @@
 """The saved game (SAVE1.1-0, *.1-0): its layout, as 1-0.EXE writes and reads it (T03, F03).
 
     python3 tools/data/save.py --record records/T03/saves.json [<dir>]  write the record (refuses to overwrite)
-    python3 tools/data/save.py --check <dir>     decode every *.1-0 under <dir> and compare with the record
+    python3 tools/data/save.py --check <dir>     decode every *.1-0 of <dir>/One-Nil95 and One-Nil96, compare with the record
 
 The layout is the block sequence of 1B55:091D (static/1-0-exe/code/seg_1B55_*.asm): one call of
 1B55:08D9 per block, which writes (232A:11E3) or reads (232A:1208) that many bytes at that place,
@@ -61,12 +61,17 @@ def decode(data):
     return out
 
 
+EDITIONS = ("One-Nil95", "One-Nil96")
+
+
 def save_files(base):
+    """The *.1-0 files of the editions' folders under base (One-Nil95/, One-Nil96/): the owner's
+    files, not the copies a run works on (.cache/driver/game/, #16)."""
     out = []
-    for d, _, files in sorted(os.walk(base)):
-        for f in sorted(files):
-            if f.upper().endswith(".1-0"):
-                out.append(os.path.relpath(os.path.join(d, f), base))
+    for ed in EDITIONS:
+        folder = os.path.join(base, ed)
+        if os.path.isdir(folder):
+            out += [os.path.join(ed, f) for f in sorted(os.listdir(folder)) if f.upper().endswith(".1-0")]
     return out
 
 

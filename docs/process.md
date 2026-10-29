@@ -22,9 +22,13 @@ of implementation is split. The main session edits task files on `main`, with th
 
 ## 3. Milestones and reviews
 
-A milestone is a coherent set of merged work. Its issue lists the PRs merged since the last one;
-the main session gives the owner the review prompt, the reviewer posts findings, the main session
-relays them in full and handles them.
+A milestone is a coherent set of merged work. Its issue (label `milestone`) lists the PRs merged
+since the last one and ends with the review prompt; the owner runs it on a model of their choice.
+[designed: owner, 2026-10-29, as in the owner's other repositories] Everything of a review goes
+through GitHub, never only through chat: the review is posted on the milestone issue (by the
+reviewer, or verbatim by the main session when the owner pastes it), each finding becomes an issue
+labelled `review`, and the fixes are a PR that closes those issues and is merged like a task's
+(its checks, CI green, a merge commit). The main session relays the findings in full.
 
 ## 4. Stop and resume
 

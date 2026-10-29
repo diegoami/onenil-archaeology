@@ -67,8 +67,9 @@
 
 ## The saved game
 
-6. `[confirmed]` `1B55:091D` writes or reads a save (by the flag at `[bp+4]` of its helper
-   `1B55:08D9`: write `232A:11E3`, read `232A:1208`) as 28 blocks in this order. Their sizes, from the
+6. `[confirmed]` `1B55:091D` writes or reads a save (its helper `1B55:08D9` gets the parent's frame
+   pointer at `[bp+4]` and tests the flag at `SS:[DI+4]` of that frame, 08DC–08DF: write `232A:11E3`,
+   read `232A:1208`; corrected, #19) as 28 blocks in this order. Their sizes, from the
    listing (`push` before each `call 0x8d9`), sum to 194,426 bytes, the size of both `SAVE1.1-0`
    (`save.py --check .cache`).
 
