@@ -1,0 +1,62 @@
+# onenil-archaeology
+
+[designed: owner, 2026-10-29] The evidence repository for *One-Nil* (Wizard, 1-0; the 1995 and
+1996 editions): what the original does, established from its binaries, and nothing else. The
+rebuild is the separate repository [onenil](https://github.com/diegoami/onenil), which takes its
+rules and its engine's behaviour from here. The model is goal2-archaeology / goal2 (*goal*, New
+Era Software, the national-team predecessor): same stack, a larger program (a club, not a
+national team: squads, transfers, finances, leagues and cups).
+
+## The original game
+
+The binaries are in the owner's private Google Drive folder **`1-0`** (My Drive; on the owner's
+Windows machine `G:\Meine Ablage\1-0`;
+[link](https://drive.google.com/drive/folders/1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8)): `One-Nil95/`
+(`1-095.EXE`) and `One-Nil96/` (`1-0.EXE`), each with `ALTER.EXE`, `INSTALL.EXE`, the league data
+(`ENGL-94.DAT`, `ENGL-95.DAT`, `SCOT-94.DAT`; `ITAL-94.DAT` in 96), `1-0.PAL`, `1-0.TFN` and a save
+`SAVE1.1-0`. `python3 tools/artifacts.py pull` copies them into the git-ignored `.cache/` through the
+rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never enter git.
+
+## Working rules
+
+1. [designed: owner, 2026-10-29] No model is fixed: the main session plans, implements, verifies
+   and merges on whichever model the owner runs it on, and spawns helpers on its own judgment.
+2. Work on a branch in the checkout at hand, one task at a time per checkout. Never `git stash`,
+   never force-push, never rewrite `main`.
+3. One task, one PR, merged with a merge commit (research history is kept) once its Done-when
+   lines pass and CI is green: `gh pr merge <pr> --merge --match-head-commit <sha>`.
+4. [designed: owner, 2026-10-29, as in malpaco] Only milestones mandate a review. No session starts
+   a review: the main session writes the prompt and the owner runs it on a model of their choice.
+   Relay review findings in full.
+5. The Done-when is not negotiable by the implementer: it stops and reports, never weakens an
+   assertion, skips a test or edits its task file. The main session amends a Done-when on `main`
+   with the reason in the commit.
+6. A question is not a request to edit files. Design decisions go to the owner; nothing else waits.
+7. A lesson or decision of the owner goes into this file or `docs/` in a commit, never only into a
+   model's memory. Status lives in GitHub labels and issues.
+8. [designed: owner, 2026-10-29] Every task is resumable and cut into milestones
+   ([docs/process.md](docs/process.md) §4): outputs pushed at each, private bytes to the owner's
+   Drive, a checkpoint comment; long runs append-only with a resume command.
+9. Wait on a background job by its PID, never with `pgrep -f` (it matches the waiting shell).
+
+## Project rules
+
+10. **Evidence tags.** Every behaviour claim is `[confirmed]` (cites the run record or static
+    source it rests on, with the commit), `[derived]` (follows from confirmed claims) or
+    `[designed]` (a choice of this project). Findings are numbered `F<nn>` and start `proposed`; a
+    finding is accepted only with its evidence and an independent check.
+11. **Static first.** A question is answered from the binary (disassembly, decompilation, data
+    layout) where it can be; a run of the original confirms or decides what static reading cannot.
+    The decompiler's output is evidence to check, not truth: signedness, 16-bit segments, flags and
+    calling conventions are verified.
+12. **The original is the arbiter.** A run of the original (DOSBox-X or an emulator harness) decides
+    any disagreement between a reading, a finding and an implementation.
+13. **Run records are immutable.** Every measured output lives under a tracked path the task owns,
+    is committed and pushed during the run and at least every 30 minutes, and is never edited,
+    deleted or overwritten; a new run is a new file.
+14. **Nothing of the original game in git.** No executable, data, palette, font, save or savestate
+    byte, and nothing that embeds them, in this repository or its releases
+    (`tools/check_originals.py`). Records hold digests, counts and decoded values.
+15. **Tooling is Python** (the analysis scripts, the run harness, the comparison of records); the
+    rebuild's engine is Rust in onenil, checked against the original through this repository's
+    records.
