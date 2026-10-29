@@ -6,7 +6,7 @@
   (F01 item 7), and the save routine `1B55:091D` and its helper `08D9` are the same in 95
   (static/delta-95-96.tsv: `same`).
 - **Records**: `records/T03/leagues.json` (`tools/data/league.py`), `records/T03/saves.json`
-  (`tools/data/save.py`), written at this task's commit `the commit that adds them`; the code is cited from
+  (`tools/data/save.py`), committed at `80bad2d` and `419b688`; the code is cited from
   `static/1-0-exe/` (T02, F02).
 - **Method**: the layouts are the game's own read and write sequences, read in the listing; the
   bytes confirm them: each sequence accounts for every byte of every file, to the byte. Fields are
