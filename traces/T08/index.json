@@ -1,0 +1,337 @@
+{
+  "what": "T08: every completed T04 week traced under Unicorn (runtime/emul/match.py) from its start state and compared with its DOSBox-X record; format: runtime/emul/corpus.py",
+  "weeks": 15,
+  "all_screens_met": 9,
+  "entries": [
+    {
+      "t04_record": "T04-week-r0001",
+      "t04_record_path": "runs/T04/T04-week-r0001.json",
+      "start_state_sha256": "cf7eb2d04211ba883219dc2418b60410ff0fdd473eeb5d40698288414905779f",
+      "t08_run": "T08-r0001",
+      "run_status": "completed",
+      "trace": "traces/T08/cf7eb2d04211ba88-week-r0001.jsonl",
+      "trace_sha256": "243c841e3cff4d74891a4b0fec672b8db3d9b41ad0aaff03eb9eb60387c6b317",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "P ST GERMAIN"
+        ],
+        "goals": [
+          0,
+          2
+        ]
+      },
+      "draws": 23006,
+      "key_waits": 10
+    },
+    {
+      "t04_record": "T04-week-r0002",
+      "t04_record_path": "runs/T04/T04-week-r0002.json",
+      "start_state_sha256": "8c947b8cecde58463f0f1ad404681debdd43a73c1df128205a6c49621ffdccef",
+      "t08_run": "T08-r0002",
+      "run_status": "completed",
+      "trace": "traces/T08/8c947b8cecde5846-week-r0001.jsonl",
+      "trace_sha256": "be916382cfce435e1dc1e02a6db4f41528c711d516f1851884b9c5924bcd066f",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "SEVILLA",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          1,
+          2
+        ]
+      },
+      "draws": 22554,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0003",
+      "t04_record_path": "runs/T04/T04-week-r0003.json",
+      "start_state_sha256": "0eeac951627ea06881fc831eeb3f32dfa89f70dff26bc647d73585f02ef26553",
+      "t08_run": "T08-r0003",
+      "run_status": "completed",
+      "trace": "traces/T08/0eeac951627ea068-week-r0001.jsonl",
+      "trace_sha256": "053f7c0d618f95be9c92a16b8726170ad966ee9dc428dae465f0738112327ded",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "CELTIC",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          2,
+          2
+        ]
+      },
+      "draws": 22643,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0004",
+      "t04_record_path": "runs/T04/T04-week-r0004.json",
+      "start_state_sha256": "74a7ca6b0cafeeadd6099b073c60f60d359775965a86cbc9d77b227403d702c2",
+      "t08_run": "T08-r0004",
+      "run_status": "completed",
+      "trace": "traces/T08/74a7ca6b0cafeead-week-r0001.jsonl",
+      "trace_sha256": "a6fdd16cabd96ac8ea54c9f7c519ccf8632ac675d6fa3f00236e84486af6f40b",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "ZAGLEBIE LUBIN"
+        ],
+        "goals": [
+          2,
+          0
+        ]
+      },
+      "draws": 22695,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0006",
+      "t04_record_path": "runs/T04/T04-week-r0006.json",
+      "start_state_sha256": "03d384c230542c907dbad5379dfe6df82b6a1d151d305d1c140cb152d4c03000",
+      "t08_run": "T08-r0005",
+      "run_status": "completed",
+      "trace": "traces/T08/03d384c230542c90-week-r0001.jsonl",
+      "trace_sha256": "4e65c69fd6bbdcddde5116ac59715df5f1d64ef1b9068b92679950433de7e51f",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "P ST GERMAIN"
+        ],
+        "goals": [
+          0,
+          2
+        ]
+      },
+      "draws": 23006,
+      "key_waits": 10
+    },
+    {
+      "t04_record": "T04-week-r0007",
+      "t04_record_path": "runs/T04/T04-week-r0007.json",
+      "start_state_sha256": "10d2eead709d73b79482ccf7bbc84b8f2a1ca4dfd47bb7b4b13995ca2761e832",
+      "t08_run": "T08-r0006",
+      "run_status": "completed",
+      "trace": "traces/T08/10d2eead709d73b7-week-r0001.jsonl",
+      "trace_sha256": "9b74b283031e52c2060d2e3af809ed0d441037019b4fba7705592de962b33edb",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "SEVILLA",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          1,
+          2
+        ]
+      },
+      "draws": 22554,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0008",
+      "t04_record_path": "runs/T04/T04-week-r0008.json",
+      "start_state_sha256": "15b3db9b0ba79724c5bedafa56e379a4fd8fb095b693f6e30aee995aff892f6f",
+      "t08_run": "T08-r0007",
+      "run_status": "completed",
+      "trace": "traces/T08/15b3db9b0ba79724-week-r0001.jsonl",
+      "trace_sha256": "121a60f10a84caa240d7dbb1aa6739d83d4c6e75704d6c512981607f2bd6cf0d",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "CELTIC",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          2,
+          2
+        ]
+      },
+      "draws": 22643,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0009",
+      "t04_record_path": "runs/T04/T04-week-r0009.json",
+      "start_state_sha256": "c57f80b7342661021ebbb7628d6424afbf9991d8819435ae61e431736c4d3e63",
+      "t08_run": "T08-r0008",
+      "run_status": "completed",
+      "trace": "traces/T08/c57f80b734266102-week-r0001.jsonl",
+      "trace_sha256": "9f5f2c641756d6998a64f2dad49491a97b9006c920ff379c58ebfb19bce9fda3",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "ZAGLEBIE LUBIN"
+        ],
+        "goals": [
+          2,
+          0
+        ]
+      },
+      "draws": 22695,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0010",
+      "t04_record_path": "runs/T04/T04-week-r0010.json",
+      "start_state_sha256": "37a07def682de5f933191fd02b3db58a692bfd16c1e28b6eae6d5c7a72d88769",
+      "t08_run": "T08-r0009",
+      "run_status": "completed",
+      "trace": "traces/T08/37a07def682de5f9-week-r0001.jsonl",
+      "trace_sha256": "71a43a8113d0e215923bc796d0a503e89528e2c9ab7bb22b956619207022992d",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "NOTTINGHAM F"
+        ],
+        "goals": [
+          1,
+          1
+        ]
+      },
+      "draws": 21574,
+      "key_waits": 17
+    },
+    {
+      "t04_record": "T04-week-r0012",
+      "t04_record_path": "runs/T04/T04-week-r0012.json",
+      "start_state_sha256": "841b0d3fb4398724a3cdb9db1cf015606ba78fcc02c734fca6b4fff1292221d7",
+      "t08_run": "T08-r0010",
+      "run_status": "aborted: comparison failed (completed)",
+      "trace": "traces/T08/841b0d3fb4398724-week-r0001.jsonl",
+      "trace_sha256": "f1c2bbfab8fb9918d06fb7c4f69280abbbb0ae1ef371a621e30f9223ae645c50",
+      "verdict": "screen 7 (match, unchanged for 5 reads) (f2f0fccca5d6ac67) not met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "P ST GERMAIN"
+        ],
+        "goals": [
+          0,
+          2
+        ]
+      },
+      "draws": 23006,
+      "key_waits": 10
+    },
+    {
+      "t04_record": "T04-week-r0013",
+      "t04_record_path": "runs/T04/T04-week-r0013.json",
+      "start_state_sha256": "b6e7808976cb11d46e73fb72ca99c0a423c3c820ed3fe64087047b7a8790d135",
+      "t08_run": "T08-r0011",
+      "run_status": "aborted: comparison failed (completed)",
+      "trace": "traces/T08/b6e7808976cb11d4-week-r0001.jsonl",
+      "trace_sha256": "d25b971908423099a02e91b8ae7526270c8c207869969fd71a11415758035437",
+      "verdict": "screen 7 (match, unchanged for 5 reads) (edd3505d9f36e207) not met in order",
+      "result": {
+        "teams": [
+          "SEVILLA",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          1,
+          2
+        ]
+      },
+      "draws": 22554,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0014",
+      "t04_record_path": "runs/T04/T04-week-r0014.json",
+      "start_state_sha256": "e31796da793ab97abeff0a226806b93e1c79d4f04f947c4e5f513b99633607fc",
+      "t08_run": "T08-r0012",
+      "run_status": "aborted: comparison failed (completed)",
+      "trace": "traces/T08/e31796da793ab97a-week-r0001.jsonl",
+      "trace_sha256": "9ff7dc855b300c4d97890a53f1bb7a2196192197564e0812083bc9496b6ccbc2",
+      "verdict": "screen 7 (match, unchanged for 5 reads) (37d0b1ac87ccea8c) not met in order",
+      "result": {
+        "teams": [
+          "CELTIC",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          2,
+          2
+        ]
+      },
+      "draws": 22643,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0015",
+      "t04_record_path": "runs/T04/T04-week-r0015.json",
+      "start_state_sha256": "e8c29484f66881786439d9ee00d63b2bb31aa5997047ec7e8cc46752dd65a0ff",
+      "t08_run": "T08-r0013",
+      "run_status": "aborted: comparison failed (completed)",
+      "trace": "traces/T08/e8c29484f6688178-week-r0001.jsonl",
+      "trace_sha256": "8218f01d1dde03b720fa8f98c3619e9df2d4ca1a9977aa0e88caacabe7e5ae66",
+      "verdict": "screen 7 (match, unchanged for 5 reads) (5f0d874622ac647a) not met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "ZAGLEBIE LUBIN"
+        ],
+        "goals": [
+          2,
+          0
+        ]
+      },
+      "draws": 22695,
+      "key_waits": 8
+    },
+    {
+      "t04_record": "T04-week-r0016",
+      "t04_record_path": "runs/T04/T04-week-r0016.json",
+      "start_state_sha256": "8b3d02d6bf48db13706196dedce3f7525a757fe1590efb15c8ccff5c87ce2994",
+      "t08_run": "T08-r0014",
+      "run_status": "aborted: comparison failed (completed)",
+      "trace": "traces/T08/8b3d02d6bf48db13-week-r0001.jsonl",
+      "trace_sha256": "dd9f8b84a8effd057c0f8ee49aaa698b4dadc1b8219b0aa32e083321c4221bd8",
+      "verdict": "screen 7 (match, unchanged for 5 reads) (6079c3c03b9aed06) not met in order",
+      "result": {
+        "teams": [
+          "BLACKBURN R",
+          "NOTTINGHAM F"
+        ],
+        "goals": [
+          1,
+          1
+        ]
+      },
+      "draws": 21574,
+      "key_waits": 17
+    },
+    {
+      "t04_record": "T04-week-r0017",
+      "t04_record_path": "runs/T04/T04-week-r0017.json",
+      "start_state_sha256": "2f634978859f7c07b3519e4278d8aaf70c2c70b93ad48362408fbcfa210576a1",
+      "t08_run": "T08-r0015",
+      "run_status": "aborted: comparison failed (completed)",
+      "trace": "traces/T08/2f634978859f7c07-week-r0001.jsonl",
+      "trace_sha256": "10c8edc20546226fd410cf6be8a7f6d56871b30ed5b5542ff7fa414a586835fe",
+      "verdict": "screen 2 (match, first read) (45aa3078dbc50520) not met in order",
+      "result": {
+        "teams": [
+          "SHEFFIELD WED",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          1,
+          3
+        ]
+      },
+      "draws": 21606,
+      "key_waits": 11
+    }
+  ]
+}
