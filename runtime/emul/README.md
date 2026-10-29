@@ -59,7 +59,7 @@ fixtures and the week's other work (everything after the match return; in `-week
 
 2. **The order of the requests.** From the start state, the model asks for the same `n`s in the same
    order, from the first `draw` line to the last, and the seed it holds before each is the line's
-   `seed_before`. In `-week-r0001` the stream is unbroken (each `seed_before` is the last
+   `seed_before`. In `-week-r0003` the stream is unbroken (each `seed_before` is the last
    `seed_after`); in other weeks the game also writes the seed directly (F02 item 4: `0AB9:19CA`,
    `1B55:091D`, `1B55:5516`, `1B55:56E7`), so a break in the stream is the game's, not an error.
 3. **The outcome.** The same `result` (`teams`, `goals`), and, for the state the week leaves, the same
