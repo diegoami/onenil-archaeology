@@ -40,7 +40,9 @@
      DOSBox-X restarts the count at the write is not checked.
    - **DOS and the mouse driver**, in this week (`end.service_counts`, `end.mouse_answers`,
      `end.dos_calls` of `-week-r0003`; `-week-r0005` also keeps each call's full input and returned
-     registers, #37): INT 21h 35h once and 25h twice (the timer vector), then 3Ch
+     registers, #37): INT 21h 35h once and 25h twice (the timer vector: in `-week-r0005`, 35h with
+     AL=1Ch returns F000:CBE0, the first 25h installs 21BB:0000, which is `1998:0000` at load
+     segment 0823, and the second puts F000:CBE0 back), then 3Ch
      `SAVE1.1-0`, 28 writes (40h) and 3Eh; INT 33h AX=0003h 272,087 times, each answered (0, 100,
      100); none unserved. The auto save's 28 writes have the lengths of F03's 28 save blocks, in
      order (R24–R51), confirmed in a run.

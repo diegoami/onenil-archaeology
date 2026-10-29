@@ -98,6 +98,7 @@ class GuestTests(unittest.TestCase):
         self.assertEqual(g.dos_calls[1]["written"], {"length": 3, "sha256": hashlib.sha256(b"abc").hexdigest()})
         self.assertEqual(g.dos_calls[1]["result"]["ax"], 3)
         self.assertFalse(g.dos_calls[1]["result"]["carry"])
+        self.assertEqual(g.service_counts, {"int 21 fn 003C": 1, "int 21 fn 0040": 1})
 
     def test_vector_calls_keep_their_full_inputs_and_results(self):
         g = machine()
@@ -108,7 +109,7 @@ class GuestTests(unittest.TestCase):
         set_, get = g.dos_calls
         self.assertEqual((set_["in"]["ax"], set_["in"]["ds"], set_["in"]["dx"]), (0x251C, 0x2000, 0x1234))
         self.assertEqual((get["result"]["es"], get["result"]["bx"]), (0x2000, 0x1234))
-        self.assertEqual(g.service_counts, {"int 21 fn 003C": 1, "int 21 fn 0040": 1})
+        self.assertEqual(g.service_counts, {"int 21 fn 0025": 1, "int 21 fn 0035": 1})
 
     def test_the_divisor_is_read_from_port_40h(self):
         g = machine()
