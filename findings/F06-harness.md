@@ -1,7 +1,7 @@
 # F06 A week of One-Nil 96 runs as guest code under Unicorn from a savestate, with the same screens as in DOSBox-X, and every draw of its random generator is traced
 
 - **Status**: proposed (revised after the O-M2 review and re-review, #22)
-- **Task**: T06 (#11); fixes #23–#31, #33, #34
+- **Task**: T06 (#11); fixes #23–#31, #33, #34, #36, #37
 - **Edition**: 96.
 - **Sources**: `runtime/emul/guest.py`, `runtime/emul/match.py`, `runtime/emul/listing.py` (code
   `8fbf1e8`, unicorn 2.1.4); run records `runs/T06/T06-r0003` and `T06-r0004`, and their traces
@@ -39,7 +39,10 @@
      less than 1,000 instructions at each early end of a slice (a key wait, a divisor write). Whether
      DOSBox-X restarts the count at the write is not checked.
    - **DOS and the mouse driver**, in this week (`end.service_counts`, `end.mouse_answers`,
-     `end.dos_calls` of `-week-r0003`): INT 21h 35h once and 25h twice (the timer vector), then 3Ch
+     `end.dos_calls` of `-week-r0003`; `-week-r0005` also keeps each call's full input and returned
+     registers, #37): INT 21h 35h once and 25h twice (the timer vector: in `-week-r0005`, 35h with
+     AL=1Ch returns F000:CBE0, the first 25h installs 21BB:0000, which is `1998:0000` at load
+     segment 0823, and the second puts F000:CBE0 back), then 3Ch
      `SAVE1.1-0`, 28 writes (40h) and 3Eh; INT 33h AX=0003h 272,087 times, each answered (0, 100,
      100); none unserved. The auto save's 28 writes have the lengths of F03's 28 save blocks, in
      order (R24–R51), confirmed in a run.
@@ -65,11 +68,14 @@
    into the game's handler every 17,000 instructions, none from the BIOS, 0040:006C + 1 at each
    read), `-week-r0001` (the timer chip, but a new divisor waiting for the old deadline: 2,893
    ticks into the game's handler) and `-week-r0003` (the timer chip, the next tick from the write:
-   2,952) have identical draws (n, seeds, values; callers too for the last two), identical screens,
-   and, for the last two, identical end-of-week state digests and files written. `[derived]` For
-   this week, the draws, screens and the state left did not change between these three schedules.
-   That is three schedules, not all of them, and none is DOSBox-X's real timing; the watched match,
-   which waits on `D088` far more, is not covered.
+   2,952) have identical draws (n, seeds, values; callers too for the last two) and identical screens;
+   the last two also have identical digests of the 28 save-block regions at the week's end
+   (`end.state_digests`) and identical files written (`end.files_written`). The first trace recorded
+   neither. `[derived]` For this week, the draws and screens did not change between these three
+   schedules, and the 28 save-block regions and the files written did not change between the last
+   two. "State" here is those measurements, not all of the guest's memory. Three schedules are not
+   all of them, and none is DOSBox-X's real timing; the watched match, which waits on `D088` far
+   more, is not covered (corrected after the second re-review, #36).
 
 ## Open
 

@@ -38,8 +38,10 @@ One JSON object per line, keys sorted, in the order things happened. Every line 
 at a key wait counts whole); `timer_ticks` (IRQ 0 ticks) and `game_timer_ticks` (of them, those that
 entered the game's INT 1Ch handler); `services` (every BIOS/DOS function the game called) and
 `unsupported` (those not served); `service_counts` (calls per interrupt and function),
-`mouse_answers` (what the mouse reads answered), `dos_calls` (every INT 21h call in order: inputs, a
-file name, the length and sha256 of written bytes, the AX and carry returned); `files_written` (name, size, sha256 of each file the week created
+`mouse_answers` (what the mouse reads answered, as counts: not in call order), `dos_calls` (every
+INT 21h call in order: input AX, BX, CX, DX, DS, ES, a file name, the length and sha256 of written
+bytes, and the AX, BX, CX, DX, ES and carry returned; traces before `-week-r0005` keep only AH, BX,
+CX, DX in and AX, carry out); `files_written` (name, size, sha256 of each file the week created
 or changed in the guest's folder); `state_digests` (the sha256 of the memory at each save block's
 destination, F03 R24–R51, at the week's end); `result`: `teams` and `goals` (the full-time board's
 score, read as text) and `board_digest` (that screen's digest, which only a renderer of the same text
