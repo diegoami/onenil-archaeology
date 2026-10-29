@@ -40,6 +40,16 @@ class CompareTests(unittest.TestCase):
         self.assertFalse(self.check(record(["b", "b", "b"]), trace(["b"])))
         self.assertFalse(self.check(record(["b", "c"]), trace(["b", "b", "b"])))
 
+    def test_a_boards_first_and_last_reads_are_left_out(self):
+        rec = record(["a", "m", "m", "m", "z"])
+        rec["observations"][1]["field"] = "screen 2 (match, first read): text screen 80x25, chars+attributes (4000 bytes), sha256"
+        rec["observations"][2]["field"] = "screen 2 (match, unchanged for 5 reads): text screen 80x25, chars+attributes (4000 bytes), sha256"
+        rec["observations"][3]["field"] = "screen 2 (match, last read): text screen 80x25, chars+attributes (4000 bytes), sha256"
+        self.assertTrue(self.check(rec, trace(["a", "m", "z"])))
+        rec["observations"][1]["value"] = "still-moving"
+        self.assertTrue(self.check(rec, trace(["a", "m", "z"])))
+        self.assertFalse(self.check(rec, trace(["a", "z"])))   # the key-wait read is still required
+
     def test_another_start_state_fails(self):
         self.assertFalse(self.check(record(["b"], state="c" * 64), trace(["b"])))
 
