@@ -1,0 +1,403 @@
+{
+ "tool": "tools/inventory.py",
+ "files": [
+  {
+   "edition": "95",
+   "path": "One-Nil95/1-0.PAL",
+   "name": "1-0.PAL",
+   "size": 768,
+   "sha256": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+   "mtime": "1994-12-02T12:26:34Z",
+   "type": "palette: 256 entries of 3 bytes, every value 0..63 (VGA DAC)"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/1-0.TFN",
+   "name": "1-0.TFN",
+   "size": 4096,
+   "sha256": "ca9d49ad3e682c8166d1ce6a3f619574d7e923fa9e88bc12bddc1c0948a862b6",
+   "mtime": "1994-08-04T16:00:28Z",
+   "type": "font: 4096 bytes (256 glyphs of 16 bytes if 8x16; layout is T03's)"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/1-095.EXE",
+   "name": "1-095.EXE",
+   "size": 106784,
+   "sha256": "f659fb2d334500d6901fc8d6a0f06c85c0ccda2eb4a3035ae3bb0a0004d79192",
+   "mtime": "1995-04-18T15:00:04Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "1947:000E",
+    "stack": "3382:0080",
+    "minalloc_paras": 9129,
+    "maxalloc_paras": 50089,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 218224,
+    "sha256": "8df646e017e0965a5d90a58181ca764219ad847833aad0b6cb58fc53372bfb2c",
+    "relocations": 2649,
+    "image_size": 207472,
+    "entry": "0000:0000",
+    "stack": "380C:4000",
+    "minalloc_paras": 2615,
+    "maxalloc_paras": 43575,
+    "header_paras": 672
+   }
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/1-095.PIF",
+   "name": "1-095.PIF",
+   "size": 967,
+   "sha256": "b653872faf621b9ecbabc2f142402be16998771ebd86c89bd1505fae24e676c7",
+   "mtime": "2001-08-09T16:56:24Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/ALTER.EXE",
+   "name": "ALTER.EXE",
+   "size": 48564,
+   "sha256": "eab876d1143861baa4614fd50ca7da9282efef91f8dbd3bcbf6b4f6aa751727d",
+   "mtime": "1995-05-17T15:01:30Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "0B77:000E",
+    "stack": "1655:0080",
+    "minalloc_paras": 4540,
+    "maxalloc_paras": 45500,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 94208,
+    "sha256": "6c4df1d6cfccdf3c2e9f9a3573b6164dc8765f92cc7b46a89b5315d5206952b9",
+    "relocations": 1139,
+    "image_size": 89600,
+    "entry": "0000:0000",
+    "stack": "18B5:4000",
+    "minalloc_paras": 1857,
+    "maxalloc_paras": 42817,
+    "header_paras": 288
+   }
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/ALTER.PIF",
+   "name": "ALTER.PIF",
+   "size": 967,
+   "sha256": "ef5f29a9e232bf710c0a1dfd1dfc3fc580100e553f848cb1da889de847844833",
+   "mtime": "2001-08-09T16:54:58Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/ENGL-94.DAT",
+   "name": "ENGL-94.DAT",
+   "size": 66924,
+   "sha256": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+   "mtime": "1995-05-10T16:48:42Z",
+   "type": "league data (layout is T03's)"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/ENGL-95.DAT",
+   "name": "ENGL-95.DAT",
+   "size": 66954,
+   "sha256": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+   "mtime": "1996-08-06T22:59:14Z",
+   "type": "league data (layout is T03's)"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/HELP.EXE",
+   "name": "HELP.EXE",
+   "size": 11071,
+   "sha256": "12ef4d5beca4dbe237ac81b8bcb48a2575814f9a7b9efcee6836864af740d433",
+   "mtime": "1994-08-09T08:43:24Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "0291:000E",
+    "stack": "0408:0080",
+    "minalloc_paras": 1799,
+    "maxalloc_paras": 42759,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 16704,
+    "sha256": "2eac0c5ecc6bda9bcb7f770a0484be3aac9f4de9f07e5d2020af3555eb1b25dd",
+    "relocations": 160,
+    "image_size": 15680,
+    "entry": "0000:0000",
+    "stack": "055B:4000",
+    "minalloc_paras": 1457,
+    "maxalloc_paras": 42417,
+    "header_paras": 64
+   }
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/HELP.PIF",
+   "name": "HELP.PIF",
+   "size": 967,
+   "sha256": "e773f223929843d824348eb5c1453aecfdf25020c67bb0f639cdc3f74a9b8136",
+   "mtime": "2001-08-09T16:53:48Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/INSTALL.EXE",
+   "name": "INSTALL.EXE",
+   "size": 10901,
+   "sha256": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+   "mtime": "1995-04-21T09:39:22Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "0287:000E",
+    "stack": "04A2:0080",
+    "minalloc_paras": 1899,
+    "maxalloc_paras": 42859,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 19184,
+    "sha256": "68da8aae3f04f1424fc0cdcb23e21e26281b41a7b79e6fdc66fdde84b821dd15",
+    "relocations": 150,
+    "image_size": 18160,
+    "entry": "0000:04F7",
+    "stack": "05B6:4000",
+    "minalloc_paras": 1393,
+    "maxalloc_paras": 42353,
+    "header_paras": 64
+   }
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/INSTALL.PIF",
+   "name": "INSTALL.PIF",
+   "size": 967,
+   "sha256": "dbdc740f74f7d90e89dd0e535b3bb4aa3d05690e1be730ec936bb376da947eac",
+   "mtime": "2001-06-08T15:01:10Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/RUN.BAT",
+   "name": "RUN.BAT",
+   "size": 5,
+   "sha256": "525d361a37cee47a403cefa0b51dffae8a68fe97b93f320a762b7934996d08f5",
+   "mtime": "1995-04-21T09:39:54Z",
+   "type": "DOS batch file",
+   "text": "1-095"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/RUN.PIF",
+   "name": "RUN.PIF",
+   "size": 967,
+   "sha256": "252996daa758dde6ab7386f3f46d5c2aebc0a99c21976ba4815575d8269fea76",
+   "mtime": "2001-08-09T16:55:40Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/SAVE1.1-0",
+   "name": "SAVE1.1-0",
+   "size": 194426,
+   "sha256": "74e42dc7ad746353a78b9dcbe0b7a79a38fe0979f015c5767cb1c2797c5f2ce2",
+   "mtime": "2001-08-09T16:56:24Z",
+   "type": "saved game (layout is T03's)"
+  },
+  {
+   "edition": "95",
+   "path": "One-Nil95/SCOT-94.DAT",
+   "name": "SCOT-94.DAT",
+   "size": 66976,
+   "sha256": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8",
+   "mtime": "1995-05-10T16:48:20Z",
+   "type": "league data (layout is T03's)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/1-0.EXE",
+   "name": "1-0.EXE",
+   "size": 106962,
+   "sha256": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+   "mtime": "1996-07-03T10:22:54Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "1952:000E",
+    "stack": "3393:0080",
+    "minalloc_paras": 9135,
+    "maxalloc_paras": 50095,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 218480,
+    "sha256": "887ed2a92767950e5309b2052409f875668605939b69e00737aa3047022b9f51",
+    "relocations": 2651,
+    "image_size": 207728,
+    "entry": "0000:0000",
+    "stack": "381C:4000",
+    "minalloc_paras": 2616,
+    "maxalloc_paras": 43576,
+    "header_paras": 672
+   }
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/1-0.PAL",
+   "name": "1-0.PAL",
+   "size": 768,
+   "sha256": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+   "mtime": "1994-12-02T12:26:34Z",
+   "type": "palette: 256 entries of 3 bytes, every value 0..63 (VGA DAC)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/1-0.PIF",
+   "name": "1-0.PIF",
+   "size": 967,
+   "sha256": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+   "mtime": "2001-08-09T16:59:04Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/1-0.TFN",
+   "name": "1-0.TFN",
+   "size": 4096,
+   "sha256": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+   "mtime": "1996-06-27T17:24:14Z",
+   "type": "font: 4096 bytes (256 glyphs of 16 bytes if 8x16; layout is T03's)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/ALTER.EXE",
+   "name": "ALTER.EXE",
+   "size": 48564,
+   "sha256": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+   "mtime": "1996-07-03T10:23:06Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "0B77:000E",
+    "stack": "1654:0080",
+    "minalloc_paras": 4539,
+    "maxalloc_paras": 45499,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 94192,
+    "sha256": "927393147e002ab0a712e79990c6e386fc256c2eba4e132df6ce8e0db318dc74",
+    "relocations": 1139,
+    "image_size": 89584,
+    "entry": "0000:0000",
+    "stack": "18B4:4000",
+    "minalloc_paras": 1857,
+    "maxalloc_paras": 42817,
+    "header_paras": 288
+   }
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/ALTER.PIF",
+   "name": "ALTER.PIF",
+   "size": 967,
+   "sha256": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+   "mtime": "2001-08-09T16:57:46Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/ENGL-94.DAT",
+   "name": "ENGL-94.DAT",
+   "size": 66924,
+   "sha256": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+   "mtime": "1995-05-10T16:48:42Z",
+   "type": "league data (layout is T03's)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/ENGL-95.DAT",
+   "name": "ENGL-95.DAT",
+   "size": 66954,
+   "sha256": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+   "mtime": "1996-08-06T22:59:14Z",
+   "type": "league data (layout is T03's)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/INSTALL.EXE",
+   "name": "INSTALL.EXE",
+   "size": 10901,
+   "sha256": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+   "mtime": "1995-04-21T09:39:22Z",
+   "type": "MZ executable, LZEXE 0.91",
+   "packed_header": {
+    "entry": "0287:000E",
+    "stack": "04A2:0080",
+    "minalloc_paras": 1899,
+    "maxalloc_paras": 42859,
+    "header_paras": 2
+   },
+   "unpacked": {
+    "size": 19184,
+    "sha256": "68da8aae3f04f1424fc0cdcb23e21e26281b41a7b79e6fdc66fdde84b821dd15",
+    "relocations": 150,
+    "image_size": 18160,
+    "entry": "0000:04F7",
+    "stack": "05B6:4000",
+    "minalloc_paras": 1393,
+    "maxalloc_paras": 42353,
+    "header_paras": 64
+   }
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/ITAL-94.DAT",
+   "name": "ITAL-94.DAT",
+   "size": 68472,
+   "sha256": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+   "mtime": "1996-08-06T22:58:02Z",
+   "type": "league data (layout is T03's)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/RUN.BAT",
+   "name": "RUN.BAT",
+   "size": 4,
+   "sha256": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+   "mtime": "1996-07-03T10:29:04Z",
+   "type": "DOS batch file",
+   "text": "1-0\u001a"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/RUN.PIF",
+   "name": "RUN.PIF",
+   "size": 967,
+   "sha256": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+   "mtime": "2001-08-09T16:59:20Z",
+   "type": "Windows program information file"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/SAVE1.1-0",
+   "name": "SAVE1.1-0",
+   "size": 194426,
+   "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+   "mtime": "2001-08-09T16:59:20Z",
+   "type": "saved game (layout is T03's)"
+  },
+  {
+   "edition": "96",
+   "path": "One-Nil96/SCOT-94.DAT",
+   "name": "SCOT-94.DAT",
+   "size": 66976,
+   "sha256": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8",
+   "mtime": "1995-05-10T16:48:20Z",
+   "type": "league data (layout is T03's)"
+  }
+ ]
+}

@@ -1,0 +1,315 @@
+{
+ "tool": "tools/inventory.py",
+ "executables": {
+  "One-Nil95/1-095.EXE": {
+   "image_size": 207472,
+   "relocations": 2649,
+   "segments": 15,
+   "entry": "0000:0000",
+   "entry_far_calls": [
+    "26B9:0000",
+    "24AC:1EEE",
+    "244A:000D",
+    "231A:12C0",
+    "2307:0000",
+    "2306:0000",
+    "1B51:7B1F",
+    "0AB5:ED89"
+   ],
+   "system_segment": "26B9",
+   "system_size": 6576,
+   "data_segment": "2854",
+   "saved_vectors": [
+    "26B9:0239"
+   ],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [
+    "26B9:00B3"
+   ],
+   "runtime_error_string": [
+    "26B9:024C"
+   ],
+   "borland_copyright": {
+    "at": "26B9:0264",
+    "text": "Portions Copyright (c) 1983,92 Borland"
+   },
+   "other_copyright": {
+    "at": "24AC:1EDA",
+    "text": "(c) new era software"
+   },
+   "crt_delay_calibration": [
+    {
+     "tick_wait": "244A:007B",
+     "div55": "244A:008E"
+    }
+   ],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 83,
+    "enter": 200,
+    "other": 29
+   },
+   "leave_count": 397
+  },
+  "One-Nil95/ALTER.EXE": {
+   "image_size": 89600,
+   "relocations": 1139,
+   "segments": 15,
+   "entry": "0000:0000",
+   "entry_far_calls": [
+    "0F84:0000",
+    "0DCD:198D",
+    "0D6B:000D",
+    "0C56:111A",
+    "0C43:0000",
+    "0C42:0000",
+    "0713:52B7",
+    "056C:18ED"
+   ],
+   "system_segment": "0F84",
+   "system_size": 4576,
+   "data_segment": "10A2",
+   "saved_vectors": [
+    "0F84:0239"
+   ],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [
+    "0F84:00B3"
+   ],
+   "runtime_error_string": [
+    "0F84:024C"
+   ],
+   "borland_copyright": {
+    "at": "0F84:0264",
+    "text": "Portions Copyright (c) 1983,92 Borland"
+   },
+   "other_copyright": {
+    "at": "0DCD:1979",
+    "text": "(c) new era software"
+   },
+   "crt_delay_calibration": [
+    {
+     "tick_wait": "0D6B:007B",
+     "div55": "0D6B:008E"
+    }
+   ],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 54,
+    "enter": 113,
+    "other": 20
+   },
+   "leave_count": 225
+  },
+  "One-Nil95/HELP.EXE": {
+   "image_size": 15680,
+   "relocations": 160,
+   "segments": 8,
+   "entry": "0000:0000",
+   "entry_far_calls": [
+    "0287:0000",
+    "0225:0000",
+    "00B7:141A",
+    "00A3:0000"
+   ],
+   "system_segment": "0287",
+   "system_size": 4464,
+   "data_segment": "039E",
+   "saved_vectors": [],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [],
+   "runtime_error_string": [
+    "0287:01EF"
+   ],
+   "borland_copyright": null,
+   "other_copyright": null,
+   "crt_delay_calibration": [],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 28,
+    "enter": 0,
+    "other": 33
+   },
+   "leave_count": 0
+  },
+  "One-Nil95/INSTALL.EXE": {
+   "image_size": 18160,
+   "relocations": 150,
+   "segments": 6,
+   "entry": "0000:04F7",
+   "entry_far_calls": [
+    "0247:0000",
+    "01E5:000D",
+    "0062:1551"
+   ],
+   "system_segment": "0247",
+   "system_size": 4736,
+   "data_segment": "036F",
+   "saved_vectors": [
+    "0247:0239"
+   ],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [
+    "0247:00B3"
+   ],
+   "runtime_error_string": [
+    "0247:024C"
+   ],
+   "borland_copyright": {
+    "at": "0247:0264",
+    "text": "Portions Copyright (c) 1983,92 Borland"
+   },
+   "other_copyright": null,
+   "crt_delay_calibration": [
+    {
+     "tick_wait": "01E5:007B",
+     "div55": "01E5:008E"
+    }
+   ],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 18,
+    "enter": 8,
+    "other": 27
+   },
+   "leave_count": 43
+  },
+  "One-Nil96/1-0.EXE": {
+   "image_size": 207728,
+   "relocations": 2651,
+   "segments": 15,
+   "entry": "0000:0000",
+   "entry_far_calls": [
+    "26C9:0000",
+    "24BC:1EEE",
+    "245A:000D",
+    "232A:12C0",
+    "2317:0000",
+    "2316:0000",
+    "1B55:7BDE",
+    "0AB9:ED8F",
+    "0006:1E82"
+   ],
+   "system_segment": "26C9",
+   "system_size": 6576,
+   "data_segment": "2864",
+   "saved_vectors": [
+    "26C9:0239"
+   ],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [
+    "26C9:00B3"
+   ],
+   "runtime_error_string": [
+    "26C9:024C"
+   ],
+   "borland_copyright": {
+    "at": "26C9:0264",
+    "text": "Portions Copyright (c) 1983,92 Borland"
+   },
+   "other_copyright": {
+    "at": "24BC:1EDA",
+    "text": "(c) new era software"
+   },
+   "crt_delay_calibration": [
+    {
+     "tick_wait": "245A:007B",
+     "div55": "245A:008E"
+    }
+   ],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 83,
+    "enter": 201,
+    "other": 29
+   },
+   "leave_count": 398
+  },
+  "One-Nil96/ALTER.EXE": {
+   "image_size": 89584,
+   "relocations": 1139,
+   "segments": 15,
+   "entry": "0000:0000",
+   "entry_far_calls": [
+    "0F83:0000",
+    "0DCC:198D",
+    "0D6A:000D",
+    "0C55:111A",
+    "0C42:0000",
+    "0C41:0000",
+    "0712:52B7",
+    "056B:18ED",
+    "0007:199A"
+   ],
+   "system_segment": "0F83",
+   "system_size": 4576,
+   "data_segment": "10A1",
+   "saved_vectors": [
+    "0F83:0239"
+   ],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [
+    "0F83:00B3"
+   ],
+   "runtime_error_string": [
+    "0F83:024C"
+   ],
+   "borland_copyright": {
+    "at": "0F83:0264",
+    "text": "Portions Copyright (c) 1983,92 Borland"
+   },
+   "other_copyright": {
+    "at": "0DCC:1979",
+    "text": "(c) new era software"
+   },
+   "crt_delay_calibration": [
+    {
+     "tick_wait": "0D6A:007B",
+     "div55": "0D6A:008E"
+    }
+   ],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 55,
+    "enter": 113,
+    "other": 20
+   },
+   "leave_count": 226
+  },
+  "One-Nil96/INSTALL.EXE": {
+   "image_size": 18160,
+   "relocations": 150,
+   "segments": 6,
+   "entry": "0000:04F7",
+   "entry_far_calls": [
+    "0247:0000",
+    "01E5:000D",
+    "0062:1551"
+   ],
+   "system_segment": "0247",
+   "system_size": 4736,
+   "data_segment": "036F",
+   "saved_vectors": [
+    "0247:0239"
+   ],
+   "saved_vector_list": "00 02 1B 21 23 24 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 75",
+   "test8086": [
+    "0247:00B3"
+   ],
+   "runtime_error_string": [
+    "0247:024C"
+   ],
+   "borland_copyright": {
+    "at": "0247:0264",
+    "text": "Portions Copyright (c) 1983,92 Borland"
+   },
+   "other_copyright": null,
+   "crt_delay_calibration": [
+    {
+     "tick_wait": "01E5:007B",
+     "div55": "01E5:008E"
+    }
+   ],
+   "far_routine_prologues": {
+    "push_bp_mov_bp_sp": 18,
+    "enter": 8,
+    "other": 27
+   },
+   "leave_count": 43
+  }
+ }
+}

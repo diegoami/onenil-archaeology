@@ -1,0 +1,18 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      # The original game is not here (CLAUDE.md rule 14): tests that need it skip, and the
+      # inventory and embed checks run where .cache/ holds it.
+      - run: python3 tools/check_originals.py
+      - run: python3 -m pytest -q tests
