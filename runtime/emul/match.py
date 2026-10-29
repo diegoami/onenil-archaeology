@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Play one week of One-Nil 96 as guest code under Unicorn from a savestate, and trace its draws (T06).
 
-    python3 runtime/emul/match.py --state <sha256> --out traces/T06/ [--max-screens 60]
+    python3 runtime/emul/match.py --state <sha256> [--out traces/T06] [--runs runs/T06]
+                                  [--compare runs/T04/<week record>.json] [--max-screens 60]
 
 The start state is a savestate the T04 or T05 records name by sha256, found in .cache/states/. From its
 main menu the run does what runtime/driver/weeks.py does in DOSBox-X, closed-loop on the guest's own text
@@ -10,34 +11,36 @@ page: select PLAY NEXT GAME, PLAY GAME on the pre-match screen, Space at a key w
 screen, N at a (Y/N) question, until the main menu is back. Keys go in through the game's own keyboard
 handler (runtime/emul/guest.py).
 
-The trace (one JSON object per line, written to <out>/<state sha256[:16]>-week.jsonl; the format is
-runtime/emul/README.md's):
-  {"kind": "start", ...}                       the state, the tools, the clock given to DOS
-  {"kind": "draw", "i", "n", "seed_before", "seed_after", "value", "callers"}
-                                               every call of the generator 24BC:0CDC, in order
-  {"kind": "screen", "i", "digest", "draws", "action"}
-                                               every key wait: the text page's sha256 (chars and
-                                               attributes, as runtime/driver/savestate.Screen.digest),
-                                               the draws so far, and the keys answered
-  {"kind": "end", "status", "draws", "screens", "steps", "timer_ticks", "result", "services"}
-                                               result: the teams and goals of the full-time board and
-                                               its digest
-The trace holds numbers, addresses, digests and the board's score line, no memory bytes.
+Each run writes, never overwriting (CLAUDE.md rule 13):
+  <out>/<state sha256[:16]>-week-r<nnnn>.jsonl   the trace (format: runtime/emul/README.md)
+  <runs>/T06-r<nnnn>.json                         a run record: the code commit, the state, the
+                                                  settings, the game files' sha256, the trace's
+                                                  sha256, the result, the comparison
+The code under runtime/emul/ must be committed first, so the record names the code that ran.
 """
 import argparse
 import hashlib
 import json
+import platform
+import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "runtime" / "emul"))
 sys.path.insert(0, str(ROOT / "runtime" / "driver"))
+sys.path.insert(0, str(ROOT / "tools" / "data"))
+import cycle  # noqa: E402
 import guest  # noqa: E402
+import listing  # noqa: E402
+import save  # noqa: E402
 import screens  # noqa: E402
 
 LCG = "24BC:0CDC"        # F02 item 4: s := s*0x7ABD + 0x1B0F; returns ((s*n) >> 16) + 1
 LCG_LEAVE = "24BC:0CFD"  # its `leave`: AX holds the value, the seed is written
+MATCH = "0AB9:E1F2"      # F02 item 5: plays a match; its one caller is 0AB9:EAB6
+MATCH_RETURN = "0AB9:EBE2"   # EAB6: `EBDF call 0xe1f2` returns here (seg_0AB9_22.asm)
+DEPTH = 4                # return addresses kept per draw
 GAME_DIR = ROOT / ".cache" / "One-Nil96"
 
 
@@ -46,42 +49,57 @@ def find_state(sha):
         data = p.read_bytes()
         if hashlib.sha256(data).hexdigest().startswith(sha):
             return p, data
-    raise SystemExit(f"no savestate with sha256 {sha}... under .cache/states (python3 tools/artifacts.py pull)")
+    raise SystemExit(f"no savestate with sha256 {sha}... under .cache/states (rclone copy onenildrive:states .cache/states)")
+
+
+def game_files():
+    return {p.name.upper(): p.read_bytes() for p in sorted(GAME_DIR.iterdir()) if p.is_file()}
 
 
 class Week:
     def __init__(self, data):
-        files = {p.name.upper(): p.read_bytes() for p in GAME_DIR.iterdir() if p.is_file()}
-        self.g = guest.Guest(data, files=files)
+        self.files_at_start = game_files()
+        self.g = guest.Guest(data, files=self.files_at_start)
         self.events = []
         self.draws = 0
         self._pending = None
         self.started = False      # PLAY NEXT GAME chosen
+        self.board = None
         self.g.code_hook(LCG, self._lcg_entry)
         self.g.code_hook(LCG_LEAVE, self._lcg_leave)
+        self.g.code_hook(MATCH, lambda g: self._mark("match entry " + MATCH))
+        self.g.code_hook(MATCH_RETURN, lambda g: self._mark("match return to " + MATCH_RETURN))
 
-    def _callers(self):
-        """The return addresses up the BP chain from 24BC:0CDC's entry: its caller's frame first."""
+    def _mark(self, what):
+        self.events.append({"kind": "mark", "what": what, "draws": self.draws})
+
+    def callers(self):
+        """Return addresses from 24BC:0CDC's entry up the BP chain, image addresses of the listing.
+        The first is read from the stack (0CDC returns far: IP, CS). Each next one is read from the
+        frame of the routine that holds the last address: [BP+2] (and [BP+4] for CS) when the
+        listing says that routine sets up a BP frame and returns far, [BP+2] with the same CS when
+        it returns near; where the listing cannot say, the chain ends with "?"."""
         g = self.g
-        out, bp = [], g.reg("bp")
-        ret_ip, ret_cs = g.stack_word(0), g.stack_word(2)
-        out.append(g.image_address(ret_cs, ret_ip))
-        ss = g.reg("ss")
-        for _ in range(3):  # wrapper, its caller, one more
-            if not bp:
+        ss, bp = g.reg("ss"), g.reg("bp")
+        ip, cs = g.stack_word(0), g.stack_word(2)
+        out = [g.image_address(cs, ip)]
+        for _ in range(DEPTH - 1):
+            seg = (cs - g.load) & 0xFFFF
+            form = listing.frame_form(seg, ip)
+            if form is None or not bp:
+                out.append("?")
                 break
-            ip, cs, nbp = g.word_at(ss * 16 + bp + 2), g.word_at(ss * 16 + bp + 4), g.word_at(ss * 16 + bp)
-            out.append(g.image_address(cs, ip))
-            if nbp <= bp:
-                break
-            bp = nbp
+            nip = g.word_at(ss * 16 + bp + 2)
+            ncs = g.word_at(ss * 16 + bp + 4) if form == "far" else cs
+            out.append(g.image_address(ncs, nip))
+            ip, cs, bp = nip, ncs, g.word_at(ss * 16 + bp)
         return out
 
     def _lcg_entry(self, g):
         n = g.stack_word(4)
         ptr = g.stack_word(8) * 16 + g.stack_word(6)
         self._pending = {"kind": "draw", "i": self.draws, "n": n, "seed_before": g.word_at(ptr),
-                         "callers": self._callers(), "_ptr": ptr}
+                         "callers": self.callers(), "_ptr": ptr}
 
     def _lcg_leave(self, g):
         d = self._pending
@@ -109,12 +127,12 @@ class Week:
                     ev["action"] = "main menu after the week: stop"
                     self.events.append(ev)
                     return sc
-                keys = self._select(hi, "PLAY NEXT GAME", "main menu")
+                keys = ["Return"] if any(t.startswith("PLAY NEXT GAME") for t in hi) else ["Down"]
                 self.started = keys == ["Return"]
             elif "commentary" in text and ("versus" in text or "spacebar-commentary" in text):
                 keys = ["space"]
             elif "PLAY GAME" in text and "Change tactics" in text:
-                keys = self._select(hi, "PLAY GAME", "pre-match")
+                keys = ["Return"] if any(t.startswith("PLAY GAME") for t in hi) else ["Down"]
             elif "press any key" in low or "hit any key" in low or "any other key to continue" in low:
                 keys = ["space"]
             elif "PLAYER CONTRACT" in text:
@@ -123,7 +141,6 @@ class Week:
                 keys = ["n"]
             else:
                 ev["action"] = "unknown screen: stop"
-                ev["text"] = text
                 self.events.append(ev)
                 raise guest.GuestError(f"unknown screen at key wait {i}")
             ev["action"] = " ".join(keys)
@@ -131,10 +148,20 @@ class Week:
             g.press(*keys)
         raise guest.GuestError(f"no main menu after {max_screens} key waits")
 
-    def _select(self, highlighted, label, where):
-        if any(t.startswith(label) for t in highlighted):
-            return ["Return"]
-        return ["Down"]   # one step; the next key wait reads the highlight again
+    def state_digests(self):
+        """The sha256 of the memory at each save block's destination (F03 R24-R51), as runtime/layouts.py
+        reads them: what the week left in the game's state, without its bytes."""
+        g, out = self.g, {}
+        for dest, size in save.BLOCKS:
+            off = int(dest.strip("[]").split(":")[1], 16)
+            addr = g.far(off) if dest.startswith("[") else g.DS * 16 + off
+            out[dest] = hashlib.sha256(g.mem(addr, size)).hexdigest()
+        return out
+
+    def files_written(self):
+        """Files the week created or changed in the guest's folder: name, size, sha256."""
+        return [{"name": n, "size": len(b), "sha256": hashlib.sha256(b).hexdigest()}
+                for n, b in sorted(self.g.files.items()) if self.files_at_start.get(n) != b]
 
 
 def result(board):
@@ -149,51 +176,127 @@ def result(board):
     return out
 
 
-def compare(trace_events, record_path):
-    """Which key-wait screens of the trace are screens of a T04 week record (by digest)."""
+def compare(trace_events, state_sha, record_path):
+    """Check the trace against a DOSBox-X week record: the record starts from the same state, and its
+    screens, in its order, occur in the trace's key-wait screens in that order (an ordered
+    subsequence: each record screen matched by a later trace screen than the one before). Returns
+    (ok, lines)."""
     rec = json.loads(Path(record_path).read_text())
-    dos = {o["value"]: o["field"].split(":")[0] for o in rec["observations"] if "chars+attributes" in o["field"]}
-    rows = [(e["i"], e["digest"], dos.get(e["digest"])) for e in trace_events if e["kind"] == "screen"]
-    return rows, len(dos)
+    lines, ok = [], True
+    rec_state = rec.get("start_state", {}).get("sha256")
+    if rec_state != state_sha:
+        ok = False
+        lines.append(f"start state differs: the record's {rec_state}, the trace's {state_sha}")
+    want = [(o["field"].split(":")[0], o["value"]) for o in rec["observations"] if "chars+attributes" in o["field"]]
+    have = [(e["i"], e["digest"]) for e in trace_events if e["kind"] == "screen"]
+    k = 0
+    for name, digest in want:
+        while k < len(have) and have[k][1] != digest:
+            k += 1
+        if k == len(have):
+            ok = False
+            lines.append(f"{name} ({digest[:16]}) not met in order")
+            k = 0 if not have else k
+            break
+        lines.append(f"{name} ({digest[:16]}) = key wait {have[k][0]}")
+        k += 1
+    lines.append(f"{'all' if ok else 'not all'} of the record's {len(want)} screens met in order")
+    return ok, lines
+
+
+def git(*a):
+    return subprocess.run(["git", "-C", str(ROOT), *a], capture_output=True, text=True).stdout.strip()
+
+
+def next_number(directory, pattern):
+    return 1 + max((int(p.stem.split("-r")[-1]) for p in Path(directory).glob(pattern)), default=0)
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--state", required=True, help="sha256 (or a prefix) of the start savestate")
     ap.add_argument("--out", default="traces/T06")
+    ap.add_argument("--runs", default="runs/T06")
     ap.add_argument("--max-screens", type=int, default=60)
-    ap.add_argument("--compare", help="a T04 week record: print which key-wait screens are its screens")
+    ap.add_argument("--compare", help="a T04 week record from the same start state")
     a = ap.parse_args(argv)
+    dirty = git("status", "--porcelain", "--", "runtime/emul")
+    if dirty:
+        raise SystemExit("uncommitted changes under runtime/emul/: commit them first so the record names the code that ran\n" + dirty)
+    commit = git("rev-parse", "--short", "HEAD")
+    from datetime import datetime, timezone
+
+    def utc():
+        return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    started = utc()
     path, data = find_state(a.state)
     sha = hashlib.sha256(data).hexdigest()
     w = Week(data)
-    w.board = None
+    import unicorn
+    settings = {"INSTR_PER_S": guest.INSTR_PER_S, "PIT_HZ": guest.PIT_HZ, "KEY_HOLD": guest.KEY_HOLD,
+                "STALL_POLLS": guest.STALL_POLLS, "OTHER_STALL_POLLS": guest.OTHER_STALL_POLLS,
+                "IF_RETRY": guest.IF_RETRY, "dos_clock": w.g.clock}
     start = {"kind": "start", "state_sha256": sha, "state_file": path.relative_to(ROOT).as_posix(),
-             "start_at": w.g.where(), "dos_clock": w.g.clock, "tools": "runtime/emul/guest.py, runtime/emul/match.py; unicorn "
-             + __import__("unicorn").__version__, "lcg": LCG}
+             "start_at": w.g.where(), "settings": settings, "lcg": LCG,
+             "tools": f"runtime/emul/guest.py, runtime/emul/match.py at {commit}; unicorn {unicorn.__version__}"}
     status = "completed"
     try:
         w.play(a.max_screens)
     except guest.GuestError as e:
         status = f"stopped: {e}"
+    if w.g.unsupported and status == "completed":
+        status = "completed with unsupported services"
     end = {"kind": "end", "status": status, "draws": w.draws,
-           "screens": sum(e["kind"] == "screen" for e in w.events), "steps": w.g.steps,
+           "screens": sum(e["kind"] == "screen" for e in w.events),
+           "instruction_budget": w.g.budget, "timer_ticks": w.g.timer_ticks,
+           "game_timer_ticks": w.g.game_timer_ticks,
            "result": result(w.board) if w.board else None,
-           "timer_ticks": w.g.timer_ticks,
-           "services": sorted({f"int {n:02X} ah {ah:02X}" for n, ah, _ in w.g.services})}
+           "services": sorted({f"int {n:02X} ax {ax:04X}" if n == 0x33 else f"int {n:02X} ah {ax >> 8:02X}"
+                               for n, ax, _ in w.g.services}),
+           "unsupported": [f"int {n:02X} ax {ax:04X} at {at}" for n, ax, at in w.g.unsupported],
+           "files_written": w.files_written(), "state_digests": w.state_digests()}
     out = ROOT / a.out
     out.mkdir(parents=True, exist_ok=True)
-    path_out = out / f"{sha[:16]}-week.jsonl"
-    with open(path_out, "w", newline="\n") as f:
-        for ev in [start] + w.events + [end]:
-            f.write(json.dumps(ev, ensure_ascii=False, sort_keys=True) + "\n")
-    print(f"{path_out.relative_to(ROOT)}: {status}; {w.draws} draws, {end['screens']} key waits; result {end['result']}")
+    n = next_number(out, f"{sha[:16]}-week-r*.jsonl")
+    trace_path = out / f"{sha[:16]}-week-r{n:04d}.jsonl"
+    text = "".join(json.dumps(ev, ensure_ascii=False, sort_keys=True) + "\n" for ev in [start] + w.events + [end])
+    with open(trace_path, "x", newline="\n") as f:
+        f.write(text)
+    trace_sha = hashlib.sha256(text.encode()).hexdigest()
+    print(f"{trace_path.relative_to(ROOT)}: {status}; {w.draws} draws, {end['screens']} key waits; result {end['result']}")
+    cmp_ok, cmp_lines = (None, [])
     if a.compare:
-        rows, n = compare(w.events, a.compare)
-        for i, d, where in rows:
-            print(f"  key wait {i:2d} {d[:16]} {('= ' + where) if where else '(not a screen of the record)'}")
-        print(f"  {sum(1 for r in rows if r[2])} of the record's {n} screens met")
-    return 0 if status == "completed" else 1
+        cmp_ok, cmp_lines = compare(w.events, sha, a.compare)
+        for line in cmp_lines:
+            print("  " + line)
+    runs = ROOT / a.runs
+    runs.mkdir(parents=True, exist_ok=True)
+    rid = f"T06-r{next_number(runs, 'T06-r*.json'):04d}"
+    rec = {"schema": "run/1", "run_id": rid, "experiment": "T06", "arm": "unicorn-week", "rep": int(rid[-4:]),
+           "code_commit": commit, "machine": cycle.machine_id(),
+           "artifact": {"set": "One-Nil96 (records/T01/inventory.json)", "variant": None},
+           "runtime": {"harness": f"runtime/emul/match.py@{commit}", "unicorn": unicorn.__version__,
+                       "python": platform.python_version(), "settings": settings},
+           "interventions": [{"level": "I3", "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"}],
+           "start_state": {"id": path.relative_to(ROOT).as_posix(), "sha256": sha,
+                           "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"},
+           "seed": None,
+           "actions": {"script": "runtime/emul/match.py", "args": [a.state] + (["--compare", a.compare] if a.compare else []),
+                       "game_files": {k: hashlib.sha256(v).hexdigest() for k, v in w.files_at_start.items()}},
+           "observations": [
+               {"step": 0, "source": "file", "field": "the trace written, path", "value": trace_path.relative_to(ROOT).as_posix()},
+               {"step": 0, "source": "file", "field": "the trace written, sha256", "value": trace_sha},
+               {"step": 1, "source": "log", "field": "comparison with a DOSBox-X week record", "value": "\n".join(cmp_lines) or "not asked"},
+           ],
+           "outputs": [{"name": "end", "value": end}],
+           "started": "", "ended": "", "status": status if cmp_ok in (None, True) else f"aborted: comparison failed ({status})"}
+    rec["started"], rec["ended"] = started, utc()
+    if not (rec["status"] == "completed" or rec["status"].startswith("aborted:")):
+        rec["status"] = "aborted: " + rec["status"]
+    with open(runs / f"{rid}.json", "x", encoding="utf-8") as f:
+        f.write(json.dumps(rec, indent=2, ensure_ascii=False) + "\n")
+    print(f"{rid}: {rec['status']}")
+    return 0 if rec["status"] == "completed" else 1
 
 
 if __name__ == "__main__":

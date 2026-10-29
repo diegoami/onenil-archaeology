@@ -1,0 +1,170 @@
+{
+  "schema": "run/1",
+  "run_id": "T06-r0001",
+  "experiment": "T06",
+  "arm": "unicorn-week",
+  "rep": 1,
+  "code_commit": "8a5e574",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/match.py@8a5e574",
+    "unicorn": "2.1.4",
+    "python": "3.14.7",
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "PIT_HZ": 1193182,
+      "KEY_HOLD": 1600000,
+      "STALL_POLLS": 3,
+      "OTHER_STALL_POLLS": 200000,
+      "IF_RETRY": 200,
+      "dos_clock": {
+        "date": [
+          1995,
+          8,
+          1,
+          2
+        ],
+        "time": [
+          10,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-load-r0001.sav",
+    "sha256": "cf7eb2d04211ba883219dc2418b60410ff0fdd473eeb5d40698288414905779f",
+    "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/match.py",
+    "args": [
+      "cf7eb2d04211ba883219dc2418b60410ff0fdd473eeb5d40698288414905779f",
+      "--compare",
+      "runs/T04/T04-week-r0001.json"
+    ],
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "the trace written, path",
+      "value": "traces/T06/cf7eb2d04211ba88-week-r0001.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "the trace written, sha256",
+      "value": "0a8f5da6d5cbd4b4479272de43d7692794bb3b1959275aa1168864f082b7b39e"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "comparison with a DOSBox-X week record",
+      "value": "screen 1 (4361807016fd9da2) = key wait 3\nscreen 2 (f2f0fccca5d6ac67) = key wait 4\nscreen 3 (0c352266b60c3e34) = key wait 5\nscreen 4 (b01f8b4f6a2e5eb7) = key wait 6\nscreen 5 (79364b8b77812f99) = key wait 7\nscreen 6 (7ff6c091b6c076e5) = key wait 8\nmain menu after the week (8aebf82c97db6839) = key wait 9\nall of the record's 7 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "end",
+      "value": {
+        "kind": "end",
+        "status": "completed",
+        "draws": 23006,
+        "screens": 10,
+        "instruction_budget": 73824199,
+        "timer_ticks": 2914,
+        "game_timer_ticks": 2893,
+        "result": {
+          "board_digest": "b01f8b4f6a2e5eb7969bad407ac51a671d27bf950c3bf832334634b5c28cf17b",
+          "teams": [
+            "BLACKBURN R",
+            "P ST GERMAIN"
+          ],
+          "goals": [
+            0,
+            2
+          ]
+        },
+        "services": [
+          "int 21 ah 25",
+          "int 21 ah 35",
+          "int 21 ah 3C",
+          "int 21 ah 3E",
+          "int 21 ah 40",
+          "int 33 ax 0003"
+        ],
+        "unsupported": [],
+        "files_written": [
+          {
+            "name": "SAVE1.1-0",
+            "size": 194426,
+            "sha256": "c453de8da5236edd9d4c2eca35d95e1f74f37ee2a3ee5f59415f3e38044a285b"
+          }
+        ],
+        "state_digests": {
+          "DS:DCD8": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+          "DS:DCDA": "2478f80dfeeb8baa2ddf7ff28ac8daf29188bead47cc4cd78a69c76a84621cec",
+          "[DS:D7BA]": "440029263613d5ced0308b631872601974c216a120afb253974249cad8e74b4d",
+          "[DS:D7BE]": "5d7b4f762e167257e7671e45843b05656d29d24c192b9b1e216ff231b00c87ed",
+          "[DS:D7C2]": "02c2e6054272faba5f2ac74e72af901f896198326f2407f117dc8dc85c18623a",
+          "[DS:D7C6]": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+          "[DS:D7CA]": "9824720065c9bcc233d01c1a0e6db1fb066d3fd258b5dec008a6c5215b4aa5ae",
+          "[DS:D7CE]": "310114f03331e970dcb3df5f8801572580bd043526936ea9af5935ea019f425d",
+          "[DS:D7D2]": "ec86aa247579d8b6355dfb1864170be8e0baff0f8fc32040f50dfc4dfb6a82b7",
+          "DS:D7D6": "7d93e243cccdd63c9f0f949d296bdf5f2e1e7b5fe450e52400c2e0e17da2e7f4",
+          "DS:DCA6": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+          "DS:DCAE": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+          "[DS:DCB6]": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4",
+          "DS:DCBA": "1c53d1a46b3330cc470eecfb6a3d9b8d61cebe92f81c6551c5c6afe5a35071d5",
+          "[DS:DE84]": "ea395700f1f01d53a6fe31dc3275c409033d1c39c1d2dbffcfbaa79e17525596",
+          "[DS:DCBC]": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3",
+          "[DS:DCC0]": "92fa06e48e290801be3c8be1863d9460f2f40f5e736dcf009d5d14228b82ee4b",
+          "[DS:DCC4]": "ab9a94da5f9a88e4ca96b13a5c25c500fe021045496e2c0b13c2356545889178",
+          "[DS:DCC8]": "4c89ee10bc150dac35e0bd33eeaf0dec919f7aeb279e19e00aa182b99fdb1163",
+          "[DS:DCD4]": "457e30c6e9909c60e9d7c2c4cdab4bbdccdfb087c24fd28e211aed0b8a8fd7c1",
+          "[DS:DCCC]": "e7604388afc9c2a9bd7f854e5cd9127a7e80d9a1b94aba11f1b43756ce3d82d7",
+          "[DS:DCD0]": "a541eeef2cd7e9af7b285ccbe311555c2cebd6f6afa74ed419bf6a681b55ecfe",
+          "[DS:D7AA]": "2f75d9f9da523c4513798c825cdfcf1173af162b4f3eff8330adacafad928fc7",
+          "DS:D936": "f5cdb7000d05aeb72a4958faabf68c347ab7e4180f92852070ac8a1ac286b998",
+          "DS:D9E6": "4bdc6ab7058bfb77791c7ad404f673839e34d028afb2d78ff5ae96edbd7e0742",
+          "[DS:DCDC]": "20a04613814bf7670ad342ff94541af24a50d9f6d7d8dc0fac59cf525ea26319",
+          "DS:DCE0": "dbc1b4c900ffe48d575b5da5c638040125f65db0fe3e24494b76ea986457d986",
+          "[DS:DCE2]": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3"
+        }
+      }
+    }
+  ],
+  "started": "2026-10-29T15:12:37Z",
+  "ended": "2026-10-29T15:13:45Z",
+  "status": "completed"
+}
