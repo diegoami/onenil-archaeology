@@ -50,9 +50,10 @@ replay those traces; a wrong reading shows as the first tick or call where the t
 | T02 | O-M1 | static base: listing of both EXEs (tool pinned), routines by area (the match engine located first), the 95→96 code delta |
 | T03 | O-M1 | data layouts: the league `.DAT` files, `1-0.TFN`, `1-0.PAL`, `SAVE1.1-0` |
 | T04 | O-M2 | runtime: the DOSBox-X driver ported from goal2, the first run record |
-| T05 | O-M2 | the Unicorn harness ported from goal2: a routine run from a recorded state |
+| T05 | O-M1 | the layouts confirmed by a run: a league block and save blocks read back from 96's memory after a load |
+| T06 | O-M2 | the Unicorn harness ported from goal2: the match seeded and run from a recorded state, its draws traced |
 
-T02–T05 are drafts until T01 merges; T02 and T03 can run in parallel, T04 in parallel with both.
+T01–T04 are merged. T05 and T06 can run in parallel (one runs DOSBox-X, the other Unicorn).
 
 ## Risks
 

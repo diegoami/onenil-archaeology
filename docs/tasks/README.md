@@ -6,3 +6,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T02](T02.md): Static base: both EXEs listed, routines indexed by area, the 95→96 code delta (#3).
 - [T03](T03.md): Data layouts: the league files, the font, the palette, the save (#4).
 - [T04](T04.md): Runtime: drive One-Nil 96 under DOSBox-X, and does it load a saved game (#7).
+- [T05](T05.md): The layouts confirmed by a run: league and save blocks read back from 96's memory (#10).
+- [T06](T06.md): The Unicorn harness: run 96's match from a recorded state and trace its draws (#11).
