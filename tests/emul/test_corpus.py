@@ -26,6 +26,10 @@ def trace_text(status="completed", screens=("x", "y"), stop=False, result=True):
     return "".join(json.dumps(e, sort_keys=True) + "\n" for e in evs)
 
 
+def json_events(text):
+    return [json.loads(ln) for ln in text.splitlines()]
+
+
 def run(rid, week_path, trace_path, text, status="completed", cmp="all of the record's 2 screens met in order",
         state=A):
     return {"run_id": rid, "status": status, "start_state": {"sha256": state},
@@ -96,6 +100,35 @@ class IndexTests(unittest.TestCase):
         t = trace_text()
         e = self.index([WEEK1], [run("T08-r0001", WEEK1[1], "t1", t, state=B)], {"t1": t})["entries"][0]
         self.assertTrue(e["verdict"].startswith("start state differs"))
+
+    def polled_record(self, first):
+        names = ["screen 1", "screen 2 (match, first read)", "screen 7 (match, unchanged for 5 reads)",
+                 "screen 7 (match, last read)", "main menu after the week"]
+        digests = ["x", first, "y", "y", "z"]
+        return {"observations": [{"field": f"{n}: text screen 80x25, chars+attributes (4000 bytes), sha256", "value": d}
+                                 for n, d in zip(names, digests)]}
+
+    def test_key_wait_reading_one_key_wait_for_three_reads(self):
+        t = trace_text(screens=("x", "y", "z"))
+        rec = self.polled_record("y")
+        cmp = "screen 1 (x) = key wait 0\nscreen 2 (match, first read) (y) = key wait 1\nscreen 7 (match, unchanged for 5 reads) (y) not met in order\nnot all of the record's 5 screens met in order"
+        r = run("T08-r0001", WEEK1[1], "t1", t, status="aborted: comparison failed (completed)", cmp=cmp)
+        idx = corpus.build_index([WEEK1], [r], {"t1": t}.__getitem__, lambda p: rec)
+        e = idx["entries"][0]
+        self.assertEqual(e["verdict"], "screen 7 (match, unchanged for 5 reads) (y) not met in order")   # unchanged
+        self.assertTrue(e["key_wait_reading"]["met"])
+        self.assertEqual([a["same_as_key_wait_read"] for a in e["key_wait_reading"]["set_aside"]], [True, True])
+        self.assertEqual(idx["met_only_with_polled_match_reads_set_aside"], ["T04-week-r0001"])
+
+    def test_key_wait_reading_first_read_while_changing(self):
+        kw = corpus.key_wait_reading(self.polled_record("w"), json_events(trace_text(screens=("x", "y", "z"))))
+        self.assertTrue(kw["met"])
+        self.assertEqual(kw["set_aside"][0], {"screen": "screen 2 (match, first read)", "digest": "w", "same_as_key_wait_read": False})
+
+    def test_key_wait_reading_still_needs_order_and_presence(self):
+        self.assertFalse(corpus.key_wait_reading(self.polled_record("y"), json_events(trace_text(screens=("x", "z", "y"))))["met"])
+        kw = corpus.key_wait_reading(self.polled_record("y"), json_events(trace_text(screens=("x", "z"))))
+        self.assertEqual(kw["unmet"], ["screen 7 (match, unchanged for 5 reads) (y)"])
 
     def test_week_records_keep_only_completed(self):
         with tempfile.TemporaryDirectory() as d:

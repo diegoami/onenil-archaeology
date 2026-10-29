@@ -15,7 +15,8 @@ the command resumes.
 Then <out>/index.json is written from the records and traces (derived, regenerated each time): per
 week the T04 record, the start state, the trace and its sha256, the T08 run record, the verdict
 ("all screens met in order", or the comparison's failing line and, if the run stopped, why), the
-result (teams, goals) and the draw count. The latest T08 run of a week is the one indexed; earlier
+result (teams, goals) and the draw count; for a record with polled reads of a match board (T04's third
+session), also `key_wait_reading` (see key_wait_reading()), which leaves the verdict as it is. The latest T08 run of a week is the one indexed; earlier
 runs of it are listed under `superseded_runs`.
 """
 import argparse
@@ -91,7 +92,38 @@ def stop_screen(events):
     return None
 
 
-def entry(week_id, week_path, start_sha, run, trace_text):
+POLLED = ("(match, first read)", "(match, last read)")
+
+
+def key_wait_reading(record, events):
+    """A second reading of the comparison, beside the verdict (which it does not change). From T04's third
+    session on, weeks.py polls a match board until it stands still for 5 reads and then presses Space,
+    recording the board's first read, its read before the Space ("unchanged for 5 reads") and its last
+    read: three observations of what is, in the guest, one key wait, and a first read that may be taken
+    while the board still changes (no key wait at all). Here those first and last reads are set aside;
+    the record's other screens must occur in the trace's key waits in order, each at a later key wait.
+    Returns {"met": bool, "set_aside": [{"screen", "digest", "same_as_key_wait_read"}], "unmet": [...]}."""
+    obs = [(o["field"].split(":")[0], o["value"]) for o in record["observations"] if "chars+attributes" in o["field"]]
+    stood = {}   # match screen step -> the digest read before the Space
+    for name, d in obs:
+        if name.endswith("(match, unchanged for 5 reads)"):
+            stood[name.split()[1]] = d
+    have = [(e["i"], e["digest"]) for e in events if e["kind"] == "screen"]
+    aside, unmet, k = [], [], 0
+    for name, d in obs:
+        if name.endswith(POLLED):
+            same = d in stood.values()
+            aside.append({"screen": name, "digest": d, "same_as_key_wait_read": same})
+            continue
+        j = next((j for j in range(k, len(have)) if have[j][1] == d), None)
+        if j is None:
+            unmet.append(f"{name} ({d[:16]})")
+            continue
+        k = j + 1
+    return {"met": not unmet, "set_aside": aside, "unmet": unmet}
+
+
+def entry(week_id, week_path, start_sha, run, trace_text, record=None):
     """One index entry from a T04 week, its T08 run record and its trace's text."""
     events = [json.loads(ln) for ln in trace_text.splitlines() if ln.strip()]
     end = next((e for e in events if e["kind"] == "end"), None)
@@ -109,13 +141,15 @@ def entry(week_id, week_path, start_sha, run, trace_text):
            "key_waits": end["screens"] if end else None}
     if run["start_state"]["sha256"] != start_sha:
         out["verdict"] = f"start state differs: the run's {run['start_state']['sha256']}; " + out["verdict"]
+    if record is not None and any(f["field"].split(":")[0].endswith(POLLED) for f in record["observations"]):
+        out["key_wait_reading"] = key_wait_reading(record, events)
     stop = stop_screen(events)
     if stop:
         out["stopped_at"] = stop
     return out
 
 
-def build_index(weeks, runs, read_trace):
+def build_index(weeks, runs, read_trace, read_record=None):
     """The index: one entry per completed T04 week, in week order. A week without a T08 run is listed
     with verdict "not run" and why (`missing`: {week id: reason})."""
     by_week = runs_by_week(runs)
@@ -126,14 +160,19 @@ def build_index(weeks, runs, read_trace):
             entries.append({"t04_record": week_id, "t04_record_path": week_path,
                              "start_state_sha256": start_sha, "verdict": "not run"})
             continue
-        e = entry(week_id, week_path, start_sha, rs[-1], read_trace(observation(rs[-1], "the trace written, path")))
+        e = entry(week_id, week_path, start_sha, rs[-1], read_trace(observation(rs[-1], "the trace written, path")),
+                  read_record(week_path) if read_record else None)
         if len(rs) > 1:
             e["superseded_runs"] = [r["run_id"] for r in rs[:-1]]
         entries.append(e)
     met = sum(e["verdict"] == ALL_MET for e in entries)
+    kw = [e["t04_record"] for e in entries if e.get("key_wait_reading", {}).get("met")]
     return {"what": "T08: every completed T04 week traced under Unicorn (runtime/emul/match.py) from its "
                     "start state and compared with its DOSBox-X record; format: runtime/emul/corpus.py",
-            "weeks": len(entries), "all_screens_met": met, "entries": entries}
+            "weeks": len(entries), "all_screens_met": met,
+            "met_only_with_polled_match_reads_set_aside": [w for w in kw if next(
+                e for e in entries if e["t04_record"] == w)["verdict"] != ALL_MET],
+            "entries": entries}
 
 
 def load_runs(runs_dir, experiment):
@@ -168,7 +207,8 @@ def main(argv=None):
             print(f"{week_id}: running")
             match.main(["--state", start_sha, "--compare", week_path, "--out", a.out, "--runs", a.runs,
                         "--experiment", a.experiment])
-    index = build_index(weeks, load_runs(ROOT / a.runs, a.experiment), lambda p: (ROOT / p).read_text())
+    index = build_index(weeks, load_runs(ROOT / a.runs, a.experiment), lambda p: (ROOT / p).read_text(),
+                        lambda p: json.loads((ROOT / p).read_text()))
     path = ROOT / a.out / "index.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n", newline="\n")

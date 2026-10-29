@@ -2,6 +2,14 @@
   "what": "T08: every completed T04 week traced under Unicorn (runtime/emul/match.py) from its start state and compared with its DOSBox-X record; format: runtime/emul/corpus.py",
   "weeks": 15,
   "all_screens_met": 9,
+  "met_only_with_polled_match_reads_set_aside": [
+    "T04-week-r0012",
+    "T04-week-r0013",
+    "T04-week-r0014",
+    "T04-week-r0015",
+    "T04-week-r0016",
+    "T04-week-r0017"
+  ],
   "entries": [
     {
       "t04_record": "T04-week-r0001",
@@ -221,7 +229,33 @@
         ]
       },
       "draws": 23006,
-      "key_waits": 10
+      "key_waits": 10,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "f2f0fccca5d6ac67bd80d69d2e869d4dab274c5ec723f46e0959f2b0937128cd",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "f2f0fccca5d6ac67bd80d69d2e869d4dab274c5ec723f46e0959f2b0937128cd",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "b01f8b4f6a2e5eb7969bad407ac51a671d27bf950c3bf832334634b5c28cf17b",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "b01f8b4f6a2e5eb7969bad407ac51a671d27bf950c3bf832334634b5c28cf17b",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      }
     },
     {
       "t04_record": "T04-week-r0013",
@@ -243,7 +277,33 @@
         ]
       },
       "draws": 22554,
-      "key_waits": 8
+      "key_waits": 8,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "edd3505d9f36e2070d780ec37c10929733eff98054fd8e11d7ea43661b8d6d5d",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "edd3505d9f36e2070d780ec37c10929733eff98054fd8e11d7ea43661b8d6d5d",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "6357181d3e42f23dc5b85d1d29cef12ac7d5a924a21a28d897e3cf6edc411135",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "6357181d3e42f23dc5b85d1d29cef12ac7d5a924a21a28d897e3cf6edc411135",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      }
     },
     {
       "t04_record": "T04-week-r0014",
@@ -265,7 +325,33 @@
         ]
       },
       "draws": 22643,
-      "key_waits": 8
+      "key_waits": 8,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "37d0b1ac87ccea8ce90a7a81e06d88256663ef805c3642e4a44f4d6d43b82f10",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "37d0b1ac87ccea8ce90a7a81e06d88256663ef805c3642e4a44f4d6d43b82f10",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "9dfcf34baadbad0922bab14b26776cb2ab3199398762bbd722021bf07b9b29c4",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "9dfcf34baadbad0922bab14b26776cb2ab3199398762bbd722021bf07b9b29c4",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      }
     },
     {
       "t04_record": "T04-week-r0015",
@@ -287,7 +373,33 @@
         ]
       },
       "draws": 22695,
-      "key_waits": 8
+      "key_waits": 8,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "5f0d874622ac647afaccf0f29ee7571f569bb967409b48a26ba0c211a6fce7d7",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "5f0d874622ac647afaccf0f29ee7571f569bb967409b48a26ba0c211a6fce7d7",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "37f486dcf676fd5b42113e44571c3a39552d2ff4ad3668d786a64489a5c8f183",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "37f486dcf676fd5b42113e44571c3a39552d2ff4ad3668d786a64489a5c8f183",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      }
     },
     {
       "t04_record": "T04-week-r0016",
@@ -309,7 +421,33 @@
         ]
       },
       "draws": 21574,
-      "key_waits": 17
+      "key_waits": 17,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "6079c3c03b9aed065bfba185430358f8866c8959c9bc180c235382158f8c42c9",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "6079c3c03b9aed065bfba185430358f8866c8959c9bc180c235382158f8c42c9",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "9d396cd74d48a96d8f9b48baf6f735bfdb109fe44cde7e01584dd135e35f69d4",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "9d396cd74d48a96d8f9b48baf6f735bfdb109fe44cde7e01584dd135e35f69d4",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      }
     },
     {
       "t04_record": "T04-week-r0017",
@@ -331,7 +469,33 @@
         ]
       },
       "draws": 21606,
-      "key_waits": 11
+      "key_waits": 11,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "45aa3078dbc50520d050e715457d332a5cf827ab5803fa2594c6b696e0b1c21a",
+            "same_as_key_wait_read": false
+          },
+          {
+            "screen": "screen 8 (match, last read)",
+            "digest": "d76e908296c710e87dc1914baf1523d2895bf388c6f750813b9998b0ad54adab",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 10 (match, first read)",
+            "digest": "4357795d9c05369e27e64330a2270e1d9a876cc0518eab7eb516abb61fa8c5d3",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 15 (match, last read)",
+            "digest": "4357795d9c05369e27e64330a2270e1d9a876cc0518eab7eb516abb61fa8c5d3",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      }
     }
   ]
 }
