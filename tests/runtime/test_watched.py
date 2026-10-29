@@ -49,6 +49,11 @@ class HarnessRunOn(unittest.TestCase):
         self.assertFalse(match.watched_pitch_running(self.g("1998:00F1"), "commentary versus press any key"))
 
 
+    def test_week_keeps_its_end_methods(self):
+        # T10: a misplaced edit once moved these out of Week, and a 2-hour run failed at its end
+        self.assertTrue(callable(getattr(match.Week, "files_written", None)))
+        self.assertTrue(callable(getattr(match.Week, "state_digests", None)))
+
     def test_compact_services_keeps_the_reported_set(self):
         g = type("G", (), {})()
         g.services = [(0x33, 3, "a"), (0x33, 3, "b"), (0x33, 4, "c"), (0x21, 0x3C00, "d"), (0x21, 0x3C05, "e")]
