@@ -1,4 +1,4 @@
-# F01 The two editions: 30 files, six LZEXE executables built with Turbo Pascal 7 (HELP.EXE with an earlier one), and a 96 executable that is a limited build
+# F01 The two editions: 30 files, six LZEXE executables built with Turbo Pascal 7 (HELP.EXE with an earlier one), and a 96 executable carrying limited-build texts (switched off, F02)
 
 - **Status**: proposed
 - **Task**: T01 (#2)
@@ -35,10 +35,10 @@
    runtime error 200 on fast CPUs: a DOSBox-X run (T04) must keep the emulated speed below that.
 5. `[confirmed]` `HELP.EXE` (95 only) has an earlier System: 18 saved vectors (`00 02 1B 23 24
    34–3F 75`, no `21`, at `0287:01DD`), no `Test8086`, no Borland copyright string, no ENTER
-   prologue, "Runtime error " at `0287:01EF`. goal2's `GOAL.EXE` has "Runtime error " at the same
-   offset of its System, and the two System segments share 4,237 of HELP's 4,464 bytes (difflib,
-   relocated segment words normalised; checked in this session against goal2's cached GOAL.EXE, not
-   recorded). `[derived]` HELP.EXE was built with the compiler goal used, earlier than TP7. Its text
+   prologue, "Runtime error " at `0287:01EF` (records/T01/compiler.json). `[derived]` HELP.EXE was
+   built with an earlier Turbo Pascal run-time than TP7. A comparison with goal2's `GOAL.EXE` made
+   in the T01 session (not recorded, so not evidence here) suggested a run-time related to goal's;
+   which compiler is not established (corrected after the milestone review, #13, #15). Its text
    speaks of "the soccer game": a viewer carried over, not One-Nil-specific.
 6. `[confirmed]` The two main programs use 80186 instructions: of the far-called routines, 200
    (95) and 201 (96) start with ENTER, 83 with `push bp; mov bp,sp`; `leave` before `retf` appears
@@ -56,7 +56,7 @@
    `0AB9`, `1998`, `1B55` and the data segment differ, `0AB9` the most (10,455 of 60,912 bytes in
    place); `01EF` grows by 48 bytes and `1B55` by 192 (diff-95-96.json). What changed in the code is
    T02's.
-9. `[confirmed]` **The 96 executable is a limited build.** Strings only in `1-0.EXE`:
+9. `[confirmed]` **The 96 executable carries limited-build texts.** Strings only in `1-0.EXE`:
    "To load a saved game you must purchase the full version" (`1B55:0CD9`), "Game saved: to load a game
    you must purchase the full version" (`1B55:0DC9`) and "TO CONTINUE PLAYING YOU MUST REGISTER THIS
    GAME" (`01EF:4CA4`); 95 has none of them, and no "register" or "purchase" text at all.

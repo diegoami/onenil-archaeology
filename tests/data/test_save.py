@@ -40,6 +40,14 @@ class SaveTests(unittest.TestCase):
         with self.assertRaises(save.LayoutError):
             save.decode(fake()[:-1])
 
+    def test_only_the_editions_folders_are_searched(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            for sub in ("One-Nil95", "One-Nil96", "driver/game"):
+                os.makedirs(os.path.join(d, sub))
+                open(os.path.join(d, sub, "SAVE1.1-0"), "wb").close()
+            self.assertEqual(save.save_files(d), ["One-Nil95/SAVE1.1-0", "One-Nil96/SAVE1.1-0"])
+
 
 if __name__ == "__main__":
     unittest.main()

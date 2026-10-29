@@ -1,4 +1,4 @@
-# F02 Both executables listed and indexed: the match is 299 routines under 0AB9:E1F2, the RNG is the studio's LCG on RandSeed, 95 and 96 differ in five routines, and 96's limited-build texts are switched off
+# F02 Both executables listed and indexed: the match is entered at 0AB9:E1F2 (299 routines classified match), the RNG is the studio's LCG on RandSeed, 95 and 96 differ in five routines, and 96's limited-build texts are switched off
 
 - **Status**: proposed
 - **Task**: T02 (#3)
@@ -79,7 +79,10 @@
 8. `[derived]` 299 routines of 96 are `match` in the index: 13 anchored, the rest because every
    caller, or every nearest classified ancestor through call cycles, is match (index.py's `callers`
    and `roots`; a routine reached only from match code can still be shared). 263 of them are
-   identical in 95, 30 moved, 1 differs only in operands, 5 changed (item 10).
+   identical in 95, 30 moved, 5 differ only in operands, 1 changed (item 10). Classification is not
+   reachability: 272 of the 299 are reachable from `0AB9:E1F2` through the recorded direct calls; 27
+   are not (its caller `0AB9:EAB6`, `E479`, the 1998 helpers it calls through EAB6, and others),
+   because a caller's area passes down, not up (corrected after the milestone review, #13, #14, #17).
 
 ## The index
 
@@ -98,13 +101,16 @@
     | --- | --- | --- |
     | 0000:0000 | 0000:0000 | the main program: one more unit init call (0006:1E82) |
     | 0006:1E82 | — | new: an empty unit init (F01 item 10) |
-    | 0AB9:C4CD | 0AB5:C4CD | a squad screen: when clearing entries 4..6 under the flag `DS:0D18`, 96 skips entry 5 |
+    | 0AB9:C4CD | 0AB5:C4CD | a squad screen (classified match): when clearing entries 4..7 under the flag `DS:0D18`, 96 skips entry 5 (the loop at C4E8–C50A tests 7 after its body; corrected, #18) |
     | 1B55:0CF2 | 1B51:0CBB | the start-up "load a saved game?" question: the limited-build test (item 11) |
     | 1B55:0DE2 | 1B51:0D48 | the save loop: the same logic, compiled with its result stored first |
     | 1B55:56E7 | 1B51:5647 | a record setup that also writes the seed (item 4): 96 adds a branch setting byte +3 of a record to `0xB0 − [DS:D78F] + 0x50` when it is 0 |
 
-    `[derived]` No match routine's instructions changed except through operands: the match engine
-    is the same in both editions.
+    `[derived]` One routine classified match changed, `0AB9:C4CD`, a squad-screen loop (the row
+    above); every other match routine is the same, moved or differs only in operands. No routine
+    reachable from the match's entry `0AB9:E1F2` changed except through operands, so the match's
+    simulation is very likely the same in both editions; a trace of a 95 match would show it
+    (corrected after the milestone review, #13, #14).
 
 ## The limited build (corrects F01 item 9)
 

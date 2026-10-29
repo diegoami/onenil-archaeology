@@ -53,7 +53,7 @@ replay those traces; a wrong reading shows as the first tick or call where the t
 | T05 | O-M1 | the layouts confirmed by a run: a league block and save blocks read back from 96's memory after a load |
 | T06 | O-M2 | the Unicorn harness ported from goal2: the match seeded and run from a recorded state, its draws traced |
 
-T01–T04 are merged. T05 and T06 can run in parallel (one runs DOSBox-X, the other Unicorn).
+T01–T05 are merged.
 
 ## Risks
 
@@ -62,5 +62,5 @@ T01–T04 are merged. T05 and T06 can run in parallel (one runs DOSBox-X, the ot
 | The match engine is too intricate to read whole | read and run it together in the harness (goal2's route), routine by routine or whole matches |
 | The match engine is random | find the RNG and its seed statically (O-M1), then fix it in the harness |
 | Editions disagree on a rule | each finding names the edition(s) it holds for; 96 decides (rule 16) |
-| A trace format too narrow for onenil's tests | the first harness task (T05) fixes the trace format with onenil's first consuming test |
+| A trace format too narrow for onenil's tests | the first harness task (T06) fixes the trace format with onenil's first consuming test |
 | goal2's tools assume goal2's layout | port them with tests on both EXEs, never by copying results |
