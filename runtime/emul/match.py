@@ -130,6 +130,7 @@ class Week:
                 self.events.append({"kind": "run-on", "n": run_on, "digest": sc.digest(), "draws": self.draws,
                                     "caller": g.wait_caller})
                 run_on += 1
+                compact_services(g)
                 if run_on > max_run_on:
                     raise guest.GuestError(f"the watched pitch still running after {max_run_on} stops")
                 continue
@@ -167,6 +168,17 @@ class Week:
             self.events.append(ev)
             g.press(*keys)
         raise guest.GuestError(f"no main menu after {max_screens} key waits")
+
+
+def compact_services(g):
+    """T10: keep one entry of g.services per (interrupt, function) that end.services reports (AX for
+    INT 33h, AH otherwise): a watched match calls the mouse driver tens of millions of times, and the
+    full log (counted anyway in service_counts) grew past 4 GB in the first watched run. end.services
+    is the same set either way."""
+    keep = {}
+    for n, ax, at in g.services:
+        keep.setdefault((n, ax if n == 0x33 else ax >> 8), (n, ax, at))
+    g.services[:] = list(keep.values())
 
 
 def watched_pitch_running(g, text):

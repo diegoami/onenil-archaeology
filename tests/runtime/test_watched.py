@@ -49,5 +49,12 @@ class HarnessRunOn(unittest.TestCase):
         self.assertFalse(match.watched_pitch_running(self.g("1998:00F1"), "commentary versus press any key"))
 
 
+    def test_compact_services_keeps_the_reported_set(self):
+        g = type("G", (), {})()
+        g.services = [(0x33, 3, "a"), (0x33, 3, "b"), (0x33, 4, "c"), (0x21, 0x3C00, "d"), (0x21, 0x3C05, "e")]
+        match.compact_services(g)
+        self.assertEqual(g.services, [(0x33, 3, "a"), (0x33, 4, "c"), (0x21, 0x3C00, "d")])
+
+
 if __name__ == "__main__":
     unittest.main()
