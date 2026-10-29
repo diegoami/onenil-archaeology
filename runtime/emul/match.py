@@ -179,7 +179,8 @@ def result(board):
 
 def compare(trace_events, state_sha, record_path):
     """Check the trace against a DOSBox-X week record: the record starts from the same state, and its
-    screens, in its order, occur in the trace's key-wait screens in that order (an ordered
+    key-wait screens (a match board's first and last reads left out, below), in its order, occur in
+    the trace's key-wait screens in that order (an ordered
     subsequence: each record screen matched by a later trace screen than the one before). Returns
     (ok, lines)."""
     rec = json.loads(Path(record_path).read_text())
@@ -188,7 +189,13 @@ def compare(trace_events, state_sha, record_path):
     if rec_state != state_sha:
         ok = False
         lines.append(f"start state differs: the record's {rec_state}, the trace's {state_sha}")
-    want = [(o["field"].split(":")[0], o["value"]) for o in rec["observations"] if "chars+attributes" in o["field"]]
+    # A DOSBox-X record reads a match board several times (runtime/driver/weeks.py): its first read,
+    # while the board may still change, its reads before Space ("unchanged for N reads"), and its last
+    # read. Only a read before a key is a key wait, the only screens a trace holds; the first and last
+    # reads of a board are left out (T08).
+    want = [(o["field"].split(":")[0], o["value"]) for o in rec["observations"]
+            if "chars+attributes" in o["field"]
+            and "(match, first read)" not in o["field"] and "(match, last read)" not in o["field"]]
     have = [(e["i"], e["digest"]) for e in trace_events if e["kind"] == "screen"]
     k = 0
     for name, digest in want:
