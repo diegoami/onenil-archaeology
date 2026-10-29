@@ -1,15 +1,8 @@
 {
   "what": "T08: every completed T04 week traced under Unicorn (runtime/emul/match.py) from its start state and compared with its DOSBox-X record; format: runtime/emul/corpus.py",
   "weeks": 15,
-  "all_screens_met": 9,
-  "met_only_with_polled_match_reads_set_aside": [
-    "T04-week-r0012",
-    "T04-week-r0013",
-    "T04-week-r0014",
-    "T04-week-r0015",
-    "T04-week-r0016",
-    "T04-week-r0017"
-  ],
+  "all_screens_met": 15,
+  "met_only_with_polled_match_reads_set_aside": [],
   "entries": [
     {
       "t04_record": "T04-week-r0001",
@@ -213,11 +206,11 @@
       "t04_record": "T04-week-r0012",
       "t04_record_path": "runs/T04/T04-week-r0012.json",
       "start_state_sha256": "841b0d3fb4398724a3cdb9db1cf015606ba78fcc02c734fca6b4fff1292221d7",
-      "t08_run": "T08-r0010",
-      "run_status": "aborted: comparison failed (completed)",
-      "trace": "traces/T08/841b0d3fb4398724-week-r0001.jsonl",
-      "trace_sha256": "f1c2bbfab8fb9918d06fb7c4f69280abbbb0ae1ef371a621e30f9223ae645c50",
-      "verdict": "screen 7 (match, unchanged for 5 reads) (f2f0fccca5d6ac67) not met in order",
+      "t08_run": "T08-r0016",
+      "run_status": "completed",
+      "trace": "traces/T08/841b0d3fb4398724-week-r0002.jsonl",
+      "trace_sha256": "6068cc6fcdd5b3d1fae55540390d855f23d5b2dfb51cb867ff6d699a4b67898d",
+      "verdict": "all screens met in order",
       "result": {
         "teams": [
           "BLACKBURN R",
@@ -255,17 +248,20 @@
           }
         ],
         "unmet": []
-      }
+      },
+      "superseded_runs": [
+        "T08-r0010"
+      ]
     },
     {
       "t04_record": "T04-week-r0013",
       "t04_record_path": "runs/T04/T04-week-r0013.json",
       "start_state_sha256": "b6e7808976cb11d46e73fb72ca99c0a423c3c820ed3fe64087047b7a8790d135",
-      "t08_run": "T08-r0011",
-      "run_status": "aborted: comparison failed (completed)",
-      "trace": "traces/T08/b6e7808976cb11d4-week-r0001.jsonl",
-      "trace_sha256": "d25b971908423099a02e91b8ae7526270c8c207869969fd71a11415758035437",
-      "verdict": "screen 7 (match, unchanged for 5 reads) (edd3505d9f36e207) not met in order",
+      "t08_run": "T08-r0017",
+      "run_status": "completed",
+      "trace": "traces/T08/b6e7808976cb11d4-week-r0002.jsonl",
+      "trace_sha256": "0d0a0a239e1d67fff41a321666bd575cfb044b748c364c6210fe20dec7251f9b",
+      "verdict": "all screens met in order",
       "result": {
         "teams": [
           "SEVILLA",
@@ -303,17 +299,20 @@
           }
         ],
         "unmet": []
-      }
+      },
+      "superseded_runs": [
+        "T08-r0011"
+      ]
     },
     {
       "t04_record": "T04-week-r0014",
       "t04_record_path": "runs/T04/T04-week-r0014.json",
       "start_state_sha256": "e31796da793ab97abeff0a226806b93e1c79d4f04f947c4e5f513b99633607fc",
-      "t08_run": "T08-r0012",
-      "run_status": "aborted: comparison failed (completed)",
-      "trace": "traces/T08/e31796da793ab97a-week-r0001.jsonl",
-      "trace_sha256": "9ff7dc855b300c4d97890a53f1bb7a2196192197564e0812083bc9496b6ccbc2",
-      "verdict": "screen 7 (match, unchanged for 5 reads) (37d0b1ac87ccea8c) not met in order",
+      "t08_run": "T08-r0018",
+      "run_status": "completed",
+      "trace": "traces/T08/e31796da793ab97a-week-r0002.jsonl",
+      "trace_sha256": "9167266281f439a2e83d5e0baed0d9ca8605ea6fb422389dfe511f6fe74117f8",
+      "verdict": "all screens met in order",
       "result": {
         "teams": [
           "CELTIC",
@@ -351,17 +350,20 @@
           }
         ],
         "unmet": []
-      }
+      },
+      "superseded_runs": [
+        "T08-r0012"
+      ]
     },
     {
       "t04_record": "T04-week-r0015",
       "t04_record_path": "runs/T04/T04-week-r0015.json",
       "start_state_sha256": "e8c29484f66881786439d9ee00d63b2bb31aa5997047ec7e8cc46752dd65a0ff",
-      "t08_run": "T08-r0013",
-      "run_status": "aborted: comparison failed (completed)",
-      "trace": "traces/T08/e8c29484f6688178-week-r0001.jsonl",
-      "trace_sha256": "8218f01d1dde03b720fa8f98c3619e9df2d4ca1a9977aa0e88caacabe7e5ae66",
-      "verdict": "screen 7 (match, unchanged for 5 reads) (5f0d874622ac647a) not met in order",
+      "t08_run": "T08-r0019",
+      "run_status": "completed",
+      "trace": "traces/T08/e8c29484f6688178-week-r0002.jsonl",
+      "trace_sha256": "ec24d3dc4bd3e4c62ee2d9a36268ec5437c6edfcc377ef28573ccc53eaad5c1f",
+      "verdict": "all screens met in order",
       "result": {
         "teams": [
           "BLACKBURN R",
@@ -399,17 +401,20 @@
           }
         ],
         "unmet": []
-      }
+      },
+      "superseded_runs": [
+        "T08-r0013"
+      ]
     },
     {
       "t04_record": "T04-week-r0016",
       "t04_record_path": "runs/T04/T04-week-r0016.json",
       "start_state_sha256": "8b3d02d6bf48db13706196dedce3f7525a757fe1590efb15c8ccff5c87ce2994",
-      "t08_run": "T08-r0014",
-      "run_status": "aborted: comparison failed (completed)",
-      "trace": "traces/T08/8b3d02d6bf48db13-week-r0001.jsonl",
-      "trace_sha256": "dd9f8b84a8effd057c0f8ee49aaa698b4dadc1b8219b0aa32e083321c4221bd8",
-      "verdict": "screen 7 (match, unchanged for 5 reads) (6079c3c03b9aed06) not met in order",
+      "t08_run": "T08-r0020",
+      "run_status": "completed",
+      "trace": "traces/T08/8b3d02d6bf48db13-week-r0002.jsonl",
+      "trace_sha256": "feed25bd83921ef8d888fd88b64c5d31733cb7270251b9bd18491f2c6b28dcdb",
+      "verdict": "all screens met in order",
       "result": {
         "teams": [
           "BLACKBURN R",
@@ -447,17 +452,20 @@
           }
         ],
         "unmet": []
-      }
+      },
+      "superseded_runs": [
+        "T08-r0014"
+      ]
     },
     {
       "t04_record": "T04-week-r0017",
       "t04_record_path": "runs/T04/T04-week-r0017.json",
       "start_state_sha256": "2f634978859f7c07b3519e4278d8aaf70c2c70b93ad48362408fbcfa210576a1",
-      "t08_run": "T08-r0015",
-      "run_status": "aborted: comparison failed (completed)",
-      "trace": "traces/T08/2f634978859f7c07-week-r0001.jsonl",
-      "trace_sha256": "10c8edc20546226fd410cf6be8a7f6d56871b30ed5b5542ff7fa414a586835fe",
-      "verdict": "screen 2 (match, first read) (45aa3078dbc50520) not met in order",
+      "t08_run": "T08-r0021",
+      "run_status": "completed",
+      "trace": "traces/T08/2f634978859f7c07-week-r0002.jsonl",
+      "trace_sha256": "66fe8ba4c5cbc6af163ebcbe1e5ba815a89abfd5df755818cabe5a8968ef68ef",
+      "verdict": "all screens met in order",
       "result": {
         "teams": [
           "SHEFFIELD WED",
@@ -495,7 +503,10 @@
           }
         ],
         "unmet": []
-      }
+      },
+      "superseded_runs": [
+        "T08-r0015"
+      ]
     }
   ]
 }
