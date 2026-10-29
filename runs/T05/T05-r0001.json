@@ -1,0 +1,350 @@
+{
+  "schema": "run/1",
+  "run_id": "T05-r0001",
+  "experiment": "T05",
+  "arm": "load-save1-read-memory",
+  "rep": 1,
+  "code_commit": "2b5f3b8",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "driver": "runtime/driver/driver.py@2b5f3b8",
+    "platform": "python-3.14.4/ubuntu-26-04-wsl2",
+    "fingerprint": {
+      "dosbox-x": "2024.03.01 SDL2",
+      "xvfb": "2:21.1.22-1ubuntu1.2",
+      "xdotool": "xdotool version 3.20160805.1",
+      "python": "3.14.4",
+      "kernel": "6.18.54.1-microsoft-standard-WSL2",
+      "config_sha256": "0be736ab84ee79f9fae8d4f2c77224a6d5b0d59b872dab403fe9cc9fe0635c58",
+      "machine": "svga_s3",
+      "memsize": "16",
+      "cycles": "20000",
+      "core": "normal",
+      "cputype": "auto"
+    }
+  },
+  "interventions": [
+    {
+      "level": "I1",
+      "what": "text screen and guest memory read from a DOSBox-X savestate"
+    },
+    {
+      "level": "I2",
+      "what": "savestates written at each read"
+    }
+  ],
+  "start_state": {
+    "id": "fresh launch",
+    "sha256": null,
+    "restore": "fresh DOSBox-X process; C: a copy of One-Nil 96's files (records/T01/inventory.json); 1-0 run to its title screen; host clock not controlled"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/layouts.py",
+    "sha256": "6c206afd9e7118005bfc205c2bfc3eb30d5e4a3c7a51b1789f1d9df7e3e2e600",
+    "keys": [
+      "title: y"
+    ]
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "screen",
+      "field": "title screen, sha256",
+      "value": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5"
+    },
+    {
+      "step": 1,
+      "source": "screen",
+      "field": "main menu after Y, text screen 80x25, sha256",
+      "value": "2eb6ffb296cb2e54b46b8601735d202f54b81cca195335933858e0385cc1b952"
+    },
+    {
+      "step": 1,
+      "source": "ui-text",
+      "field": "main menu after Y, CP437 decoded",
+      "value": "┌─────────────────┐ ┌─Blackburn R----─────────────────┐  ┌─────────────────────┐\n│ TEAM            │ │ formation                 4-4-2 │  │ GAME NAME: SAVE1    │\n├ Blackburn R---- ┤ ├─FIRST TEAM AVERAGES─────────────┤  └─────────────────────┘\n│ MANAGER         │ │ confidence              worried │  ╔════════════════════╗\n├ Dalglish        ┤ │ fitness              reasonable │  ║ PLAY NEXT GAME     ║\n│ MONEY           │ │ energy                   lively │  ╟────────────────────╢\n├ 452,000         ┤ │ hardness                average │  ║ Players            ║\n│ LEAGUE POS.   1 │ ├─RATINGS────────┬────┬───┬───┬───┤  ║ Next opponents     ║\n│ SEASON  1994/95 │ │ goalkeeper     │■■■■■■■■■■■■■■■■│  ║ Transfer market    ║\n└─────────────────┘ │ defence        │■■■■■■■■■■■■■■■■│  ║ Use scout          ║\n┌─────────────────┐ │ midfield       │■■■■■■■■■■■■■■■■│  ║ New staff          ║\n│ NEXT OPPONENTS  │ │ attack         │■■■■■■■■■■■■■■■■│  ║ League tables      ║\n├ P St Germain--- ┤ ├───────────────┬┴┬─┬─┼─┬─┼─┬─┼─┬─┤  ║ League results     ║\n│ MANAGER         │ ├─TEAM VALUE────┤ │1│7,9│4│0,0│0│0│  ║ Cup results        ║\n├ Fernandez       ┤ ├─TACTICS───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┤  ║ Weekly fixtures    ║\n│ LEAGUE          │ │ positioning        push forward │  ║ Fixture list       ║\n├ EUROPEAN        │ │ possession         pass quickly │  ║ Statistics         ║\n│ LEAGUE POS.     │ │ passing            short passes │  ║ Player/team history║\n╞═════════════════╡ │ aggression           go in hard │  ║ Seasonal history   ║\n│COMPETITION      │ │ defence              half pitch │  ║ Other teams        ║\n├Friendly #1      ┤ │ protection      sag back to box │  ║ Game configuration ║\n│VENUE       home │ │ offside            offside trap │  ║ Cashflow           ║\n└─────────────────┘ │ marking                   zonal │  ╚═↑↓-move══◄┘-select═╝\n                    └─────────────────────────────────┘    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad"
+    },
+    {
+      "step": 2,
+      "source": "save",
+      "field": "sha256 of the savestate the comparison reads (.cache/states/T05/, the owner's Drive states/T05/)",
+      "value": "64af71e7e4d2e1dcc366825a2a3958f1395ab686cb684e5073939cf88ef79539"
+    },
+    {
+      "step": 2,
+      "source": "memory",
+      "field": "where 1-0.EXE was loaded (its MCB, PSP, load segment, data segment)",
+      "value": "MCB at segment 0812 (owner 0813, name 1-0), PSP 0813, load segment 0823 = PSP + 10h, DS 3087 = load + 2864h, linear base 0x30870"
+    },
+    {
+      "step": 3,
+      "source": "log",
+      "field": "waits, polls and key holds, seconds since launch",
+      "value": "[[0.014,\"mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print\"],[0.118,\"Xvfb poll: answered after 2 polls of 0.1s\"],[0.118,\"Xvfb :369 answering\"],[0.136,\"dosbox-x started\"],[0.257,\"window found after 2 polls of 0.1s\"],[0.259,\"window focused\"],[0.781,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[0.782,\"savestate complete after 1 polls of 0.05s\"],[1.322,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[1.323,\"savestate complete after 1 polls of 0.05s\"],[1.339,\"title screen: matched after 2 savestate polls\"],[1.34,\"DOS clock read back: '10/29/2026\\\\n15:01:04'\"],[1.421,\"key y held 0.08s (raw keycode 29)\"],[4.421,\"waited 3.0s after Y before the first savestate\"],[4.943,\"emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)\"],[4.945,\"savestate complete after 1 polls of 0.05s\"],[4.959,\"main menu after Y: matched after 1 savestate polls\"],[5.487,\"dosbox-x pid 458684 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group\"],[5.493,\"dosbox-x pid 458684 ended by SIGKILL 0.507s after the first signal\"],[5.497,\"Xvfb pid 458677 ended by SIGTERM 0.003s after the first signal\"],[5.497,\"terminated\"]]"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "comparison",
+      "value": {
+        "league": {
+          "club_names_in_memory": 176,
+          "division_names_in_memory": [
+            "SUPER LEAGUE",
+            "PREMIER LEAGUE",
+            "DIVISION ONE",
+            "DIVISION TWO",
+            "DIVISION THREE",
+            "NON-LEAGUE",
+            "EUROPEAN"
+          ],
+          "first_club_names_in_memory": [
+            "Barcelona",
+            "Sporting Lisbon",
+            "Roda"
+          ],
+          "league_files_equal": [
+            "ENGL-95.DAT"
+          ]
+        },
+        "save": {
+          "blocks": [
+            {
+              "destination": "DS:DCD8",
+              "size": 1,
+              "linear": "0x3E548",
+              "memory_sha256": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+              "save_sha256": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:DCDA",
+              "size": 2,
+              "linear": "0x3E54A",
+              "memory_sha256": "2478f80dfeeb8baa2ddf7ff28ac8daf29188bead47cc4cd78a69c76a84621cec",
+              "save_sha256": "2478f80dfeeb8baa2ddf7ff28ac8daf29188bead47cc4cd78a69c76a84621cec",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7BA]",
+              "size": 31368,
+              "linear": "0x4AC38",
+              "memory_sha256": "88ad40cd4cefda890d27b3246486fa5452b870ab416282ae5ecec9fb70683c66",
+              "save_sha256": "88ad40cd4cefda890d27b3246486fa5452b870ab416282ae5ecec9fb70683c66",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7BE]",
+              "size": 58815,
+              "linear": "0x526C0",
+              "memory_sha256": "18df11a2e66f9f26425155b51e174ab30185d57a2964054dd18591546386ba51",
+              "save_sha256": "18df11a2e66f9f26425155b51e174ab30185d57a2964054dd18591546386ba51",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7C2]",
+              "size": 10912,
+              "linear": "0x60C80",
+              "memory_sha256": "82ec12718ae36b109e6dcf054a4cf7e78d215aa8931c57f40bf321224867d882",
+              "save_sha256": "82ec12718ae36b109e6dcf054a4cf7e78d215aa8931c57f40bf321224867d882",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7C6]",
+              "size": 2112,
+              "linear": "0x63720",
+              "memory_sha256": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+              "save_sha256": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7CA]",
+              "size": 30624,
+              "linear": "0x63F60",
+              "memory_sha256": "efabd56a9400ddf06dc1ac6b549aa230f56db7a3aa674f85927b17ddc72b51e9",
+              "save_sha256": "efabd56a9400ddf06dc1ac6b549aa230f56db7a3aa674f85927b17ddc72b51e9",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7CE]",
+              "size": 10208,
+              "linear": "0x6B700",
+              "memory_sha256": "8369c8426f639bd09ef750ba8473fba6fd3b9129b7fbe1331085a36616643f2f",
+              "save_sha256": "8369c8426f639bd09ef750ba8473fba6fd3b9129b7fbe1331085a36616643f2f",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7D2]",
+              "size": 247,
+              "linear": "0x6DEE0",
+              "memory_sha256": "400c29a71373e75ec824d5f082085c9bf70ee28e8d8e3cf4c47f4e8e42e49dcd",
+              "save_sha256": "400c29a71373e75ec824d5f082085c9bf70ee28e8d8e3cf4c47f4e8e42e49dcd",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:D7D6",
+              "size": 176,
+              "linear": "0x3E046",
+              "memory_sha256": "7d93e243cccdd63c9f0f949d296bdf5f2e1e7b5fe450e52400c2e0e17da2e7f4",
+              "save_sha256": "7d93e243cccdd63c9f0f949d296bdf5f2e1e7b5fe450e52400c2e0e17da2e7f4",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:DCA6",
+              "size": 8,
+              "linear": "0x3E516",
+              "memory_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+              "save_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:DCAE",
+              "size": 8,
+              "linear": "0x3E51E",
+              "memory_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+              "save_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCB6]",
+              "size": 96,
+              "linear": "0x6DFD8",
+              "memory_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4",
+              "save_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:DCBA",
+              "size": 2,
+              "linear": "0x3E52A",
+              "memory_sha256": "1c53d1a46b3330cc470eecfb6a3d9b8d61cebe92f81c6551c5c6afe5a35071d5",
+              "save_sha256": "1c53d1a46b3330cc470eecfb6a3d9b8d61cebe92f81c6551c5c6afe5a35071d5",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DE84]",
+              "size": 2,
+              "linear": "0x3AD8C",
+              "memory_sha256": "240ffa461655b1f9e0cca7f890d74410396c5455388ea636be1d6898c3f4d6b4",
+              "save_sha256": "240ffa461655b1f9e0cca7f890d74410396c5455388ea636be1d6898c3f4d6b4",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCBC]",
+              "size": 1770,
+              "linear": "0x6E038",
+              "memory_sha256": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3",
+              "save_sha256": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCC0]",
+              "size": 8096,
+              "linear": "0x6E728",
+              "memory_sha256": "aa95a8e4d875b25841484bc908ca29d2c4f59c2885e0b3235b63c6df63997a85",
+              "save_sha256": "aa95a8e4d875b25841484bc908ca29d2c4f59c2885e0b3235b63c6df63997a85",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCC4]",
+              "size": 188,
+              "linear": "0x706C8",
+              "memory_sha256": "1fc5c9751dd36622db72ae1e271728fbc98d8e88c896f2e0f6808759ded712ad",
+              "save_sha256": "1fc5c9751dd36622db72ae1e271728fbc98d8e88c896f2e0f6808759ded712ad",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCC8]",
+              "size": 4004,
+              "linear": "0x70788",
+              "memory_sha256": "4c89ee10bc150dac35e0bd33eeaf0dec919f7aeb279e19e00aa182b99fdb1163",
+              "save_sha256": "4c89ee10bc150dac35e0bd33eeaf0dec919f7aeb279e19e00aa182b99fdb1163",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCD4]",
+              "size": 1001,
+              "linear": "0x74628",
+              "memory_sha256": "457e30c6e9909c60e9d7c2c4cdab4bbdccdfb087c24fd28e211aed0b8a8fd7c1",
+              "save_sha256": "457e30c6e9909c60e9d7c2c4cdab4bbdccdfb087c24fd28e211aed0b8a8fd7c1",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCCC]",
+              "size": 11011,
+              "linear": "0x71730",
+              "memory_sha256": "e7604388afc9c2a9bd7f854e5cd9127a7e80d9a1b94aba11f1b43756ce3d82d7",
+              "save_sha256": "e7604388afc9c2a9bd7f854e5cd9127a7e80d9a1b94aba11f1b43756ce3d82d7",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCD0]",
+              "size": 1001,
+              "linear": "0x74238",
+              "memory_sha256": "a541eeef2cd7e9af7b285ccbe311555c2cebd6f6afa74ed419bf6a681b55ecfe",
+              "save_sha256": "a541eeef2cd7e9af7b285ccbe311555c2cebd6f6afa74ed419bf6a681b55ecfe",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:D7AA]",
+              "size": 3921,
+              "linear": "0x481D8",
+              "memory_sha256": "2f75d9f9da523c4513798c825cdfcf1173af162b4f3eff8330adacafad928fc7",
+              "save_sha256": "2f75d9f9da523c4513798c825cdfcf1173af162b4f3eff8330adacafad928fc7",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:D936",
+              "size": 176,
+              "linear": "0x3E1A6",
+              "memory_sha256": "f5cdb7000d05aeb72a4958faabf68c347ab7e4180f92852070ac8a1ac286b998",
+              "save_sha256": "f5cdb7000d05aeb72a4958faabf68c347ab7e4180f92852070ac8a1ac286b998",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:D9E6",
+              "size": 176,
+              "linear": "0x3E256",
+              "memory_sha256": "4bdc6ab7058bfb77791c7ad404f673839e34d028afb2d78ff5ae96edbd7e0742",
+              "save_sha256": "4bdc6ab7058bfb77791c7ad404f673839e34d028afb2d78ff5ae96edbd7e0742",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCDC]",
+              "size": 464,
+              "linear": "0x74A18",
+              "memory_sha256": "7c4c2b940c41426e36a4cf6c83afababacfb8bb1a1dc39162a95bb812e1d109f",
+              "save_sha256": "7c4c2b940c41426e36a4cf6c83afababacfb8bb1a1dc39162a95bb812e1d109f",
+              "verdict": "equal"
+            },
+            {
+              "destination": "DS:DCE0",
+              "size": 1,
+              "linear": "0x3E550",
+              "memory_sha256": "dbc1b4c900ffe48d575b5da5c638040125f65db0fe3e24494b76ea986457d986",
+              "save_sha256": "dbc1b4c900ffe48d575b5da5c638040125f65db0fe3e24494b76ea986457d986",
+              "verdict": "equal"
+            },
+            {
+              "destination": "[DS:DCE2]",
+              "size": 18036,
+              "linear": "0x74BE8",
+              "memory_sha256": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3",
+              "save_sha256": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3",
+              "verdict": "equal"
+            }
+          ],
+          "equal": 28
+        }
+      }
+    }
+  ],
+  "started": "2026-10-29T14:01:04.821Z",
+  "ended": "2026-10-29T14:01:10.338Z",
+  "status": "completed"
+}
