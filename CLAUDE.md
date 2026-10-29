@@ -62,6 +62,8 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     unpacked executables themselves are not.
 15. **Tooling is Python** (the analysis scripts, the run harness, the comparison of records); the
     rebuild's engine is Rust in onenil, checked against the original through this repository's
-    records.
+    records. [designed: owner, 2026-10-29] No Python model of the engine: the harness here
+    records traces of the original's routines and matches, and onenil's Rust tests replay them
+    ([docs/plan.md](docs/plan.md)).
 16. [designed: owner, 2026-10-29] **One-Nil 96 is the target.** onenil reproduces `1-0.EXE`; 95 is
     read as a delta, and a finding names the edition(s) it holds for.

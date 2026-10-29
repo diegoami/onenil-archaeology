@@ -30,9 +30,17 @@ labels and issues do.
 | **O-M0 Inventory** | we know exactly what we have | T01: every file of both editions hashed; compiler and run-time identified; the 95→96 differences listed |
 | **O-M1 Static base** | the code and data can be read | both EXEs unpacked and listed reproducibly; routines indexed by area (match, squad, transfers, finance, competitions, AI, save/load, UI); the league `.DAT` and save layouts proposed, one claim of each confirmed by a run |
 | **O-M2 Runtime** | an agent can drive the original | launch → keys → screen read → savestate → reset, repeated with the same hash; a routine of the match run under the emulator harness from a recorded state |
-| **O-M3a Match engine** | the match can be simulated | the engine read and run in the harness; seeded matches of `1-0.EXE` reproduced tick-exactly by a Python model of it |
+| **O-M3a Match engine** | the match can be simulated | the engine read, and its routines and whole seeded matches run in the harness with their traces recorded; onenil's Rust engine replays those traces tick-exactly |
 | **O-M3b Season** | the rest of the game can be simulated | squads, transfers, finances, competitions and the other managers `[confirmed]` or `[derived]` to the depth onenil needs |
 | **O-M4 Faithful rebuild** (onenil) | onenil behaves like the original | matches identical (or within stated tolerances) on recorded seeds; a season's fixtures, tables, transfers and finances reproduced from a start state |
+
+## The match engine: read here, written in Rust, checked by traces
+
+[designed: owner, 2026-10-29] Unlike goal2, no Python model of the engine is written. This repository
+reads the engine (listing, decompile) and runs the original's own code in the Python harness: single
+routines on chosen inputs, and whole matches from recorded seeds. Their input/output traces are
+committed run records. onenil's Rust engine is written straight from the reading, and its tests
+replay those traces; a wrong reading shows as the first tick or call where the traces differ.
 
 ## The first tasks
 
@@ -53,4 +61,5 @@ T02–T05 are drafts until T01 merges; T02 and T03 can run in parallel, T04 in p
 | The match engine is too intricate to read whole | read and run it together in the harness (goal2's route), routine by routine or whole matches |
 | The match engine is random | find the RNG and its seed statically (O-M1), then fix it in the harness |
 | Editions disagree on a rule | each finding names the edition(s) it holds for; 96 decides (rule 16) |
+| A trace format too narrow for onenil's tests | the first harness task (T05) fixes the trace format with onenil's first consuming test |
 | goal2's tools assume goal2's layout | port them with tests on both EXEs, never by copying results |
