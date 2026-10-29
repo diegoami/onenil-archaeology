@@ -13,10 +13,11 @@ The start state is found by sha256 under `.cache/states/` (from the owner's Driv
 Each run writes a new trace `traces/T06/<state sha256[:16]>-week-r<nnnn>.jsonl` and a run record
 `runs/T06/T06-r<nnnn>.json` (the trace's sha256, the settings, the game files' sha256, the result, the
 comparison); nothing is overwritten. The same state gives the same trace, byte for byte
-(`T06-r0001`, `T06-r0002`).
+(`T06-r0003`, `T06-r0004`: `-week-r0003`, `-r0004`, the current ones).
 
-`traces/T06/cf7eb2d04211ba88-week.jsonl` is the first trace (T06, before the O-M2 review): kept as
-recorded, superseded. Its `callers` read every frame as far, so entries after the first can be
+Superseded traces, kept as recorded: `-week-r0001`/`-r0002` (a new timer divisor waited for the old
+deadline, #33; their draws, screens and state digests equal `-r0003`'s); and
+`traces/T06/cf7eb2d04211ba88-week.jsonl`, the first trace (T06, before the O-M2 review). Its `callers` read every frame as far, so entries after the first can be
 wrong (#23), and its clock was another model (a tick every 17,000 instructions, plus one per read of
 0040:006C). Its draws (`n`, seeds, values) and screens are identical to `-week-r0001`'s.
 
@@ -36,7 +37,9 @@ One JSON object per line, keys sorted, in the order things happened. Every line 
 `screens`; `instruction_budget` (the instructions the run allowed: an upper bound, a slice that ends
 at a key wait counts whole); `timer_ticks` (IRQ 0 ticks) and `game_timer_ticks` (of them, those that
 entered the game's INT 1Ch handler); `services` (every BIOS/DOS function the game called) and
-`unsupported` (those not served); `files_written` (name, size, sha256 of each file the week created
+`unsupported` (those not served); `service_counts` (calls per interrupt and function),
+`mouse_answers` (what the mouse reads answered), `dos_calls` (every INT 21h call in order: inputs, a
+file name, the length and sha256 of written bytes, the AX and carry returned); `files_written` (name, size, sha256 of each file the week created
 or changed in the guest's folder); `state_digests` (the sha256 of the memory at each save block's
 destination, F03 R24–R51, at the week's end); `result`: `teams` and `goals` (the full-time board's
 score, read as text) and `board_digest` (that screen's digest, which only a renderer of the same text
@@ -45,7 +48,7 @@ page can reproduce).
 ### What a trace is a test of
 
 A trace is a **week**: the managed club's match (between the two `mark`s), the round's other
-fixtures and the week's other work (everything after the match return; in `-week-r0001`, 17,153 of
+fixtures and the week's other work (everything after the match return; in `-week-r0003`, 17,153 of
 23,006 draws). A model is checked against it as a whole week, from the same start state:
 
 1. **The generator.** For every `draw` line, stepping `seed_before` with `n` gives `seed_after` and

@@ -1,15 +1,16 @@
 # F06 A week of One-Nil 96 runs as guest code under Unicorn from a savestate, with the same screens as in DOSBox-X, and every draw of its random generator is traced
 
-- **Status**: proposed (revised after the O-M2 review, #22)
-- **Task**: T06 (#11); fixes #23–#31
+- **Status**: proposed (revised after the O-M2 review and re-review, #22)
+- **Task**: T06 (#11); fixes #23–#31, #33, #34
 - **Edition**: 96.
 - **Sources**: `runtime/emul/guest.py`, `runtime/emul/match.py`, `runtime/emul/listing.py` (code
-  `8a5e574`, unicorn 2.1.4); run records `runs/T06/T06-r0001` and `T06-r0002`, and their traces
-  `traces/T06/cf7eb2d04211ba88-week-r0001.jsonl` / `-r0002` (format: `runtime/emul/README.md`). The
+  `8fbf1e8`, unicorn 2.1.4); run records `runs/T06/T06-r0003` and `T06-r0004`, and their traces
+  `traces/T06/cf7eb2d04211ba88-week-r0003.jsonl` / `-r0004` (format: `runtime/emul/README.md`). The
   start state is `T04-load-r0001`'s end savestate, sha256 `cf7eb2d0…` (`.cache/states/T04/`, the
   owner's Drive `states/T04/`); the DOSBox-X run of the same week from the same state is
-  `T04-week-r0001`. The first trace, `traces/T06/cf7eb2d04211ba88-week.jsonl`, is superseded (its
-  callers, #23) and kept as recorded.
+  `T04-week-r0001`. Earlier traces are kept as recorded and superseded: `-week.jsonl` (its callers,
+  #23; another clock) and `-week-r0001`/`-r0002` (T06-r0001/r0002: a new divisor waited for the old
+  deadline, #33).
 
 ## Answer
 
@@ -33,10 +34,15 @@
      to 0x400; that handler counts `DS:D088` down (the waits of `1998:00D6`), steps `DS:0D5A`, and
      takes 1 off the BIOS count 0040:006C at 63 of each 64 ticks; `1998:00CD` restores the vector
      and the rate. The guest models the timer chip (the divisor read from port 40h; IRQ 0 every
-     divisor x 20,000,000 / 1,193,182 instructions) and DOSBox-X's BIOS tick (0040:006C + 1, then
-     INT 1Ch).
-   - **DOS and the mouse driver**, in this week: INT 21h `25h`, `35h`, `3Ch`, `40h`, `3Eh` and
-     INT 33h AX=0003h; none unserved (`end.services`, `end.unsupported` of both traces).
+     divisor x 20,000,000 / 1,193,182 instructions, the first one a new period after the divisor's
+     write, #33) and DOSBox-X's BIOS tick (0040:006C + 1, then INT 1Ch). The guest's clock is off by
+     less than 1,000 instructions at each early end of a slice (a key wait, a divisor write). Whether
+     DOSBox-X restarts the count at the write is not checked.
+   - **DOS and the mouse driver**, in this week (`end.service_counts`, `end.mouse_answers`,
+     `end.dos_calls` of `-week-r0003`): INT 21h 35h once and 25h twice (the timer vector), then 3Ch
+     `SAVE1.1-0`, 28 writes (40h) and 3Eh; INT 33h AX=0003h 272,087 times, each answered (0, 100,
+     100); none unserved. The auto save's 28 writes have the lengths of F03's 28 save blocks, in
+     order (R24–R51), confirmed in a run.
 3. `[confirmed]` **Week 1's screens.** From the same savestate the guest passes 10 key waits; the
    7 screens of `T04-week-r0001` occur among them in the record's order, byte-identical (chars and
    attributes): the pre-match screen, the half-time board, the second pre-match screen, the
@@ -53,15 +59,17 @@
    segments, and no chain ended in "?". The managed club's match runs from `0AB9:E1F2`'s entry
    (before draw 0) to its return (after draw 5,852); the other 17,153 draws are the round's other
    fixtures and the week's other work.
-5. `[confirmed]` **Repeatable.** `T06-r0001` and `T06-r0002` ran from the same state at the same
-   code and wrote traces with the same sha256 (`0a8f5da6…`). `[confirmed]` **Two clock models, the
-   same week.** The first trace ran with another clock (a tick into the game's handler every 17,000
-   instructions and none from the BIOS; 0040:006C + 1 at each read of it); its 23,006 draws (n,
-   seeds, values) and its 10 screens are identical to `-week-r0001`'s (timer-chip model: 2,914
-   IRQ 0 ticks, 2,893 of them into the game's handler). `[derived]` For this week, the draws and the
-   screens did not change between these two schedules. That is two schedules, not all of them, and
-   neither is DOSBox-X's real timing; the watched match, which waits on `D088` far more, is not
-   covered.
+5. `[confirmed]` **Repeatable.** `T06-r0003` and `T06-r0004` ran from the same state at the same
+   code and wrote traces with the same sha256 (`535aa149…`); so did `T06-r0001` and `r0002`
+   (`0a8f5da6…`). `[confirmed]` **Three clock schedules, the same week.** The first trace (a tick
+   into the game's handler every 17,000 instructions, none from the BIOS, 0040:006C + 1 at each
+   read), `-week-r0001` (the timer chip, but a new divisor waiting for the old deadline: 2,893
+   ticks into the game's handler) and `-week-r0003` (the timer chip, the next tick from the write:
+   2,952) have identical draws (n, seeds, values; callers too for the last two), identical screens,
+   and, for the last two, identical end-of-week state digests and files written. `[derived]` For
+   this week, the draws, screens and the state left did not change between these three schedules.
+   That is three schedules, not all of them, and none is DOSBox-X's real timing; the watched match,
+   which waits on `D088` far more, is not covered.
 
 ## Open
 
