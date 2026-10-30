@@ -22,3 +22,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T18](T18.md): Complete the DBC6 opponent lookup inputs (#82).
 - [T19](T19.md): Logical 69B8 effect inputs and ordered observations (#84).
 - [T20](T20.md): Post-score strategy inputs and late-DD02 call census (#86).
+- [T21](T21.md): Complete named quick-reset inputs and ordered observations (#88).
