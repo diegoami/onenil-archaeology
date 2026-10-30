@@ -59,10 +59,12 @@ replay those traces; a wrong reading shows as the first tick or call where the t
 
 T01–T10 are merged. Later O-M3a tasks follow from T07: the engine's routines read one area at a
 time (movement, contests, fouls, the result), each with routine traces in the harness, and onenil's
-first test replaying T08's corpus. F10 found that Watch match on runs a second engine (its own 67 draw
-sites, three RNG entries, 158,992 draws in week 1 against the quick result's 5,853), so O-M3a has two
-engines to read; which comes first, and whether O-M3a gets its milestone review before more tasks, is
-the owner's call (not decided as of 2026-10-30).
+first test replaying T08's corpus. F10 found that Watch match on runs a second engine: T10-r0003's
+managed-match window has 67 post-prefix draw sites, three RNG entries and 158,992 draws under its
+recorded harness clock, against the quick match's 5,853 (whole watched week: 176,134). These counts
+are scoped to those runs; the watched stream's timer dependence remains to be read. O-M3a has two
+engines to read. [designed: owner, 2026-10-30] The interim review of T07–T10 comes before further
+engine research or onenil implementation; the choice of engine to read next remains open.
 
 ## Risks
 

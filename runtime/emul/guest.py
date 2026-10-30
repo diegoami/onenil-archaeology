@@ -47,7 +47,11 @@ to a hook and does not vector through the IVT; DOSBox-X's own BIOS is callbacks 
 - Anything else (another INT 21h, 10h or 33h function, another interrupt) is not served: it is logged
   in `unsupported` and leaves the registers as they were, so a run that met one can say so.
 
-Every service call is logged in `services` (interrupt, AX, the guest's CS:IP as an image address).
+Each service call initially appends to `services` (interrupt, AX, image CS:IP). A watched run's
+`match.compact_services` periodically retains only the first entry per interrupt/function (full AX
+for INT 33h, AH otherwise), discarding repeated call-site addresses and per-call order. The final
+trace reports the function set, not a per-call address log. Counts, ordered DOS calls and the mouse
+answer histogram remain in the separate audits below.
 `budget` counts the instructions the run allowed (slices given to Unicorn, SLICE_MAX at most each);
 a slice that ends early (at a key wait, or at a divisor write) still counts whole, so it is an upper
 bound, not a count of instructions executed, and exceeds it by less than SLICE_MAX per early end. The next IRQ 0 is scheduled against it, so after an early end it comes as

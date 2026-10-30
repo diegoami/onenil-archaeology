@@ -1,6 +1,11 @@
 import os
 import sys
 import unittest
+import io
+import json
+import tempfile
+from contextlib import redirect_stdout
+from pathlib import Path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, "tools", "static"))
@@ -42,6 +47,25 @@ class RatingTests(unittest.TestCase):
         self.assertEqual(ratings.side_values(side), [w + w // 64 for w in v])
         side["flag"] = 0
         self.assertEqual(ratings.side_values(side), v)
+
+    def test_checker_counts_scalars_inside_side_and_contest_vectors(self):
+        p = player(player=1, value=103)
+        b = {"club": 1, "staff_a": 0, "staff_b": 0, "bonus": 16}
+        sides = [{"side": side, "club": 1, "club_37": 1, "flag": 0, "bonus": 16,
+                  "players": [], "values": [0] * 4} for side in (0, 1)]
+        contest = {"after_sides": 2, "values": [0] * 8}
+        out = {"players": [p], "bonuses": [b], "sides": sides, "contests": [contest]}
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d, "T09-r0001.json")
+            for wrong, expected in ((False, 0), (True, 1)):
+                if wrong:
+                    contest["values"][-1] = 1
+                path.write_text(json.dumps({"outputs": [{"name": k, "value": v} for k, v in out.items()]}))
+                stdout = io.StringIO()
+                with redirect_stdout(stdout):
+                    self.assertEqual(ratings.check(d), expected)
+                self.assertIn("5 call records / 18 scalar values checked", stdout.getvalue())
+                self.assertIn(f"{expected} differing records", stdout.getvalue())
 
 
 if __name__ == "__main__":

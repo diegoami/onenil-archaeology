@@ -217,7 +217,7 @@ def run(records, runs_dir):
 
 
 def check(runs_dir):
-    bad = total = 0
+    bad = total_records = total_values = 0
     files = sorted((ROOT / runs_dir).glob("T09-r*.json"))
     for f in files:
         rec = json.loads(f.read_text())
@@ -241,10 +241,16 @@ def check(runs_dir):
             if c["values"] != want:
                 errs.append(f"D983 entry after {c['after_sides']} sides: {c['values']}, the 50EB values {want}")
         n = len(out["players"]) + len(out["bonuses"]) + len(out["sides"]) + len(out["contests"])
-        total += n
+        values = (len(out["players"]) + len(out["bonuses"])
+                  + sum(len(s["values"]) for s in out["sides"])
+                  + sum(len(c["values"]) for c in out["contests"]))
+        total_records += n
+        total_values += values
         bad += len(errs)
-        print(f"{f.name}: {n} values checked, {len(errs)} differ" + "".join("\n  " + e for e in errs[:10]))
-    print(f"ratings check: {'ok' if files and not bad else 'FAIL'} ({total} values, {bad} differ, {len(files)} records)")
+        print(f"{f.name}: {n} call records / {values} scalar values checked, {len(errs)} differing records"
+              + "".join("\n  " + e for e in errs[:10]))
+    print(f"ratings check: {'ok' if files and not bad else 'FAIL'} ({total_records} call records, "
+          f"{total_values} scalar values, {bad} differing records, {len(files)} run records)")
     return 0 if files and not bad else 1
 
 
