@@ -15,3 +15,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T11](T11.md): Quick-contest routine contract and T08 replay fixtures (#67).
 - [T12](T12.md): DD02 quick-step contract and goal-placement traces (#69).
 - [T13](T13.md): Complete goal-placement inputs and helper replay contracts (#71).
+- [T14](T14.md): Logical goal-effect inputs and before/after cases (#73).
