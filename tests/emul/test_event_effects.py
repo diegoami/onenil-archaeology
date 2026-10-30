@@ -66,3 +66,21 @@ def test_changed_original_source_record_fixture_digests_fail(prefix):
     original = ee.contests.sha
     with patch.object(ee.contests, 'sha', side_effect=lambda p: '0' * 64 if Path(p).relative_to(ROOT).as_posix().startswith(prefix) else original(p)):
         assert ee.main(['--check']) == 1
+
+
+@pytest.mark.parametrize('damage', ['missing', 'order', 'cache', 'delta-type', 'availability'])
+def test_missing_reordered_and_malformed_ordered_helpers_fail_public_check(damage):
+    original = ee.contests.outputs
+    def changed(rec):
+        value = original(rec)
+        if rec.get('experiment') == 'T19' and any(c['helpers'] for c in value['calls']):
+            value = copy.deepcopy(value)
+            c = next(c for c in value['calls'] if c['helpers'])
+            h = next(h for h in c['helpers'] if h['kind'] == 'byte6')
+            if damage == 'missing': c['helpers'].pop()
+            elif damage == 'order': c['helpers'].reverse()
+            elif damage == 'cache': h['input']['cache_before'] ^= 1
+            elif damage == 'delta-type': h['input']['delta'] = -2.0
+            else: c['helpers'].remove(next(h for h in c['helpers'] if h['kind'] == 'availability'))
+        return value
+    with patch.object(ee.contests, 'outputs', side_effect=changed): assert ee.main(['--check']) == 1

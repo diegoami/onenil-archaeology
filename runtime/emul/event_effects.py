@@ -278,6 +278,18 @@ def _cases_for(calls, meta, original, lookup_rows):
         for e in c['external_calls']:
             decision.keys(e, 'routine')
             if e['routine'] not in ('0AB9:A837', '0AB9:A94B'): raise ValueError('unexpected external call')
+        # Literal observation joins only: every captured helper's input must
+        # continue the previous observed output, including repeated shared IDs.
+        values = {p['id']: p['p15_6'] for p in c['input']['players']}
+        cache = copy.deepcopy(c['input']['cache'])
+        for h in c['helpers']:
+            if h['kind'] != 'byte6': continue
+            side, slot = h['cache_side'], h['cache_slot'] - 1
+            if h['input']['old_byte6'] != values[h['player']] or h['input']['cache_before'] != cache[side][slot]:
+                raise ValueError('helper input does not continue actual prior observation')
+            values[h['player']] = h['output']['byte6']; cache[side][slot] = h['output']['cache']
+        if not c['external_calls'] and (values != {p['id']: p['p15_6'] for p in c['output']['players']} or cache != c['output']['cache']):
+            raise ValueError('missing byte6/cache helper observations')
         step_tail.numeric(c)
         draws = [d for d in previous['draws'] if d['i'] >= c['draw_start']]
         if len(draws) != c['draw_end'] - c['draw_start']: raise ValueError('effect draw span differs')
@@ -383,7 +395,7 @@ def main(argv=None):
     if args.run: run(); return 0
     try:
         index = build_index()
-        if tuple(index[k] for k in ('weeks', 'calls', 'draws', 'selectors')) != (2, 22, 17, 44): raise ValueError('incomplete original effect coverage')
+        if tuple(index[k] for k in ('weeks', 'calls', 'draws', 'selectors', 'actions', 'helpers', 'events')) != (2, 22, 17, 44, 6, 23, 6): raise ValueError('incomplete original effect coverage')
         if not placement.same_json(index, json.loads((FIXTURES / 'index.json').read_text())): raise ValueError('effect index differs')
     except (ValueError, OSError, KeyError, TypeError, StopIteration) as exc:
         print(f'event-effects check: FAIL: {exc}'); return 1
