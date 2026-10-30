@@ -72,9 +72,59 @@ def test_malformed_raw_observations_rejected(damage):
         ee.validate_call(c)
 
 
-def test_public_checker_fails_before_corpus_exists():
-    # The real corpus test is enabled once capture completes; no private bytes required.
-    if not (ROOT / 'traces/T17/index.json').exists():
+def test_complete_public_corpus():
+    assert ee.main(['--check']) == 0
+
+
+@pytest.mark.parametrize('prefix', ['runs/T17/', 'traces/T17/', 'runs/T16/', 'traces/T16/', 'traces/T08/'])
+def test_public_corpus_rejects_changed_record_fixture_and_source_digests(prefix):
+    original = ee.contests.sha
+
+    def damaged(path):
+        return '0' * 64 if Path(path).relative_to(ROOT).as_posix().startswith(prefix) else original(path)
+
+    with patch.object(ee.contests, 'sha', side_effect=damaged):
         assert ee.main(['--check']) == 1
-    else:
-        assert ee.main(['--check']) == 0
+
+
+@pytest.fixture(scope='module')
+def active_record():
+    rec = next(r for _, r in ee.selected_runs().values() if ee.contests.outputs(r)['calls'])
+    source = rec['actions']['source']
+    return rec, source, ee.contests.events(ROOT / source['trace'])
+
+
+@pytest.mark.parametrize('damage', [
+    'missing-call', 'reordered-calls', 'wrong-step', 'missing-helper', 'helper-pointer',
+    'helper-position', 'helper-span', 'input-seed', 'output-seed', 'prefix-scene', 'wrong-draw-span',
+    'trace-state', 'trace-status', 'trace-draw-value', 'missing-dispatch', 'dispatch-seed',
+])
+def test_actual_call_links_reject_missing_boundaries_and_corrupt_sources(active_record, damage):
+    record, source, trace = active_record
+    calls = copy.deepcopy(ee.contests.outputs(record)['calls'])
+    source, trace = copy.deepcopy(source), copy.deepcopy(trace)
+    c = calls[0]
+    if damage == 'missing-call': calls.pop()
+    elif damage == 'reordered-calls': calls.reverse()
+    elif damage == 'wrong-step': c['step'] += 1
+    elif damage == 'missing-helper': c['helpers'].pop()
+    elif damage == 'helper-pointer': c['helpers'][0]['input']['offset'] += 1
+    elif damage == 'helper-position': c['helpers'][0]['draw_start'] -= 1; c['helpers'][0]['draw_end'] -= 1
+    elif damage == 'helper-span': c['helpers'][0]['draw_end'] += 1
+    elif damage == 'input-seed': c['input']['seed'] ^= 1
+    elif damage == 'output-seed': c['output']['seed'] ^= 1
+    elif damage == 'prefix-scene': c['input']['scenes'][0]['word0'] ^= 1
+    elif damage == 'wrong-draw-span': c['draw_end'] += 1
+    elif damage == 'trace-state': trace[0]['state_sha256'] = '0' * 64
+    elif damage == 'trace-status': trace[-1]['status'] = 'aborted: test'
+    elif damage == 'trace-draw-value':
+        # A changed retained draw must be rejected by its source SHA, before export.
+        with patch.object(ee.contests, 'sha', return_value='0' * 64):
+            assert ee.main(['--check']) == 1
+        return
+    elif damage == 'missing-dispatch':
+        next(c for c in calls if c['dispatch'])['dispatch'] = None
+    elif damage == 'dispatch-seed':
+        next(c for c in calls if c['dispatch'])['dispatch']['input']['seed'] ^= 1
+    with pytest.raises(ValueError):
+        ee.cases_for(calls, source, trace)
