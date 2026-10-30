@@ -56,7 +56,9 @@ python3 runtime/emul/match.py --state <sha> --experiment T10 --out traces/T10 --
 `--publish-checkpoints` copies each private checkpoint to `onenildrive:checkpoints/<experiment>/`
 with rclone, commits only that new decoded chunk and receipt, then pushes the task branch. This
 foreground command requires the configured remote and Git credentials; publication failure stops
-the attempt with an aborted receipt. Without that option, the session must commit/push the partial
+the attempt with an aborted receipt. A failed add/commit unstages only its own pair, keeping the
+files and unrelated staged work. Publication refuses already-staged changes to that pair. A failed
+push retains the successful local commit for a later push. Without that option, the session must commit/push the partial
 chunks and receipts and copy private checkpoints to Drive itself, at least every 30 minutes (rules
 8/13). The live journal is never committed; a committed chunk is never appended to or replaced.
 
@@ -68,13 +70,22 @@ rclone copy onenildrive:checkpoints/T10 .cache/checkpoints/T10
 python3 runtime/emul/match.py --resume runs/T10/partial/<run>-p<nnnn>.json --publish-checkpoints
 ```
 
-Resume verifies code, Unicorn/Python, clock/input settings and checkpoint/chunk digests, restores the
-machine and the prefix, and writes a **new** run/trace without changing prior evidence. It retains the
+Resume verifies code, Unicorn/Python, clock/input settings and checkpoint/chunk digests. Each new
+manifest entry records its index, byte offset and length; the total prefix size and the ordered
+manifest's digest are also bound to the private image. Missing, reordered, overlapping or shortened
+prefixes are rejected before a new journal or guest is created. Old receipts are kept unchanged;
+receipts without this metadata belong to their recorded runtime revision and cannot be resumed with
+the new code. Resume restores the machine and prefix and writes a **new** run/trace without changing
+prior evidence. It retains the original experiment (a different `--experiment` is rejected) and the
 original trace's `start` event and continues draw/screen numbering. Documentation/publication-only
 commits may change HEAD; runtime source changes require a new run from the original state. Load only
 trusted checkpoints made here and kept in the owner's private Drive (the private format is pickle).
 `--stop-after-checkpoints N` and a shorter `--checkpoint-seconds` support controlled recovery checks;
 they stop with an aborted receipt, and never mean a completed week.
+
+Stored comparison paths resolve against the repository root, including when resuming from another
+working directory. A missing/malformed reference or comparison exception closes the journal and
+writes an aborted final receipt alongside the completed trace; it never counts as corpus coverage.
 
 Recovery checks at `cc05550` (review #47), retained under `runs/T10/`, `runs/T10/partial/`
 and `traces/T10/`:
