@@ -226,7 +226,7 @@ def cases_for(calls, meta, original, lookup_rows):
 
 
 def _cases_for(calls, meta, original, lookup_rows):
-    old = [c for c in contests.outputs(original)['calls'] if c['dispatch'] is not None]
+    old = [c for c in contests.events(ROOT / 'traces/T17' / meta['cases']) if c['dispatch'] is not None]
     if [c['step'] for c in calls] != [c['step'] for c in old]: raise ValueError('incomplete/reordered dispatches')
     lookups = {r['step']: r for r in lookup_rows}
     rows = []
