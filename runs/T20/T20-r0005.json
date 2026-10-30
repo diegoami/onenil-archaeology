@@ -1,0 +1,6266 @@
+{
+  "schema": "run/1",
+  "run_id": "T20-r0005",
+  "experiment": "T20",
+  "arm": "post-score-strategy",
+  "rep": 5,
+  "code_commit": "c3bea1c63455c0a7dcf71702afd6e819d8f70351",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/post_score.py@c3bea1c63455c0a7dcf71702afd6e819d8f70351",
+    "unicorn": "2.1.4",
+    "python": "3.12.15",
+    "dos_clock": {
+      "date": [
+        1995,
+        8,
+        1,
+        2
+      ],
+      "time": [
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "KEY_HOLD": 1600000,
+      "PIT_HZ": 1193182,
+      "SLICE_MAX": 1000
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "guest.py services and read-only strategy/late-call hooks"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-week-r0015.sav",
+    "sha256": "8b3d02d6bf48db13706196dedce3f7525a757fe1590efb15c8ccff5c87ce2994",
+    "restore": "DOSBox-X savestate restored by guest.py"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/post_score.py",
+    "source": {
+      "t16_record": "runs/T16/T16-r0005.json",
+      "t16_record_sha256": "b2197a85e2a55ed8394be064c9290e2cf10c3281f78a8488953d1df1fca267fc"
+    },
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture path",
+      "value": "traces/T20/T20-r0005.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture sha256",
+      "value": "acd03635443b6f29482ea18a5685ed4e00e6f925360556c498b0ddbfe01072a6"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "ordered DOSBox-X comparison",
+      "value": "screen 1 (0f8a0c0cabc09089) = key wait 1\nscreen 7 (match, unchanged for 5 reads) (6079c3c03b9aed06) = key wait 2\nscreen 8 (30d4701234c97dc2) = key wait 3\nscreen 14 (match, unchanged for 5 reads) (9d396cd74d48a96d) = key wait 4\nscreen 15 (23ba0897eefe6bfd) = key wait 5\nscreen 16 (6397e7fb5a3084d6) = key wait 6\nscreen 17 (3df9de631a4386a3) = key wait 7\nscreen 18 (c20ea063496097d5) = key wait 8\nscreen 19 (cf3153f364d3c21b) = key wait 9\nscreen 20 (1986b175bf318f82) = key wait 10\nscreen 21 (278f3aa4076fef75) = key wait 11\nscreen 22 (59a6ca51b29814ad) = key wait 12\nscreen 23 (d87c7cb86c861dc5) = key wait 13\nscreen 24 (3b84538c59678059) = key wait 14\nscreen 25 (182a31840e4aad0b) = key wait 15\nmain menu after the week (66039abc267549c0) = key wait 16\nall of the record's 16 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "calls",
+      "value": [
+        {
+          "step": 67,
+          "argument": 1,
+          "input": {
+            "seed": 52135,
+            "scores": [
+              1,
+              0
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 104,
+                "roster": [
+                  2078,
+                  2062,
+                  2063,
+                  2064,
+                  2065,
+                  2074,
+                  2067,
+                  2068,
+                  2069,
+                  2070,
+                  2076,
+                  2061,
+                  2073,
+                  2075,
+                  2066,
+                  2071,
+                  2077,
+                  2072,
+                  0,
+                  0
+                ],
+                "byte51": 44,
+                "byte54": 3,
+                "strategy": 92,
+                "baseline_index": 16,
+                "baseline_value": 92
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 2061,
+                "age": 25,
+                "flags3": 208,
+                "level": 4,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2062,
+                "age": 26,
+                "flags3": 208,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2063,
+                "age": 27,
+                "flags3": 208,
+                "level": 4,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2064,
+                "age": 32,
+                "flags3": 208,
+                "level": 11,
+                "position": 3,
+                "flags10": 145
+              },
+              {
+                "id": 2065,
+                "age": 23,
+                "flags3": 208,
+                "level": 3,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2066,
+                "age": 31,
+                "flags3": 208,
+                "level": 11,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2067,
+                "age": 28,
+                "flags3": 208,
+                "level": 2,
+                "position": 7,
+                "flags10": 128
+              },
+              {
+                "id": 2068,
+                "age": 27,
+                "flags3": 208,
+                "level": 10,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 2069,
+                "age": 25,
+                "flags3": 208,
+                "level": 2,
+                "position": 10,
+                "flags10": 128
+              },
+              {
+                "id": 2070,
+                "age": 23,
+                "flags3": 208,
+                "level": 9,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2071,
+                "age": 23,
+                "flags3": 208,
+                "level": 1,
+                "position": 12,
+                "flags10": 128
+              },
+              {
+                "id": 2072,
+                "age": 22,
+                "flags3": 208,
+                "level": 9,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 2073,
+                "age": 26,
+                "flags3": 208,
+                "level": 16,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2074,
+                "age": 22,
+                "flags3": 208,
+                "level": 8,
+                "position": 5,
+                "flags10": 128
+              },
+              {
+                "id": 2075,
+                "age": 24,
+                "flags3": 208,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2076,
+                "age": 27,
+                "flags3": 208,
+                "level": 7,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2077,
+                "age": 20,
+                "flags3": 208,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2078,
+                "age": 31,
+                "flags3": 208,
+                "level": 7,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_start": 4392,
+          "paths": [
+            {
+              "routine": "0AB9:A23C",
+              "side": 0
+            }
+          ],
+          "setters": [
+            {
+              "club": 104,
+              "value": 92,
+              "input": {
+                "seed": 52135,
+                "scores": [
+                  1,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 104,
+                    "roster": [
+                      2078,
+                      2062,
+                      2063,
+                      2064,
+                      2065,
+                      2074,
+                      2067,
+                      2068,
+                      2069,
+                      2070,
+                      2076,
+                      2061,
+                      2073,
+                      2075,
+                      2066,
+                      2071,
+                      2077,
+                      2072,
+                      0,
+                      0
+                    ],
+                    "byte51": 44,
+                    "byte54": 3,
+                    "strategy": 92,
+                    "baseline_index": 16,
+                    "baseline_value": 92
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2061,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2062,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2063,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2064,
+                    "age": 32,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 3,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2065,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 3,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2066,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2067,
+                    "age": 28,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 7,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2068,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 10,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2069,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 10,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2070,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2071,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 1,
+                    "position": 12,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2072,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2073,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2074,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 8,
+                    "position": 5,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2075,
+                    "age": 24,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2076,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2077,
+                    "age": 20,
+                    "flags3": 208,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2078,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_start": 0,
+              "output": {
+                "seed": 52135,
+                "scores": [
+                  1,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 104,
+                    "roster": [
+                      2078,
+                      2062,
+                      2063,
+                      2064,
+                      2065,
+                      2074,
+                      2067,
+                      2068,
+                      2069,
+                      2070,
+                      2076,
+                      2061,
+                      2073,
+                      2075,
+                      2066,
+                      2071,
+                      2077,
+                      2072,
+                      0,
+                      0
+                    ],
+                    "byte51": 44,
+                    "byte54": 3,
+                    "strategy": 92,
+                    "baseline_index": 16,
+                    "baseline_value": 92
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2061,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2062,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2063,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2064,
+                    "age": 32,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 3,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2065,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 3,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2066,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2067,
+                    "age": 28,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 7,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2068,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 10,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2069,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 10,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2070,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2071,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 1,
+                    "position": 12,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2072,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2073,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2074,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 8,
+                    "position": 5,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2075,
+                    "age": 24,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2076,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2077,
+                    "age": 20,
+                    "flags3": 208,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2078,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_end": 18
+            }
+          ],
+          "normalizers": [
+            {
+              "player": 2078,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 2062,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 2063,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 2064,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 2065,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 2074,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2067,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2068,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2069,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2070,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2076,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2061,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 2073,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2075,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 2066,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2071,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2077,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 2072,
+              "before": 17,
+              "after": 17
+            }
+          ],
+          "getters": [
+            {
+              "club": 130,
+              "value": 154
+            },
+            {
+              "club": 104,
+              "value": 146
+            }
+          ],
+          "output": {
+            "seed": 52135,
+            "scores": [
+              1,
+              0
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 104,
+                "roster": [
+                  2078,
+                  2062,
+                  2063,
+                  2064,
+                  2065,
+                  2074,
+                  2067,
+                  2068,
+                  2069,
+                  2070,
+                  2076,
+                  2061,
+                  2073,
+                  2075,
+                  2066,
+                  2071,
+                  2077,
+                  2072,
+                  0,
+                  0
+                ],
+                "byte51": 44,
+                "byte54": 3,
+                "strategy": 92,
+                "baseline_index": 16,
+                "baseline_value": 92
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 2061,
+                "age": 25,
+                "flags3": 208,
+                "level": 4,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2062,
+                "age": 26,
+                "flags3": 208,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2063,
+                "age": 27,
+                "flags3": 208,
+                "level": 4,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2064,
+                "age": 32,
+                "flags3": 208,
+                "level": 11,
+                "position": 3,
+                "flags10": 145
+              },
+              {
+                "id": 2065,
+                "age": 23,
+                "flags3": 208,
+                "level": 3,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2066,
+                "age": 31,
+                "flags3": 208,
+                "level": 11,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2067,
+                "age": 28,
+                "flags3": 208,
+                "level": 2,
+                "position": 7,
+                "flags10": 128
+              },
+              {
+                "id": 2068,
+                "age": 27,
+                "flags3": 208,
+                "level": 10,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 2069,
+                "age": 25,
+                "flags3": 208,
+                "level": 2,
+                "position": 10,
+                "flags10": 128
+              },
+              {
+                "id": 2070,
+                "age": 23,
+                "flags3": 208,
+                "level": 9,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2071,
+                "age": 23,
+                "flags3": 208,
+                "level": 1,
+                "position": 12,
+                "flags10": 128
+              },
+              {
+                "id": 2072,
+                "age": 22,
+                "flags3": 208,
+                "level": 9,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 2073,
+                "age": 26,
+                "flags3": 208,
+                "level": 16,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2074,
+                "age": 22,
+                "flags3": 208,
+                "level": 8,
+                "position": 5,
+                "flags10": 128
+              },
+              {
+                "id": 2075,
+                "age": 24,
+                "flags3": 208,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2076,
+                "age": 27,
+                "flags3": 208,
+                "level": 7,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2077,
+                "age": 20,
+                "flags3": 208,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2078,
+                "age": 31,
+                "flags3": 208,
+                "level": 7,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_end": 4392
+        },
+        {
+          "step": 68,
+          "argument": 1,
+          "input": {
+            "seed": 11065,
+            "scores": [
+              1,
+              1
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 104,
+                "roster": [
+                  2078,
+                  2062,
+                  2063,
+                  2064,
+                  2065,
+                  2074,
+                  2067,
+                  2068,
+                  2069,
+                  2070,
+                  2076,
+                  2061,
+                  2073,
+                  2075,
+                  2066,
+                  2071,
+                  2077,
+                  2072,
+                  0,
+                  0
+                ],
+                "byte51": 44,
+                "byte54": 3,
+                "strategy": 92,
+                "baseline_index": 16,
+                "baseline_value": 92
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 2061,
+                "age": 25,
+                "flags3": 208,
+                "level": 4,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2062,
+                "age": 26,
+                "flags3": 208,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2063,
+                "age": 27,
+                "flags3": 208,
+                "level": 4,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2064,
+                "age": 32,
+                "flags3": 208,
+                "level": 11,
+                "position": 3,
+                "flags10": 145
+              },
+              {
+                "id": 2065,
+                "age": 23,
+                "flags3": 208,
+                "level": 3,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2066,
+                "age": 31,
+                "flags3": 208,
+                "level": 11,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2067,
+                "age": 28,
+                "flags3": 208,
+                "level": 2,
+                "position": 7,
+                "flags10": 128
+              },
+              {
+                "id": 2068,
+                "age": 27,
+                "flags3": 208,
+                "level": 10,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 2069,
+                "age": 25,
+                "flags3": 208,
+                "level": 2,
+                "position": 10,
+                "flags10": 128
+              },
+              {
+                "id": 2070,
+                "age": 23,
+                "flags3": 208,
+                "level": 9,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2071,
+                "age": 23,
+                "flags3": 208,
+                "level": 1,
+                "position": 12,
+                "flags10": 128
+              },
+              {
+                "id": 2072,
+                "age": 22,
+                "flags3": 208,
+                "level": 9,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 2073,
+                "age": 26,
+                "flags3": 208,
+                "level": 16,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2074,
+                "age": 22,
+                "flags3": 208,
+                "level": 8,
+                "position": 5,
+                "flags10": 128
+              },
+              {
+                "id": 2075,
+                "age": 24,
+                "flags3": 208,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2076,
+                "age": 27,
+                "flags3": 208,
+                "level": 7,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2077,
+                "age": 20,
+                "flags3": 208,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2078,
+                "age": 31,
+                "flags3": 208,
+                "level": 7,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_start": 4450,
+          "paths": [
+            {
+              "routine": "0AB9:A23C",
+              "side": 0
+            }
+          ],
+          "setters": [
+            {
+              "club": 104,
+              "value": 92,
+              "input": {
+                "seed": 11065,
+                "scores": [
+                  1,
+                  1
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 104,
+                    "roster": [
+                      2078,
+                      2062,
+                      2063,
+                      2064,
+                      2065,
+                      2074,
+                      2067,
+                      2068,
+                      2069,
+                      2070,
+                      2076,
+                      2061,
+                      2073,
+                      2075,
+                      2066,
+                      2071,
+                      2077,
+                      2072,
+                      0,
+                      0
+                    ],
+                    "byte51": 44,
+                    "byte54": 3,
+                    "strategy": 92,
+                    "baseline_index": 16,
+                    "baseline_value": 92
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2061,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2062,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2063,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2064,
+                    "age": 32,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 3,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2065,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 3,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2066,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2067,
+                    "age": 28,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 7,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2068,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 10,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2069,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 10,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2070,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2071,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 1,
+                    "position": 12,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2072,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2073,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2074,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 8,
+                    "position": 5,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2075,
+                    "age": 24,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2076,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2077,
+                    "age": 20,
+                    "flags3": 208,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2078,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_start": 0,
+              "output": {
+                "seed": 11065,
+                "scores": [
+                  1,
+                  1
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 104,
+                    "roster": [
+                      2078,
+                      2062,
+                      2063,
+                      2064,
+                      2065,
+                      2074,
+                      2067,
+                      2068,
+                      2069,
+                      2070,
+                      2076,
+                      2061,
+                      2073,
+                      2075,
+                      2066,
+                      2071,
+                      2077,
+                      2072,
+                      0,
+                      0
+                    ],
+                    "byte51": 44,
+                    "byte54": 3,
+                    "strategy": 92,
+                    "baseline_index": 16,
+                    "baseline_value": 92
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2061,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2062,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2063,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 4,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2064,
+                    "age": 32,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 3,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2065,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 3,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2066,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 11,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2067,
+                    "age": 28,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 7,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2068,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 10,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2069,
+                    "age": 25,
+                    "flags3": 208,
+                    "level": 2,
+                    "position": 10,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2070,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2071,
+                    "age": 23,
+                    "flags3": 208,
+                    "level": 1,
+                    "position": 12,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2072,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 9,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2073,
+                    "age": 26,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2074,
+                    "age": 22,
+                    "flags3": 208,
+                    "level": 8,
+                    "position": 5,
+                    "flags10": 128
+                  },
+                  {
+                    "id": 2075,
+                    "age": 24,
+                    "flags3": 208,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2076,
+                    "age": 27,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2077,
+                    "age": 20,
+                    "flags3": 208,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2078,
+                    "age": 31,
+                    "flags3": 208,
+                    "level": 7,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_end": 18
+            }
+          ],
+          "normalizers": [
+            {
+              "player": 2078,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 2062,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 2063,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 2064,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 2065,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 2074,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2067,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2068,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2069,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2070,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2076,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2061,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 2073,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2075,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 2066,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 2071,
+              "before": 128,
+              "after": 128
+            },
+            {
+              "player": 2077,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 2072,
+              "before": 17,
+              "after": 17
+            }
+          ],
+          "getters": [
+            {
+              "club": 130,
+              "value": 154
+            },
+            {
+              "club": 104,
+              "value": 146
+            }
+          ],
+          "output": {
+            "seed": 11065,
+            "scores": [
+              1,
+              1
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 104,
+                "roster": [
+                  2078,
+                  2062,
+                  2063,
+                  2064,
+                  2065,
+                  2074,
+                  2067,
+                  2068,
+                  2069,
+                  2070,
+                  2076,
+                  2061,
+                  2073,
+                  2075,
+                  2066,
+                  2071,
+                  2077,
+                  2072,
+                  0,
+                  0
+                ],
+                "byte51": 44,
+                "byte54": 3,
+                "strategy": 92,
+                "baseline_index": 16,
+                "baseline_value": 92
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 2061,
+                "age": 25,
+                "flags3": 208,
+                "level": 4,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2062,
+                "age": 26,
+                "flags3": 208,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2063,
+                "age": 27,
+                "flags3": 208,
+                "level": 4,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2064,
+                "age": 32,
+                "flags3": 208,
+                "level": 11,
+                "position": 3,
+                "flags10": 145
+              },
+              {
+                "id": 2065,
+                "age": 23,
+                "flags3": 208,
+                "level": 3,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2066,
+                "age": 31,
+                "flags3": 208,
+                "level": 11,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2067,
+                "age": 28,
+                "flags3": 208,
+                "level": 2,
+                "position": 7,
+                "flags10": 128
+              },
+              {
+                "id": 2068,
+                "age": 27,
+                "flags3": 208,
+                "level": 10,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 2069,
+                "age": 25,
+                "flags3": 208,
+                "level": 2,
+                "position": 10,
+                "flags10": 128
+              },
+              {
+                "id": 2070,
+                "age": 23,
+                "flags3": 208,
+                "level": 9,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2071,
+                "age": 23,
+                "flags3": 208,
+                "level": 1,
+                "position": 12,
+                "flags10": 128
+              },
+              {
+                "id": 2072,
+                "age": 22,
+                "flags3": 208,
+                "level": 9,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 2073,
+                "age": 26,
+                "flags3": 208,
+                "level": 16,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2074,
+                "age": 22,
+                "flags3": 208,
+                "level": 8,
+                "position": 5,
+                "flags10": 128
+              },
+              {
+                "id": 2075,
+                "age": 24,
+                "flags3": 208,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2076,
+                "age": 27,
+                "flags3": 208,
+                "level": 7,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2077,
+                "age": 20,
+                "flags3": 208,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2078,
+                "age": 31,
+                "flags3": 208,
+                "level": 7,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_end": 4450
+        }
+      ]
+    },
+    {
+      "name": "ledger",
+      "value": [
+        {
+          "step": 0,
+          "draw_start": 327,
+          "seed_start": 34328,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 327,
+              "seed_before": 34328,
+              "draw_end": 329,
+              "seed_after": 26106
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 329,
+              "seed_before": 26106,
+              "draw_end": 329,
+              "seed_after": 26106
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 329,
+              "seed_before": 26106,
+              "draw_end": 329,
+              "seed_after": 26106
+            }
+          ],
+          "draw_end": 329,
+          "seed_end": 26106
+        },
+        {
+          "step": 1,
+          "draw_start": 397,
+          "seed_start": 49582,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 397,
+              "seed_before": 49582,
+              "draw_end": 399,
+              "seed_after": 54080
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 399,
+              "seed_before": 54080,
+              "draw_end": 399,
+              "seed_after": 54080
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 399,
+              "seed_before": 54080,
+              "draw_end": 399,
+              "seed_after": 54080
+            }
+          ],
+          "draw_end": 399,
+          "seed_end": 54080
+        },
+        {
+          "step": 2,
+          "draw_start": 461,
+          "seed_start": 60142,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 461,
+              "seed_before": 60142,
+              "draw_end": 463,
+              "seed_after": 42624
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 463,
+              "seed_before": 42624,
+              "draw_end": 463,
+              "seed_after": 42624
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 463,
+              "seed_before": 42624,
+              "draw_end": 463,
+              "seed_after": 42624
+            }
+          ],
+          "draw_end": 463,
+          "seed_end": 42624
+        },
+        {
+          "step": 3,
+          "draw_start": 529,
+          "seed_start": 58082,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 529,
+              "seed_before": 58082,
+              "draw_end": 531,
+              "seed_after": 9236
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 531,
+              "seed_before": 9236,
+              "draw_end": 531,
+              "seed_after": 9236
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 531,
+              "seed_before": 9236,
+              "draw_end": 531,
+              "seed_after": 9236
+            }
+          ],
+          "draw_end": 531,
+          "seed_end": 9236
+        },
+        {
+          "step": 4,
+          "draw_start": 579,
+          "seed_start": 24452,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 579,
+              "seed_before": 24452,
+              "draw_end": 583,
+              "seed_after": 13080
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 583,
+              "seed_before": 13080,
+              "draw_end": 583,
+              "seed_after": 13080
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 583,
+              "seed_before": 13080,
+              "draw_end": 583,
+              "seed_after": 13080
+            }
+          ],
+          "draw_end": 583,
+          "seed_end": 13080
+        },
+        {
+          "step": 5,
+          "draw_start": 645,
+          "seed_start": 62982,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 645,
+              "seed_before": 62982,
+              "draw_end": 649,
+              "seed_after": 32826
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 649,
+              "seed_before": 32826,
+              "draw_end": 649,
+              "seed_after": 32826
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 649,
+              "seed_before": 32826,
+              "draw_end": 649,
+              "seed_after": 32826
+            }
+          ],
+          "draw_end": 649,
+          "seed_end": 32826
+        },
+        {
+          "step": 6,
+          "draw_start": 707,
+          "seed_start": 11780,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 707,
+              "seed_before": 11780,
+              "draw_end": 709,
+              "seed_after": 38726
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 709,
+              "seed_before": 38726,
+              "draw_end": 709,
+              "seed_after": 38726
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 709,
+              "seed_before": 38726,
+              "draw_end": 709,
+              "seed_after": 38726
+            }
+          ],
+          "draw_end": 709,
+          "seed_end": 38726
+        },
+        {
+          "step": 7,
+          "draw_start": 764,
+          "seed_start": 43387,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 764,
+              "seed_before": 43387,
+              "draw_end": 766,
+              "seed_after": 757
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 766,
+              "seed_before": 757,
+              "draw_end": 766,
+              "seed_after": 757
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 766,
+              "seed_before": 757,
+              "draw_end": 766,
+              "seed_after": 757
+            }
+          ],
+          "draw_end": 766,
+          "seed_end": 757
+        },
+        {
+          "step": 8,
+          "draw_start": 844,
+          "seed_start": 31307,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 844,
+              "seed_before": 31307,
+              "draw_end": 846,
+              "seed_after": 62021
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 846,
+              "seed_before": 62021,
+              "draw_end": 846,
+              "seed_after": 62021
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 846,
+              "seed_before": 62021,
+              "draw_end": 846,
+              "seed_after": 62021
+            }
+          ],
+          "draw_end": 846,
+          "seed_end": 62021
+        },
+        {
+          "step": 9,
+          "draw_start": 898,
+          "seed_start": 16729,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 898,
+              "seed_before": 16729,
+              "draw_end": 902,
+              "seed_after": 19069
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 902,
+              "seed_before": 19069,
+              "draw_end": 902,
+              "seed_after": 19069
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 902,
+              "seed_before": 19069,
+              "draw_end": 902,
+              "seed_after": 19069
+            }
+          ],
+          "draw_end": 902,
+          "seed_end": 19069
+        },
+        {
+          "step": 10,
+          "draw_start": 953,
+          "seed_start": 33578,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 953,
+              "seed_before": 33578,
+              "draw_end": 955,
+              "seed_after": 8860
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 955,
+              "seed_before": 8860,
+              "draw_end": 955,
+              "seed_after": 8860
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 955,
+              "seed_before": 8860,
+              "draw_end": 955,
+              "seed_after": 8860
+            }
+          ],
+          "draw_end": 955,
+          "seed_end": 8860
+        },
+        {
+          "step": 11,
+          "draw_start": 1023,
+          "seed_start": 39152,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1023,
+              "seed_before": 39152,
+              "draw_end": 1025,
+              "seed_after": 9106
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1025,
+              "seed_before": 9106,
+              "draw_end": 1025,
+              "seed_after": 9106
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1025,
+              "seed_before": 9106,
+              "draw_end": 1025,
+              "seed_after": 9106
+            }
+          ],
+          "draw_end": 1025,
+          "seed_end": 9106
+        },
+        {
+          "step": 12,
+          "draw_start": 1097,
+          "seed_start": 9466,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1097,
+              "seed_before": 9466,
+              "draw_end": 1101,
+              "seed_after": 18286
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1101,
+              "seed_before": 18286,
+              "draw_end": 1101,
+              "seed_after": 18286
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1101,
+              "seed_before": 18286,
+              "draw_end": 1101,
+              "seed_after": 18286
+            }
+          ],
+          "draw_end": 1101,
+          "seed_end": 18286
+        },
+        {
+          "step": 13,
+          "draw_start": 1156,
+          "seed_start": 62403,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1156,
+              "seed_before": 62403,
+              "draw_end": 1158,
+              "seed_after": 64381
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1158,
+              "seed_before": 64381,
+              "draw_end": 1158,
+              "seed_after": 64381
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1158,
+              "seed_before": 64381,
+              "draw_end": 1158,
+              "seed_after": 64381
+            }
+          ],
+          "draw_end": 1158,
+          "seed_end": 64381
+        },
+        {
+          "step": 14,
+          "draw_start": 1214,
+          "seed_start": 49333,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1214,
+              "seed_before": 49333,
+              "draw_end": 1219,
+              "seed_after": 26628
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1219,
+              "seed_before": 26628,
+              "draw_end": 1219,
+              "seed_after": 26628
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1219,
+              "seed_before": 26628,
+              "draw_end": 1219,
+              "seed_after": 26628
+            }
+          ],
+          "draw_end": 1219,
+          "seed_end": 26628
+        },
+        {
+          "step": 15,
+          "draw_start": 1271,
+          "seed_start": 58888,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1271,
+              "seed_before": 58888,
+              "draw_end": 1275,
+              "seed_after": 40668
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1275,
+              "seed_before": 40668,
+              "draw_end": 1275,
+              "seed_after": 40668
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1275,
+              "seed_before": 40668,
+              "draw_end": 1275,
+              "seed_after": 40668
+            }
+          ],
+          "draw_end": 1275,
+          "seed_end": 40668
+        },
+        {
+          "step": 16,
+          "draw_start": 1347,
+          "seed_start": 13956,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1347,
+              "seed_before": 13956,
+              "draw_end": 1350,
+              "seed_after": 24637
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1350,
+              "seed_before": 24637,
+              "draw_end": 1350,
+              "seed_after": 24637
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1350,
+              "seed_before": 24637,
+              "draw_end": 1350,
+              "seed_after": 24637
+            }
+          ],
+          "draw_end": 1350,
+          "seed_end": 24637
+        },
+        {
+          "step": 17,
+          "draw_start": 1413,
+          "seed_start": 1286,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1413,
+              "seed_before": 1286,
+              "draw_end": 1418,
+              "seed_after": 27873
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1418,
+              "seed_before": 27873,
+              "draw_end": 1418,
+              "seed_after": 27873
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1418,
+              "seed_before": 27873,
+              "draw_end": 1418,
+              "seed_after": 27873
+            }
+          ],
+          "draw_end": 1418,
+          "seed_end": 27873
+        },
+        {
+          "step": 18,
+          "draw_start": 1465,
+          "seed_start": 11562,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1465,
+              "seed_before": 11562,
+              "draw_end": 1470,
+              "seed_after": 53685
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1470,
+              "seed_before": 53685,
+              "draw_end": 1470,
+              "seed_after": 53685
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1470,
+              "seed_before": 53685,
+              "draw_end": 1470,
+              "seed_after": 53685
+            }
+          ],
+          "draw_end": 1470,
+          "seed_end": 53685
+        },
+        {
+          "step": 19,
+          "draw_start": 1513,
+          "seed_start": 65306,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1513,
+              "seed_before": 65306,
+              "draw_end": 1515,
+              "seed_after": 34316
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1515,
+              "seed_before": 34316,
+              "draw_end": 1515,
+              "seed_after": 34316
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1515,
+              "seed_before": 34316,
+              "draw_end": 1515,
+              "seed_after": 34316
+            }
+          ],
+          "draw_end": 1515,
+          "seed_end": 34316
+        },
+        {
+          "step": 20,
+          "draw_start": 1558,
+          "seed_start": 39437,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1558,
+              "seed_before": 39437,
+              "draw_end": 1560,
+              "seed_after": 36631
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1560,
+              "seed_before": 36631,
+              "draw_end": 1560,
+              "seed_after": 36631
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1560,
+              "seed_before": 36631,
+              "draw_end": 1560,
+              "seed_after": 36631
+            }
+          ],
+          "draw_end": 1560,
+          "seed_end": 36631
+        },
+        {
+          "step": 21,
+          "draw_start": 1619,
+          "seed_start": 44884,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1619,
+              "seed_before": 44884,
+              "draw_end": 1621,
+              "seed_after": 31510
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1621,
+              "seed_before": 31510,
+              "draw_end": 1621,
+              "seed_after": 31510
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1621,
+              "seed_before": 31510,
+              "draw_end": 1621,
+              "seed_after": 31510
+            }
+          ],
+          "draw_end": 1621,
+          "seed_end": 31510
+        },
+        {
+          "step": 22,
+          "draw_start": 1668,
+          "seed_start": 50627,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1668,
+              "seed_before": 50627,
+              "draw_end": 1670,
+              "seed_after": 23933
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1670,
+              "seed_before": 23933,
+              "draw_end": 1670,
+              "seed_after": 23933
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1670,
+              "seed_before": 23933,
+              "draw_end": 1670,
+              "seed_after": 23933
+            }
+          ],
+          "draw_end": 1670,
+          "seed_end": 23933
+        },
+        {
+          "step": 23,
+          "draw_start": 1711,
+          "seed_start": 62944,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1711,
+              "seed_before": 62944,
+              "draw_end": 1715,
+              "seed_after": 2612
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1715,
+              "seed_before": 2612,
+              "draw_end": 1715,
+              "seed_after": 2612
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1715,
+              "seed_before": 2612,
+              "draw_end": 1715,
+              "seed_after": 2612
+            }
+          ],
+          "draw_end": 1715,
+          "seed_end": 2612
+        },
+        {
+          "step": 24,
+          "draw_start": 1766,
+          "seed_start": 26589,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1766,
+              "seed_before": 26589,
+              "draw_end": 1768,
+              "seed_after": 58215
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1768,
+              "seed_before": 58215,
+              "draw_end": 1768,
+              "seed_after": 58215
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1768,
+              "seed_before": 58215,
+              "draw_end": 1768,
+              "seed_after": 58215
+            }
+          ],
+          "draw_end": 1768,
+          "seed_end": 58215
+        },
+        {
+          "step": 25,
+          "draw_start": 1826,
+          "seed_start": 2297,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1826,
+              "seed_before": 2297,
+              "draw_end": 1828,
+              "seed_after": 16227
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1828,
+              "seed_before": 16227,
+              "draw_end": 1828,
+              "seed_after": 16227
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1828,
+              "seed_before": 16227,
+              "draw_end": 1828,
+              "seed_after": 16227
+            }
+          ],
+          "draw_end": 1828,
+          "seed_end": 16227
+        },
+        {
+          "step": 26,
+          "draw_start": 1898,
+          "seed_start": 38593,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1898,
+              "seed_before": 38593,
+              "draw_end": 1903,
+              "seed_after": 36768
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1903,
+              "seed_before": 36768,
+              "draw_end": 1903,
+              "seed_after": 36768
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1903,
+              "seed_before": 36768,
+              "draw_end": 1903,
+              "seed_after": 36768
+            }
+          ],
+          "draw_end": 1903,
+          "seed_end": 36768
+        },
+        {
+          "step": 27,
+          "draw_start": 1952,
+          "seed_start": 42719,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 1952,
+              "seed_before": 42719,
+              "draw_end": 1955,
+              "seed_after": 62308
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1955,
+              "seed_before": 62308,
+              "draw_end": 1955,
+              "seed_after": 62308
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1955,
+              "seed_before": 62308,
+              "draw_end": 1955,
+              "seed_after": 62308
+            }
+          ],
+          "draw_end": 1955,
+          "seed_end": 62308
+        },
+        {
+          "step": 28,
+          "draw_start": 2003,
+          "seed_start": 31444,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2003,
+              "seed_before": 31444,
+              "draw_end": 2005,
+              "seed_after": 58006
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2005,
+              "seed_before": 58006,
+              "draw_end": 2005,
+              "seed_after": 58006
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2005,
+              "seed_before": 58006,
+              "draw_end": 2005,
+              "seed_after": 58006
+            }
+          ],
+          "draw_end": 2005,
+          "seed_end": 58006
+        },
+        {
+          "step": 29,
+          "draw_start": 2054,
+          "seed_start": 26365,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2054,
+              "seed_before": 26365,
+              "draw_end": 2059,
+              "seed_after": 4012
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2059,
+              "seed_before": 4012,
+              "draw_end": 2059,
+              "seed_after": 4012
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2059,
+              "seed_before": 4012,
+              "draw_end": 2059,
+              "seed_after": 4012
+            }
+          ],
+          "draw_end": 2059,
+          "seed_end": 4012
+        },
+        {
+          "step": 30,
+          "draw_start": 2113,
+          "seed_start": 13522,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2113,
+              "seed_before": 13522,
+              "draw_end": 2115,
+              "seed_after": 3460
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2115,
+              "seed_before": 3460,
+              "draw_end": 2115,
+              "seed_after": 3460
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2115,
+              "seed_before": 3460,
+              "draw_end": 2115,
+              "seed_after": 3460
+            }
+          ],
+          "draw_end": 2115,
+          "seed_end": 3460
+        },
+        {
+          "step": 31,
+          "draw_start": 2187,
+          "seed_start": 60972,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2187,
+              "seed_before": 60972,
+              "draw_end": 2189,
+              "seed_after": 50350
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2189,
+              "seed_before": 50350,
+              "draw_end": 2189,
+              "seed_after": 50350
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2189,
+              "seed_before": 50350,
+              "draw_end": 2189,
+              "seed_after": 50350
+            }
+          ],
+          "draw_end": 2189,
+          "seed_end": 50350
+        },
+        {
+          "step": 32,
+          "draw_start": 2259,
+          "seed_start": 22484,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2259,
+              "seed_before": 22484,
+              "draw_end": 2261,
+              "seed_after": 10134
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2261,
+              "seed_before": 10134,
+              "draw_end": 2261,
+              "seed_after": 10134
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2261,
+              "seed_before": 10134,
+              "draw_end": 2261,
+              "seed_after": 10134
+            }
+          ],
+          "draw_end": 2261,
+          "seed_end": 10134
+        },
+        {
+          "step": 33,
+          "draw_start": 2318,
+          "seed_start": 25605,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2318,
+              "seed_before": 25605,
+              "draw_end": 2320,
+              "seed_after": 11471
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2320,
+              "seed_before": 11471,
+              "draw_end": 2320,
+              "seed_after": 11471
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2320,
+              "seed_before": 11471,
+              "draw_end": 2320,
+              "seed_after": 11471
+            }
+          ],
+          "draw_end": 2320,
+          "seed_end": 11471
+        },
+        {
+          "step": 34,
+          "draw_start": 2367,
+          "seed_start": 7472,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2367,
+              "seed_before": 7472,
+              "draw_end": 2370,
+              "seed_after": 36633
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2370,
+              "seed_before": 36633,
+              "draw_end": 2370,
+              "seed_after": 36633
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2370,
+              "seed_before": 36633,
+              "draw_end": 2370,
+              "seed_after": 36633
+            }
+          ],
+          "draw_end": 2370,
+          "seed_end": 36633
+        },
+        {
+          "step": 35,
+          "draw_start": 2429,
+          "seed_start": 43358,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2429,
+              "seed_before": 43358,
+              "draw_end": 2431,
+              "seed_after": 8304
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2431,
+              "seed_before": 8304,
+              "draw_end": 2431,
+              "seed_after": 8304
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2431,
+              "seed_before": 8304,
+              "draw_end": 2431,
+              "seed_after": 8304
+            }
+          ],
+          "draw_end": 2431,
+          "seed_end": 8304
+        },
+        {
+          "step": 36,
+          "draw_start": 2487,
+          "seed_start": 19400,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2487,
+              "seed_before": 19400,
+              "draw_end": 2491,
+              "seed_after": 4252
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2491,
+              "seed_before": 4252,
+              "draw_end": 2491,
+              "seed_after": 4252
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2491,
+              "seed_before": 4252,
+              "draw_end": 2491,
+              "seed_after": 4252
+            }
+          ],
+          "draw_end": 2491,
+          "seed_end": 4252
+        },
+        {
+          "step": 37,
+          "draw_start": 2541,
+          "seed_start": 49038,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2541,
+              "seed_before": 49038,
+              "draw_end": 2543,
+              "seed_after": 53280
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2543,
+              "seed_before": 53280,
+              "draw_end": 2543,
+              "seed_after": 53280
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2543,
+              "seed_before": 53280,
+              "draw_end": 2543,
+              "seed_after": 53280
+            }
+          ],
+          "draw_end": 2543,
+          "seed_end": 53280
+        },
+        {
+          "step": 38,
+          "draw_start": 2605,
+          "seed_start": 18638,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2605,
+              "seed_before": 18638,
+              "draw_end": 2607,
+              "seed_after": 864
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2607,
+              "seed_before": 864,
+              "draw_end": 2607,
+              "seed_after": 864
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2607,
+              "seed_before": 864,
+              "draw_end": 2607,
+              "seed_after": 864
+            }
+          ],
+          "draw_end": 2607,
+          "seed_end": 864
+        },
+        {
+          "step": 39,
+          "draw_start": 2669,
+          "seed_start": 4622,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2669,
+              "seed_before": 4622,
+              "draw_end": 2671,
+              "seed_after": 30368
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2671,
+              "seed_before": 30368,
+              "draw_end": 2671,
+              "seed_after": 30368
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2671,
+              "seed_before": 30368,
+              "draw_end": 2671,
+              "seed_after": 30368
+            }
+          ],
+          "draw_end": 2671,
+          "seed_end": 30368
+        },
+        {
+          "step": 40,
+          "draw_start": 2712,
+          "seed_start": 61335,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2712,
+              "seed_before": 61335,
+              "draw_end": 2714,
+              "seed_after": 44017
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2714,
+              "seed_before": 44017,
+              "draw_end": 2714,
+              "seed_after": 44017
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2714,
+              "seed_before": 44017,
+              "draw_end": 2714,
+              "seed_after": 44017
+            }
+          ],
+          "draw_end": 2714,
+          "seed_end": 44017
+        },
+        {
+          "step": 41,
+          "draw_start": 2782,
+          "seed_start": 28885,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2782,
+              "seed_before": 28885,
+              "draw_end": 2784,
+              "seed_after": 14367
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2784,
+              "seed_before": 14367,
+              "draw_end": 2784,
+              "seed_after": 14367
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2784,
+              "seed_before": 14367,
+              "draw_end": 2784,
+              "seed_after": 14367
+            }
+          ],
+          "draw_end": 2784,
+          "seed_end": 14367
+        },
+        {
+          "step": 42,
+          "draw_start": 2840,
+          "seed_start": 27671,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2840,
+              "seed_before": 27671,
+              "draw_end": 2842,
+              "seed_after": 52337
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2842,
+              "seed_before": 52337,
+              "draw_end": 2842,
+              "seed_after": 52337
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2842,
+              "seed_before": 52337,
+              "draw_end": 2842,
+              "seed_after": 52337
+            }
+          ],
+          "draw_end": 2842,
+          "seed_end": 52337
+        },
+        {
+          "step": 43,
+          "draw_start": 2910,
+          "seed_start": 47445,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2910,
+              "seed_before": 47445,
+              "draw_end": 2912,
+              "seed_after": 33951
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2912,
+              "seed_before": 33951,
+              "draw_end": 2912,
+              "seed_after": 33951
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2912,
+              "seed_before": 33951,
+              "draw_end": 2912,
+              "seed_after": 33951
+            }
+          ],
+          "draw_end": 2912,
+          "seed_end": 33951
+        },
+        {
+          "step": 44,
+          "draw_start": 2984,
+          "seed_start": 37415,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 2984,
+              "seed_before": 37415,
+              "draw_end": 2986,
+              "seed_after": 6913
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2986,
+              "seed_before": 6913,
+              "draw_end": 2986,
+              "seed_after": 6913
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2986,
+              "seed_before": 6913,
+              "draw_end": 2986,
+              "seed_after": 6913
+            }
+          ],
+          "draw_end": 2986,
+          "seed_end": 6913
+        },
+        {
+          "step": 45,
+          "draw_start": 3033,
+          "seed_start": 40394,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3033,
+              "seed_before": 40394,
+              "draw_end": 3035,
+              "seed_after": 49724
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3035,
+              "seed_before": 49724,
+              "draw_end": 3035,
+              "seed_after": 49724
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3035,
+              "seed_before": 49724,
+              "draw_end": 3035,
+              "seed_after": 49724
+            }
+          ],
+          "draw_end": 3035,
+          "seed_end": 49724
+        },
+        {
+          "step": 46,
+          "draw_start": 3109,
+          "seed_start": 44582,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3109,
+              "seed_before": 44582,
+              "draw_end": 3113,
+              "seed_after": 41562
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3113,
+              "seed_before": 41562,
+              "draw_end": 3113,
+              "seed_after": 41562
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3113,
+              "seed_before": 41562,
+              "draw_end": 3113,
+              "seed_after": 41562
+            }
+          ],
+          "draw_end": 3113,
+          "seed_end": 41562
+        },
+        {
+          "step": 47,
+          "draw_start": 3179,
+          "seed_start": 37516,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3179,
+              "seed_before": 37516,
+              "draw_end": 3181,
+              "seed_after": 23566
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3181,
+              "seed_before": 23566,
+              "draw_end": 3181,
+              "seed_after": 23566
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3181,
+              "seed_before": 23566,
+              "draw_end": 3181,
+              "seed_after": 23566
+            }
+          ],
+          "draw_end": 3181,
+          "seed_end": 23566
+        },
+        {
+          "step": 48,
+          "draw_start": 3235,
+          "seed_start": 33892,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3235,
+              "seed_before": 33892,
+              "draw_end": 3237,
+              "seed_after": 28838
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3237,
+              "seed_before": 28838,
+              "draw_end": 3237,
+              "seed_after": 28838
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3237,
+              "seed_before": 28838,
+              "draw_end": 3237,
+              "seed_after": 28838
+            }
+          ],
+          "draw_end": 3237,
+          "seed_end": 28838
+        },
+        {
+          "step": 49,
+          "draw_start": 3293,
+          "seed_start": 38462,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3293,
+              "seed_before": 38462,
+              "draw_end": 3295,
+              "seed_after": 1104
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3295,
+              "seed_before": 1104,
+              "draw_end": 3295,
+              "seed_after": 1104
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3295,
+              "seed_before": 1104,
+              "draw_end": 3295,
+              "seed_after": 1104
+            }
+          ],
+          "draw_end": 3295,
+          "seed_end": 1104
+        },
+        {
+          "step": 50,
+          "draw_start": 3354,
+          "seed_start": 20081,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3354,
+              "seed_before": 20081,
+              "draw_end": 3356,
+              "seed_after": 29851
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3356,
+              "seed_before": 29851,
+              "draw_end": 3356,
+              "seed_after": 29851
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3356,
+              "seed_before": 29851,
+              "draw_end": 3356,
+              "seed_after": 29851
+            }
+          ],
+          "draw_end": 3356,
+          "seed_end": 29851
+        },
+        {
+          "step": 51,
+          "draw_start": 3409,
+          "seed_start": 63266,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3409,
+              "seed_before": 63266,
+              "draw_end": 3412,
+              "seed_after": 45843
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3412,
+              "seed_before": 45843,
+              "draw_end": 3412,
+              "seed_after": 45843
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3412,
+              "seed_before": 45843,
+              "draw_end": 3412,
+              "seed_after": 45843
+            }
+          ],
+          "draw_end": 3412,
+          "seed_end": 45843
+        },
+        {
+          "step": 52,
+          "draw_start": 3482,
+          "seed_start": 28401,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3482,
+              "seed_before": 28401,
+              "draw_end": 3484,
+              "seed_after": 22811
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3484,
+              "seed_before": 22811,
+              "draw_end": 3484,
+              "seed_after": 22811
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3484,
+              "seed_before": 22811,
+              "draw_end": 3484,
+              "seed_after": 22811
+            }
+          ],
+          "draw_end": 3484,
+          "seed_end": 22811
+        },
+        {
+          "step": 53,
+          "draw_start": 3531,
+          "seed_start": 61036,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3531,
+              "seed_before": 61036,
+              "draw_end": 3534,
+              "seed_after": 50373
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3534,
+              "seed_before": 50373,
+              "draw_end": 3534,
+              "seed_after": 50373
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3534,
+              "seed_before": 50373,
+              "draw_end": 3534,
+              "seed_after": 50373
+            }
+          ],
+          "draw_end": 3534,
+          "seed_end": 50373
+        },
+        {
+          "step": 54,
+          "draw_start": 3594,
+          "seed_start": 62817,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3594,
+              "seed_before": 62817,
+              "draw_end": 3596,
+              "seed_after": 56075
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3596,
+              "seed_before": 56075,
+              "draw_end": 3596,
+              "seed_after": 56075
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3596,
+              "seed_before": 56075,
+              "draw_end": 3596,
+              "seed_after": 56075
+            }
+          ],
+          "draw_end": 3596,
+          "seed_end": 56075
+        },
+        {
+          "step": 55,
+          "draw_start": 3648,
+          "seed_start": 1151,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3648,
+              "seed_before": 1151,
+              "draw_end": 3650,
+              "seed_after": 29721
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3650,
+              "seed_before": 29721,
+              "draw_end": 3650,
+              "seed_after": 29721
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3650,
+              "seed_before": 29721,
+              "draw_end": 3650,
+              "seed_after": 29721
+            }
+          ],
+          "draw_end": 3650,
+          "seed_end": 29721
+        },
+        {
+          "step": 56,
+          "draw_start": 3700,
+          "seed_start": 10547,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3700,
+              "seed_before": 10547,
+              "draw_end": 3702,
+              "seed_after": 9325
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3702,
+              "seed_before": 9325,
+              "draw_end": 3702,
+              "seed_after": 9325
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3702,
+              "seed_before": 9325,
+              "draw_end": 3702,
+              "seed_after": 9325
+            }
+          ],
+          "draw_end": 3702,
+          "seed_end": 9325
+        },
+        {
+          "step": 57,
+          "draw_start": 3757,
+          "seed_start": 44878,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3757,
+              "seed_before": 44878,
+              "draw_end": 3761,
+              "seed_after": 38914
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3761,
+              "seed_before": 38914,
+              "draw_end": 3761,
+              "seed_after": 38914
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3761,
+              "seed_before": 38914,
+              "draw_end": 3761,
+              "seed_after": 38914
+            }
+          ],
+          "draw_end": 3761,
+          "seed_end": 38914
+        },
+        {
+          "step": 58,
+          "draw_start": 3812,
+          "seed_start": 52515,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3812,
+              "seed_before": 52515,
+              "draw_end": 3815,
+              "seed_after": 33592
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3815,
+              "seed_before": 33592,
+              "draw_end": 3815,
+              "seed_after": 33592
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3815,
+              "seed_before": 33592,
+              "draw_end": 3815,
+              "seed_after": 33592
+            }
+          ],
+          "draw_end": 3815,
+          "seed_end": 33592
+        },
+        {
+          "step": 59,
+          "draw_start": 3873,
+          "seed_start": 16690,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3873,
+              "seed_before": 16690,
+              "draw_end": 3875,
+              "seed_after": 19684
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3875,
+              "seed_before": 19684,
+              "draw_end": 3875,
+              "seed_after": 19684
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3875,
+              "seed_before": 19684,
+              "draw_end": 3875,
+              "seed_after": 19684
+            }
+          ],
+          "draw_end": 3875,
+          "seed_end": 19684
+        },
+        {
+          "step": 60,
+          "draw_start": 3933,
+          "seed_start": 37566,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3933,
+              "seed_before": 37566,
+              "draw_end": 3935,
+              "seed_after": 42192
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3935,
+              "seed_before": 42192,
+              "draw_end": 3935,
+              "seed_after": 42192
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3935,
+              "seed_before": 42192,
+              "draw_end": 3935,
+              "seed_after": 42192
+            }
+          ],
+          "draw_end": 3935,
+          "seed_end": 42192
+        },
+        {
+          "step": 61,
+          "draw_start": 3997,
+          "seed_start": 35838,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 3997,
+              "seed_before": 35838,
+              "draw_end": 4000,
+              "seed_after": 28383
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4000,
+              "seed_before": 28383,
+              "draw_end": 4000,
+              "seed_after": 28383
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4000,
+              "seed_before": 28383,
+              "draw_end": 4000,
+              "seed_after": 28383
+            }
+          ],
+          "draw_end": 4000,
+          "seed_end": 28383
+        },
+        {
+          "step": 62,
+          "draw_start": 4042,
+          "seed_start": 38689,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4042,
+              "seed_before": 38689,
+              "draw_end": 4044,
+              "seed_after": 43723
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4044,
+              "seed_before": 43723,
+              "draw_end": 4044,
+              "seed_after": 43723
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4044,
+              "seed_before": 43723,
+              "draw_end": 4044,
+              "seed_after": 43723
+            }
+          ],
+          "draw_end": 4044,
+          "seed_end": 43723
+        },
+        {
+          "step": 63,
+          "draw_start": 4104,
+          "seed_start": 4999,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4104,
+              "seed_before": 4999,
+              "draw_end": 4106,
+              "seed_after": 63329
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4106,
+              "seed_before": 63329,
+              "draw_end": 4106,
+              "seed_after": 63329
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4106,
+              "seed_before": 63329,
+              "draw_end": 4106,
+              "seed_after": 63329
+            }
+          ],
+          "draw_end": 4106,
+          "seed_end": 63329
+        },
+        {
+          "step": 64,
+          "draw_start": 4168,
+          "seed_start": 25031,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4168,
+              "seed_before": 25031,
+              "draw_end": 4170,
+              "seed_after": 38817
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4170,
+              "seed_before": 38817,
+              "draw_end": 4170,
+              "seed_after": 38817
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4170,
+              "seed_before": 38817,
+              "draw_end": 4170,
+              "seed_after": 38817
+            }
+          ],
+          "draw_end": 4170,
+          "seed_end": 38817
+        },
+        {
+          "step": 65,
+          "draw_start": 4223,
+          "seed_start": 64368,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4223,
+              "seed_before": 64368,
+              "draw_end": 4225,
+              "seed_after": 23058
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4225,
+              "seed_before": 23058,
+              "draw_end": 4225,
+              "seed_after": 23058
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4225,
+              "seed_before": 23058,
+              "draw_end": 4225,
+              "seed_after": 23058
+            }
+          ],
+          "draw_end": 4225,
+          "seed_end": 23058
+        },
+        {
+          "step": 66,
+          "draw_start": 4305,
+          "seed_start": 28834,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4305,
+              "seed_before": 28834,
+              "draw_end": 4310,
+              "seed_after": 22733
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4310,
+              "seed_before": 22733,
+              "draw_end": 4310,
+              "seed_after": 22733
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4310,
+              "seed_before": 22733,
+              "draw_end": 4310,
+              "seed_after": 22733
+            }
+          ],
+          "draw_end": 4310,
+          "seed_end": 22733
+        },
+        {
+          "step": 67,
+          "draw_start": 4392,
+          "seed_start": 52135,
+          "phases": [
+            {
+              "routine": "1998:045C",
+              "draw_start": 4392,
+              "seed_before": 52135,
+              "draw_end": 4392,
+              "seed_after": 52135
+            },
+            {
+              "routine": "0AB9:52B6",
+              "draw_start": 4392,
+              "seed_before": 52135,
+              "draw_end": 4392,
+              "seed_after": 52135
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4392,
+              "seed_before": 52135,
+              "draw_end": 4392,
+              "seed_after": 52135
+            }
+          ],
+          "draw_end": 4392,
+          "seed_end": 52135
+        },
+        {
+          "step": 68,
+          "draw_start": 4450,
+          "seed_start": 11065,
+          "phases": [
+            {
+              "routine": "1998:045C",
+              "draw_start": 4450,
+              "seed_before": 11065,
+              "draw_end": 4450,
+              "seed_after": 11065
+            },
+            {
+              "routine": "0AB9:52B6",
+              "draw_start": 4450,
+              "seed_before": 11065,
+              "draw_end": 4450,
+              "seed_after": 11065
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4450,
+              "seed_before": 11065,
+              "draw_end": 4450,
+              "seed_after": 11065
+            }
+          ],
+          "draw_end": 4450,
+          "seed_end": 11065
+        },
+        {
+          "step": 69,
+          "draw_start": 4505,
+          "seed_start": 50826,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4505,
+              "seed_before": 50826,
+              "draw_end": 4508,
+              "seed_after": 32027
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4508,
+              "seed_before": 32027,
+              "draw_end": 4508,
+              "seed_after": 32027
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4508,
+              "seed_before": 32027,
+              "draw_end": 4508,
+              "seed_after": 32027
+            }
+          ],
+          "draw_end": 4508,
+          "seed_end": 32027
+        },
+        {
+          "step": 70,
+          "draw_start": 4577,
+          "seed_start": 754,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4577,
+              "seed_before": 754,
+              "draw_end": 4582,
+              "seed_after": 33501
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4582,
+              "seed_before": 33501,
+              "draw_end": 4582,
+              "seed_after": 33501
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4582,
+              "seed_before": 33501,
+              "draw_end": 4582,
+              "seed_after": 33501
+            }
+          ],
+          "draw_end": 4582,
+          "seed_end": 33501
+        },
+        {
+          "step": 71,
+          "draw_start": 4638,
+          "seed_start": 27669,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4638,
+              "seed_before": 27669,
+              "draw_end": 4640,
+              "seed_after": 27999
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4640,
+              "seed_before": 27999,
+              "draw_end": 4640,
+              "seed_after": 27999
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4640,
+              "seed_before": 27999,
+              "draw_end": 4640,
+              "seed_after": 27999
+            }
+          ],
+          "draw_end": 4640,
+          "seed_end": 27999
+        },
+        {
+          "step": 72,
+          "draw_start": 4702,
+          "seed_start": 45141,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4702,
+              "seed_before": 45141,
+              "draw_end": 4705,
+              "seed_after": 32114
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4705,
+              "seed_before": 32114,
+              "draw_end": 4705,
+              "seed_after": 32114
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4705,
+              "seed_before": 32114,
+              "draw_end": 4705,
+              "seed_after": 32114
+            }
+          ],
+          "draw_end": 4705,
+          "seed_end": 32114
+        },
+        {
+          "step": 73,
+          "draw_start": 4756,
+          "seed_start": 27219,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4756,
+              "seed_before": 27219,
+              "draw_end": 4758,
+              "seed_after": 56973
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4758,
+              "seed_before": 56973,
+              "draw_end": 4758,
+              "seed_after": 56973
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4758,
+              "seed_before": 56973,
+              "draw_end": 4758,
+              "seed_after": 56973
+            }
+          ],
+          "draw_end": 4758,
+          "seed_end": 56973
+        },
+        {
+          "step": 74,
+          "draw_start": 4825,
+          "seed_start": 28874,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4825,
+              "seed_before": 28874,
+              "draw_end": 4828,
+              "seed_after": 39003
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4828,
+              "seed_before": 39003,
+              "draw_end": 4828,
+              "seed_after": 39003
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4828,
+              "seed_before": 39003,
+              "draw_end": 4828,
+              "seed_after": 39003
+            }
+          ],
+          "draw_end": 4828,
+          "seed_end": 39003
+        },
+        {
+          "step": 75,
+          "draw_start": 4884,
+          "seed_start": 65235,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4884,
+              "seed_before": 65235,
+              "draw_end": 4887,
+              "seed_after": 4520
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4887,
+              "seed_before": 4520,
+              "draw_end": 4887,
+              "seed_after": 4520
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4887,
+              "seed_before": 4520,
+              "draw_end": 4887,
+              "seed_after": 4520
+            }
+          ],
+          "draw_end": 4887,
+          "seed_end": 4520
+        },
+        {
+          "step": 76,
+          "draw_start": 4964,
+          "seed_start": 9635,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 4964,
+              "seed_before": 9635,
+              "draw_end": 4967,
+              "seed_after": 19896
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4967,
+              "seed_before": 19896,
+              "draw_end": 4967,
+              "seed_after": 19896
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4967,
+              "seed_before": 19896,
+              "draw_end": 4967,
+              "seed_after": 19896
+            }
+          ],
+          "draw_end": 4967,
+          "seed_end": 19896
+        },
+        {
+          "step": 77,
+          "draw_start": 5015,
+          "seed_start": 34856,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5015,
+              "seed_before": 34856,
+              "draw_end": 5020,
+              "seed_after": 3867
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5020,
+              "seed_before": 3867,
+              "draw_end": 5020,
+              "seed_after": 3867
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5020,
+              "seed_before": 3867,
+              "draw_end": 5020,
+              "seed_after": 3867
+            }
+          ],
+          "draw_end": 5020,
+          "seed_end": 3867
+        },
+        {
+          "step": 78,
+          "draw_start": 5078,
+          "seed_start": 11213,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5078,
+              "seed_before": 11213,
+              "draw_end": 5080,
+              "seed_after": 52951
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5080,
+              "seed_before": 52951,
+              "draw_end": 5080,
+              "seed_after": 52951
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5080,
+              "seed_before": 52951,
+              "draw_end": 5080,
+              "seed_after": 52951
+            }
+          ],
+          "draw_end": 5080,
+          "seed_end": 52951
+        },
+        {
+          "step": 79,
+          "draw_start": 5144,
+          "seed_start": 11543,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5144,
+              "seed_before": 11543,
+              "draw_end": 5146,
+              "seed_after": 5489
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5146,
+              "seed_before": 5489,
+              "draw_end": 5146,
+              "seed_after": 5489
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5146,
+              "seed_before": 5489,
+              "draw_end": 5146,
+              "seed_after": 5489
+            }
+          ],
+          "draw_end": 5146,
+          "seed_end": 5489
+        },
+        {
+          "step": 80,
+          "draw_start": 5204,
+          "seed_start": 53779,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5204,
+              "seed_before": 53779,
+              "draw_end": 5207,
+              "seed_after": 6632
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5207,
+              "seed_before": 6632,
+              "draw_end": 5207,
+              "seed_after": 6632
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5207,
+              "seed_before": 6632,
+              "draw_end": 5207,
+              "seed_after": 6632
+            }
+          ],
+          "draw_end": 5207,
+          "seed_end": 6632
+        },
+        {
+          "step": 81,
+          "draw_start": 5259,
+          "seed_start": 51756,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5259,
+              "seed_before": 51756,
+              "draw_end": 5263,
+              "seed_after": 2624
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5263,
+              "seed_before": 2624,
+              "draw_end": 5263,
+              "seed_after": 2624
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5263,
+              "seed_before": 2624,
+              "draw_end": 5263,
+              "seed_after": 2624
+            }
+          ],
+          "draw_end": 5263,
+          "seed_end": 2624
+        },
+        {
+          "step": 82,
+          "draw_start": 5309,
+          "seed_start": 39326,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5309,
+              "seed_before": 39326,
+              "draw_end": 5311,
+              "seed_after": 29360
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5311,
+              "seed_before": 29360,
+              "draw_end": 5311,
+              "seed_after": 29360
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5311,
+              "seed_before": 29360,
+              "draw_end": 5311,
+              "seed_after": 29360
+            }
+          ],
+          "draw_end": 5311,
+          "seed_end": 29360
+        },
+        {
+          "step": 83,
+          "draw_start": 5375,
+          "seed_start": 62960,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5375,
+              "seed_before": 62960,
+              "draw_end": 5377,
+              "seed_after": 59538
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5377,
+              "seed_before": 59538,
+              "draw_end": 5377,
+              "seed_after": 59538
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5377,
+              "seed_before": 59538,
+              "draw_end": 5377,
+              "seed_after": 59538
+            }
+          ],
+          "draw_end": 5377,
+          "seed_end": 59538
+        },
+        {
+          "step": 84,
+          "draw_start": 5447,
+          "seed_start": 2584,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5447,
+              "seed_before": 2584,
+              "draw_end": 5449,
+              "seed_after": 2554
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5449,
+              "seed_before": 2554,
+              "draw_end": 5449,
+              "seed_after": 2554
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5449,
+              "seed_before": 2554,
+              "draw_end": 5449,
+              "seed_after": 2554
+            }
+          ],
+          "draw_end": 5449,
+          "seed_end": 2554
+        },
+        {
+          "step": 85,
+          "draw_start": 5503,
+          "seed_start": 48240,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5503,
+              "seed_before": 48240,
+              "draw_end": 5506,
+              "seed_after": 4953
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5506,
+              "seed_before": 4953,
+              "draw_end": 5506,
+              "seed_after": 4953
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5506,
+              "seed_before": 4953,
+              "draw_end": 5506,
+              "seed_after": 4953
+            }
+          ],
+          "draw_end": 5506,
+          "seed_end": 4953
+        },
+        {
+          "step": 86,
+          "draw_start": 5552,
+          "seed_start": 6255,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5552,
+              "seed_before": 6255,
+              "draw_end": 5554,
+              "seed_after": 12169
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5554,
+              "seed_before": 12169,
+              "draw_end": 5554,
+              "seed_after": 12169
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5554,
+              "seed_before": 12169,
+              "draw_end": 5554,
+              "seed_after": 12169
+            }
+          ],
+          "draw_end": 5554,
+          "seed_end": 12169
+        },
+        {
+          "step": 87,
+          "draw_start": 5603,
+          "seed_start": 45220,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5603,
+              "seed_before": 45220,
+              "draw_end": 5606,
+              "seed_after": 18141
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5606,
+              "seed_before": 18141,
+              "draw_end": 5606,
+              "seed_after": 18141
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5606,
+              "seed_before": 18141,
+              "draw_end": 5606,
+              "seed_after": 18141
+            }
+          ],
+          "draw_end": 5606,
+          "seed_end": 18141
+        },
+        {
+          "step": 88,
+          "draw_start": 5667,
+          "seed_start": 6116,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5667,
+              "seed_before": 6116,
+              "draw_end": 5671,
+              "seed_after": 10616
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5671,
+              "seed_before": 10616,
+              "draw_end": 5671,
+              "seed_after": 10616
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5671,
+              "seed_before": 10616,
+              "draw_end": 5671,
+              "seed_after": 10616
+            }
+          ],
+          "draw_end": 5671,
+          "seed_end": 10616
+        },
+        {
+          "step": 89,
+          "draw_start": 5713,
+          "seed_start": 21538,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5713,
+              "seed_before": 21538,
+              "draw_end": 5715,
+              "seed_after": 32596
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5715,
+              "seed_before": 32596,
+              "draw_end": 5715,
+              "seed_after": 32596
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5715,
+              "seed_before": 32596,
+              "draw_end": 5715,
+              "seed_after": 32596
+            }
+          ],
+          "draw_end": 5715,
+          "seed_end": 32596
+        },
+        {
+          "step": 90,
+          "draw_start": 5773,
+          "seed_start": 51886,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5773,
+              "seed_before": 51886,
+              "draw_end": 5776,
+              "seed_after": 56911
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5776,
+              "seed_before": 56911,
+              "draw_end": 5776,
+              "seed_after": 56911
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5776,
+              "seed_before": 56911,
+              "draw_end": 5776,
+              "seed_after": 56911
+            }
+          ],
+          "draw_end": 5776,
+          "seed_end": 56911
+        },
+        {
+          "step": 91,
+          "draw_start": 5828,
+          "seed_start": 12291,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5828,
+              "seed_before": 12291,
+              "draw_end": 5830,
+              "seed_after": 63933
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5830,
+              "seed_before": 63933,
+              "draw_end": 5830,
+              "seed_after": 63933
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5830,
+              "seed_before": 63933,
+              "draw_end": 5830,
+              "seed_after": 63933
+            }
+          ],
+          "draw_end": 5830,
+          "seed_end": 63933
+        },
+        {
+          "step": 92,
+          "draw_start": 5868,
+          "seed_start": 25323,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5868,
+              "seed_before": 25323,
+              "draw_end": 5870,
+              "seed_after": 53221
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5870,
+              "seed_before": 53221,
+              "draw_end": 5870,
+              "seed_after": 53221
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5870,
+              "seed_before": 53221,
+              "draw_end": 5870,
+              "seed_after": 53221
+            }
+          ],
+          "draw_end": 5870,
+          "seed_end": 53221
+        },
+        {
+          "step": 93,
+          "draw_start": 5916,
+          "seed_start": 20123,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5916,
+              "seed_before": 20123,
+              "draw_end": 5918,
+              "seed_after": 16661
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5918,
+              "seed_before": 16661,
+              "draw_end": 5918,
+              "seed_after": 16661
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5918,
+              "seed_before": 16661,
+              "draw_end": 5918,
+              "seed_after": 16661
+            }
+          ],
+          "draw_end": 5918,
+          "seed_end": 16661
+        },
+        {
+          "step": 94,
+          "draw_start": 5980,
+          "seed_start": 8411,
+          "phases": [
+            {
+              "routine": "0AB9:DBC6",
+              "draw_start": 5980,
+              "seed_before": 8411,
+              "draw_end": 5983,
+              "seed_after": 3280
+            },
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5983,
+              "seed_before": 3280,
+              "draw_end": 5983,
+              "seed_after": 3280
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5983,
+              "seed_before": 3280,
+              "draw_end": 5983,
+              "seed_after": 3280
+            }
+          ],
+          "draw_end": 5983,
+          "seed_end": 3280
+        }
+      ]
+    }
+  ],
+  "started": "2026-10-30T20:23:18Z",
+  "ended": "2026-10-30T20:24:58Z",
+  "status": "completed"
+}
