@@ -68,6 +68,10 @@ comes first: T11 records D983's routine contract against T08, and onenil T01 rep
 Rust. This first routine slice precedes reading the remaining quick-match loop and is not a claim
 of whole-match, whole-week or watched-engine parity.
 
+[designed: owner, 2026-10-30] T12 next reads and records DD02's full quick-step boundary, including
+goal placement and the following caller clock transition. It keeps untranslated callee effects
+explicit so the next Rust slice can be bounded by an observed contract before full-step replay.
+
 ## Risks
 
 | Risk | Mitigation |
