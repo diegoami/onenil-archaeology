@@ -1,0 +1,740 @@
+{
+  "schema": "run/1",
+  "run_id": "T18-r0002",
+  "experiment": "T18",
+  "arm": "dbc6-input-cell",
+  "rep": 2,
+  "code_commit": "f2889b8cc04fdabf0e3c60e439ac33b3d49a2bad",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/extra_event_inputs.py@f2889b8cc04fdabf0e3c60e439ac33b3d49a2bad",
+    "unicorn": "2.1.4",
+    "python": "3.12.15",
+    "dos_clock": {
+      "date": [
+        1995,
+        8,
+        1,
+        2
+      ],
+      "time": [
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "KEY_HOLD": 1600000,
+      "PIT_HZ": 1193182,
+      "SLICE_MAX": 1000
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "guest.py services and read-only DBC6/D0B hooks"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-week-r0016.sav",
+    "sha256": "2f634978859f7c07b3519e4278d8aaf70c2c70b93ad48362408fbcfa210576a1",
+    "restore": "DOSBox-X state restored by guest.py"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/extra_event_inputs.py",
+    "source": {
+      "t17_record": "runs/T17/T17-r0006.json",
+      "t17_record_sha256": "57c4e0391fb5ecbb8b4fe5ebec8382f38e6a5b15a06d1d344f318e00de99981c"
+    },
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture path",
+      "value": "traces/T18/T18-r0002.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture sha256",
+      "value": "6890b333b2e66cc9d3acb21ce8d3fcb0beaf0f7fd925c8d91b675e8bb7ed85b9"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "ordered DOSBox-X comparison",
+      "value": "screen 1 (c7524f950e626e0f) = key wait 1\nscreen 8 (match, unchanged for 5 reads) (d76e908296c710e8) = key wait 2\nscreen 9 (405c67c37f5890ae) = key wait 3\nscreen 15 (match, unchanged for 5 reads) (4357795d9c05369e) = key wait 4\nscreen 16 (18c0bf304ec42d8d) = key wait 5\nscreen 17 (afa1bb3bc531abb2) = key wait 6\nscreen 18 (c6e7918ba68aa92e) = key wait 7\nscreen 19 (aee0f64b982cf5a4) = key wait 8\nscreen 20 (e25dff5d1d7e8874) = key wait 9\nmain menu after the week (02b936be79274962) = key wait 10\nall of the record's 10 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "cells",
+      "value": [
+        {
+          "step": 0,
+          "draw_start": 307,
+          "seed": 22937,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 1,
+          "draw_start": 370,
+          "seed": 33682,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 3,
+          "draw_start": 490,
+          "seed": 33514,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 4,
+          "draw_start": 556,
+          "seed": 65436,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 5,
+          "draw_start": 620,
+          "seed": 65244,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 6,
+          "draw_start": 681,
+          "seed": 40247,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 7,
+          "draw_start": 737,
+          "seed": 37423,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 8,
+          "draw_start": 816,
+          "seed": 36784,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 10,
+          "draw_start": 971,
+          "seed": 55217,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 11,
+          "draw_start": 1038,
+          "seed": 24318,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 12,
+          "draw_start": 1108,
+          "seed": 23972,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 13,
+          "draw_start": 1175,
+          "seed": 46109,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 14,
+          "draw_start": 1233,
+          "seed": 159,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 15,
+          "draw_start": 1287,
+          "seed": 25485,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 16,
+          "draw_start": 1353,
+          "seed": 727,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 17,
+          "draw_start": 1433,
+          "seed": 43687,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 18,
+          "draw_start": 1495,
+          "seed": 37213,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 19,
+          "draw_start": 1547,
+          "seed": 2545,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 20,
+          "draw_start": 1610,
+          "seed": 32458,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 21,
+          "draw_start": 1698,
+          "seed": 54402,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 22,
+          "draw_start": 1764,
+          "seed": 2548,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 23,
+          "draw_start": 1825,
+          "seed": 52335,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 24,
+          "draw_start": 1887,
+          "seed": 4837,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 25,
+          "draw_start": 1946,
+          "seed": 55386,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 26,
+          "draw_start": 2007,
+          "seed": 62301,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 27,
+          "draw_start": 2075,
+          "seed": 31233,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 28,
+          "draw_start": 2144,
+          "seed": 32032,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 29,
+          "draw_start": 2217,
+          "seed": 29495,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 30,
+          "draw_start": 2280,
+          "seed": 2696,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 31,
+          "draw_start": 2343,
+          "seed": 28077,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 32,
+          "draw_start": 2404,
+          "seed": 62068,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 33,
+          "draw_start": 2460,
+          "seed": 844,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 34,
+          "draw_start": 2530,
+          "seed": 57538,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 35,
+          "draw_start": 2589,
+          "seed": 18091,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 36,
+          "draw_start": 2650,
+          "seed": 61978,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 37,
+          "draw_start": 2711,
+          "seed": 55837,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 38,
+          "draw_start": 2781,
+          "seed": 60779,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 39,
+          "draw_start": 2833,
+          "seed": 7391,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 41,
+          "draw_start": 2969,
+          "seed": 167,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 42,
+          "draw_start": 3053,
+          "seed": 20731,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 43,
+          "draw_start": 3125,
+          "seed": 51203,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 44,
+          "draw_start": 3184,
+          "seed": 2032,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 45,
+          "draw_start": 3252,
+          "seed": 47236,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 46,
+          "draw_start": 3320,
+          "seed": 10072,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 47,
+          "draw_start": 3379,
+          "seed": 58777,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 48,
+          "draw_start": 3437,
+          "seed": 15995,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 49,
+          "draw_start": 3506,
+          "seed": 15570,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 50,
+          "draw_start": 3569,
+          "seed": 64703,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 51,
+          "draw_start": 3614,
+          "seed": 22862,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 52,
+          "draw_start": 3678,
+          "seed": 41614,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 53,
+          "draw_start": 3760,
+          "seed": 58672,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 54,
+          "draw_start": 3842,
+          "seed": 47202,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 55,
+          "draw_start": 3894,
+          "seed": 16966,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 56,
+          "draw_start": 3961,
+          "seed": 25991,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 57,
+          "draw_start": 4022,
+          "seed": 17606,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 58,
+          "draw_start": 4079,
+          "seed": 27253,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 59,
+          "draw_start": 4154,
+          "seed": 62842,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 60,
+          "draw_start": 4218,
+          "seed": 64186,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 61,
+          "draw_start": 4270,
+          "seed": 8734,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 62,
+          "draw_start": 4324,
+          "seed": 44020,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 63,
+          "draw_start": 4382,
+          "seed": 18510,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 64,
+          "draw_start": 4440,
+          "seed": 50232,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 65,
+          "draw_start": 4489,
+          "seed": 3351,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 66,
+          "draw_start": 4554,
+          "seed": 4170,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 67,
+          "draw_start": 4612,
+          "seed": 31892,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 68,
+          "draw_start": 4657,
+          "seed": 34559,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 69,
+          "draw_start": 4717,
+          "seed": 43899,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 70,
+          "draw_start": 4772,
+          "seed": 11956,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 71,
+          "draw_start": 4835,
+          "seed": 42825,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 72,
+          "draw_start": 4898,
+          "seed": 27394,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 73,
+          "draw_start": 4955,
+          "seed": 50497,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 74,
+          "draw_start": 5008,
+          "seed": 31888,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 75,
+          "draw_start": 5068,
+          "seed": 33468,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 76,
+          "draw_start": 5122,
+          "seed": 16738,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 77,
+          "draw_start": 5181,
+          "seed": 18891,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 78,
+          "draw_start": 5243,
+          "seed": 56929,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 79,
+          "draw_start": 5311,
+          "seed": 9797,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 80,
+          "draw_start": 5364,
+          "seed": 26564,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 81,
+          "draw_start": 5418,
+          "seed": 34602,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 82,
+          "draw_start": 5470,
+          "seed": 9614,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 83,
+          "draw_start": 5529,
+          "seed": 15015,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 84,
+          "draw_start": 5591,
+          "seed": 41309,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 85,
+          "draw_start": 5651,
+          "seed": 51833,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 86,
+          "draw_start": 5709,
+          "seed": 11867,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 87,
+          "draw_start": 5774,
+          "seed": 11134,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 88,
+          "draw_start": 5839,
+          "seed": 34645,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 89,
+          "draw_start": 5902,
+          "seed": 56830,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 91,
+          "draw_start": 6026,
+          "seed": 47370,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 92,
+          "draw_start": 6100,
+          "seed": 37668,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 93,
+          "draw_start": 6158,
+          "seed": 17150,
+          "offset": 3339,
+          "value": 2
+        },
+        {
+          "step": 94,
+          "draw_start": 6214,
+          "seed": 24982,
+          "offset": 3339,
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "started": "2026-10-30T18:53:03Z",
+  "ended": "2026-10-30T18:54:02Z",
+  "status": "completed"
+}

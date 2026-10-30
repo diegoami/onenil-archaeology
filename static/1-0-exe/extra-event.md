@@ -64,6 +64,14 @@ not an implemented handler or a license to replace computed state with expected 
 The named snapshot is not a whole-memory projection. 6B2F,52B6,78B7, continuous DD02,
 whole-match/week, watched-engine and timer/render parity remain pending.
 
+`[confirmed]` T18/F18 at `b41656a` corrects the **input coverage**, preserving T17
+records: `232A:076D(10)` returns 1..10 and DBD1 increments it, so the lookup uses
+D02..D0B. T17's raw `opponents` array contains D01..D0A and is missing D0B.
+The two supplementary original runs directly capture D0B at all 184 DBC6 entries
+and reproduce the complete T17 observations, T08 events and ordered DOSBox-X waits.
+The native consumer must load the separately pinned raw cell, not infer it from
+expected helper arguments. Its observed value is 2 in every entry.
+
 ## Observed coverage
 
 `[confirmed]` Six completed original captures at `a455882`, produced by `e26e7b4`,
