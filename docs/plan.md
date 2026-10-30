@@ -57,9 +57,12 @@ replay those traces; a wrong reading shows as the first tick or call where the t
 | T09 | O-M3a | the match's ratings: where `D983`'s four values come from, the formula checked against values read in the harness |
 | T10 | O-M3a | the watched match: week 1 with Watch match on, in DOSBox-X and in the harness, compared and traced |
 
-T01–T08 are merged. T09 and T10 can run in parallel. Later O-M3a tasks follow from T07: the
-engine's routines read one area at a time (movement, contests, fouls, the result), each with routine
-traces in the harness, and onenil's first test replaying T08's corpus.
+T01–T10 are merged. Later O-M3a tasks follow from T07: the engine's routines read one area at a
+time (movement, contests, fouls, the result), each with routine traces in the harness, and onenil's
+first test replaying T08's corpus. F10 found that Watch match on runs a second engine (its own 67 draw
+sites, three RNG entries, 158,992 draws in week 1 against the quick result's 5,853), so O-M3a has two
+engines to read; which comes first, and whether O-M3a gets its milestone review before more tasks, is
+the owner's call (not decided as of 2026-10-30).
 
 ## Risks
 
