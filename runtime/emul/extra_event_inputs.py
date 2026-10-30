@@ -147,7 +147,7 @@ def main(argv=None):
     if args.run: run(); return 0
     try:
         index = build_index()
-        if (index['weeks'], index['cells']) != (2, 184): raise ValueError('two weeks and184 cells required')
+        if (index['weeks'], index['cells']) != (2, 184): raise ValueError('two weeks and 184 cells required')
         if not placement.same_json(index, json.loads((FIXTURES / 'index.json').read_text())):
             raise ValueError('supplement index differs')
     except (ValueError, OSError, KeyError, TypeError, StopIteration) as exc:
