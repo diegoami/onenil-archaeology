@@ -12,3 +12,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T08](T08.md): A trace corpus: T04's weeks traced in the harness, each checked against DOSBox-X (#40).
 - [T09](T09.md): The match's ratings: where D983's four values come from (#43).
 - [T10](T10.md): The watched match: one week with Watch match on, in DOSBox-X and in the harness (#44).
+- [T11](T11.md): Quick-contest routine contract and T08 replay fixtures (#67).

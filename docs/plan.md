@@ -63,8 +63,10 @@ first test replaying T08's corpus. F10 found that Watch match on runs a second e
 managed-match window has 67 draw sites from draw 258 on, three RNG entries and 158,992 draws under its
 recorded harness clock, against the quick match's 5,853 (whole watched week: 176,134). These counts
 are scoped to those runs; the watched stream's timer dependence remains to be read. O-M3a has two
-engines to read. [designed: owner, 2026-10-30] The interim review of T07–T10 comes before further
-engine research or onenil implementation; the choice of engine to read next remains open.
+engines to read. [designed: owner, 2026-10-30] After the interim review of T07–T10, the quick engine
+comes first: T11 records D983's routine contract against T08, and onenil T01 replays those cases in
+Rust. This first routine slice precedes reading the remaining quick-match loop and is not a claim
+of whole-match, whole-week or watched-engine parity.
 
 ## Risks
 
