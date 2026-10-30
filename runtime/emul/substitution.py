@@ -129,7 +129,7 @@ def _cases_for(calls,ledger,prefixes,source,trace,meta):
             if kind not in sites or e['site'] not in sites[kind]:raise ValueError('unknown helper/site')
             if kind=='managed':
                 raw.keys(e,'kind site side argument managed_clubs result');raw.integer(e['argument']);raw.vector(e['managed_clubs'],2);raw.integer(e['result'],0,1)
-                if pending=='keeper':raise ValueError('missing keeper observation')
+                if pending is not None:raise ValueError('missing mandatory side helper')
                 side=e['side'];managed.append(side)
                 if e['argument']!=state['clubs'][side]['id'] or e['managed_clubs']!=state['managed_clubs']:raise ValueError('managed context differs')
                 pending='keeper' if e['result'] else 'capacity'
@@ -155,7 +155,20 @@ def _cases_for(calls,ledger,prefixes,source,trace,meta):
                 if state!=e['input'] or not child_cursor<=e['draw_start']<=e['draw_end']<=c['draw_end']:raise ValueError('outbound continuation differs')
                 state=copy.deepcopy(e['output']);child_cursor=e['draw_end']
         if managed!=[0,1] or pending is not None:raise ValueError('incomplete/reordered side helpers')
-        state['control']=c['output']['control']
+        for side in range(2):
+            visits=[e for e in c['events'] if e['side']==side]
+            tokens=[e['site'] for e in visits]
+            if not visits[0]['result']:
+                if tokens[:2]!=['0AB9:6B48','0AB9:6BD5'] or any(t!='0AB9:6CA5' for t in tokens[2:]):raise ValueError('AI call footprint differs')
+            else:
+                if tokens[:2]!=['0AB9:6B48','0AB9:6B68']:raise ValueError('managed call footprint differs')
+                rest=tokens[2:]
+                allowed=([],['0AB9:6B8C'],['0AB9:6B99','0AB9:6BB4'],['0AB9:6B99','0AB9:6BB4','0AB9:6BC6'],
+                         ['0AB9:6B8C','0AB9:6B99','0AB9:6BB4'],['0AB9:6B8C','0AB9:6B99','0AB9:6BB4','0AB9:6BC6'])
+                if rest not in allowed:raise ValueError('managed call footprint differs')
+        if any(e['kind']=='prompt' for e in c['events']):
+            if c['output']['control']!=0:raise ValueError('prompt control not cleared')
+            state['control']=0
         if state!=c['output']:raise ValueError('unobserved dispatcher mutation')
         rows.append({'schema':'substitution-case/1','week':source['t04_record'],**c,'draws':draws[c['draw_start']:c['draw_end']],
                      'source':{'t20_record':meta['record'],'t20_record_sha256':meta['record_sha256'],'t20_cases':meta['cases'],'t20_cases_sha256':meta['cases_sha256']}})
