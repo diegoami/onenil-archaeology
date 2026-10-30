@@ -15,6 +15,23 @@ spec.loader.exec_module(observer)
 from test_contests import specimen as contest_specimen
 
 
+def test_complete_committed_public_ratings_corpus():
+    # The original, emulator and private savestates are not needed for this check.
+    assert observer.main(["--check"]) == 0
+
+
+@pytest.mark.parametrize("prefix", ["traces/T15/T15-r", "runs/T15/T15-r", "runs/T09/T09-r", "traces/T08/"])
+def test_public_corpus_rejects_record_fixture_and_retained_source_digest_changes(prefix):
+    original_sha = observer.contests.sha
+
+    def damaged_sha(path):
+        relative = Path(path).relative_to(ROOT).as_posix()
+        return "0" * 64 if relative.startswith(prefix) else original_sha(path)
+
+    with patch.object(observer.contests, "sha", side_effect=damaged_sha):
+        assert observer.main(["--check"]) == 1
+
+
 def raw_tables():
     return {"halving_group": [0, 1, 0], "halving_flags": [[0] * 14, [1] * 14],
             "position_class": [0, 1, 1, 4, 4, 2, 2, 2, 2, 5, 5, 5, 3, 3],
