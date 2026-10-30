@@ -40,6 +40,17 @@ recorded, and push their records while they run. A session resumes from the late
 comment and rechecks live heads and checks first; a run found stopped is resumed, never assumed to
 have passed.
 
+For another computer, clone both repositories, preferably as siblings. Read the rules and the
+latest checkpoint comments in [onenil-archaeology #1](https://github.com/diegoami/onenil-archaeology/issues/1)
+and [onenil #1](https://github.com/diegoami/onenil/issues/1), then recheck live heads, labels and
+checks. These checkpoints own current status, unfinished work, checked commits and the next
+bounded action; do not infer current work from an old task definition or a local cache.
+
+The READMEs contain public-check/build commands. Their decoded fixtures travel in git; neither
+public corpus verification nor native replay needs private game bytes. A new original-code run
+also needs the [private artifacts](artifacts.md#restoring-on-another-computer). Virtual environments,
+compiled extensions, build caches and temporary worktrees are regenerated on the new machine.
+
 ## 5. Bugs and triage
 
 Bugs and non-blocking findings are issues labelled `triage:needed`; triage decides fix, task,
