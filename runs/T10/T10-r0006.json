@@ -1,0 +1,204 @@
+{
+  "schema": "run/1",
+  "run_id": "T10-r0006",
+  "experiment": "T10",
+  "arm": "unicorn-week",
+  "rep": 6,
+  "code_commit": "cc05550",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/match.py@cc05550",
+    "unicorn": "2.1.4",
+    "python": "3.14.7",
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "PIT_HZ": 1193182,
+      "KEY_HOLD": 1600000,
+      "STALL_POLLS": 3,
+      "OTHER_STALL_POLLS": 200000,
+      "IF_RETRY": 200,
+      "SLICE_MAX": 1000,
+      "dos_clock": {
+        "date": [
+          1995,
+          8,
+          1,
+          2
+        ],
+        "time": [
+          10,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T05/T05-r0001.sav",
+    "sha256": "64af71e7e4d2e1dcc366825a2a3958f1395ab686cb684e5073939cf88ef79539",
+    "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/match.py",
+    "args": [
+      "64af71e7e4d2e1dc",
+      "--compare",
+      "runs/T10/T10-r0002.json"
+    ],
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    },
+    "last_checkpoint": "runs/T10/partial/T10-r0006-p0006.json"
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "the trace written, path",
+      "value": "traces/T10/64af71e7e4d2e1dc-week-r0002.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "the trace written, sha256",
+      "value": "109f88d446899541136ccfe81c02336a31f2757c20002ac0e0cc3b0270c639ab"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "comparison with a DOSBox-X week record",
+      "value": "the start state restored (2eb6ffb296cb2e54) = key wait 0\nscreen 2 (4361807016fd9da2) = key wait 1\nscreen 4 (bda187f1fbe8db58) not met in order\nnot all of the record's 9 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "end",
+      "value": {
+        "kind": "end",
+        "status": "stopped: GuestError: requested checkpoint stop",
+        "draws": 935,
+        "screens": 2,
+        "run_on_stops": 3,
+        "instruction_budget": 118197140,
+        "timer_ticks": 6885,
+        "game_timer_ticks": 6885,
+        "result": null,
+        "services": [
+          "int 21 ah 25",
+          "int 21 ah 35",
+          "int 33 ax 0003"
+        ],
+        "unsupported": [],
+        "service_counts": {
+          "int 21 fn 0025": 1,
+          "int 21 fn 0035": 1,
+          "int 33 fn 0003": 614948
+        },
+        "mouse_answers": {
+          "ax=0003 -> bx,cx,dx = 0,100,100": 614948
+        },
+        "dos_calls": [
+          {
+            "ah": "35",
+            "at": "26B8:0086",
+            "in": {
+              "ax": 13596,
+              "bx": 0,
+              "cx": 0,
+              "dx": 3,
+              "ds": 12423,
+              "es": 25590
+            },
+            "result": {
+              "ax": 13596,
+              "bx": 52192,
+              "cx": 0,
+              "dx": 3,
+              "es": 61440,
+              "carry": false
+            }
+          },
+          {
+            "ah": "25",
+            "at": "26B8:00A2",
+            "in": {
+              "ax": 9500,
+              "bx": 52192,
+              "cx": 0,
+              "dx": 0,
+              "ds": 8635,
+              "es": 12423
+            },
+            "result": {
+              "ax": 9500,
+              "bx": 52192,
+              "cx": 0,
+              "dx": 0,
+              "es": 12423,
+              "carry": false
+            }
+          }
+        ],
+        "files_written": [],
+        "state_digests": {
+          "DS:DCD8": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+          "DS:DCDA": "2478f80dfeeb8baa2ddf7ff28ac8daf29188bead47cc4cd78a69c76a84621cec",
+          "[DS:D7BA]": "15ea992677a4f3702acff26ffd731141ab82bebb145a6a348e714b7fe9b8d5ab",
+          "[DS:D7BE]": "18df11a2e66f9f26425155b51e174ab30185d57a2964054dd18591546386ba51",
+          "[DS:D7C2]": "73e2e93e0d800938024bde0b706a3397087161b88660d0ef46bf816b030c9bd5",
+          "[DS:D7C6]": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+          "[DS:D7CA]": "efabd56a9400ddf06dc1ac6b549aa230f56db7a3aa674f85927b17ddc72b51e9",
+          "[DS:D7CE]": "8369c8426f639bd09ef750ba8473fba6fd3b9129b7fbe1331085a36616643f2f",
+          "[DS:D7D2]": "e264070121a8a7d73428d7b5a22cfee8ca724edfbf377bc5a58726657e9d91ca",
+          "DS:D7D6": "7d93e243cccdd63c9f0f949d296bdf5f2e1e7b5fe450e52400c2e0e17da2e7f4",
+          "DS:DCA6": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+          "DS:DCAE": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+          "[DS:DCB6]": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4",
+          "DS:DCBA": "1c53d1a46b3330cc470eecfb6a3d9b8d61cebe92f81c6551c5c6afe5a35071d5",
+          "[DS:DE84]": "4e7ea4f7b3e7f80d893bca0ce56c8fc5d7ef9a723d642bc1ddcfdddf5cdc2f49",
+          "[DS:DCBC]": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3",
+          "[DS:DCC0]": "aa95a8e4d875b25841484bc908ca29d2c4f59c2885e0b3235b63c6df63997a85",
+          "[DS:DCC4]": "5bf07c4c66be70cc74b41d0654906e6d531bce854a332804ba704d10e7f3271f",
+          "[DS:DCC8]": "4c89ee10bc150dac35e0bd33eeaf0dec919f7aeb279e19e00aa182b99fdb1163",
+          "[DS:DCD4]": "457e30c6e9909c60e9d7c2c4cdab4bbdccdfb087c24fd28e211aed0b8a8fd7c1",
+          "[DS:DCCC]": "e7604388afc9c2a9bd7f854e5cd9127a7e80d9a1b94aba11f1b43756ce3d82d7",
+          "[DS:DCD0]": "a541eeef2cd7e9af7b285ccbe311555c2cebd6f6afa74ed419bf6a681b55ecfe",
+          "[DS:D7AA]": "2f75d9f9da523c4513798c825cdfcf1173af162b4f3eff8330adacafad928fc7",
+          "DS:D936": "f5cdb7000d05aeb72a4958faabf68c347ab7e4180f92852070ac8a1ac286b998",
+          "DS:D9E6": "4bdc6ab7058bfb77791c7ad404f673839e34d028afb2d78ff5ae96edbd7e0742",
+          "[DS:DCDC]": "20a04613814bf7670ad342ff94541af24a50d9f6d7d8dc0fac59cf525ea26319",
+          "DS:DCE0": "dbc1b4c900ffe48d575b5da5c638040125f65db0fe3e24494b76ea986457d986",
+          "[DS:DCE2]": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3"
+        }
+      }
+    }
+  ],
+  "started": "2026-10-30T09:42:30Z",
+  "ended": "2026-10-30T09:43:33Z",
+  "status": "aborted: comparison failed (stopped: GuestError: requested checkpoint stop)"
+}

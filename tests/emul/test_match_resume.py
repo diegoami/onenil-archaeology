@@ -41,7 +41,7 @@ class SyntheticWeek(match.Week):
 def run(root, args):
     with patch.object(match, "ROOT", root), patch.object(match, "Week", SyntheticWeek), \
          patch.object(match, "signature", return_value={"unicorn": "test", "constants": {}}), \
-         patch.object(match, "git", side_effect=lambda *a: "abc123" if a[0] == "rev-parse" else ""), \
+         patch.object(match, "git", side_effect=lambda *a: {"rev-parse": "abc123", "branch": "fix/test"}.get(a[0], "")), \
          patch.object(match, "find_state", return_value=(root / "state.sav", b"synthetic state")):
         return match.main(args)
 
@@ -88,3 +88,12 @@ def test_orphaned_partial_reserves_run_and_trace_numbers(tmp_path):
     assert run(tmp_path, ["--state", "abc"]) == 0
     assert (tmp_path / "runs/T06/T06-r0002.json").exists()
     assert len(list((tmp_path / "traces/T06").glob("*-r0002.jsonl"))) == 1
+
+
+def test_publication_failure_retains_resumable_partial_and_aborted_receipt(tmp_path):
+    with patch.object(match, "publish_partial", side_effect=OSError("synthetic upload failure")):
+        assert run(tmp_path, ["--state", "abc", "--publish-checkpoints"]) == 1
+    receipt = next((tmp_path / "runs/T06/partial").glob("*.json"))
+    final = json.loads((tmp_path / "runs/T06/T06-r0001.json").read_text())
+    assert final["status"] == "aborted: stopped: OSError: synthetic upload failure"
+    assert run(tmp_path, ["--resume", str(receipt)]) == 0

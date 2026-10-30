@@ -76,6 +76,25 @@ trusted checkpoints made here and kept in the owner's private Drive (the private
 `--stop-after-checkpoints N` and a shorter `--checkpoint-seconds` support controlled recovery checks;
 they stop with an aborted receipt, and never mean a completed week.
 
+Recovery checks at `cc05550` (review #47), retained under `runs/T10/`, `runs/T10/partial/`
+and `traces/T10/`:
+
+- `[confirmed]` `T10-r0004` deliberately stopped the **quick** week after 258 draws at checkpoint
+  `T10-r0004-p0005`; `T10-r0005` restored it and completed. All draw/screen/mark events and the
+  recorded end measurements equal T06-r0005's, with the added `run_on_stops: 0` field. All seven
+  DOSBox-X key waits match in order; result 0–2. The new start metadata names the recovery code.
+- `[confirmed]` `T10-r0006` deliberately stopped the **watched** week at 935 draws / three run-ons;
+  `T10-r0007` restored checkpoint `T10-r0006-p0006` and stopped at 1,337 draws / four run-ons.
+  Both event prefixes (excluding start metadata and aborted end) equal the corresponding prefix
+  of the completed T10-r0003 trace, and the resumed trace retains the interrupted prefix exactly.
+  These are partial recovery checks, not additional completed watched matches; their comparison
+  receipts correctly fail because later required screens were never reached.
+- `[confirmed]` All 14 partial receipts' private-image and event-chunk digests were checked. Private
+  images are retained in the Drive destinations named in those receipts. Synthetic tests additionally
+  exercise CPU/memory, timer, held/queued keys, open files, pending RNG hooks, publication failures
+  and byte-identical interrupted/resumed versus uninterrupted traces (`tests/emul/test_checkpoint.py`,
+  `test_match_resume.py`). No prior run or trace was edited.
+
 ## The trace
 
 One JSON object per line, keys sorted, in the order things happened. Every line has `kind`.

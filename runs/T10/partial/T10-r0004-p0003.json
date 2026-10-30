@@ -1,0 +1,140 @@
+{
+  "schema": "run/1",
+  "run_id": "T10-r0004-p0003",
+  "experiment": "T10",
+  "arm": "unicorn-week",
+  "rep": 4,
+  "code_commit": "cc05550",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/match.py@cc05550",
+    "unicorn": "2.1.4",
+    "python": "3.14.7",
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "PIT_HZ": 1193182,
+      "KEY_HOLD": 1600000,
+      "STALL_POLLS": 3,
+      "OTHER_STALL_POLLS": 200000,
+      "IF_RETRY": 200,
+      "SLICE_MAX": 1000,
+      "dos_clock": {
+        "date": [
+          1995,
+          8,
+          1,
+          2
+        ],
+        "time": [
+          10,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-load-r0001.sav",
+    "sha256": "cf7eb2d04211ba883219dc2418b60410ff0fdd473eeb5d40698288414905779f",
+    "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/match.py",
+    "args": [
+      "cf7eb2d04211ba88",
+      "--compare",
+      "runs/T04/T04-week-r0001.json"
+    ],
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [],
+  "outputs": [
+    {
+      "name": "checkpoint",
+      "value": {
+        "private_path": ".cache/checkpoints/T10/T10-r0004-p0003.pkl.gz",
+        "private_sha256": "a9e026ced94c3b0d29d61780a7b3c2c4661b7fcd2f0e2a563b277303134f6bbf",
+        "drive_path": "checkpoints/T10/T10-r0004-p0003.pkl.gz",
+        "signature": {
+          "sources": {
+            "runtime/emul/checkpoint.py": "50298268120cd129e54da84a485f1d88f26c742ced6d5ec6664fd2b9f6560e6a",
+            "runtime/emul/corpus.py": "041367c025c724932f6b16f71c3860e2dfae4670cafaf7605b1b2046fb13cdca",
+            "runtime/emul/guest.py": "45b12121ad07d29f4ee82270cf55515317477dc7c9fa4feee24e68f7e559ecb3",
+            "runtime/emul/listing.py": "ccb3235c458a681a183724e07f5457fcebc521189e7111ae28f6fe4481c1027b",
+            "runtime/emul/match.py": "2bcec9356992889df9dcaff6098b5d2d136f416eb4ae5393043255651b48fbce",
+            "runtime/driver/cycle.py": "39f0ac6bae470622dba9384025124f0312f32f9f25831edff737ce845c290a83",
+            "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+            "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+            "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+            "runtime/driver/watched.py": "dbd2081de5fc642ab40cf78b54d99c6c5f57a1578a7c1a25174f61434c5616ca",
+            "runtime/driver/weeks.py": "a03db02cd17b707f93336a99fd3c9172ecbc4d965d395c71202f24f0f769d682",
+            "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+            "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045"
+          },
+          "unicorn": "2.1.4",
+          "python": "3.14.7",
+          "constants": {
+            "INSTR_PER_S": 20000000,
+            "PIT_HZ": 1193182,
+            "KEY_HOLD": 1600000,
+            "STALL_POLLS": 3,
+            "OTHER_STALL_POLLS": 200000,
+            "IF_RETRY": 200,
+            "SLICE_MAX": 1000
+          }
+        },
+        "chunks": [
+          {
+            "path": "traces/T10/partial/cf7eb2d04211ba88-week-r0001-p0001.jsonl",
+            "sha256": "2d9f62b03fe173eeb44d3a71f8be64923c7abfe82dd787802f4b9c5bcdc3afe8"
+          },
+          {
+            "path": "traces/T10/partial/cf7eb2d04211ba88-week-r0001-p0002.jsonl",
+            "sha256": "943d8ac8fe7dd1f02bd1ec7bb0e7510397973c2212dc8237ae3ed40ec7802082"
+          },
+          {
+            "path": "traces/T10/partial/cf7eb2d04211ba88-week-r0001-p0003.jsonl",
+            "sha256": "b78a1e39f1fae3f1a1689700277cb7a70210c6e67f20ca5aba6be6370c58faa7"
+          }
+        ],
+        "draws": 0,
+        "screens": 2,
+        "run_on_stops": 0,
+        "instruction_budget": 1602508,
+        "out": "traces/T10",
+        "runs": "runs/T10",
+        "compare": "runs/T04/T04-week-r0001.json"
+      }
+    }
+  ],
+  "started": "2026-10-30T09:41:18Z",
+  "ended": "2026-10-30T09:41:19Z",
+  "status": "aborted: partial checkpoint; run may still be active"
+}
