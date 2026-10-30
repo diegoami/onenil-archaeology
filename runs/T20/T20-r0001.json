@@ -1,0 +1,6413 @@
+{
+  "schema": "run/1",
+  "run_id": "T20-r0001",
+  "experiment": "T20",
+  "arm": "post-score-strategy",
+  "rep": 1,
+  "code_commit": "c3bea1c63455c0a7dcf71702afd6e819d8f70351",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/post_score.py@c3bea1c63455c0a7dcf71702afd6e819d8f70351",
+    "unicorn": "2.1.4",
+    "python": "3.12.15",
+    "dos_clock": {
+      "date": [
+        1995,
+        8,
+        1,
+        2
+      ],
+      "time": [
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "KEY_HOLD": 1600000,
+      "PIT_HZ": 1193182,
+      "SLICE_MAX": 1000
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "guest.py services and read-only strategy/late-call hooks"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-load-r0003.sav",
+    "sha256": "841b0d3fb4398724a3cdb9db1cf015606ba78fcc02c734fca6b4fff1292221d7",
+    "restore": "DOSBox-X savestate restored by guest.py"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/post_score.py",
+    "source": {
+      "t16_record": "runs/T16/T16-r0001.json",
+      "t16_record_sha256": "1fb871b7505aea200f783d896cf1494bff233d577594abbce53b6fb460fd5f01"
+    },
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture path",
+      "value": "traces/T20/T20-r0001.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture sha256",
+      "value": "bf22daf3937242df24fefb345085bb098646bc67af94ba439971075fff5f367d"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "ordered DOSBox-X comparison",
+      "value": "screen 1 (4361807016fd9da2) = key wait 3\nscreen 7 (match, unchanged for 5 reads) (f2f0fccca5d6ac67) = key wait 4\nscreen 8 (0c352266b60c3e34) = key wait 5\nscreen 14 (match, unchanged for 5 reads) (b01f8b4f6a2e5eb7) = key wait 6\nscreen 15 (79364b8b77812f99) = key wait 7\nscreen 16 (7ff6c091b6c076e5) = key wait 8\nmain menu after the week (8aebf82c97db6839) = key wait 9\nall of the record's 7 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "calls",
+      "value": [
+        {
+          "step": 27,
+          "argument": 1,
+          "input": {
+            "seed": 11827,
+            "scores": [
+              1,
+              0
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 17,
+                "roster": [
+                  321,
+                  322,
+                  323,
+                  324,
+                  325,
+                  326,
+                  327,
+                  333,
+                  329,
+                  330,
+                  331,
+                  338,
+                  336,
+                  334,
+                  328,
+                  335,
+                  337,
+                  332,
+                  0,
+                  0
+                ],
+                "byte51": 33,
+                "byte54": 0,
+                "strategy": 225,
+                "baseline_index": 11,
+                "baseline_value": 225
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 321,
+                "age": 28,
+                "flags3": 240,
+                "level": 1,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 322,
+                "age": 24,
+                "flags3": 240,
+                "level": 8,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 323,
+                "age": 28,
+                "flags3": 240,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 324,
+                "age": 27,
+                "flags3": 240,
+                "level": 8,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 325,
+                "age": 26,
+                "flags3": 240,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 326,
+                "age": 25,
+                "flags3": 240,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 327,
+                "age": 24,
+                "flags3": 240,
+                "level": 15,
+                "position": 7,
+                "flags10": 0
+              },
+              {
+                "id": 328,
+                "age": 22,
+                "flags3": 240,
+                "level": 6,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 329,
+                "age": 27,
+                "flags3": 240,
+                "level": 14,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 330,
+                "age": 26,
+                "flags3": 240,
+                "level": 6,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 331,
+                "age": 25,
+                "flags3": 240,
+                "level": 13,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 332,
+                "age": 21,
+                "flags3": 240,
+                "level": 5,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 333,
+                "age": 29,
+                "flags3": 240,
+                "level": 13,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 334,
+                "age": 20,
+                "flags3": 240,
+                "level": 4,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 335,
+                "age": 20,
+                "flags3": 240,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 336,
+                "age": 22,
+                "flags3": 240,
+                "level": 4,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 337,
+                "age": 21,
+                "flags3": 240,
+                "level": 11,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 338,
+                "age": 32,
+                "flags3": 240,
+                "level": 3,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_start": 1976,
+          "paths": [
+            {
+              "routine": "0AB9:A23C",
+              "side": 0
+            }
+          ],
+          "setters": [
+            {
+              "club": 17,
+              "value": 225,
+              "input": {
+                "seed": 11827,
+                "scores": [
+                  1,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 17,
+                    "roster": [
+                      321,
+                      322,
+                      323,
+                      324,
+                      325,
+                      326,
+                      327,
+                      333,
+                      329,
+                      330,
+                      331,
+                      338,
+                      336,
+                      334,
+                      328,
+                      335,
+                      337,
+                      332,
+                      0,
+                      0
+                    ],
+                    "byte51": 33,
+                    "byte54": 0,
+                    "strategy": 225,
+                    "baseline_index": 11,
+                    "baseline_value": 225
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 321,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 1,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 322,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 323,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 324,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 325,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 326,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 327,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 7,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 328,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 329,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 14,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 330,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 331,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 332,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 5,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 333,
+                    "age": 29,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 334,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 335,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 336,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 337,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 11,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 338,
+                    "age": 32,
+                    "flags3": 240,
+                    "level": 3,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_start": 0,
+              "output": {
+                "seed": 11827,
+                "scores": [
+                  1,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 17,
+                    "roster": [
+                      321,
+                      322,
+                      323,
+                      324,
+                      325,
+                      326,
+                      327,
+                      333,
+                      329,
+                      330,
+                      331,
+                      338,
+                      336,
+                      334,
+                      328,
+                      335,
+                      337,
+                      332,
+                      0,
+                      0
+                    ],
+                    "byte51": 33,
+                    "byte54": 0,
+                    "strategy": 225,
+                    "baseline_index": 11,
+                    "baseline_value": 225
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 321,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 1,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 322,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 323,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 324,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 325,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 326,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 327,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 7,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 328,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 329,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 14,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 330,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 331,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 332,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 5,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 333,
+                    "age": 29,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 334,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 335,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 336,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 337,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 11,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 338,
+                    "age": 32,
+                    "flags3": 240,
+                    "level": 3,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_end": 18
+            }
+          ],
+          "normalizers": [
+            {
+              "player": 321,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 322,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 323,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 324,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 325,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 326,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 327,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 333,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 329,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 330,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 331,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 338,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 336,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 334,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 328,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 335,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 337,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 332,
+              "before": 0,
+              "after": 0
+            }
+          ],
+          "getters": [
+            {
+              "club": 130,
+              "value": 154
+            },
+            {
+              "club": 17,
+              "value": 159
+            }
+          ],
+          "output": {
+            "seed": 11827,
+            "scores": [
+              1,
+              0
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 17,
+                "roster": [
+                  321,
+                  322,
+                  323,
+                  324,
+                  325,
+                  326,
+                  327,
+                  333,
+                  329,
+                  330,
+                  331,
+                  338,
+                  336,
+                  334,
+                  328,
+                  335,
+                  337,
+                  332,
+                  0,
+                  0
+                ],
+                "byte51": 33,
+                "byte54": 0,
+                "strategy": 225,
+                "baseline_index": 11,
+                "baseline_value": 225
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 321,
+                "age": 28,
+                "flags3": 240,
+                "level": 1,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 322,
+                "age": 24,
+                "flags3": 240,
+                "level": 8,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 323,
+                "age": 28,
+                "flags3": 240,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 324,
+                "age": 27,
+                "flags3": 240,
+                "level": 8,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 325,
+                "age": 26,
+                "flags3": 240,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 326,
+                "age": 25,
+                "flags3": 240,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 327,
+                "age": 24,
+                "flags3": 240,
+                "level": 15,
+                "position": 7,
+                "flags10": 0
+              },
+              {
+                "id": 328,
+                "age": 22,
+                "flags3": 240,
+                "level": 6,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 329,
+                "age": 27,
+                "flags3": 240,
+                "level": 14,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 330,
+                "age": 26,
+                "flags3": 240,
+                "level": 6,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 331,
+                "age": 25,
+                "flags3": 240,
+                "level": 13,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 332,
+                "age": 21,
+                "flags3": 240,
+                "level": 5,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 333,
+                "age": 29,
+                "flags3": 240,
+                "level": 13,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 334,
+                "age": 20,
+                "flags3": 240,
+                "level": 4,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 335,
+                "age": 20,
+                "flags3": 240,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 336,
+                "age": 22,
+                "flags3": 240,
+                "level": 4,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 337,
+                "age": 21,
+                "flags3": 240,
+                "level": 11,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 338,
+                "age": 32,
+                "flags3": 240,
+                "level": 3,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_end": 1976
+        },
+        {
+          "step": 45,
+          "argument": 1,
+          "input": {
+            "seed": 4999,
+            "scores": [
+              2,
+              0
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 17,
+                "roster": [
+                  321,
+                  322,
+                  323,
+                  324,
+                  325,
+                  326,
+                  327,
+                  333,
+                  329,
+                  330,
+                  331,
+                  338,
+                  336,
+                  334,
+                  328,
+                  335,
+                  337,
+                  332,
+                  0,
+                  0
+                ],
+                "byte51": 33,
+                "byte54": 0,
+                "strategy": 225,
+                "baseline_index": 11,
+                "baseline_value": 225
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 321,
+                "age": 28,
+                "flags3": 240,
+                "level": 1,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 322,
+                "age": 24,
+                "flags3": 240,
+                "level": 8,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 323,
+                "age": 28,
+                "flags3": 240,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 324,
+                "age": 27,
+                "flags3": 240,
+                "level": 8,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 325,
+                "age": 26,
+                "flags3": 240,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 326,
+                "age": 25,
+                "flags3": 240,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 327,
+                "age": 24,
+                "flags3": 240,
+                "level": 15,
+                "position": 7,
+                "flags10": 0
+              },
+              {
+                "id": 328,
+                "age": 22,
+                "flags3": 240,
+                "level": 6,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 329,
+                "age": 27,
+                "flags3": 240,
+                "level": 14,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 330,
+                "age": 26,
+                "flags3": 240,
+                "level": 6,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 331,
+                "age": 25,
+                "flags3": 240,
+                "level": 13,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 332,
+                "age": 21,
+                "flags3": 240,
+                "level": 5,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 333,
+                "age": 29,
+                "flags3": 240,
+                "level": 13,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 334,
+                "age": 20,
+                "flags3": 240,
+                "level": 4,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 335,
+                "age": 20,
+                "flags3": 240,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 336,
+                "age": 22,
+                "flags3": 240,
+                "level": 4,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 337,
+                "age": 21,
+                "flags3": 240,
+                "level": 11,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 338,
+                "age": 32,
+                "flags3": 240,
+                "level": 3,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_start": 3148,
+          "paths": [
+            {
+              "routine": "0AB9:A34D",
+              "side": 0,
+              "raise": 0
+            },
+            {
+              "routine": "0AB9:A23C",
+              "side": 0
+            }
+          ],
+          "setters": [
+            {
+              "club": 17,
+              "value": 225,
+              "input": {
+                "seed": 4999,
+                "scores": [
+                  2,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 17,
+                    "roster": [
+                      321,
+                      322,
+                      323,
+                      324,
+                      325,
+                      326,
+                      327,
+                      333,
+                      329,
+                      330,
+                      331,
+                      338,
+                      336,
+                      334,
+                      328,
+                      335,
+                      337,
+                      332,
+                      0,
+                      0
+                    ],
+                    "byte51": 33,
+                    "byte54": 0,
+                    "strategy": 225,
+                    "baseline_index": 11,
+                    "baseline_value": 225
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 321,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 1,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 322,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 323,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 324,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 325,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 326,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 327,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 7,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 328,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 329,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 14,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 330,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 331,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 332,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 5,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 333,
+                    "age": 29,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 334,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 335,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 336,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 337,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 11,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 338,
+                    "age": 32,
+                    "flags3": 240,
+                    "level": 3,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_start": 0,
+              "output": {
+                "seed": 4999,
+                "scores": [
+                  2,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 17,
+                    "roster": [
+                      321,
+                      322,
+                      323,
+                      324,
+                      325,
+                      326,
+                      327,
+                      333,
+                      329,
+                      330,
+                      331,
+                      338,
+                      336,
+                      334,
+                      328,
+                      335,
+                      337,
+                      332,
+                      0,
+                      0
+                    ],
+                    "byte51": 33,
+                    "byte54": 0,
+                    "strategy": 225,
+                    "baseline_index": 11,
+                    "baseline_value": 225
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 321,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 1,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 322,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 323,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 324,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 325,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 326,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 327,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 7,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 328,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 329,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 14,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 330,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 331,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 332,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 5,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 333,
+                    "age": 29,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 334,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 335,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 336,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 337,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 11,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 338,
+                    "age": 32,
+                    "flags3": 240,
+                    "level": 3,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_end": 18
+            },
+            {
+              "club": 17,
+              "value": 193,
+              "input": {
+                "seed": 63404,
+                "scores": [
+                  2,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 17,
+                    "roster": [
+                      321,
+                      322,
+                      323,
+                      324,
+                      325,
+                      326,
+                      327,
+                      333,
+                      329,
+                      330,
+                      331,
+                      338,
+                      336,
+                      334,
+                      328,
+                      335,
+                      337,
+                      332,
+                      0,
+                      0
+                    ],
+                    "byte51": 33,
+                    "byte54": 0,
+                    "strategy": 193,
+                    "baseline_index": 11,
+                    "baseline_value": 225
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 321,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 1,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 322,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 323,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 324,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 325,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 326,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 327,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 7,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 328,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 329,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 14,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 330,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 331,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 332,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 5,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 333,
+                    "age": 29,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 334,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 335,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 336,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 337,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 11,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 338,
+                    "age": 32,
+                    "flags3": 240,
+                    "level": 3,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_start": 18,
+              "output": {
+                "seed": 63404,
+                "scores": [
+                  2,
+                  0
+                ],
+                "managed_clubs": [
+                  130,
+                  0
+                ],
+                "limits": [
+                  6,
+                  4
+                ],
+                "raised": [
+                  0,
+                  0
+                ],
+                "lowered": [
+                  0,
+                  0
+                ],
+                "clubs": [
+                  {
+                    "id": 17,
+                    "roster": [
+                      321,
+                      322,
+                      323,
+                      324,
+                      325,
+                      326,
+                      327,
+                      333,
+                      329,
+                      330,
+                      331,
+                      338,
+                      336,
+                      334,
+                      328,
+                      335,
+                      337,
+                      332,
+                      0,
+                      0
+                    ],
+                    "byte51": 33,
+                    "byte54": 0,
+                    "strategy": 193,
+                    "baseline_index": 11,
+                    "baseline_value": 225
+                  },
+                  {
+                    "id": 130,
+                    "roster": [
+                      2581,
+                      2582,
+                      2583,
+                      2584,
+                      2585,
+                      2586,
+                      2587,
+                      2588,
+                      2589,
+                      2590,
+                      2591,
+                      2592,
+                      2593,
+                      2594,
+                      2595,
+                      2596,
+                      2597,
+                      2598,
+                      0,
+                      0
+                    ],
+                    "byte51": 38,
+                    "byte54": 1,
+                    "strategy": 75,
+                    "baseline_index": 8,
+                    "baseline_value": 75
+                  }
+                ],
+                "players": [
+                  {
+                    "id": 0,
+                    "age": 0,
+                    "flags3": 0,
+                    "level": 0,
+                    "position": 0,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 321,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 1,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 322,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 1,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 323,
+                    "age": 28,
+                    "flags3": 240,
+                    "level": 16,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 324,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 8,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 325,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 326,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 327,
+                    "age": 24,
+                    "flags3": 240,
+                    "level": 15,
+                    "position": 7,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 328,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 329,
+                    "age": 27,
+                    "flags3": 240,
+                    "level": 14,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 330,
+                    "age": 26,
+                    "flags3": 240,
+                    "level": 6,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 331,
+                    "age": 25,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 332,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 5,
+                    "position": 8,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 333,
+                    "age": 29,
+                    "flags3": 240,
+                    "level": 13,
+                    "position": 9,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 334,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 335,
+                    "age": 20,
+                    "flags3": 240,
+                    "level": 12,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 336,
+                    "age": 22,
+                    "flags3": 240,
+                    "level": 4,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 337,
+                    "age": 21,
+                    "flags3": 240,
+                    "level": 11,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 338,
+                    "age": 32,
+                    "flags3": 240,
+                    "level": 3,
+                    "position": 0,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2581,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 0,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2582,
+                    "age": 20,
+                    "flags3": 217,
+                    "level": 1,
+                    "position": 2,
+                    "flags10": 178
+                  },
+                  {
+                    "id": 2583,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 9,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2584,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 3,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2585,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 8,
+                    "position": 4,
+                    "flags10": 17
+                  },
+                  {
+                    "id": 2586,
+                    "age": 26,
+                    "flags3": 217,
+                    "level": 16,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2587,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 6,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2588,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 15,
+                    "position": 10,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2589,
+                    "age": 27,
+                    "flags3": 217,
+                    "level": 7,
+                    "position": 11,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2590,
+                    "age": 21,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2591,
+                    "age": 24,
+                    "flags3": 217,
+                    "level": 6,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2592,
+                    "age": 35,
+                    "flags3": 217,
+                    "level": 14,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2593,
+                    "age": 25,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 12,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2594,
+                    "age": 30,
+                    "flags3": 217,
+                    "level": 13,
+                    "position": 5,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2595,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 5,
+                    "position": 2,
+                    "flags10": 50
+                  },
+                  {
+                    "id": 2596,
+                    "age": 29,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 13,
+                    "flags10": 0
+                  },
+                  {
+                    "id": 2597,
+                    "age": 23,
+                    "flags3": 217,
+                    "level": 4,
+                    "position": 4,
+                    "flags10": 145
+                  },
+                  {
+                    "id": 2598,
+                    "age": 31,
+                    "flags3": 217,
+                    "level": 12,
+                    "position": 0,
+                    "flags10": 17
+                  }
+                ]
+              },
+              "normalizer_end": 36
+            }
+          ],
+          "normalizers": [
+            {
+              "player": 321,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 322,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 323,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 324,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 325,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 326,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 327,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 333,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 329,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 330,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 331,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 338,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 336,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 334,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 328,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 335,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 337,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 332,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 321,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 322,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 323,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 324,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 325,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 326,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 327,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 333,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 329,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 330,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 331,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 338,
+              "before": 145,
+              "after": 145
+            },
+            {
+              "player": 336,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 334,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 328,
+              "before": 0,
+              "after": 0
+            },
+            {
+              "player": 335,
+              "before": 50,
+              "after": 50
+            },
+            {
+              "player": 337,
+              "before": 17,
+              "after": 17
+            },
+            {
+              "player": 332,
+              "before": 0,
+              "after": 0
+            }
+          ],
+          "getters": [
+            {
+              "club": 130,
+              "value": 154
+            },
+            {
+              "club": 17,
+              "value": 159
+            }
+          ],
+          "output": {
+            "seed": 63404,
+            "scores": [
+              2,
+              0
+            ],
+            "managed_clubs": [
+              130,
+              0
+            ],
+            "limits": [
+              6,
+              4
+            ],
+            "raised": [
+              0,
+              0
+            ],
+            "lowered": [
+              0,
+              0
+            ],
+            "clubs": [
+              {
+                "id": 17,
+                "roster": [
+                  321,
+                  322,
+                  323,
+                  324,
+                  325,
+                  326,
+                  327,
+                  333,
+                  329,
+                  330,
+                  331,
+                  338,
+                  336,
+                  334,
+                  328,
+                  335,
+                  337,
+                  332,
+                  0,
+                  0
+                ],
+                "byte51": 33,
+                "byte54": 0,
+                "strategy": 193,
+                "baseline_index": 11,
+                "baseline_value": 225
+              },
+              {
+                "id": 130,
+                "roster": [
+                  2581,
+                  2582,
+                  2583,
+                  2584,
+                  2585,
+                  2586,
+                  2587,
+                  2588,
+                  2589,
+                  2590,
+                  2591,
+                  2592,
+                  2593,
+                  2594,
+                  2595,
+                  2596,
+                  2597,
+                  2598,
+                  0,
+                  0
+                ],
+                "byte51": 38,
+                "byte54": 1,
+                "strategy": 75,
+                "baseline_index": 8,
+                "baseline_value": 75
+              }
+            ],
+            "players": [
+              {
+                "id": 0,
+                "age": 0,
+                "flags3": 0,
+                "level": 0,
+                "position": 0,
+                "flags10": 0
+              },
+              {
+                "id": 321,
+                "age": 28,
+                "flags3": 240,
+                "level": 1,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 322,
+                "age": 24,
+                "flags3": 240,
+                "level": 8,
+                "position": 1,
+                "flags10": 17
+              },
+              {
+                "id": 323,
+                "age": 28,
+                "flags3": 240,
+                "level": 16,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 324,
+                "age": 27,
+                "flags3": 240,
+                "level": 8,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 325,
+                "age": 26,
+                "flags3": 240,
+                "level": 15,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 326,
+                "age": 25,
+                "flags3": 240,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 327,
+                "age": 24,
+                "flags3": 240,
+                "level": 15,
+                "position": 7,
+                "flags10": 0
+              },
+              {
+                "id": 328,
+                "age": 22,
+                "flags3": 240,
+                "level": 6,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 329,
+                "age": 27,
+                "flags3": 240,
+                "level": 14,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 330,
+                "age": 26,
+                "flags3": 240,
+                "level": 6,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 331,
+                "age": 25,
+                "flags3": 240,
+                "level": 13,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 332,
+                "age": 21,
+                "flags3": 240,
+                "level": 5,
+                "position": 8,
+                "flags10": 0
+              },
+              {
+                "id": 333,
+                "age": 29,
+                "flags3": 240,
+                "level": 13,
+                "position": 9,
+                "flags10": 0
+              },
+              {
+                "id": 334,
+                "age": 20,
+                "flags3": 240,
+                "level": 4,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 335,
+                "age": 20,
+                "flags3": 240,
+                "level": 12,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 336,
+                "age": 22,
+                "flags3": 240,
+                "level": 4,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 337,
+                "age": 21,
+                "flags3": 240,
+                "level": 11,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 338,
+                "age": 32,
+                "flags3": 240,
+                "level": 3,
+                "position": 0,
+                "flags10": 145
+              },
+              {
+                "id": 2581,
+                "age": 27,
+                "flags3": 217,
+                "level": 9,
+                "position": 0,
+                "flags10": 17
+              },
+              {
+                "id": 2582,
+                "age": 20,
+                "flags3": 217,
+                "level": 1,
+                "position": 2,
+                "flags10": 178
+              },
+              {
+                "id": 2583,
+                "age": 29,
+                "flags3": 217,
+                "level": 9,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2584,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 3,
+                "flags10": 17
+              },
+              {
+                "id": 2585,
+                "age": 25,
+                "flags3": 217,
+                "level": 8,
+                "position": 4,
+                "flags10": 17
+              },
+              {
+                "id": 2586,
+                "age": 26,
+                "flags3": 217,
+                "level": 16,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2587,
+                "age": 25,
+                "flags3": 217,
+                "level": 7,
+                "position": 6,
+                "flags10": 0
+              },
+              {
+                "id": 2588,
+                "age": 23,
+                "flags3": 217,
+                "level": 15,
+                "position": 10,
+                "flags10": 0
+              },
+              {
+                "id": 2589,
+                "age": 27,
+                "flags3": 217,
+                "level": 7,
+                "position": 11,
+                "flags10": 0
+              },
+              {
+                "id": 2590,
+                "age": 21,
+                "flags3": 217,
+                "level": 14,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2591,
+                "age": 24,
+                "flags3": 217,
+                "level": 6,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2592,
+                "age": 35,
+                "flags3": 217,
+                "level": 14,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2593,
+                "age": 25,
+                "flags3": 217,
+                "level": 5,
+                "position": 12,
+                "flags10": 0
+              },
+              {
+                "id": 2594,
+                "age": 30,
+                "flags3": 217,
+                "level": 13,
+                "position": 5,
+                "flags10": 0
+              },
+              {
+                "id": 2595,
+                "age": 29,
+                "flags3": 217,
+                "level": 5,
+                "position": 2,
+                "flags10": 50
+              },
+              {
+                "id": 2596,
+                "age": 29,
+                "flags3": 217,
+                "level": 12,
+                "position": 13,
+                "flags10": 0
+              },
+              {
+                "id": 2597,
+                "age": 23,
+                "flags3": 217,
+                "level": 4,
+                "position": 4,
+                "flags10": 145
+              },
+              {
+                "id": 2598,
+                "age": 31,
+                "flags3": 217,
+                "level": 12,
+                "position": 0,
+                "flags10": 17
+              }
+            ]
+          },
+          "draw_end": 3151
+        }
+      ]
+    },
+    {
+      "name": "ledger",
+      "value": [
+        {
+          "step": 0,
+          "draw_start": 304,
+          "seed_start": 49387,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 304,
+              "seed_before": 49387,
+              "draw_end": 304,
+              "seed_after": 49387
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 304,
+              "seed_before": 49387,
+              "draw_end": 304,
+              "seed_after": 49387
+            }
+          ],
+          "draw_end": 304,
+          "seed_end": 49387
+        },
+        {
+          "step": 1,
+          "draw_start": 360,
+          "seed_start": 28003,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 360,
+              "seed_before": 28003,
+              "draw_end": 360,
+              "seed_after": 28003
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 360,
+              "seed_before": 28003,
+              "draw_end": 360,
+              "seed_after": 28003
+            }
+          ],
+          "draw_end": 360,
+          "seed_end": 28003
+        },
+        {
+          "step": 2,
+          "draw_start": 422,
+          "seed_start": 40761,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 422,
+              "seed_before": 40761,
+              "draw_end": 422,
+              "seed_after": 40761
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 422,
+              "seed_before": 40761,
+              "draw_end": 422,
+              "seed_after": 40761
+            }
+          ],
+          "draw_end": 422,
+          "seed_end": 40761
+        },
+        {
+          "step": 3,
+          "draw_start": 477,
+          "seed_start": 51850,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 477,
+              "seed_before": 51850,
+              "draw_end": 477,
+              "seed_after": 51850
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 477,
+              "seed_before": 51850,
+              "draw_end": 477,
+              "seed_after": 51850
+            }
+          ],
+          "draw_end": 477,
+          "seed_end": 51850
+        },
+        {
+          "step": 4,
+          "draw_start": 533,
+          "seed_start": 43426,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 533,
+              "seed_before": 43426,
+              "draw_end": 533,
+              "seed_after": 43426
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 533,
+              "seed_before": 43426,
+              "draw_end": 533,
+              "seed_after": 43426
+            }
+          ],
+          "draw_end": 533,
+          "seed_end": 43426
+        },
+        {
+          "step": 5,
+          "draw_start": 591,
+          "seed_start": 38316,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 591,
+              "seed_before": 38316,
+              "draw_end": 591,
+              "seed_after": 38316
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 591,
+              "seed_before": 38316,
+              "draw_end": 591,
+              "seed_after": 38316
+            }
+          ],
+          "draw_end": 591,
+          "seed_end": 38316
+        },
+        {
+          "step": 6,
+          "draw_start": 644,
+          "seed_start": 15487,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 644,
+              "seed_before": 15487,
+              "draw_end": 644,
+              "seed_after": 15487
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 644,
+              "seed_before": 15487,
+              "draw_end": 644,
+              "seed_after": 15487
+            }
+          ],
+          "draw_end": 644,
+          "seed_end": 15487
+        },
+        {
+          "step": 7,
+          "draw_start": 712,
+          "seed_start": 50627,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 712,
+              "seed_before": 50627,
+              "draw_end": 712,
+              "seed_after": 50627
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 712,
+              "seed_before": 50627,
+              "draw_end": 712,
+              "seed_after": 50627
+            }
+          ],
+          "draw_end": 712,
+          "seed_end": 50627
+        },
+        {
+          "step": 8,
+          "draw_start": 754,
+          "seed_start": 11173,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 754,
+              "seed_before": 11173,
+              "draw_end": 754,
+              "seed_after": 11173
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 754,
+              "seed_before": 11173,
+              "draw_end": 754,
+              "seed_after": 11173
+            }
+          ],
+          "draw_end": 754,
+          "seed_end": 11173
+        },
+        {
+          "step": 9,
+          "draw_start": 824,
+          "seed_start": 13747,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 824,
+              "seed_before": 13747,
+              "draw_end": 824,
+              "seed_after": 13747
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 824,
+              "seed_before": 13747,
+              "draw_end": 824,
+              "seed_after": 13747
+            }
+          ],
+          "draw_end": 824,
+          "seed_end": 13747
+        },
+        {
+          "step": 10,
+          "draw_start": 892,
+          "seed_start": 44855,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 892,
+              "seed_before": 44855,
+              "draw_end": 892,
+              "seed_after": 44855
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 892,
+              "seed_before": 44855,
+              "draw_end": 892,
+              "seed_after": 44855
+            }
+          ],
+          "draw_end": 892,
+          "seed_end": 44855
+        },
+        {
+          "step": 11,
+          "draw_start": 966,
+          "seed_start": 50521,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 966,
+              "seed_before": 50521,
+              "draw_end": 966,
+              "seed_after": 50521
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 966,
+              "seed_before": 50521,
+              "draw_end": 966,
+              "seed_after": 50521
+            }
+          ],
+          "draw_end": 966,
+          "seed_end": 50521
+        },
+        {
+          "step": 12,
+          "draw_start": 1040,
+          "seed_start": 25291,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1040,
+              "seed_before": 25291,
+              "draw_end": 1040,
+              "seed_after": 25291
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1040,
+              "seed_before": 25291,
+              "draw_end": 1040,
+              "seed_after": 25291
+            }
+          ],
+          "draw_end": 1040,
+          "seed_end": 25291
+        },
+        {
+          "step": 13,
+          "draw_start": 1120,
+          "seed_start": 34715,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1120,
+              "seed_before": 34715,
+              "draw_end": 1120,
+              "seed_after": 34715
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1120,
+              "seed_before": 34715,
+              "draw_end": 1120,
+              "seed_after": 34715
+            }
+          ],
+          "draw_end": 1120,
+          "seed_end": 34715
+        },
+        {
+          "step": 14,
+          "draw_start": 1186,
+          "seed_start": 1621,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1186,
+              "seed_before": 1621,
+              "draw_end": 1186,
+              "seed_after": 1621
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1186,
+              "seed_before": 1621,
+              "draw_end": 1186,
+              "seed_after": 1621
+            }
+          ],
+          "draw_end": 1186,
+          "seed_end": 1621
+        },
+        {
+          "step": 15,
+          "draw_start": 1242,
+          "seed_start": 29837,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1242,
+              "seed_before": 29837,
+              "draw_end": 1242,
+              "seed_after": 29837
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1242,
+              "seed_before": 29837,
+              "draw_end": 1242,
+              "seed_after": 29837
+            }
+          ],
+          "draw_end": 1242,
+          "seed_end": 29837
+        },
+        {
+          "step": 16,
+          "draw_start": 1292,
+          "seed_start": 63047,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1292,
+              "seed_before": 63047,
+              "draw_end": 1292,
+              "seed_after": 63047
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1292,
+              "seed_before": 63047,
+              "draw_end": 1292,
+              "seed_after": 63047
+            }
+          ],
+          "draw_end": 1292,
+          "seed_end": 63047
+        },
+        {
+          "step": 17,
+          "draw_start": 1357,
+          "seed_start": 51386,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1357,
+              "seed_before": 51386,
+              "draw_end": 1357,
+              "seed_after": 51386
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1357,
+              "seed_before": 51386,
+              "draw_end": 1357,
+              "seed_after": 51386
+            }
+          ],
+          "draw_end": 1357,
+          "seed_end": 51386
+        },
+        {
+          "step": 18,
+          "draw_start": 1437,
+          "seed_start": 35146,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1437,
+              "seed_before": 35146,
+              "draw_end": 1437,
+              "seed_after": 35146
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1437,
+              "seed_before": 35146,
+              "draw_end": 1437,
+              "seed_after": 35146
+            }
+          ],
+          "draw_end": 1437,
+          "seed_end": 35146
+        },
+        {
+          "step": 19,
+          "draw_start": 1497,
+          "seed_start": 47958,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1497,
+              "seed_before": 47958,
+              "draw_end": 1497,
+              "seed_after": 47958
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1497,
+              "seed_before": 47958,
+              "draw_end": 1497,
+              "seed_after": 47958
+            }
+          ],
+          "draw_end": 1497,
+          "seed_end": 47958
+        },
+        {
+          "step": 20,
+          "draw_start": 1555,
+          "seed_start": 3712,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1555,
+              "seed_before": 3712,
+              "draw_end": 1555,
+              "seed_after": 3712
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1555,
+              "seed_before": 3712,
+              "draw_end": 1555,
+              "seed_after": 3712
+            }
+          ],
+          "draw_end": 1555,
+          "seed_end": 3712
+        },
+        {
+          "step": 21,
+          "draw_start": 1619,
+          "seed_start": 8640,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1619,
+              "seed_before": 8640,
+              "draw_end": 1619,
+              "seed_after": 8640
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1619,
+              "seed_before": 8640,
+              "draw_end": 1619,
+              "seed_after": 8640
+            }
+          ],
+          "draw_end": 1619,
+          "seed_end": 8640
+        },
+        {
+          "step": 22,
+          "draw_start": 1673,
+          "seed_start": 48326,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1673,
+              "seed_before": 48326,
+              "draw_end": 1673,
+              "seed_after": 48326
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1673,
+              "seed_before": 48326,
+              "draw_end": 1673,
+              "seed_after": 48326
+            }
+          ],
+          "draw_end": 1673,
+          "seed_end": 48326
+        },
+        {
+          "step": 23,
+          "draw_start": 1741,
+          "seed_start": 10298,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1741,
+              "seed_before": 10298,
+              "draw_end": 1741,
+              "seed_after": 10298
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1741,
+              "seed_before": 10298,
+              "draw_end": 1741,
+              "seed_after": 10298
+            }
+          ],
+          "draw_end": 1741,
+          "seed_end": 10298
+        },
+        {
+          "step": 24,
+          "draw_start": 1784,
+          "seed_start": 3955,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1784,
+              "seed_before": 3955,
+              "draw_end": 1784,
+              "seed_after": 3955
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1784,
+              "seed_before": 3955,
+              "draw_end": 1784,
+              "seed_after": 3955
+            }
+          ],
+          "draw_end": 1784,
+          "seed_end": 3955
+        },
+        {
+          "step": 25,
+          "draw_start": 1844,
+          "seed_start": 56239,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1844,
+              "seed_before": 56239,
+              "draw_end": 1844,
+              "seed_after": 56239
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1844,
+              "seed_before": 56239,
+              "draw_end": 1844,
+              "seed_after": 56239
+            }
+          ],
+          "draw_end": 1844,
+          "seed_end": 56239
+        },
+        {
+          "step": 26,
+          "draw_start": 1906,
+          "seed_start": 55333,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 1906,
+              "seed_before": 55333,
+              "draw_end": 1906,
+              "seed_after": 55333
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1906,
+              "seed_before": 55333,
+              "draw_end": 1906,
+              "seed_after": 55333
+            }
+          ],
+          "draw_end": 1906,
+          "seed_end": 55333
+        },
+        {
+          "step": 27,
+          "draw_start": 1976,
+          "seed_start": 11827,
+          "phases": [
+            {
+              "routine": "1998:045C",
+              "draw_start": 1976,
+              "seed_before": 11827,
+              "draw_end": 1976,
+              "seed_after": 11827
+            },
+            {
+              "routine": "0AB9:52B6",
+              "draw_start": 1976,
+              "seed_before": 11827,
+              "draw_end": 1976,
+              "seed_after": 11827
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 1976,
+              "seed_before": 11827,
+              "draw_end": 1976,
+              "seed_after": 11827
+            }
+          ],
+          "draw_end": 1976,
+          "seed_end": 11827
+        },
+        {
+          "step": 28,
+          "draw_start": 2039,
+          "seed_start": 56116,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2039,
+              "seed_before": 56116,
+              "draw_end": 2039,
+              "seed_after": 56116
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2039,
+              "seed_before": 56116,
+              "draw_end": 2039,
+              "seed_after": 56116
+            }
+          ],
+          "draw_end": 2039,
+          "seed_end": 56116
+        },
+        {
+          "step": 29,
+          "draw_start": 2118,
+          "seed_start": 63961,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2118,
+              "seed_before": 63961,
+              "draw_end": 2118,
+              "seed_after": 63961
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2118,
+              "seed_before": 63961,
+              "draw_end": 2118,
+              "seed_after": 63961
+            }
+          ],
+          "draw_end": 2118,
+          "seed_end": 63961
+        },
+        {
+          "step": 30,
+          "draw_start": 2175,
+          "seed_start": 18716,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2175,
+              "seed_before": 18716,
+              "draw_end": 2175,
+              "seed_after": 18716
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2175,
+              "seed_before": 18716,
+              "draw_end": 2175,
+              "seed_after": 18716
+            }
+          ],
+          "draw_end": 2175,
+          "seed_end": 18716
+        },
+        {
+          "step": 31,
+          "draw_start": 2250,
+          "seed_start": 33661,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2250,
+              "seed_before": 33661,
+              "draw_end": 2250,
+              "seed_after": 33661
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2250,
+              "seed_before": 33661,
+              "draw_end": 2250,
+              "seed_after": 33661
+            }
+          ],
+          "draw_end": 2250,
+          "seed_end": 33661
+        },
+        {
+          "step": 32,
+          "draw_start": 2313,
+          "seed_start": 51526,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2313,
+              "seed_before": 51526,
+              "draw_end": 2313,
+              "seed_after": 51526
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2313,
+              "seed_before": 51526,
+              "draw_end": 2313,
+              "seed_after": 51526
+            }
+          ],
+          "draw_end": 2313,
+          "seed_end": 51526
+        },
+        {
+          "step": 33,
+          "draw_start": 2365,
+          "seed_start": 30058,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2365,
+              "seed_before": 30058,
+              "draw_end": 2365,
+              "seed_after": 30058
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2365,
+              "seed_before": 30058,
+              "draw_end": 2365,
+              "seed_after": 30058
+            }
+          ],
+          "draw_end": 2365,
+          "seed_end": 30058
+        },
+        {
+          "step": 34,
+          "draw_start": 2424,
+          "seed_start": 13811,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2424,
+              "seed_before": 13811,
+              "draw_end": 2424,
+              "seed_after": 13811
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2424,
+              "seed_before": 13811,
+              "draw_end": 2424,
+              "seed_after": 13811
+            }
+          ],
+          "draw_end": 2424,
+          "seed_end": 13811
+        },
+        {
+          "step": 35,
+          "draw_start": 2489,
+          "seed_start": 3766,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2489,
+              "seed_before": 3766,
+              "draw_end": 2489,
+              "seed_after": 3766
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2489,
+              "seed_before": 3766,
+              "draw_end": 2489,
+              "seed_after": 3766
+            }
+          ],
+          "draw_end": 2489,
+          "seed_end": 3766
+        },
+        {
+          "step": 36,
+          "draw_start": 2566,
+          "seed_start": 17305,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2566,
+              "seed_before": 17305,
+              "draw_end": 2566,
+              "seed_after": 17305
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2566,
+              "seed_before": 17305,
+              "draw_end": 2566,
+              "seed_after": 17305
+            }
+          ],
+          "draw_end": 2566,
+          "seed_end": 17305
+        },
+        {
+          "step": 37,
+          "draw_start": 2639,
+          "seed_start": 32172,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2639,
+              "seed_before": 32172,
+              "draw_end": 2639,
+              "seed_after": 32172
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2639,
+              "seed_before": 32172,
+              "draw_end": 2639,
+              "seed_after": 32172
+            }
+          ],
+          "draw_end": 2639,
+          "seed_end": 32172
+        },
+        {
+          "step": 38,
+          "draw_start": 2692,
+          "seed_start": 1151,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2692,
+              "seed_before": 1151,
+              "draw_end": 2692,
+              "seed_after": 1151
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2692,
+              "seed_before": 1151,
+              "draw_end": 2692,
+              "seed_after": 1151
+            }
+          ],
+          "draw_end": 2692,
+          "seed_end": 1151
+        },
+        {
+          "step": 39,
+          "draw_start": 2741,
+          "seed_start": 60098,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2741,
+              "seed_before": 60098,
+              "draw_end": 2741,
+              "seed_after": 60098
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2741,
+              "seed_before": 60098,
+              "draw_end": 2741,
+              "seed_after": 60098
+            }
+          ],
+          "draw_end": 2741,
+          "seed_end": 60098
+        },
+        {
+          "step": 40,
+          "draw_start": 2810,
+          "seed_start": 57517,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2810,
+              "seed_before": 57517,
+              "draw_end": 2810,
+              "seed_after": 57517
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2810,
+              "seed_before": 57517,
+              "draw_end": 2810,
+              "seed_after": 57517
+            }
+          ],
+          "draw_end": 2810,
+          "seed_end": 57517
+        },
+        {
+          "step": 41,
+          "draw_start": 2889,
+          "seed_start": 46214,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2889,
+              "seed_before": 46214,
+              "draw_end": 2889,
+              "seed_after": 46214
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2889,
+              "seed_before": 46214,
+              "draw_end": 2889,
+              "seed_after": 46214
+            }
+          ],
+          "draw_end": 2889,
+          "seed_end": 46214
+        },
+        {
+          "step": 42,
+          "draw_start": 2949,
+          "seed_start": 26578,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 2949,
+              "seed_before": 26578,
+              "draw_end": 2949,
+              "seed_after": 26578
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 2949,
+              "seed_before": 26578,
+              "draw_end": 2949,
+              "seed_after": 26578
+            }
+          ],
+          "draw_end": 2949,
+          "seed_end": 26578
+        },
+        {
+          "step": 43,
+          "draw_start": 3008,
+          "seed_start": 47611,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3008,
+              "seed_before": 47611,
+              "draw_end": 3008,
+              "seed_after": 47611
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3008,
+              "seed_before": 47611,
+              "draw_end": 3008,
+              "seed_after": 47611
+            }
+          ],
+          "draw_end": 3008,
+          "seed_end": 47611
+        },
+        {
+          "step": 44,
+          "draw_start": 3069,
+          "seed_start": 32554,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3069,
+              "seed_before": 32554,
+              "draw_end": 3069,
+              "seed_after": 32554
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3069,
+              "seed_before": 32554,
+              "draw_end": 3069,
+              "seed_after": 32554
+            }
+          ],
+          "draw_end": 3069,
+          "seed_end": 32554
+        },
+        {
+          "step": 45,
+          "draw_start": 3148,
+          "seed_start": 4999,
+          "phases": [
+            {
+              "routine": "1998:045C",
+              "draw_start": 3148,
+              "seed_before": 4999,
+              "draw_end": 3148,
+              "seed_after": 4999
+            },
+            {
+              "routine": "0AB9:52B6",
+              "draw_start": 3148,
+              "seed_before": 4999,
+              "draw_end": 3151,
+              "seed_after": 63404
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3151,
+              "seed_before": 63404,
+              "draw_end": 3151,
+              "seed_after": 63404
+            }
+          ],
+          "draw_end": 3151,
+          "seed_end": 63404
+        },
+        {
+          "step": 46,
+          "draw_start": 3201,
+          "seed_start": 4894,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3201,
+              "seed_before": 4894,
+              "draw_end": 3201,
+              "seed_after": 4894
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3201,
+              "seed_before": 4894,
+              "draw_end": 3201,
+              "seed_after": 4894
+            }
+          ],
+          "draw_end": 3201,
+          "seed_end": 4894
+        },
+        {
+          "step": 47,
+          "draw_start": 3261,
+          "seed_start": 7914,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3261,
+              "seed_before": 7914,
+              "draw_end": 3261,
+              "seed_after": 7914
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3261,
+              "seed_before": 7914,
+              "draw_end": 3261,
+              "seed_after": 7914
+            }
+          ],
+          "draw_end": 3261,
+          "seed_end": 7914
+        },
+        {
+          "step": 48,
+          "draw_start": 3345,
+          "seed_start": 5614,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3345,
+              "seed_before": 5614,
+              "draw_end": 3345,
+              "seed_after": 5614
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3345,
+              "seed_before": 5614,
+              "draw_end": 3345,
+              "seed_after": 5614
+            }
+          ],
+          "draw_end": 3345,
+          "seed_end": 5614
+        },
+        {
+          "step": 49,
+          "draw_start": 3401,
+          "seed_start": 48774,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3401,
+              "seed_before": 48774,
+              "draw_end": 3401,
+              "seed_after": 48774
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3401,
+              "seed_before": 48774,
+              "draw_end": 3401,
+              "seed_after": 48774
+            }
+          ],
+          "draw_end": 3401,
+          "seed_end": 48774
+        },
+        {
+          "step": 50,
+          "draw_start": 3446,
+          "seed_start": 6921,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3446,
+              "seed_before": 6921,
+              "draw_end": 3446,
+              "seed_after": 6921
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3446,
+              "seed_before": 6921,
+              "draw_end": 3446,
+              "seed_after": 6921
+            }
+          ],
+          "draw_end": 3446,
+          "seed_end": 6921
+        },
+        {
+          "step": 51,
+          "draw_start": 3504,
+          "seed_start": 12651,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3504,
+              "seed_before": 12651,
+              "draw_end": 3504,
+              "seed_after": 12651
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3504,
+              "seed_before": 12651,
+              "draw_end": 3504,
+              "seed_after": 12651
+            }
+          ],
+          "draw_end": 3504,
+          "seed_end": 12651
+        },
+        {
+          "step": 52,
+          "draw_start": 3580,
+          "seed_start": 9655,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3580,
+              "seed_before": 9655,
+              "draw_end": 3580,
+              "seed_after": 9655
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3580,
+              "seed_before": 9655,
+              "draw_end": 3580,
+              "seed_after": 9655
+            }
+          ],
+          "draw_end": 3580,
+          "seed_end": 9655
+        },
+        {
+          "step": 53,
+          "draw_start": 3643,
+          "seed_start": 28424,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3643,
+              "seed_before": 28424,
+              "draw_end": 3643,
+              "seed_after": 28424
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3643,
+              "seed_before": 28424,
+              "draw_end": 3643,
+              "seed_after": 28424
+            }
+          ],
+          "draw_end": 3643,
+          "seed_end": 28424
+        },
+        {
+          "step": 54,
+          "draw_start": 3699,
+          "seed_start": 27488,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3699,
+              "seed_before": 27488,
+              "draw_end": 3699,
+              "seed_after": 27488
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3699,
+              "seed_before": 27488,
+              "draw_end": 3699,
+              "seed_after": 27488
+            }
+          ],
+          "draw_end": 3699,
+          "seed_end": 27488
+        },
+        {
+          "step": 55,
+          "draw_start": 3757,
+          "seed_start": 34202,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3757,
+              "seed_before": 34202,
+              "draw_end": 3757,
+              "seed_after": 34202
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3757,
+              "seed_before": 34202,
+              "draw_end": 3757,
+              "seed_after": 34202
+            }
+          ],
+          "draw_end": 3757,
+          "seed_end": 34202
+        },
+        {
+          "step": 56,
+          "draw_start": 3815,
+          "seed_start": 12900,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3815,
+              "seed_before": 12900,
+              "draw_end": 3815,
+              "seed_after": 12900
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3815,
+              "seed_before": 12900,
+              "draw_end": 3815,
+              "seed_after": 12900
+            }
+          ],
+          "draw_end": 3815,
+          "seed_end": 12900
+        },
+        {
+          "step": 57,
+          "draw_start": 3868,
+          "seed_start": 54743,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3868,
+              "seed_before": 54743,
+              "draw_end": 3868,
+              "seed_after": 54743
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3868,
+              "seed_before": 54743,
+              "draw_end": 3868,
+              "seed_after": 54743
+            }
+          ],
+          "draw_end": 3868,
+          "seed_end": 54743
+        },
+        {
+          "step": 58,
+          "draw_start": 3944,
+          "seed_start": 11107,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3944,
+              "seed_before": 11107,
+              "draw_end": 3944,
+              "seed_after": 11107
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3944,
+              "seed_before": 11107,
+              "draw_end": 3944,
+              "seed_after": 11107
+            }
+          ],
+          "draw_end": 3944,
+          "seed_end": 11107
+        },
+        {
+          "step": 59,
+          "draw_start": 3994,
+          "seed_start": 45901,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 3994,
+              "seed_before": 45901,
+              "draw_end": 3994,
+              "seed_after": 45901
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 3994,
+              "seed_before": 45901,
+              "draw_end": 3994,
+              "seed_after": 45901
+            }
+          ],
+          "draw_end": 3994,
+          "seed_end": 45901
+        },
+        {
+          "step": 60,
+          "draw_start": 4068,
+          "seed_start": 53983,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4068,
+              "seed_before": 53983,
+              "draw_end": 4068,
+              "seed_after": 53983
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4068,
+              "seed_before": 53983,
+              "draw_end": 4068,
+              "seed_after": 53983
+            }
+          ],
+          "draw_end": 4068,
+          "seed_end": 53983
+        },
+        {
+          "step": 61,
+          "draw_start": 4130,
+          "seed_start": 35285,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4130,
+              "seed_before": 35285,
+              "draw_end": 4130,
+              "seed_after": 35285
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4130,
+              "seed_before": 35285,
+              "draw_end": 4130,
+              "seed_after": 35285
+            }
+          ],
+          "draw_end": 4130,
+          "seed_end": 35285
+        },
+        {
+          "step": 62,
+          "draw_start": 4190,
+          "seed_start": 5489,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4190,
+              "seed_before": 5489,
+              "draw_end": 4190,
+              "seed_after": 5489
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4190,
+              "seed_before": 5489,
+              "draw_end": 4190,
+              "seed_after": 5489
+            }
+          ],
+          "draw_end": 4190,
+          "seed_end": 5489
+        },
+        {
+          "step": 63,
+          "draw_start": 4247,
+          "seed_start": 50516,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4247,
+              "seed_before": 50516,
+              "draw_end": 4247,
+              "seed_after": 50516
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4247,
+              "seed_before": 50516,
+              "draw_end": 4247,
+              "seed_after": 50516
+            }
+          ],
+          "draw_end": 4247,
+          "seed_end": 50516
+        },
+        {
+          "step": 64,
+          "draw_start": 4298,
+          "seed_start": 2941,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4298,
+              "seed_before": 2941,
+              "draw_end": 4298,
+              "seed_after": 2941
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4298,
+              "seed_before": 2941,
+              "draw_end": 4298,
+              "seed_after": 2941
+            }
+          ],
+          "draw_end": 4298,
+          "seed_end": 2941
+        },
+        {
+          "step": 65,
+          "draw_start": 4378,
+          "seed_start": 7373,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4378,
+              "seed_before": 7373,
+              "draw_end": 4378,
+              "seed_after": 7373
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4378,
+              "seed_before": 7373,
+              "draw_end": 4378,
+              "seed_after": 7373
+            }
+          ],
+          "draw_end": 4378,
+          "seed_end": 7373
+        },
+        {
+          "step": 66,
+          "draw_start": 4426,
+          "seed_start": 25597,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4426,
+              "seed_before": 25597,
+              "draw_end": 4426,
+              "seed_after": 25597
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4426,
+              "seed_before": 25597,
+              "draw_end": 4426,
+              "seed_after": 25597
+            }
+          ],
+          "draw_end": 4426,
+          "seed_end": 25597
+        },
+        {
+          "step": 67,
+          "draw_start": 4481,
+          "seed_start": 35870,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4481,
+              "seed_before": 35870,
+              "draw_end": 4481,
+              "seed_after": 35870
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4481,
+              "seed_before": 35870,
+              "draw_end": 4481,
+              "seed_after": 35870
+            }
+          ],
+          "draw_end": 4481,
+          "seed_end": 35870
+        },
+        {
+          "step": 68,
+          "draw_start": 4529,
+          "seed_start": 10510,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4529,
+              "seed_before": 10510,
+              "draw_end": 4529,
+              "seed_after": 10510
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4529,
+              "seed_before": 10510,
+              "draw_end": 4529,
+              "seed_after": 10510
+            }
+          ],
+          "draw_end": 4529,
+          "seed_end": 10510
+        },
+        {
+          "step": 69,
+          "draw_start": 4601,
+          "seed_start": 51190,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4601,
+              "seed_before": 51190,
+              "draw_end": 4601,
+              "seed_after": 51190
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4601,
+              "seed_before": 51190,
+              "draw_end": 4601,
+              "seed_after": 51190
+            }
+          ],
+          "draw_end": 4601,
+          "seed_end": 51190
+        },
+        {
+          "step": 70,
+          "draw_start": 4669,
+          "seed_start": 29290,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4669,
+              "seed_before": 29290,
+              "draw_end": 4669,
+              "seed_after": 29290
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4669,
+              "seed_before": 29290,
+              "draw_end": 4669,
+              "seed_after": 29290
+            }
+          ],
+          "draw_end": 4669,
+          "seed_end": 29290
+        },
+        {
+          "step": 71,
+          "draw_start": 4729,
+          "seed_start": 43638,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4729,
+              "seed_before": 43638,
+              "draw_end": 4729,
+              "seed_after": 43638
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4729,
+              "seed_before": 43638,
+              "draw_end": 4729,
+              "seed_after": 43638
+            }
+          ],
+          "draw_end": 4729,
+          "seed_end": 43638
+        },
+        {
+          "step": 72,
+          "draw_start": 4789,
+          "seed_start": 37570,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4789,
+              "seed_before": 37570,
+              "draw_end": 4789,
+              "seed_after": 37570
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4789,
+              "seed_before": 37570,
+              "draw_end": 4789,
+              "seed_after": 37570
+            }
+          ],
+          "draw_end": 4789,
+          "seed_end": 37570
+        },
+        {
+          "step": 73,
+          "draw_start": 4861,
+          "seed_start": 53802,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4861,
+              "seed_before": 53802,
+              "draw_end": 4861,
+              "seed_after": 53802
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4861,
+              "seed_before": 53802,
+              "draw_end": 4861,
+              "seed_after": 53802
+            }
+          ],
+          "draw_end": 4861,
+          "seed_end": 53802
+        },
+        {
+          "step": 74,
+          "draw_start": 4927,
+          "seed_start": 26844,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4927,
+              "seed_before": 26844,
+              "draw_end": 4927,
+              "seed_after": 26844
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4927,
+              "seed_before": 26844,
+              "draw_end": 4927,
+              "seed_after": 26844
+            }
+          ],
+          "draw_end": 4927,
+          "seed_end": 26844
+        },
+        {
+          "step": 75,
+          "draw_start": 4989,
+          "seed_start": 64682,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 4989,
+              "seed_before": 64682,
+              "draw_end": 4989,
+              "seed_after": 64682
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 4989,
+              "seed_before": 64682,
+              "draw_end": 4989,
+              "seed_after": 64682
+            }
+          ],
+          "draw_end": 4989,
+          "seed_end": 64682
+        },
+        {
+          "step": 76,
+          "draw_start": 5036,
+          "seed_start": 4071,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5036,
+              "seed_before": 4071,
+              "draw_end": 5036,
+              "seed_after": 4071
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5036,
+              "seed_before": 4071,
+              "draw_end": 5036,
+              "seed_after": 4071
+            }
+          ],
+          "draw_end": 5036,
+          "seed_end": 4071
+        },
+        {
+          "step": 77,
+          "draw_start": 5091,
+          "seed_start": 12304,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5091,
+              "seed_before": 12304,
+              "draw_end": 5091,
+              "seed_after": 12304
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5091,
+              "seed_before": 12304,
+              "draw_end": 5091,
+              "seed_after": 12304
+            }
+          ],
+          "draw_end": 5091,
+          "seed_end": 12304
+        },
+        {
+          "step": 78,
+          "draw_start": 5141,
+          "seed_start": 25506,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5141,
+              "seed_before": 25506,
+              "draw_end": 5141,
+              "seed_after": 25506
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5141,
+              "seed_before": 25506,
+              "draw_end": 5141,
+              "seed_after": 25506
+            }
+          ],
+          "draw_end": 5141,
+          "seed_end": 25506
+        },
+        {
+          "step": 79,
+          "draw_start": 5189,
+          "seed_start": 18322,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5189,
+              "seed_before": 18322,
+              "draw_end": 5189,
+              "seed_after": 18322
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5189,
+              "seed_before": 18322,
+              "draw_end": 5189,
+              "seed_after": 18322
+            }
+          ],
+          "draw_end": 5189,
+          "seed_end": 18322
+        },
+        {
+          "step": 80,
+          "draw_start": 5257,
+          "seed_start": 710,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5257,
+              "seed_before": 710,
+              "draw_end": 5257,
+              "seed_after": 710
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5257,
+              "seed_before": 710,
+              "draw_end": 5257,
+              "seed_after": 710
+            }
+          ],
+          "draw_end": 5257,
+          "seed_end": 710
+        },
+        {
+          "step": 81,
+          "draw_start": 5310,
+          "seed_start": 31185,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5310,
+              "seed_before": 31185,
+              "draw_end": 5310,
+              "seed_after": 31185
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5310,
+              "seed_before": 31185,
+              "draw_end": 5310,
+              "seed_after": 31185
+            }
+          ],
+          "draw_end": 5310,
+          "seed_end": 31185
+        },
+        {
+          "step": 82,
+          "draw_start": 5380,
+          "seed_start": 2815,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5380,
+              "seed_before": 2815,
+              "draw_end": 5380,
+              "seed_after": 2815
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5380,
+              "seed_before": 2815,
+              "draw_end": 5380,
+              "seed_after": 2815
+            }
+          ],
+          "draw_end": 5380,
+          "seed_end": 2815
+        },
+        {
+          "step": 83,
+          "draw_start": 5440,
+          "seed_start": 61307,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5440,
+              "seed_before": 61307,
+              "draw_end": 5440,
+              "seed_after": 61307
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5440,
+              "seed_before": 61307,
+              "draw_end": 5440,
+              "seed_after": 61307
+            }
+          ],
+          "draw_end": 5440,
+          "seed_end": 61307
+        },
+        {
+          "step": 84,
+          "draw_start": 5492,
+          "seed_start": 4079,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5492,
+              "seed_before": 4079,
+              "draw_end": 5492,
+              "seed_after": 4079
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5492,
+              "seed_before": 4079,
+              "draw_end": 5492,
+              "seed_after": 4079
+            }
+          ],
+          "draw_end": 5492,
+          "seed_end": 4079
+        },
+        {
+          "step": 85,
+          "draw_start": 5541,
+          "seed_start": 12402,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5541,
+              "seed_before": 12402,
+              "draw_end": 5541,
+              "seed_after": 12402
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5541,
+              "seed_before": 12402,
+              "draw_end": 5541,
+              "seed_after": 12402
+            }
+          ],
+          "draw_end": 5541,
+          "seed_end": 12402
+        },
+        {
+          "step": 86,
+          "draw_start": 5594,
+          "seed_start": 30093,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5594,
+              "seed_before": 30093,
+              "draw_end": 5594,
+              "seed_after": 30093
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5594,
+              "seed_before": 30093,
+              "draw_end": 5594,
+              "seed_after": 30093
+            }
+          ],
+          "draw_end": 5594,
+          "seed_end": 30093
+        },
+        {
+          "step": 87,
+          "draw_start": 5650,
+          "seed_start": 37061,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5650,
+              "seed_before": 37061,
+              "draw_end": 5650,
+              "seed_after": 37061
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5650,
+              "seed_before": 37061,
+              "draw_end": 5650,
+              "seed_after": 37061
+            }
+          ],
+          "draw_end": 5650,
+          "seed_end": 37061
+        },
+        {
+          "step": 88,
+          "draw_start": 5706,
+          "seed_start": 55549,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5706,
+              "seed_before": 55549,
+              "draw_end": 5706,
+              "seed_after": 55549
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5706,
+              "seed_before": 55549,
+              "draw_end": 5706,
+              "seed_after": 55549
+            }
+          ],
+          "draw_end": 5706,
+          "seed_end": 55549
+        },
+        {
+          "step": 89,
+          "draw_start": 5746,
+          "seed_start": 5925,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5746,
+              "seed_before": 5925,
+              "draw_end": 5746,
+              "seed_after": 5925
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5746,
+              "seed_before": 5925,
+              "draw_end": 5746,
+              "seed_after": 5925
+            }
+          ],
+          "draw_end": 5746,
+          "seed_end": 5925
+        },
+        {
+          "step": 90,
+          "draw_start": 5803,
+          "seed_start": 35000,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5803,
+              "seed_before": 35000,
+              "draw_end": 5803,
+              "seed_after": 35000
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5803,
+              "seed_before": 35000,
+              "draw_end": 5803,
+              "seed_after": 35000
+            }
+          ],
+          "draw_end": 5803,
+          "seed_end": 35000
+        },
+        {
+          "step": 91,
+          "draw_start": 5853,
+          "seed_start": 17290,
+          "phases": [
+            {
+              "routine": "0AB9:6B2F",
+              "draw_start": 5853,
+              "seed_before": 17290,
+              "draw_end": 5853,
+              "seed_after": 17290
+            },
+            {
+              "routine": "0AB9:78B7",
+              "draw_start": 5853,
+              "seed_before": 17290,
+              "draw_end": 5853,
+              "seed_after": 17290
+            }
+          ],
+          "draw_end": 5853,
+          "seed_end": 17290
+        }
+      ]
+    }
+  ],
+  "started": "2026-10-30T20:19:13Z",
+  "ended": "2026-10-30T20:20:08Z",
+  "status": "completed"
+}
