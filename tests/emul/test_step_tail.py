@@ -12,6 +12,23 @@ sys.path.insert(0, str(ROOT / 'runtime/emul'))
 import step_tail
 
 
+def test_complete_committed_public_tail_clock_corpus():
+    # Decoded records are sufficient; no original game or private state is read.
+    assert step_tail.main(['--check']) == 0
+
+
+@pytest.mark.parametrize('prefix', ['traces/T16/T16-r', 'runs/T16/T16-r', 'runs/T12/', 'runs/T13/', 'traces/T08/'])
+def test_public_corpus_rejects_record_fixture_and_retained_source_digest_changes(prefix):
+    original = step_tail.contests.sha
+
+    def damaged(path):
+        relative = Path(path).relative_to(ROOT).as_posix()
+        return '0' * 64 if relative.startswith(prefix) else original(path)
+
+    with patch.object(step_tail.contests, 'sha', side_effect=damaged):
+        assert step_tail.main(['--check']) == 1
+
+
 def specimen():
     source = json.loads((ROOT / 'traces/T08/index.json').read_text())['entries'][-1]
     m12, r12, c12, m13, r13, c13 = step_tail.sources(source)

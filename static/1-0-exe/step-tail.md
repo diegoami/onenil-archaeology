@@ -24,20 +24,20 @@ player ID and +0 word is the scene word changed here. Referenced player record p
 `[D7BE]+15*p`; named fields are raw byte +8 and raw flags byte +11. Each visit calls 1CA1→4F89:
 unavailable iff player zero, signed byte8<1 or flags11 intersects A6h. On nonzero return,
 1998:093F stores D032 into scene word0. Its drawing branch is skipped when D074 is nonzero.
-Otherwise, unsigned D0AE modulo5 equal zero allows decrementing raw byte8 only if its signed
+When 1CA1 returns zero, unsigned D0AE modulo 5 equal zero allows decrementing raw byte8 only if its signed
 interpretation is greater than1. Visits occur sequentially; duplicate player IDs see earlier
 visits' mutations. These operations make no RNG request and preserve actor D09F.
 
-`[designed]` Supported raw pools are clubs1..176 and players0..3920; each referenced player
-has exactly one definition and all22 ordered scenes are present. The prefix is the quick-mode
+`[designed]` Supported raw pools are clubs 1..176 and players 0..3920; each referenced player
+has exactly one definition and all 22 ordered scenes are present. The prefix is the quick-mode
 projection (D074 nonzero). Named logical fields share one native memory image; unknown record
 fields and formatted/rendered output are outside this projection.
 
 ## Explicit unresolved requests after DFDB
 
 `[confirmed]` DD02 uses D6DD and the saved local goal flag to select later callees. With flag
-zero it requests DBC6 only when D6DD is nonzero, then6B2F. With nonzero flag it calls
-1998:045C with arguments(1,0), then52B6. It always calls78B7. DBC6 never dereferences the
+zero it requests DBC6 only when D6DD is nonzero, then 6B2F. With nonzero flag it calls
+1998:045C with arguments(1,0), then 52B6. It always calls 78B7. DBC6 never dereferences the
 passed parent-frame argument and does not change that local goal flag through it.
 
 `[designed]` Native prefix output reports those observed ordered requests **unexecuted**.
@@ -55,23 +55,27 @@ otherwise added decrements; elapsed increments only while unsigned elapsed<128. 
 clock display call, delay reloads from zero-extended byte D28.
 
 `[confirmed]` Remaining is compared as **zero-extended32** with kind as **sign-extended32**
-(CBW,CWD at7BE1..7BE8; XOR DX,DX at7BED). Kind bytes128..255 never compare equal to any
+(CBW,CWD at 7BE1..7BE8; XOR DX,DX at 7BED). Kind bytes128..255 never compare equal to any
 unsigned remaining word, even one equal to their low sign-extended word. Termination occurs
-when that comparison is equal or zero is set. It calls1E14 with code63 when zero is set,
-otherwise64, clears word CF51, and returns1. Display/timer calls are separate from these writes.
+when that comparison is equal or zero is set. It calls 1E14 with code 63 when zero is set,
+otherwise 64, clears word CF51, and returns1. Display/timer calls are separate from these writes.
 
-`[confirmed]` 1E14 calls0F94(code,actor_slot0,secondary_slot0,event_side1). 0F42 always adds the
+`[confirmed]` 1E14 calls 0F94(code,actor_slot0,secondary_slot0,event_side1). 0F42 always adds the
 signed byte weight at097A+code, wrapping into word **D16E** (`D146+40*1+2*0`). That address
 aliases the earlier event-total projection's side0 slot20; it is not a side1 negative array index.
 0E45 then compares(code,0,0,1) with the current queue tuple, without a minute field. Head zero
-or a different tuple accepts: increment side1 word D1C2, cyclically advance head1..1700, write
+or a different tuple accepts: increment side1 word D1C2, cyclically advance head 1..1700, write
 that whole tuple, and change only the next row's code to255. Rejection leaves the queue/count
-alone while the weighted event total still changes. On acceptance0F94 copies D08A/D08C to
+alone while the weighted event total still changes. On acceptance 0F94 copies D08A/D08C to
 D09A/D09C after formatting. Acceptance is AL at0FAD immediately after0E45, not an assumed
 return from the formatting caller. CF51 clears after that whole call on either acceptance result.
 
-`[designed]` Clock cases capture raw weights for codes63/64, D16E, both event counters, entry
+`[designed]` Clock cases capture raw weights for codes 63/64, D16E, both event counters, entry
 head and the fixed current/next/next2 queue rows, and source/target word pairs. Output uses the
 same entry-selected row indices. Expected destination, helper acceptance and event choice are
 outputs, never input hints. Numeric fields require exact integer widths; aliases, signed raw
 bytes and queue wrap have separate native synthetic coverage when absent from observed runs.
+
+`[designed]` Native history storage represents this named history pool canonically; arbitrary
+far-pointer overlap with DS, player, scene or queue storage is excluded. Original far address
+metadata remains an assertion target rather than a native destination input.
