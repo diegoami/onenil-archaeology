@@ -28,7 +28,7 @@
    `0AB9:7217`.
 4. `[confirmed]` **The watched match's draws in T10-r0003.** Under its recorded harness clock
    (`INSTR_PER_S` = 20,000,000), from entry to its return to `0AB9:EBE2`, the managed watched
-   match draws 158,992 values (quick: 5,853), from 67 sites after draw 258, none of them `D983`'s six;
+   match draws 158,992 values (quick: 5,853), from 67 sites from draw 258 on, none of them `D983`'s six;
    this is the match window, not the whole week's 176,134 draws, and establishes no timer-invariant count;
    through three entries of the RNG at `24BC:0CDC`'s segment: `24BC:0D12` (68,779), `24BC:0D4F`
    (59,532), `24BC:0D2D` (30,423). Its busiest sites are `0AB9:7380` (57,318), `0AB9:388A` (29,226),

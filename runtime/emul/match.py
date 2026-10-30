@@ -310,10 +310,21 @@ def write_record(path, record):
 
 def publish_partial(chunk, receipt, private, remote_path):
     # Foreground, opt-in publication. Commit only this immutable chunk and receipt.
+    paths = [rel(chunk), rel(receipt)]
+    staged = subprocess.run(["git", "-C", str(ROOT), "diff", "--cached", "--quiet", "--", *paths])
+    if staged.returncode == 1:
+        raise guest.GuestError("checkpoint publication paths already have staged changes")
+    staged.check_returncode()
     subprocess.run(["rclone", "copyto", str(private), "onenildrive:" + remote_path], check=True)
-    subprocess.run(["git", "-C", str(ROOT), "add", "--", rel(chunk), rel(receipt)], check=True)
-    subprocess.run(["git", "-C", str(ROOT), "commit", "--only", "-m",
-                    "checkpoint: " + receipt.stem, "--", rel(chunk), rel(receipt)], check=True)
+    try:
+        subprocess.run(["git", "-C", str(ROOT), "add", "--", *paths], check=True)
+        subprocess.run(["git", "-C", str(ROOT), "commit", "--only", "-m",
+                        "checkpoint: " + receipt.stem, "--", *paths], check=True)
+    except BaseException:
+        # The preflight proved these paths matched HEAD in the index. Restore only
+        # their entries, retaining the evidence on disk and all other staged work.
+        subprocess.run(["git", "-C", str(ROOT), "reset", "-q", "HEAD", "--", *paths], check=True)
+        raise
     subprocess.run(["git", "-C", str(ROOT), "push", "origin", "HEAD"], check=True)
 
 
@@ -353,21 +364,27 @@ def main(argv=None):
         private = ROOT / cp["private_path"]
         if checkpoint.digest(private) != cp["private_sha256"]:
             raise SystemExit("private checkpoint digest differs; resume refused")
-        for c in cp["chunks"]:
-            path = ROOT / c["path"]
-            if checkpoint.digest(path) != c["sha256"]:
-                raise SystemExit("trace checkpoint chunk digest differs; resume refused")
-            chunk_paths.append(path)
+        try:
+            chunk_paths = checkpoint.verify_chunks(ROOT, cp["chunks"], cp["trace_bytes"])
+        except (KeyError, OSError, ValueError) as e:
+            raise SystemExit(f"invalid trace checkpoint manifest: {e}; resume refused") from e
         chunks = list(cp["chunks"])
         state = checkpoint.read_private(private)
+        if (checkpoint.manifest_digest(chunks) != state["manifest_sha256"]
+                or cp["trace_bytes"] != state["trace_bytes"]):
+            raise SystemExit("trace checkpoint manifest differs from private image; resume refused")
         original = state["start"]
         a.state = original["state_sha256"]
         a.out = a.out or cp["out"]
         a.runs = a.runs or cp["runs"]
-        a.experiment = a.experiment or prior["experiment"]
-        if a.compare and a.compare != cp["compare"]:
+        if a.experiment and a.experiment != prior["experiment"]:
+            ap.error("--experiment differs from the checkpoint")
+        a.experiment = prior["experiment"]
+        if a.compare and rel(ROOT / a.compare) != cp["compare"]:
             ap.error("--compare differs from the checkpoint")
         a.compare = cp["compare"]
+    if a.compare:
+        a.compare = rel(ROOT / a.compare)
     a.out, a.runs, a.experiment = a.out or "traces/T06", a.runs or "runs/T06", a.experiment or "T06"
     out, runs = ROOT / a.out, ROOT / a.runs
     out.mkdir(parents=True, exist_ok=True)
@@ -417,12 +434,15 @@ def main(argv=None):
         pid = f"{rid}-p{count:04d}"
         chunk = out / "partial" / f"{trace_path.stem}-p{count:04d}.jsonl"
         info = journal.chunk(chunk)
-        chunks.append({"path": rel(chunk), "sha256": info["sha256"]})
+        chunks.append({"path": rel(chunk), "index": len(chunks), **info})
+        trace_bytes = info["offset"] + info["length"]
         private = ROOT / ".cache" / "checkpoints" / a.experiment / (pid + ".pkl.gz")
-        private_sha = checkpoint.write_private(private, {"start": start, "machine": checkpoint.capture(week)})
+        private_sha = checkpoint.write_private(private, {"start": start, "machine": checkpoint.capture(week),
+                                                       "trace_bytes": trace_bytes,
+                                                       "manifest_sha256": checkpoint.manifest_digest(chunks)})
         cp = {"private_path": rel(private), "private_sha256": private_sha,
               "drive_path": f"checkpoints/{a.experiment}/{private.name}",
-              "signature": sig, "chunks": list(chunks), "draws": week.draws,
+              "signature": sig, "chunks": list(chunks), "trace_bytes": trace_bytes, "draws": week.draws,
               "screens": week.screen_i, "run_on_stops": week.run_on,
               "instruction_budget": week.g.budget,
               "out": rel(out), "runs": rel(runs), "compare": a.compare}
@@ -462,11 +482,17 @@ def main(argv=None):
     journal.append(end)
     trace_sha = journal.finish(trace_path)
     cmp_ok, cmp_lines = (None, [])
+    try:
+        if a.compare:
+            cmp_ok, cmp_lines = compare(journal, sha, ROOT / a.compare)
+    except (Exception, KeyboardInterrupt) as e:
+        cmp_ok = False
+        cmp_lines = [f"comparison error: {type(e).__name__} reading {a.compare}"]
+    finally:
+        journal.close()
     if a.compare:
-        cmp_ok, cmp_lines = compare(journal, sha, a.compare)
         for line in cmp_lines:
             print("  " + line)
-    journal.close()
     rec.update(observations=[
         {"step": 0, "source": "file", "field": "the trace written, path", "value": rel(trace_path)},
         {"step": 0, "source": "file", "field": "the trace written, sha256", "value": trace_sha},

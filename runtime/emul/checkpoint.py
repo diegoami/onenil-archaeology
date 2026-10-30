@@ -19,6 +19,32 @@ def digest(path):
         return hashlib.file_digest(f, "sha256").hexdigest()
 
 
+def manifest_digest(chunks):
+    """Bind the complete ordered manifest to the private machine image as well."""
+    return hashlib.sha256(json.dumps(chunks, sort_keys=True).encode()).hexdigest()
+
+
+def verify_chunks(root, chunks, total_bytes):
+    """Verify a complete, ordered prefix before creating a journal or restoring a guest."""
+    if not chunks or type(total_bytes) is not int or total_bytes < 0:
+        raise ValueError("invalid trace checkpoint manifest size")
+    paths, offset = [], 0
+    for index, chunk in enumerate(chunks):
+        if (chunk.get("index") != index or chunk.get("offset") != offset
+                or type(chunk.get("length")) is not int or chunk["length"] < 0):
+            raise ValueError("trace checkpoint manifest has a gap, overlap or reordered chunk")
+        path = Path(root) / chunk["path"]
+        if path.stat().st_size != chunk["length"]:
+            raise ValueError("trace checkpoint chunk length differs")
+        if digest(path) != chunk["sha256"]:
+            raise ValueError("trace checkpoint chunk digest differs")
+        offset += chunk["length"]
+        paths.append(path)
+    if offset != total_bytes:
+        raise ValueError("trace checkpoint manifest is incomplete")
+    return paths
+
+
 class Journal:
     """List-like event sink, flushed after every event; published chunks never change."""
     def __init__(self, path, chunks=()):
@@ -45,6 +71,7 @@ class Journal:
         """Publish only events since the previous checkpoint, including a durable flush."""
         self.f.flush()
         os.fsync(self.f.fileno())
+        offset = self.published
         end = self.f.tell()
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -54,7 +81,7 @@ class Journal:
             dst.flush()
             os.fsync(dst.fileno())
         self.published = end
-        return {"sha256": digest(path), "size": end}
+        return {"sha256": digest(path), "offset": offset, "length": end - offset}
 
     def finish(self, path):
         self.f.flush()

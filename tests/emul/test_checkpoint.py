@@ -45,8 +45,10 @@ class JournalTests(unittest.TestCase):
             info = first.chunk(c0)
             original = c0.read_bytes()
             self.assertEqual(info["sha256"], hashlib.sha256(original).hexdigest())
+            self.assertEqual((info["offset"], info["length"]), (0, len(original)))
             first.append(events[1])
-            first.chunk(c1)
+            info1 = first.chunk(c1)
+            self.assertEqual((info1["offset"], info1["length"]), (len(original), c1.stat().st_size))
             self.assertEqual(c0.read_bytes(), original)
             self.assertEqual([json.loads(line) for line in c1.read_text().splitlines()], [events[1]])
             with self.assertRaises(FileExistsError):
