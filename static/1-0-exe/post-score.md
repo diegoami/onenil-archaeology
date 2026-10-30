@@ -13,10 +13,10 @@ greater than the other; larger differences callA464 when ahead, A3D6 otherwise.
 
 `[confirmed]` A23C loads the club baseline from byte table93F7 indexed by byte
 D885+clubID and passes it to0C23. Side1 then sets one-based strategy bit1 and calls
-the setter again. It calls265B on the opposite club twice and compares the wrapping
-signed word difference of those results to zero-extended byte C66+side. Under the
-named disjoint immutable inputs265B is pure, so the difference is zero. The conditional
-two random6 additions cannot be reached in this domain. Finally it clears D0CC+side
+the setter again. It calls265B first on the opposite club and then its own club and
+compares the wrapping signed word difference (own minus opposite) to zero-extended
+byte C66+side. A positive excess sets two random6 bits and calls the setter again.
+The original trace's club arguments independently check this selection. Finally it clears D0CC+side
 and D0CE+side.
 
 `[confirmed]` 265B returns the wrapping word193 - club byte51 - selected value.
