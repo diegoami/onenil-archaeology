@@ -63,3 +63,12 @@ return snapshot is after that call. They are observations of a still external ha
 not an implemented handler or a license to replace computed state with expected outputs.
 The named snapshot is not a whole-memory projection. 6B2F,52B6,78B7, continuous DD02,
 whole-match/week, watched-engine and timer/render parity remain pending.
+
+## Observed coverage
+
+`[confirmed]` Six completed original captures at `a455882`, produced by `e26e7b4`,
+match the retained T16 observations and T08 events/screens. They cover 184 DBC6 calls,
+499 decision draws, 909 direct helpers and 22 external dispatches (17 further draws),
+with all 15 T08 references checked. See proposed F17 for the observed branch counts and
+the unobserved stack-dependent branch. `python3 runtime/emul/extra_event.py --check`
+checks the literal source links and exported inputs without any Python engine formula.
