@@ -10,6 +10,11 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "runtime/emul"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import placement
+
+
+def test_complete_public_placement_corpus_and_helper_checks():
+    # All validation inputs are public decoded evidence; no private game is loaded.
+    assert placement.main(["--check"]) == 0
 from test_quick_step import specimen as step_specimen
 
 
