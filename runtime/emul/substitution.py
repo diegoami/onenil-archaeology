@@ -67,7 +67,7 @@ class Recorder:
         else:
             n={'prompt':2,'editor':1,'ai':5}[kind]
             e.update(arguments=[g.stack_word(2*i) for i in range(n)],input=s,draw_start=self.week.draws)
-            # Preserve decoded club identity, rather than a host/emulated pointer.
+            # Represent the roster pointer by the club identity read for this side.
             if kind=='ai':e['arguments']=e['arguments'][:3]+[s['clubs'][side]['id']]
         self.event=e
     def end(self,g):
@@ -199,9 +199,12 @@ def build_index():
         records.append({'record':match.rel(path),'record_sha256':contests.sha(path),'cases':fixture.name,'cases_sha256':contests.sha(fixture),'week':source['t04_record'],
                         'calls':len(rows),'draws':sum(c['draw_end']-c['draw_start'] for c in rows),
                         'events':{kind:sum(e['kind']==kind for c in rows for e in c['events']) for kind in KINDS},
+                        'changed_calls':sum(c['input']!=c['output'] for c in rows),
+                        'changed_ai':sum(e['kind']=='ai' and e['input']!=e['output'] for c in rows for e in c['events']),
                         'producer_commit':rec['code_commit']})
     return {'schema':'substitution-corpus/1','records':records,'calls':sum(r['calls'] for r in records),
-            'draws':sum(r['draws'] for r in records),
+            'draws':sum(r['draws'] for r in records),'changed_calls':sum(r['changed_calls'] for r in records),
+            'changed_ai':sum(r['changed_ai'] for r in records),
             'events':{kind:sum(r['events'][kind] for r in records) for kind in KINDS},
             'weeks':len(records),'t20_index_sha256':contests.sha(ROOT/'traces/T20/index.json')}
 

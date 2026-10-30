@@ -31,8 +31,8 @@ are separate from the dispatcher's predicates.
 rosters, canonical player byte8/flags11, physical scene/player/stored-slot selectors,
 managed identifiers, time, allowance, reserves, substitution flags, pending/control/key
 and both complete event-total rows. Outbound routines are observed as opaque entry/return
-boundaries, including actual draw intervals. AI pointer arguments are decoded to club
-identity. No UI, AI editor or replacement algorithm is claimed implemented. Rendering,
+boundaries, including actual draw intervals. The AI roster-pointer argument is represented by the measured side's club
+identity; physical pointer words are not exported. No UI, AI editor or replacement algorithm is claimed implemented. Rendering,
 other player fields and arbitrary scratch bytes are outside this projection.
 
 [designed: T22] Public replay checks join the entire T16/T20 ledger and trace, while the
