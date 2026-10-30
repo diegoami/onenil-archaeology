@@ -11,6 +11,16 @@ import goal_effects
 from test_quick_step import specimen as step_specimen
 
 
+def test_complete_committed_logical_goal_effect_corpus():
+    # Public decoded records suffice; the original and savestates are not loaded.
+    assert goal_effects.main(["--check"]) == 0
+
+
+def test_actor_zero_cannot_alias_the_last_scene_in_the_projection():
+    with pytest.raises(ValueError):
+        goal_effects.validate_state(logical_state(), {"minute": 7, "actor": 0, "side_flag": 1})
+
+
 def logical_state():
     rosters = [list(range(201, 221)), list(range(212, 232))]
     return {
@@ -169,6 +179,7 @@ def test_shared_player_ids_have_one_state_record_not_one_record_per_role():
     for label in ("before", "after"):
         call[label]["scenes"][11]["player"] = 202
         sources[5][0]["goal_calls"][0][label]["players"][11]["player"] = 202
+    call["helper_calls"][1]["scene_player"] = 202
     assert len(export(call, source, trace, sources)) == 1
     call["before"]["players"].append(copy.deepcopy(call["before"]["players"][1]))
     with pytest.raises(ValueError):

@@ -176,7 +176,8 @@ def reject_numeric_aliases(value):
 
 
 def validate_state(state, event, indices=None):
-    if not (placement.integer(state["global_actor"], 1, 22) and placement.integer(state["secondary_actor"], 0, 22)
+    if not (placement.integer(event["actor"], 1, 22) and placement.integer(event["side_flag"], 0, 1)
+            and placement.integer(state["global_actor"], 1, 22) and placement.integer(state["secondary_actor"], 0, 22)
             and ints(state["clubs"], 1, 176, 2) and ints(state["side_offsets"], 0, 21, 2)
             and set(state["flags"]) == set(FLAGS) and ints(state["flags"].values(), 0, 255)
             and ints(state["position_deltas"], -128, 127, 14) and ints(state["event_weights"], -128, 127, 2)):
