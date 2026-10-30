@@ -1,7 +1,7 @@
 # Where artifacts live
 
 [designed: owner, 2026-10-29, as in goal2] Everything the project needs is in the repository, so a
-fresh clone (a cloud session included) has it, except the original game.
+fresh clone (a cloud session included) has it, except private original-game artifacts and savestates.
 
 | What | Where |
 | --- | --- |
@@ -35,3 +35,32 @@ shared with (it sees nothing else), never the owner's own token.
 
 rclone's shared Google Drive client_id is being retired during 2026: give the remote its own
 client_id (`client_id`/`client_secret`, https://rclone.org/drive/#making-your-own-client-id) before then.
+
+## Restoring on another computer
+
+Public Python checks and Rust replays use committed decoded fixtures and need no Drive login.
+For new original-code runs, configure the private remote as above, then restore the whole folder
+from the archaeology checkout:
+
+```sh
+python3 tools/artifacts.py pull
+```
+
+The full pull preserves the folder layout, including `.cache/One-Nil96/` and `.cache/states/`.
+For a smaller restore, the equivalent directories can be copied explicitly:
+
+```sh
+rclone copy onenildrive:One-Nil96 .cache/One-Nil96
+rclone copy onenildrive:states .cache/states
+```
+
+A named `tools/artifacts.py pull NAME` writes that file's basename directly under `.cache/`;
+it is not a directory restore. The harness expects the game directory above, and
+`runtime/emul/match.py` searches `.cache/states/` recursively for each run's recorded
+`start_state.sha256`. Use the recorded hashes to identify states rather than relying on another
+machine's absolute paths. The T04 states are stored under `states/T04/` in Drive. Run records
+also identify the game-file hashes used by each capture.
+
+No credentials, original bytes or private savestates belong in a git commit, public attachment
+or release. A checkpoint records the verification receipt and whether any private artifact is
+still only local; build environments and disposable caches are not transfer artifacts.
