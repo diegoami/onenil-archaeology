@@ -265,3 +265,60 @@ def test_build_index_rejects_changed_fixture_even_with_updated_fixture_digest(tm
          patch.object(quick_step, "t11_calls", return_value=[contest]):
         with pytest.raises(ValueError):
             quick_step.build_index()
+
+
+def specimen_with_extra_outside_draw():
+    step, contest, trace, source = specimen()
+
+    def shift(value):
+        if isinstance(value, dict):
+            return {key: item + 1 if key in ("draw_start", "draw_end", "draw_i", "draws", "seed")
+                    and type(item) is int else shift(item) for key, item in value.items()}
+        if isinstance(value, list):
+            return [shift(item) for item in value]
+        return value
+
+    step, contest = shift(step), shift(contest)
+    for event in trace:
+        if event["kind"] == "draw" and event["i"] >= 258:
+            for field in ("i", "seed_before", "seed_after"):
+                event[field] += 1
+        elif event["kind"] == "mark" and event["what"] == "match return":
+            event["draws"] += 1
+    insertion = next(i for i, event in enumerate(trace) if event.get("i") == 259)
+    trace.insert(insertion, {"kind": "draw", "i": 258, "n": 50, "seed_before": 258,
+                             "seed_after": 259, "value": 22,
+                             "callers": ["24BC:0D12", "232A:0779", "1B55:28C2", "0AB9:E2D9"]})
+    outside = [copy.deepcopy(event) for event in trace if event["kind"] == "draw" and event["i"] <= 258]
+    return step, contest, trace, source, outside
+
+
+def test_extra_prestep_draw_is_retained_as_explicit_boundary_observation():
+    step, contest, trace, source, outside = specimen_with_extra_outside_draw()
+    exported = quick_step.cases_for([step], [contest], trace, source, outside)
+    assert step["draw_start"] == 259
+    assert exported[0]["draws"][0]["i"] == 259
+    assert quick_step.partition_draws([step], trace, outside) == outside
+    assert outside[-1]["i"] == 258
+    assert quick_step.draw_view(outside[-1])["site"] == "1B55:28C2"
+    with pytest.raises(ValueError, match="explicit boundary"):
+        quick_step.cases_for([step], [contest], trace, source)
+
+
+@pytest.mark.parametrize("corrupt", ["extra-missing", "prefix-missing", "duplicate", "reorder", "inside", "value"])
+def test_outside_draw_membership_is_exact_and_ordered(corrupt):
+    step, contest, trace, source, outside = specimen_with_extra_outside_draw()
+    if corrupt == "extra-missing":
+        outside.pop()
+    elif corrupt == "prefix-missing":
+        outside.pop(0)
+    elif corrupt == "duplicate":
+        outside.append(copy.deepcopy(outside[-1]))
+    elif corrupt == "reorder":
+        outside[0], outside[1] = outside[1], outside[0]
+    elif corrupt == "inside":
+        outside.append(copy.deepcopy(next(e for e in trace if e.get("i") == 259)))
+    else:
+        outside[-1]["value"] += 1
+    with pytest.raises(ValueError, match="outside-step observations"):
+        quick_step.cases_for([step], [contest], trace, source, outside)

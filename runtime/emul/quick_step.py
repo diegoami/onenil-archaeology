@@ -68,7 +68,7 @@ class Recorder:
         self.contests = contests.Recorder(week)
         self.rating = self.attempt = self.mapping = self.goal = self.phase = None
         self.added = self.clock_step = None
-        self.between_steps = []
+        self.between_steps, self.outside_steps = [], []
         g = week.g
         hooks = {match.MATCH: lambda g: setattr(self, "active", True),
                  match.MATCH_RETURN: lambda g: setattr(self, "active", False),
@@ -87,7 +87,8 @@ class Recorder:
                  "0AB9:DFF5": self.phase_leave,
                  "0AB9:DFF7": lambda g: self.phase_enter(g, "goal reset: 1998:045C,0AB9:52B6"),
                  "0AB9:E003": self.keyboard, "0AB9:E006": self.leave,
-                 "0AB9:7B7B": self.clock_enter, "0AB9:7C92": self.clock_leave}
+                 "0AB9:7B7B": self.clock_enter, "0AB9:7C92": self.clock_leave,
+                 match.LCG_LEAVE: self.outside_draw}
         for address, callback in hooks.items():
             g.code_hook(address, callback)
         for before, after in (("6456", "645A"), ("65ED", "65F1"), ("68A6", "68AA")):
@@ -96,6 +97,11 @@ class Recorder:
 
     def local(self, g, offset, size=2):
         return int.from_bytes(g.mem(g.reg("ss") * 16 + ((g.reg("bp") + offset) & 0xFFFF), size), "little")
+
+    def outside_draw(self, g):
+        if self.active and self.pending is None:
+            # Week's RNG-return hook was installed first and has emitted this draw.
+            self.outside_steps.append(dict(self.week.events[-1]))
 
     def enter(self, g):
         if not self.active:
@@ -246,7 +252,7 @@ class Recorder:
 
 
 def draw_view(draw):
-    site = next((c for c in draw["callers"] if c.startswith("0AB9:")), None)
+    site = next((c for c in draw["callers"] if c != "?" and not c.startswith(("24BC:", "232A:", "26C9:"))), None)
     if site is None:
         raise ValueError("unresolved quick-step draw site")
     return {"site": site, **{k: draw[k] for k in ("i", "n", "seed_before", "seed_after", "value")}}
@@ -274,6 +280,9 @@ def _check_step(step, original_contest, draws):
     if [r["side"] for r in ratings] != [0, 1] or any(
             r["values"] != c["input"]["ratings"][r["side"]::2] for r in ratings):
         raise ValueError("ratings stage differs from D983 inputs")
+    if not (ratings[0]["draw_start"] == begin <= ratings[0]["draw_end"] == ratings[1]["draw_start"]
+            <= ratings[1]["draw_end"] == c["draw_start"]):
+        raise ValueError("entry/ratings/contest stage boundaries differ")
     if core_in["generated"] != c["output"]["goals"] or core_in["seed"] != c["output"]["seed"]:
         raise ValueError("placement stage differs from D983 outputs")
     if len(step["goal_calls"]) > 1 or core_out["goal_flag"] != len(step["goal_calls"]):
@@ -321,6 +330,10 @@ def _check_step(step, original_contest, draws):
         expected_scores[side] += 1
     if core_out["saved_scores"] != expected_scores:
         raise ValueError("cumulative score delta differs from the goal callback")
+    phases = step["phases"]
+    if (not phases or phases[-1]["routine"] != "0AB9:78B7" or phases[-1]["draw_end"] != end
+            or any(not (core_out["draws"] <= p["draw_start"] <= p["draw_end"] <= end) for p in phases)):
+        raise ValueError("post-placement/exit phase boundaries differ")
     for goal in step["goal_calls"]:
         if not (core_in["draws"] <= goal["draw_start"] <= goal["draw_end"] <= core_out["draws"]):
             raise ValueError("goal helper draw span is outside placement")
@@ -333,26 +346,45 @@ def check_step(step, original_contest, draws):
         raise ValueError(f"incomplete or malformed step observation: {e}") from e
 
 
-def cases_for(steps, original_calls, trace, source):
+def partition_draws(steps, trace, outside_steps=None):
+    """Account for every managed draw by observed entry/exit membership, not a fixed prelude."""
+    draws = contests.draw_stream(trace)
+    start = next(e["draws"] for e in trace if e["kind"] == "mark" and e["what"].startswith("match entry"))
+    end = next(e["draws"] for e in trace if e["kind"] == "mark" and e["what"].startswith("match return"))
+    covered = [i for step in steps for i in range(step["draw_start"], step["draw_end"])]
+    if covered != sorted(set(covered)) or any(i < start or i >= end for i in covered):
+        raise ValueError("step draw spans overlap, reorder or leave the managed window")
+    if [d["i"] for d in draws[start:end]] != list(range(start, end)):
+        raise ValueError("managed source draw indices differ")
+    inside = set(covered)
+    outside = [d for d in draws[start:end] if d["i"] not in inside]
+    if outside_steps is None:
+        # The first two immutable receipts predate the explicit outside-draw hook.
+        # Support their established bootstrap only; later gaps require observations.
+        if [d["i"] for d in outside] != list(range(258)):
+            raise ValueError("outside-step draws need explicit boundary observations")
+    elif outside != outside_steps:
+        raise ValueError("outside-step observations omit or misclassify managed draws")
+    return outside
+
+
+def cases_for(steps, original_calls, trace, source, outside_steps=None):
     if (not trace or trace[0].get("state_sha256") != source["start_state_sha256"]
             or trace[-1].get("kind") != "end" or trace[-1].get("status") != "completed"):
         raise ValueError("reference start state or completion differs")
     draws = contests.draw_stream(trace)
     if not steps or len(steps) != len(original_calls):
         raise ValueError("step/contest count differs")
-    covered, result = [], []
+    result = []
     for i, (step, c) in enumerate(zip(steps, original_calls)):
         check_step(step, c, draws)
         a, b = step["draw_start"], step["draw_end"]
         if [d["i"] for d in draws[a:b]] != list(range(a, b)):
             raise ValueError("source draw indices are not contiguous")
-        covered.extend(range(a, b))
         result.append({"schema": "quick-step-observation/1", "week": source["t04_record"], "step": i,
                        "observation": step, "source": {"trace": source["trace"], "sha256": source["trace_sha256"]},
                        "draws": [draw_view(d) for d in draws[a:b]]})
-    managed_end = next(e["draws"] for e in trace if e["kind"] == "mark" and e["what"].startswith("match return"))
-    if covered != list(range(258, managed_end)):
-        raise ValueError("steps omit or overlap managed draws after the recorded 258-draw prefix")
+    partition_draws(steps, trace, outside_steps)
     return result
 
 
@@ -387,9 +419,11 @@ def build_index():
         reference = next((trace for entry, trace in members if entry == source), None)
         if reference is None or record["start_state"]["sha256"] != source["start_state_sha256"]:
             raise ValueError("quick-step source/state differs")
-        steps = contests.outputs(record)["steps"]
+        measured = contests.outputs(record)
+        steps, outside_steps = measured["steps"], measured.get("outside_step_draws")
         calls = t11_calls(source)
-        wanted = cases_for(steps, calls, reference, source)
+        wanted = cases_for(steps, calls, reference, source, outside_steps)
+        outside = partition_draws(steps, reference, outside_steps)
         observations = {o["field"]: o["value"] for o in record["observations"]}
         fixture = ROOT / observations["fixture path"]
         if contests.sha(fixture) != observations["fixture sha256"] or contests.events(fixture) != wanted:
@@ -397,9 +431,10 @@ def build_index():
         records.append({"record": match.rel(path), "record_sha256": contests.sha(path), "cases": fixture.name,
                         "cases_sha256": contests.sha(fixture), "week": source["t04_record"], "steps": len(steps),
                         "producer_commit": record["code_commit"], "source_trace": source["trace"],
-                        "source_trace_sha256": source["trace_sha256"]})
+                        "source_trace_sha256": source["trace_sha256"], "outside_step_draws": len(outside),
+                        "outside_step_sites": sorted({draw_view(d)["site"] for d in outside})})
         for entry, trace in members:
-            cases_for(steps, calls, trace, entry)
+            cases_for(steps, calls, trace, entry, outside_steps)
             coverage.append({"t04_record": entry["t04_record"], "trace": entry["trace"],
                              "trace_sha256": entry["trace_sha256"], "cases": fixture.name})
     return {"schema": "quick-step-observations/1", "routine": "0AB9:DD02", "records": records, "coverage": coverage,
@@ -437,7 +472,7 @@ def run():
             ok, lines = match.compare(week.events, source["start_state_sha256"], ROOT / source["t04_record_path"])
             if not ok:
                 raise ValueError("DOSBox-X comparison failed")
-            cases = cases_for(recorder.steps, t11_calls(source), reference, source)
+            cases = cases_for(recorder.steps, t11_calls(source), reference, source, recorder.outside_steps)
         except (Exception, KeyboardInterrupt) as e:
             status = f"aborted: {type(e).__name__}: {e}"
         n = max(match.next_number(RUNS, "T12-r*.json"), match.next_number(FIXTURES, "T12-r*.jsonl"))
@@ -462,6 +497,7 @@ def run():
                                    {"step": 0, "source": "file", "field": "fixture sha256", "value": contests.sha(fixture)},
                                    {"step": 1, "source": "log", "field": "ordered DOSBox-X comparison", "value": "\n".join(lines)}],
                   "outputs": [{"name": "steps", "value": recorder.steps},
+                              {"name": "outside_step_draws", "value": recorder.outside_steps},
                               {"name": "between_steps_added_time", "value": recorder.between_steps}],
                   "started": started, "ended": match.utc(), "status": status}
         match.write_record(RUNS / (rid + ".json"), record)

@@ -204,3 +204,17 @@ production before enlarging the Rust step. Full DD02 entry/exit observations are
 but are not a claim that the whole routine is closed over only seed and scores: its helpers can
 modify player records, logs, scene/configuration state and screens. No Python engine model,
 whole-memory/CPU/timing equivalence, full-match replay or watched-engine parity follows here.
+
+## Draw ownership outside DD02
+
+`[confirmed]` The managed-match entry calls `1B55:284E` at `0AB9:E2D4`, before the quick-step
+loop. That routine can draw `random(50)` at `1B55:28BB`–`28BD` (return site `28C2`;
+`code/seg_1B55_04.asm`). Its conditional branch is outside DD02, so a fixed count of 258
+setup draws cannot establish the first step's entry across every week.
+
+`[designed]` The recorder assigns each draw by whether a DD02 entry is active. The checker
+verifies the ordered, disjoint step spans and the separately observed outside-step draws
+against the complete managed-match window. No unmatched draw is silently dropped. The first
+two immutable T12 receipts predate that extra observer; their implicit outside span is accepted
+only when it is exactly their established 258-draw bootstrap. Any other outside span requires
+explicit observations. The failed fixed-prefix attempt is retained as T12-r0003, not repaired.
