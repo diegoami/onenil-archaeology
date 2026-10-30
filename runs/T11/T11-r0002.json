@@ -1,0 +1,3812 @@
+{
+  "schema": "run/1",
+  "run_id": "T11-r0002",
+  "experiment": "T11",
+  "arm": "quick-contests",
+  "rep": 2,
+  "code_commit": "cd05153",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/contests.py@cd05153",
+    "unicorn": "2.1.4",
+    "python": "3.14.7"
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "original code under guest.py; read-only routine hooks"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-week-r0012.sav",
+    "sha256": "b6e7808976cb11d46e73fb72ca99c0a423c3c820ed3fe64087047b7a8790d135",
+    "restore": "DOSBox-X savestate loaded by runtime/emul/guest.py"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/contests.py",
+    "stream_key": "cd26e89be56680c983dfa9ccc0a0854afe57c92dd87a3efc2c6e949d652a4c62",
+    "week_record": "runs/T04/T04-week-r0013.json",
+    "source": {
+      "t04_record": "T04-week-r0013",
+      "t04_record_path": "runs/T04/T04-week-r0013.json",
+      "start_state_sha256": "b6e7808976cb11d46e73fb72ca99c0a423c3c820ed3fe64087047b7a8790d135",
+      "t08_run": "T08-r0017",
+      "run_status": "completed",
+      "trace": "traces/T08/b6e7808976cb11d4-week-r0002.jsonl",
+      "trace_sha256": "0d0a0a239e1d67fff41a321666bd575cfb044b748c364c6210fe20dec7251f9b",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "SEVILLA",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          1,
+          2
+        ]
+      },
+      "draws": 22554,
+      "key_waits": 8,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "edd3505d9f36e2070d780ec37c10929733eff98054fd8e11d7ea43661b8d6d5d",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "edd3505d9f36e2070d780ec37c10929733eff98054fd8e11d7ea43661b8d6d5d",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "6357181d3e42f23dc5b85d1d29cef12ac7d5a924a21a28d897e3cf6edc411135",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "6357181d3e42f23dc5b85d1d29cef12ac7d5a924a21a28d897e3cf6edc411135",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      },
+      "superseded_runs": [
+        "T08-r0011"
+      ]
+    },
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture path",
+      "value": "traces/T11/T11-r0002.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture sha256",
+      "value": "05d90e10cfb46300cbfc43859ecc715120e6c00dc9b53ae1aa53abcf66879163"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "ordered DOSBox-X comparison",
+      "value": "screen 1 (aa7a98318ff90937) = key wait 1\nscreen 7 (match, unchanged for 5 reads) (edd3505d9f36e207) = key wait 2\nscreen 8 (598695594ec70d12) = key wait 3\nscreen 14 (match, unchanged for 5 reads) (6357181d3e42f23d) = key wait 4\nscreen 15 (0f83b1de00229af3) = key wait 5\nscreen 16 (b64579f1894a4866) = key wait 6\nmain menu after the week (a5bea2d62ac65521) = key wait 7\nall of the record's 7 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "calls",
+      "value": [
+        {
+          "draw_start": 258,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 50238,
+            "ratings": [
+              230,
+              185,
+              874,
+              607,
+              639,
+              835,
+              624,
+              589
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 320,
+          "output": {
+            "seed": 7292,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            230,
+            185,
+            874,
+            607,
+            639,
+            835,
+            624,
+            589
+          ]
+        },
+        {
+          "draw_start": 324,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 17808,
+            "ratings": [
+              230,
+              185,
+              874,
+              607,
+              639,
+              835,
+              624,
+              589
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 372,
+          "output": {
+            "seed": 64000,
+            "goals": [
+              0,
+              1
+            ]
+          },
+          "ratings_after": [
+            230,
+            185,
+            874,
+            607,
+            639,
+            835,
+            624,
+            589
+          ]
+        },
+        {
+          "draw_start": 373,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 44303,
+            "ratings": [
+              229,
+              184,
+              871,
+              605,
+              637,
+              832,
+              621,
+              586
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 429,
+          "output": {
+            "seed": 11015,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            229,
+            184,
+            871,
+            605,
+            637,
+            832,
+            621,
+            586
+          ]
+        },
+        {
+          "draw_start": 433,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 56459,
+            "ratings": [
+              229,
+              184,
+              871,
+              605,
+              637,
+              832,
+              621,
+              586
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 489,
+          "output": {
+            "seed": 34051,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            229,
+            184,
+            871,
+            605,
+            637,
+            832,
+            621,
+            586
+          ]
+        },
+        {
+          "draw_start": 495,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 11041,
+            "ratings": [
+              229,
+              184,
+              871,
+              605,
+              637,
+              832,
+              621,
+              586
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 547,
+          "output": {
+            "seed": 46069,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            229,
+            184,
+            871,
+            605,
+            637,
+            832,
+            621,
+            586
+          ]
+        },
+        {
+          "draw_start": 553,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 40771,
+            "ratings": [
+              229,
+              184,
+              871,
+              605,
+              637,
+              832,
+              621,
+              586
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 603,
+          "output": {
+            "seed": 56877,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            229,
+            184,
+            871,
+            605,
+            637,
+            832,
+            621,
+            586
+          ]
+        },
+        {
+          "draw_start": 604,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 37960,
+            "ratings": [
+              229,
+              184,
+              871,
+              605,
+              637,
+              832,
+              621,
+              586
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 650,
+          "output": {
+            "seed": 59238,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            229,
+            184,
+            871,
+            605,
+            637,
+            832,
+            621,
+            586
+          ]
+        },
+        {
+          "draw_start": 650,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 59238,
+            "ratings": [
+              228,
+              183,
+              867,
+              601,
+              633,
+              827,
+              618,
+              583
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 712,
+          "output": {
+            "seed": 48228,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            228,
+            183,
+            867,
+            601,
+            633,
+            827,
+            618,
+            583
+          ]
+        },
+        {
+          "draw_start": 720,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 63948,
+            "ratings": [
+              228,
+              183,
+              867,
+              601,
+              633,
+              827,
+              618,
+              583
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 778,
+          "output": {
+            "seed": 10726,
+            "goals": [
+              2,
+              3
+            ]
+          },
+          "ratings_after": [
+            228,
+            183,
+            867,
+            601,
+            633,
+            827,
+            618,
+            583
+          ]
+        },
+        {
+          "draw_start": 788,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 28448,
+            "ratings": [
+              228,
+              183,
+              867,
+              601,
+              633,
+              827,
+              618,
+              583
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 834,
+          "output": {
+            "seed": 1918,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            228,
+            183,
+            867,
+            601,
+            633,
+            827,
+            618,
+            583
+          ]
+        },
+        {
+          "draw_start": 834,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 1918,
+            "ratings": [
+              228,
+              183,
+              867,
+              601,
+              633,
+              827,
+              618,
+              583
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 892,
+          "output": {
+            "seed": 22248,
+            "goals": [
+              1,
+              2
+            ]
+          },
+          "ratings_after": [
+            228,
+            183,
+            867,
+            601,
+            633,
+            827,
+            618,
+            583
+          ]
+        },
+        {
+          "draw_start": 898,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 49342,
+            "ratings": [
+              228,
+              183,
+              867,
+              601,
+              633,
+              827,
+              618,
+              583
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 940,
+          "output": {
+            "seed": 9560,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            228,
+            183,
+            867,
+            601,
+            633,
+            827,
+            618,
+            583
+          ]
+        },
+        {
+          "draw_start": 941,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 40199,
+            "ratings": [
+              227,
+              182,
+              864,
+              599,
+              631,
+              824,
+              615,
+              580
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 989,
+          "output": {
+            "seed": 6583,
+            "goals": [
+              0,
+              2
+            ]
+          },
+          "ratings_after": [
+            227,
+            182,
+            864,
+            599,
+            631,
+            824,
+            615,
+            580
+          ]
+        },
+        {
+          "draw_start": 991,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 5905,
+            "ratings": [
+              227,
+              182,
+              864,
+              599,
+              631,
+              824,
+              615,
+              580
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1049,
+          "output": {
+            "seed": 11443,
+            "goals": [
+              2,
+              4
+            ]
+          },
+          "ratings_after": [
+            227,
+            182,
+            864,
+            599,
+            631,
+            824,
+            615,
+            580
+          ]
+        },
+        {
+          "draw_start": 1063,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 21465,
+            "ratings": [
+              228,
+              180,
+              836,
+              595,
+              635,
+              819,
+              618,
+              578
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1111,
+          "output": {
+            "seed": 20489,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            228,
+            180,
+            836,
+            595,
+            635,
+            819,
+            618,
+            578
+          ]
+        },
+        {
+          "draw_start": 1113,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 14067,
+            "ratings": [
+              228,
+              180,
+              836,
+              595,
+              635,
+              819,
+              618,
+              578
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1177,
+          "output": {
+            "seed": 33075,
+            "goals": [
+              3,
+              0
+            ]
+          },
+          "ratings_after": [
+            228,
+            180,
+            836,
+            595,
+            635,
+            819,
+            618,
+            578
+          ]
+        },
+        {
+          "draw_start": 1179,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 15469,
+            "ratings": [
+              228,
+              180,
+              836,
+              595,
+              635,
+              819,
+              618,
+              578
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1229,
+          "output": {
+            "seed": 5415,
+            "goals": [
+              2,
+              0
+            ]
+          },
+          "ratings_after": [
+            228,
+            180,
+            836,
+            595,
+            635,
+            819,
+            618,
+            578
+          ]
+        },
+        {
+          "draw_start": 1230,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 20186,
+            "ratings": [
+              227,
+              179,
+              833,
+              593,
+              632,
+              816,
+              615,
+              575
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1288,
+          "output": {
+            "seed": 7588,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            227,
+            179,
+            833,
+            593,
+            632,
+            816,
+            615,
+            575
+          ]
+        },
+        {
+          "draw_start": 1290,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 13286,
+            "ratings": [
+              227,
+              179,
+              833,
+              593,
+              632,
+              816,
+              615,
+              575
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1354,
+          "output": {
+            "seed": 13606,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            227,
+            179,
+            833,
+            593,
+            632,
+            816,
+            615,
+            575
+          ]
+        },
+        {
+          "draw_start": 1356,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 42616,
+            "ratings": [
+              227,
+              179,
+              833,
+              593,
+              632,
+              816,
+              615,
+              575
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1418,
+          "output": {
+            "seed": 30310,
+            "goals": [
+              2,
+              0
+            ]
+          },
+          "ratings_after": [
+            227,
+            179,
+            833,
+            593,
+            632,
+            816,
+            615,
+            575
+          ]
+        },
+        {
+          "draw_start": 1419,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 8285,
+            "ratings": [
+              227,
+              179,
+              833,
+              593,
+              632,
+              816,
+              615,
+              575
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1467,
+          "output": {
+            "seed": 9101,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            227,
+            179,
+            833,
+            593,
+            632,
+            816,
+            615,
+            575
+          ]
+        },
+        {
+          "draw_start": 1467,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 9101,
+            "ratings": [
+              227,
+              179,
+              833,
+              593,
+              632,
+              816,
+              615,
+              575
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1529,
+          "output": {
+            "seed": 29075,
+            "goals": [
+              0,
+              3
+            ]
+          },
+          "ratings_after": [
+            227,
+            179,
+            833,
+            593,
+            632,
+            816,
+            615,
+            575
+          ]
+        },
+        {
+          "draw_start": 1532,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 10088,
+            "ratings": [
+              226,
+              178,
+              829,
+              589,
+              629,
+              811,
+              612,
+              572
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1588,
+          "output": {
+            "seed": 42944,
+            "goals": [
+              2,
+              0
+            ]
+          },
+          "ratings_after": [
+            226,
+            178,
+            829,
+            589,
+            629,
+            811,
+            612,
+            572
+          ]
+        },
+        {
+          "draw_start": 1589,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 29647,
+            "ratings": [
+              226,
+              178,
+              829,
+              589,
+              629,
+              811,
+              612,
+              572
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1647,
+          "output": {
+            "seed": 12193,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            226,
+            178,
+            829,
+            589,
+            629,
+            811,
+            612,
+            572
+          ]
+        },
+        {
+          "draw_start": 1649,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 51019,
+            "ratings": [
+              226,
+              178,
+              829,
+              589,
+              629,
+              811,
+              612,
+              572
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1693,
+          "output": {
+            "seed": 1655,
+            "goals": [
+              0,
+              1
+            ]
+          },
+          "ratings_after": [
+            226,
+            178,
+            829,
+            589,
+            629,
+            811,
+            612,
+            572
+          ]
+        },
+        {
+          "draw_start": 1694,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 38634,
+            "ratings": [
+              226,
+              178,
+              829,
+              589,
+              629,
+              811,
+              612,
+              572
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1750,
+          "output": {
+            "seed": 31234,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            226,
+            178,
+            829,
+            589,
+            629,
+            811,
+            612,
+            572
+          ]
+        },
+        {
+          "draw_start": 1756,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 65224,
+            "ratings": [
+              226,
+              178,
+              829,
+              589,
+              629,
+              811,
+              612,
+              572
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1810,
+          "output": {
+            "seed": 14990,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            226,
+            178,
+            829,
+            589,
+            629,
+            811,
+            612,
+            572
+          ]
+        },
+        {
+          "draw_start": 1814,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 26434,
+            "ratings": [
+              225,
+              177,
+              826,
+              587,
+              625,
+              808,
+              608,
+              569
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1866,
+          "output": {
+            "seed": 16166,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            225,
+            177,
+            826,
+            587,
+            625,
+            808,
+            608,
+            569
+          ]
+        },
+        {
+          "draw_start": 1868,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 120,
+            "ratings": [
+              225,
+              177,
+              826,
+              587,
+              625,
+              808,
+              608,
+              569
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1922,
+          "output": {
+            "seed": 21694,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            225,
+            177,
+            826,
+            587,
+            625,
+            808,
+            608,
+            569
+          ]
+        },
+        {
+          "draw_start": 1928,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 26148,
+            "ratings": [
+              225,
+              177,
+              826,
+              587,
+              625,
+              808,
+              608,
+              569
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 1986,
+          "output": {
+            "seed": 19966,
+            "goals": [
+              2,
+              2
+            ]
+          },
+          "ratings_after": [
+            225,
+            177,
+            826,
+            587,
+            625,
+            808,
+            608,
+            569
+          ]
+        },
+        {
+          "draw_start": 1992,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 19812,
+            "ratings": [
+              225,
+              177,
+              826,
+              587,
+              625,
+              808,
+              608,
+              569
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2046,
+          "output": {
+            "seed": 5066,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            225,
+            177,
+            826,
+            587,
+            625,
+            808,
+            608,
+            569
+          ]
+        },
+        {
+          "draw_start": 2050,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 34622,
+            "ratings": [
+              225,
+              177,
+              826,
+              587,
+              625,
+              808,
+              608,
+              569
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2108,
+          "output": {
+            "seed": 56488,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            225,
+            177,
+            826,
+            587,
+            625,
+            808,
+            608,
+            569
+          ]
+        },
+        {
+          "draw_start": 2114,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 126,
+            "ratings": [
+              224,
+              176,
+              823,
+              583,
+              622,
+              803,
+              605,
+              566
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2168,
+          "output": {
+            "seed": 17236,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            224,
+            176,
+            823,
+            583,
+            622,
+            803,
+            605,
+            566
+          ]
+        },
+        {
+          "draw_start": 2172,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 63464,
+            "ratings": [
+              224,
+              176,
+              823,
+              583,
+              622,
+              803,
+              605,
+              566
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2226,
+          "output": {
+            "seed": 11950,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            224,
+            176,
+            823,
+            583,
+            622,
+            803,
+            605,
+            566
+          ]
+        },
+        {
+          "draw_start": 2226,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 11950,
+            "ratings": [
+              224,
+              176,
+              823,
+              583,
+              622,
+              803,
+              605,
+              566
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2286,
+          "output": {
+            "seed": 3450,
+            "goals": [
+              1,
+              4
+            ]
+          },
+          "ratings_after": [
+            224,
+            176,
+            823,
+            583,
+            622,
+            803,
+            605,
+            566
+          ]
+        },
+        {
+          "draw_start": 2291,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 29125,
+            "ratings": [
+              224,
+              176,
+              823,
+              583,
+              622,
+              803,
+              605,
+              566
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2347,
+          "output": {
+            "seed": 6653,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            224,
+            176,
+            823,
+            583,
+            622,
+            803,
+            605,
+            566
+          ]
+        },
+        {
+          "draw_start": 2349,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 5767,
+            "ratings": [
+              224,
+              176,
+              823,
+              583,
+              622,
+              803,
+              605,
+              566
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2405,
+          "output": {
+            "seed": 22911,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            224,
+            176,
+            823,
+            583,
+            622,
+            803,
+            605,
+            566
+          ]
+        },
+        {
+          "draw_start": 2409,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 22659,
+            "ratings": [
+              223,
+              175,
+              821,
+              581,
+              619,
+              800,
+              602,
+              563
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2463,
+          "output": {
+            "seed": 19665,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            223,
+            175,
+            821,
+            581,
+            619,
+            800,
+            602,
+            563
+          ]
+        },
+        {
+          "draw_start": 2465,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 13819,
+            "ratings": [
+              223,
+              175,
+              821,
+              581,
+              619,
+              800,
+              602,
+              563
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2529,
+          "output": {
+            "seed": 59451,
+            "goals": [
+              3,
+              2
+            ]
+          },
+          "ratings_after": [
+            223,
+            175,
+            821,
+            581,
+            619,
+            800,
+            602,
+            563
+          ]
+        },
+        {
+          "draw_start": 2537,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 52483,
+            "ratings": [
+              223,
+              175,
+              821,
+              581,
+              619,
+              800,
+              602,
+              563
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2603,
+          "output": {
+            "seed": 51965,
+            "goals": [
+              3,
+              3
+            ]
+          },
+          "ratings_after": [
+            223,
+            175,
+            821,
+            581,
+            619,
+            800,
+            602,
+            563
+          ]
+        },
+        {
+          "draw_start": 2613,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 55247,
+            "ratings": [
+              223,
+              175,
+              821,
+              581,
+              619,
+              800,
+              602,
+              563
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2661,
+          "output": {
+            "seed": 29311,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            223,
+            175,
+            821,
+            581,
+            619,
+            800,
+            602,
+            563
+          ]
+        },
+        {
+          "draw_start": 2661,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 29311,
+            "ratings": [
+              223,
+              175,
+              821,
+              581,
+              619,
+              800,
+              602,
+              563
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2719,
+          "output": {
+            "seed": 3537,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            223,
+            175,
+            821,
+            581,
+            619,
+            800,
+            602,
+            563
+          ]
+        },
+        {
+          "draw_start": 2719,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 3537,
+            "ratings": [
+              222,
+              174,
+              819,
+              577,
+              617,
+              795,
+              600,
+              560
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2763,
+          "output": {
+            "seed": 413,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            222,
+            174,
+            819,
+            577,
+            617,
+            795,
+            600,
+            560
+          ]
+        },
+        {
+          "draw_start": 2763,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 413,
+            "ratings": [
+              222,
+              174,
+              819,
+              577,
+              617,
+              795,
+              600,
+              560
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2815,
+          "output": {
+            "seed": 48689,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            222,
+            174,
+            819,
+            577,
+            617,
+            795,
+            600,
+            560
+          ]
+        },
+        {
+          "draw_start": 2815,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 48689,
+            "ratings": [
+              222,
+              174,
+              819,
+              577,
+              617,
+              795,
+              600,
+              560
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2869,
+          "output": {
+            "seed": 12495,
+            "goals": [
+              3,
+              0
+            ]
+          },
+          "ratings_after": [
+            222,
+            174,
+            819,
+            577,
+            617,
+            795,
+            600,
+            560
+          ]
+        },
+        {
+          "draw_start": 2871,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 56041,
+            "ratings": [
+              222,
+              174,
+              819,
+              577,
+              617,
+              795,
+              600,
+              560
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2927,
+          "output": {
+            "seed": 13473,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            222,
+            174,
+            819,
+            577,
+            617,
+            795,
+            600,
+            560
+          ]
+        },
+        {
+          "draw_start": 2931,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 48197,
+            "ratings": [
+              224,
+              176,
+              827,
+              583,
+              623,
+              803,
+              606,
+              566
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 2979,
+          "output": {
+            "seed": 54645,
+            "goals": [
+              0,
+              1
+            ]
+          },
+          "ratings_after": [
+            224,
+            176,
+            827,
+            583,
+            623,
+            803,
+            606,
+            566
+          ]
+        },
+        {
+          "draw_start": 2980,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 29808,
+            "ratings": [
+              223,
+              175,
+              823,
+              581,
+              620,
+              800,
+              603,
+              563
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3028,
+          "output": {
+            "seed": 12512,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            223,
+            175,
+            823,
+            581,
+            620,
+            800,
+            603,
+            563
+          ]
+        },
+        {
+          "draw_start": 3032,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 46388,
+            "ratings": [
+              221,
+              176,
+              853,
+              583,
+              617,
+              803,
+              600,
+              567
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3084,
+          "output": {
+            "seed": 30264,
+            "goals": [
+              0,
+              2
+            ]
+          },
+          "ratings_after": [
+            221,
+            176,
+            853,
+            583,
+            617,
+            803,
+            600,
+            567
+          ]
+        },
+        {
+          "draw_start": 3085,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 4711,
+            "ratings": [
+              221,
+              176,
+              853,
+              583,
+              617,
+              803,
+              600,
+              567
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3131,
+          "output": {
+            "seed": 49677,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            221,
+            176,
+            853,
+            583,
+            617,
+            803,
+            600,
+            567
+          ]
+        },
+        {
+          "draw_start": 3131,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 49677,
+            "ratings": [
+              221,
+              176,
+              853,
+              583,
+              617,
+              803,
+              600,
+              567
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3185,
+          "output": {
+            "seed": 64843,
+            "goals": [
+              0,
+              2
+            ]
+          },
+          "ratings_after": [
+            221,
+            176,
+            853,
+            583,
+            617,
+            803,
+            600,
+            567
+          ]
+        },
+        {
+          "draw_start": 3186,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 55662,
+            "ratings": [
+              221,
+              176,
+              853,
+              583,
+              617,
+              803,
+              600,
+              567
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3242,
+          "output": {
+            "seed": 20998,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            221,
+            176,
+            853,
+            583,
+            617,
+            803,
+            600,
+            567
+          ]
+        },
+        {
+          "draw_start": 3242,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 20998,
+            "ratings": [
+              219,
+              175,
+              848,
+              581,
+              614,
+              800,
+              597,
+              564
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3296,
+          "output": {
+            "seed": 41372,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            219,
+            175,
+            848,
+            581,
+            614,
+            800,
+            597,
+            564
+          ]
+        },
+        {
+          "draw_start": 3298,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 23454,
+            "ratings": [
+              219,
+              175,
+              848,
+              581,
+              614,
+              800,
+              597,
+              564
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3356,
+          "output": {
+            "seed": 18440,
+            "goals": [
+              1,
+              4
+            ]
+          },
+          "ratings_after": [
+            219,
+            175,
+            848,
+            581,
+            614,
+            800,
+            597,
+            564
+          ]
+        },
+        {
+          "draw_start": 3360,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 41180,
+            "ratings": [
+              219,
+              175,
+              848,
+              581,
+              614,
+              800,
+              597,
+              564
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3412,
+          "output": {
+            "seed": 42080,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            219,
+            175,
+            848,
+            581,
+            614,
+            800,
+            597,
+            564
+          ]
+        },
+        {
+          "draw_start": 3412,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 42080,
+            "ratings": [
+              219,
+              175,
+              848,
+              581,
+              614,
+              800,
+              597,
+              564
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3474,
+          "output": {
+            "seed": 27406,
+            "goals": [
+              3,
+              2
+            ]
+          },
+          "ratings_after": [
+            219,
+            175,
+            848,
+            581,
+            614,
+            800,
+            597,
+            564
+          ]
+        },
+        {
+          "draw_start": 3481,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 29235,
+            "ratings": [
+              219,
+              175,
+              848,
+              581,
+              614,
+              800,
+              597,
+              564
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3533,
+          "output": {
+            "seed": 5671,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            219,
+            175,
+            848,
+            581,
+            614,
+            800,
+            597,
+            564
+          ]
+        },
+        {
+          "draw_start": 3533,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 5671,
+            "ratings": [
+              218,
+              174,
+              846,
+              577,
+              612,
+              795,
+              595,
+              561
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3579,
+          "output": {
+            "seed": 1997,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            218,
+            174,
+            846,
+            577,
+            612,
+            795,
+            595,
+            561
+          ]
+        },
+        {
+          "draw_start": 3579,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 1997,
+            "ratings": [
+              218,
+              174,
+              827,
+              577,
+              627,
+              795,
+              554,
+              561
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3627,
+          "output": {
+            "seed": 36605,
+            "goals": [
+              0,
+              2
+            ]
+          },
+          "ratings_after": [
+            218,
+            174,
+            827,
+            577,
+            627,
+            795,
+            554,
+            561
+          ]
+        },
+        {
+          "draw_start": 3628,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 15832,
+            "ratings": [
+              218,
+              174,
+              827,
+              577,
+              627,
+              795,
+              554,
+              561
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3678,
+          "output": {
+            "seed": 51626,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            218,
+            174,
+            827,
+            577,
+            627,
+            795,
+            554,
+            561
+          ]
+        },
+        {
+          "draw_start": 3678,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 51626,
+            "ratings": [
+              218,
+              174,
+              827,
+              577,
+              627,
+              795,
+              554,
+              561
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3736,
+          "output": {
+            "seed": 21748,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            218,
+            174,
+            827,
+            577,
+            627,
+            795,
+            554,
+            561
+          ]
+        },
+        {
+          "draw_start": 3736,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 21748,
+            "ratings": [
+              218,
+              174,
+              827,
+              577,
+              627,
+              795,
+              554,
+              561
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3796,
+          "output": {
+            "seed": 6112,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            218,
+            174,
+            827,
+            577,
+            627,
+            795,
+            554,
+            561
+          ]
+        },
+        {
+          "draw_start": 3796,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 6112,
+            "ratings": [
+              217,
+              174,
+              822,
+              575,
+              623,
+              792,
+              551,
+              558
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3858,
+          "output": {
+            "seed": 25230,
+            "goals": [
+              1,
+              2
+            ]
+          },
+          "ratings_after": [
+            217,
+            174,
+            822,
+            575,
+            623,
+            792,
+            551,
+            558
+          ]
+        },
+        {
+          "draw_start": 3860,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 2848,
+            "ratings": [
+              217,
+              174,
+              822,
+              575,
+              623,
+              792,
+              551,
+              558
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3914,
+          "output": {
+            "seed": 26406,
+            "goals": [
+              2,
+              2
+            ]
+          },
+          "ratings_after": [
+            217,
+            174,
+            822,
+            575,
+            623,
+            792,
+            551,
+            558
+          ]
+        },
+        {
+          "draw_start": 3919,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 129,
+            "ratings": [
+              217,
+              174,
+              822,
+              575,
+              623,
+              792,
+              551,
+              558
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 3979,
+          "output": {
+            "seed": 2653,
+            "goals": [
+              2,
+              0
+            ]
+          },
+          "ratings_after": [
+            217,
+            174,
+            822,
+            575,
+            623,
+            792,
+            551,
+            558
+          ]
+        },
+        {
+          "draw_start": 3980,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 5048,
+            "ratings": [
+              217,
+              174,
+              822,
+              575,
+              623,
+              792,
+              551,
+              558
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4036,
+          "output": {
+            "seed": 528,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            217,
+            174,
+            822,
+            575,
+            623,
+            792,
+            551,
+            558
+          ]
+        },
+        {
+          "draw_start": 4039,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 25465,
+            "ratings": [
+              217,
+              174,
+              822,
+              575,
+              623,
+              792,
+              551,
+              558
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4097,
+          "output": {
+            "seed": 28507,
+            "goals": [
+              3,
+              0
+            ]
+          },
+          "ratings_after": [
+            217,
+            174,
+            822,
+            575,
+            623,
+            792,
+            551,
+            558
+          ]
+        },
+        {
+          "draw_start": 4099,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 2005,
+            "ratings": [
+              216,
+              174,
+              819,
+              572,
+              621,
+              788,
+              548,
+              555
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4163,
+          "output": {
+            "seed": 3093,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            216,
+            174,
+            819,
+            572,
+            621,
+            788,
+            548,
+            555
+          ]
+        },
+        {
+          "draw_start": 4166,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 16434,
+            "ratings": [
+              216,
+              174,
+              819,
+              572,
+              621,
+              788,
+              548,
+              555
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4216,
+          "output": {
+            "seed": 11092,
+            "goals": [
+              1,
+              2
+            ]
+          },
+          "ratings_after": [
+            216,
+            174,
+            819,
+            572,
+            621,
+            788,
+            548,
+            555
+          ]
+        },
+        {
+          "draw_start": 4218,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 55062,
+            "ratings": [
+              216,
+              174,
+              819,
+              572,
+              621,
+              788,
+              548,
+              555
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4270,
+          "output": {
+            "seed": 61498,
+            "goals": [
+              1,
+              3
+            ]
+          },
+          "ratings_after": [
+            216,
+            174,
+            819,
+            572,
+            621,
+            788,
+            548,
+            555
+          ]
+        },
+        {
+          "draw_start": 4273,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 58251,
+            "ratings": [
+              216,
+              174,
+              819,
+              572,
+              621,
+              788,
+              548,
+              555
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4325,
+          "output": {
+            "seed": 5375,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            216,
+            174,
+            819,
+            572,
+            621,
+            788,
+            548,
+            555
+          ]
+        },
+        {
+          "draw_start": 4325,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 5375,
+            "ratings": [
+              216,
+              174,
+              819,
+              572,
+              621,
+              788,
+              548,
+              555
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4375,
+          "output": {
+            "seed": 5321,
+            "goals": [
+              2,
+              0
+            ]
+          },
+          "ratings_after": [
+            216,
+            174,
+            819,
+            572,
+            621,
+            788,
+            548,
+            555
+          ]
+        },
+        {
+          "draw_start": 4376,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 15732,
+            "ratings": [
+              215,
+              174,
+              813,
+              570,
+              617,
+              785,
+              545,
+              552
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4438,
+          "output": {
+            "seed": 42626,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            215,
+            174,
+            813,
+            570,
+            617,
+            785,
+            545,
+            552
+          ]
+        },
+        {
+          "draw_start": 4438,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 42626,
+            "ratings": [
+              215,
+              174,
+              813,
+              570,
+              617,
+              785,
+              545,
+              552
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4486,
+          "output": {
+            "seed": 37490,
+            "goals": [
+              0,
+              1
+            ]
+          },
+          "ratings_after": [
+            215,
+            174,
+            813,
+            570,
+            617,
+            785,
+            545,
+            552
+          ]
+        },
+        {
+          "draw_start": 4486,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 37490,
+            "ratings": [
+              215,
+              174,
+              813,
+              570,
+              617,
+              785,
+              545,
+              552
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4546,
+          "output": {
+            "seed": 16382,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            215,
+            174,
+            813,
+            570,
+            617,
+            785,
+            545,
+            552
+          ]
+        },
+        {
+          "draw_start": 4546,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 16382,
+            "ratings": [
+              215,
+              174,
+              813,
+              570,
+              617,
+              785,
+              545,
+              552
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4598,
+          "output": {
+            "seed": 44962,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            215,
+            174,
+            813,
+            570,
+            617,
+            785,
+            545,
+            552
+          ]
+        },
+        {
+          "draw_start": 4600,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 63188,
+            "ratings": [
+              215,
+              174,
+              813,
+              570,
+              617,
+              785,
+              545,
+              552
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4648,
+          "output": {
+            "seed": 580,
+            "goals": [
+              0,
+              2
+            ]
+          },
+          "ratings_after": [
+            215,
+            174,
+            813,
+            570,
+            617,
+            785,
+            545,
+            552
+          ]
+        },
+        {
+          "draw_start": 4649,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 12099,
+            "ratings": [
+              214,
+              174,
+              810,
+              567,
+              615,
+              782,
+              541,
+              549
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4701,
+          "output": {
+            "seed": 29751,
+            "goals": [
+              1,
+              2
+            ]
+          },
+          "ratings_after": [
+            214,
+            174,
+            810,
+            567,
+            615,
+            782,
+            541,
+            549
+          ]
+        },
+        {
+          "draw_start": 4703,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 1425,
+            "ratings": [
+              214,
+              174,
+              810,
+              567,
+              615,
+              782,
+              541,
+              549
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4755,
+          "output": {
+            "seed": 58725,
+            "goals": [
+              0,
+              2
+            ]
+          },
+          "ratings_after": [
+            214,
+            174,
+            810,
+            567,
+            615,
+            782,
+            541,
+            549
+          ]
+        },
+        {
+          "draw_start": 4756,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 39072,
+            "ratings": [
+              214,
+              174,
+              810,
+              567,
+              615,
+              782,
+              541,
+              549
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4818,
+          "output": {
+            "seed": 44366,
+            "goals": [
+              2,
+              3
+            ]
+          },
+          "ratings_after": [
+            214,
+            174,
+            810,
+            567,
+            615,
+            782,
+            541,
+            549
+          ]
+        },
+        {
+          "draw_start": 4824,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 16436,
+            "ratings": [
+              212,
+              175,
+              805,
+              570,
+              610,
+              786,
+              538,
+              553
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4874,
+          "output": {
+            "seed": 31206,
+            "goals": [
+              2,
+              1
+            ]
+          },
+          "ratings_after": [
+            212,
+            175,
+            805,
+            570,
+            610,
+            786,
+            538,
+            553
+          ]
+        },
+        {
+          "draw_start": 4876,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 45368,
+            "ratings": [
+              212,
+              175,
+              805,
+              570,
+              610,
+              786,
+              538,
+              553
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4924,
+          "output": {
+            "seed": 2984,
+            "goals": [
+              1,
+              2
+            ]
+          },
+          "ratings_after": [
+            212,
+            175,
+            805,
+            570,
+            610,
+            786,
+            538,
+            553
+          ]
+        },
+        {
+          "draw_start": 4924,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 2984,
+            "ratings": [
+              211,
+              175,
+              802,
+              567,
+              608,
+              783,
+              535,
+              550
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 4974,
+          "output": {
+            "seed": 10746,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            211,
+            175,
+            802,
+            567,
+            608,
+            783,
+            535,
+            550
+          ]
+        },
+        {
+          "draw_start": 4974,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 10746,
+            "ratings": [
+              211,
+              175,
+              802,
+              567,
+              608,
+              783,
+              535,
+              550
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5042,
+          "output": {
+            "seed": 50606,
+            "goals": [
+              2,
+              5
+            ]
+          },
+          "ratings_after": [
+            211,
+            175,
+            802,
+            567,
+            608,
+            783,
+            535,
+            550
+          ]
+        },
+        {
+          "draw_start": 5052,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 33320,
+            "ratings": [
+              211,
+              175,
+              802,
+              567,
+              608,
+              783,
+              535,
+              550
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5092,
+          "output": {
+            "seed": 8112,
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "ratings_after": [
+            211,
+            175,
+            802,
+            567,
+            608,
+            783,
+            535,
+            550
+          ]
+        },
+        {
+          "draw_start": 5092,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 8112,
+            "ratings": [
+              211,
+              175,
+              802,
+              567,
+              608,
+              783,
+              535,
+              550
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5142,
+          "output": {
+            "seed": 6210,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            211,
+            175,
+            802,
+            567,
+            608,
+            783,
+            535,
+            550
+          ]
+        },
+        {
+          "draw_start": 5142,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 6210,
+            "ratings": [
+              211,
+              175,
+              802,
+              567,
+              608,
+              783,
+              535,
+              550
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5194,
+          "output": {
+            "seed": 38,
+            "goals": [
+              1,
+              0
+            ]
+          },
+          "ratings_after": [
+            211,
+            175,
+            802,
+            567,
+            608,
+            783,
+            535,
+            550
+          ]
+        },
+        {
+          "draw_start": 5194,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 38,
+            "ratings": [
+              210,
+              175,
+              796,
+              565,
+              604,
+              781,
+              532,
+              547
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5244,
+          "output": {
+            "seed": 5096,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            210,
+            175,
+            796,
+            565,
+            604,
+            781,
+            532,
+            547
+          ]
+        },
+        {
+          "draw_start": 5244,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 5096,
+            "ratings": [
+              210,
+              175,
+              796,
+              565,
+              604,
+              781,
+              532,
+              547
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5294,
+          "output": {
+            "seed": 17466,
+            "goals": [
+              1,
+              1
+            ]
+          },
+          "ratings_after": [
+            210,
+            175,
+            796,
+            565,
+            604,
+            781,
+            532,
+            547
+          ]
+        },
+        {
+          "draw_start": 5294,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 17466,
+            "ratings": [
+              210,
+              175,
+              796,
+              565,
+              604,
+              781,
+              532,
+              547
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5358,
+          "output": {
+            "seed": 2426,
+            "goals": [
+              2,
+              3
+            ]
+          },
+          "ratings_after": [
+            210,
+            175,
+            796,
+            565,
+            604,
+            781,
+            532,
+            547
+          ]
+        },
+        {
+          "draw_start": 5364,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 38784,
+            "ratings": [
+              210,
+              175,
+              796,
+              565,
+              604,
+              781,
+              532,
+              547
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5418,
+          "output": {
+            "seed": 64646,
+            "goals": [
+              3,
+              1
+            ]
+          },
+          "ratings_after": [
+            210,
+            175,
+            796,
+            565,
+            604,
+            781,
+            532,
+            547
+          ]
+        },
+        {
+          "draw_start": 5421,
+          "seed_target": "2864:A51C",
+          "input": {
+            "k": 8,
+            "seed": 49799,
+            "ratings": [
+              210,
+              175,
+              796,
+              565,
+              604,
+              781,
+              532,
+              547
+            ],
+            "goals": [
+              0,
+              0
+            ]
+          },
+          "draw_end": 5477,
+          "output": {
+            "seed": 34175,
+            "goals": [
+              2,
+              0
+            ]
+          },
+          "ratings_after": [
+            210,
+            175,
+            796,
+            565,
+            604,
+            781,
+            532,
+            547
+          ]
+        }
+      ]
+    }
+  ],
+  "started": "2026-10-30T11:00:48Z",
+  "ended": "2026-10-30T11:01:19Z",
+  "status": "completed"
+}
