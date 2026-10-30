@@ -1,0 +1,150 @@
+{
+  "schema": "run/1",
+  "run_id": "T17-r0003",
+  "experiment": "T17",
+  "arm": "dbc6-contract",
+  "rep": 3,
+  "code_commit": "e26e7b44e5ccf4abd5de3a296be6f391e396eb4e",
+  "machine": "ubuntu-26-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/extra_event.py@e26e7b44e5ccf4abd5de3a296be6f391e396eb4e",
+    "unicorn": "2.1.4",
+    "python": "3.12.15",
+    "dos_clock": {
+      "date": [
+        1995,
+        8,
+        1,
+        2
+      ],
+      "time": [
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "KEY_HOLD": 1600000,
+      "PIT_HZ": 1193182,
+      "SLICE_MAX": 1000
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "guest.py services and read-only DBC6/helper/dispatch hooks"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/T04/T04-week-r0013.sav",
+    "sha256": "e31796da793ab97abeff0a226806b93e1c79d4f04f947c4e5f513b99633607fc",
+    "restore": "DOSBox-X state restored by guest.py"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/extra_event.py",
+    "source": {
+      "t04_record": "T04-week-r0014",
+      "t04_record_path": "runs/T04/T04-week-r0014.json",
+      "start_state_sha256": "e31796da793ab97abeff0a226806b93e1c79d4f04f947c4e5f513b99633607fc",
+      "t08_run": "T08-r0018",
+      "run_status": "completed",
+      "trace": "traces/T08/e31796da793ab97a-week-r0002.jsonl",
+      "trace_sha256": "9167266281f439a2e83d5e0baed0d9ca8605ea6fb422389dfe511f6fe74117f8",
+      "verdict": "all screens met in order",
+      "result": {
+        "teams": [
+          "CELTIC",
+          "BLACKBURN R"
+        ],
+        "goals": [
+          2,
+          2
+        ]
+      },
+      "draws": 22643,
+      "key_waits": 8,
+      "key_wait_reading": {
+        "met": true,
+        "set_aside": [
+          {
+            "screen": "screen 2 (match, first read)",
+            "digest": "37d0b1ac87ccea8ce90a7a81e06d88256663ef805c3642e4a44f4d6d43b82f10",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 7 (match, last read)",
+            "digest": "37d0b1ac87ccea8ce90a7a81e06d88256663ef805c3642e4a44f4d6d43b82f10",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 9 (match, first read)",
+            "digest": "9dfcf34baadbad0922bab14b26776cb2ab3199398762bbd722021bf07b9b29c4",
+            "same_as_key_wait_read": true
+          },
+          {
+            "screen": "screen 14 (match, last read)",
+            "digest": "9dfcf34baadbad0922bab14b26776cb2ab3199398762bbd722021bf07b9b29c4",
+            "same_as_key_wait_read": true
+          }
+        ],
+        "unmet": []
+      },
+      "superseded_runs": [
+        "T08-r0012"
+      ]
+    },
+    "stream_key": "759cc52f6c54d73d331fbc67237c823389d2d0b11377d092be99f9151cadb6dc",
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture path",
+      "value": "traces/T17/T17-r0003.jsonl"
+    },
+    {
+      "step": 0,
+      "source": "file",
+      "field": "fixture sha256",
+      "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": 1,
+      "source": "log",
+      "field": "ordered DOSBox-X comparison",
+      "value": "screen 1 (d4d5645a44f0bd74) = key wait 1\nscreen 7 (match, unchanged for 5 reads) (37d0b1ac87ccea8c) = key wait 2\nscreen 8 (00b2194c5d5c0e56) = key wait 3\nscreen 14 (match, unchanged for 5 reads) (9dfcf34baadbad09) = key wait 4\nscreen 15 (ab70d00c3797ff22) = key wait 5\nscreen 16 (4a72faff91c1359e) = key wait 6\nmain menu after the week (65a2a3f8145ca32a) = key wait 7\nall of the record's 7 screens met in order"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "calls",
+      "value": []
+    }
+  ],
+  "started": "2026-10-30T18:34:54Z",
+  "ended": "2026-10-30T18:36:02Z",
+  "status": "completed"
+}

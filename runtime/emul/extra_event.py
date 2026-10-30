@@ -264,6 +264,35 @@ def _cases_for(calls, source, trace, reference):
         for d in decision:
             if len(SITES.intersection(d['callers'])) != 1:
                 raise ValueError('unattributed DBC6 decision draw')
+        sites = [next(iter(SITES.intersection(d['callers']))) for d in decision]
+        allowed = {1: [['0AB9:DBD1']], 2: [['0AB9:DBD1']],
+                   4: [['0AB9:DBD1', '0AB9:DC38']],
+                   5: [['0AB9:DBD1', '0AB9:DC38', '0AB9:DC98']],
+                   7: [['0AB9:DBD1', '0AB9:DC38', '0AB9:DCBF', '0AB9:DCD4'],
+                       ['0AB9:DBD1', '0AB9:DC38', '0AB9:DC98', '0AB9:DCBF', '0AB9:DCD4']]}
+        if sites not in allowed[len(c['helpers'])]:
+            raise ValueError('helper coverage differs from literal decision draw sites')
+        # These comparisons check boundaries and pointers, not helper formulas.
+        for h in c['helpers']:
+            if h['kind'] == 'threshold':
+                mode = 14 if h['caller'] == '0AB9:DCB7' else 6
+                rating = next(r for r in c['helpers'] if r['kind'] == 'rating' and r['input']['mode'] == mode)
+                if h['input']['player'] != inp['scenes'][rating['input']['scene'] - 1]['player']:
+                    raise ValueError('threshold argument differs from observed rating scene')
+            elif h['kind'] == 'predicate':
+                rating = next(r for r in c['helpers'] if r['caller'] == '0AB9:DC7D')
+                if any(h['input'][k] != rating['input'][k] for k in ('scene', 'offset', 'segment')):
+                    raise ValueError('predicate scene differs from selected rating scene')
+            before = '0AB9:DCBF' if h['caller'] == '0AB9:DCCC' else '0AB9:DC38' if h['kind'] in ('rating', 'predicate') else '0AB9:DBD1' if h['kind'] == 'availability' else None
+            if before is not None:
+                position = next(d['i'] + 1 for d in decision if before in d['callers'])
+                if h['draw_start'] != position:
+                    raise ValueError('helper draw boundary differs from literal trace')
+        target = dispatch['input'] if dispatch else c['output']
+        excluded = ('seed', 'actor', 'secondary') if dispatch else ('seed',)
+        if not placement.same_json({k: v for k, v in inp.items() if k not in excluded},
+                                   {k: v for k, v in target.items() if k not in excluded}):
+            raise ValueError('decision changed fields outside seed/dispatch actors')
         if dispatch and dispatch['input']['seed'] != draws[split - 1]['seed_after']:
             raise ValueError('event handoff seed differs')
         for h in c['helpers']:
