@@ -18,3 +18,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T14](T14.md): Logical goal-effect inputs and before/after cases (#73).
 - [T15](T15.md): Complete native ratings inputs and original replay cases (#75).
 - [T16](T16.md): Deterministic quick-step tail and logical clock inputs (#77).
+- [T17](T17.md): DBC6 decision inputs and event dispatch contract (#80).
