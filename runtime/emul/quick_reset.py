@@ -177,6 +177,21 @@ def _cases_for(calls,strategy_cases,ledger,prefixes,source,trace,meta):
                 values[h['player']]=h['output']['byte6'];cache[side][slot]=h['output']['cache']
             else:raise ValueError('unknown reset helper')
         if values!={p['id']:p['byte6'] for p in c['output']['players']} or cache!=c['output']['cache']:raise ValueError('missing helper effects')
+        # Check the observed call footprint, not an availability/effects formula.
+        positions=[i for i,h in enumerate(c['helpers']) if h['kind']=='availability']
+        if len(positions)<22:raise ValueError('missing final eligibility visits')
+        cursor=positions[-22]
+        if cursor and (s['actor'] not in (1,12) or any(h['kind']!='availability' for h in c['helpers'][:cursor])):
+            raise ValueError('unexpected pre-loop helpers')
+        for scene in range(1,23):
+            h=c['helpers'][cursor]
+            if h['kind']!='availability' or h['scene']!=scene:raise ValueError('reordered final eligibility visits')
+            cursor+=1
+            if h['result']==0:
+                child=c['helpers'][cursor]
+                if child['kind']!='byte6' or child['scene']!=scene:raise ValueError('missing/reordered byte6 child')
+                cursor+=1
+        if cursor!=len(c['helpers']):raise ValueError('extra final helper')
         rows.append({'schema':'quick-reset-case/1','week':source['t04_record'],**c,'draws':draws[c['draw_start']:c['draw_end']],
                      'post_score':old,'source':{'t20_record':meta['record'],'t20_record_sha256':meta['record_sha256'],'t20_cases':meta['cases'],'t20_cases_sha256':meta['cases_sha256']}})
     return rows
