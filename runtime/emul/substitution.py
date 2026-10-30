@@ -244,7 +244,8 @@ def main(argv=None):
     if args.run:run();return 0
     try:
         index=build_index()
-        if (index['weeks'],index['calls'],index['draws'])!=(6,541,0):raise ValueError('incomplete original substitution coverage')
+        if (index['weeks'],index['calls'],index['draws'],index['changed_calls'],index['changed_ai'])!=(6,541,0,6,25):raise ValueError('incomplete original substitution coverage')
+        if index['events']!=dict(zip(KINDS,(1082,541,541,0,0,556))):raise ValueError('incomplete original helper/outbound coverage')
         if not placement.same_json(index,json.loads((FIXTURES/'index.json').read_text())):raise ValueError('substitution index differs')
     except (ValueError,OSError,KeyError,TypeError,StopIteration) as exc:print(f'substitution check: FAIL: {exc}');return 1
     print(f'substitution check: ok ({index["calls"]} calls, {index["draws"]} draws; {index["events"]})');return 0
