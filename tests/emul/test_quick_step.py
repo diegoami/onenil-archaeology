@@ -11,6 +11,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "runtime/emul"))
 import quick_step
 
 
+def test_committed_step_corpus_matches_all_original_trace_references():
+    # Public decoded evidence is sufficient; no private game or savestate is read.
+    # This keeps the extra week-3/week-5 prelude draws in the normal CI regression.
+    assert quick_step.main(["--check"]) == 0
+
+
 def state(seed, score=(0, 0)):
     clock = {"kind": 45, "remaining": 91, "delay": 0, "elapsed": 7,
              "added": 0, "active": 1, "zero": 0}
