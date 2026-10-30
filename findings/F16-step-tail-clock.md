@@ -43,7 +43,8 @@
    them: an optional DBC6 on the no-goal path, then 6B2F; or 1998:045C(1,0), then 52B6 on the
    goal path; always 78B7. Observed request counts are DBC6:184, 6B2F:541, 045C:17, 52B6:17 and 78B7:558.
    These callees have actual event, substitution, scene/reset, RNG or
-   keyboard effects. A prefix result is therefore not a complete DD02 result or clock input.
+   keyboard effects. The observed gap between prefix exit and clock entry contains 528 RNG
+   draws in total. A prefix result is therefore not a complete DD02 result or clock input.
 
 ## Coverage and limits
 
