@@ -28,8 +28,8 @@
 3. `[confirmed]` DBC6 draws its initial candidate, checks both candidates' availability,
    draws a boolean side, compares mode6/14 scene ratings unsigned, and uses predicate4
    or a contingent random chance. Two final threshold draws compare signed, selected
-   strictly greater than opposite. A successful decision writes the selected scene slot
-   to D0A0 and opposite to D09F before calling 69B8. The static contract specifies each
+   strictly greater than opposite. A successful decision writes the selected physical scene
+   index to D0A0 and opposite to D09F before calling 69B8. The static contract specifies each
    wrapper and comparison width without assigning an unsupported game-level event name.
 4. `[confirmed]` The captured helpers are **368 availability, 362 scene ratings,
    87 predicates and 92 thresholds**. Three calls reject the second availability check;
