@@ -2,11 +2,20 @@
 import os
 import sys
 import unittest
+import hashlib
+import json
+import tempfile
+from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, "runtime", "driver"))
 
 import watched  # noqa: E402
+
+sys.path.insert(0, os.path.join(ROOT, "runtime"))
+import validate  # noqa: E402
 
 sys.path.insert(0, os.path.join(ROOT, "runtime", "emul"))
 try:
@@ -30,6 +39,78 @@ class Classify(unittest.TestCase):
         self.assertIsNone(watched.classify("FRIENDLY #1 ---- commentary ----"))
         self.assertTrue(watched.is_match("FRIENDLY #1 ---- commentary ----"))
         self.assertFalse(watched.is_match("a team screen"))
+
+
+class InterruptedRun(unittest.TestCase):
+    def exercise(self, directory, *, launch_interrupt=False, terminate_error=False, save_error=False):
+        root = Path(directory)
+        sc = SimpleNamespace(text=lambda: "synthetic menu", digest=lambda: "c" * 64)
+        d = mock.Mock()
+        d.launch.side_effect = KeyboardInterrupt() if launch_interrupt else None
+        d.launch.return_value = sc
+        d.last_blob = None if launch_interrupt else b"synthetic-state-for-interruption-test"
+        d.events = [{"event": "synthetic read"}]
+        d.conf_public.return_value = ("synthetic config", "b" * 64)
+        if terminate_error:
+            d.terminate.side_effect = RuntimeError("synthetic cleanup failure")
+
+        def interrupt_play(driver, obs, keys, run_id):
+            obs.append({"step": 1, "source": "log", "field": "partial progress", "value": "retained"})
+            keys.append("synthetic key")
+            raise KeyboardInterrupt()
+
+        with mock.patch.object(watched, "ROOT", root), \
+             mock.patch.object(watched, "STATES", root / "private-states"), \
+             mock.patch.object(watched, "start_state", return_value=SimpleNamespace(config={}, sha256="a" * 64)), \
+             mock.patch.object(watched, "play_week", side_effect=interrupt_play), \
+             mock.patch.object(watched.cycle, "git", side_effect=lambda *args: "" if args[0] == "status" else "abc1234"), \
+             mock.patch.object(watched.cycle, "machine_id", return_value="synthetic-machine"), \
+             mock.patch.object(watched.cycle, "fingerprint", return_value={"dosbox-x": "synthetic"}), \
+             mock.patch.object(watched.driver, "verify_release", return_value="synthetic"), \
+             mock.patch.object(watched.driver, "host_times", return_value={"utc": "2026-10-30T10:00:00Z"}), \
+             mock.patch.object(watched.driver, "Driver", return_value=d), \
+             mock.patch.object(watched.traceback, "print_exc"):
+            if save_error:
+                with mock.patch.object(watched, "keep_state", side_effect=OSError("synthetic disk failure")):
+                    status = watched.main(["--state", "synthetic-start.sav", "--out", "receipts"])
+            else:
+                status = watched.main(["--state", "synthetic-start.sav", "--out", "receipts"])
+        d.terminate.assert_called_once()
+        self.assertEqual(status, 1)
+        receipts = sorted((root / "receipts").glob("T10-r*.json"))
+        path = receipts[-1]
+        self.assertEqual(validate.check(path, {}), [])
+        rec = json.loads(path.read_text())
+        self.assertTrue(rec["status"].startswith("aborted: KeyboardInterrupt"))
+        return path, rec
+
+    def test_keyboard_interrupt_retains_partial_receipt_state_and_unique_run(self):
+        with tempfile.TemporaryDirectory() as directory:
+            first, rec = self.exercise(directory)
+            original = first.read_bytes()
+            self.assertIn({"step": 1, "source": "log", "field": "partial progress", "value": "retained"},
+                          rec["observations"])
+            self.assertEqual(rec["actions"]["keys"], ["synthetic key"])
+            saved = Path(directory, "private-states", "T10-r0001-end.sav").read_bytes()
+            self.assertEqual(saved, b"synthetic-state-for-interruption-test")
+            self.assertIn(hashlib.sha256(saved).hexdigest(),
+                          [o["value"] for o in rec["observations"] if o["source"] == "save"])
+            second, _ = self.exercise(directory)
+            self.assertEqual(second.name, "T10-r0002.json")
+            self.assertEqual(first.read_bytes(), original)
+
+    def test_launch_interruption_without_state_still_writes_valid_receipt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            _, rec = self.exercise(directory, launch_interrupt=True)
+            self.assertTrue(any(o["field"] == "last savestate unavailable" for o in rec["observations"]))
+
+    def test_termination_or_save_failure_does_not_discard_receipt(self):
+        for failure in ("terminate_error", "save_error"):
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as directory:
+                _, rec = self.exercise(directory, **{failure: True})
+                self.assertTrue(any(o["field"] == "failure during " + (
+                    "driver termination" if failure == "terminate_error" else "saving the last state")
+                    for o in rec["observations"]))
 
 
 

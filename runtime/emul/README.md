@@ -23,9 +23,77 @@ wrong (#23), and its clock was another model (a tick every 17,000 instructions, 
 
 The corpus (T08): `python3 runtime/emul/corpus.py` runs the week of every completed T04 week record
 from its start state with `--compare` against it (`--experiment T08`: traces under `traces/T08/`,
-records `runs/T08/T08-r<nnnn>.json`), skipping weeks already run, and writes `traces/T08/index.json`
+records `runs/T08/T08-r<nnnn>.json`), skipping a week only when its latest receipt completed with
+all required screens met in order (failed/stopped receipts remain immutable and are retryable), and writes `traces/T08/index.json`
 (per week: the record, the start state, the trace and its sha256, the run, the verdict, the result,
 the draws).
+
+## Long runs and recovery
+
+Run one foreground harness process per experiment/output directory. Events are flushed to a private
+append-only journal under `.cache/emul-journals/` as they occur, rather than held in memory. At the
+initial state and then every 300 wall-clock seconds, at the next guest stop after its action is
+queued, the harness writes a new immutable decoded chunk under `<out>/partial/` and a `run/1` partial
+receipt under `<runs>/partial/`. The receipt is explicitly aborted/partial, never completed corpus
+coverage. A completed or interrupted attempt also writes its own final trace and receipt. An abrupt
+process death retains the latest checkpoint and streamed tail; recovery starts at that checkpoint,
+so only work since it is repeated. The interval is checked between `Guest.run` calls, each bounded
+by the instruction budget, not in a running Unicorn callback.
+
+The matching private `.cache/checkpoints/<experiment>/<run>-p<nnnn>.pkl.gz` contains memory, the full
+Unicorn CPU context, timer deadlines, file handles and contents, queued/held keys, service audits,
+pending RNG state and screen/run-on indices. It embeds game bytes and must never enter git or a
+release. Its public receipt holds only its digest, private Drive destination, source/version/settings
+fingerprint, progress counters and the immutable event-chunk manifest.
+
+For a multi-hour run, use a task branch and publish each checkpoint:
+
+```sh
+python3 runtime/emul/match.py --state <sha> --experiment T10 --out traces/T10 --runs runs/T10 \
+  --compare runs/T10/T10-r0002.json --publish-checkpoints
+```
+
+`--publish-checkpoints` copies each private checkpoint to `onenildrive:checkpoints/<experiment>/`
+with rclone, commits only that new decoded chunk and receipt, then pushes the task branch. This
+foreground command requires the configured remote and Git credentials; publication failure stops
+the attempt with an aborted receipt. Without that option, the session must commit/push the partial
+chunks and receipts and copy private checkpoints to Drive itself, at least every 30 minutes (rules
+8/13). The live journal is never committed; a committed chunk is never appended to or replaced.
+
+Resume using the latest successful partial receipt printed by the command, including after a
+machine/session change (restore its private checkpoint from the Drive path named in the receipt):
+
+```sh
+rclone copy onenildrive:checkpoints/T10 .cache/checkpoints/T10
+python3 runtime/emul/match.py --resume runs/T10/partial/<run>-p<nnnn>.json --publish-checkpoints
+```
+
+Resume verifies code, Unicorn/Python, clock/input settings and checkpoint/chunk digests, restores the
+machine and the prefix, and writes a **new** run/trace without changing prior evidence. It retains the
+original trace's `start` event and continues draw/screen numbering. Documentation/publication-only
+commits may change HEAD; runtime source changes require a new run from the original state. Load only
+trusted checkpoints made here and kept in the owner's private Drive (the private format is pickle).
+`--stop-after-checkpoints N` and a shorter `--checkpoint-seconds` support controlled recovery checks;
+they stop with an aborted receipt, and never mean a completed week.
+
+Recovery checks at `cc05550` (review #47), retained under `runs/T10/`, `runs/T10/partial/`
+and `traces/T10/`:
+
+- `[confirmed]` `T10-r0004` deliberately stopped the **quick** week after 258 draws at checkpoint
+  `T10-r0004-p0005`; `T10-r0005` restored it and completed. All draw/screen/mark events and the
+  recorded end measurements equal T06-r0005's, with the added `run_on_stops: 0` field. All seven
+  DOSBox-X key waits match in order; result 0–2. The new start metadata names the recovery code.
+- `[confirmed]` `T10-r0006` deliberately stopped the **watched** week at 935 draws / three run-ons;
+  `T10-r0007` restored checkpoint `T10-r0006-p0006` and stopped at 1,337 draws / four run-ons.
+  Both event prefixes (excluding start metadata and aborted end) equal the corresponding prefix
+  of the completed T10-r0003 trace, and the resumed trace retains the interrupted prefix exactly.
+  These are partial recovery checks, not additional completed watched matches; their comparison
+  receipts correctly fail because later required screens were never reached.
+- `[confirmed]` All 14 partial receipts' private-image and event-chunk digests were checked. Private
+  images are retained in the Drive destinations named in those receipts. Synthetic tests additionally
+  exercise CPU/memory, timer, held/queued keys, open files, pending RNG hooks, publication failures
+  and byte-identical interrupted/resumed versus uninterrupted traces (`tests/emul/test_checkpoint.py`,
+  `test_match_resume.py`). No prior run or trace was edited.
 
 ## The trace
 
@@ -43,8 +111,8 @@ One JSON object per line, keys sorted, in the order things happened. Every line 
 `end`: `status` (`completed`, `completed with unsupported services`, or why it stopped); `draws`;
 `screens`; `instruction_budget` (the instructions the run allowed: an upper bound, a slice that ends
 at a key wait counts whole); `timer_ticks` (IRQ 0 ticks) and `game_timer_ticks` (of them, those that
-entered the game's INT 1Ch handler); `services` (every BIOS/DOS function the game called) and
-`unsupported` (those not served); `service_counts` (calls per interrupt and function),
+entered the game's INT 1Ch handler); `services` (the set of interrupt/function pairs the game
+called: full AX for INT 33h, AH for other interrupts) and `unsupported` (those not served); `service_counts` (calls per interrupt and function),
 `mouse_answers` (what the mouse reads answered, as counts: not in call order), `dos_calls` (every
 INT 21h call in order: input AX, BX, CX, DX, DS, ES, a file name, the length and sha256 of written
 bytes, and the AX, BX, CX, DX, ES and carry returned; traces before `-week-r0005` keep only AH, BX,
@@ -53,6 +121,13 @@ or changed in the guest's folder); `state_digests` (the sha256 of the memory at 
 destination, F03 R24–R51, at the week's end); `result`: `teams` and `goals` (the full-time board's
 score, read as text) and `board_digest` (that screen's digest, which only a renderer of the same text
 page can reproduce).
+
+While a watched pitch runs, `compact_services` keeps only the first `(interrupt, AX, image CS:IP)`
+entry per reported interrupt/function in the guest's `services` list. Repeated calls' addresses and
+per-call order are discarded; the final trace reports only the function set, with no call-site
+addresses. `service_counts` still counts all calls, `dos_calls` retains every DOS call in order,
+and `mouse_answers` retains an answer histogram, not a sequence. This compaction does not change
+the guest's answers or the reported function set.
 
 ### What a trace is a test of
 

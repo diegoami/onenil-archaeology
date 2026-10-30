@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, "runtime", "emul"))
@@ -125,6 +126,18 @@ class IndexTests(unittest.TestCase):
         self.assertTrue(kw["met"])
         self.assertEqual(kw["set_aside"][0], {"screen": "screen 2 (match, first read)", "digest": "w", "same_as_key_wait_read": False})
 
+    def test_key_wait_reading_does_not_borrow_another_boards_digest(self):
+        rec = self.polled_record("y")
+        rec["observations"][-1:-1] = [
+            {"field": f"{name}: chars+attributes", "value": digest}
+            for name, digest in (("screen 9 (match, first read)", "y"),
+                                 ("screen 14 (match, unchanged for 5 reads)", "q"),
+                                 ("screen 14 (match, last read)", "q"))]
+        kw = corpus.key_wait_reading(rec, json_events(trace_text(screens=("x", "y", "q", "z"))))
+        self.assertTrue(kw["met"])
+        self.assertEqual([a["same_as_key_wait_read"] for a in kw["set_aside"]],
+                         [True, True, False, True])
+
     def test_key_wait_reading_still_needs_order_and_presence(self):
         self.assertFalse(corpus.key_wait_reading(self.polled_record("y"), json_events(trace_text(screens=("x", "z", "y"))))["met"])
         kw = corpus.key_wait_reading(self.polled_record("y"), json_events(trace_text(screens=("x", "z"))))
@@ -138,6 +151,34 @@ class IndexTests(unittest.TestCase):
             Path(d, "T04-load-r0001.json").write_text(json.dumps({"run_id": "T04-load-r0001", "status": "completed"}))
             ids = [w[0] for w in corpus.week_records(d)]
         self.assertEqual(ids, ["T04-week-r0001", "T04-week-r0003"])
+
+    def test_resume_retries_latest_failed_comparison(self):
+        import match
+        text = trace_text()
+        passed = run("T08-r0009", WEEK1[1], "t9", text)
+        failed = run("T08-r0010", WEEK1[1], "t10", text,
+                     status="aborted: comparison failed (completed)",
+                     cmp="screen 7 (match, unchanged for 5 reads) (y) not met in order\n"
+                         "not all of the record's 3 screens met in order")
+        with tempfile.TemporaryDirectory() as d:
+            # Even an older successful receipt must not hide a later failure. Receipt order,
+            # rather than input list order, determines the latest run.
+            for latest, expected_runs in ((failed, 1), (passed, 0)):
+                receipts = [latest] if latest is passed else [failed, passed]
+                with mock.patch.object(corpus, "week_records", return_value=[WEEK1]), \
+                     mock.patch.object(corpus, "state_files", return_value={A: Path(d, "state.sav")}), \
+                     mock.patch.object(corpus, "load_runs", return_value=receipts), \
+                     mock.patch.object(corpus, "build_index", return_value={"weeks": 1, "all_screens_met": 1}), \
+                     mock.patch.object(match, "main", return_value=0) as play:
+                    self.assertEqual(corpus.main(["--out", d, "--runs", d]), 0)
+                    self.assertEqual(play.call_count, expected_runs)
+                    if expected_runs:
+                        self.assertIn(WEEK1[1], play.call_args.args[0])
+
+    def test_resume_requires_successful_comparison_and_matching_state(self):
+        text = trace_text()
+        self.assertFalse(corpus.completed_week(run("T08-r0001", WEEK1[1], "t", text, cmp="not asked"), A))
+        self.assertFalse(corpus.completed_week(run("T08-r0001", WEEK1[1], "t", text, state=B), A))
 
 
 if __name__ == "__main__":

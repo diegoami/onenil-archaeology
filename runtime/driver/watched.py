@@ -28,6 +28,9 @@ say "chars+attributes" (so compare() does not look for it). Savestates of the st
 and the end are kept in .cache/states/T10/ (and copied to the owner's Drive by hand: rclone copy
 .cache/states/T10 onenildrive:states/T10); records hold their sha256 (CLAUDE.md rule 14). Refuses to
 run with uncommitted changes under runtime/driver/.
+
+An interactive interruption writes an aborted receipt with observations collected so far and, when
+available, a new end savestate. No retrospective receipt is inferred for old unrecorded attempts.
 """
 import argparse
 import json
@@ -70,7 +73,7 @@ def classify(text):
         return ("PLAY GAME", "pre-match: PLAY GAME, Return")
     if "any other key to exit" in low:
         # the watched match's full-time screen: Space views the commentary, P prints it, Return is the
-        # bench (T10-r0001 pressed Space here and stayed in the commentary viewer); n is "any other key"
+        # bench; n is "any other key" (the completed T10-r0002 records this choice).
         return ("n", "full-time screen of the watched match (any other key to exit): n")
     if "press any key" in low or "any other key to continue" in low or "hit any key" in low:
         return ("space", "any-key screen: Space")
@@ -201,19 +204,39 @@ def main(argv=None):
     st = start_state(a.state)
     d = driver.Driver(st.config, workdir=driver.SCRATCH / "watched")
     obs, keys, status = [], [], "completed"
+    end_sha = None
     started = driver.host_times()["utc"]
+
+    def failed(e, phase):
+        nonlocal status
+        description = f"{type(e).__name__}: {e}".splitlines()[0][:300]
+        if status == "completed":
+            status = "aborted: " + description
+        obs.append({"step": 999, "source": "log", "field": f"failure during {phase}",
+                    "value": description})
+        traceback.print_exc()
+
     try:
         try:
             sc = d.launch(st)
             obs += weeks.screen_obs(0, "the start state restored", sc)
             play_week(d, obs, keys, run_id)
-        except Exception as e:  # noqa: BLE001
-            status = f"aborted: {type(e).__name__}: {e}".splitlines()[0][:300]
-            traceback.print_exc()
-        end_sha = keep_state(run_id, "end", d.last_blob) if d.last_blob else None
+        except (Exception, KeyboardInterrupt) as e:  # noqa: BLE001
+            failed(e, "launch or play")
+        try:
+            end_sha = keep_state(run_id, "end", d.last_blob) if d.last_blob else None
+        except (Exception, KeyboardInterrupt) as e:  # noqa: BLE001
+            failed(e, "saving the last state")
     finally:
-        d.terminate()
-    obs.append({"step": 999, "source": "save", "field": "sha256 of the savestate of the last read (kept in .cache/states/T10/, copied to the owner's Drive)", "value": end_sha or "none"})
+        try:
+            d.terminate()
+        except (Exception, KeyboardInterrupt) as e:  # noqa: BLE001
+            failed(e, "driver termination")
+    if end_sha:
+        obs.append({"step": 999, "source": "save", "field": "sha256 of the savestate of the last read (kept in .cache/states/T10/, copied to the owner's Drive)", "value": end_sha})
+    else:
+        obs.append({"step": 999, "source": "log", "field": "last savestate unavailable",
+                    "value": "no end savestate was retained"})
     obs.append({"step": 999, "source": "log", "field": "waits, polls and key holds, seconds since launch", "value": json.dumps(d.events, separators=(",", ":"))})
     start = {"id": f"{Path(a.state).stem} end savestate", "sha256": st.sha256,
              "restore": "fresh DOSBox-X process; C: mounted from a copy of One-Nil 96's files (records/T01/inventory.json); "

@@ -9,8 +9,8 @@ whose sha256 is the record's `start_state.sha256` (the load record's end savesta
 first week, the previous week's otherwise); it must be a file under .cache/states/ with exactly that
 sha256, or the week is not run. The week is run by match.py (its run-record behaviour: a new trace
 under <out>, a new record T08-r<nnnn> under <runs>, never overwriting) with `--compare` against the
-record. A week already run (a T08 record whose comparison names that T04 record) is not run again:
-the command resumes.
+record. A week is skipped only when its latest T08 run completed from that start state and its
+comparison met all screens in order. Failed or stopped runs are kept and retried: the command resumes.
 
 Then <out>/index.json is written from the records and traces (derived, regenerated each time): per
 week the T04 record, the start state, the trace and its sha256, the T08 run record, the verdict
@@ -84,6 +84,12 @@ def verdict(run, end):
     return "; ".join(parts)
 
 
+def completed_week(run, start_sha):
+    """Whether a latest receipt establishes completed coverage for this week's start state."""
+    return (run["status"] == "completed" and run["start_state"]["sha256"] == start_sha
+            and verdict(run, None) == ALL_MET)
+
+
 def stop_screen(events):
     """The key wait the run stopped at (its index and digest), when its screen rules had no answer."""
     for e in events:
@@ -104,15 +110,28 @@ def key_wait_reading(record, events):
     the record's other screens must occur in the trace's key waits in order, each at a later key wait.
     Returns {"met": bool, "set_aside": [{"screen", "digest", "same_as_key_wait_read"}], "unmet": [...]}."""
     obs = [(o["field"].split(":")[0], o["value"]) for o in record["observations"] if "chars+attributes" in o["field"]]
-    stood = {}   # match screen step -> the digest read before the Space
-    for name, d in obs:
-        if name.endswith("(match, unchanged for 5 reads)"):
-            stood[name.split()[1]] = d
+    # Polls increment the driver's screen number: one board can have first read screen 2 and
+    # unchanged/last read screen 7. Associate the reads by their board group, not by step number
+    # or by a digest that might belong to a different board.
+    corresponding = {}
+    first, stood = None, None
+    for i, (name, d) in enumerate(obs):
+        if name.endswith(POLLED[0]):
+            first, stood = i, None
+        elif name.endswith("(match, unchanged for 5 reads)"):
+            if first is not None:
+                corresponding[first] = d
+            stood = d
+        elif name.endswith(POLLED[1]):
+            corresponding[i] = stood
+            first, stood = None, None
+        else:
+            first, stood = None, None
     have = [(e["i"], e["digest"]) for e in events if e["kind"] == "screen"]
     aside, unmet, k = [], [], 0
-    for name, d in obs:
+    for i, (name, d) in enumerate(obs):
         if name.endswith(POLLED):
-            same = d in stood.values()
+            same = d == corresponding.get(i)
             aside.append({"screen": name, "digest": d, "same_as_key_wait_read": same})
             continue
         j = next((j for j in range(k, len(have)) if have[j][1] == d), None)
@@ -201,7 +220,7 @@ def main(argv=None):
             print(f"{week_id}: start state {rel(have[start_sha])} ({start_sha[:16]})")
         done = runs_by_week(load_runs(ROOT / a.runs, a.experiment))
         for week_id, week_path, start_sha in weeks:
-            if week_path in done:
+            if week_path in done and completed_week(done[week_path][-1], start_sha):
                 print(f"{week_id}: already run ({done[week_path][-1]['run_id']})")
                 continue
             print(f"{week_id}: running")

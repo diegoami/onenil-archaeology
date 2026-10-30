@@ -1,4 +1,4 @@
-# F10 The watched match of week 1 runs in the harness as in DOSBox-X (1-4); it shares the quick result's first 258 draws, then takes another path: 158,992 draws, another result (quick 0-2)
+# F10 The watched match of week 1 runs in the harness as in DOSBox-X (1-4); it shares the quick result's first 258 draws, then takes another path: 158,992 managed-match draws under the recorded harness clock, another result (quick 0-2)
 
 - **Status**: proposed
 - **Task**: T10 (#44)
@@ -13,8 +13,10 @@
 1. `[confirmed]` **DOSBox-X.** `T10-r0002` restored T05-r0001's end savestate (sha256 `64af71e7…`, the
    main menu of SAVE1, Watch match on) and played week 1 to the main menu, completed: the watched pitch
    ran with no key pressed, its half time and full time were answered as `weeks.py` would (Space,
-   Return; `n` at the watched full-time screen, where Space opens the commentary viewer, the
-   interrupted r0001). The result was BLACKBURN R 1, P ST GERMAIN 4.
+   Return; `n` at the watched full-time screen). The recorded screen's footer offers
+   “spacebar-view commentary” and “any other key to exit”, and `actions.keys` records `n`.
+   The result was BLACKBURN R 1, P ST GERMAIN 4. No run receipt was retained for the earlier
+   interrupted r0001; it is not evidence for this claim.
 2. `[confirmed]` **The harness.** `T10-r0003`, from the same savestate, met all 9 key-wait screens of
    `T10-r0002` in order, byte-identical (`match.py --compare`, its comparison log in the record), with
    the same result 1-4 (`end.result` of the trace) and 176,134 draws over the week. While the pitch ran
@@ -24,8 +26,10 @@
    `4361807016fd` is met after draw 258 in both). Draw 258 differs: the quick match draws
    random(945) at `0AB9:D9BD` (`D983`, F07), the watched match random(2) through `24BC:0D4F` from
    `0AB9:7217`.
-4. `[confirmed]` **The watched match's draws.** From entry to its return to `0AB9:EBE2`, the watched
+4. `[confirmed]` **The watched match's draws in T10-r0003.** Under its recorded harness clock
+   (`INSTR_PER_S` = 20,000,000), from entry to its return to `0AB9:EBE2`, the managed watched
    match draws 158,992 values (quick: 5,853), from 67 sites after draw 258, none of them `D983`'s six;
+   this is the match window, not the whole week's 176,134 draws, and establishes no timer-invariant count;
    through three entries of the RNG at `24BC:0CDC`'s segment: `24BC:0D12` (68,779), `24BC:0D4F`
    (59,532), `24BC:0D2D` (30,423). Its busiest sites are `0AB9:7380` (57,318), `0AB9:388A` (29,226),
    `0AB9:333A` (27,308), `0AB9:380B` (11,970), `0AB9:3927` (11,834).
@@ -39,5 +43,8 @@
 
 - The watched engine's rules (out of T10's scope): what the 67 sites draw for, what the three RNG
   entries `0D12`, `0D2D` and `0D4F` compute, and how the pitch's timer pacing (`DS:D088`) enters them.
-- Whether the watched result depends on the timer model at all (one harness run, one DOSBox-X run;
-  both 1-4).
+- How the watched draw stream and result depend on the timer model. The completed evidence is one
+  harness run and one DOSBox-X run, both 1-4. The [independent review's short clock probes](https://github.com/diegoami/onenil-archaeology/issues/47#issuecomment-6519498241)
+  reported different draw counts at the seventh run-on under 20,000,000 and 10,000,000 instructions
+  per second; they did not run full matches. T10-r0003's count is scoped to its recorded clock,
+  and matching nine sampled key-wait screens does not establish draw-stream or result invariance.

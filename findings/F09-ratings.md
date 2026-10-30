@@ -1,4 +1,4 @@
-# F09 The match's four ratings per side are sums of the eleven players' values by position class, plus a staff bonus and a ÷16 bonus for side 0; the formula reproduces all 16,795 values the original computed in six weeks
+# F09 The match's four ratings per side sum player values by position class, with a staff bonus and a flag-controlled ÷16 or ÷64 bonus; the six-week corpus reproduces 24,085 scalar values in 16,795 records
 
 - **Status**: proposed
 - **Task**: T09 (#43)
@@ -20,7 +20,8 @@
    +2, shifted right 5 and 4.
 3. `[confirmed]` In the six weeks' managed matches the formula reproduces every value the original
    computed: 12,614 player values, 2,495 bonuses, 1,128 sides' four values, and the eight values at
-   each of 558 `D983` entries (`--check`: 16,795 values, 0 differ).
+   each of 558 `D983` entries: 16,795 records containing 24,085 scalar values, 0 differ. The original
+   checker called the record count “values”; the scalar count is 12,614 + 2,495 + 4×1,128 + 8×558.
 4. `[derived]` With F07's contests and the classes: value 0 is the goalkeeper's, 1 the defence's, 2 the
    midfield's, 3 the attack's; a chance is midfield against midfield, then attack against defence,
    then attack against the goalkeeper.

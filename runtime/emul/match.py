@@ -25,9 +25,12 @@ The code under runtime/emul/ must be committed first, so the record names the co
 import argparse
 import hashlib
 import json
+import os
 import platform
+import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -35,6 +38,7 @@ sys.path.insert(0, str(ROOT / "runtime" / "emul"))
 sys.path.insert(0, str(ROOT / "runtime" / "driver"))
 sys.path.insert(0, str(ROOT / "tools" / "data"))
 import cycle  # noqa: E402
+import checkpoint  # noqa: E402
 import guest  # noqa: E402
 import listing  # noqa: E402
 import save  # noqa: E402
@@ -69,6 +73,11 @@ class Week:
         self._pending = None
         self.started = False      # PLAY NEXT GAME chosen
         self.board = None
+        self.screen_i = self.run_on = 0
+        self.finished = False
+        self.install_hooks()
+
+    def install_hooks(self):
         self.g.code_hook(LCG, self._lcg_entry)
         self.g.code_hook(LCG_LEAVE, self._lcg_leave)
         self.g.code_hook(MATCH, lambda g: self._mark("match entry " + MATCH))
@@ -115,10 +124,15 @@ class Week:
         self.draws += 1
         self._pending = None
 
-    def play(self, max_screens=60, step_budget=400_000_000, max_run_on=2000):
+    def play(self, max_screens=60, step_budget=400_000_000, max_run_on=2000, on_boundary=None):
         g = self.g
-        i = run_on = 0
-        while i < max_screens:
+        if self.finished:
+            return g.screen()
+        while self.screen_i < max_screens and not self.finished:
+            # All actions from the previous stop are already queued. The machine is
+            # outside Unicorn and may be saved/restored without repeating a screen.
+            if on_boundary:
+                on_boundary(self)
             if not g.run(max_steps=step_budget):
                 raise guest.GuestError(f"no key wait within {step_budget} instructions (at {g.where()})")
             sc = g.screen()
@@ -127,15 +141,15 @@ class Week:
                 # T10: the watched pitch polls keypressed on every tick (1998:00F1) and runs on; the
                 # guest stops it after OTHER_STALL_POLLS such polls. runtime/driver/watched.py presses
                 # nothing while the pitch changes, so no key here either: the run goes on.
-                self.events.append({"kind": "run-on", "n": run_on, "digest": sc.digest(), "draws": self.draws,
+                self.events.append({"kind": "run-on", "n": self.run_on, "digest": sc.digest(), "draws": self.draws,
                                     "caller": g.wait_caller})
-                run_on += 1
+                self.run_on += 1
                 compact_services(g)
-                if run_on > max_run_on:
+                if self.run_on > max_run_on:
                     raise guest.GuestError(f"the watched pitch still running after {max_run_on} stops")
                 continue
-            ev = {"kind": "screen", "i": i, "digest": sc.digest(), "draws": self.draws}
-            i += 1
+            ev = {"kind": "screen", "i": self.screen_i, "digest": sc.digest(), "draws": self.draws}
+            self.screen_i += 1
             hi = [t for _, t in screens.highlighted(sc)]
             if "FULL TIME" in text and ("press any key" in low or "any other key to exit" in low):
                 self.board = (text, sc.digest())   # the full-time board (T10: or the watched one): the week's result
@@ -143,6 +157,7 @@ class Week:
                 if self.started:
                     ev["action"] = "main menu after the week: stop"
                     self.events.append(ev)
+                    self.finished = True
                     return sc
                 keys = ["Return"] if any(t.startswith("PLAY NEXT GAME") for t in hi) else ["Down"]
                 self.started = keys == ["Return"]
@@ -256,47 +271,184 @@ def git(*a):
 
 
 def next_number(directory, pattern):
-    return 1 + max((int(p.stem.split("-r")[-1]) for p in Path(directory).glob(pattern)), default=0)
+    paths = list(Path(directory).glob(pattern)) + list((Path(directory) / "partial").glob(pattern))
+    numbers = [int(m[1]) for p in paths if (m := re.search(r"-r(\d+)(?:-p\d+)?$", p.stem))]
+    return 1 + max(numbers, default=0)
+
+
+def rel(path):
+    return Path(os.path.relpath(Path(path).resolve(), ROOT)).as_posix()
+
+
+def utc():
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def signature():
+    # A docs/checkpoint publication commit may change HEAD while the running code stays
+    # identical. Resume requires identical code, Unicorn and clock/input settings.
+    import unicorn
+    sources = sorted((ROOT / "runtime" / "emul").glob("*.py"))
+    sources += sorted((ROOT / "runtime" / "driver").glob("*.py"))
+    sources += [ROOT / "tools" / "data" / "save.py"]
+    return {"sources": {rel(p): checkpoint.digest(p) for p in sources},
+            "unicorn": unicorn.__version__, "python": platform.python_version(),
+            "constants": {k: getattr(guest, k) for k in
+                          ("INSTR_PER_S", "PIT_HZ", "KEY_HOLD", "STALL_POLLS", "OTHER_STALL_POLLS",
+                           "IF_RETRY", "SLICE_MAX")}}
+
+
+def write_record(path, record):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("x", encoding="utf-8") as f:
+        f.write(json.dumps(record, indent=2, ensure_ascii=False) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
+
+
+def publish_partial(chunk, receipt, private, remote_path):
+    # Foreground, opt-in publication. Commit only this immutable chunk and receipt.
+    subprocess.run(["rclone", "copyto", str(private), "onenildrive:" + remote_path], check=True)
+    subprocess.run(["git", "-C", str(ROOT), "add", "--", rel(chunk), rel(receipt)], check=True)
+    subprocess.run(["git", "-C", str(ROOT), "commit", "--only", "-m",
+                    "checkpoint: " + receipt.stem, "--", rel(chunk), rel(receipt)], check=True)
+    subprocess.run(["git", "-C", str(ROOT), "push", "origin", "HEAD"], check=True)
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--state", required=True, help="sha256 (or a prefix) of the start savestate")
-    ap.add_argument("--out", default="traces/T06")
-    ap.add_argument("--runs", default="runs/T06")
+    state_arg = ap.add_mutually_exclusive_group(required=True)
+    state_arg.add_argument("--state", help="sha256 (or a prefix) of the start savestate")
+    state_arg.add_argument("--resume", help="a partial run receipt; restores its private checkpoint")
+    ap.add_argument("--out")
+    ap.add_argument("--runs")
     ap.add_argument("--max-screens", type=int, default=60)
-    ap.add_argument("--compare", help="a T04 week record from the same start state")
-    ap.add_argument("--experiment", default="T06", help="the run records' experiment and id prefix (T08: runtime/emul/corpus.py)")
+    ap.add_argument("--compare", help="a DOSBox-X week record from the same start state")
+    ap.add_argument("--experiment", help="run records' experiment and id prefix (default T06)")
+    ap.add_argument("--checkpoint-seconds", type=float, default=300,
+                    help="publish a durable partial record at guest stops, at this wall-time interval")
+    ap.add_argument("--publish-checkpoints", action="store_true",
+                    help="upload private checkpoints to Drive and commit/push decoded chunks/receipts")
+    ap.add_argument("--stop-after-checkpoints", type=int, default=0,
+                    help="stop after N checkpoints (including the initial one), for recovery checks")
     a = ap.parse_args(argv)
-    dirty = git("status", "--porcelain", "--", "runtime/emul")
+    if a.checkpoint_seconds <= 0:
+        ap.error("--checkpoint-seconds must be positive")
+    dirty = git("status", "--porcelain", "--", "runtime/emul", "runtime/driver", "tools/data/save.py")
     if dirty:
-        raise SystemExit("uncommitted changes under runtime/emul/: commit them first so the record names the code that ran\n" + dirty)
+        raise SystemExit("uncommitted runtime changes: commit them first so the record names the code that ran\n" + dirty)
+    if a.publish_checkpoints and git("branch", "--show-current") in ("main", ""):
+        ap.error("checkpoint publication requires a task branch")
     commit = git("rev-parse", "--short", "HEAD")
-    from datetime import datetime, timezone
-
-    def utc():
-        return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    sig = signature()
     started = utc()
-    path, data = find_state(a.state)
-    sha = hashlib.sha256(data).hexdigest()
-    w = Week(data)
-    import unicorn
-    settings = {"INSTR_PER_S": guest.INSTR_PER_S, "PIT_HZ": guest.PIT_HZ, "KEY_HOLD": guest.KEY_HOLD,
-                "STALL_POLLS": guest.STALL_POLLS, "OTHER_STALL_POLLS": guest.OTHER_STALL_POLLS,
-                "IF_RETRY": guest.IF_RETRY, "dos_clock": w.g.clock}
-    start = {"kind": "start", "state_sha256": sha, "state_file": path.relative_to(ROOT).as_posix(),
-             "start_at": w.g.where(), "settings": settings, "lcg": LCG,
-             "tools": f"runtime/emul/guest.py, runtime/emul/match.py at {commit}; unicorn {unicorn.__version__}"}
+    prior, state, chunk_paths, chunks = None, None, [], []
+    if a.resume:
+        prior = json.loads((ROOT / a.resume).read_text())
+        cp = next(o["value"] for o in prior["outputs"] if o["name"] == "checkpoint")
+        if cp["signature"] != sig:
+            raise SystemExit("checkpoint code, Unicorn, Python or guest settings differ; resume refused")
+        private = ROOT / cp["private_path"]
+        if checkpoint.digest(private) != cp["private_sha256"]:
+            raise SystemExit("private checkpoint digest differs; resume refused")
+        for c in cp["chunks"]:
+            path = ROOT / c["path"]
+            if checkpoint.digest(path) != c["sha256"]:
+                raise SystemExit("trace checkpoint chunk digest differs; resume refused")
+            chunk_paths.append(path)
+        chunks = list(cp["chunks"])
+        state = checkpoint.read_private(private)
+        original = state["start"]
+        a.state = original["state_sha256"]
+        a.out = a.out or cp["out"]
+        a.runs = a.runs or cp["runs"]
+        a.experiment = a.experiment or prior["experiment"]
+        if a.compare and a.compare != cp["compare"]:
+            ap.error("--compare differs from the checkpoint")
+        a.compare = cp["compare"]
+    a.out, a.runs, a.experiment = a.out or "traces/T06", a.runs or "runs/T06", a.experiment or "T06"
+    out, runs = ROOT / a.out, ROOT / a.runs
+    out.mkdir(parents=True, exist_ok=True)
+    runs.mkdir(parents=True, exist_ok=True)
+    journals = ROOT / ".cache" / "emul-journals"
+    number = max(next_number(runs, f"{a.experiment}-r*.json"),
+                 next_number(journals, f"{a.experiment}-r*.jsonl"))
+    rid = f"{a.experiment}-r{number:04d}"
+    journal = checkpoint.Journal(journals / (rid + ".jsonl"), chunk_paths)
+    if state is None:
+        path, data = find_state(a.state)
+        sha = hashlib.sha256(data).hexdigest()
+        w = Week(data)
+        settings = {**sig["constants"], "dos_clock": w.g.clock}
+        start = {"kind": "start", "state_sha256": sha, "state_file": rel(path),
+                 "start_at": w.g.where(), "settings": settings, "lcg": LCG,
+                 "tools": f"runtime/emul/guest.py, runtime/emul/match.py at {commit}; unicorn {sig['unicorn']}"}
+        w.events = journal
+        journal.append(start)
+    else:
+        start = state["start"]
+        sha, settings = start["state_sha256"], start["settings"]
+        w = checkpoint.restore(state["machine"], Week, journal)
+    n = next_number(out, f"{sha[:16]}-week-r*.jsonl")
+    trace_path = out / f"{sha[:16]}-week-r{n:04d}.jsonl"
+    rec = {"schema": "run/1", "run_id": rid, "experiment": a.experiment, "arm": "unicorn-week", "rep": int(rid[-4:]),
+           "code_commit": commit, "machine": cycle.machine_id(),
+           "artifact": {"set": "One-Nil96 (records/T01/inventory.json)", "variant": None},
+           "runtime": {"harness": f"runtime/emul/match.py@{commit}", "unicorn": sig["unicorn"],
+                       "python": platform.python_version(), "settings": settings},
+           "interventions": [{"level": "I3", "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"}],
+           "start_state": {"id": start["state_file"], "sha256": sha,
+                           "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"},
+           "seed": None,
+           "actions": {"script": "runtime/emul/match.py", "args": [a.state] + (["--compare", a.compare] if a.compare else []),
+                       "game_files": {k: hashlib.sha256(v).hexdigest() for k, v in w.files_at_start.items()}},
+           "observations": [], "outputs": [], "started": started, "ended": started, "status": "aborted: in progress"}
+    if prior:
+        rec["actions"]["resumed_from"] = rel(ROOT / a.resume)
+    count, due, latest = 0, 0.0, None
+
+    def at_boundary(week):
+        nonlocal count, due, latest
+        if time.monotonic() < due:
+            return
+        count += 1
+        pid = f"{rid}-p{count:04d}"
+        chunk = out / "partial" / f"{trace_path.stem}-p{count:04d}.jsonl"
+        info = journal.chunk(chunk)
+        chunks.append({"path": rel(chunk), "sha256": info["sha256"]})
+        private = ROOT / ".cache" / "checkpoints" / a.experiment / (pid + ".pkl.gz")
+        private_sha = checkpoint.write_private(private, {"start": start, "machine": checkpoint.capture(week)})
+        cp = {"private_path": rel(private), "private_sha256": private_sha,
+              "drive_path": f"checkpoints/{a.experiment}/{private.name}",
+              "signature": sig, "chunks": list(chunks), "draws": week.draws,
+              "screens": week.screen_i, "run_on_stops": week.run_on,
+              "instruction_budget": week.g.budget,
+              "out": rel(out), "runs": rel(runs), "compare": a.compare}
+        partial = dict(rec, run_id=pid, ended=utc(), status="aborted: partial checkpoint; run may still be active",
+                       outputs=[{"name": "checkpoint", "value": cp}])
+        receipt = runs / "partial" / (pid + ".json")
+        write_record(receipt, partial)
+        latest = rel(receipt)
+        print(f"{pid}: {week.draws} draws; resume with --resume {latest}", flush=True)
+        if a.publish_checkpoints:
+            publish_partial(chunk, receipt, private, cp["drive_path"])
+        due = time.monotonic() + a.checkpoint_seconds
+        if a.stop_after_checkpoints and count >= a.stop_after_checkpoints:
+            raise guest.GuestError("requested checkpoint stop")
+
     status = "completed"
     try:
-        w.play(a.max_screens)
-    except guest.GuestError as e:
-        status = f"stopped: {e}"
+        w.play(a.max_screens, on_boundary=at_boundary)
+    except KeyboardInterrupt:
+        status = "stopped: KeyboardInterrupt"
+    except Exception as e:  # keep trace/receipt even when publication or a guest hook fails
+        status = f"stopped: {type(e).__name__}: {e}"
     if w.g.unsupported and status == "completed":
         status = "completed with unsupported services"
     end = {"kind": "end", "status": status, "draws": w.draws,
-           "screens": sum(e["kind"] == "screen" for e in w.events),
-           "run_on_stops": sum(e["kind"] == "run-on" for e in w.events),
+           "screens": w.screen_i, "run_on_stops": w.run_on,
            "instruction_budget": w.g.budget, "timer_ticks": w.g.timer_ticks,
            "game_timer_ticks": w.g.game_timer_ticks,
            "result": result(w.board) if w.board else None,
@@ -307,47 +459,26 @@ def main(argv=None):
            "mouse_answers": dict(sorted(w.g.mouse_answers.items())),
            "dos_calls": w.g.dos_calls,
            "files_written": w.files_written(), "state_digests": w.state_digests()}
-    out = ROOT / a.out
-    out.mkdir(parents=True, exist_ok=True)
-    n = next_number(out, f"{sha[:16]}-week-r*.jsonl")
-    trace_path = out / f"{sha[:16]}-week-r{n:04d}.jsonl"
-    text = "".join(json.dumps(ev, ensure_ascii=False, sort_keys=True) + "\n" for ev in [start] + w.events + [end])
-    with open(trace_path, "x", newline="\n") as f:
-        f.write(text)
-    trace_sha = hashlib.sha256(text.encode()).hexdigest()
-    print(f"{trace_path.relative_to(ROOT)}: {status}; {w.draws} draws, {end['screens']} key waits; result {end['result']}")
+    journal.append(end)
+    trace_sha = journal.finish(trace_path)
     cmp_ok, cmp_lines = (None, [])
     if a.compare:
-        cmp_ok, cmp_lines = compare(w.events, sha, a.compare)
+        cmp_ok, cmp_lines = compare(journal, sha, a.compare)
         for line in cmp_lines:
             print("  " + line)
-    runs = ROOT / a.runs
-    runs.mkdir(parents=True, exist_ok=True)
-    rid = f"{a.experiment}-r{next_number(runs, f'{a.experiment}-r*.json'):04d}"
-    rec = {"schema": "run/1", "run_id": rid, "experiment": a.experiment, "arm": "unicorn-week", "rep": int(rid[-4:]),
-           "code_commit": commit, "machine": cycle.machine_id(),
-           "artifact": {"set": "One-Nil96 (records/T01/inventory.json)", "variant": None},
-           "runtime": {"harness": f"runtime/emul/match.py@{commit}", "unicorn": unicorn.__version__,
-                       "python": platform.python_version(), "settings": settings},
-           "interventions": [{"level": "I3", "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"}],
-           "start_state": {"id": path.relative_to(ROOT).as_posix(), "sha256": sha,
-                           "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"},
-           "seed": None,
-           "actions": {"script": "runtime/emul/match.py", "args": [a.state] + (["--compare", a.compare] if a.compare else []),
-                       "game_files": {k: hashlib.sha256(v).hexdigest() for k, v in w.files_at_start.items()}},
-           "observations": [
-               {"step": 0, "source": "file", "field": "the trace written, path", "value": trace_path.relative_to(ROOT).as_posix()},
-               {"step": 0, "source": "file", "field": "the trace written, sha256", "value": trace_sha},
-               {"step": 1, "source": "log", "field": "comparison with a DOSBox-X week record", "value": "\n".join(cmp_lines) or "not asked"},
-           ],
-           "outputs": [{"name": "end", "value": end}],
-           "started": "", "ended": "", "status": status if cmp_ok in (None, True) else f"aborted: comparison failed ({status})"}
-    rec["started"], rec["ended"] = started, utc()
-    if not (rec["status"] == "completed" or rec["status"].startswith("aborted:")):
+    journal.close()
+    rec.update(observations=[
+        {"step": 0, "source": "file", "field": "the trace written, path", "value": rel(trace_path)},
+        {"step": 0, "source": "file", "field": "the trace written, sha256", "value": trace_sha},
+        {"step": 1, "source": "log", "field": "comparison with a DOSBox-X week record", "value": "\n".join(cmp_lines) or "not asked"}],
+        outputs=[{"name": "end", "value": end}], ended=utc(),
+        status=status if cmp_ok in (None, True) else f"aborted: comparison failed ({status})")
+    if latest:
+        rec["actions"]["last_checkpoint"] = latest
+    if rec["status"] != "completed" and not rec["status"].startswith("aborted:"):
         rec["status"] = "aborted: " + rec["status"]
-    with open(runs / f"{rid}.json", "x", encoding="utf-8") as f:
-        f.write(json.dumps(rec, indent=2, ensure_ascii=False) + "\n")
-    print(f"{rid}: {rec['status']}")
+    write_record(runs / (rid + ".json"), rec)
+    print(f"{rid}: {rec['status']}; {w.draws} draws, {end['screens']} key waits; result {end['result']}")
     return 0 if rec["status"] == "completed" else 1
 
 
