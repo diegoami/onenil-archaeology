@@ -55,7 +55,8 @@ have flag one, side 1's 570 calls flag zero; club byte +37h is always nonzero (1
 flagged side uses divisor 16.
 
 `[confirmed]` These original weeks do not exercise the +16 branch, either clamp, actual halving,
-the first halving condition's one-call short circuit, divisor 64, signed raw player bytes, zero
+the first halving condition's one-call short circuit, divisor 64, negative sign-extended player
+bytes (raw 128..255), zero
 roster entries, duplicate roster IDs or staff ID zero. Their semantics are static readings with
 separate synthetic native checks, not confirmations by these runs. The numeric fields' football
 or staff-role meanings are not inferred here.
