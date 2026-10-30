@@ -38,3 +38,11 @@ other player fields and arbitrary scratch bytes are outside this projection.
 [designed: T22] Public replay checks join the entire T16/T20 ledger and trace, while the
 new original run must also reproduce full T08 events and ordered DOSBox-X waits.
 Measured coverage and limitations will be recorded in proposed F22 after capture.
+
+[confirmed: static `A94B–ABB3`, `A8A0–A948`, listing at `3223aa9`] A94B's closure
+reads additional context outside this dispatcher projection: P8 position/style fields,
+reserve availability, the reserve-limit helper 1998:0B76, candidate selection 9882 and
+possibly 500B, D076 scratch candidates, cache cells, and the AEB8 replacement closure.
+A837 is another outbound fallback. T22 cannot supply complete native AI inputs merely
+by exporting the dispatcher projection. A subsequent capture task must observe these
+inputs/helpers and the full named replacement outputs, preserving the T22 boundaries.

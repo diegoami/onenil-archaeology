@@ -149,6 +149,9 @@ def _cases_for(calls,ledger,prefixes,source,trace,meta):
             else:
                 raw.keys(e,'kind site side arguments input draw_start output draw_end')
                 raw.vector(e['arguments'],{'prompt':2,'editor':1,'ai':4}[kind],65535)
+                if kind=='prompt' and (e['arguments'][0]!=side or e['arguments'][1] not in (0,1)):raise ValueError('prompt arguments differ')
+                if kind=='editor' and e['arguments']!=[1]:raise ValueError('editor argument differs')
+                if kind=='ai' and (e['arguments'][:2]!=[0,side] or not 1<=e['arguments'][2]<=22 or e['arguments'][3]!=state['clubs'][side]['id']):raise ValueError('AI arguments differ')
                 validate_state(e['input']);validate_state(e['output'])
                 # Control is written around the prompt by the dispatcher itself.
                 state['control']=e['input']['control']

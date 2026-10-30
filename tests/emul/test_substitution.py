@@ -48,3 +48,28 @@ def test_corrupt_record_fixture_and_retained_source_digests_fail(prefix):
     original=sub.contests.sha
     with patch.object(sub.contests,'sha',side_effect=lambda p:'0'*64 if Path(p).relative_to(ROOT).as_posix().startswith(prefix) else original(p)):
         assert sub.main(['--check'])==1
+
+
+@pytest.mark.parametrize('damage',['input','output','span','arguments','extra'])
+def test_opaque_ai_boundaries_remain_contiguous_and_typed(sample,damage):
+    calls,*rest=sample;calls=copy.deepcopy(calls)
+    e=next(e for c in calls for e in c['events'] if e['kind']=='ai')
+    if damage=='input':e['input']['pending']^=1
+    elif damage=='output':e['output']['pending']^=1
+    elif damage=='span':e['draw_end']+=1
+    elif damage=='arguments':e['arguments'][1]^=1
+    elif damage=='extra':e['expected_replacement']=0
+    with pytest.raises(ValueError):sub.cases_for(calls,*rest)
+
+
+def test_each_mandatory_helper_is_required(sample):
+    original,*rest=sample
+    for i,e in enumerate(original[0]['events']):
+        if e['kind'] not in ('managed','keeper','capacity'):continue
+        calls=copy.deepcopy(original);calls[0]['events'].pop(i)
+        with pytest.raises(ValueError):sub.cases_for(calls,*rest)
+
+
+def test_unexplained_control_mutation_fails(sample):
+    calls,*rest=sample;calls=copy.deepcopy(calls);calls[0]['output']['control']^=1
+    with pytest.raises(ValueError):sub.cases_for(calls,*rest)
