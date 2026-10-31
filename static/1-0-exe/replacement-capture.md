@@ -28,3 +28,13 @@ joins retained source/fixture/manifest digests and the T24 map digest. New captu
 are append-only and skip only completed streams; failed attempts retain their own
 record/export. No prior evidence may be changed. The measured census and residual
 input exclusions are recorded in proposed F25 after capture.
+
+[confirmed: completed corpus at `d8a3a27`, producer `ddf4357`] The six weeks
+retain all 25 replacements and 325 direct helper observations with zero draws.
+The optional ADD0 message is unreached; every cached-player availability result
+is zero. 164F changes T23's roster/scene/event/cache projection in one reached
+call, as detailed in proposed F25. All 25 word2 entry/return values agree, and
+rebuild itself leaves word2 unchanged in these specimens; the D2E sentinel branch
+is not covered. Measured helper snapshots, not inferred formulas, support these
+claims. No complete callee contract or native implementation follows from this
+outer-body capture alone.
