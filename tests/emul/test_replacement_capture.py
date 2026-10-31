@@ -27,7 +27,7 @@ def test_complete_public_corpus(): assert r.main(['--check'])==0
  'direction','cached-player','global-missing','global-bool','total',
  'helper-missing','helper-order','helper-extra','helper-site','helper-args','helper-result','helper-draw',
  'helper-seed','helper-readonly','helper-first','rebuild-continuation','refresh-output','cache-loop',
- 'managed-result','void-result','flag-player','log-slot','scene-pointer-selector'])
+ 'managed-result','void-result','flag-player','log-slot','scene-pointer-selector','duplicate-helper','final-player'])
 def test_malformed_or_discontinuous_capture_fails(sample,damage):
     original,retained,week=sample; calls=copy.deepcopy(original);c=calls[0];s=c['input'];h=c['helpers']
     def event(site): return next(e for e in h if e['site']==site)
@@ -70,6 +70,8 @@ def test_malformed_or_discontinuous_capture_fails(sample,damage):
     elif damage=='flag-player': h[0]['arguments'][1]^=1
     elif damage=='log-slot': event('0AB9:AF7F')['arguments'][1]^=1
     elif damage=='scene-pointer-selector': event('0AB9:AFAA')['arguments'][0]^=1
+    elif damage=='duplicate-helper': h.insert(2,copy.deepcopy(h[1]))
+    elif damage=='final-player': c['output']['players'][0]['p15_2']^=1
     with pytest.raises(ValueError): r.cases_for(calls,retained,week)
 
 

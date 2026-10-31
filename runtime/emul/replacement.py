@@ -137,7 +137,8 @@ def validate_helpers(c):
             cursor+=1
     if cursor!=len(tail): raise ValueError('extra cache predicates')
     position={r['site']:i for i,r in enumerate(BOUNDARIES)}
-    if [position[s] for s in sites[:sites.index('0AB9:B077')]]!=sorted(position[s] for s in sites[:sites.index('0AB9:B077')]):
+    prefix=[position[s] for s in sites[:sites.index('0AB9:B077')]]
+    if prefix!=sorted(set(prefix)) or any(i>=position['0AB9:B077'] for i in prefix):
         raise ValueError('reordered direct replacement sites')
     draw=c['draw_start']
     for e in helpers:
@@ -181,6 +182,9 @@ def validate_helpers(c):
             raise ValueError('direct helper state continuation differs')
     for k in ('selection','scenes','globals','directions','club_totals'):
         if helpers[-1]['output'][k]!=c['output'][k]: raise ValueError('refresh to return continuation differs')
+    before={p['id']:p for p in helpers[-1]['output']['players']}
+    for p in c['output']['players']:
+        if p['id'] in before and p!=before[p['id']]: raise ValueError('player changed after refresh')
 
 
 def cases_for(calls,retained,week):
