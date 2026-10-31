@@ -25,3 +25,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T21](T21.md): Complete named quick-reset inputs and ordered observations (#88).
 - [T22](T22.md): Substitution dispatcher inputs and outbound boundaries (#90).
 - [T23](T23.md): A94B selection inputs and replacement boundaries (#92).
+- [T24](T24.md): AEB8 outer replacement contract and capture boundary map (#94).
