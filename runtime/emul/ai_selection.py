@@ -195,6 +195,18 @@ def validate_helpers(events, call, parent=None):
         if kind == 'candidates':
             if not e['children'] or e['children'][0]['kind'] != 'limit' or any(c['kind'] != 'available' for c in e['children'][1:]):
                 raise ValueError('missing/reordered candidate helpers')
+            limit = e['children'][0]['result']
+            raw.integer(limit, 11, 20)
+            roster = call['input']['clubs'][call['side']]['roster']
+            player = call['input']['scenes'][call['scene']-1]['player']
+            # Verify the observed reserve-scan footprint, not candidate choice/results.
+            expected = [[roster[i-1]] for i in range(12, limit+1) if roster[i-1] != player]
+            if [child['arguments'] for child in e['children'][1:]] != expected:
+                raise ValueError('missing/reordered reserve availability observations')
+            if any(e['candidates_before']):
+                raise ValueError('candidate scan did not begin after the clear')
+        if kind in ('preferred', 'weighted') and e['candidates_before'] != e['candidates_after']:
+            raise ValueError('selection helper changed candidate scratch')
         if kind in ('available', 'handedness', 'limit') and e['candidates_before'] != e['candidates_after']:
             raise ValueError('read-only helper changed candidates')
     if parent is None:
@@ -206,6 +218,26 @@ def validate_helpers(events, call, parent=None):
         # It is retained as a separate ordered helper below.
         if kinds not in permitted:
             raise ValueError('selection helper order differs')
+        candidate_cursor = None
+        selected = None
+        for e in events:
+            if candidate_cursor is not None and e['candidates_before'] != candidate_cursor:
+                raise ValueError('helper candidate continuation differs')
+            candidate_cursor = e['candidates_after']
+            if e['kind'] in ('preferred', 'weighted'):
+                selected = e['result']
+            if e['kind'] == 'replace' and (selected is None or not 12 <= selected <= 20 or e['arguments'][0] != selected):
+                raise ValueError('replacement slot differs from observed selection')
+        if events and events[-1]['kind'] in OPAQUE:
+            if events[-1]['output'] != call['output']:
+                raise ValueError('opaque return does not continue to A94B return')
+        else:
+            before, after = copy.deepcopy(call['input']), copy.deepcopy(call['output'])
+            before.pop('candidates'); after.pop('candidates')
+            if before != after:
+                raise ValueError('unexplained selection-only mutation')
+        if candidate_cursor is not None and candidate_cursor != call['output']['candidates']:
+            raise ValueError('candidate return differs from final helper')
 
 
 def cases_for(calls, retained, week):
