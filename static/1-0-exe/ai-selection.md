@@ -19,21 +19,23 @@ cell; later eligible players overwrite earlier players with the same style.
 
 [confirmed: `0AB9:9882–99C1`] A player's P8+6 selects an eight-byte preference
 row at 0BF6. 9882 retains the last nonzero candidate in preference order, filtering
-by `1B55:4E81` when the parsed D9A numeric context is positive. The handedness
+by `1B55:4E81` when the position character occurs in D9A. The handedness
 helper indexes 12BA by player identifier modulo three, then 129E by fourteen times
-that selector plus P8+7. The numeric string helper is a dependency, not a guessed
-RNG call.
+that selector plus P8+7. `26C9:0C6F` constructs a one-character Pascal string;
+`26C9:0BFE–0C41` searches for it in D9A and returns its one-based index or zero.
+The comparison is whether this returned index is above three, not whether a
+numeric conversion exceeds three.
 
 [confirmed: `1B55:500B–50E8`] Fallback selection scans slots 12 through the
 reserve limit, skips unavailable players and reads a byte weight at
-`0DA6 + 14*position + style`. A positive parsed D9A context halves a weight when
+`0DA6 + 14*position + style`. A nonzero D9A search index halves a weight when
 handedness differs from its comparison predicate. Only strict weight improvement
 replaces the chosen slot, retaining the first tie. Availability checks signed
 P15+8, identifier zero and flags11 bits 8, 6, 2 and 3 (one-based bit helpers).
 
 [designed: T23, task definition `5030a1d`] The recorded selection context extends
 T22 with per-player position/style and handedness lookup cells, the actual indexed
-reserve-limit cell, decoded D9A text, preference/weight rows, fourteen candidate
+reserve-limit cell, decoded D9A character sequence, preference/weight rows, fourteen candidate
 cells and two twenty-slot cache-selector rows. All values are decoded observations;
 no original image, physical pointer or byte blob is exported. Scalar helper returns
 and nested order are observations, not a Python implementation of the algorithm.
