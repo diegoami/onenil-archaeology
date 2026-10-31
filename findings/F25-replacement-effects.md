@@ -27,6 +27,12 @@ changes it in ten calls. Season-counter helper 186C changes it in four calls,
 all in the allowance-one weeks; the other 21 replacements have allowance zero.
 An unchanged named projection does not prove a helper writes no other field.
 
+`[confirmed: same runs]` The reserve vector changes across all 25 replacements;
+the substitution-flag vector changes across none. In every case the event-total
+projection changes between the rating helper's return and season helper's entry,
+where the static outer body assigns its normalized cell. The alternate special
+substitution-flag path is not dynamically covered here.
+
 `[confirmed: same runs]` Final refresh 164F changes full scene rows in all 25
 calls, club-total words in sixteen and cached-player identifiers in three.
 In **T25-r0006**, arguments **[14, 8, 1]**, it additionally changes T23's **club
