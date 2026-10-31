@@ -79,14 +79,15 @@ def validate_state(s):
     for p in s['players']:
         raw.keys(p, 'id byte8 flags11 position style hand_selector hand_cell')
         for k in ('position', 'style', 'hand_selector', 'hand_cell'):
-            raw.integer(p[k], 0, 255)
+            raw.integer(p[k], 0, 13 if k in ('position', 'style') else 255)
     raw.integer(s['limit_cell'], 0, 255)
-    if not isinstance(s['style_text'], str) or len(s['style_text']) > 255:
-        raise ValueError('invalid numeric style text')
+    if not isinstance(s['style_text'], str) or len(s['style_text']) > 255 or any(ord(ch) > 255 for ch in s['style_text']):
+        raise ValueError('invalid decoded style character sequence')
     if [r['position'] for r in s['preferences']] != list(range(14)):
         raise ValueError('complete ordered preference rows required')
     for r in s['preferences']:
         raw.keys(r, 'position styles weights')
+        raw.integer(r['position'], 0, 13)
         if len(r['styles']) > 7:
             raise ValueError('oversized preference row')
         raw.vector(r['styles'], len(r['styles']), 13)
