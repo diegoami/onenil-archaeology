@@ -24,8 +24,8 @@
       "return": "0AB9:AF06",
       "target": "232A:022E",
       "instruction_sha256": "7414acea71943383255ae4e6dc5eaf67d0d00996fd82aaddaf15331545dce3ab",
-      "role": "keyboard",
-      "arguments": "no logical arguments"
+      "role": "speaker-off",
+      "arguments": "A2EC gate and port 61h; no explicit arguments"
     },
     {
       "site": "0AB9:AF18",

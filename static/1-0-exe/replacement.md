@@ -9,7 +9,7 @@ the other in a replay input.
 
 [confirmed: same source] The body sets bit 3 of the outgoing player's flags11
 through 232A:00D5, then tests whether the side's club is managed. For an unmanaged
-side it flushes keyboard state, tests the opposite club and D074, optionally calls
+side it calls the speaker-off helper, tests the opposite club and D074, optionally calls
 ADD0 to report the change, and logs through 0F94. The near call displayed as 10F94
 wraps to 0F94; the later displayed 1164F wraps to 164F. The checked JSON map includes
 all thirteen direct sites, their actual targets, following instructions and hashes.
@@ -43,7 +43,8 @@ only the permanent scene and roster writes misses transient cache inputs.
 - 186C increments P15 word0 and byte4 only when allowance is nonzero.
 - 164F scans both clubs and calls availability and numeric helpers; its complete
   cache projection and helper inputs remain to be established.
-- ADD0, 0F94 and keyboard helpers have UI/log effects outside the outer named
+- ADD0 and 0F94 have UI/log effects; 232A:022E conditionally clears port 61h
+  bits 0/1 when A2EC is zero. These hardware and presentation effects are outside the outer named
   projection. Their entry/return and actual reach must be measured, not presumed
   absent because the entire T23 interval consumed zero RNG draws.
 

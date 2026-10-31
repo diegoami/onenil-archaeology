@@ -16,7 +16,7 @@ MAP = ROOT/'static/1-0-exe/replacement-boundaries.json'
 ROLES = {
     'AEDF': ('outgoing-flag', 'bit 3; outgoing scene player flags11'),
     'AEF0': ('managed-side', 'side club identifier'),
-    'AF01': ('keyboard', 'no logical arguments'),
+    'AF01': ('speaker-off', 'A2EC gate and port 61h; no explicit arguments'),
     'AF18': ('managed-opponent', 'opposite side club identifier'),
     'AF5F': ('message', 'outgoing player; post-swap roster at normalized scene slot'),
     'AF7F': ('log', '0; incoming roster slot; normalized scene slot; side byte'),
