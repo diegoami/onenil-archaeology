@@ -219,6 +219,8 @@ def validate_helpers(events, call, parent=None):
         # It is retained as a separate ordered helper below.
         if kinds not in permitted:
             raise ValueError('selection helper order differs')
+        if call['input']['reserves'][call['side']] > 0 and kinds[:2] != ['candidates', 'preferred']:
+            raise ValueError('missing mandatory selection prefix with positive reserves')
         candidate_cursor = None
         selected = None
         for e in events:
@@ -229,6 +231,9 @@ def validate_helpers(events, call, parent=None):
                 selected = e['result']
             if e['kind'] == 'replace' and (selected is None or not 12 <= selected <= 20 or e['arguments'][0] != selected):
                 raise ValueError('replacement slot differs from observed selection')
+            if e['kind'] in OPAQUE and call['draw_start'] == call['draw_end']:
+                if e['input']['seed'] != call['input']['seed'] or e['output']['seed'] != call['output']['seed']:
+                    raise ValueError('zero-draw opaque seed continuation differs')
         if events and events[-1]['kind'] in OPAQUE:
             if events[-1]['output'] != call['output']:
                 raise ValueError('opaque return does not continue to A94B return')

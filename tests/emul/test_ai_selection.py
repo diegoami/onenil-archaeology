@@ -88,3 +88,20 @@ def test_provenance_digests_are_checked(prefix):
     original = ai.contests.sha
     with patch.object(ai.contests, 'sha', side_effect=lambda p: '0'*64 if Path(p).relative_to(ROOT).as_posix().startswith(prefix) else original(p)):
         assert ai.main(['--check']) == 1
+
+
+@pytest.mark.parametrize('damage', ['all-helpers', 'candidate-chain', 'choice', 'opaque-seed', 'preference-bool', 'non-byte-text'])
+def test_context_and_return_links(sample, damage):
+    original, retained, week = sample
+    calls = copy.deepcopy(original)
+    c = calls[0]
+    if damage == 'all-helpers':
+        c = next(c for c in calls if len(c['helpers']) == 2)
+        c['helpers'] = []
+    elif damage == 'candidate-chain': c['helpers'][1]['candidates_before'][0] ^= 1
+    elif damage == 'choice': c['helpers'][1]['result'] = 0
+    elif damage == 'opaque-seed': c['helpers'][-1]['input']['seed'] ^= 1
+    elif damage == 'preference-bool': c['input']['preferences'][1]['position'] = True
+    elif damage == 'non-byte-text': c['input']['style_text'] = '\u2603'
+    with pytest.raises(ValueError):
+        ai.cases_for(calls, retained, week)
