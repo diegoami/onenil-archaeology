@@ -53,3 +53,10 @@ scratch parity are not established by this named projection.
 T20 strategy/late-call ledger, T16 tail, T08 events and ordered DOSBox-X waits.
 Public checking needs only committed fixtures. Original capture requires the six
 recorded private start states and hash-identical game files under ignored `.cache/`.
+
+[confirmed: corpus at `0be8664`, producer `a317cfb`] Six completed weeks contain
+556 A94B calls, 494 candidate scans/limit results/preferred selections, 4,362
+availability checks, 14 handedness checks and 25 replacements, with zero draws.
+No weighted or A837 fallback is reached. The `style_text` export is the decoded
+D9A position-character sequence, despite its field name. The measured limits are
+20 (480 calls) and 14 (14 calls). F23 describes coverage and deferred effects.
