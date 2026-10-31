@@ -272,8 +272,10 @@ def cases_for(calls, retained, week):
 
 
 def sources():
-    sub.build_index()
-    for meta in json.loads((sub.FIXTURES/'index.json').read_text())['records']:
+    index = sub.build_index()
+    if not placement.same_json(index, json.loads((sub.FIXTURES/'index.json').read_text())):
+        raise ValueError('retained T22 index differs')
+    for meta in index['records']:
         yield meta, json.loads((ROOT/meta['record']).read_text())
 
 
