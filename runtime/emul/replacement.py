@@ -115,6 +115,7 @@ class Recorder:
 
 def validate_helpers(c):
     helpers=c['helpers']; sites=[e['site'] for e in helpers]
+    if any(site not in SITES for site in sites): raise ValueError('unknown replacement helper')
     mandatory=['0AB9:AEDF','0AB9:AEF0','0AB9:AFAA','0AB9:AFB7','0AB9:B00C','0AB9:B077','0AB9:B0C6']
     cursor=0
     for site in mandatory:
@@ -123,6 +124,18 @@ def validate_helpers(c):
     # Two ordered managed-cache-side checks always precede the final refresh.
     loops=[e['arguments'][0] for e in helpers if e['site']=='0AB9:B077']
     if loops!=[0,1] or sites[-1]!='0AB9:B0C6': raise ValueError('incomplete cache loop/refresh')
+    managed=next(e for e in helpers if e['site']=='0AB9:AEF0')['result']
+    unmanaged_sites=('0AB9:AF01','0AB9:AF18','0AB9:AF7F','0AB9:AFDA')
+    if any((site in sites)!=(managed==0) for site in unmanaged_sites): raise ValueError('managed branch footprint differs')
+    tail=helpers[sites.index('0AB9:B077'):-1]
+    cursor=0
+    for side in range(2):
+        if cursor>=len(tail) or tail[cursor]['site']!='0AB9:B077' or tail[cursor]['arguments'][0]!=side: raise ValueError('cache loop order differs')
+        reached=tail[cursor]['result']; cursor+=1
+        if reached:
+            if cursor>=len(tail) or tail[cursor]['site']!='0AB9:B08B' or tail[cursor]['arguments'][0]!=side: raise ValueError('missing cache availability predicate')
+            cursor+=1
+    if cursor!=len(tail): raise ValueError('extra cache predicates')
     position={r['site']:i for i,r in enumerate(BOUNDARIES)}
     if [position[s] for s in sites[:sites.index('0AB9:B077')]]!=sorted(position[s] for s in sites[:sites.index('0AB9:B077')]):
         raise ValueError('reordered direct replacement sites')
@@ -142,6 +155,9 @@ def validate_helpers(c):
         if site=='0AB9:AEDF' and args!=[3,player]: raise ValueError('outgoing flag arguments differ')
         if site=='0AB9:AEF0' and args!=[s['clubs'][side]['id']]: raise ValueError('managed side argument differs')
         if site=='0AB9:AF18' and args!=[s['clubs'][1-side]['id']]: raise ValueError('managed opponent argument differs')
+        normalized=scene-s['side_offsets'][side]
+        if site=='0AB9:AF5F' and args!=[player,s['clubs'][side]['roster'][normalized-1]]: raise ValueError('message player arguments differ')
+        if site=='0AB9:AF7F' and args!=[0,c['arguments'][0],normalized,side]: raise ValueError('log arguments differ')
         if site=='0AB9:AFAA' and args!=[scene,scene]: raise ValueError('rebuild scene arguments differ')
         if site=='0AB9:AFB7' and args!=[scene,1,1]: raise ValueError('byte6 arguments differ')
         if site in ('0AB9:AFDA','0AB9:B00C') and args!=[player]: raise ValueError('incoming player argument differs')
@@ -153,11 +169,18 @@ def validate_helpers(c):
         elif e['result'] is not None: raise ValueError('void helper has a scalar result')
         if c['draw_start']==c['draw_end'] and (e['input']['selection']['seed']!=c['input']['selection']['seed'] or e['output']['selection']['seed']!=c['output']['selection']['seed']):
             raise ValueError('zero-draw helper seed differs')
+        if site in ('0AB9:AEF0','0AB9:AF18','0AB9:B077','0AB9:B08B','0AB9:AF01') and e['input']!=e['output']:
+            raise ValueError('read-only named helper projection changed')
     if helpers[0]['input']!=c['input']: raise ValueError('first helper entry differs')
     # Direct-body writes occur between helpers. Preserve their observed states rather than modelling them.
     for a,b in zip(helpers,helpers[1:]):
-        if a['site']=='0AB9:AFAA' and b['site']=='0AB9:AFB7' and a['output']!=b['input']:
-            raise ValueError('rebuild to byte6 continuation differs')
+        contiguous={('0AB9:AEDF','0AB9:AEF0'),('0AB9:AEF0','0AB9:AF01'),('0AB9:AF01','0AB9:AF18'),
+                    ('0AB9:AF5F','0AB9:AF7F'),('0AB9:AF7F','0AB9:AFAA'),('0AB9:AFAA','0AB9:AFB7'),
+                    ('0AB9:B077','0AB9:B08B')}
+        if (a['site'],b['site']) in contiguous and a['output']!=b['input']:
+            raise ValueError('direct helper state continuation differs')
+    for k in ('selection','scenes','globals','directions','club_totals'):
+        if helpers[-1]['output'][k]!=c['output'][k]: raise ValueError('refresh to return continuation differs')
 
 
 def cases_for(calls,retained,week):
