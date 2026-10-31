@@ -1,0 +1,75 @@
+# AEB8 outer replacement contract (96, T24)
+
+[confirmed: listings at `3e4de4e`, 0AB9:AEB8–B0F2] AEB8 receives three stack
+arguments: incoming roster slot, physical scene index and side byte. Its A94B caller
+has already copied the outgoing position to the incoming player and swapped roster,
+event-total and cache-selector entries. The scene still identifies the outgoing
+player at entry. These are different identities; neither may be substituted for
+the other in a replay input.
+
+[confirmed: same source] The body sets bit 3 of the outgoing player's flags11
+through 232A:00D5, then tests whether the side's club is managed. For an unmanaged
+side it calls the speaker-off helper, tests the opposite club and D074, optionally calls
+ADD0 to report the change, and logs through 0F94. The near call displayed as 10F94
+wraps to 0F94; the later displayed 1164F wraps to 164F. The checked JSON map includes
+all thirteen direct sites, their actual targets, following instructions and hashes.
+
+[confirmed: same source] Before rebuilding, scene word2 is saved: equality with
+D2E selects D32 as the saved value, otherwise the current word2 is retained.
+8663 then rebuilds the scene. 67D0 receives cache flag 1 and signed delta 1.
+For an unmanaged side the incoming player's P15+10 is cleared, 53FB updates its
+rating-related flags, and the normalized event-total cell is assigned 0x2747.
+186C updates season counters conditionally on allowance. Incoming P8+7 equal to
+zero, nonzero allowance and a zero side substitution flag select setting that flag
+to one; otherwise the side reserve byte is decremented with byte wrap. The saved
+word2 is restored after these operations.
+
+[confirmed: same source] A final two-side loop tests managed clubs and availability
+of CF5E+10*side cached players. Unavailable cached players are temporarily replaced
+by the club's first roster player and remembered in local flags. 164F runs with
+that temporary context, after which flagged CF5E entries are zeroed. Thus observing
+only the permanent scene and roster writes misses transient cache inputs.
+
+[confirmed: helper listings at `3e4de4e`] Immediate dependencies explain the split:
+
+- 8663 calls 8599 to populate the scene, then sets position words from D32, direction
+  from D0C8/D0CA via scene-side helpers, word12 from D2C, and clears/initializes other
+  scene fields. Its callees require a separate scene input contract.
+- 67D0 reads signed P15+6, adds the signed argument and clamps through 24BC:03D9;
+  cache selection uses stored scene selectors and 1E9F/1CBB. T21 records a related
+  reset context; it must not be assumed identical to replacement context.
+- 53FB calls 4E0C and conditionally 53C6 before setting P15+10 bits according to
+  P8+6. Reading only the final flags does not supply the rating helper's inputs.
+- 186C increments P15 word0 and byte4 only when allowance is nonzero.
+- 164F scans both clubs and calls availability and numeric helpers; its complete
+  cache projection and helper inputs remain to be established.
+- ADD0 and 0F94 have UI/log effects; 232A:022E conditionally clears port 61h
+  bits 0/1 when A2EC is zero. These hardware and presentation effects are outside the outer named
+  projection. Their entry/return and actual reach must be measured, not presumed
+  absent because the entire T23 interval consumed zero RNG draws.
+
+[confirmed: retained T23 corpus at `3e4de4e`] Six weeks contain 25 AEB8 entry/return
+pairs. `python3 tools/static/replacement.py --check` revalidates T23 and its earlier
+sources, binds the committed T23 manifest, and checks the ordered 25 argument triples
+against its checked map. This is a join of existing observations; no new original
+run or helper-reach census is claimed. T23's opaque boundary cannot establish which
+conditional child sites ran.
+
+[designed: T24] The next original recorder must preserve all T23 calls and their
+T22/T20/T16/T08/DOSBox-X comparisons and record, within each of the 25 replacements:
+
+1. Full decoded scene fields affected/read by the body and 8663; physical index,
+   stored selector, outgoing and incoming identifiers must remain distinct.
+2. Canonical referenced-player P8/P15 fields, including word0 and bytes4,6,8,10,11;
+   managed identifiers, D074, D2C/D2E/D32, direction tables and complete roster,
+   event-total, reserve/flag and relevant cache context.
+3. Each direct call's actual semantic arguments, ordered entry/return projections,
+   scalar results where meaningful and RNG interval. Temporary CF5E substitutions
+   require snapshots on both sides of the cache refresh and after restoration.
+4. Complete outer entry/return equality with T23, and explicit opaque boundaries
+   wherever a callee's input closure has not yet been captured independently.
+
+[designed: T24] This map is a prerequisite to capturing those observations. It is
+not a native algorithm, a Python effects model, an independent acceptance of F23,
+or a complete AEB8 helper contract. Original capture and any further split must
+use a new bounded task; no original records are regenerated by this checker.
