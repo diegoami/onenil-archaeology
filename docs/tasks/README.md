@@ -24,3 +24,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T20](T20.md): Post-score strategy inputs and late-DD02 call census (#86).
 - [T21](T21.md): Complete named quick-reset inputs and ordered observations (#88).
 - [T22](T22.md): Substitution dispatcher inputs and outbound boundaries (#90).
+- [T23](T23.md): A94B selection inputs and replacement boundaries (#92).
