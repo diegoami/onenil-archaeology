@@ -1,0 +1,289 @@
+{
+  "schema": "replacement-boundaries/1",
+  "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+  "listing_sha256": "202ecd9d1084b124ea22227892d1a43cb0d8deedabdb2b32ba0a0a4b041fc01c",
+  "boundaries": [
+    {
+      "site": "0AB9:AEDF",
+      "return": "0AB9:AEE4",
+      "target": "232A:00D5",
+      "instruction_sha256": "40bc4a52e4f869fa51653d9c2a6d0f4735de3d4fd257d7c84adcb990811b03a6",
+      "role": "outgoing-flag",
+      "arguments": "bit 3; outgoing scene player flags11"
+    },
+    {
+      "site": "0AB9:AEF0",
+      "return": "0AB9:AEF5",
+      "target": "1B55:0E7A",
+      "instruction_sha256": "51326aba572f5ab07364d1c13716a76f993aa1c932f8998d64c31f6af74cc431",
+      "role": "managed-side",
+      "arguments": "side club identifier"
+    },
+    {
+      "site": "0AB9:AF01",
+      "return": "0AB9:AF06",
+      "target": "232A:022E",
+      "instruction_sha256": "7414acea71943383255ae4e6dc5eaf67d0d00996fd82aaddaf15331545dce3ab",
+      "role": "keyboard",
+      "arguments": "no logical arguments"
+    },
+    {
+      "site": "0AB9:AF18",
+      "return": "0AB9:AF1D",
+      "target": "1B55:0E7A",
+      "instruction_sha256": "51326aba572f5ab07364d1c13716a76f993aa1c932f8998d64c31f6af74cc431",
+      "role": "managed-opponent",
+      "arguments": "opposite side club identifier"
+    },
+    {
+      "site": "0AB9:AF5F",
+      "return": "0AB9:AF62",
+      "target": "0AB9:ADD0",
+      "instruction_sha256": "d4376d244105c5064937ea11d61411545d4a5642805f266e915205b1b0815ebd",
+      "role": "message",
+      "arguments": "outgoing player; post-swap roster at normalized scene slot"
+    },
+    {
+      "site": "0AB9:AF7F",
+      "return": "0AB9:AF82",
+      "target": "0AB9:0F94",
+      "instruction_sha256": "5392a0d7225254e3a04f8c136408944bab7f378d85018f4f268d92998d73cd1d",
+      "role": "log",
+      "arguments": "0; incoming roster slot; normalized scene slot; side byte"
+    },
+    {
+      "site": "0AB9:AFAA",
+      "return": "0AB9:AFAD",
+      "target": "0AB9:8663",
+      "instruction_sha256": "d59877fb5845431a2c8fb97d7142bd23d9c5f496c53b2667c68bd45380f6ba1a",
+      "role": "rebuild",
+      "arguments": "scene pointer; physical scene index"
+    },
+    {
+      "site": "0AB9:AFB7",
+      "return": "0AB9:AFBA",
+      "target": "0AB9:67D0",
+      "instruction_sha256": "69a096049859fae652149bc3ec5d3c8c074c0c38f6dfd6d41669afe50474c8ee",
+      "role": "byte6-cache",
+      "arguments": "scene pointer; cache flag 1; signed delta 1"
+    },
+    {
+      "site": "0AB9:AFDA",
+      "return": "0AB9:AFDF",
+      "target": "1B55:53FB",
+      "instruction_sha256": "1424f42944acc34f8118117206790c90f26c52f78881091238b47aa6487ab2d5",
+      "role": "rating-flags",
+      "arguments": "incoming scene player"
+    },
+    {
+      "site": "0AB9:B00C",
+      "return": "0AB9:B011",
+      "target": "1998:186C",
+      "instruction_sha256": "0fee27703d25783a4ae6d61287ade3b7ee99cd527ee5e705a49f50661df6318f",
+      "role": "season-counter",
+      "arguments": "incoming scene player"
+    },
+    {
+      "site": "0AB9:B077",
+      "return": "0AB9:B07C",
+      "target": "1B55:0E7A",
+      "instruction_sha256": "51326aba572f5ab07364d1c13716a76f993aa1c932f8998d64c31f6af74cc431",
+      "role": "managed-cache-side",
+      "arguments": "loop side club identifier"
+    },
+    {
+      "site": "0AB9:B08B",
+      "return": "0AB9:B090",
+      "target": "1B55:4F89",
+      "instruction_sha256": "08fb1350e375d267429de086bb82c835269f94f8f540909a6e9054c020965190",
+      "role": "keeper-availability",
+      "arguments": "loop side CF5E cached player"
+    },
+    {
+      "site": "0AB9:B0C6",
+      "return": "0AB9:B0C9",
+      "target": "0AB9:164F",
+      "instruction_sha256": "1da54fabd862e77ea9055cbc3b3f462e024f782e497e3df0fc7bed156d3ae127",
+      "role": "club-cache-refresh",
+      "arguments": "no explicit arguments"
+    }
+  ],
+  "retained_t23": {
+    "index_sha256": "54ce26092e7bdf7425618b8b58399aa85f9cb7af012a5be0d25bbd9d0592c595",
+    "weeks": [
+      {
+        "record": "runs/T23/T23-r0001.json",
+        "record_sha256": "1f7fe8b6d4d6aa615141b8fd0be672482799a5dd86e9885d5f3d884e925b2a29",
+        "cases_sha256": "1fbdce6662aab3e40a7236487c1f5103e6d1b1622a7dd9bbad3eb7762e010540",
+        "replacements": 4,
+        "arguments": [
+          [
+            13,
+            22,
+            0
+          ],
+          [
+            18,
+            20,
+            0
+          ],
+          [
+            14,
+            18,
+            0
+          ],
+          [
+            16,
+            14,
+            0
+          ]
+        ]
+      },
+      {
+        "record": "runs/T23/T23-r0002.json",
+        "record_sha256": "055cfd3483556b4c784a2efd93a0a93e3e43e8b4d292b8a1ff30d29cebb8e7af",
+        "cases_sha256": "69c4e28b7e09e2f3689ee354238cc349b4b2604f4f6bcfae20d73ec063778c6e",
+        "replacements": 6,
+        "arguments": [
+          [
+            16,
+            11,
+            1
+          ],
+          [
+            14,
+            8,
+            1
+          ],
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            13,
+            5,
+            1
+          ],
+          [
+            15,
+            4,
+            1
+          ],
+          [
+            18,
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "record": "runs/T23/T23-r0003.json",
+        "record_sha256": "220e2d3859ec182ac2c2c4cd3447f2e55389e7e0e6a4aa76796bafd7c8fa6dc4",
+        "cases_sha256": "7d28067bf5e7ef3afb81d41561b3f2a6129d4e5f5a735254e1f33b00e631224d",
+        "replacements": 5,
+        "arguments": [
+          [
+            13,
+            11,
+            1
+          ],
+          [
+            15,
+            7,
+            1
+          ],
+          [
+            18,
+            6,
+            1
+          ],
+          [
+            17,
+            5,
+            1
+          ],
+          [
+            14,
+            4,
+            1
+          ]
+        ]
+      },
+      {
+        "record": "runs/T23/T23-r0004.json",
+        "record_sha256": "7a6790fd78fedae16a5a22f5a675b71b3668de1180ef31d428e2c40769aeb732",
+        "cases_sha256": "b3a5a89c609798690c0a0002e18148ff7450c205113d48a2ce70d5a43c00fe80",
+        "replacements": 6,
+        "arguments": [
+          [
+            16,
+            22,
+            0
+          ],
+          [
+            17,
+            19,
+            0
+          ],
+          [
+            14,
+            18,
+            0
+          ],
+          [
+            18,
+            17,
+            0
+          ],
+          [
+            13,
+            16,
+            0
+          ],
+          [
+            15,
+            15,
+            0
+          ]
+        ]
+      },
+      {
+        "record": "runs/T23/T23-r0005.json",
+        "record_sha256": "54b5b25c4da06f99a8c17d245cbed2589a689edbd8fe832d82ff074913338fb2",
+        "cases_sha256": "80c54e20b211b379487fbdc89b6b9fb1fb89a64c47809f624d5b5759c4954951",
+        "replacements": 2,
+        "arguments": [
+          [
+            13,
+            21,
+            0
+          ],
+          [
+            14,
+            14,
+            0
+          ]
+        ]
+      },
+      {
+        "record": "runs/T23/T23-r0006.json",
+        "record_sha256": "ef9c68baa4f7d77447bdd2d4fd96ae55b474287cf8f6fa4fe9ba714cfccd373f",
+        "cases_sha256": "fe330281293aedd3ae7a6e82098da3db46ac42b799f48a6ca85e24c72edf2e1f",
+        "replacements": 2,
+        "arguments": [
+          [
+            14,
+            8,
+            1
+          ],
+          [
+            13,
+            6,
+            1
+          ]
+        ]
+      }
+    ]
+  }
+}
