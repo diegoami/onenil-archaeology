@@ -60,4 +60,12 @@ entry/return projection, and three nested0143 rows, packed arguments, scalar
 returns and draw intervals. Normalize scene pointers while live without export.
 Validate literal observed row continuations and allowed writes rather than an
 engine model. Reproduce T29/T28/upstream observations and T08/DOSBox-X comparisons.
-Proposed F30 will report measured mode/branch/state coverage after capture.
+
+[confirmed: T30-r0001/export at `fd7d4cd`, observer `5158d91`] Both captured
+invocations use mode0, threshold45, clock34 and raw direction signs[255,1].
+There are44 scene boundaries, two cache boundaries and six nested code calls,
+all zero-draw. Each full root projection is unchanged, including the new caches.
+All cache input words are247/247; nested0143 returns156 and preserves scene1
+byte6 at0, while the cache code word remains1436. All44 scene input position
+words0/2 are equal. Proposed F30 reports the exact output census and explicitly
+excludes dynamic coverage of toggles, unequal arguments, modes1–4 and cache target12.
