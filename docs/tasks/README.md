@@ -30,3 +30,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T26](T26.md): Original replacement scene-rebuild input closure (#98).
 - [T27](T27.md): Compact original rating/flag contract and replay fixtures (#100).
 - [T28](T28.md): Targeted original 164F rearrangement and selector capture (#102).
+- [T29](T29.md): Original 10B9 role-pairing input closure (#104).
