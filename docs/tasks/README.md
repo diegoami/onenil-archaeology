@@ -36,3 +36,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T32](T32.md): Compact original cache-selector and remainder-rating contracts (#111).
 - [T33](T33.md): Original role-cache scoring inputs and nested helper capture (#113).
 - [T34](T34.md): Original scene-position assignment inputs and store capture (#115).
+- [T35](T35.md): Original proximity-selector inputs and nested helper capture (#117).
