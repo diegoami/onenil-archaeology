@@ -51,3 +51,42 @@ all prior observers and the ordered T08/DOSBox-X week comparison. Counts and
 measured coverage will be appended after recording. Other weeks, blocked
 candidates, missing roster players, negative/high raw domains, scratch-dependent
 calls, remaining tail routines and native/full-AI parity are unestablished.
+
+## Measured T33 capture
+
+[confirmed: producer `89252c4`, original/export `c7fc301`]
+`runs/T33/T33-r0001.json` completed with eight boundaries from one week, all
+side1 club134, criteria13/21/22/4 and kinds2–5 per enclosing replacement.
+Each root retains36 canonical lookup rows and club rosters130/134.
+
+| Replacement | Kind | Criterion | Visits | Actual stores | Cache before | Cache after |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0 | 2 | 13 | 10 | 2 | 2664 | 2664 |
+| 0 | 3 | 21 | 10 | 5 | 2669 | 2669 |
+| 0 | 4 | 22 | 10 | 6 | 2669 | 2668 |
+| 0 | 5 | 4 | 11 | 1 | 2661 | 2661 |
+| 1 | 2 | 13 | 10 | 3 | 2664 | 2672 |
+| 1 | 3 | 21 | 10 | 4 | 2669 | 2669 |
+| 1 | 4 | 22 | 10 | 5 | 2668 | 2668 |
+| 1 | 5 | 4 | 11 | 1 | 2661 | 2661 |
+
+[confirmed: same capture]82 availability returns are0;74 slot calls find the
+cached player. There are74 old-score and74 new-score calls, each with one
+observed9F6E call, for148 table calls.27 taken store branches include eight
+first-candidate stores and19 later stores. Two observed score ties retain the
+cached player. Score returns span5–131; table returns span17–175. All helper
+and root draw intervals are4025→4025. Score-scene rows are unchanged; only
+the selected cache word can change between each root's named input/output.
+
+[confirmed: same capture] Scored raw P15+6 values are2,5,10,12,13,16,18,19,25,27.
+D29=1, D1CE/D1CF=[1,1];09FB+criterion is0 for13 and1 for21,22,4. Every scored
+scene has byte22=0, so the halving branch remains unobserved. The full original
+week retains exact prior observers and ordered T08/DOSBox-X comparisons.
+
+[designed] Reproduce decoded checks with
+`python3 runtime/emul/role_scoring.py --check` and
+`python3 -m pytest tests/emul/test_role_scoring.py`.
+Restore private originals/start states only for a new original capture using
+`--run`; completed sources are skipped and existing records never overwritten.
+F33 remains proposed. No independent acceptance, native implementation or
+coverage of unrecorded branches follows from these specimens.
