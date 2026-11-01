@@ -27,3 +27,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T23](T23.md): A94B selection inputs and replacement boundaries (#92).
 - [T24](T24.md): AEB8 outer replacement contract and capture boundary map (#94).
 - [T25](T25.md): Original AEB8 replacement and helper-boundary capture (#96).
+- [T26](T26.md): Original replacement scene-rebuild input closure (#98).
