@@ -141,9 +141,18 @@ def validate_helpers(events,c,parent=None):
         else:
             raw.integer(e['result'],0,4294967295 if kind=='minimum32' else 65535 if kind=='club-count' else 255 if kind=='slot' else 1)
             if e['scene_input']!=e['scene_output']:raise ValueError('read-only rebuild helper changed scene')
+        if kind=='hand':
+            p=next(p for p in c['input']['outer']['selection']['players'] if p['id']==args[0])
+            if e['result']!=p['hand_cell']:raise ValueError('handedness result differs from raw lookup cell')
         validate_helpers(e['children'],c,e)
         if kind=='assign' and [x['kind'] for x in e['children']]!=['slot','side','club-count','minimum32','half']:raise ValueError('missing/reordered assignment closure')
         if kind=='half' and [x['site'] for x in e['children']] not in (['1B55:4F1F'],['1B55:4F1F','1B55:4F3D']):raise ValueError('missing/reordered handedness observations')
+        if kind=='half' and any(x['scene_input']!=e['scene_input'] for x in e['children']):raise ValueError('handedness scene continuation differs')
+        if kind=='assign':
+            for k in rep.SCENE:
+                if k not in ('byte7','word14','byte18','byte22') and e['scene_input'][k]!=e['scene_output'][k]:raise ValueError('assignment changed an unrelated scene field')
+            if e['scene_output']['byte22']!=e['children'][-1]['result']:raise ValueError('stored predicate result differs')
+            if e['children'][0]['scene_output']!=e['children'][1]['scene_input'] or e['children'][2]['scene_output']!=e['children'][3]['scene_input']:raise ValueError('assignment helper scene continuation differs')
         if prior is not None and parent is not None and parent['kind']=='assign' and kind=='minimum32':
             player=next(p for p in c['input']['outer']['players'] if p['id']==e['scene_input']['word14'])
             if args!=[player['p15_word0'],prior['result']]:raise ValueError('minimum arguments differ from measured inputs')
@@ -153,6 +162,14 @@ def validate_helpers(events,c,parent=None):
         if events[0]['scene_input']!=c['input']['outer']['scenes'][c['scene']-1]:raise ValueError('assignment entry differs')
         expected='0AB9:8696' if events[1]['result'] else '0AB9:86AF'
         if events[2]['site']!=expected:raise ValueError('direction branch differs from observed keeper predicate')
+        assigned=events[0]['scene_output']; keeper=events[1]['scene_input']
+        for k in rep.SCENE:
+            expected=c['input']['outer']['globals']['position_default'] if k in ('word0','word2') else assigned[k]
+            if keeper[k]!=expected:raise ValueError('outer default-position continuation differs')
+        if events[1]['scene_output']!=events[2]['scene_input']:raise ValueError('direction helper scene continuation differs')
+        final=c['output']['outer']['scenes'][c['scene']-1]
+        for k in rep.SCENE:
+            if k not in ('byte5','word12','word20','byte17','word23','byte6','byte16') and events[2]['scene_output'][k]!=final[k]:raise ValueError('unexplained final scene mutation')
 
 
 def cases_for(calls,retained,week):
