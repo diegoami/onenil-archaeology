@@ -27,7 +27,7 @@ def test_complete_original_scene_positions_corpus():assert r.main(['--check'])==
  'input','output','visit-missing','visit-order','side-bool','slot-bool','side','slot','scene','previous','player',
  'visit-input','previous-input','base-unrelated','base-word','table-missing','table-position','table-word','table-bool',
  'branch','duplicate-branch','first-branch','visit-output','previous-output','current-high','draw-start','draw-end','extra-visit',
- 'first-previous','first-previous-output','final-word','unrelated-cache'])
+ 'first-previous','first-previous-output','final-word','unrelated-cache','near-previous-high','wide-previous-byte'])
 def test_missing_malformed_or_discontinuous_observations_fail(sample,damage):
     original,base,week=sample;calls=copy.deepcopy(original);c=calls[0];s=c['input'];v=c['visits'][1]
     if damage=='missing':calls.pop()
@@ -74,6 +74,10 @@ def test_missing_malformed_or_discontinuous_observations_fail(sample,damage):
     elif damage=='first-previous-output':c['visits'][0]['previous_output']=copy.deepcopy(v['previous_output'])
     elif damage=='final-word':r.scenes(c['output'])[0]['word10']^=1
     elif damage=='unrelated-cache':c['output']['context']['cache'][0]['players'][1]^=1
+    elif damage=='near-previous-high':
+        adjusted=next(v for v in c['visits'] if v['branch']==r.BRANCHES[1]);adjusted['previous_output']['word10']^=256
+    elif damage=='wide-previous-byte':
+        adjusted=next(v for v in c['visits'] if v['branch']==r.BRANCHES[1]);adjusted['branch']=r.BRANCHES[0]
     with pytest.raises(ValueError):r.cases_for(calls,base,week)
 
 

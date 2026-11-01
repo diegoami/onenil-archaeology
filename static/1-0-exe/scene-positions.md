@@ -40,3 +40,33 @@ observers,T08 trace and ordered DOSBox-X comparison. Original records and
 exports are append-only. Measured coverage follows after capture. Other
 weeks,unobserved positions/sign values/adjustments,21D7,native/full AI and
 arbitrary physical/scratch parity remain excluded.
+
+## Measured T34 capture
+
+[confirmed: producer `a888111`, original/export `1ba264e`]
+`runs/T34/T34-r0001.json` completed with two calls,44 visits and44 observed
+base word stores. Both sides' eleven visits occur in order in each call.
+There are42 unadjusted visits,two taken3235 near branches,and no3223 wide
+branch. All root/visit intervals are4025→4025. Every original T33/upstream
+observation,T08 event and ordered DOSBox-X comparison is retained.
+
+[confirmed: same capture] Both root snapshots retain the same twelve position
+cells:codes0,1,2,3,4,5,6,9,10,11,12,13; sign bytes are[255,1]. Each call's
+single near adjustment is side0,slot3,physical scene3,previous scene2.
+The current scene's observed base56576 becomes56579; the previous scene's
+observed56576 becomes56829. The previous scene had itself received a base
+store on the preceding visit. Each call has two base stores that change a
+word,then the near adjustment restores their entry words. Consequently each
+complete root's named input equals its named output; the routine still
+executes all22 base stores and its paired adjustment. Root equality alone
+would miss these effects within the call.
+
+[designed] The original capture covers a low-byte-zero duplicate,one near
+adjustment per call,both sides and zero RNG. The wide branch,its sign lookup,
+other position cells/sign values/duplicate arrangements and other weeks are
+unobserved. Static mapping documents the full routine; original tests do not
+establish those unobserved domains. F34 remains proposed. Public verification:
+`python3 runtime/emul/scene_positions.py --check`; negative tests:
+`python3 -m pytest tests/emul/test_scene_positions.py`. `--run` restores the
+original week only when needed,skips completed sources and never overwrites
+records/exports. Private originals/start states are needed only for a new run.
