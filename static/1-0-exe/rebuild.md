@@ -12,7 +12,7 @@ roster player. The side helper returns one for stored selectors below twelve,
 zero otherwise; it does not read the caller's side-offset array. The slot helper
 subtracts eleven for selectors above eleven. The player ID becomes scene word14.
 The routine obtains 1B55:4A37's word result for P8+0's club, passes two zero-extended
-word values to 24BC:04FA, stores its low byte in scene byte18, applies the age-byte
+word values to 24BC:04FA, stores its low byte in scene byte18, applies the P8+1
 threshold additions (P8+1 above 18 or above 17), and stores 4F05's predicate result
 in scene byte22.
 
@@ -51,3 +51,9 @@ corpus remain unobserved unless the measured census establishes otherwise. Nativ
 translation, other replacement helper closures, arbitrary memory/timer/render
 parity and continuous match integration are separate work. Proposed F26 will pin
 the original producer, measured helper census and coverage after capture.
+
+[confirmed: corpus at `0808e11`, producer `fa6f9c5`] Six original weeks retain
+all 25 rebuilds and 250 nested helper observations with zero draws. Both side
+values are exercised; every keeper and half/flag result is zero. F26 records
+the raw club lookup census, signed-32 values and unobserved paths. No observed
+lookup uses a different club identifier from its selected roster.
