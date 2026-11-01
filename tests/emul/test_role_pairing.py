@@ -27,8 +27,8 @@ def test_complete_original_pairing_corpus():assert r.main(['--check'])==0
  'pass-missing','pass-order','pass-bool','cell-missing','cell-bool','cell-bound','cell-extra',
  'flag-write','preference-write','player-write','scene-write',
  'range-missing','range-order','range-site','range-side','range-low','range-high','range-bool',
- 'local-missing','local-bool','local-bound','assigned-bound','length','sentinel','initialized',
- 'continuation','range-draw','range-result'])
+ 'local-missing','local-bool','local-bound','assigned-bound','assigned-keeper','length','sentinel','initialized',
+ 'role-write','assignment-clear','continuation','range-draw','range-result'])
 def test_malformed_missing_or_discontinuous_cases_fail(sample,damage):
     original,retained,week=sample;calls=copy.deepcopy(original);c=calls[0]
     s=c['input'];e=c['ranges'][0]
@@ -69,9 +69,13 @@ def test_malformed_missing_or_discontinuous_cases_fail(sample,damage):
     elif damage=='local-bool':e['input']['opponent'][1]=False
     elif damage=='local-bound':e['input']['own'][1]=256
     elif damage=='assigned-bound':e['output']['assigned'][1]=12
+    elif damage=='assigned-keeper':e['output']['assigned'][1]=1
     elif damage=='length':e['input']['own'][0]=9
     elif damage=='sentinel':e['output']['assigned'][0]=1
     elif damage=='initialized':e['input']['assigned'][1]=1
+    elif damage=='role-write':e['output']['own'][1]=255 if e['input']['own'][1]!=255 else 254
+    elif damage=='assignment-clear':
+        e['input']['assigned'][1]=2;e['output']['assigned'][1]=0
     elif damage=='continuation':c['ranges'][1]['input']['own'][1]^=1
     elif damage=='range-draw':e['draw_end']=c['draw_end']+1
     elif damage=='range-result':e['result']=0

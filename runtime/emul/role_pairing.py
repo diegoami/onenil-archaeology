@@ -53,6 +53,7 @@ def validate_locals(s):
     raw.keys(s,'own opponent assigned')
     for k in ('own','opponent'):raw.vector(s[k],11,255)
     raw.vector(s['assigned'],11,11)
+    if 1 in s['assigned']:raise ValueError('assignment cannot select the keeper slot')
     if s['own'][0]!=10 or s['opponent'][0]!=10 or s['assigned'][0]!=0:
         raise ValueError('Pascal length/assignment sentinel differs')
 
@@ -103,6 +104,11 @@ def validate_ranges(c):
         raw.vector(e['arguments'],3,65535)
         if e['site']!=site or e['arguments']!=[side,lo,hi]:raise ValueError('range order/arguments differ')
         for k in ('input','output'):validate_locals(e[k])
+        for k in ('own','opponent'):
+            if any(b not in (a,0) for a,b in zip(e['input'][k],e['output'][k])):
+                raise ValueError('range helper can only clear role cells')
+        if any(a and not b for a,b in zip(e['input']['assigned'],e['output']['assigned'])):
+            raise ValueError('range helper cleared an assignment')
         for k in ('draw_start','draw_end'):raw.integer(e[k],0,10**9)
         if not cursor<=e['draw_start']<=e['draw_end']<=c['draw_end']:raise ValueError('range draw continuation differs')
         cursor=e['draw_end']
