@@ -33,3 +33,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T29](T29.md): Original 10B9 role-pairing input closure (#104).
 - [T30](T30.md): Original scene-code refresh input closure (#107).
 - [T31](T31.md): Targeted original player-cache refresh and scene-rating capture (#109).
+- [T32](T32.md): Compact original cache-selector and remainder-rating contracts (#111).
