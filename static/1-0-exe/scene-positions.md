@@ -52,7 +52,7 @@ observation,T08 event and ordered DOSBox-X comparison is retained.
 
 [confirmed: same capture] Both root snapshots retain the same twelve position
 cells:codes0,1,2,3,4,5,6,9,10,11,12,13; sign bytes are[255,1]. Each call's
-single near adjustment is side0,slot3,physical scene3,previous scene2.
+single near adjustment is side0,slot3,physical scene14,previous scene13.
 The current scene's observed base56576 becomes56579; the previous scene's
 observed56576 becomes56829. The previous scene had itself received a base
 store on the preceding visit. Each call has two base stores that change a

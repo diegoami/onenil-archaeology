@@ -33,8 +33,8 @@ state with twelve canonical position cells,codes0,1,2,3,4,5,6,9,10,11,12,13,
 and raw sign bytes[255,1]. Root entry equals the exact T31 final cache state;
 root context also matches the retained T28 boundary on entry and return.
 
-[confirmed: same capture] Each call adjusts side0,slot3,physical scene3 and
-previous scene2. Its current observed base56576 becomes56579; the previous
+[confirmed: same capture] Each call adjusts side0,slot3,physical scene14 and
+previous scene13. Its current observed base56576 becomes56579; the previous
 scene's56576 becomes56829. Two base stores per call change entry words before
 these adjustments restore them. The complete named input and output states
 are equal despite the executed stores. This provides a concrete case where

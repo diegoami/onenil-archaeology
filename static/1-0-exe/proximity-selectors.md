@@ -37,3 +37,39 @@ new original week retains T34 and all upstream observers,T08 trace and ordered
 DOSBox-X comparison. Original records/exports are append-only. Measured census
 follows capture. Other weeks,unobserved branches,managed/native/full AI and
 arbitrary physical/render/timer parity remain excluded.
+
+## Measured T35 capture
+
+[confirmed: producer `46ec8b5`, original/export `2a0216c`]
+Two21D7 calls from T04-week-r0017 retain40 candidate visits,four side
+initializations,four nearest-selector stores,and no ahead-selector stores.
+There are40 original1CA1 calls and40 nested4F89 calls,36 calls at each of
+the two1ECC sites,and72 nested1CBB calls. All intervals are4025→4025.
+Each call has nineteen available candidates and one unavailable;one other
+candidate is skipped because scene.byte7 equals actor5. No byte19==13 skip
+is reached. Eighteen candidates per call receive the two direction helpers.
+
+[confirmed: same capture] Target bytes are[11,0],phase45,time34,signs[255,1],
+and side offsets[11,0]. Each direction site returns255 nine times and1 nine
+times per call; nested side returns split18 each between0 and1. Availability
+wrappers exactly retain child returns. Every helper/visit scene row is read-only.
+The near pair enters/exits[13,2],ahead[0,0]. Side0 initializes near12,then
+slot2/physical scene13 stores13. Side1 initializes near1,then slot2/physical
+scene2 stores2. Other visits do not store. Thus full named input equals output
+though selector initialization and restoration execute within the call.
+
+[confirmed: immutable T34 rows,checked during T35] The same side offsets
+identify T34's side0/slot3 adjustment as physical scene14/previous13. Earlier
+F34/static prose incorrectly named physical3/2 by copying slot numbers; T35
+corrects that prose. Original records,fixtures and measured word values never
+change. This is why side,slot,scene.byte7 and physical index remain distinct.
+
+[designed] These specimens cover available/unavailable and actor skips,both
+signed direction returns,near initialization/restoration and no ahead stores.
+Byte19==13,other target/phase/time/sign values,ahead-store branches,other weeks
+and general native AI parity remain unobserved. The graph is statically closed
+for this targeted path; wider recorded-week coverage still needs assessment.
+F35 remains proposed. Public check: `python3 runtime/emul/proximity_selectors.py
+--check`; negative tests: `python3 -m pytest tests/emul/test_proximity_selectors.py`.
+`--run` requires private originals/start states only for a new capture,skips
+completed sources and never overwrites records/exports.
