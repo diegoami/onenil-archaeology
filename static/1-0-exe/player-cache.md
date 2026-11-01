@@ -46,6 +46,9 @@ scratch dependency, not permission to supply zero. T31 does not infer those
 inputs from final cache choices.8973 also needs a player's club roster and side
 mapping; B6BD has wider managed/UI branches through save and screen buffers.
 Separate tasks must close reached helpers and diagnose unsupported domains.
+1AE2 also calls9F6E, whose read-only calculation indexes tables957D/96B1 using
+player fields and the criterion; later1AE2 inputs include09FB+criterion and D29.
+These table/global closures are deliberately not supplied by the six outer cells.
 
 [designed: T31] Capture the two1539 boundaries at198B→198E in the same original
 T04-week-r0017. Retain full expanded snapshots at every direct helper, normalized
