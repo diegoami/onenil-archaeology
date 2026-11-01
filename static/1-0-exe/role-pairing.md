@@ -58,4 +58,13 @@ pairings, role preferences, availability or search results.
 scratch/register/flags behavior or the remaining opaque164F callees. Other weeks,
 unobserved flag/role combinations, nested bit/search call counts, native replay,
 complete rearrangement and continuous AI/DD02/match/week parity remain separate.
-Proposed F29 will record the measured census and source limits after capture.
+
+[confirmed: T29-r0002/export at `d9a59df`, observer `f00db10`] The two original
+invocations contain20 range boundaries and zero draws. Actual match clubs130/134
+have byte57 values75/133, and all52 preference cells remain unchanged. Per
+invocation, final local assignments have9 nonzero entries for side0 and8 for
+side1; they are identical in the companion call. Named scene-word20 changes are
+two in the first call and one in the second. No other named state changes.
+Proposed F29 distinguishes these observations from complete-corpus or nested
+primitive-call coverage. Abortedr0001 is retained separately: its observer used
+human-manager slots rather than match-club IDs, rejected by strict validation.
