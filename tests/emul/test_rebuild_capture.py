@@ -81,6 +81,10 @@ def test_provenance_digest_mutations_fail(prefix):
 
 def test_every_helper_call_and_return_site_matches_static_listing():
     import re
+    targets={'0AB9:866F':'0AB9:8599','0AB9:85AA':'0AB9:1E9F','0AB9:85B8':'0AB9:1CBB',
+             '0AB9:85EC':'1B55:4A37','0AB9:860A':'24BC:04FA','0AB9:8653':'1B55:4F05',
+             '1B55:4F1F':'1B55:4E81','1B55:4F3D':'1B55:4E81','0AB9:8689':'0AB9:0000',
+             '0AB9:8696':'0AB9:1CBB','0AB9:86AF':'0AB9:1CBB'}
     instructions={}
     for path in (ROOT/'static/1-0-exe/code').glob('seg_*.asm'):
         segment=path.stem.split('_')[1]
@@ -92,6 +96,9 @@ def test_every_helper_call_and_return_site_matches_static_listing():
         assert asm.startswith('call ')
         segment,offset=site.split(':')
         assert end==f'{segment}:{(int(offset,16)+length)&65535:04X}'
+        target=asm[5:].removeprefix('far ')
+        if ':' not in target:target=f'{segment}:{int(target,16)&65535:04X}'
+        assert target==targets[site]
 
 
 def test_far_lookup_wraps_offset_without_changing_segment():
