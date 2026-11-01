@@ -29,6 +29,7 @@ def test_complete_original_player_cache_corpus():assert r.main(['--check'])==0
  'cache-missing','cache-order','cache-side-bool','cache-player-missing','cache-player-bool','cache-player-bound','cache-alias',
  'event-missing','event-order','unknown-site','unknown-kind','side-bool','wrong-side','event-draw',
  'managed-argument','managed-result','managed-branch','readonly-write','selector-side','selector-bound',
+ 'available-argument','available-result','available-branch','slot-arguments','slot-result','slot-branch',
  'role-missing','role-kind','role-criterion','role-side','role-result','role-write',
  'rating-missing','rating-slot','rating-scene','rating-player','rating-bound','rating-write',
  'store-missing','store-order','store-argument','store-input','store-bool','store-index','store-unrelated','store-result','store-draw',
@@ -71,6 +72,12 @@ def test_missing_malformed_or_discontinuous_observations_fail(sample,damage):
     elif damage=='readonly-write':m['output']['criteria'][0]^=1
     elif damage=='selector-side':sel['arguments'][0]^=1
     elif damage=='selector-bound':sel['result']=3921
+    elif damage=='available-argument':event('available')['arguments'][0]^=1
+    elif damage=='available-result':event('available')['result']=2
+    elif damage=='available-branch':event('available')['result']=1
+    elif damage=='slot-arguments':event('slot')['arguments'][0]=2
+    elif damage=='slot-result':event('slot')['result']=13
+    elif damage=='slot-branch':event('slot')['result']=12
     elif damage=='role-missing':events.remove(role)
     elif damage=='role-kind':role['arguments'][0]^=1
     elif damage=='role-criterion':role['arguments'][1]^=1
