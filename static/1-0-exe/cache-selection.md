@@ -47,4 +47,13 @@ Exports resume by preserving identical existing files and reject changed ones.
 call count, accepted finding or native implementation is introduced. Other weeks,
 blocked/zero/no-eligible cases, negative remainders, logical shifts, high-bit score
 comparisons,1455 input closure and full AI parity remain separate checks. Proposed
-F32 will record actual source coverage and measured values after extraction.
+F32 records actual source coverage and measured values.
+
+[confirmed: compact exports at `fd595c8`, projector `19b4710`, original T31
+producer `98180e5`] Two selector cases from one week both choose2661 for side1
+club134; their roster slot6 changes2666→2672 between invocations. All candidate
+byte8 values are positive and flags11 zero. Forty-four standalone rating cases
+contain two original input/return tuples: (P8+1,+3,+5)=(21,217,14)→3 and
+(27,174,15)→7,22 observations each. Every interval consumes zero draws. There
+is no recorded below21, negative-remainder, high-bit comparison, blocked/zero or
+no-eligible case, and the selector's internal rating results were not observed.
