@@ -94,3 +94,19 @@ def test_direct_range_calls_and_returns_match_listing():
         off=site[5:];length,asm=instructions[off]
         assert asm=='call 0x1000'
         assert end==f'0AB9:{int(off,16)+length:04X}'
+
+
+@pytest.mark.parametrize('file,start,end,expected',[
+ (0,0x1000,0x10B6,['far 26C9:0C6F','far 26C9:0BFE']),
+ (0,0x10B9,0x13B7,['far 24BC:0259','0x1ca1','0x1ca1','far 24BC:0259',
+                      'far 24BC:0222',*(['0x1000']*5),*(['far 24BC:0259']*3)]),
+ (1,0x1CA1,0x1CB8,['far 1B55:4F89']),
+ (2,0x4F89,0x5008,['far 24BC:0259']*4),
+ (3,0x0222,0x0240,[]),(3,0x0259,0x0274,[]),
+ (4,0x0BFE,0x0C41,[]),(4,0x0C6F,0x0C7E,[])])
+def test_complete_static_transitive_call_graph(file,start,end,expected):
+    calls=[]
+    for line in (ROOT/r.STATIC[file]).read_text().splitlines():
+        m=re.match(r'^([0-9A-F]{4})  (?:[0-9A-F]{2} )+\s*call (.*)',line)
+        if m and start<=int(m[1],16)<=end:calls.append(m[2])
+    assert calls==expected
