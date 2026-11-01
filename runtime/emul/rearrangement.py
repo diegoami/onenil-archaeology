@@ -153,7 +153,7 @@ def validate_context(s,availability=False):
 
 
 def validate_events(c):
-    events=c['events'];cursor=c['draw_start']
+    events=c['events'];cursor=c['draw_start'];active={k:c['input'][k] for k in ('actor','secondary')}
     for e in events:
         kind=e['kind'];site=e['site']
         if kind=='selectors':
@@ -171,11 +171,13 @@ def validate_events(c):
             raw.integer(e['result'],0,1)
             player=next(p for p in c['input']['rebuild']['outer']['players'] if p['id']==identifier)
             if [e['input'][k] for k in ('byte8','flags11','p8_4','position')]!=[player[k] for k in ('p15_8','p15_11','p8_4','p8_6')]:raise ValueError('canonical availability fields differ')
+            if {k:e['input'][k] for k in active}!=active:raise ValueError('availability selector continuation differs')
         elif kind=='division':
             raw.vector(e['arguments'],3,4294967295);raw.integer(e['arguments'][0],0,1)
             if e['arguments'][2]!=22:raise ValueError('division denominator differs')
             for k in ('input','output'):validate_context(e[k])
             if e['input']!=e['output']:raise ValueError('division changed named memory')
+            if {k:e['input'][k] for k in active}!=active:raise ValueError('division selector continuation differs')
             raw.keys(e['result'],'quotient remainder')
             for v in e['result'].values():raw.integer(v,0,4294967295)
         elif kind in SWAPS:
@@ -188,15 +190,22 @@ def validate_events(c):
             if e['output']!={'a':e['input']['b'],'b':e['input']['a']}:raise ValueError('observed exchange differs')
             validate_selectors(e['selectors']);validate_selectors(e['selectors_after'])
             if e['selectors']!=e['selectors_after']:raise ValueError('exchange helper changed selectors')
+            if e['selectors']!=active:raise ValueError('swap selector continuation differs')
         elif kind=='selectors':
             raw.vector(e['arguments'],3,65535);validate_selectors(e['input']);validate_selectors(e['output'])
+            if e['input']!=active:raise ValueError('selector mark entry differs')
+            active=copy.deepcopy(e['output'])
         else:
             raw.vector(e['arguments'],3 if kind=='assign' else 0,65535)
             for k in ('input','output'):validate_state(e[k])
+            if {k:e['input'][k] for k in active}!=active:raise ValueError('callee selector entry differs')
+            if kind=='assign' and any(e['input'][k]!=e['output'][k] for k in active):raise ValueError('assignment changed actor/secondary')
+            active={k:e['output'][k] for k in active}
             if e['result'] is not None:raise ValueError('void helper has scalar result')
             if kind=='assign':
                 side,index,argument=e['arguments'];raw.integer(side,0,1);raw.integer(index,1,22)
                 if index!=argument:raise ValueError('assignment selector differs')
+    if active!={k:c['output'][k] for k in active}:raise ValueError('final selector continuation differs')
     # Literal static phase ordering, with measured swaps retained instead of a sorting model.
     pos=0
     for side in range(2):
