@@ -45,5 +45,12 @@ mistaken for direct caller events.
 [designed: T28] This is a targeted original prefix/boundary observation, not a
 Python sorting/effects model, complete native AI replay or all-25-refresh census.
 Remaining weeks, opaque helper inputs and physical/scratch/register/render/timer
-parity are separate work. Proposed F28 will pin the actual transaction/selector/
-helper census and observed limits after capture.
+parity are separate work.
+
+[confirmed: T28-r0001 and decoded export at `d598c29`, observer `3c29a9e`]
+The two refreshes consume zero draws. The first exchanges side0 slots(8,9),
+(9,10),(10,11), five typed helpers each, moving secondary19→20→21→22 while
+actor stays5. The companion has no exchanges. Across both:44 sum-availability,
+44 role-availability,4 division,44 assignment and10 opaque-tail calls, plus15
+exchange calls and3 caller marks. CPU class is2. Proposed F28 records the measured
+operands, source coverage and remaining limits; no broader census is implied.
