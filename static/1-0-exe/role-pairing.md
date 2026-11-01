@@ -14,7 +14,7 @@ P15+11. Zero ID, signed byte8 below1 or any of bits8,6,2,3 set returns unavailab
 24BC:0259 shifts right by bit-number-minus-one and masks1; no RNG is called.
 
 [confirmed: 0AB9:1206–129A, same source] For each own scene whose player's bit7
-is set, the caller excludes opponent slots whose managed-club roster ID equals
+is set, the caller excludes opponent slots whose match-club roster ID equals
 the existing own scene word20. It zero-fills eleven assignment bytes. It then
 calls1000 with ranges12–13,9–11,5–8,1–1,2–4 in that order for each side.
 
@@ -38,7 +38,7 @@ player with bit7 set retains its previous word20. The opponent roster lookup is
 at record62*(clubID-1)+2*(slot-1). Club byte57 is read as record62*clubID-5.
 
 [derived: complete direct/transitive graph above] Logical inputs are both side
-offsets and managed-club IDs, both rosters slots2–11, scenes word14 and word20,
+offsets and match-club IDs, both rosters slots2–11, scenes word14 and word20,
 referenced players' P8+6/P15+8/P15+11, both club bytes57 and the52 preference cells.
 Scene word20 and selected IDs are actual entry inputs; role and assignment arrays
 are caller-initialized local state. Remaining context in T28 is redundant for

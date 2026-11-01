@@ -4,6 +4,7 @@ import re
 import sys
 from pathlib import Path
 from unittest.mock import patch
+from types import SimpleNamespace
 import pytest
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -19,6 +20,14 @@ def sample():
 
 
 def test_complete_original_pairing_corpus():assert r.main(['--check'])==0
+
+
+def test_capture_uses_match_clubs_instead_of_human_manager_slots():
+    state={'rebuild':{'outer':{'selection':{'managed_clubs':[130,0],'clubs':[{'id':130},{'id':134}]}}}}
+    with patch.object(r.prior,'snapshot',return_value=state),patch.object(r.prior.reb,'far_value',return_value=0) as read:
+        s=r.snapshot(SimpleNamespace(rd=lambda off,n:0))
+    assert [c['id'] for c in s['club_flags']]==[130,134]
+    assert [call.args[2:] for call in read.call_args_list]==[(62*129+57,1),(62*133+57,1)]
 
 
 @pytest.mark.parametrize('damage',[

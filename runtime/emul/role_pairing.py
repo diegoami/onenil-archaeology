@@ -25,7 +25,7 @@ STATIC=('static/1-0-exe/code/seg_0AB9_02.asm','static/1-0-exe/code/seg_0AB9_03.a
 
 def snapshot(g):
     state=prior.snapshot(g)
-    clubs=state['rebuild']['outer']['selection']['managed_clubs']
+    clubs=[c['id'] for c in state['rebuild']['outer']['selection']['clubs']]
     return {'context':state,
             'club_flags':[{'id':i,'byte57':prior.reb.far_value(g,0xD7C2,62*(i-1)+57,1)} for i in clubs],
             'preferences':[{'pass':p,'roles':[g.rd(0x9B0+14*p+r,1) for r in range(1,14)]} for p in range(1,5)]}
@@ -33,7 +33,7 @@ def snapshot(g):
 
 def validate_state(s):
     raw.keys(s,'context club_flags preferences');prior.validate_state(s['context'])
-    ids=s['context']['rebuild']['outer']['selection']['managed_clubs']
+    ids=[c['id'] for c in s['context']['rebuild']['outer']['selection']['clubs']]
     if not isinstance(s['club_flags'],list) or [v['id'] for v in s['club_flags']]!=ids:
         raise ValueError('complete ordered club flags required')
     for c in s['club_flags']:
