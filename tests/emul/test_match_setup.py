@@ -75,3 +75,29 @@ def test_preparation_mode_zero_is_structural_only_and_never_changes_data(sample)
     assert before['caller']['gates']['quick']==0
     r.validate_state(o['points'][6]['state'])
     assert o['points'][6]['state']==before
+
+@pytest.fixture(scope='module')
+def input_sample():
+    _,base=next(iter(r.selected_runs().values()))
+    records=[json.loads(p.read_text()) for p in sorted(r.RUNS.glob('T38-input-r*.json')) if json.loads(p.read_text())['status']=='completed']
+    assert len(records)==1,'missing successful input supplement'
+    return r.contests.outputs(records[0]),base
+
+@pytest.mark.parametrize('damage',['initial','draws','capacity-missing','capacity-bool','club','factor-index','factor-value','fixture-missing','start-bool'])
+def test_input_supplement_identity_shape_and_aliases_fail(input_sample,damage):
+    orig,base=input_sample;o=copy.deepcopy(orig);f=o['fields']
+    if damage=='initial':o['initial_sha256']='0'*64
+    elif damage=='draws':o['draws'].pop()
+    elif damage=='capacity-missing':f['capacities'].pop()
+    elif damage=='capacity-bool':f['capacities'][0]['byte']=False
+    elif damage=='club':f['club_factors'][0]['club']=1
+    elif damage=='factor-index':f['club_factors'][0]['address']^=1
+    elif damage=='factor-value':f['club_factors'][0]['value']=-1
+    elif damage=='fixture-missing':f['fixture_factors'].pop()
+    elif damage=='start-bool':f['start_gate']=False
+    with pytest.raises((ValueError,KeyError,IndexError)):r.validate_inputs(o,base)
+
+def test_input_supplement_record_hash_is_checked(input_sample):
+    sha=r.contests.sha
+    with patch.object(r.contests,'sha',side_effect=lambda p:'0'*64 if Path(p).name.startswith('T38-input-') else sha(p)):
+        assert r.input_index()!=json.loads((r.FIXTURES/'input-index.json').read_text())

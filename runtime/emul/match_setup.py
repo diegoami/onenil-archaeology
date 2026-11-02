@@ -226,12 +226,88 @@ def run():
     else:
         with path.open('x') as f:f.write(json.dumps(index,indent=2)+'\n')
 
+def input_fields(g,base):
+    o=contests.outputs(base);clubs=[c['id'] for c in o['admission']['clubs']];factors=[]
+    for club in clubs:
+        selector=reb.far_value(g,0xD7C2,62*(club-1)+55,1)
+        signed=selector if selector<128 else selector-256
+        factors.append({'club':club,'selector':selector,'address':(0x1074+signed)&65535,'value':g.rd((0x1074+signed)&65535,1)})
+    return {'capacities':[{'club':club,'byte':g.rd(0xD9E5+club,1)} for club in clubs],
+            'start_gate':g.mem(g.far(0xD7D2)+0xF2,1)[0],'club_factors':factors,
+            'fixture_factors':[{'index':i,'value':g.rd(0x107C+i,1)} for i in range(5)]}
+
+def validate_inputs(o,base):
+    raw.keys(o,'initial_sha256 draws fields');old=contests.outputs(base);initial=old['points'][2]['state']
+    if o['initial_sha256']!=initials.digest(initial):raise ValueError('supplement initial-state join differs')
+    if not placement.same_json(o['draws'],old['draws'][:255]):raise ValueError('supplement ordered draw prefix differs')
+    f=o['fields'];raw.keys(f,'capacities start_gate club_factors fixture_factors');raw.integer(f['start_gate'],0,255)
+    clubs=[c['id'] for c in old['admission']['clubs']]
+    if [c['club'] for c in f['capacities']]!=clubs or [c['club'] for c in f['club_factors']]!=clubs:raise ValueError('supplement club identity differs')
+    for c in f['capacities']:raw.keys(c,'club byte');raw.integer(c['byte'],0,255)
+    for c,source in zip(f['club_factors'],initial['setup_cells']['club_fields']):
+        raw.keys(c,'club selector address value');raw.integer(c['selector'],0,255);raw.integer(c['address']);raw.integer(c['value'],0,255)
+        signed=c['selector'] if c['selector']<128 else c['selector']-256
+        if c['selector']!=source['byte55'] or c['address']!=(0x1074+signed)&65535:raise ValueError('supplement raw indexed factor alias differs')
+    if [r['index'] for r in f['fixture_factors']]!=list(range(5)):raise ValueError('supplement fixture factors incomplete')
+    for r in f['fixture_factors']:raw.keys(r,'index value');raw.integer(r['value'],0,255)
+
+def input_index():
+    meta,base=next(iter(selected_runs().values()))
+    matches=[]
+    for path in sorted(RUNS.glob('T38-input-r*.json')):
+        r=json.loads(path.read_text())
+        if r['status']=='completed':matches.append((path,r))
+    if len(matches)!=1:raise ValueError('one completed setup input supplement required')
+    path,r=matches[0]
+    expected={'t38_record':match.rel(meta),'t38_record_sha256':contests.sha(meta)}
+    if r['actions']['source']!=expected or r['start_state']!=base['start_state'] or r['actions']['game_files']!=base['actions']['game_files']:raise ValueError('setup supplement provenance differs')
+    validate_inputs(contests.outputs(r),base)
+    return {'schema':'setup-input-index/1','record':match.rel(path),'record_sha256':contests.sha(path),
+            'setup_index_sha256':contests.sha(FIXTURES/'index.json'),'producer_commit':r['code_commit']}
+
+def run_inputs():
+    import cycle,guest,unicorn
+    if match.git('status','--porcelain','--','runtime/emul'):raise SystemExit('commit observer before input capture')
+    complete=[p for p in RUNS.glob('T38-input-r*.json') if json.loads(p.read_text())['status']=='completed']
+    if complete:print('already recorded '+complete[0].stem,flush=True);return
+    meta,base=next(iter(selected_runs().values()));_,data=match.find_state(base['start_state']['sha256'])
+    commit=match.git('rev-parse','HEAD');started=match.utc();week=match.Week(data);Recorder(week);captured=None;status='completed'
+    class ReachedAdmission(Exception):pass
+    def observe(g):
+        nonlocal captured
+        current=state(week)
+        if not placement.same_json(current,contests.outputs(base)['points'][2]['state']):raise ValueError('supplement reached a different initial state')
+        captured={'initial_sha256':initials.digest(current),'draws':[e for e in week.events if e['kind']=='draw'],
+                  'fields':input_fields(g,base)}
+        raise ReachedAdmission()
+    week.g.code_hook('0AB9:86E9',observe)
+    try:
+        try:week.play(on_boundary=lambda w:print(f'input supplement:screen{w.screen_i},draws{w.draws}',flush=True))
+        except ReachedAdmission:pass
+        else:raise ValueError('supplement did not reach admission')
+        if week.g.unsupported or captured is None:raise ValueError('unsupported/incomplete supplement')
+        validate_inputs(captured,base)
+    except (Exception,KeyboardInterrupt) as exc:status=f'aborted: {type(exc).__name__}: {exc}'
+    n=match.next_number(RUNS,'T38-input-r*.json');rid=f'T38-input-r{n:04d}';r=copy.deepcopy(base)
+    r.update(run_id=rid,experiment='T38',arm='setup_input_supplement',rep=n,code_commit=commit,machine=cycle.machine_id(),started=started,ended=match.utc(),status=status,
+             actions={'script':'runtime/emul/match_setup.py --run-inputs','source':{'t38_record':match.rel(meta),'t38_record_sha256':contests.sha(meta)},'game_files':{k:hashlib.sha256(v).hexdigest() for k,v in week.files_at_start.items()}},
+             outputs=[{'name':k,'value':v} for k,v in (captured or {}).items()],
+             observations=[{'step':0,'source':'log','field':'scope','value':'Read-only supplement stops at the identical pre86E9 state after255 exact original draws;whole-week behavioral equality remains in T38-r0002.'}])
+    r['runtime']={'harness':f'runtime/emul/match_setup.py@{commit}','unicorn':unicorn.__version__,'python':platform.python_version(),'dos_clock':week.g.clock,'settings':{k:getattr(guest,k) for k in ('INSTR_PER_S','KEY_HOLD','PIT_HZ','SLICE_MAX')}}
+    r['interventions']=[{'level':'I3','what':'read-only setup input supplement;intentional stop before86E9'}]
+    match.write_record(RUNS/(rid+'.json'),r);print(f'{rid}: {status}',flush=True)
+    if status!='completed':raise SystemExit(1)
+    index=input_index();path=FIXTURES/'input-index.json'
+    with path.open('x') as f:f.write(json.dumps(index,indent=2)+'\n')
+
 def main(argv=None):
-    ap=argparse.ArgumentParser(description=__doc__);g=ap.add_mutually_exclusive_group(required=True);g.add_argument('--run',action='store_true');g.add_argument('--check',action='store_true');args=ap.parse_args(argv)
-    if args.run:run();return 0
+    ap=argparse.ArgumentParser(description=__doc__);g=ap.add_mutually_exclusive_group(required=True);g.add_argument('--run',action='store_true');g.add_argument('--check',action='store_true');g.add_argument('--run-inputs',action='store_true');args=ap.parse_args(argv)
+    if args.run:run();run_inputs();return 0
+    if args.run_inputs:run_inputs();return 0
     try:
         index=build_index()
         if not placement.same_json(index,json.loads((FIXTURES/'index.json').read_text())):raise ValueError('setup manifest differs')
+        if not placement.same_json(input_index(),json.loads((FIXTURES/'input-index.json').read_text())):raise ValueError('setup input manifest differs')
     except (ValueError,OSError,KeyError,IndexError,TypeError) as exc:print('match-setup check:FAIL: '+str(exc));return 1
     print('match-setup check:ok (selected-squad admission,ordered preparation and258 original draws)');return 0
 if __name__=='__main__':raise SystemExit(main())

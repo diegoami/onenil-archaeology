@@ -81,3 +81,15 @@ a completed new-match scene.19CA must recompute selectors/seed;86E9 and its
 real callees must produce new scenes/caches/clock. The original prior automatic
 lineup choice is replaced by explicitly supplied selected squads for this
 exhibition scope. Full career AI/financial persistence remains outside it.
+
+[confirmed static:1B55:2700/284E,same listings] The income cap also reads
+D9E5[club] and parent financial projections read indexed1074/107C factors.
+These were absent from the full capture's convenience input projection.
+A read-only input supplement therefore stops at the identical pre86E9 state,
+checks the complete named state digest and255-draw prefix against r0002,and
+records only these additional capacity/factor cells and configurationF2 start
+gate. It establishes incoming data,not another full-week behavior claim.
+The original full capture/index remain immutable;the supplement has its own
+record/index and public validation. Native exhibition may project career
+financial persistence out of its domain,but must calculate reached RNG and
+match-facing effects from actual inputs rather than invented cap values.
