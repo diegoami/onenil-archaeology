@@ -1,0 +1,13 @@
+# One-Nil96: initial admission and continuous-step observation boundary
+
+[confirmed static:T36,archaeology218490d] DD02 entry0AB9:DD02 and completionE006 surround a quick step. The caller invokes7B7B and observes AL at7C92. DD02 calls78B7 before E006;791B tests the poll result AL,79EB is the common epilogue. See pinned seg_0AB9_13/21.asm. T36 observes these sites read-only without changing keys,clock,RNG or state.
+
+[designed:T36] Exactly one selected original week,T04-week-r0017,is eligible. T35 and every upstream capture throughT16 must remain equal;T08's entire ordered event stream and the DOSBox-X comparison remain required. The export contains one first-DD02 admission and95 ordered entry/completion/caller-clock/input observations. These are measurements for a future continuing Rust image. Later observations must be used as assertions,never runtime replacement states.
+
+The admission names existing T14/T17/T19/T21/T25/T26/T28/T31/T33/T34/T35 decoded contracts: referenced full P8/P15 players,scene records,club rosters/counts,cache/selectors,role scoring and position cells,goal/event/reset/strategy fields,numeric queue rows and counters. Ratings tables and both clubs' referenced staff cells are explicit. Skill lookup inputs cover6,14 and all six cache criteria for the referenced player set. The255 selector cells,three config bytes,scorer-slot/minute tables,threshold byte,referenced history cell and logical clock are separate named objects. Original far descriptors remain metadata;host normalization belongs to the native consumer. There is no full memory image,executable,data/font/palette payload or Python engine calculation.
+
+[designed] This is a defined named read set,not arbitrary-memory closure. A newly reached missing field must produce a diagnostic. Native setup from the seed still needs19CA's255 bound16 draws plus coin/two income draws for the fixed reference;the first admission is after setup,not permission to skip setup in the playable prototype. No new independent nested-helper census,watched-engine parity,pitch movement,other-week coverage,continuous native DD02 or complete playable match is established by this research capture.
+
+Measured census will be appended after the immutable original run passes public validation.
+
+[confirmed retained:T12/T16 at218490d] Successive clock exit and next DD02 entry differ at step46 in the selected reference. T36 therefore records a separate entry-clock context and preserves the caller gap;it does not assert that halftime is an empty handoff. Each entry/return remains joined exactly to T12 and each completed clock to T16. Native integration must reproduce the observed caller transition rather than reload the next fixture.

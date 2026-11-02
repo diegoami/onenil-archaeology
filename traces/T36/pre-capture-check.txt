@@ -1,0 +1,8 @@
+Before original capture (observer/schema present,corpus absent):
+.cache/venv/bin/python runtime/emul/match_continuity.py --check
+exit 1: match-continuity check: FAIL: missing/extra continuity week
+
+.cache/venv/bin/python -m pytest -q tests/emul/test_match_continuity.py
+exit 1: 1 failed,8 passed,27 errors in110.94s
+The complete-corpus assertion fails;sample-dependent tests cannot find a completed T36 record.
+Negative schema/provenance cases will be exercised against the measured corpus after capture.
