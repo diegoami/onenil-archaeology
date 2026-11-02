@@ -101,3 +101,11 @@ use selector1,address1075,value5. Fixture-factor cells0..4 are255,254,254,0,0.
 These are actual raw cells;their signed use and financial arithmetic belong
 to native code. The separate input-index pins this supplement and the unchanged
 original setup index. No new private artifact was generated.
+
+[confirmed static:seg_0AB9_20.asm DB68–DBC4] After the reference's F2=0
+caller sets active1,DB68 takes DBAC:quick/mirror become1 and auto-switch0,
+then it calls the display adapter. This is real deterministic caller state
+work,not a fabricated key response;native setup must preserve it. The E303
+mode0→E008 mode1 boundary observes that transition. DA41's text/pixel work is
+presentation;E331–E41A separately fills live cache selectors from currentP15
+and adjusts reserve counts through actual4F89 availability calls.

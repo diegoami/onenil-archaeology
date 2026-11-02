@@ -89,14 +89,14 @@ def validate_state(s):
     raw.keys(s,'initial caller setup_cells');a=s['initial'];c=s['caller']
     cells=s['setup_cells'];raw.keys(cells,'numeric_weights reserve_cell scene_mode club_fields')
     if [v['code'] for v in cells['numeric_weights']]!=[0,59]:raise ValueError('setup numeric weights incomplete')
-    for v in cells['numeric_weights']:raw.keys(v,'code value');raw.integer(v['value'],0,255)
+    for v in cells['numeric_weights']:raw.keys(v,'code value');raw.integer(v['code'],0,255);raw.integer(v['value'],0,255)
     raw.keys(cells['reserve_cell'],'index value')
     for v in cells['reserve_cell'].values():raw.integer(v,0,255)
     if cells['reserve_cell']['index']!=a['extra']['d6dd']:raise ValueError('reserve allowance alias differs')
     raw.integer(cells['scene_mode'],0,4)
     if [v['club'] for v in cells['club_fields']]!=[v['club'] for v in a['ratings']['bonuses']]:raise ValueError('setup club fields incomplete')
     for v in cells['club_fields']:
-        raw.keys(v,'club byte37 byte54 byte55 byte57')
+        raw.keys(v,'club byte37 byte54 byte55 byte57');raw.integer(v['club'],1,176)
         for key in ('byte37','byte54','byte55','byte57'):raw.integer(v[key],0,255)
     mode=c['gates']['quick'];raw.integer(mode,0,1)
     aliases=[a['events']['mode'],a['reset']['mode'],a['neutral']['quick_mode'],c['pairing']['context']['rebuild']['outer']['globals']['mode']]
@@ -144,13 +144,13 @@ def validate_observations(o,base,draws):
     incomes=o['incomes']
     if [(c['caller'],c['draw_start'],c['draw_end']) for c in incomes]!=[('1B55:2882',256,257),('1B55:288B',257,258)]:raise ValueError('income caller/draw census differs')
     for c in incomes:
-        raw.keys(c,'caller input result draw_start draw_end');raw.integer(c['result'],0,0xFFFFFFFF)
+        raw.keys(c,'caller input result draw_start draw_end');raw.integer(c['result'],0,0xFFFFFFFF);raw.integer(c['draw_start'],0,258);raw.integer(c['draw_end'],0,258)
         s=c['input'];raw.keys(s,'club config fixture fixture_flags club54 strength allowance table minimums')
         raw.integer(s['club'],1,176)
         for k in ('config','fixture','fixture_flags','club54','strength','allowance'):raw.integer(s[k],0,255)
         raw.vector(s['minimums'],2,255)
         if [r['index'] for r in s['table']]!=list(range(24)):raise ValueError('income indexed table incomplete')
-        for r in s['table']:raw.keys(r,'index value');raw.integer(r['value'],0,255)
+        for r in s['table']:raw.keys(r,'index value');raw.integer(r['index'],0,23);raw.integer(r['value'],0,255)
     if [c['input']['club'] for c in incomes]!=[c['id'] for c in o['admission']['clubs']]:raise ValueError('income club order differs')
     if o['retained']!=initials.digest(old):raise ValueError('retained complete T37 digest differs')
 
@@ -243,13 +243,13 @@ def validate_inputs(o,base):
     f=o['fields'];raw.keys(f,'capacities start_gate club_factors fixture_factors');raw.integer(f['start_gate'],0,255)
     clubs=[c['id'] for c in old['admission']['clubs']]
     if [c['club'] for c in f['capacities']]!=clubs or [c['club'] for c in f['club_factors']]!=clubs:raise ValueError('supplement club identity differs')
-    for c in f['capacities']:raw.keys(c,'club byte');raw.integer(c['byte'],0,255)
+    for c in f['capacities']:raw.keys(c,'club byte');raw.integer(c['club'],1,176);raw.integer(c['byte'],0,255)
     for c,source in zip(f['club_factors'],initial['setup_cells']['club_fields']):
-        raw.keys(c,'club selector address value');raw.integer(c['selector'],0,255);raw.integer(c['address']);raw.integer(c['value'],0,255)
+        raw.keys(c,'club selector address value');raw.integer(c['club'],1,176);raw.integer(c['selector'],0,255);raw.integer(c['address']);raw.integer(c['value'],0,255)
         signed=c['selector'] if c['selector']<128 else c['selector']-256
         if c['selector']!=source['byte55'] or c['address']!=(0x1074+signed)&65535:raise ValueError('supplement raw indexed factor alias differs')
     if [r['index'] for r in f['fixture_factors']]!=list(range(5)):raise ValueError('supplement fixture factors incomplete')
-    for r in f['fixture_factors']:raw.keys(r,'index value');raw.integer(r['value'],0,255)
+    for r in f['fixture_factors']:raw.keys(r,'index value');raw.integer(r['index'],0,4);raw.integer(r['value'],0,255)
 
 def input_index():
     meta,base=next(iter(selected_runs().values()))

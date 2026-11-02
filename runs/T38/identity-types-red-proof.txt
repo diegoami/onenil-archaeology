@@ -1,0 +1,120 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_________ test_setup_identity_and_cursor_types_are_strict[weight-code] _________
+
+sample = ({'admission': {'clubs': [{'id': 130, 'roster': [2581, 2582, 2583, 2584, 2585, 2586, ...]}, {'id': 134, 'roster': [266...6, ...}, {'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 5, 'kind': 'draw', 'n': 16, ...}, ...])
+damage = 'weight-code'
+
+    @pytest.mark.parametrize('damage',['weight-code','club-id','table-index','income-cursor'])
+    def test_setup_identity_and_cursor_types_are_strict(sample,damage):
+        orig,_,base,draws=sample;o=copy.deepcopy(orig)
+        if damage=='weight-code':o['points'][0]['state']['setup_cells']['numeric_weights'][0]['code']=False
+        elif damage=='club-id':o['points'][0]['state']['setup_cells']['club_fields'][0]['club']=130.0
+        elif damage=='table-index':o['incomes'][0]['input']['table'][0]['index']=0.0
+        elif damage=='income-cursor':o['incomes'][0]['draw_start']=256.0
+>       with pytest.raises(ValueError):r.validate_observations(o,base,draws)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:122: Failed
+___________ test_setup_identity_and_cursor_types_are_strict[club-id] ___________
+
+sample = ({'admission': {'clubs': [{'id': 130, 'roster': [2581, 2582, 2583, 2584, 2585, 2586, ...]}, {'id': 134, 'roster': [266...6, ...}, {'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 5, 'kind': 'draw', 'n': 16, ...}, ...])
+damage = 'club-id'
+
+    @pytest.mark.parametrize('damage',['weight-code','club-id','table-index','income-cursor'])
+    def test_setup_identity_and_cursor_types_are_strict(sample,damage):
+        orig,_,base,draws=sample;o=copy.deepcopy(orig)
+        if damage=='weight-code':o['points'][0]['state']['setup_cells']['numeric_weights'][0]['code']=False
+        elif damage=='club-id':o['points'][0]['state']['setup_cells']['club_fields'][0]['club']=130.0
+        elif damage=='table-index':o['incomes'][0]['input']['table'][0]['index']=0.0
+        elif damage=='income-cursor':o['incomes'][0]['draw_start']=256.0
+>       with pytest.raises(ValueError):r.validate_observations(o,base,draws)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:122: Failed
+_________ test_setup_identity_and_cursor_types_are_strict[table-index] _________
+
+sample = ({'admission': {'clubs': [{'id': 130, 'roster': [2581, 2582, 2583, 2584, 2585, 2586, ...]}, {'id': 134, 'roster': [266...6, ...}, {'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 5, 'kind': 'draw', 'n': 16, ...}, ...])
+damage = 'table-index'
+
+    @pytest.mark.parametrize('damage',['weight-code','club-id','table-index','income-cursor'])
+    def test_setup_identity_and_cursor_types_are_strict(sample,damage):
+        orig,_,base,draws=sample;o=copy.deepcopy(orig)
+        if damage=='weight-code':o['points'][0]['state']['setup_cells']['numeric_weights'][0]['code']=False
+        elif damage=='club-id':o['points'][0]['state']['setup_cells']['club_fields'][0]['club']=130.0
+        elif damage=='table-index':o['incomes'][0]['input']['table'][0]['index']=0.0
+        elif damage=='income-cursor':o['incomes'][0]['draw_start']=256.0
+>       with pytest.raises(ValueError):r.validate_observations(o,base,draws)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:122: Failed
+________ test_setup_identity_and_cursor_types_are_strict[income-cursor] ________
+
+sample = ({'admission': {'clubs': [{'id': 130, 'roster': [2581, 2582, 2583, 2584, 2585, 2586, ...]}, {'id': 134, 'roster': [266...6, ...}, {'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 5, 'kind': 'draw', 'n': 16, ...}, ...])
+damage = 'income-cursor'
+
+    @pytest.mark.parametrize('damage',['weight-code','club-id','table-index','income-cursor'])
+    def test_setup_identity_and_cursor_types_are_strict(sample,damage):
+        orig,_,base,draws=sample;o=copy.deepcopy(orig)
+        if damage=='weight-code':o['points'][0]['state']['setup_cells']['numeric_weights'][0]['code']=False
+        elif damage=='club-id':o['points'][0]['state']['setup_cells']['club_fields'][0]['club']=130.0
+        elif damage=='table-index':o['incomes'][0]['input']['table'][0]['index']=0.0
+        elif damage=='income-cursor':o['incomes'][0]['draw_start']=256.0
+>       with pytest.raises(ValueError):r.validate_observations(o,base,draws)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:122: Failed
+_____________ test_input_identity_types_are_strict[capacity-club] ______________
+
+input_sample = ({'draws': [{'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 0, 'kind': 'draw', 'n': 16, ...}, {...Nil96 (records/T01/inventory.json)', 'variant': None}, 'code_commit': 'ab7e1db4f419cbe73239d91a56b6ac6ab3484abf', ...})
+damage = 'capacity-club'
+
+    @pytest.mark.parametrize('damage',['capacity-club','factor-club','fixture-index'])
+    def test_input_identity_types_are_strict(input_sample,damage):
+        orig,base=input_sample;o=copy.deepcopy(orig)
+        if damage=='capacity-club':o['fields']['capacities'][0]['club']=130.0
+        elif damage=='factor-club':o['fields']['club_factors'][0]['club']=130.0
+        elif damage=='fixture-index':o['fields']['fixture_factors'][0]['index']=False
+>       with pytest.raises(ValueError):r.validate_inputs(o,base)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:130: Failed
+______________ test_input_identity_types_are_strict[factor-club] _______________
+
+input_sample = ({'draws': [{'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 0, 'kind': 'draw', 'n': 16, ...}, {...Nil96 (records/T01/inventory.json)', 'variant': None}, 'code_commit': 'ab7e1db4f419cbe73239d91a56b6ac6ab3484abf', ...})
+damage = 'factor-club'
+
+    @pytest.mark.parametrize('damage',['capacity-club','factor-club','fixture-index'])
+    def test_input_identity_types_are_strict(input_sample,damage):
+        orig,base=input_sample;o=copy.deepcopy(orig)
+        if damage=='capacity-club':o['fields']['capacities'][0]['club']=130.0
+        elif damage=='factor-club':o['fields']['club_factors'][0]['club']=130.0
+        elif damage=='fixture-index':o['fields']['fixture_factors'][0]['index']=False
+>       with pytest.raises(ValueError):r.validate_inputs(o,base)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:130: Failed
+_____________ test_input_identity_types_are_strict[fixture-index] ______________
+
+input_sample = ({'draws': [{'callers': ['24BC:0D12', '232A:0779', '0AB9:1A01', '0AB9:E24F'], 'i': 0, 'kind': 'draw', 'n': 16, ...}, {...Nil96 (records/T01/inventory.json)', 'variant': None}, 'code_commit': 'ab7e1db4f419cbe73239d91a56b6ac6ab3484abf', ...})
+damage = 'fixture-index'
+
+    @pytest.mark.parametrize('damage',['capacity-club','factor-club','fixture-index'])
+    def test_input_identity_types_are_strict(input_sample,damage):
+        orig,base=input_sample;o=copy.deepcopy(orig)
+        if damage=='capacity-club':o['fields']['capacities'][0]['club']=130.0
+        elif damage=='factor-club':o['fields']['club_factors'][0]['club']=130.0
+        elif damage=='fixture-index':o['fields']['fixture_factors'][0]['index']=False
+>       with pytest.raises(ValueError):r.validate_inputs(o,base)
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/emul/test_match_setup.py:130: Failed
+=========================== short test summary info ============================
+FAILED tests/emul/test_match_setup.py::test_setup_identity_and_cursor_types_are_strict[weight-code]
+FAILED tests/emul/test_match_setup.py::test_setup_identity_and_cursor_types_are_strict[club-id]
+FAILED tests/emul/test_match_setup.py::test_setup_identity_and_cursor_types_are_strict[table-index]
+FAILED tests/emul/test_match_setup.py::test_setup_identity_and_cursor_types_are_strict[income-cursor]
+FAILED tests/emul/test_match_setup.py::test_input_identity_types_are_strict[capacity-club]
+FAILED tests/emul/test_match_setup.py::test_input_identity_types_are_strict[factor-club]
+FAILED tests/emul/test_match_setup.py::test_input_identity_types_are_strict[fixture-index]
+7 failed in 14.31s

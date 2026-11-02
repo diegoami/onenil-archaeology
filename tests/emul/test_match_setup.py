@@ -111,3 +111,20 @@ def test_input_manifest_resumes_after_completed_record(tmp_path):
         assert path.read_bytes()==original and path.stat().st_mtime_ns==stamp
         path.write_text('{}')
         with pytest.raises(ValueError):r.write_input_index()
+
+@pytest.mark.parametrize('damage',['weight-code','club-id','table-index','income-cursor'])
+def test_setup_identity_and_cursor_types_are_strict(sample,damage):
+    orig,_,base,draws=sample;o=copy.deepcopy(orig)
+    if damage=='weight-code':o['points'][0]['state']['setup_cells']['numeric_weights'][0]['code']=False
+    elif damage=='club-id':o['points'][0]['state']['setup_cells']['club_fields'][0]['club']=130.0
+    elif damage=='table-index':o['incomes'][0]['input']['table'][0]['index']=0.0
+    elif damage=='income-cursor':o['incomes'][0]['draw_start']=256.0
+    with pytest.raises(ValueError):r.validate_observations(o,base,draws)
+
+@pytest.mark.parametrize('damage',['capacity-club','factor-club','fixture-index'])
+def test_input_identity_types_are_strict(input_sample,damage):
+    orig,base=input_sample;o=copy.deepcopy(orig)
+    if damage=='capacity-club':o['fields']['capacities'][0]['club']=130.0
+    elif damage=='factor-club':o['fields']['club_factors'][0]['club']=130.0
+    elif damage=='fixture-index':o['fields']['fixture_factors'][0]['index']=False
+    with pytest.raises(ValueError):r.validate_inputs(o,base)
