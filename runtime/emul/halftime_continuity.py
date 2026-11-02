@@ -90,6 +90,8 @@ def validate_observations(o,base,r15):
     if [p['step'] for p in phases]!=[46,46,46,46,95] or [p['draw'] for p in phases]!=[3255,3255,3255,3255,6216]:raise ValueError('fixed caller boundaries differ')
     if phases[3]['state']['ratings']!=old['calls'][46]['input']['ratings'] or phases[3]['state']['seed']!=old['calls'][46]['input']['seed']:raise ValueError('second-loop entry projection differs')
     if phases[-1]['state']['seed']!=old['calls'][-1]['clock']['output']['seed']:raise ValueError('final caller seed differs')
+    measured=[('0AB9:8887',0,256),('0AB9:D5F7',0,258),('0AB9:D900',0,258),('0AB9:D5F7',46,3255),('0AB9:D900',46,3255),('0AB9:B0C9',57,4025),('0AB9:B0C9',57,4025)]
+    if [(c['caller'],c['step'],c['draw_start']) for c in o['rearrangements']]!=measured:raise ValueError('measured164F parent census/order differs')
     rr=o['rearrangements']
     if not rr:raise ValueError('missing reached164F parents')
     rr_cursor=rr_step=0

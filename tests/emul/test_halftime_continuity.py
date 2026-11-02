@@ -17,7 +17,7 @@ def test_complete_original_halftime_corpus():assert r.main(['--check'])==0
 @pytest.mark.parametrize('damage',[
  'initial-missing','initial-bool','initial-alias','initial-seed','initial-ratings','pairing-missing','codes-missing',
  'phase-missing','phase-order','phase-step','phase-draw','phase-seed','phase-return',
- 'rr-missing','rr-order','rr-caller','rr-draw','rr-step','rr-seed','rr-readonly','rr-gate',
+ 'rr-missing','rr-missing-return','rr-order','rr-caller','rr-draw','rr-step','rr-seed','rr-readonly','rr-gate',
  'rating-missing','rating-order','rating-caller','rating-step','rating-bool','rating-side','rating-draw','quarter-missing','quarter-unrelated',
  'cap-missing','cap-order','cap-class','cap-bool','cap-draw','cap-unrelated','cap-final','retained-t36','retained-upstream','retained-t15'])
 def test_incomplete_wrong_or_unrelated_observations_fail(sample,damage):
@@ -36,6 +36,7 @@ def test_incomplete_wrong_or_unrelated_observations_fail(sample,damage):
     elif damage=='phase-seed':ph[3]['state']['seed']^=1
     elif damage=='phase-return':ph[-1]['state']['seed']^=1
     elif damage=='rr-missing':rr.pop(0)
+    elif damage=='rr-missing-return':rr.pop(2)
     elif damage=='rr-order':rr.reverse()
     elif damage=='rr-caller':rr[0]['caller']='0AB9:FFFF'
     elif damage=='rr-draw':rr[0]['draw_end']+=1
