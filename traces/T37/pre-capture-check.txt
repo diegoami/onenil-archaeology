@@ -1,0 +1,1 @@
+halftime-continuity check:FAIL: missing/extra halftime week
