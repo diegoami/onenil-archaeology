@@ -39,3 +39,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T35](T35.md): Original proximity-selector inputs and nested helper capture (#117).
 - [T36](T36.md): One initial match state and continuous-step observation boundaries (#123).
 - [T37](T37.md): Initial caller read set and original halftime continuation (#125).
+
+- [T38](T38.md): Initial selected-squad admission and original match setup (#127).
