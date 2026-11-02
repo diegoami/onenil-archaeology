@@ -12,7 +12,12 @@ import event_effects
 import extra_event
 import quick_reset
 import quick_step
-import ratings
+from importlib.util import module_from_spec,spec_from_file_location
+
+# Keep the observer distinct from tools/static/ratings.py in shared test processes.
+_rating_spec=spec_from_file_location("t36_ratings_observer",prior.ROOT/"runtime/emul/ratings.py")
+ratings=module_from_spec(_rating_spec)
+_rating_spec.loader.exec_module(ratings)
 import role_scoring
 import step_tail
 

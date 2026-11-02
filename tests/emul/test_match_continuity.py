@@ -62,3 +62,19 @@ def test_provenance_and_static_corruption_fail(prefix):
 def test_retained_receipt_damage_fails(sample):
     _,base=next(r.sources());out=copy.deepcopy(sample[0]);out['retained'][0]['calls_sha256']='0'*64
     with pytest.raises(ValueError,match='retained'):r.validate_record({'outputs':[{'name':k,'value':v} for k,v in out.items()]},base)
+
+
+def test_ratings_observer_does_not_alias_static_rating_tool():
+    import subprocess
+    code="""
+import sys,types
+from pathlib import Path
+sys.path.insert(0,'runtime/emul')
+stub=types.ModuleType('ratings');sys.modules['ratings']=stub
+import match_continuity
+assert sys.modules['ratings'] is stub
+assert match_continuity.ratings is not stub
+assert Path(match_continuity.ratings.__file__).resolve()==Path('runtime/emul/ratings.py').resolve()
+assert callable(match_continuity.ratings.tables)
+"""
+    subprocess.run([sys.executable,'-c',code],cwd=ROOT,check=True)
