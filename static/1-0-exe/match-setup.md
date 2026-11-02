@@ -35,3 +35,21 @@ identities are retained as such,not treated as a completed new match selection.
 [designed] Only the fixedr0017 setup is measured. Other seeds/lineups,extra time,
 career finance and first-playable acceptance need separate native checks.
 Measured run/census and remaining input findings follow after capture.
+
+[confirmed:T38-r0001,producera73693c] The first capture retained complete
+T37/T36/upstream,T08 and ordered DOSBox-X equality,then its new final validator
+rejected the real E303 mode0 using a quick-entry-only schema. The run stays
+aborted/immutable. Its observed mode census is1 at all other setup points,
+0 at E303;both event/reset mode aliases must agree with the actual caller.
+The preparation checker now validates those real modes explicitly,then uses
+an isolated copy solely for the older quick-only structural schemas. That
+copy never enters an observer record or an engine. All other checks remain.
+A negative boolean/alias test protects this adapter;new capture is required.
+
+[confirmed static:same listings] Additional incoming cells are explicitly
+recorded for numeric commentary codes0/59,reserve allowance D058[D6DD],
+DCC0+23 scene mode and header-club bytes37/54/55/57. These close setup inputs
+that first-DD02 replay had previously joined or derived. Goal/event weights,
+clock reload,reset strategy/signs and cache criteria are extracted from the
+same pre86E9 state. Raw contexts carry witnesses;their computed fields are
+excluded from native initial-data projection.

@@ -17,7 +17,7 @@ def test_complete_original_setup_corpus():assert r.main(['--check'])==0
 
 @pytest.mark.parametrize('damage',[
     'admission-missing','admission-player','admission-roster','admission-bool','admission-legacy','admission-readset',
-    'point-missing','point-order','point-site','point-draw','point-bool','point-seed','point-alias','point-readonly',
+    'point-missing','point-order','point-site','point-draw','point-bool','point-seed','point-alias','point-readonly','mode-bool','mode-alias','numeric-weight','reserve-index','club-field','scene-mode',
     'selector-changed','first-t36','first-t37','income-missing','income-order','income-caller','income-draw',
     'income-club','income-table','income-bool','income-return','draw-missing','draw-order','draw-value','retained'])
 def test_missing_reordered_mistyped_alias_and_source_fail(sample,damage):
@@ -36,6 +36,12 @@ def test_missing_reordered_mistyped_alias_and_source_fail(sample,damage):
     elif damage=='point-seed':p[3]['state']['caller']['seed']^=1
     elif damage=='point-alias':p[2]['state']['caller']['codes']['context']['actor']^=1
     elif damage=='point-readonly':p[2]['state']['initial']['ratings']['tables']['home_divisors'][0]+=1
+    elif damage=='mode-bool':p[6]['state']['initial']['events']['mode']=False
+    elif damage=='mode-alias':p[6]['state']['initial']['reset']['mode']=1
+    elif damage=='numeric-weight':p[2]['state']['setup_cells']['numeric_weights'].pop()
+    elif damage=='reserve-index':p[2]['state']['setup_cells']['reserve_cell']['index']^=1
+    elif damage=='club-field':p[2]['state']['setup_cells']['club_fields'][0]['byte55']^=1
+    elif damage=='scene-mode':p[2]['state']['setup_cells']['scene_mode']=False
     elif damage=='selector-changed':p[1]['state']['initial']['selectors'][0]['value']^=1
     elif damage=='first-t36':p[-1]['state']['initial']['config'][0]^=1
     elif damage=='first-t37':p[-1]['state']['caller']['ratings'][0]^=1
@@ -62,3 +68,10 @@ def test_source_static_fixture_provenance_fail(sample,prefix):
 def test_actual_setup_sites_are_instructions():
     rows={line[:4] for p in (ROOT/'static/1-0-exe/code').glob('seg_0AB9_*.asm') for line in p.read_text().splitlines() if len(line)>6 and line[4:6]=='  '}
     for site in r.SITES:assert site.split(':')[1] in rows
+
+def test_preparation_mode_zero_is_structural_only_and_never_changes_data(sample):
+    o,_,_,_=sample
+    before=copy.deepcopy(o['points'][6]['state'])
+    assert before['caller']['gates']['quick']==0
+    r.validate_state(o['points'][6]['state'])
+    assert o['points'][6]['state']==before

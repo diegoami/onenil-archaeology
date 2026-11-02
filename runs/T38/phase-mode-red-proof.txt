@@ -1,0 +1,12 @@
+original week:screen0,draws0
+original week:screen1,draws0
+original week:screen2,draws258
+original week:screen3,draws3255
+original week:screen4,draws3255
+original week:screen5,draws21455
+original week:screen6,draws21455
+original week:screen7,draws21455
+original week:screen8,draws21457
+original week:screen9,draws21477
+original week:screen10,draws21564
+T38-r0001: aborted: ValueError: quick mode required;11 setup boundaries

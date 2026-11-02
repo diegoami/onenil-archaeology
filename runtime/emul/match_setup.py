@@ -9,22 +9,31 @@ reb=prior.pairing.prior.reb
 RUNS,FIXTURES=ROOT/'runs/T38',ROOT/'traces/T38'
 SITES=('0AB9:E24C','0AB9:E24F','0AB9:86E9','0AB9:E2D4','0AB9:E2D9','0AB9:E2EF',
        '0AB9:E303','0AB9:E008','0AB9:7D86','0AB9:7DC8','0AB9:DD02')
-STATIC=tuple(dict.fromkeys((*prior.STATIC,'static/1-0-exe/code/seg_1B55_04.asm','static/1-0-exe/code/seg_24BC_02.asm')))
+STATIC=tuple(dict.fromkeys((*prior.STATIC,'static/1-0-exe/code/seg_1B55_04.asm','static/1-0-exe/code/seg_24BC_02.asm','static/1-0-exe/code/seg_1998_01.asm','static/1-0-exe/code/seg_1998_02.asm')))
 
 def state(week):
-    return {'initial':initials.initial(week),'caller':prior.snapshot(week.g)}
+    g=week.g;index=g.rd(0xD6DD,1)
+    cells={'numeric_weights':[{'code':code,'value':g.rd(0x097A+code,1)} for code in (0,59)],
+           'reserve_cell':{'index':index,'value':g.rd(0xD58+index,1)},
+           'scene_mode':g.mem(g.far(0xDCC0)+23,1)[0],
+           'club_fields':[{'club':g.rd(off),**{f'byte{k}':reb.far_value(g,0xD7C2,62*(g.rd(off)-1)+k,1) for k in (37,54,55,57)}} for off in (0xD6E4,0xD6E6)]}
+    return {'initial':initials.initial(week),'caller':prior.snapshot(g),'setup_cells':cells}
 
 def admission(s):
     # Structural projection only. Derived selectors/scenes/clock/seed are assertions.
     a=s['initial'];c=s['caller'];outer=c['pairing']['context']['rebuild']['outer']
     return {'players':outer['players'],'clubs':outer['selection']['clubs'],'config':a['config'],
-            'read_sets':{'ratings':a['ratings'],'skills':a['skills'],
+            'read_sets':{'setup_cells':s['setup_cells'],'ratings':a['ratings'],'skills':a['skills'],
                          'positions':a['positions']['positions'],'signs':a['positions']['signs'],
                          'pairing_flags':c['pairing']['club_flags'],'pairing_preferences':c['pairing']['preferences'],
                          'codes':{k:c['codes'][k] for k in ('direction_signs','codes','role_codes')},
                          'club_counts':c['pairing']['context']['rebuild']['club_counts'],
                          'globals':outer['globals'],'directions':outer['directions'],
-                         'scorer_slots':a['scorer_slots'],'minute_limits':a['minute_limits'],'threshold':a['threshold']},
+                         'scorer_slots':a['scorer_slots'],'minute_limits':a['minute_limits'],'threshold':a['threshold'],
+                         'goal_numeric':{k:a['goals'][k] for k in ('position_deltas','event_weights')},
+                         'event_weights':a['events']['weights'],'clock_reload':a['clock']['reload'],
+                         'reset_strategy':a['reset']['strategy'],'reset_signs':a['reset']['signs'],
+                         'extra_home_bonus':a['extra']['home_bonus'],'cache_criteria':a['positions']['context']['criteria']},
             'legacy':{'cached_players':outer['cached_players'],'cache':a['positions']['context']['cache'],
                       'managed_clubs':outer['selection']['managed_clubs'],'preferences':outer['selection']['preferences'],
                       'allowance':outer['selection']['allowance'],'cpu_class':c['pairing']['context']['cpu_class'],
@@ -77,7 +86,28 @@ def t37_capture(rec,base):
     return value,b35
 
 def validate_state(s):
-    raw.keys(s,'initial caller');initials.validate_initial(s['initial']);prior.validate_state(s['caller'])
+    raw.keys(s,'initial caller setup_cells');a=s['initial'];c=s['caller']
+    cells=s['setup_cells'];raw.keys(cells,'numeric_weights reserve_cell scene_mode club_fields')
+    if [v['code'] for v in cells['numeric_weights']]!=[0,59]:raise ValueError('setup numeric weights incomplete')
+    for v in cells['numeric_weights']:raw.keys(v,'code value');raw.integer(v['value'],0,255)
+    raw.keys(cells['reserve_cell'],'index value')
+    for v in cells['reserve_cell'].values():raw.integer(v,0,255)
+    if cells['reserve_cell']['index']!=a['extra']['d6dd']:raise ValueError('reserve allowance alias differs')
+    raw.integer(cells['scene_mode'],0,4)
+    if [v['club'] for v in cells['club_fields']]!=[v['club'] for v in a['ratings']['bonuses']]:raise ValueError('setup club fields incomplete')
+    for v in cells['club_fields']:
+        raw.keys(v,'club byte37 byte54 byte55 byte57')
+        for key in ('byte37','byte54','byte55','byte57'):raw.integer(v[key],0,255)
+    mode=c['gates']['quick'];raw.integer(mode,0,1)
+    aliases=[a['events']['mode'],a['reset']['mode'],a['neutral']['quick_mode'],c['pairing']['context']['rebuild']['outer']['globals']['mode']]
+    raw.vector(aliases,4,1)
+    if any(value!=mode for value in aliases):raise ValueError('setup mode aliases differ')
+    # [designed] T36's event/reset schemas have quick-entry guards,not general
+    # preparation domains. Validate their unchanged shapes on a local copy;
+    # actual captured modes are checked above and by the fixed stage census.
+    # This copy never enters a capture or an engine,and the source is untouched.
+    probe=copy.deepcopy(a);probe['events']['mode']=1;probe['reset']['mode']=1
+    initials.validate_initial(probe);prior.validate_state(c)
     if not placement.same_json(s['initial']['positions']['context']['context'],s['caller']['pairing']['context']):raise ValueError('setup context alias differs')
 
 def validate_observations(o,base,draws):
@@ -89,11 +119,13 @@ def validate_observations(o,base,draws):
         raw.keys(p,'site draw state income_total');raw.integer(p['draw'],0,258);raw.integer(p['income_total'],0,0xFFFFFFFF)
         if p['draw']!=cursor:raise ValueError('setup boundary draw differs')
         validate_state(p['state'])
+        if p['state']['caller']['gates']['quick']!=(0 if p['site']=='0AB9:E303' else 1):raise ValueError('actual preparation mode census differs')
     if not placement.same_json(o['admission'],admission(points[2]['state'])):raise ValueError('incoming selected-squad admission differs')
     if not placement.same_json(o['draws'],draws) or len(draws)!=258:raise ValueError('actual ordered setup draws differ')
     if [d['n'] for d in draws[:255]]!=[16]*255 or [d['n'] for d in draws[256:]]!=[999,999]:raise ValueError('setup draw sites/bounds differ')
     for p in points[1:]:
         if p['state']['caller']['seed']!=draws[p['draw']-1]['seed_after']:raise ValueError('setup seed boundary differs')
+    if any(p['state']['setup_cells']!=points[2]['state']['setup_cells'] for p in points[2:]):raise ValueError('setup raw read-only cells changed')
     constants={}
     for p in points:
         a=p['state']['initial'];c=p['state']['caller']
