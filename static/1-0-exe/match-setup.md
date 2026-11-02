@@ -53,3 +53,31 @@ that first-DD02 replay had previously joined or derived. Goal/event weights,
 clock reload,reset strategy/signs and cache criteria are extracted from the
 same pre86E9 state. Raw contexts carry witnesses;their computed fields are
 excluded from native initial-data projection.
+
+## Successful measured preparation
+
+[confirmed:T38-r0002,producerab7e1db] One complete selected-squad admission
+has47 canonical players,including old scene/cache references,and header clubs
+130/134 with configuration[6,1,7]. Eleven boundaries occur at cursors
+0,255,255,256,258,258,258,258,258,258,258. Entry's old seed65341 is replaced;
+the actual first draw starts64,selector completion is34437,the coin leaves
+52544,and the two999 draws leave53858. The two2735 returns are3330/20771.
+The full ordered258 setup draws are retained literally from original execution.
+Numeric weights0/59 are both0;D058[1] is2;DCC0+23 scene mode is0.
+
+[confirmed:same run] All T37 caller/rearrangement/rating observations,T36's
+one admission/all95 DD02-clock-input boundaries and every earlier retained
+root are exact. Whole-week T08 events and ordered DOSBox-X comparison pass.
+All11 initial/caller shapes pass the phase-domain adapter;final first-DD02
+state joins T36/T37 exactly. The mode census is1 except E303's actual0.
+R0001 remains immutable and aborted at its old quick-only validator;it is not
+selected as the successful corpus. R0002 is the complete measured source.
+
+[designed] Native preparation may extract additional raw witnesses from the
+same pre86E9 boundary,whose complete named state is retained,alongside the
+convenience admission projection. No later boundary may supply runtime input.
+Historical scene/cache fields are incoming legacy state,not permission to load
+a completed new-match scene.19CA must recompute selectors/seed;86E9 and its
+real callees must produce new scenes/caches/clock. The original prior automatic
+lineup choice is replaced by explicitly supplied selected squads for this
+exhibition scope. Full career AI/financial persistence remains outside it.
