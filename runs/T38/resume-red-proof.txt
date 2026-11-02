@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_input_manifest_resumes_after_completed_record ______________
+
+tmp_path = PosixPath('/tmp/pytest-of-diego/pytest-4/test_input_manifest_resumes_af0')
+
+    def test_input_manifest_resumes_after_completed_record(tmp_path):
+        expected={'schema':'setup-input-index/1','record':'runs/T38/T38-input-r0001.json'}
+        with patch.object(r,'FIXTURES',tmp_path),patch.object(r,'input_index',return_value=expected):
+>           r.write_input_index()
+E           AttributeError: module 'match_setup' has no attribute 'write_input_index'
+
+tests/emul/test_match_setup.py:108: AttributeError
+=========================== short test summary info ============================
+FAILED tests/emul/test_match_setup.py::test_input_manifest_resumes_after_completed_record
+1 failed in 0.07s

@@ -101,3 +101,13 @@ def test_input_supplement_record_hash_is_checked(input_sample):
     sha=r.contests.sha
     with patch.object(r.contests,'sha',side_effect=lambda p:'0'*64 if Path(p).name.startswith('T38-input-') else sha(p)):
         assert r.input_index()!=json.loads((r.FIXTURES/'input-index.json').read_text())
+
+def test_input_manifest_resumes_after_completed_record(tmp_path):
+    expected={'schema':'setup-input-index/1','record':'runs/T38/T38-input-r0001.json'}
+    with patch.object(r,'FIXTURES',tmp_path),patch.object(r,'input_index',return_value=expected):
+        r.write_input_index()
+        path=tmp_path/'input-index.json';original=path.read_bytes();stamp=path.stat().st_mtime_ns
+        r.write_input_index()
+        assert path.read_bytes()==original and path.stat().st_mtime_ns==stamp
+        path.write_text('{}')
+        with pytest.raises(ValueError):r.write_input_index()

@@ -265,11 +265,19 @@ def input_index():
     return {'schema':'setup-input-index/1','record':match.rel(path),'record_sha256':contests.sha(path),
             'setup_index_sha256':contests.sha(FIXTURES/'index.json'),'producer_commit':r['code_commit']}
 
+def write_input_index():
+    index=input_index();path=FIXTURES/'input-index.json'
+    if path.exists():
+        if not placement.same_json(index,json.loads(path.read_text())):raise ValueError('existing input manifest differs')
+    else:
+        with path.open('x') as f:f.write(json.dumps(index,indent=2)+'\n')
+
 def run_inputs():
     import cycle,guest,unicorn
     if match.git('status','--porcelain','--','runtime/emul'):raise SystemExit('commit observer before input capture')
     complete=[p for p in RUNS.glob('T38-input-r*.json') if json.loads(p.read_text())['status']=='completed']
-    if complete:print('already recorded '+complete[0].stem,flush=True);return
+    if complete:
+        print('already recorded '+complete[0].stem,flush=True);write_input_index();return
     meta,base=next(iter(selected_runs().values()));_,data=match.find_state(base['start_state']['sha256'])
     commit=match.git('rev-parse','HEAD');started=match.utc();week=match.Week(data);Recorder(week);captured=None;status='completed'
     class ReachedAdmission(Exception):pass
@@ -297,8 +305,7 @@ def run_inputs():
     r['interventions']=[{'level':'I3','what':'read-only setup input supplement;intentional stop before86E9'}]
     match.write_record(RUNS/(rid+'.json'),r);print(f'{rid}: {status}',flush=True)
     if status!='completed':raise SystemExit(1)
-    index=input_index();path=FIXTURES/'input-index.json'
-    with path.open('x') as f:f.write(json.dumps(index,indent=2)+'\n')
+    write_input_index()
 
 def main(argv=None):
     ap=argparse.ArgumentParser(description=__doc__);g=ap.add_mutually_exclusive_group(required=True);g.add_argument('--run',action='store_true');g.add_argument('--check',action='store_true');g.add_argument('--run-inputs',action='store_true');args=ap.parse_args(argv)
