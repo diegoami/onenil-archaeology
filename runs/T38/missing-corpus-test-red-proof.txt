@@ -1,0 +1,15 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________ test_complete_original_setup_corpus ______________________
+
+>   def test_complete_original_setup_corpus():assert r.main(['--check'])==0
+E   AssertionError: assert 1 == 0
+E    +  where 1 = <function main at 0x74dbce51a660>(['--check'])
+E    +    where <function main at 0x74dbce51a660> = r.main
+
+tests/emul/test_match_setup.py:16: AssertionError
+----------------------------- Captured stdout call -----------------------------
+match-setup check:FAIL: missing/extra setup week
+=========================== short test summary info ============================
+FAILED tests/emul/test_match_setup.py::test_complete_original_setup_corpus - ...
+1 failed in 7.71s
