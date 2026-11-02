@@ -93,3 +93,11 @@ The original full capture/index remain immutable;the supplement has its own
 record/index and public validation. Native exhibition may project career
 financial persistence out of its domain,but must calculate reached RNG and
 match-facing effects from actual inputs rather than invented cap values.
+
+[confirmed:T38-input-r0001,producerb6997a9] The supplement joins the complete
+r0002 pre86E9 state exactly and retains the same255 original draws. Capacity
+bytes are31/36 for clubs130/134;configurationF2 is0. Both club-factor reads
+use selector1,address1075,value5. Fixture-factor cells0..4 are255,254,254,0,0.
+These are actual raw cells;their signed use and financial arithmetic belong
+to native code. The separate input-index pins this supplement and the unchanged
+original setup index. No new private artifact was generated.
