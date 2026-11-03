@@ -1,0 +1,563 @@
+FEEEEEEEEEEEEEEFF                                                        [100%]
+==================================== ERRORS ====================================
+__ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[missing] __
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[bool-player] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[negative-player] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[invalid-code] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+___ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[side] ____
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[queue-player] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[queue-code] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+__ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[cursor] ___
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+___ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[seed] ____
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[draw-seed] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[setup-prefix] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+___ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[mode] ____
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[intervention] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_ ERROR at setup of test_inconsistent_or_missing_prefix_is_rejected[action-order] _
+
+    @pytest.fixture(scope='module')
+    def sample():
+>       index=r.check()
+
+tests/test_watched_actions.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+=================================== FAILURES ===================================
+____________________ test_complete_original_watched_prefix _____________________
+
+>   def test_complete_original_watched_prefix():assert r.check()['schema']=='watched-action-prefix/1'
+
+tests/test_watched_actions.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+_______________ test_changed_static_or_record_source_pins_reject _______________
+
+tmp_path = PosixPath('/tmp/pytest-of-diego/pytest-0/test_changed_static_or_record_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7e5ac637ed80>
+
+    def test_changed_static_or_record_source_pins_reject(tmp_path,monkeypatch):
+>       index=r.check();directory=tmp_path/'corpus';directory.mkdir()
+
+tests/test_watched_actions.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+runtime/emul/watched_actions.py:49: in check
+    index=json.loads((FIXTURES/'index.json').read_text())
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/diego/projects/onenil-archaeology/traces/T39/index.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/diego/projects/onenil-archaeology/traces/T39/index.json'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+__________ test_resume_validates_without_rewriting_completed_outputs ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7e5ac638be90>
+
+    def test_resume_validates_without_rewriting_completed_outputs(monkeypatch):
+        before={p:p.read_bytes() for d in (r.RUNS,r.FIXTURES) for p in d.iterdir() if p.is_file()}
+        monkeypatch.setattr(r.match,'git',lambda *args:'' if args[0]=='status' else 'unused')
+>       r.run()
+
+tests/test_watched_actions.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def run():
+        import guest,unicorn,cycle
+        if match.git('status','--porcelain','--','runtime/emul'):raise ValueError('commit observer before capture')
+        RUNS.mkdir(exist_ok=True);FIXTURES.mkdir(exist_ok=True)
+        if (FIXTURES/'index.json').exists():check();print('completed prefix unchanged');return
+        path,base=source();_,data=match.find_state(base['start_state']['sha256']);week=match.Week(data)
+        out={'intervention':None,'setup_draws':[],'draws':[],'ticks':0,'actions':[],'first_ticks':[]};pending=None
+        class Complete(Exception):pass
+        def enable(g):
+            if out['intervention'] is not None:return
+            address=g.far(0xD7D2)+0xF2;before=g.mem(address,1)[0]
+            out['intervention']={'site':'0AB9:E24C','field':'config+F2','before':before,'after':1};g.put(address,b'\x01')
+        def tick(g):
+            out['ticks']+=1
+            if out['ticks']==1:
+                out['setup_draws']=[e.copy() for e in week.events if e['kind']=='draw']
+                if out['setup_draws']!=setup.contests.outputs(base)['draws']:raise ValueError('first watched tick does not join original258 setup draws')
+            if len(out['first_ticks'])<3:out['first_ticks'].append({'tick':out['ticks'],'draw':week.draws,'state':snapshot(g)})
+        def enter(g):
+            nonlocal pending
+            if not out['ticks']:return
+            if pending is not None:raise ValueError('nested commentary request')
+            code,first,second,side=[g.stack_word(i) for i in (2,4,6,8)];club=g.rd(0xD6E4+2*side)
+            def player(slot):return 0 if slot==0 else int.from_bytes(g.mem(g.far(0xD7C2)+62*(club-1)+2*(slot-1),2),'little')
+            pending={'code':code,'actor_slot':first,'secondary_slot':second,'side':side,'club':club,
+                     'player':player(first),'secondary':player(second),'minute':g.rd(0xD0B2),'tick':out['ticks'],
+                     'draw_start':week.draws,'seed_before':g.rd(0xA51C),'head_before':g.rd(0x380),
+                     'caller':g.image_address(g.reg('cs'),g.stack_word(0))}
+        def leave(g):
+            nonlocal pending
+            if pending is None:return
+            value=pending;pending=None
+            if g.rd(0x380)==value['head_before']:return
+            value.update(event=len(out['actions']),draw_end=week.draws,seed_after=g.rd(0xA51C),queue=row(g))
+            out['actions'].append(value);print(f'action{len(out["actions"])} code{value["code"]} player{value["player"]} tick{out["ticks"]}',flush=True)
+            if len(out['actions'])==LIMIT:raise Complete()
+        week.g.code_hook('0AB9:E24C',enable);week.g.code_hook('0AB9:7A02',tick)
+        week.g.code_hook('0AB9:0F94',enter);week.g.code_hook('0AB9:0FFC',leave)
+        commit=match.git('rev-parse','HEAD');started=match.utc();status='completed'
+        try:
+            try:week.play(on_boundary=lambda w:print(f'watched prefix screen{w.screen_i}/draws{w.draws}',flush=True))
+            except Complete:pass
+            else:raise ValueError('prefix ended before32 accepted actions')
+            if week.g.unsupported:raise ValueError('unsupported guest services')
+            out['draws']=[e for e in week.events if e['kind']=='draw'];validate(out)
+        except (Exception,KeyboardInterrupt) as exc:
+            status=f'aborted: {type(exc).__name__}: {exc}';out['draws']=[e for e in week.events if e['kind']=='draw']
+        n=match.next_number(RUNS,'T39-r*.json');rid=f'T39-r{n:04d}';record=copy.deepcopy(base)
+        record.update(run_id=rid,experiment='T39',arm='watched_action_prefix',rep=n,code_commit=commit,machine=cycle.machine_id(),started=started,ended=match.utc(),status=status,
+                      actions={'script':'runtime/emul/watched_actions.py --run','source':{'record':str(path.relative_to(ROOT)),'sha256':sha(path.read_bytes())},'game_files':{k:sha(v) for k,v in week.files_at_start.items()}},
+                      outputs=[{'name':k,'value':v} for k,v in out.items()],observations=[{'step':0,'source':'log','field':'scope','value':'Original watched32-action prefix with deliberate watch-setting intervention;no complete match/DOSBox or native backend claim.'}])
+        record['runtime']['harness']=f'runtime/emul/watched_actions.py@{commit}';record['runtime']['unicorn']=unicorn.__version__;record['runtime']['python']=platform.python_version()
+        record['interventions']=[{'level':'I3','what':'original harness services;explicit config+F2 watch enable atE24C;read-only action/tick hooks;intentional prefix stop'}]
+        target=RUNS/(rid+'.json');match.write_record(target,record);print(rid+': '+status,flush=True)
+>       if status!='completed':raise SystemExit(1)
+E       SystemExit: 1
+
+runtime/emul/watched_actions.py:117: SystemExit
+----------------------------- Captured stdout call -----------------------------
+watched prefix screen0/draws0
+watched prefix screen1/draws0
+watched prefix screen2/draws258
+action1 code49 player0 tick12
+watched prefix screen2/draws619
+T39-r0001: aborted: KeyboardInterrupt: 
+=========================== short test summary info ============================
+FAILED tests/test_watched_actions.py::test_complete_original_watched_prefix
+FAILED tests/test_watched_actions.py::test_changed_static_or_record_source_pins_reject
+FAILED tests/test_watched_actions.py::test_resume_validates_without_rewriting_completed_outputs
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[missing]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[bool-player]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[negative-player]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[invalid-code]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[side]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[queue-player]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[queue-code]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[cursor]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[seed]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[draw-seed]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[setup-prefix]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[mode]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[intervention]
+ERROR tests/test_watched_actions.py::test_inconsistent_or_missing_prefix_is_rejected[action-order]
+3 failed, 14 errors in 55.95s
