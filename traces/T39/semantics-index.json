@@ -1,0 +1,9 @@
+{
+  "schema": "watched-action-semantics/1",
+  "commit": "d9e20a443a1438f253022b65aae9fd6e49be8517",
+  "source_sha256": {
+    "static/1-0-exe/strings.tsv": "4ee39c491a778850941b70967a9833ab46be732412d63c8a6cd0190ce82e6d18",
+    "static/1-0-exe/code/seg_0AB9_03.asm": "8784b2278e0fe5b41214590743858ff2e188262da95cba068658ed0285de935a"
+  },
+  "scope": "Numeric action-template meanings and primary/secondary marker substitution;additional static pins to the action observer index"
+}

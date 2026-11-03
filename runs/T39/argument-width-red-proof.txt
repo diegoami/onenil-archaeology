@@ -1,0 +1,14 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_original_byte_arguments_and_reversed_roster_slots ____________
+
+    def test_original_byte_arguments_and_reversed_roster_slots():
+        class Guest:
+            def stack_word(self,index):return {2:0xFF31,4:0,6:10,8:0xFF00}[index]
+>       assert r.arguments(Guest())=={'code':49,'actor_slot':10,'secondary_slot':0,'side':0}
+E       AttributeError: module 'watched_actions' has no attribute 'arguments'
+
+tests/test_watched_actions.py:58: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_watched_actions.py::test_original_byte_arguments_and_reversed_roster_slots
+1 failed in 0.15s
