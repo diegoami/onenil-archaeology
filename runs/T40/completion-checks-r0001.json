@@ -1,0 +1,18 @@
+{
+  "schema": "completion-check-receipt/1",
+  "capture_head": "bea7bc28775dd165140e3f0aadef376da74987ef",
+  "public_check_exit": 0,
+  "targeted_pytest": {
+    "passed": 6,
+    "exit": 0
+  },
+  "full_pytest": "full-pytest-r0001.json:1565passed/6skipped;observer and test sources unchanged since equivalent source9a92faf",
+  "preservation": "All tracked pre-capture files except README unchanged;all original chunks/observations immutable;static/runtime/tests unchanged",
+  "score_interpretation": "Independent completed audit verifies final swapped result against3accepted goals;intermediate legacy score fields are scratch bytes;issue133 remains open",
+  "checks": {
+    "runs/T40/complete-check-r0001.txt": "4f5f6a77f5dafbe766701680015e4a8e689e29fbc6dfdf1a373ba5a9092a0ee2",
+    "runs/T40/targeted-final-r0001.txt": "5707b7c226afa31cdf05b00ea6ace6139bf169b53d9f8ca5d16d7cc61b909f18",
+    "runs/T40/independent-completion-audit-r0001.txt": "92a057f9d5a4c84e5e8b3e0b816998c6d876a8e162f9ba56400091c33b66640a",
+    "runs/T40/original-check-r0001.txt": "2c5f8b410f12d4d3f4b03de98adebb39e4a5e28025293dc5802383bf8291d1e7"
+  }
+}

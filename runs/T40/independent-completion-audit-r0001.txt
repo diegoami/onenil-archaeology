@@ -1,0 +1,75 @@
+Complete original watched reference:4199ticks/182811draws/831actions,score[1, 2],elapsed93.
+{
+  "schema": "watched-complete-independent-audit/1",
+  "finish_sha256": "07c8f7314c28a343ff0018976d45873dbdc99f723e8b48acdd4fb63c1388e1cb",
+  "original_boundary": "0AB9:EBE2",
+  "ticks": 4199,
+  "draws": 182811,
+  "accepted_actions": 831,
+  "elapsed": 93,
+  "remaining": 0,
+  "stoppage": 0,
+  "goals": [
+    {
+      "event": 240,
+      "code": 38,
+      "side": 0,
+      "club": 130,
+      "player": 2589,
+      "minute": 30,
+      "tick": 1213
+    },
+    {
+      "event": 312,
+      "code": 38,
+      "side": 0,
+      "club": 130,
+      "player": 2588,
+      "minute": 36,
+      "tick": 1538
+    },
+    {
+      "event": 754,
+      "code": 38,
+      "side": 1,
+      "club": 134,
+      "player": 2673,
+      "minute": 83,
+      "tick": 3747
+    }
+  ],
+  "derived_goals_by_event_side": [
+    2,
+    1
+  ],
+  "observed_final_D086_D087": [
+    1,
+    2
+  ],
+  "goal_join": "accepted goal counts by side equal reversed final result bytes",
+  "halftime_fulltime": [
+    {
+      "code": 64,
+      "minute": 46,
+      "tick": 2033
+    },
+    {
+      "code": 63,
+      "minute": 93,
+      "tick": 4147
+    }
+  ],
+  "score_field_correction": {
+    "issue": 133,
+    "legacy_field": "state.scores",
+    "actual_addresses": "DS:D086/DS:D087",
+    "live_cumulative_addresses": "DS:D0C4/DS:D0C5",
+    "limit": "Intermediate legacy scores are generated-goal scratch bytes,not cumulative score. No per-tick live counter observation is claimed. Final interpretation uses the original cleanup copy and independent accepted-goal tally."
+  },
+  "static_evidence": [
+    "d9e20a4:0AB9:E251 initializes D0C4/D0C5",
+    "d9e20a4:0AB9:53D7 increments side counter and reverses disallowed goals",
+    "d9e20a4:0AB9:E069-E06E swaps final D0C4/D0C5 into D086/D087"
+  ],
+  "scope": "Original watched reference and derived audit only;not a native match or viewer."
+}
