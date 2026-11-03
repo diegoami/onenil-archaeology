@@ -42,3 +42,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 
 - [T38](T38.md): Initial selected-squad admission and original match setup (#127).
 - [T39](T39.md): Original watched player-action and commentary prefix (#129).
+
+- [T40 Complete original watched-match reference](T40.md)
