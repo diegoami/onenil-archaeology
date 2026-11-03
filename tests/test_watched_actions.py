@@ -12,7 +12,7 @@ def sample():
 
 def test_complete_original_watched_prefix():assert r.check()['schema']=='watched-action-prefix/1'
 
-@pytest.mark.parametrize('damage',['missing','bool-player','negative-player','invalid-code','side','queue-player','queue-code','cursor','seed','draw-seed','setup-prefix','mode','bool-mode','bool-clock','intervention','action-order'])
+@pytest.mark.parametrize('damage',['missing','bool-player','negative-player','invalid-code','side','queue-player','queue-code','cursor','seed','draw-seed','setup-prefix','mode','bool-mode','bool-clock','scene-order','scene-player','scene-missing','intervention','action-order'])
 def test_inconsistent_or_missing_prefix_is_rejected(sample,damage):
     value=copy.deepcopy(sample);a=value['actions'][0]
     if damage=='missing':value['actions'].pop()
@@ -29,6 +29,9 @@ def test_inconsistent_or_missing_prefix_is_rejected(sample,damage):
     elif damage=='mode':value['first_ticks'][0]['state']['quick']=1
     elif damage=='bool-mode':value['first_ticks'][0]['state']['quick']=False
     elif damage=='bool-clock':a['minute']=False
+    elif damage=='scene-order':value['first_ticks'][0]['state']['scenes'].reverse()
+    elif damage=='scene-player':value['first_ticks'][0]['state']['scenes'][0]['word14']=5000
+    elif damage=='scene-missing':value['first_ticks'][0]['state']['scenes'].pop()
     elif damage=='intervention':value['intervention']['after']=0
     elif damage=='action-order':value['actions'].reverse()
     with pytest.raises((ValueError,KeyError,IndexError,TypeError)):r.validate(value)
@@ -43,6 +46,15 @@ def test_changed_static_or_record_source_pins_reject(tmp_path,monkeypatch):
         else:value[field]='0'*64
         (directory/'index.json').write_text(json.dumps(value))
         with pytest.raises(ValueError):r.check()
+
+    (directory/'index.json').write_text(json.dumps(index))
+    original=json.loads((directory/'semantics-index.json').read_text())
+    for damage in ('missing','digest'):
+        value=copy.deepcopy(original)
+        if damage=='missing':value['source_sha256']={}
+        else:value['source_sha256']['static/1-0-exe/strings.tsv']='0'*64
+        (directory/'semantics-index.json').write_text(json.dumps(value))
+        with pytest.raises(ValueError,match='semantic'):r.check()
 
 
 def test_resume_validates_without_rewriting_completed_outputs(monkeypatch):

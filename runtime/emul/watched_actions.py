@@ -40,6 +40,12 @@ def validate(observed):
     if not observed['first_ticks']:raise ValueError('watched mode not reached')
     for t in observed['first_ticks']:
         integer(t['state']['quick'],0,0);integer(t['tick'],1,observed['ticks']);integer(t['draw'],258,len(draws))
+        if len(t['state']['scenes'])!=22:raise ValueError('watched scene census differs')
+        for i,scene in enumerate(t['state']['scenes'],1):
+            integer(scene['index'],i,i)
+            for key,value in scene.items():
+                if key.startswith('word'):integer(value,0,3920 if key=='word14' else 65535)
+                elif key.startswith('byte'):integer(value,0,255)
     for i,a in enumerate(actions):
         integer(a['event'],i,i);integer(a['draw_start'],258,len(draws));integer(a['draw_end'],a['draw_start'],len(draws))
         integer(a['code'],0,63);integer(a['side'],0,1);integer(a['player'],0,3920);integer(a['secondary'],0,3920)
@@ -62,6 +68,7 @@ def check():
     if sha(path.read_bytes())!=index['record_sha256'] or record['status']!='completed':raise ValueError('completed prefix record differs')
     semantics=json.loads((FIXTURES/'semantics-index.json').read_text())
     if semantics['schema']!='watched-action-semantics/1' or semantics['commit']!='d9e20a443a1438f253022b65aae9fd6e49be8517':raise ValueError('semantic source identity differs')
+    if set(semantics['source_sha256'])!={'static/1-0-exe/strings.tsv','static/1-0-exe/code/seg_0AB9_03.asm'}:raise ValueError('semantic source census differs')
     if any(sha((ROOT/p).read_bytes())!=digest for p,digest in semantics['source_sha256'].items()):raise ValueError('semantic source pins differ')
     if index['static_sources']!={p:sha((ROOT/p).read_bytes()) for p in STATIC}:raise ValueError('static source pins differ')
     path,base=source()
