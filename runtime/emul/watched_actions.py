@@ -37,7 +37,9 @@ def validate(observed):
     for i,d in enumerate(draws):
         integer(d['i'],i,i)
         if i and d['seed_before']!=draws[i-1]['seed_after']:raise ValueError('ordered RNG seed continuity differs')
-    if not observed['first_ticks'] or any(t['state']['quick']!=0 for t in observed['first_ticks']):raise ValueError('watched mode not reached')
+    if not observed['first_ticks']:raise ValueError('watched mode not reached')
+    for t in observed['first_ticks']:
+        integer(t['state']['quick'],0,0);integer(t['tick'],1,observed['ticks']);integer(t['draw'],258,len(draws))
     for i,a in enumerate(actions):
         integer(a['event'],i,i);integer(a['draw_start'],258,len(draws));integer(a['draw_end'],a['draw_start'],len(draws))
         integer(a['code'],0,63);integer(a['side'],0,1);integer(a['player'],0,3920);integer(a['secondary'],0,3920)
@@ -62,6 +64,8 @@ def check():
     path,base=source()
     if record['actions']['source']!={'record':str(path.relative_to(ROOT)),'sha256':sha(path.read_bytes())}:raise ValueError('source pin differs')
     if record['start_state']!=base['start_state']:raise ValueError('start state differs')
+    if record['actions']['game_files']!=base['actions']['game_files']:raise ValueError('original game-file digests differ')
+    if index['producer_commit']!=record['code_commit'] or record['runtime']['harness']!='runtime/emul/watched_actions.py@'+record['code_commit']:raise ValueError('observer producer identity differs')
     observed=setup.contests.outputs(record);validate(observed)
     expected=setup.contests.outputs(base)['draws']
     if observed['setup_draws']!=expected:raise ValueError('original258 setup draws differ')

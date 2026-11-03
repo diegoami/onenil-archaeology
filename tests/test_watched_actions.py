@@ -12,7 +12,7 @@ def sample():
 
 def test_complete_original_watched_prefix():assert r.check()['schema']=='watched-action-prefix/1'
 
-@pytest.mark.parametrize('damage',['missing','bool-player','negative-player','invalid-code','side','queue-player','queue-code','cursor','seed','draw-seed','setup-prefix','mode','intervention','action-order'])
+@pytest.mark.parametrize('damage',['missing','bool-player','negative-player','invalid-code','side','queue-player','queue-code','cursor','seed','draw-seed','setup-prefix','mode','bool-mode','bool-clock','intervention','action-order'])
 def test_inconsistent_or_missing_prefix_is_rejected(sample,damage):
     value=copy.deepcopy(sample);a=value['actions'][0]
     if damage=='missing':value['actions'].pop()
@@ -27,6 +27,8 @@ def test_inconsistent_or_missing_prefix_is_rejected(sample,damage):
     elif damage=='draw-seed':value['draws'][15]['seed_before']^=1
     elif damage=='setup-prefix':value['setup_draws'].pop()
     elif damage=='mode':value['first_ticks'][0]['state']['quick']=1
+    elif damage=='bool-mode':value['first_ticks'][0]['state']['quick']=False
+    elif damage=='bool-clock':a['minute']=False
     elif damage=='intervention':value['intervention']['after']=0
     elif damage=='action-order':value['actions'].reverse()
     with pytest.raises((ValueError,KeyError,IndexError,TypeError)):r.validate(value)
