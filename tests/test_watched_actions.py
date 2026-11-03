@@ -51,3 +51,8 @@ def test_resume_validates_without_rewriting_completed_outputs(monkeypatch):
     monkeypatch.setattr(r.match,'git',lambda *args:'' if args[0]=='status' else 'unused')
     r.run()
     assert all(p.read_bytes()==data for p,data in before.items())
+
+def test_original_byte_arguments_and_reversed_roster_slots():
+    class Guest:
+        def stack_word(self,index):return {2:0xFF31,4:0,6:10,8:0xFF00}[index]
+    assert r.arguments(Guest())=={'code':49,'actor_slot':10,'secondary_slot':0,'side':0}

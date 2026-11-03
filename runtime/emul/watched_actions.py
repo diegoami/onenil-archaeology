@@ -15,6 +15,12 @@ def integer(value,lo,hi):
 def row(g):
     index=g.rd(0x380);a=0xA52A+6*index
     return {'index':index,'code':g.rd(a,1),'player':g.rd(a+1),'secondary':g.rd(a+3),'side':g.rd(a+5,1)}
+def arguments(g):
+    # [confirmed] 0F94 reads code/side as bytes;0E45 stores BP+8 as
+    # queue primary and BP+6 as secondary (seg_0AB9_02,0EB1..0F0C).
+    return {'code':g.stack_word(2)&255,'actor_slot':g.stack_word(6),
+            'secondary_slot':g.stack_word(4),'side':g.stack_word(8)&255}
+
 def snapshot(g):
     return {'seed':g.rd(0xA51C),'elapsed':g.rd(0xD0B2),'remaining':g.rd(0xD0AE),'quick':g.rd(0xD074,1),
             'actor':g.rd(0xD09F,1),'secondary':g.rd(0xD0A0,1),
@@ -36,6 +42,9 @@ def validate(observed):
         integer(a['event'],i,i);integer(a['draw_start'],258,len(draws));integer(a['draw_end'],a['draw_start'],len(draws))
         integer(a['code'],0,63);integer(a['side'],0,1);integer(a['player'],0,3920);integer(a['secondary'],0,3920)
         integer(a['minute'],0,128);integer(a['tick'],1,observed['ticks'])
+        integer(a['actor_slot'],0,20);integer(a['secondary_slot'],0,20)
+        integer(a['seed_before'],0,65535);integer(a['seed_after'],0,65535)
+        integer(a['queue']['index'],1,1700)
         if a['queue']['code']!=a['code'] or a['queue']['player']!=a['player'] or a['queue']['secondary']!=a['secondary'] or a['queue']['side']!=a['side']:raise ValueError('numeric queue/argument identity differs')
         if i and a['draw_start']<actions[i-1]['draw_end']:raise ValueError('action cursor order differs')
         if a['seed_before']!=draws[a['draw_start']-1]['seed_after']:raise ValueError('action input seed differs')
@@ -82,7 +91,7 @@ def run():
         nonlocal pending
         if not out['ticks']:return
         if pending is not None:raise ValueError('nested commentary request')
-        code,first,second,side=[g.stack_word(i) for i in (2,4,6,8)];club=g.rd(0xD6E4+2*side)
+        args=arguments(g);code,first,second,side=[args[k] for k in ('code','actor_slot','secondary_slot','side')];club=g.rd(0xD6E4+2*side)
         def player(slot):return 0 if slot==0 else int.from_bytes(g.mem(g.far(0xD7C2)+62*(club-1)+2*(slot-1),2),'little')
         pending={'code':code,'actor_slot':first,'secondary_slot':second,'side':side,'club':club,
                  'player':player(first),'secondary':player(second),'minute':g.rd(0xD0B2),'tick':out['ticks'],
