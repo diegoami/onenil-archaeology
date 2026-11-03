@@ -41,3 +41,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T37](T37.md): Initial caller read set and original halftime continuation (#125).
 
 - [T38](T38.md): Initial selected-squad admission and original match setup (#127).
+- [T39](T39.md): Original watched player-action and commentary prefix (#129).
