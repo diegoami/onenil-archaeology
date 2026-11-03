@@ -73,3 +73,21 @@ shot/pass/tackle merely because the clock advanced,derive player actions from
 team-rating contests,or convert this observer into a viewer runtime backend.
 The owner requires those action-producing paths under native issue62/35;
 the current quick-result summary remains below that requirement.
+
+## Movement must preserve collision state
+
+[confirmed: seg_0AB9_12.asm at d9e20a4,6F98–70D2] The proposed movement
+candidate is copied from scene word2,then one signed packed-coordinate byte is
+incremented/decremented according to direction byte16. 1998:084B tests bounds
+(abs(first signed byte)<=8 and abs(second signed byte)<=37). The legality
+check can also read a word at `[D08A]+160*x+2*y+090E`:the high byte5 and a
+membership bit selected by its low byte affect acceptance. Active/actor/
+secondary/role guards determine whether this occupancy check is reached.
+
+[derived] This buffer is a gameplay dependency in watched mode,even though
+other routines also render it. A port must represent its collision/occupancy
+meaning and the routines that update it;discarding every buffer write as
+presentation could generate invented movement. A bounded first native kernel
+can cover actual candidate movement/legality and its complete nearby-cell
+read set before composing70D5 and72BB. It still cannot claim to generate the
+whole32-action sequence or a complete watched match.
