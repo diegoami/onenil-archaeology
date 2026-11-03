@@ -44,6 +44,9 @@ def test_changed_static_or_record_source_pins_reject(tmp_path,monkeypatch):
 
 
 def test_resume_validates_without_rewriting_completed_outputs(monkeypatch):
+    r.check()
+    def no_original(*args,**kwargs):raise AssertionError('resume attempted new original run')
+    monkeypatch.setattr(r.match,'Week',no_original)
     before={p:p.read_bytes() for d in (r.RUNS,r.FIXTURES) for p in d.iterdir() if p.is_file()}
     monkeypatch.setattr(r.match,'git',lambda *args:'' if args[0]=='status' else 'unused')
     r.run()
