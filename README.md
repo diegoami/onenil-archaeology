@@ -23,3 +23,15 @@ commands are in [onenil's README](https://github.com/diegoami/onenil#readme).
 To continue on another computer, follow [Stop and resume](docs/process.md#4-stop-and-resume),
 then [restore private artifacts](docs/artifacts.md#restoring-on-another-computer) only if the next
 task needs new runs of the original. Current task status is in the checkpoint issues, not here.
+
+The original full watched-match reference can be verified without private game
+bytes:
+
+```sh
+.cache/venv/bin/python runtime/emul/watched_complete.py --check
+.cache/venv/bin/python runs/T40/audit_completed.py
+```
+
+See [proposed F40](findings/F40.md) for counts,termination evidence and the
+important distinction between the retained scratch-goal field and a running
+score. This reference does not deliver a native playable match.

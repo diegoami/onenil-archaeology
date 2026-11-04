@@ -1,0 +1,21 @@
+F...                                                                     [100%]
+=================================== FAILURES ===================================
+______________________ test_valid_chunk_and_seed_context _______________________
+
+    def test_valid_chunk_and_seed_context():
+>    value=full.validate_chunk(sample());assert value=={'index':1,'draw':1,'tick':2,'action':0,'seed':2}
+
+tests/test_watched_complete.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = {'action_end': 0, 'action_start': 0, 'actions': [], 'draw_end': 1, ...}
+previous = None
+
+    def validate_chunk(value,previous=None):
+>    raise ValueError('complete watched chunk validator not implemented')
+E    ValueError: complete watched chunk validator not implemented
+
+runtime/emul/watched_complete.py:14: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_watched_complete.py::test_valid_chunk_and_seed_context - Va...
+1 failed, 3 passed in 0.09s

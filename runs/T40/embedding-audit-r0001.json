@@ -1,0 +1,10 @@
+{
+  "schema": "original-embedding-audit/1",
+  "base": "9a92faf",
+  "head": "4c344cd5eab3d7dcc81213928b5afbdee45cf7ce",
+  "changed_files": 80,
+  "private_original_files_checked": 30,
+  "nul_files": 0,
+  "aligned_128_byte_original_blocks": 0,
+  "limits": "Aligned block audit plus file-type check;decoded original numeric observations are permitted."
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "repository-test-receipt/1",
+  "command": ".cache/venv/bin/python -m pytest -q",
+  "exit_code": 0,
+  "passed": 1565,
+  "skipped": 6,
+  "elapsed_seconds": 4451.77,
+  "output": "runs/T40/full-pytest-r0001.txt",
+  "output_sha256": "77e937ea071775f592e5a947d11033258aa883434564bcfebebc723aaae2f07d",
+  "recorded": "2026-11-03T17:35:41.386273+00:00",
+  "tested_source_equivalent_commit": "9a92fafac05d8759ddfc044e42b6588db6745914",
+  "head_at_receipt": "80751aab5ae3e627d1a930de11d329edf097e83b",
+  "changes_since_equivalent_source": [
+    "runs/T40/attempt-0001-start.json",
+    "runs/T40/chunk-000000.json",
+    "runs/T40/chunk-000001.json",
+    "runs/T40/chunk-000002.json",
+    "runs/T40/chunk-000003.json",
+    "runs/T40/chunk-000004.json",
+    "runs/T40/chunk-000005.json",
+    "runs/T40/chunk-000006.json",
+    "runs/T40/chunk-000007.json",
+    "runs/T40/stream-start.json"
+  ],
+  "provenance_limit": "HEAD at test launch not separately recorded;all tracked changes since source commit are append-only T40 run metadata/chunks;source/test files unchanged. Test ran in independent process while full original capture continued."
+}
