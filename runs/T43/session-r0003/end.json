@@ -1,0 +1,150 @@
+{
+  "status": "completed",
+  "processes_exited": true,
+  "error": null,
+  "steps": 17,
+  "last_step": "c0d66e49e5e548e6b946f58071fe18a94b9430341375fc43655d5b24dec98ddf",
+  "events": [
+    [
+      0.022,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.131,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.131,
+      "Xvfb :401 answering"
+    ],
+    [
+      0.158,
+      "dosbox-x started"
+    ],
+    [
+      0.291,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      3.291,
+      "manual: waited 3 seconds after window appeared before first savestate"
+    ],
+    [
+      3.296,
+      "window focused"
+    ],
+    [
+      3.82,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      3.821,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      3.855,
+      "title screen: matched after 1 savestate polls"
+    ],
+    [
+      3.855,
+      "DOS clock read back: '11/05/2026\\n19:50:55'"
+    ],
+    [
+      5.38,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      5.381,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      5.931,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      6.216,
+      "key y held 0.08s (raw keycode 29)"
+    ],
+    [
+      9.74,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      9.743,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      10.281,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      28.789,
+      "key Down held 0.08s (raw keycode 116)"
+    ],
+    [
+      30.313,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      30.315,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      30.853,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      31.139,
+      "key Escape held 0.08s (raw keycode 9)"
+    ],
+    [
+      32.663,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      32.664,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      33.211,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      33.498,
+      "key Up held 0.08s (raw keycode 111)"
+    ],
+    [
+      33.581,
+      "key Return held 0.08s (raw keycode 36)"
+    ],
+    [
+      37.104,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      37.106,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      37.645,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      48.096,
+      "dosbox-x pid 199505 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group"
+    ],
+    [
+      48.106,
+      "dosbox-x pid 199505 ended by SIGKILL 0.51s after the first signal"
+    ],
+    [
+      48.113,
+      "Xvfb pid 199498 ended by SIGTERM 0.008s after the first signal"
+    ],
+    [
+      48.113,
+      "terminated"
+    ]
+  ],
+  "ended": "2026-11-05T18:51:44.172Z"
+}

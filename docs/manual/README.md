@@ -23,6 +23,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | --- | --- | --- |
 | [Startup and main menu](startup.md) | Observed supplied-save route: S001/S002, W001; other main-menu actions unvisited | #136 |
 | [New-game setup](setup.md) | Observed S003–S009/W002–W004: England 1994/95, one manager, club browsing, name/nationality, Escape/default/blank-name branches; save/reload and other setups pending | #137 |
+| [Saving and loading](saves.md) | Observed F7, F10/N, two-save selector, Escape and fresh-process MANUAL reload with matching visible state; error and post-match persistence branches pending | #137 |
 | Squad and tactics | Selection, player details, roles, reserves, validation | #138 |
 | Matchday | Pre-match through halftime/fulltime and results | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
@@ -46,3 +47,9 @@ are not substitutes for the requested illustrated walkthrough.
 | S007 | Manager name | Default K Dalglish; clearing field and accepting blank exercised |
 | S008 | Nationality | England accepted; alternatives visible but untested |
 | S009 | New-game main menu | Blackburn R/1994–95; blank manager variant; no persistence claim yet |
+
+[confirmed] [Saving and loading](saves.md) adds W005 save/quit-cancel and W006
+fresh-process reload. S010 is the main menu after F7, S011 the quit confirmation,
+and S012 the saved-game selector. S003-named/S009-named/S009-reloaded are scenario
+variants; their evidence and the copied-save intervention are described in that
+chapter. These do not establish every internal field's persistence.
