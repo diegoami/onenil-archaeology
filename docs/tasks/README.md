@@ -76,3 +76,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T55 Authenticate decoded UI text in the original-byte scanner](T55.md)
 
 - [T56 Original autumn progression and cup ties manual](T56.md)
+
+- [T57 Executable-derived management screen blueprint](T57.md)
