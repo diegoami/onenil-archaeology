@@ -1,0 +1,13 @@
+{
+  "producer": "079f1edf4fcfaac753e09ff2d24aa3c02861d6ae",
+  "completed_sessions": 1,
+  "rendered_screenshots": 66,
+  "targeted_tests": "23 passed",
+  "manual_links": "pass",
+  "original_file_check": "pass",
+  "diff_check": "pass",
+  "prior_evidence_static_frozen_tasks_unchanged": 1580,
+  "outcomes": "fee refusal, accepted purchase with squad change, sale N/Y, unlist, scout results/filter/bid cancellation",
+  "displayed_main_funds_before_after_purchase": 452000,
+  "scope": "Accounting timing and completed sale not established; original bytes local pending backup approval"
+}

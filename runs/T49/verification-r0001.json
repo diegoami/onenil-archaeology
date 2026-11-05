@@ -1,0 +1,12 @@
+{
+  "completed_sessions": 2,
+  "rendered_screenshots": 57,
+  "aborted_sessions_retained": 1,
+  "targeted_tests": "23 passed",
+  "prior_evidence_static_frozen_tasks_unchanged": 1579,
+  "manual_local_links": "pass",
+  "original_file_check": "pass",
+  "diff_check": "pass",
+  "private_backup": "prepared after both T49/T50 runs finish; bytes local until authorization",
+  "scope": "Independent supplied-save Watch-off and watched R-result; friendly observations only; no outcome parity claim"
+}
