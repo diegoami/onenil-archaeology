@@ -64,3 +64,16 @@ also identify the game-file hashes used by each capture.
 No credentials, original bytes or private savestates belong in a git commit, public attachment
 or release. A checkpoint records the verification receipt and whether any private artifact is
 still only local; build environments and disposable caches are not transfer artifacts.
+
+## Authenticated decoded UI text
+
+[designed: owner, 2026-11-05, explicit approval] A displayed menu heading can
+also occur literally in an executable. The embed check excludes only the `text`
+JSON string in a canonical `runs/T*/session-rNNNN/step-NNNN.json` record when
+it is a printable display of at most80 columns/25 rows and the completed session
+validates its committed producer, release, input/record chain, text digest,
+screenshot digests and process ending. Unauthenticated/malformed records retain
+the full scan. All other original file bytes, JSON fields (including highlighted
+text and metadata), unrelated paths and raw/hex payloads remain scanned. This
+exception changes the scanner's view only; it never rewrites stored evidence.
+Earlier failure receipts remain part of the audit trail.
