@@ -1,0 +1,9 @@
+{
+  "base": "e0dbb83b8ccf64b5e5b8a358d4311ec3652be650",
+  "prior_evidence_static_frozen_task_files_unchanged": 1074,
+  "earlier_check": "Compared against T45 source before T46 task definition; broad docs/tasks prefix also included mutable README index and flagged its T46 append. No measured record or frozen task body was altered.",
+  "original_file_check": "pass",
+  "targeted_tests": "23 passed",
+  "completed_capture_screens": 59,
+  "save_sha256": "aecb2f9ac707937bd1f10d333ed79143a407747b6e478627d752cd536b9e2385"
+}

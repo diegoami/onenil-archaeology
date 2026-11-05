@@ -40,3 +40,27 @@ def test_reject_damaged_evidence(tmp_path,damage):
         path.write_text(json.dumps(value))
     with pytest.raises((ValueError,FileNotFoundError)):
         manual.validate(directory,source=False)
+
+@pytest.mark.parametrize('damage',['missing','mismatch'])
+def test_restart_receipt_required(tmp_path,damage):
+    directory=fixture(tmp_path)
+    path=directory/'session.json';value=json.loads(path.read_text());value['requires_restart']=True;path.write_text(json.dumps(value))
+    if damage=='mismatch':
+        path=directory/'step-0001.json';value=json.loads(path.read_text())
+        value['restart']=dict(old_pid=12,new_pid=13,old_processes_exited=True,saved_files={'SAVE1.1-0':'a'*64},restored_files={'SAVE1.1-0':'b'*64})
+        path.write_text(json.dumps(value));last=manual.sha(path.read_bytes())
+        path=directory/'end.json';value=json.loads(path.read_text());value['last_step']=last;path.write_text(json.dumps(value))
+    with pytest.raises(ValueError,match='missing restart receipt|restart save hashes'):
+        manual.validate(directory,source=False)
+
+@pytest.mark.parametrize('route,steps,valid',[
+    ('supplied',[dict(keys=[],text='title'),dict(keys=['y'],text='PLAY NEXT GAME')],True),
+    ('supplied',[dict(keys=['n'],text='PLAY NEXT GAME')],False),
+    ('supplied',[dict(keys=['y'],text='loading')],False),
+    ('setup',[dict(keys=['n'],text='Please enter name of new game'),dict(keys=['Return'],text='PLAY NEXT GAME')],True),
+    ('setup',[dict(keys=['n'],text='PLAY NEXT GAME')],False),
+])
+def test_route_identity(route,steps,valid):
+    if valid:manual.check_route(steps,route)
+    else:
+        with pytest.raises(ValueError):manual.check_route(steps,route)

@@ -1,0 +1,6 @@
+{
+  "session": "session-r0002",
+  "status": "retained aborted exploration; not invalid-selection proof",
+  "observed": "Four rapid Down keys reached Friendlies, not intended Auto player select; eighteen Down keys reached B Mimms, not an empty row. Exiting Players selected Players on main menu; assumed old Game configuration selection was wrong, so subsequent keys opened Transfer market.",
+  "lesson": "Read actual highlighted control before activating; use individual captures for critical navigation. Capture IDs describe exploratory intent and are not verified screen classifications."
+}
