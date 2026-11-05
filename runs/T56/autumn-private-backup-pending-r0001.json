@@ -1,0 +1,12 @@
+{
+  "status": "private backup pending owner approval",
+  "archive": "/home/diego/projects/onenil-archaeology/.cache/recovery/T56-autumn-game-saves-r0001.tar.gz",
+  "archive_bytes": 163902,
+  "archive_sha256": "6abd0232cdd136bc5e50393cc62c88c7596554d1f3646ecd69cf8690d61c9800",
+  "final_capture": "runs/T56/session-r0001/step-0175.json",
+  "final_save_sha256": "c43fd8ffc31a17e5fc460541cbb6ef5448689830a4b0cc8b1933c5f423edddb0",
+  "members": [
+    "league8/SAVE1.1-0",
+    "league10/SAVE1.1-0"
+  ]
+}

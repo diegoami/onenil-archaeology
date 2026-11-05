@@ -1,0 +1,8 @@
+{
+  "status": "preserved locally; private upload not yet authorized",
+  "capture": "runs/T56/session-r0001/step-0144.json",
+  "source": "/tmp/onenil-manual-T56-session-r0001/restart-1/game/SAVE1.1-0",
+  "private_copy": ".cache/recovery/T56-checkpoint2-SAVE1.1-0",
+  "save_sha256": "d230502014be76245cf174f793672a94dafdef129364838dbe47a25ad5989f0d",
+  "save_bytes": 194426
+}
