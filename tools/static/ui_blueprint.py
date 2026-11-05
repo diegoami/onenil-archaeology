@@ -106,6 +106,13 @@ def labels(model):
     return result
 
 
+def compose(base, overlay):
+    """Apply a later resource in the original call order, retaining the base viewport."""
+    if not set(overlay["cells"]).issubset(base["cells"]):
+        raise ValueError("overlay outside comparison viewport")
+    return {**base, "cells": {**base["cells"], **overlay["cells"]}}
+
+
 def resource_callers():
     result = []
     for path in sorted((ROOT / "static/1-0-exe/code").glob("*.asm")):
@@ -165,16 +172,39 @@ def analyse():
             raise ValueError("resource crosses a missing listing range")
         observed_path = ROOT / observed
         record, lines = capture(observed_path)
+        comparison_model = model
+        overlays = []
+        if name == "main_menu":
+            # 0006:1B88..1B92 draws this AFTER DS:45E6 for one manager.
+            # It replaces two side-border cells with separator junctions.
+            overlay = decode(data, 0x5A28)
+            comparison_model = compose(model, overlay)
+            overlays.append(dict(resource="2864:5A28", caller_path="0006:1B88..1B92",
+                                 resource_sha256=sha(data[0x5A28:0x5A28 + overlay["consumed"]])))
         resources.append(dict(name=name, resource=f"2864:{offset:04X}", caller=caller,
                               rectangle={k: model[k] for k in ["start_cell", "x", "y", "width", "height"]},
                               resource_bytes_consumed=model["consumed"],
                               resource_sha256=sha(data[offset:offset + model["consumed"]]),
                               base_attribute_codes=sorted({a for c, a in model["cells"].values()}),
+                              later_resource_overlays=overlays,
                               captured_record=observed, captured_record_sha256=sha(observed_path.read_bytes()),
-                              screenshot_sha256=record["screenshot_sha256"], comparison=compare(model, lines)))
+                              screenshot_sha256=record["screenshot_sha256"], comparison=compare(comparison_model, lines)))
+    candidates = resource_callers()
+    for item in candidates:
+        offset = int(item["resource"].split(":")[1], 16)
+        try:
+            model = decode(data, offset)
+            if not set(range(offset, offset + model["consumed"])).issubset(covered):
+                raise ValueError("missing listing range")
+            item.update(status="decoded component; composite/runtime unverified",
+                        rectangle={k:model[k] for k in ["x","y","width","height"]},
+                        resource_sha256=sha(data[offset:offset + model["consumed"]]),
+                        short_label_sample=labels(model)[:3])
+        except ValueError as error:
+            item.update(status="unresolved resource", reason=str(error))
     return dict(decoder="24BC:0000", wrapper="232A:052F", coordinates="zero-based x/y; resource start cell is one-based linear",
                 listing_sha256={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in paths},
-                resources=resources, candidate_resource_callers=resource_callers())
+                resources=resources, candidate_resource_callers=candidates)
 
 
 def main():

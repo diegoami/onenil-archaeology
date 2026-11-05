@@ -75,3 +75,14 @@ def test_static_label_coordinates_and_border_comparison():
     lines[1] = " " * 80
     c = ui.compare(r, lines)
     assert len(c["label_mismatches"]) == 1 and c["border_mismatch_count"] == 2
+
+
+def test_later_resource_replaces_border_cells_without_mutating_base():
+    base = ui.decode(resource(b"\xba   \xba", width=5))
+    overlay = ui.decode(resource(b"\xc7", start=1))
+    combined = ui.compose(base, overlay)
+    assert combined["cells"][(0, 0)][0] == 0xC7
+    assert base["cells"][(0, 0)][0] == 0xBA
+    assert combined["cells"][(4, 0)] == base["cells"][(4, 0)]
+    with pytest.raises(ValueError, match="outside"):
+        ui.compose(base, ui.decode(resource(b"X", start=81)))
