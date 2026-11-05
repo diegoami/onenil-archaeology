@@ -135,3 +135,69 @@ separate conditional coverage.
 
 ![Played cup results](../../runs/T54/session-r0001/step-0108.png)
 ![Following round draw](../../runs/T54/session-r0001/step-0109.png)
+
+## W056 — Statistics after league fixture four
+
+[confirmed] After league fixture4, select Statistics in the main menu and Enter.
+The earlier prerequisite message is replaced by a populated PREMIER LEAGUE
+screen. Our burst of Down inputs first left Fixture list selected; an additional
+Down visibly selected Statistics before Enter. Use the actual highlight rather
+than treating a burst's requested count as guaranteed navigation.
+
+![Statistics available](../../runs/T54/session-r0001/step-0124.png)
+
+| Panel | Visible fields |
+| --- | --- |
+| Top scorers (league and cups) | Role glyph, player surname, team, goals; here Cole/Manchester Utd leads with7 |
+| Team league statistics | Best/worst attack, best/worst defence, most home wins/defeats, most away wins/defeats, with club and count |
+| Current form | Consecutive wins/defeats, games without win/defeat, with club and count |
+
+[confirmed] Down changes to Division One, Up returns to Premier; Enter also
+changes to Division One, Delete returns to Premier. Escape exits to management.
+No player-detail selection or sorting control is advertised on this screen.
+The rendered role glyphs are more reliable than their decoded text substitutes.
+
+![Division One statistics](../../runs/T54/session-r0001/step-0125.png)
+![Premier statistics restored](../../runs/T54/session-r0001/step-0128.png)
+
+[confirmed] The automatic table after league4 shows Blackburn P4, goals4–6,
+PTS3, place10; Liverpool P4/PTS8. These are this run's displayed standings.
+No tie-break or complete-season rule is inferred from the ordering.
+
+![Table after four league fixtures](../../runs/T54/session-r0001/step-0118.png)
+
+## W057 — Save and reload the progressed week in a fresh process
+
+[confirmed] After Statistics Escape, F7 saved the actual main menu. A fresh
+original process was launched after terminating the previous emulator/Xvfb,
+copying only its game-save files into a verified release copy before mounting
+DOS. The restart receipt records different process IDs and matching source/
+destination save hashes; no emulator savestate was restored as persistence.
+Y loaded the progressed game. Its entire decoded main-menu text matched the
+saved screen exactly, including funds832695 and the next IFK Gothenburg home
+European Cup R#1 L#1 fixture. F7 saved again after reload.
+
+![Saved main menu](../../runs/T54/session-r0001/step-0130.png)
+![Fresh original title](../../runs/T54/session-r0001/step-0131.png)
+![Reloaded progressed game](../../runs/T54/session-r0001/step-0132.png)
+
+[confirmed] This establishes the observed week/menu persistence and its game
+save identity, not every hidden engine field. The final private save is the
+identified input for autumn continuation; the earlier file copied while an
+expiry editor was open is retained separately and is not called a successful
+F7 checkpoint.
+
+## Branch coverage
+
+| Area | Observed | Remaining |
+| --- | --- | --- |
+| Preseason/league | Four friendlies, first four league fixtures, results/table route | Later season, promotion/relegation and rollover |
+| Expiry | Automatic Newell renewal accepted, changed wage/games | Other refusal/expiry and free-agent consequences |
+| Selling | Incoming Sutton offer accepted, news and next-period proceeds | N on incoming buyer offer and other negotiations |
+| Availability | International/suspended flags, insufficient-player refusal and original replacement | Return timing and disciplinary thresholds |
+| Cup injury | First-half interruption, legal replacement, quota3→2, fulltime and next draw | Extra time, penalties, quota exhaustion and other injuries |
+| Statistics | Populated fields and four division navigation keys, exit | Later values and other seasonal states |
+| Persistence | Actual F7, fresh process, copied-save hashes, identical visible week | Unobserved internal state and full season recovery |
+
+[designed] Autumn/winter traversal and a completed-season boundary remain #142;
+this early-season checkpoint does not close the manual milestone.

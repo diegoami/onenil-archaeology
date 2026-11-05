@@ -1,0 +1,17 @@
+{
+  "number": 125,
+  "previous": "3a971d4e5ed2140f39e79a4d985f9fcbfa98d28c8885784f57ec64125027c2f9",
+  "id": "S424-statistics-next-division",
+  "keys": [
+    "Down"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "  Top scorers (league and cups)         DIVISION ONE\n\n \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u2502 \u00a2 Fjortoft    Middlesbro-----   7 \u2502  Team league statistics\n \u2502 $ Geuntchev   Ipswich Town---   6 \u2502  ----------------------\n \u2502 $ Roberts     Leicester City-   5 \u2502  Best attack          Aston Villa----  10\n \u2502 $ Gronendijk  Manchester City   5 \u2502  Worst attack         Barnsley-------   1\n \u2502 $ Saunders    Aston Villa----   4 \u2502  Best defence         Ipswich Town---   2\n \u2502 $ Bull        Wolves---------   4 \u2502  Worst defence        Barnsley-------  12\n \u2502 \u00a2 Nogan       Reading--------   3 \u2502  Most home wins       Leicester City-   3\n \u2502 $ Simpson     Derby County---   3 \u2502  Most home defeats    Watford--------   2\n \u2502 \u00a2 Armstrong   Crystal Palace-   3 \u2502  Most away wins       Manchester City   2\n \u2502 \u00a2 Sheron      Norwich City---   3 \u2502  Most away defeats    Tranmere Rovers   2\n \u2502 $ McGinlay    Bolton W-------   3 \u2502\n \u2502 F Walsh       Manchester City   2 \u2502  Current form\n \u2502 \u00a2 Quinn       Manchester City   2 \u2502  --------------------\n \u2502 W Salako      Crystal Palace-   2 \u2502  Consecutive wins     Aston Villa----   3\n \u2502 \u00a2 Malkin      Tranmere Rovers   2 \u2502  Consecutive defeats  Barnsley-------   4\n \u2502 \u00a2 Atkinson    Crystal Palace-   2 \u2502  Games without a win  Barnsley-------   4\n \u2502 F Mason       Ipswich Town---   2 \u2502  Games without defeat Aston Villa----   4\n \u2502 C Vickers     Middlesbro-----   2 \u2502\n \u2502 $ Beadle      Watford--------   2 \u2502   \u25c4\u2518,\u2193-next division\n \u2502 \u00a2 Flo         Sheffield Utd--   2 \u2502  Del,\u2191-previous division\n \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                                                       Esc-exit",
+  "text_sha256": "247b0841c219a2b0a03b5ab41477c415545096e4f2a058343bd1072c0558d1b8",
+  "screen_sha256": "276fd6380d784ea133df646c5a4d4b11211d95eb5b3504e52396b041f84d55fd",
+  "highlighted": [],
+  "screenshot": "step-0125.png",
+  "screenshot_sha256": "34319be0b8087a5a433201280a426506d420a53f5270c04b077c091cd37733a8",
+  "time": "2026-11-05T21:29:17.536Z"
+}

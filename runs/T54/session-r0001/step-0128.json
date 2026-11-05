@@ -1,0 +1,17 @@
+{
+  "number": 128,
+  "previous": "1da3c341340942f60f600986b06487687d2f74e7a5eb0da0267a9bd261f8b549",
+  "id": "S427-statistics-delete-previous",
+  "keys": [
+    "Delete"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "  Top scorers (league and cups)         PREMIER LEAGUE\n\n \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u2502 $ Cole        Manchester Utd-   7 \u2502  Team league statistics\n \u2502 $ Walters     Liverpool------   6 \u2502  ----------------------\n \u2502 $ Blissett    Wimbledon------   5 \u2502  Best attack          Liverpool------  13\n \u2502 \u00a2 Ferdinand   Q.P.R----------   5 \u2502  Worst attack         Sheffield Wed--   2\n \u2502 \u00a2 Clough      Liverpool------   4 \u2502  Best defence         Liverpool------   2\n \u2502 $ Mathie      Newcastle Utd--   4 \u2502  Worst defence        West Ham Utd---  13\n \u2502 W Wallace     Leeds Utd------   4 \u2502  Most home wins       Liverpool------   2\n \u2502 $ White       Leeds Utd------   3 \u2502  Most home defeats    Everton--------   2\n \u2502 $ Wegerle     Coventry City--   3 \u2502  Most away wins       Liverpool------   2\n \u2502 $ Jones       Coventry City--   3 \u2502  Most away defeats    Sheffield Wed--   2\n \u2502 $ Penrice     Q.P.R----------   3 \u2502\n \u2502 $ Cottee      West Ham Utd---   3 \u2502  Current form\n \u2502 \u00a2 Hughes      Manchester Utd-   3 \u2502  --------------------\n \u2502 F Cantona     Manchester Utd-   3 \u2502  Consecutive wins     Liverpool------   4\n \u2502 $ Peacock     Chelsea--------   3 \u2502  Consecutive defeats  Arsenal--------   3\n \u2502 \u00a2 Rosario     Nottingham F---   3 \u2502  Games without a win  Arsenal--------   4\n \u2502 $ Rosenthal   Tottenham H----   3 \u2502  Games without defeat Liverpool------   4\n \u2502 \u00a2 Kitson      Newcastle Utd--   3 \u2502\n \u2502 W Harkness    Liverpool------   3 \u2502   \u25c4\u2518,\u2193-next division\n \u2502 w Barnes      Liverpool------   2 \u2502  Del,\u2191-previous division\n \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                                                       Esc-exit",
+  "text_sha256": "5b387fb7fd0310953dec46a00a58837821a1496803ff0a2b3533239f62ff183b",
+  "screen_sha256": "3c73a2f93c77001c830ecc2734af0017c4a248b295542b809002e355f177f855",
+  "highlighted": [],
+  "screenshot": "step-0128.png",
+  "screenshot_sha256": "97c88c9247b8d354c411c3f33e961d04882af15b8d07aa792209abde23eb40d8",
+  "time": "2026-11-05T21:29:24.628Z"
+}
