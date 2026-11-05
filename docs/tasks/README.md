@@ -56,3 +56,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T45 Original squad browsing and player information manual](T45.md)
 
 - [T46 Original lineup moves, player roles and instructions](T46.md)
+
+- [T47 Original match preparation and team tactics manual](T47.md)
