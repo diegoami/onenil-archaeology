@@ -24,9 +24,9 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Startup and main menu](startup.md) | Observed supplied-save route: S001/S002, W001; other main-menu actions unvisited | #136 |
 | [New-game setup](setup.md) | Observed S003–S009/W002–W004: England 1994/95, one manager, club browsing, name/nationality, Escape/default/blank-name branches; all four starting-season setup routes and two managers observed; see branch matrix | #137 |
 | [Saving and loading](saves.md) | Observed F7, F10/N, two-save selector, Escape and fresh-process MANUAL reload with matching visible state; error and post-match persistence branches pending | #137 |
-| [Squad browsing and player details](squad.md) | Observed skills/details, three players, empty reserves, options/cancel, Space/Ins shortcuts; selection/tactics mutations and validation pending | #138 |
+| [Squad browsing and player details](squad.md) | Observed skills/details, three players, empty reserves, options/cancel, Space/Ins shortcuts; lineup/individual changes are in selection.md; conditional availability remains pending | #138 |
 | [Lineup and individual instructions](selection.md) | Observed swap/cancel, current-position cycle, Club position restore, goalkeeper instruction cycle and changed-state reload; team tactics/conditional validation pending | #138 |
-| Matchday | Pre-match through halftime/fulltime and results | #139 |
+| [Match preparation](match-preparation.md) | Observed opponent/configuration, eight team instruction cycles, formation change/restoration, statistics, pitch kickoff and insufficient-player refusal; watched/quick completion pending | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
@@ -78,3 +78,19 @@ PUT HERE state; S023 labels Reposition result variants, S024 Club position resul
 variants (both on the existing details/options view); S025 is the individual
 instruction editor. The saved/reloaded lineup and instruction are checked in
 its captures; team-level tactics and match admission remain separate work.
+
+## Match preparation screen catalog
+
+[confirmed] [Match preparation](match-preparation.md) documents W018–W023.
+
+| ID | Screen | Observed limits |
+| --- | --- | --- |
+| S026 | Opponent club browser | Initial opponent/fields; entry and exit tested |
+| S027 | Game configuration | Watch match and Auto player select toggles exercised |
+| S028 | Match preparation | Valid/incomplete, formation3-4-3/4-4-2, refusal-return variants |
+| S029 | Team instruction editor | Eight rows and their two displayed values exercised |
+| S030 | Match statistics before kickoff | Zero counters; any-key return |
+| S031 | Watched pitch at kickoff | Actual original pitch and named opening commentary; controls advertised |
+| S032 | Transfer browser, exploratory arrival | Wrong-route capture retained in T47-r0002; no admission claim |
+| S033 | Incomplete pre-match variant | Same S028 view with ten visible starters; no refusal yet |
+| S034 | Insufficient-player refusal | PLAY GAME blocked; Space dismisses back to preparation |

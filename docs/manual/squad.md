@@ -82,8 +82,9 @@ Space for more options, H to hire a youth player and Escape to exit. The options
 menu lists Reposition, Club position, Sell, Take off T.M, Change tactics,
 New contract, Fire and Continue. For this contracted I Pearce, Take off T.M
 has an x; the other listed entries show ticks. Only opening and cancelling this
-menu was exercised here. Repositioning, roles, lineup changes, hiring, contracts,
-selling/firing and conditional availability are pending their own workflows.
+menu was exercised here. [Lineup/position changes and individual instructions](selection.md) are covered
+separately. Hiring, contracts, selling/firing and conditional availability remain
+pending their own workflows.
 
 ## W011: the main-menu squad shortcut remembers the view
 

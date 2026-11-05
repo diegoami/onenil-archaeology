@@ -1,0 +1,11 @@
+{
+  "completed_sessions": 2,
+  "completed_screens": 82,
+  "retained_exploratory_screens": 14,
+  "positive": "formation4-4-2 to3-4-3 to4-4-2; actual pitch and named kickoff",
+  "negative": "auto selection x; ten starters; PLAY GAME refused; Space returns to preparation",
+  "targeted_tests": "23 passed",
+  "prior_evidence_static_frozen_tasks_unchanged": 1256,
+  "preservation_base": "64689808f72118f2f2d37ea06b6ed89370bd4cb3",
+  "private_release_and_scratch_save": "unchanged; no new generated save backup needed"
+}
