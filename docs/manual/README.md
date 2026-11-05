@@ -32,6 +32,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Transfers and scouting](transfers.md) | Observed market/scout, bid cancel/refusal, accepted purchase and squad change, listing/unlisting; renewal/expiry and completed selling pending | #140 |
 | [Contracts and youth trials](contracts.md) | Observed renewal editing/cancel/refusal, both dismissal confirmations/cancellations and actual removal, goalkeeper trial recruitment; expiry/accepted renewal pending | #140 |
 | [Finances, staff and stadium](administration.md) | Observed accounts, staff refusal/hire/cancel/sack cancellation, weekly posting and stadium order/abort; deferred completion pending | #141 |
+| [Statistics, histories and other teams](history.md) | Observed availability messages, transfer/team history, club/division/panel/squad browsing and exits; populated seasonal views pending | #142 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
 
 Until a chapter cites its captures, its workflows are unvisited in this manual.
