@@ -81,3 +81,11 @@ explicit so the next Rust slice can be bounded by an observed contract before fu
 | Editions disagree on a rule | each finding names the edition(s) it holds for; 96 decides (rule 16) |
 | A trace format too narrow for onenil's tests | the first harness task (T06) fixes the trace format with onenil's first consuming test |
 | goal2's tools assume goal2's layout | port them with tests on both EXEs, never by copying results |
+
+## Management UI discovery before further rebuild work
+
+[designed: owner,2026-11-05] After the accepted watched exhibition, follow the
+[illustrated manual roadmap](roadmap.md): thoroughly play the original, catalog
+screens and workflows with rendered screenshots, audit native gaps, then decide
+UI technology using representative spikes before implementing the management
+week and season. Milestone135 and its linked backlog own live progress.

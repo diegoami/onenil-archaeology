@@ -1,0 +1,50 @@
+{
+  "status": "aborted",
+  "processes_exited": true,
+  "error": "RuntimeError: dosbox-x exited with code -11 during a savestate",
+  "steps": 0,
+  "last_step": null,
+  "events": [
+    [
+      0.023,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.254,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.254,
+      "Xvfb :212 answering"
+    ],
+    [
+      0.281,
+      "dosbox-x started"
+    ],
+    [
+      0.413,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      0.417,
+      "window focused"
+    ],
+    [
+      0.94,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      1.393,
+      "dosbox-x pid 187277 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.401,
+      "Xvfb pid 187270 ended by SIGTERM 0.008s after the first signal"
+    ],
+    [
+      1.401,
+      "terminated"
+    ]
+  ],
+  "ended": "2026-11-05T18:38:58.280Z"
+}
