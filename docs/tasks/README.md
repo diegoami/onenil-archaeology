@@ -44,3 +44,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T39](T39.md): Original watched player-action and commentary prefix (#129).
 
 - [T40 Complete original watched-match reference](T40.md)
+
+- [T41 Illustrated manual roadmap and original startup survey](T41.md)
