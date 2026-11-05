@@ -25,6 +25,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [New-game setup](setup.md) | Observed S003–S009/W002–W004: England 1994/95, one manager, club browsing, name/nationality, Escape/default/blank-name branches; all four starting-season setup routes and two managers observed; see branch matrix | #137 |
 | [Saving and loading](saves.md) | Observed F7, F10/N, two-save selector, Escape and fresh-process MANUAL reload with matching visible state; error and post-match persistence branches pending | #137 |
 | [Squad browsing and player details](squad.md) | Observed skills/details, three players, empty reserves, options/cancel, Space/Ins shortcuts; selection/tactics mutations and validation pending | #138 |
+| [Lineup and individual instructions](selection.md) | Observed swap/cancel, current-position cycle, Club position restore, goalkeeper instruction cycle and changed-state reload; team tactics/conditional validation pending | #138 |
 | Matchday | Pre-match through halftime/fulltime and results | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
@@ -71,3 +72,9 @@ The new-game menu has NEXT PLAYER/Previous player variants for two managers.
 | S019 | Main-menu club information | First Insert; displayed fields inventoried |
 | S020 | Main-menu staff information | Second Insert; displayed staff/fields inventoried |
 | S021 | Return to original main panel | Third Insert; same formation/tactics panel as S002 |
+
+[confirmed] [Selection changes](selection.md) adds W014–W017. S022 is the active
+PUT HERE state; S023 labels Reposition result variants, S024 Club position result
+variants (both on the existing details/options view); S025 is the individual
+instruction editor. The saved/reloaded lineup and instruction are checked in
+its captures; team-level tactics and match admission remain separate work.
