@@ -1,0 +1,12 @@
+{
+  "full_suite_source": "807dc2c1023767c93ba1e2c21f2a7b0cc25f380d",
+  "restricted_run": "13 failed,1562 passed,6 skipped in1840.99s",
+  "failure_scope": "Exactly tests/static/test_ghidra_work.py; filesystem sandbox made /home/diego/onenil-ghidra-work read-only",
+  "unchanged_failed_file_host_recheck": "13 passed in1.26s; required filesystem access",
+  "test_assertions_changed": false,
+  "added_T41_tests_after_collection": "8 inherited tests pass within18 targeted tests after dependency merge",
+  "capture_check": "completed17screen fresh-process MANUAL reload; full main-menu text equality",
+  "original_embed_preservation": "pass;893 prior files unchanged",
+  "private_backup": "pending archive-specific approval after automatic rejection",
+  "final_exact_head_ci": "required after this receipt commit"
+}
