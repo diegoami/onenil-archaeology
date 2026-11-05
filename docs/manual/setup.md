@@ -19,8 +19,7 @@ setup; persistence after saving and restarting is still pending under #137.
 [confirmed] Exact route and before/action/after evidence:
 [session-r0003](../../runs/T42/session-r0003/session.json), steps 0–4,
 producer `1bd53c2`. “Players” at this prompt means human managers: the subsequent
-club selector says “Select your team, player 1”; the TWO branch's second manager
-has not yet been exercised.
+club selector says “Select your team, player 1”; the TWO branch is exercised separately in W007 below.
 
 ![S003: new-game filename](../../runs/T42/session-r0003/step-0001.png)
 ![S004: starting season](../../runs/T42/session-r0003/step-0002.png)
@@ -84,8 +83,78 @@ exists for that exit; do not interpret the aborted harness status as a game cras
 
 ## Coverage remaining
 
-Other seasons, the two-manager route and duplicate-club refusal, filename editing
-and further invalid-name cases, save overwrite/confirmation, missing-save loading and persisted
-reload are pending. The presence of a season choice is not proof that its later
+Further invalid filename/name cases and missing/unreadable-save errors remain
+pending. Filename editing and fresh-process persistence are documented in
+[saving and loading](saves.md); other starting seasons and two managers follow below. The presence of a season choice is not proof that its later
 competition rules have been traversed. Squad inspection and matchday have their
 own chapters/backlog tasks.
+
+## W007: two human managers and duplicate-club refusal
+
+[confirmed] Choose England 1993/94 and TWO (Right then Enter at S005).
+The club browser now asks for player 1. Accept Manchester Utd, default name
+A Ferguson and England nationality. The browser returns for player 2.
+Pressing Enter on the same Manchester Utd displays S014:
+“You can't choose the same team : hit any key”. **Space** dismisses the
+message. **Down**, **Enter** chooses Blackburn R. Accept K Dalglish and
+England to finish setup.
+
+[confirmed] The first main menu belongs to Manchester Utd and its top action
+is **NEXT PLAYER**, not PLAY NEXT GAME. **Enter** hands control to Blackburn R;
+its menu has PLAY NEXT GAME and an additional **Previous player** entry.
+The latter is visible but has not been exercised here. This procedure does not
+advance a two-manager match or prove how their later turns synchronize.
+
+[confirmed] Evidence: T44/session-r0001, producer `a25747a`, steps 0–13;
+[session metadata](../../runs/T44/session-r0001/session.json). Screens 4–7 show
+player 1 and player 2 setup, 8 refusal, 9 dismissal, 10–11 second name/nationality,
+12 first turn and 13 handover.
+
+![S006 variant: second human manager](../../runs/T44/session-r0001/step-0007.png)
+![S014: duplicate club refusal](../../runs/T44/session-r0001/step-0008.png)
+![S007 variant: second manager name](../../runs/T44/session-r0001/step-0010.png)
+![S009 variant: first manager turn](../../runs/T44/session-r0001/step-0012.png)
+![S009 variant: second manager turn](../../runs/T44/session-r0001/step-0013.png)
+
+## W008: Italy 1993/94 setup
+
+[confirmed] From N and the default filename, press Down twice then Enter in
+the season selector, accept ONE, then accept AC Milan, the default name
+F Capello and Italy nationality. The resulting main menu displays AC Milan,
+Capello and season 1993/94. This is setup coverage only.
+Evidence: [T44/session-r0002](../../runs/T44/session-r0002/session.json),
+producer `a25747a`, steps 0–7. Its initial club browser is SERIE A.
+
+![S006 variant: Italian club browser](../../runs/T44/session-r0002/step-0004.png)
+![S009 variant: Italian new game](../../runs/T44/session-r0002/step-0007.png)
+
+## W009: Scotland 1993/94 setup and another nationality
+
+[confirmed] At S004 press Down three times then Enter, accept ONE, and the club
+browser starts on Rangers in PREMIER LEAGUE. **Right** shows DIVISION ONE and
+Clydebank; **Left**, **Enter** returns to and chooses Rangers. Accept the default
+name W Smith. The nationality selector initially highlights SCOTLAND. **Down**
+highlights SPAIN; **Enter** accepts it and opens the Rangers/Smith/1993–94 main
+menu. This establishes acceptance of a nationality different from the league;
+it does not establish the nationality's later gameplay effects.
+
+[confirmed] Evidence: [T44/session-r0003](../../runs/T44/session-r0003/session.json),
+producer `a25747a`, steps 0–9.
+
+![S006 variant: Scottish club browser](../../runs/T44/session-r0003/step-0004.png)
+![S006 variant: Scottish Division One](../../runs/T44/session-r0003/step-0005.png)
+![S008 variant: Scotland initially selected](../../runs/T44/session-r0003/step-0007.png)
+![S008 variant: Spain selected](../../runs/T44/session-r0003/step-0008.png)
+![S009 variant: Scottish new game](../../runs/T44/session-r0003/step-0009.png)
+
+### Nationality choices visible in the original
+
+[confirmed] The England and Scotland selector screenshots together show these
+32 choices, in displayed order: Albania, Austria, Belgium, Bulgaria, Cyprus,
+Czechoslovakia, Denmark, Eire, England, Finland, France, Germany, Greece, Hungary,
+Iceland, Italy, Luxembourg, Malta, N.Ireland, The Netherlands, Norway, Poland,
+Portugal, Romania, Scotland, Spain, Sweden, Switzerland, Turkey, Russia, Wales,
+Yugoslavia. These are the original game's labels. England, Italy and Spain were
+accepted in the procedures here; selecting each of the other countries has not
+been tested. Default nationality was England for the England scenarios, Italy
+for Italy, and Scotland for Scotland.

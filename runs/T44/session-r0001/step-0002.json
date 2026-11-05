@@ -1,0 +1,22 @@
+{
+  "number": 2,
+  "previous": "ed0c5d3e0b6853d31c7be93853f2dc87ec8d2e51e9fd5d0ffb872ba553e65d7e",
+  "id": "S004",
+  "keys": [
+    "Return"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\n\n\n\n                       \u2590\u2580\u2580\u258c \u2590\u2580\u2580\u258c \u2590\u2580\u2580\u258c         \u2590\u2580\u2580\u258c  \u258c  \u2590\n                       \u2590  \u258c \u2590  \u258c \u2590\u2584\u2584\u258c         \u2590  \u258c  \u258c  \u2590        (c)\n                       \u2590  \u258c \u2590  \u258c \u2590      \u2580\u2580\u2580   \u2590  \u258c  \u258c  \u2590          NEW\n                       \u2590  \u258c \u2590  \u258c \u2590      '96   \u2590  \u258c  \u258c  \u2590            ERA\n                       \u2590\u2588\u2588\u258c \u2590  \u258c \u2590\u2588\u2588          \u2590  \u258c  \u258c  \u2590\u2588\u2588            1992-96\n\n\n                    Advanced management for football addicts\n\n                         \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                         \u2502 ENGLAND  1993/94 \u2502\n                         \u2502 ENGLAND  1994/95 \u2502  use \u2193\u2191 to move\n                         \u2502 ITALY    1993/94 \u2502\n                         \u2502 SCOTLAND 1993/94 \u2502  hit \u25c4\u2518 to select\n                         \u2502                  \u2502  starting season\n                         \u2502                  \u2502\n                         \u2502                  \u2502\n                         \u2502                  \u2502\n                         \u2502                  \u2502\n                         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n",
+  "text_sha256": "d3a76a175bbf23ea79be8e707de6f2f152133a06ae6a3bd0a16e911badeec17e",
+  "screen_sha256": "dfc8edecf7ae323ff30d286937f30a7978d080832783721ca635a9f59fee67b2",
+  "highlighted": [
+    [
+      14,
+      "ENGLAND  1993/94"
+    ]
+  ],
+  "screenshot": "step-0002.png",
+  "screenshot_sha256": "96cac310c51587235dffa8af14341a4724a8ea2ef50f3ad5afe169f86ff24be2",
+  "time": "2026-11-05T18:55:45.495Z"
+}

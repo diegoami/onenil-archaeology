@@ -1,0 +1,16 @@
+{
+  "capture_sessions": 3,
+  "rendered_screenshots": 32,
+  "producer": "a25747ac55b91d467dfebda8e709116b1be90a37",
+  "coverage": [
+    "England1993/94 TWO and refusal",
+    "Italy1993/94 ONE",
+    "Scotland1993/94 ONE and Spain nationality"
+  ],
+  "capture_check": "pass",
+  "targeted_tests": "18 passed",
+  "prior_evidence_static_tasks_unchanged": 903,
+  "original_check": "pass",
+  "embed_check": "running session63419",
+  "repository_suite": "required hosted CI pending; inherited code also under T43 full regression"
+}
