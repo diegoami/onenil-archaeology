@@ -30,6 +30,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
 | [Quick results and fixture browsing](quick-results.md) | Observed Watch-off/R routes, halftime/fulltime/main return, tables/empty results/cup pairings/weekly fixtures and schedule paging; season progression pending | #139/#142 |
 | [Transfers and scouting](transfers.md) | Observed market/scout, bid cancel/refusal, accepted purchase and squad change, listing/unlisting; renewal/expiry and completed selling pending | #140 |
+| [Contracts and youth trials](contracts.md) | Observed renewal editing/cancel/refusal, both dismissal confirmations/cancellations and actual removal, goalkeeper trial recruitment; expiry/accepted renewal pending | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
 
