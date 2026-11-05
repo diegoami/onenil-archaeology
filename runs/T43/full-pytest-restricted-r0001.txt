@@ -1,0 +1,610 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 13%]
+........................................................................ [ 18%]
+........................................................................ [ 22%]
+........................................................................ [ 27%]
+........................................................................ [ 31%]
+........................................................................ [ 36%]
+........................................................................ [ 40%]
+........................................................................ [ 45%]
+........................................................................ [ 50%]
+........................................................................ [ 54%]
+........................................................................ [ 59%]
+........................................................................ [ 63%]
+........................................................................ [ 68%]
+........................................................................ [ 72%]
+........................................................................ [ 77%]
+........................................................................ [ 81%]
+........................................................................ [ 86%]
+...........................................................ssssss....... [ 91%]
+...............FFFFFFFFFFFFF............................................ [ 95%]
+.....................................................................    [100%]
+=================================== FAILURES ===================================
+___ WorkFolderTests.test_a_home_with_a_dot_element_is_refused_with_a_message ___
+
+self = <test_ghidra_work.WorkFolderTests testMethod=test_a_home_with_a_dot_element_is_refused_with_a_message>
+
+    def setUp(self):
+>       self.base = ghidra_work.new_work_dir("test-fixture")  # dot-free by construction
+
+tests/static/test_ghidra_work.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-fixture-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-fixture-e3l0wnsw'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WorkFolderTests.test_a_named_base_that_is_relative_or_dotted_or_a_link_into_a_dotted_folder_is_refused _
+
+self = <test_ghidra_work.WorkFolderTests testMethod=test_a_named_base_that_is_relative_or_dotted_or_a_link_into_a_dotted_folder_is_refused>
+
+    def setUp(self):
+>       self.base = ghidra_work.new_work_dir("test-fixture")  # dot-free by construction
+
+tests/static/test_ghidra_work.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-fixture-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-fixture-7ug6qmhy'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+__ WorkFolderTests.test_command_line_prints_a_path_or_exits_1_with_the_reason __
+
+self = <test_ghidra_work.WorkFolderTests testMethod=test_command_line_prints_a_path_or_exits_1_with_the_reason>
+
+    def setUp(self):
+>       self.base = ghidra_work.new_work_dir("test-fixture")  # dot-free by construction
+
+tests/static/test_ghidra_work.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-fixture-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-fixture-k7rjoi1_'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WorkFolderTests.test_default_base_is_under_home_whatever_tmpdir_and_cwd_are __
+
+self = <test_ghidra_work.WorkFolderTests testMethod=test_default_base_is_under_home_whatever_tmpdir_and_cwd_are>
+
+    def setUp(self):
+>       self.base = ghidra_work.new_work_dir("test-fixture")  # dot-free by construction
+
+tests/static/test_ghidra_work.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-fixture-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-fixture-pry9uf6h'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+______________ WorkFolderTests.test_each_call_makes_a_new_folder _______________
+
+self = <test_ghidra_work.WorkFolderTests testMethod=test_each_call_makes_a_new_folder>
+
+    def setUp(self):
+>       self.base = ghidra_work.new_work_dir("test-fixture")  # dot-free by construction
+
+tests/static/test_ghidra_work.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-fixture-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-fixture-4hg386r2'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+__________ WorkFolderTests.test_unit_names_cannot_escape_or_add_a_dot __________
+
+self = <test_ghidra_work.WorkFolderTests testMethod=test_unit_names_cannot_escape_or_add_a_dot>
+
+    def setUp(self):
+>       self.base = ghidra_work.new_work_dir("test-fixture")  # dot-free by construction
+
+tests/static/test_ghidra_work.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-fixture-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-fixture-3ynk5220'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WrapperFromADottedWorktreeTests.test_a_dotted_work_base_stops_the_wrapper_with_the_reason _
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_a_dotted_work_base_stops_the_wrapper_with_the_reason>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-5l1j604j'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WrapperFromADottedWorktreeTests.test_an_early_failure_after_the_folder_is_made_leaves_nothing _
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_an_early_failure_after_the_folder_is_made_leaves_nothing>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-qj10hrib'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WrapperFromADottedWorktreeTests.test_ghidra_gets_the_options_the_decompile_needs _
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_ghidra_gets_the_options_the_decompile_needs>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-1gganr_y'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WrapperFromADottedWorktreeTests.test_ghidras_temporary_folders_are_the_dot_free_work_folder _
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_ghidras_temporary_folders_are_the_dot_free_work_folder>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-reljwgj6'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_______ WrapperFromADottedWorktreeTests.test_keep_work_keeps_the_folder ________
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_keep_work_keeps_the_folder>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-_q7godt7'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WrapperFromADottedWorktreeTests.test_mapping_tests_remove_their_folder_when_the_probe_fails _
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_mapping_tests_remove_their_folder_when_the_probe_fails>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-sc2uxna3'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+_ WrapperFromADottedWorktreeTests.test_the_project_path_has_no_dot_element_and_the_work_folder_is_cleaned _
+
+self = <test_ghidra_work.WrapperFromADottedWorktreeTests testMethod=test_the_project_path_has_no_dot_element_and_the_work_folder_is_cleaned>
+
+    def setUp(self):
+>       self.fixture = ghidra_work.new_work_dir("test-wrapper")
+
+tests/static/test_ghidra_work.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tools/static/ghidra_work.py:54: in new_work_dir
+    return Path(tempfile.mkdtemp(prefix=prefix + "-", dir=base_dir(env)))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+suffix = '', prefix = 'test-wrapper-'
+dir = PosixPath('/home/diego/onenil-ghidra-work')
+
+    def mkdtemp(suffix=None, prefix=None, dir=None):
+        """User-callable function to create and return a unique temporary
+        directory.  The return value is the pathname of the directory.
+    
+        Arguments are as for mkstemp, except that the 'text' argument is
+        not accepted.
+    
+        The directory is readable, writable, and searchable only by the
+        creating user.
+    
+        Caller is responsible for deleting the directory when done with it.
+        """
+    
+        prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)
+    
+        names = _get_candidate_names()
+        if output_type is bytes:
+            names = map(_os.fsencode, names)
+    
+        for seq in range(TMP_MAX):
+            name = next(names)
+            file = _os.path.join(dir, prefix + name + suffix)
+            _sys.audit("tempfile.mkdtemp", file)
+            try:
+>               _os.mkdir(file, 0o700)
+E               OSError: [Errno 30] Read-only file system: '/home/diego/onenil-ghidra-work/test-wrapper-ados6_y6'
+
+/usr/lib/python3.12/tempfile.py:523: OSError
+=========================== short test summary info ============================
+FAILED tests/static/test_ghidra_work.py::WorkFolderTests::test_a_home_with_a_dot_element_is_refused_with_a_message
+FAILED tests/static/test_ghidra_work.py::WorkFolderTests::test_a_named_base_that_is_relative_or_dotted_or_a_link_into_a_dotted_folder_is_refused
+FAILED tests/static/test_ghidra_work.py::WorkFolderTests::test_command_line_prints_a_path_or_exits_1_with_the_reason
+FAILED tests/static/test_ghidra_work.py::WorkFolderTests::test_default_base_is_under_home_whatever_tmpdir_and_cwd_are
+FAILED tests/static/test_ghidra_work.py::WorkFolderTests::test_each_call_makes_a_new_folder
+FAILED tests/static/test_ghidra_work.py::WorkFolderTests::test_unit_names_cannot_escape_or_add_a_dot
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_a_dotted_work_base_stops_the_wrapper_with_the_reason
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_an_early_failure_after_the_folder_is_made_leaves_nothing
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_ghidra_gets_the_options_the_decompile_needs
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_ghidras_temporary_folders_are_the_dot_free_work_folder
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_keep_work_keeps_the_folder
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_mapping_tests_remove_their_folder_when_the_probe_fails
+FAILED tests/static/test_ghidra_work.py::WrapperFromADottedWorktreeTests::test_the_project_path_has_no_dot_element_and_the_work_folder_is_cleaned
+13 failed, 1562 passed, 6 skipped in 1840.99s (0:30:40)
