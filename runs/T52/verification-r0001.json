@@ -1,0 +1,19 @@
+{
+  "completed_sessions": 2,
+  "rendered_screenshots": 80,
+  "targeted_tests": "23 passed",
+  "original_file_check": "pass",
+  "diff_check": "pass",
+  "manual_links": "pass",
+  "prior_evidence_static_frozen_tasks_unchanged": 1582,
+  "staff_outcome": "Szulc hire confirmed; N at hire and sack confirmations; prior Pezzotti/Cuccureddu/Salvioni refusals",
+  "staff_week_cashflow": {
+    "in": 38761,
+    "out": 99234,
+    "funds": 391527,
+    "contracts": 29928,
+    "staff_salaries": 4236
+  },
+  "separate_stadium_session": "1000capacity quote500000 accepted; improvements take a few months; immediate displayed cash-48000, capacity31000",
+  "backup": "combined T51/T52 archive prepared; archive-specific approval pending"
+}
