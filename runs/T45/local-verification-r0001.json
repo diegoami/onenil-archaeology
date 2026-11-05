@@ -1,0 +1,10 @@
+{
+  "capture_sessions": 1,
+  "rendered_screenshots": 22,
+  "producer": "e078adf",
+  "targeted_tests": "23 passed",
+  "original_file_check": "pass",
+  "prior_evidence_static_tasks_unchanged": 1006,
+  "embed_check": "running session54531",
+  "scope": "Read-only squad/details and main-menu information; original setup/persistence record validation remains passing"
+}
