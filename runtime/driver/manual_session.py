@@ -58,7 +58,9 @@ def run(out):
     n=1
     while (out/f'session-r{n:04d}').exists():n+=1
     directory=out/f'session-r{n:04d}';directory.mkdir()
-    d=driver.Driver(workdir=driver.SCRATCH/'manual'/f'{out.name}-{directory.name}')
+    scratch=Path('/tmp')/f'onenil-manual-{out.name}-{directory.name}'
+    if scratch.exists():raise ValueError(f'scratch exists: {scratch}')
+    d=driver.Driver(workdir=scratch,game_dir=scratch/'game')
     write(directory/'session.json',dict(schema='original-ui-session/1',edition='96',game_files=release(),
         code_commit=git('rev-parse','HEAD').decode().strip(),source_sha256=sha(Path(__file__).read_bytes()),
         dosbox_version=driver.require_dosbox() and driver.WANT_DOSBOX,started=driver.host_times()['utc'],
