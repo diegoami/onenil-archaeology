@@ -1,0 +1,22 @@
+{
+  "number": 108,
+  "previous": "27581e1bc36cf295f001d6ba6a2cdd68d818e14a43de88c103972f354d0f1431",
+  "id": "S407-cup-post-result",
+  "keys": [
+    "space"
+  ],
+  "wait": 0,
+  "restart": null,
+  "text": "\nLeague Cup Round 1\n\n\n\n ------Liverpool  5v0  Swansea City---   ---Charlton Ath  2v3  Chelsea--------\n ----------Q.P.R  5v4  Watford--------   ---Southend Utd  2v0  Shrewsbury Town\n ---Nottingham F  4v3  Aston Villa----   ------Port Vale  2v1  Derby County---\n ----Blackburn R  3v0  Portsmouth-----   -------Millwall  3v1  Birmingham City\n ----Southampton\u221a 1v1  Newcastle Utd--   -----Oldham Ath  0v1  W.B.A----------\n ---West Ham Utd  0v2  Sheffield Wed--   ------Brentford  0v1  Crystal Palace-\n --------Arsenal  7v0  Notts County---   -Huddersfield T  0v1  Luton Town-----\n ---Ipswich Town  7v0  Bradford City--   ------Hull City  0v3  Manchester Utd-\n Manchester City  4v1  Grimsby Town---   -Bristol Rovers  3v1  Peterbro Utd---\n -------Bolton W  2v1  Swindon Town---   ------York City  3v2  Bristol City---\n --------Reading  0v1  Tottenham H----   -----Oxford Utd\u221a 2v2  Crewe Alexandra\n -----Middlesbro  2v1  Wolves---------   ---Stockport Co\u221a 2v2  Blackpool------\n -Leicester City  3v2  Everton--------   -Wycombe Wandrs  1v4  Coventry City--\n Tranmere Rovers  0v4  Leeds Utd------   --------Wrexham  1v7  Wimbledon------\n -----Stoke City  2v1  Sheffield Utd--   --Rotherham Utd  0v2  Norwich City---\n --------Burnley  1v2  Barnsley-------   --Brighton & HA  0v3  Sunderland-----\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "320df3009111c36ff0741e9199f6249f73b025d00fc02b3fd03922ce78435065",
+  "screen_sha256": "6eb4d6507bc2a92aa43f9b7f6d2da98d2e7e1eb7e0ad3912c19604035afacfce",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0108.png",
+  "screenshot_sha256": "ca51deec088b0821c9e1ed675450b9f310f3af51c5b375ac3a6cdea4db3c9929",
+  "time": "2026-11-05T21:22:36.135Z"
+}

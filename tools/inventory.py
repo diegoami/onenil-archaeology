@@ -12,13 +12,15 @@ never the original's bytes (CLAUDE.md rule 14).
                                      or extra. Exit 0 when it all matches.
     python3 tools/inventory.py --check-embed
                                      no tracked file outside static/ holds 64 or more consecutive
-                                     bytes of an original file or of an unpacked executable.
+                                     original bytes, except authenticated bounded UI text
+                                     (CLAUDE.md rule 14 clarification; other fields still scanned).
 
 Addresses are SEG:OFF in the unpacked load image before relocation (image offset SEG*16+OFF).
 """
 import datetime
 import difflib
 import hashlib
+import importlib.util
 import json
 import re
 import struct
@@ -438,17 +440,73 @@ def original_sources():
     return sources
 
 
+def _validated_manual_steps(directory):
+    """Reuse the capture validator, including committed producer and release identity."""
+    spec = importlib.util.spec_from_file_location(
+        "embed_manual_session", ROOT / "runtime/driver/manual_session.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.validate(directory)
+
+
+def embed_scan_bytes(path, root=ROOT, authenticated=None):
+    """Owner-approved exception: only an authenticated, bounded display's text value.
+
+    Preserve every byte outside that JSON string. A failed authentication receives
+    the ordinary full scan; neither JSON files nor runs directories are allowlisted.
+    The cache lasts for one scan, and binds each validated record's exact digest.
+    """
+    data = path.read_bytes()
+    try:
+        relative = path.relative_to(root).as_posix()
+        if not re.fullmatch(r"runs/T\d+/session-r\d{4}/step-\d{4}\.json", relative):
+            return data
+        record = json.loads(data)
+        text = record["text"]
+        if not isinstance(text, str) or not text or not all(
+                c == "\n" or c.isprintable() for c in text):
+            return data
+        rows = text.splitlines()
+        if not 1 <= len(rows) <= 25 or any(len(row) > 80 for row in rows):
+            return data
+        # The committed producer writes this format. This also rejects duplicate
+        # keys and keeps byte spans unambiguous without reserializing other fields.
+        if data != (json.dumps(record, indent=2) + "\n").encode():
+            return data
+        if path.name != f"step-{record['number']:04d}.json":
+            return data
+        cache = {} if authenticated is None else authenticated
+        directory = path.parent
+        if directory not in cache:
+            cache[directory] = None
+            steps = _validated_manual_steps(directory)
+            cache[directory] = {
+                f"step-{n:04d}.json": sha256((directory / f"step-{n:04d}.json").read_bytes())
+                for n in range(len(steps))}
+        if not cache[directory] or cache[directory].get(path.name) != sha256(data):
+            return data
+        prefix = b'\n  "text": '
+        start = data.index(prefix) + len(prefix)
+        encoded = json.dumps(text).encode()
+        if data[start:start + len(encoded)] != encoded:
+            return data
+        return data[:start] + b'""' + data[start + len(encoded):]
+    except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError):
+        return data
+
+
 def check_embed():
     index = EmbedIndex(original_sources())
     tracked = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True)
     bad = 0
+    authenticated = {}
     for f in tracked.stdout.decode().split("\0"):
         if not f or f.startswith("static/"):
             continue  # static/: generated listings, CLAUDE.md rule 14's exception
         p = ROOT / f
         if not p.is_file():
             continue
-        hit = index.find(p.read_bytes())
+        hit = index.find(embed_scan_bytes(p, authenticated=authenticated))
         if hit:
             print("%s: %d bytes of %s (%s, at %d)" % (f, EMBED_WINDOW, hit[2], hit[0], hit[1]))
             bad += 1

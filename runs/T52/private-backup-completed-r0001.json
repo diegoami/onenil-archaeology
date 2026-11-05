@@ -1,0 +1,14 @@
+{
+  "archive": "T51-T52-game-saves-r0001.tar.gz",
+  "bytes": 228074,
+  "sha256": "1b98570162b21c7073a722e0d5a547f418427cfbed1d74f34813cb848fc26ddb",
+  "save_sha256": {
+    "T51/session-r0001": "b15f4af4b8abf5afbb381388a849ab9e7357b68966e5b46e9a11c1a8575d1a16",
+    "T52/session-r0001": "01e4d244d415cbd88f01b6e2eccc2a40642cad3ee7c6ad0a03eef79ca3b0a847",
+    "T52/session-r0002": "74fed15ca5e9d0ef7f9011f6859e8848f709a1a65151eb76fd713f4005cb8363"
+  },
+  "status": "uploaded after explicit archive-specific owner approval",
+  "drive_id": "1gAn5U7K0SUQ4DLS5Ed0uoD8TUOzE51oX",
+  "folder_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "metadata_readback": "id,name,size228074,MIME,parent match; sharing not changed; no remote checksum returned"
+}

@@ -1,0 +1,17 @@
+{
+  "number": 89,
+  "previous": "aded1b6147c7348c83e8f5bf07766182b09b13a9b267475bb05f77ce7e9edb5d",
+  "id": "S388-league-three-results",
+  "keys": [
+    "space"
+  ],
+  "wait": 0,
+  "restart": null,
+  "text": "LEAGUE RESULTS\n\nMATCH NO #3\n\n                  \u250c\u2500PREMIER LEAGUE\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                  \u2502 --------Arsenal  0v2  Q.P.R---------- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ----Blackburn R  0v2  Southampton---- \u2502\n                  \u2502                                       \u2502\n                  \u2502 --------Chelsea  1v1  Nottingham F--- \u2502\n                  \u2502                                       \u2502\n                  \u2502 --------Everton  2v3  Manchester Utd- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ------Leeds Utd  3v1  West Ham Utd--- \u2502\n                  \u2502                                       \u2502\n                  \u2502 --Newcastle Utd  5v0  Coventry City-- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ----Tottenham H  0v2  Liverpool------ \u2502\n                  \u2502                                       \u2502\n                  \u2502 ------Wimbledon  4v0  Sheffield Wed-- \u2502\n                  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\n\n\n                                press any key",
+  "text_sha256": "4e5438fbecc5a30551c3eb74b4c876a9294c071b881b14482e690ba68cfc4fac",
+  "screen_sha256": "0befab80b5e50ea0c3f74832822920421155ab7dee3633430dce43836d75cd3d",
+  "highlighted": [],
+  "screenshot": "step-0089.png",
+  "screenshot_sha256": "a137f3879c88f467d4d05c86fc052292a01db4ee4a30ab70b923ccef72b290f6",
+  "time": "2026-11-05T21:15:51.351Z"
+}
