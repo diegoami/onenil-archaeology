@@ -60,3 +60,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T47 Original match preparation and team tactics manual](T47.md)
 
 - [T48 Original watched-match controls, bench and completion manual](T48.md)
+
+- [T49 Original quick-result routes and weekly result views](T49.md)
