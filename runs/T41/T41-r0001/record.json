@@ -1,0 +1,206 @@
+{
+  "schema": "original-ui-manual/1",
+  "status": "aborted",
+  "edition": "96",
+  "workflow": "W001",
+  "code_commit": "d82b42ba26f08016cf44e871eae58e7b06682a1c",
+  "source_sha256": "4486db23561c83987f24ae783b07f5cd149618e7d6062fbda254a0680ae94467",
+  "dosbox_version": "2024.03.01",
+  "game_files": {
+    "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+    "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+    "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+    "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+    "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+    "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+    "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+    "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+    "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+    "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+    "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+    "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+  },
+  "keys": [],
+  "screens": [],
+  "started": "2026-11-05T17:40:39.468Z",
+  "scope": "Fresh launch and supplied SAVE1 load only;host clock/seed uncontrolled;no new-game or menu-action coverage.",
+  "error": "RuntimeError: no Xvfb display could be started",
+  "processes_exited": true,
+  "events": [
+    [
+      0.023,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.126,
+      "Xvfb :574 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.126,
+      "Xvfb pid 181681 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.229,
+      "Xvfb :581 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.229,
+      "Xvfb pid 181687 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.332,
+      "Xvfb :588 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.332,
+      "Xvfb pid 181693 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.435,
+      "Xvfb :595 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.435,
+      "Xvfb pid 181699 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.538,
+      "Xvfb :602 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.538,
+      "Xvfb pid 181705 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.641,
+      "Xvfb :609 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.641,
+      "Xvfb pid 181711 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.744,
+      "Xvfb :616 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.744,
+      "Xvfb pid 181717 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.847,
+      "Xvfb :623 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.847,
+      "Xvfb pid 181723 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      0.95,
+      "Xvfb :630 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      0.951,
+      "Xvfb pid 181729 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.054,
+      "Xvfb :637 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.054,
+      "Xvfb pid 181735 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.158,
+      "Xvfb :644 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.158,
+      "Xvfb pid 181741 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.261,
+      "Xvfb :651 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.261,
+      "Xvfb pid 181747 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.364,
+      "Xvfb :658 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.364,
+      "Xvfb pid 181754 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.467,
+      "Xvfb :665 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.467,
+      "Xvfb pid 181760 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.57,
+      "Xvfb :672 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.57,
+      "Xvfb pid 181766 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.673,
+      "Xvfb :679 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.673,
+      "Xvfb pid 181772 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.776,
+      "Xvfb :686 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.776,
+      "Xvfb pid 181778 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.879,
+      "Xvfb :693 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.879,
+      "Xvfb pid 181784 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      1.982,
+      "Xvfb :700 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      1.982,
+      "Xvfb pid 181790 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      2.086,
+      "Xvfb :707 poll: no answer after 1 polls of 0.1s"
+    ],
+    [
+      2.086,
+      "Xvfb pid 181796 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      2.086,
+      "Xvfb pid 181796 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      2.086,
+      "terminated"
+    ]
+  ],
+  "ended": "2026-11-05T17:40:41.554Z"
+}

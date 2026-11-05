@@ -21,7 +21,7 @@ See the [roadmap and backlog](../roadmap.md) and
 
 | Chapter | Evidence requirement | Backlog |
 | --- | --- | --- |
-| Startup and main menu | Actual load route, screenshot/key log, visible menu inventory | #136 |
+| [Startup and main menu](startup.md) | Observed supplied-save route: S001/S002, W001; other main-menu actions unvisited | #136 |
 | New game and saves | Setup choices, naming, selection, cancellation, save/reload | #137 |
 | Squad and tactics | Selection, player details, roles, reserves, validation | #138 |
 | Matchday | Pre-match through halftime/fulltime and results | #139 |
