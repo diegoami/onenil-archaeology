@@ -1,0 +1,11 @@
+{
+  "checked_head": "084a0fb2d1ec012414c29277716d6e8c8a9ebf96",
+  "status": "PASS with owner-approved authenticated decoded-UI-text checker",
+  "embed_log_sha256": "7aeff921e68d9434da2b2543f1d14ffec37903712540e428963874e9e2a0429a",
+  "targeted_tests": "48 passed",
+  "capture_sessions": 1,
+  "capture_screens": 66,
+  "prior_failure_receipt": "embed-failure-r0001.json retained unchanged",
+  "private_backup": "uploaded after explicit owner approval; completed receipt retained",
+  "scope": "Only authenticated bounded text field excluded; every other field/file scanned; captures unchanged"
+}
