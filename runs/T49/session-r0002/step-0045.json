@@ -1,0 +1,22 @@
+{
+  "number": 45,
+  "previous": "23788d12d02edc4a1e9a2b07023081cc37618c90ee98415a520e595a282a0663",
+  "id": "S101-fixture-other-division",
+  "keys": [
+    "Right"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 DIVISION ONE    \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2502  Aug 3  R S Belgrade--- home    Friendly #1       \u2502 0 2 \u2502\n\u2502 Manchester City \u2502  \u2502  Aug 7  Levski Sofia--- away    Friendly #2       \u2502     \u2502\n\u2502 Aston Villa---- \u2502  \u2502  Aug 10 Kosice--------- away    Friendly #3       \u2502     \u2502\n\u2502 Crystal Palace- \u2502  \u2502  Aug 14 IFK Gothenburg- home    Friendly #4       \u2502     \u2502\n\u2502 Norwich City--- \u2502  \u2502  Aug 17 Sheffield Utd-- away    League match #1   \u2502     \u2502\n\u2502 Leicester City- \u2502  \u2502  Aug 21 Leicester City- home    League match #2   \u2502     \u2502\n\u2502 Ipswich Town--- \u2502  \u2502  Aug 24 Derby County--- away    League match #3   \u2502     \u2502\n\u2502 Middlesbro----- \u2502  \u2502  Aug 27 Nottingham F--- away    League Cup R#1    \u2502     \u2502\n\u2502 Reading-------- \u2502  \u2502  Aug 31 Barnsley------- home    League match #4   \u2502     \u2502\n\u2502 Bolton W------- \u2502  \u2502  Spt 4                          Euro cups R#1 L#1 \u2502     \u2502\n\u2502 Wolves--------- \u2502  \u2502  Spt 7  Middlesbro----- away    League match #5   \u2502     \u2502\n\u2502 Tranmere Rovers \u2502  \u2502  Spt 11                         Euro cups R#1 L#2 \u2502     \u2502\n\u2502 Barnsley------- \u2502  \u2502  Spt 14 Ipswich Town--- home    League match #6   \u2502     \u2502\n\u2502 Watford-------- \u2502  \u2502  Spt 18                         League Cup R#2    \u2502     \u2502\n\u2502 Sheffield Utd-- \u2502  \u2502  Spt 21 Manchester City away    League match #7   \u2502     \u2502\n\u2502 Derby County--- \u2502  \u2502  Spt 25 Bolton W------- home    League match #8   \u2502     \u2502\n\u2502 Grimsby Town--- \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2191\u2193-move\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500PgDn,PgUp-more\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\u251c\u2500\u2190\u2192-division\u2500\u2500\u2500\u2500\u2500\u2524\n\u2514\u2500\u25c4\u2518-watch game\u2500\u2500\u2500\u2518\n\n                                                                       Esc-exit",
+  "text_sha256": "32a192e115f534b33e08b7438003ae1c2baba0ae3bf3afae2c1aeba75754e41c",
+  "screen_sha256": "5355d0a715375b34bba00375bbf6c70aa024dbad7d9cd7550476e22695414d7c",
+  "highlighted": [
+    [
+      5,
+      "Aston Villa----"
+    ]
+  ],
+  "screenshot": "step-0045.png",
+  "screenshot_sha256": "7f7ccaa3592acdc720618e99cbaf6110560a9760375ddb00822be605ecd7fca0",
+  "time": "2026-11-05T20:30:00.874Z"
+}
