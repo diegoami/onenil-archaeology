@@ -1,0 +1,22 @@
+{
+  "number": 66,
+  "previous": "8f4fae1f3a5c0c63f0cd423a524a3d9c997211420630a6c7182ada12758cabea",
+  "id": "S6065-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "UEFA Cup Round 2\n\n -----------Roda   v   Rangers--------\n 1st leg:  v      2nd leg:  v\n -Dep. La Coruna   v   Liverpool------\n 1st leg:  v      2nd leg:  v\n --Werder Bremen   v   Lyon-----------\n 1st leg:  v      2nd leg:  v\n ---Nottingham F   v   Kaiserslautern-\n 1st leg:  v      2nd leg:  v\n --Cas. Salzburg   v   Tampeeren------\n 1st leg:  v      2nd leg:  v\n -------AC Milan   v   Sporting Lisbon\n 1st leg:  v      2nd leg:  v\n ---------Napoli   v   Motherwell-----\n 1st leg:  v      2nd leg:  v\n ----Uni Craiova   v   Sparta Prague--\n 1st leg:  v      2nd leg:  v\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "7dbe0bb289acf04446367407744a94f9d72ad3a63a32549aa8cb5b48d2221d95",
+  "screen_sha256": "802839179bae86c2c72c6aa573326cb676576a069c93831dc14de887fea046fb",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0066.png",
+  "screenshot_sha256": "e211e2db43a4aaea1b0d368df218e9755b11c5eae48dbce536b5ee451d545e1e",
+  "time": "2026-11-05T22:37:59.506Z"
+}

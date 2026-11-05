@@ -1,0 +1,22 @@
+{
+  "number": 65,
+  "previous": "4abacbf7f9e8d6e9773abc71bb5dd32eba5fbe8a9568a54901bd9023529e2643",
+  "id": "S6064-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "Cup Win. Round 2\n\n -----------Ajax   v   Bor. M'gladbach\n 1st leg:  v      2nd leg:  v\n ----------Parma   v   Roma-----------\n 1st leg:  v      2nd leg:  v\n -Manchester Utd   v   Barcelona------\n 1st leg:  v      2nd leg:  v\n ---------Tirane   v   Twente---------\n 1st leg:  v      2nd leg:  v\n Eendracht Aalst   v   Aalborg--------\n 1st leg:  v      2nd leg:  v\n Slo. Bratislava   v   Levski Sofia---\n 1st leg:  v      2nd leg:  v\n ---------Viking   v   Lugano---------\n 1st leg:  v      2nd leg:  v\n ---R S Belgrade   v   Dynamo Moscow--\n 1st leg:  v      2nd leg:  v\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "f06e59c6d15967bc29f8155ca07f6145170331536703a61d4ddbefabd4300da1",
+  "screen_sha256": "9f2197a193c274a66aaeb4dc8af4310a49c158a9528a32fb5a4912d223c62ec4",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0065.png",
+  "screenshot_sha256": "74b79c473ab119f583aef54f9fb72024d79031c1a4cc2d7579bcc9c6acd8854f",
+  "time": "2026-11-05T22:37:53.297Z"
+}

@@ -1,0 +1,22 @@
+{
+  "number": 61,
+  "previous": "c3eeccbfc4f5883236646a67e210c2ec38debb71aa5428cb4e2b6ec82b8e25eb",
+  "id": "S6060-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\nEurpn Cup Round 1\n\n\n\n --Bor. Dortmund  8v0  Rosenborg------   ---Grevenmacher  2v10 P St Germain---\n 1st leg: 4v0     2nd leg: 0v4           1st leg: 0v4     2nd leg: 6v2\n ----Blackburn R  3v0  IFK Gothenburg-   --------Benfica  1v3  Lazio----------\n 1st leg: 0v0     2nd leg: 0v3           1st leg: 1v2     2nd leg: 1v0\n ---Teuta Durres  0v11 Juventus-------   -Din. Bucharest  3v2  Real Madrid----\n 1st leg: 0v5     2nd leg: 6v0           1st leg: 1v0     2nd leg: 2v2\n ---Rapid Vienna  3v0  MyPa-----------   ------Hibernian  6v3  PAOK Salonika--\n 1st leg: 0v0     2nd leg: 0v3           1st leg: 2v1     2nd leg: 2v4\n ----Club Brugge  6v0  Anorthosis-----   -----Real Betis  5v2  Lokomotiv Sofia\n 1st leg: 3v0     2nd leg: 0v3           1st leg: 3v1     2nd leg: 1v2\n --Slavia Prague  6v4  Widzew---------   ---Grasshoppers  0v10 Bayern Munich--\n 1st leg: 4v2     2nd leg: 2v2           1st leg: 0v4     2nd leg: 6v0\n ---------Odense  3v4  Feyenoord------   -------Besiktas  3v4  Honved Kispest-\n 1st leg: 3v2     2nd leg: 2v0           1st leg: 3v4     2nd leg: 0v0\n ------Sampdoria  8v0  Derry City-----   -Part. Belgrade  6v1  Crusaders------\n 1st leg: 4v0     2nd leg: 0v4           1st leg: 5v1     2nd leg: 0v1\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "3dfc129e980a489312850bae8f3b2186b2d8825fd01c308d1b50d962b783457c",
+  "screen_sha256": "8466c0e5051f3ffdc83abc88b3185d71acdd4bb67c1ac4489f74d06e7a7de7da",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0061.png",
+  "screenshot_sha256": "eef21e91faf64da7ddfdeea0bd7b3fa554e64e33e6597d3d55629258b6d438a2",
+  "time": "2026-11-05T22:37:19.921Z"
+}
