@@ -62,3 +62,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T48 Original watched-match controls, bench and completion manual](T48.md)
 
 - [T49 Original quick-result routes and weekly result views](T49.md)
+
+- [T50 Original transfer market and scouting manual](T50.md)
