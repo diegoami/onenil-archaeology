@@ -67,11 +67,14 @@ def analyse():
         dynamic = []
         comparison_model = model
         if name == "squad_frame":
-            # AC87 draws 9FD0's frame, then DS:22AC at AC94..AC9E.
-            overlay = ui.decode(data, 0x22AC)
-            comparison_model = overlay_component(model, overlay)
-            overlays.append(dict(resource="2864:22AC", caller_path="0AB9:AC94..AC9E",
-                                 resource_sha256=ui.sha(data[0x22AC:0x22AC+overlay["consumed"]])))
+            # AC87 draws 9FD0's frame, then DS:22AC. CBF0 subsequently
+            # draws DS:1D0E for first-team mode outside a live match.
+            for offset, caller_path in [(0x22AC,"0AB9:AC94..AC9E"),
+                                        (0x1D0E,"0AB9:CD79..CD90")]:
+                overlay = ui.decode(data, offset)
+                comparison_model = overlay_component(comparison_model, overlay)
+                overlays.append(dict(resource=f"2864:{offset:04X}", caller_path=caller_path,
+                                     resource_sha256=ui.sha(data[offset:offset+overlay["consumed"]])))
         if name == "team_information":
             # 3357 -> 0EE3: club name/15-space field, row1/column23.
             # 331C -> 101E: row14/right column54; comma writes are one cell
