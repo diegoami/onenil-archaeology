@@ -52,3 +52,15 @@ def test_restart_receipt_required(tmp_path,damage):
         path=directory/'end.json';value=json.loads(path.read_text());value['last_step']=last;path.write_text(json.dumps(value))
     with pytest.raises(ValueError,match='missing restart receipt|restart save hashes'):
         manual.validate(directory,source=False)
+
+@pytest.mark.parametrize('route,steps,valid',[
+    ('supplied',[dict(keys=[],text='title'),dict(keys=['y'],text='PLAY NEXT GAME')],True),
+    ('supplied',[dict(keys=['n'],text='PLAY NEXT GAME')],False),
+    ('supplied',[dict(keys=['y'],text='loading')],False),
+    ('setup',[dict(keys=['n'],text='Please enter name of new game'),dict(keys=['Return'],text='PLAY NEXT GAME')],True),
+    ('setup',[dict(keys=['n'],text='PLAY NEXT GAME')],False),
+])
+def test_route_identity(route,steps,valid):
+    if valid:manual.check_route(steps,route)
+    else:
+        with pytest.raises(ValueError):manual.check_route(steps,route)

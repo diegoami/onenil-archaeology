@@ -63,6 +63,16 @@ def validate(directory,source=True):
             require('GAME NAME:' in saved['text'] and any(s['text']==saved['text'] for s in steps[n+1:]),'reload visible state mismatch')
     return steps
 
+def check_route(steps,route):
+    keys=[key for step in steps for key in step['keys']]
+    if not keys or keys[0]!=('y' if route=='supplied' else 'n'):
+        raise ValueError('missing initial '+('Y' if route=='supplied' else 'N')+' route')
+    if not any('PLAY NEXT GAME' in step['text'] for step in steps):
+        raise ValueError('missing main menu')
+    if route=='setup' and not any('Please enter name of new game' in step['text'] for step in steps):
+        raise ValueError('missing setup prompt')
+
+
 def run(out,persistence=False):
     sys.path.insert(0,str(ROOT/'runtime/driver'))
     import driver
@@ -146,14 +156,13 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run',action='store_true');parser.add_argument('--out',type=Path)
     parser.add_argument('--persistence',action='store_true')
+    parser.add_argument('--route',choices=['setup','supplied'],default='setup')
     parser.add_argument('--check',type=Path);args=parser.parse_args()
     if args.check:
         sessions=[p for p in args.check.glob('session-r*') if (p/'end.json').exists() and json.loads((p/'end.json').read_text())['status']=='completed']
         if not sessions:raise ValueError('no completed sessions')
         steps=[s for p in sessions for s in validate(p)]
-        if not any('n' in s['keys'] for s in steps):raise ValueError('missing N route')
-        if not any('Please enter name of new game' in s['text'] for s in steps):raise ValueError('missing setup prompt')
-        if not any('PLAY NEXT GAME' in s['text'] for s in steps):raise ValueError('missing main menu')
+        check_route(steps,args.route)
         print(f'{len(sessions)} sessions, {len(steps)} screens verified')
     elif args.run and args.out:run(args.out,args.persistence)
     else:parser.error('choose --run --out PATH or --check PATH')
