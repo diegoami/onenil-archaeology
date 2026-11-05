@@ -1,0 +1,11 @@
+{
+  "head": "91b0ede9a603ff625315a11fa4d38b7c6048b445",
+  "full_embed_base": "4d49ab3de57ef6166e5a7e19b8199d0e8c50bec0",
+  "full_embed_log_sha256": "7aeff921e68d9434da2b2543f1d14ffec37903712540e428963874e9e2a0429a",
+  "full_embed_base_passed": true,
+  "incremental_changed_files_scanned": 186,
+  "targeted_tests": "48 passed",
+  "original_file_check": "pass",
+  "diff_check": "pass",
+  "scope": "All files unchanged from full-scanned base plus every new/changed file; original T50 regression separately66records/10to0matches; no measured bytes changed"
+}
