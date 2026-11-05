@@ -1,0 +1,9 @@
+{
+  "archive": "T56-checkpoint1-game-save-r0001.tar.gz",
+  "bytes": 79643,
+  "sha256": "57b79f15394e621b04c0091f38ba0b7e8ee0a51bf9fa80a59b7ba3b7e76aed55",
+  "game_save_sha256": "29b41baeb3702188118f025f7556ce1b44f51cd64fab4cb990b99cdb95920ee5",
+  "F7_step": "session-r0001/step-0042.json",
+  "status": "private archive prepared; explicit archive-specific approval requested",
+  "scope": "First European leg0-0 and league5Liverpool2-0 completed; next IFK away European leg2, funds813907, leagueposition8"
+}
