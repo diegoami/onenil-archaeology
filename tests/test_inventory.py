@@ -113,3 +113,120 @@ class DeltaTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+# A real producer/release/chain validation gates the UI-only exception. These
+# synthetic records contain no private game bytes and use the public inventory.
+import hashlib
+import json
+import pathlib
+import subprocess
+
+import pytest
+
+UI_HEADING = b"Choose the player qualities, positions, ages and nationalities below."
+
+
+def ui_evidence(root, text=UI_HEADING.decode(), extra=None):
+    directory = root / 'runs/T55/session-r0001'
+    directory.mkdir(parents=True)
+    commit = subprocess.check_output(
+        ['git', '-C', str(inventory.ROOT), 'rev-parse', 'HEAD'], text=True).strip()
+    producer = subprocess.check_output(
+        ['git', '-C', str(inventory.ROOT), 'show', commit + ':runtime/driver/manual_session.py'])
+    releases = json.loads((inventory.ROOT / 'records/T01/inventory.json').read_text())
+    header = dict(schema='original-ui-session/1', edition='96',
+                  game_files={p['name']: p['sha256'] for p in releases['files'] if p['edition'] == '96'},
+                  dosbox_version='2024.03.01', code_commit=commit,
+                  source_sha256=hashlib.sha256(producer).hexdigest())
+    def write(path, value):
+        path.write_text(json.dumps(value, indent=2) + '\n')
+    write(directory / 'session.json', header)
+    previous = None
+    for n in range(2):
+        png = b'\x89PNG\r\n\x1a\nsynthetic-render-fixtureIEND\xaeB`\x82'
+        name = f'step-{n:04d}.png'
+        (directory / name).write_bytes(png)
+        record = dict(number=n, previous=previous, id=f'S{n+1:03d}', keys=[],
+                      text=text, text_sha256=hashlib.sha256(text.encode()).hexdigest(),
+                      screenshot=name, screenshot_sha256=hashlib.sha256(png).hexdigest())
+        if n == 1 and extra:
+            record.update(extra)
+        path = directory / f'step-{n:04d}.json'
+        write(path, record)
+        previous = hashlib.sha256(path.read_bytes()).hexdigest()
+    write(directory / 'end.json', dict(status='completed', processes_exited=True,
+                                       steps=2, last_step=previous))
+    return directory / 'step-0001.json'
+
+
+def test_authenticated_ui_exception_preserves_every_other_byte(tmp_path):
+    path = ui_evidence(tmp_path)
+    raw = path.read_bytes()
+    index = inventory.EmbedIndex([('synthetic-executable', UI_HEADING)])
+    assert index.find(raw) is not None
+    scanned = inventory.embed_scan_bytes(path, root=tmp_path)
+    assert scanned == raw.replace(json.dumps(UI_HEADING.decode()).encode(), b'""', 1)
+    assert index.find(scanned) is None
+
+
+@pytest.mark.parametrize('damage', [
+    'text_digest', 'screenshot', 'chain', 'incomplete', 'source', 'release',
+    'outside', 'height', 'width', 'duplicate_key', 'noncanonical',
+])
+def test_ui_exception_fails_closed(tmp_path, damage):
+    text = UI_HEADING.decode()
+    if damage == 'height':
+        text = (text + '\n') * 26
+    elif damage == 'width':
+        text += 'x' * 81
+    path = ui_evidence(tmp_path, text=text)
+    if damage in ('text_digest', 'chain'):
+        record = json.loads(path.read_text())
+        record['text_sha256' if damage == 'text_digest' else 'previous'] = '0' * 64
+        path.write_text(json.dumps(record, indent=2) + '\n')
+    elif damage == 'screenshot':
+        path.with_suffix('.png').write_bytes(b'changed screenshot')
+    elif damage in ('incomplete', 'source', 'release'):
+        target = path.parent / ('end.json' if damage == 'incomplete' else 'session.json')
+        record = json.loads(target.read_text())
+        if damage == 'incomplete':
+            record['status'] = 'aborted'
+        elif damage == 'source':
+            record['source_sha256'] = '0' * 64
+        else:
+            record['game_files'] = {}
+        target.write_text(json.dumps(record, indent=2) + '\n')
+    elif damage == 'outside':
+        outside = tmp_path / 'unrelated.json'
+        outside.write_bytes(path.read_bytes())
+        path = outside
+    elif damage == 'duplicate_key':
+        path.write_bytes(path.read_bytes().replace(b'{\n', b'{\n  "text": "duplicate",\n', 1))
+    elif damage == 'noncanonical':
+        path.write_text(json.dumps(json.loads(path.read_text()), indent=1))
+    index = inventory.EmbedIndex([('synthetic-executable', UI_HEADING)])
+    assert index.find(inventory.embed_scan_bytes(path, root=tmp_path)) is not None
+
+
+@pytest.mark.parametrize('extra', [
+    {'metadata': UI_HEADING.decode()},
+    {'metadata': UI_HEADING.hex()},
+    {'highlighted': [[0, UI_HEADING.decode()]]},
+])
+def test_ui_exception_still_scans_non_text_payloads(tmp_path, extra):
+    path = ui_evidence(tmp_path, extra=extra)
+    raw = path.read_bytes()
+    scanned = inventory.embed_scan_bytes(path, root=tmp_path)
+    assert scanned != raw  # authentication passed; only text was excluded
+    index = inventory.EmbedIndex([('synthetic-executable', UI_HEADING)])
+    assert index.find(scanned) is not None
+
+
+def test_ui_authentication_cache_binds_exact_record_bytes(tmp_path):
+    path = ui_evidence(tmp_path)
+    cache = {}
+    assert inventory.embed_scan_bytes(path, root=tmp_path, authenticated=cache) != path.read_bytes()
+    record = json.loads(path.read_text())
+    record['metadata'] = UI_HEADING.decode()
+    path.write_text(json.dumps(record, indent=2) + '\n')
+    assert inventory.embed_scan_bytes(path, root=tmp_path, authenticated=cache) == path.read_bytes()
