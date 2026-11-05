@@ -1,0 +1,4044 @@
+{
+  "status": "passed",
+  "code_commit": "a18392e469ef8cbb8c848b988e1593020208323b",
+  "tool_sha256": "0b3e4a5f85e6d4cf2a8d86fa545dbd3232ea67b130919433edc2d645d23039ab",
+  "result": {
+    "decoder": "24BC:0000",
+    "wrapper": "232A:052F",
+    "coordinates": "zero-based x/y; resource start cell is one-based linear",
+    "listing_sha256": {
+      "static/1-0-exe/data/ds_2864_01.hex": "8110761c1f6d685df19dd15e22fd626f574be280a877aba7d2fa9b84433afc00",
+      "static/1-0-exe/data/ds_2864_02.hex": "dd3491fa3389a25c300f18df253b6b26413f70489d4a5b78df5b1c4729d8030a",
+      "static/1-0-exe/data/ds_2864_03.hex": "8711409dcdae6fd1fdfe87fe2d9ead5e9bc2fa0165915915648890d36132ad32",
+      "static/1-0-exe/data/ds_2864_04.hex": "bf6df9e7b25c00010d374538fb19fe0473a76af26dd45a49b1c6e8903fdc6df1",
+      "static/1-0-exe/data/ds_2864_05.hex": "4e9f2742b0398b9cb39df818e0054e2c1621db6d184fa8bd2ee027a6f493e9a0"
+    },
+    "resources": [
+      {
+        "name": "main_menu",
+        "resource": "2864:45E6",
+        "caller": "0006:1B52",
+        "rectangle": {
+          "start_cell": 56,
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_bytes_consumed": 652,
+        "resource_sha256": "ee88887faaf74ab72297608c37f26b4afe942157adc1d6e98b79235e61638b8a",
+        "base_attribute_codes": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          14
+        ],
+        "later_resource_overlays": [
+          {
+            "resource": "2864:5A28",
+            "caller_path": "0006:1B88..1B92",
+            "resource_sha256": "388fe9d850486485705cc49feb64e50293630dbb76f011ebd6712b4d968a4d82"
+          }
+        ],
+        "captured_record": "runs/T47/session-r0001/step-0001.json",
+        "captured_record_sha256": "c53f0a628c9b72f7f30420f0aeb53d87ff4389dd5f52ddf5d7f3ba813831d027",
+        "screenshot_sha256": "fbca3798822c7fd5e69176c2019a81fc2e449d68e37e3a571095452a0ec54d43",
+        "comparison": {
+          "labels": [
+            {
+              "x": 59,
+              "y": 4,
+              "text": "PLAY NEXT GAME",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 6,
+              "text": "Players",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 7,
+              "text": "Next opponents",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 8,
+              "text": "Transfer market",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 9,
+              "text": "Use scout",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 10,
+              "text": "New staff",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 11,
+              "text": "League tables",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 12,
+              "text": "League results",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 13,
+              "text": "Cup results",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 14,
+              "text": "Weekly fixtures",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 15,
+              "text": "Fixture list",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 16,
+              "text": "Statistics",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 17,
+              "text": "Player/team history",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 18,
+              "text": "Seasonal history",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 19,
+              "text": "Other teams",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 20,
+              "text": "Game configuration",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 21,
+              "text": "Cashflow",
+              "truncated": false
+            },
+            {
+              "x": 62,
+              "y": 22,
+              "text": "move",
+              "truncated": false
+            },
+            {
+              "x": 71,
+              "y": 22,
+              "text": "select",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 23,
+              "text": "F7-Save  F10-Quit",
+              "truncated": false
+            }
+          ],
+          "label_count": 20,
+          "labels_matched": 20,
+          "label_mismatches": [],
+          "border_cells": 85,
+          "borders_matched": 85,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      },
+      {
+        "name": "main_single_player_entry",
+        "resource": "2864:5A28",
+        "caller": "0006:1B52",
+        "rectangle": {
+          "start_cell": 378,
+          "x": 57,
+          "y": 4,
+          "width": 22,
+          "height": 2
+        },
+        "resource_bytes_consumed": 37,
+        "resource_sha256": "388fe9d850486485705cc49feb64e50293630dbb76f011ebd6712b4d968a4d82",
+        "base_attribute_codes": [
+          2,
+          3,
+          14
+        ],
+        "later_resource_overlays": [],
+        "captured_record": "runs/T47/session-r0001/step-0001.json",
+        "captured_record_sha256": "c53f0a628c9b72f7f30420f0aeb53d87ff4389dd5f52ddf5d7f3ba813831d027",
+        "screenshot_sha256": "fbca3798822c7fd5e69176c2019a81fc2e449d68e37e3a571095452a0ec54d43",
+        "comparison": {
+          "labels": [
+            {
+              "x": 59,
+              "y": 4,
+              "text": "PLAY NEXT GAME",
+              "truncated": false
+            }
+          ],
+          "label_count": 1,
+          "labels_matched": 1,
+          "label_mismatches": [],
+          "border_cells": 24,
+          "borders_matched": 24,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      },
+      {
+        "name": "configuration",
+        "resource": "2864:49E8",
+        "caller": "0006:10BF",
+        "rectangle": {
+          "start_cell": 56,
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_bytes_consumed": 297,
+        "resource_sha256": "bbcff6a866539e6c55eed77088bd793c97e44cb349ad38c1de37e24efea292e5",
+        "base_attribute_codes": [
+          5,
+          7,
+          14
+        ],
+        "later_resource_overlays": [],
+        "captured_record": "runs/T47/session-r0001/step-0006.json",
+        "captured_record_sha256": "0367ccd387327ef1ae3c665526fb1abf01cac479f4862be7b7238f74d74068b5",
+        "screenshot_sha256": "503bae9de2e7d0611cb8d6e6648f4b7c3ae20398dadb5ceb99397c860e36752e",
+        "comparison": {
+          "labels": [
+            {
+              "x": 58,
+              "y": 7,
+              "text": "Watch match",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 9,
+              "text": "Sacking",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 11,
+              "text": "Auto save game",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 13,
+              "text": "Friendlies",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 15,
+              "text": "Auto player select",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 17,
+              "text": "Continue",
+              "truncated": false
+            },
+            {
+              "x": 62,
+              "y": 22,
+              "text": "move",
+              "truncated": false
+            },
+            {
+              "x": 70,
+              "y": 22,
+              "text": "select",
+              "truncated": false
+            }
+          ],
+          "label_count": 8,
+          "labels_matched": 8,
+          "label_mismatches": [],
+          "border_cells": 187,
+          "borders_matched": 187,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      }
+    ],
+    "candidate_resource_callers": [
+      {
+        "resource": "2864:4F5E",
+        "caller": "0006:02CA",
+        "pointer_instruction": "02CE",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 61,
+          "height": 24
+        },
+        "resource_sha256": "bd400d7455dec45adfd13b2ba1e389cf7afbb2b0d60a77c7df3255ba41ef9d84",
+        "short_label_sample": [
+          {
+            "x": 24,
+            "y": 20,
+            "text": "PgDn,PgUp-more",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1AD6",
+        "caller": "0006:02CA",
+        "pointer_instruction": "02DD",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 21,
+          "width": 19,
+          "height": 2
+        },
+        "resource_sha256": "98101edd40ff248c162b9c7b5b338d671c1dd78426e3048c79c5104b416a4264",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 21,
+            "text": "division",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 22,
+            "text": "watch game",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0006:02CA",
+        "pointer_instruction": "02EC",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:7148",
+        "caller": "0006:0645",
+        "pointer_instruction": "0649",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 51,
+          "y": 24,
+          "width": 28,
+          "height": 1
+        },
+        "resource_sha256": "6f6ce020c87be95a8a69b699357ca92e5e0dff01050521a5e151f2c7aff6df0f",
+        "short_label_sample": [
+          {
+            "x": 52,
+            "y": 24,
+            "text": "Select your team, player",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:63A8",
+        "caller": "0006:07A1",
+        "pointer_instruction": "08A7",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 21,
+          "width": 19,
+          "height": 2
+        },
+        "resource_sha256": "d86a40402e16a344f1d042c5452f27d5ef8de6f7432ae70e64602247f6b3be69",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 21,
+            "text": "division",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 22,
+            "text": "apply for job",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:226C",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AA4",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 20,
+          "width": 19,
+          "height": 3
+        },
+        "resource_sha256": "2acb9a83fe919c4de686bf3a00d6356277dc2bdccbf669915052a7aadac01aa0",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 20,
+            "text": "PLEASE ENTER",
+            "truncated": false
+          },
+          {
+            "x": 4,
+            "y": 21,
+            "text": "YOUR NAME",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:49B2",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AB3",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "9187be49ae7f1243f0a0164ab5d426eae7ff2278a259768861f575dd46f08410",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "Type in an initial followed by your surname",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:3138",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AE7",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 20,
+          "width": 19,
+          "height": 3
+        },
+        "resource_sha256": "2df87e812a9fd185ba5707b699807f35ab4dc37caf91e11820863c95fd45b042",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 20,
+            "text": "PLEASE SELECT",
+            "truncated": false
+          },
+          {
+            "x": 7,
+            "y": 21,
+            "text": "YOUR",
+            "truncated": false
+          },
+          {
+            "x": 3,
+            "y": 22,
+            "text": "NATIONALITY",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AF6",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:4B7A",
+        "caller": "0006:0C1E",
+        "pointer_instruction": "0C22",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 25
+        },
+        "resource_sha256": "14811ab95d86ad5dd9a378e9ea56c5f116879232bc36874aea3e681043f4218f",
+        "short_label_sample": [
+          {
+            "x": 26,
+            "y": 0,
+            "text": "PLAYER TRANSFER HISTORY",
+            "truncated": false
+          },
+          {
+            "x": 6,
+            "y": 24,
+            "text": "more",
+            "truncated": false
+          },
+          {
+            "x": 16,
+            "y": 24,
+            "text": "team histories                                  ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:7C7E",
+        "caller": "0006:0C1E",
+        "pointer_instruction": "0CC2",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 1,
+          "y": 4,
+          "width": 78,
+          "height": 2
+        },
+        "resource_sha256": "9b4f20f0969c2cc8b8e3398621554d2b550241eace05498207a6830fd3e68845",
+        "short_label_sample": [
+          {
+            "x": 9,
+            "y": 4,
+            "text": "match                                           ",
+            "truncated": true
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "text": "age    club games      goals      avg        pos",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0006:10BF",
+        "pointer_instruction": "10D8",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:49E8",
+        "caller": "0006:10BF",
+        "pointer_instruction": "10E7",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "bbcff6a866539e6c55eed77088bd793c97e44cb349ad38c1de37e24efea292e5",
+        "short_label_sample": [
+          {
+            "x": 58,
+            "y": 7,
+            "text": "Watch match",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 9,
+            "text": "Sacking",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 11,
+            "text": "Auto save game",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:69C4",
+        "caller": "0006:1197",
+        "pointer_instruction": "11A5",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 19,
+          "height": 24
+        },
+        "resource_sha256": "62fc1c2453c0f4045e290c7dc45c54a1e280af544b8c7e9998c62b586a9af874",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 1,
+            "text": "TEAM",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "text": "MANAGER",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 5,
+            "text": "MONEY",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:5066",
+        "caller": "0006:144B",
+        "pointer_instruction": "1459",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 36,
+          "height": 24
+        },
+        "resource_sha256": "583f86abeb51a94e692bbf3546c53d2dc0e0a6b4f536d1a15f1b8e4c7eb858eb",
+        "short_label_sample": [
+          {
+            "x": 30,
+            "y": 2,
+            "text": "YOU'VE BEEN",
+            "truncated": false
+          },
+          {
+            "x": 32,
+            "y": 4,
+            "text": "SACKED",
+            "truncated": false
+          },
+          {
+            "x": 29,
+            "y": 6,
+            "text": "AND CURRENTLY",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:516E",
+        "caller": "0006:144B",
+        "pointer_instruction": "147A",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 25,
+          "y": 12,
+          "width": 21,
+          "height": 11
+        },
+        "resource_sha256": "a0521e9b6202f00bfbcac96e8da75005b3746200b6c0a027d86566173a05321b",
+        "short_label_sample": [
+          {
+            "x": 31,
+            "y": 13,
+            "text": "NO TEAM",
+            "truncated": false
+          },
+          {
+            "x": 29,
+            "y": 15,
+            "text": "IS SHOWING ANY",
+            "truncated": false
+          },
+          {
+            "x": 31,
+            "y": 17,
+            "text": "INTEREST",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:55D6",
+        "caller": "0006:144B",
+        "pointer_instruction": "148B",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 25,
+          "y": 12,
+          "width": 21,
+          "height": 11
+        },
+        "resource_sha256": "76d8ae229b82399e80b1852e6ed43b029290ed4f85fee39729f6a83c7f29aa08",
+        "short_label_sample": [
+          {
+            "x": 29,
+            "y": 15,
+            "text": "WANT TO HIRE",
+            "truncated": false
+          },
+          {
+            "x": 29,
+            "y": 17,
+            "text": "YOU AS THEIR",
+            "truncated": false
+          },
+          {
+            "x": 29,
+            "y": 19,
+            "text": "MANAGER......",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4C6E",
+        "caller": "0006:14E2",
+        "pointer_instruction": "1553",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "6c8c6872e05b64f6c0da38f4376a507df13975f7f0aa2d76865760faa752b6d6",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 6,
+            "text": "League tables",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 8,
+            "text": "Cup results",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 10,
+            "text": "Fixture list",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4342",
+        "caller": "0006:14E2",
+        "pointer_instruction": "1562",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 0,
+          "width": 23,
+          "height": 3
+        },
+        "resource_sha256": "39a306940e1cc2d07bd16cbf778370969eaf691c4d8fb41205fb98cf9364807d",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 1,
+            "text": "GAME NAME:",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0006:14E2",
+        "pointer_instruction": "15EC",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4C4A",
+        "caller": "0006:14E2",
+        "pointer_instruction": "15FB",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 23,
+          "height": 1
+        },
+        "resource_sha256": "675757614e169f33499e31feef110e98273775e455515fd64b872c8fdfe3fd76",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "INS-Change information",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:8324",
+        "caller": "0006:1A67",
+        "pointer_instruction": "1AB2",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 25
+        },
+        "resource_sha256": "2ead34bcc3950025f35650a4bd781b8046ec9d9bcb89a5e01671eb3b7dff4012",
+        "short_label_sample": [
+          {
+            "x": 20,
+            "y": 0,
+            "text": "SEASONAL LEAGUE AND CUP HISTORY               YE",
+            "truncated": true
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "text": "EUROPEAN TROPHIES",
+            "truncated": false
+          },
+          {
+            "x": 22,
+            "y": 4,
+            "text": "Winner",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:45E6",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1B60",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "ee88887faaf74ab72297608c37f26b4afe942157adc1d6e98b79235e61638b8a",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 6,
+            "text": "Players",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 7,
+            "text": "Next opponents",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 8,
+            "text": "Transfer market",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4342",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1B6F",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 0,
+          "width": 23,
+          "height": 3
+        },
+        "resource_sha256": "39a306940e1cc2d07bd16cbf778370969eaf691c4d8fb41205fb98cf9364807d",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 1,
+            "text": "GAME NAME:",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:5A28",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1B88",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 4,
+          "width": 22,
+          "height": 2
+        },
+        "resource_sha256": "388fe9d850486485705cc49feb64e50293630dbb76f011ebd6712b4d968a4d82",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 4,
+            "text": "PLAY NEXT GAME",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:5A4E",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1BA3",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 3,
+          "width": 22,
+          "height": 3
+        },
+        "resource_sha256": "a2c68774d58e6920287e4d25a25f8e5a3d178d6065d89f9443e2044181ce0e34",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 4,
+            "text": "NEXT PLAYER",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:59EE",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1BB4",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 4,
+          "width": 22,
+          "height": 2
+        },
+        "resource_sha256": "70216183b254588fc1f8cddd0125d9d04decf903ba76f2af549a4a06ff50f496",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 4,
+            "text": "PLAY NEXT GAME",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 5,
+            "text": "Previous player",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1C35",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:132E",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1C46",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "1940e10891416ca0f4bf269a05d3e828b724f3598ba2481114ae38e9e1d8450f",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "INS-Change information  SPACEBAR-Squad",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:317C",
+        "caller": "01EF:0626",
+        "pointer_instruction": "062F",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "fdb4542744a7ce1dabdafb276d9ef9600dc9803386f93f59fdbfb2bc63f31ab4",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 0,
+            "text": "TRANSFERS",
+            "truncated": false
+          },
+          {
+            "x": 62,
+            "y": 23,
+            "text": "move",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:171E",
+        "caller": "01EF:07CC",
+        "pointer_instruction": "086E",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 55,
+          "height": 1
+        },
+        "resource_sha256": "3762f8589f7262ec2d2119a50da30ee8590e048fdc1dc3127aab22ee5606563e",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "BID REFUSED : try again",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0BD8",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:1862",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0BF4",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "8bc7000eb8a5603f5dbc5c3093a2b17fa042f00c97d3429a8ba8c020ae30ea9a",
+        "short_label_sample": [
+          {
+            "x": 63,
+            "y": 5,
+            "text": "MAKE YOUR",
+            "truncated": false
+          },
+          {
+            "x": 65,
+            "y": 6,
+            "text": "OFFER",
+            "truncated": false
+          },
+          {
+            "x": 65,
+            "y": 16,
+            "text": "change   (1000)",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1746",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0C03",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 24,
+          "width": 25,
+          "height": 1
+        },
+        "resource_sha256": "e8e7bfff106adfa97143f5d62a527ff23abcd8ff2e64e534736c7ed693be02d3",
+        "short_label_sample": [
+          {
+            "x": 61,
+            "y": 24,
+            "text": "ESC-GIVE UP",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0C55",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:24C4",
+        "caller": "01EF:0DB2",
+        "pointer_instruction": "0E09",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "a746465e84b6df4b2df5191c1a78c828ae34465f8ec7d8080dffe7209e02c292",
+        "short_label_sample": [
+          {
+            "x": 4,
+            "y": 24,
+            "text": "make bid",
+            "truncated": false
+          },
+          {
+            "x": 62,
+            "y": 24,
+            "text": "leagues   Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2B5A",
+        "caller": "01EF:0DB2",
+        "pointer_instruction": "0E1E",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 59,
+          "y": 24,
+          "width": 10,
+          "height": 1
+        },
+        "resource_sha256": "0317c8c00647375bc29119c97bdf5a90de8b1b2d5b9401857fb4475fb6785641",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:2B64",
+        "caller": "01EF:0DB2",
+        "pointer_instruction": "0E2D",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 0,
+          "width": 16,
+          "height": 1
+        },
+        "resource_sha256": "e18bd0150ec5b3ba5be4c364d8a414e3874db8102f32a0e0f3d2e692569b1644",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "01EF:1569",
+        "pointer_instruction": "15FF",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:3EBC",
+        "caller": "01EF:1569",
+        "pointer_instruction": "160E",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "2026e6b620169113df07749822d57de262783eea3a0312a04faa7e38e24ab923",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 0,
+            "text": "Please select the qualities of the players you a",
+            "truncated": true
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "text": "PRICE RANGE",
+            "truncated": false
+          },
+          {
+            "x": 28,
+            "y": 3,
+            "text": "POSITION",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:3376",
+        "caller": "01EF:1D7A",
+        "pointer_instruction": "1E00",
+        "listing": "static/1-0-exe/code/seg_01EF_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "448330317b08d9d6aea0982671bd8296cde58658910da4023cbe71f62788aaa4",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 0,
+            "text": "Top scorers (league and cups)",
+            "truncated": false
+          },
+          {
+            "x": 40,
+            "y": 3,
+            "text": "Team league statistics",
+            "truncated": false
+          },
+          {
+            "x": 40,
+            "y": 5,
+            "text": "Best attack",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "01EF:1D7A",
+        "pointer_instruction": "1E0F",
+        "listing": "static/1-0-exe/code/seg_01EF_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:5A76",
+        "caller": "01EF:1FF2",
+        "pointer_instruction": "2005",
+        "listing": "static/1-0-exe/code/seg_01EF_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 61,
+          "y": 21,
+          "width": 13,
+          "height": 1
+        },
+        "resource_sha256": "ba4b11a6ffe1541a0435d9f8208c02b7adc8ebd01783e50f67ee8c179936a1d8",
+        "short_label_sample": [
+          {
+            "x": 61,
+            "y": 21,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:5212",
+        "caller": "01EF:291E",
+        "pointer_instruction": "292C",
+        "listing": "static/1-0-exe/code/seg_01EF_04.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "3c9bd2b5e30c83d1772aa1531ff76869f73f5add40dcfa0ba938ebdf90f4b865",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:291E",
+        "pointer_instruction": "293B",
+        "listing": "static/1-0-exe/code/seg_01EF_04.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6CC2",
+        "caller": "01EF:3377",
+        "pointer_instruction": "337B",
+        "listing": "static/1-0-exe/code/seg_01EF_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "ec8e7f260c13a0cc4dbaff1624c614775fdd325cfc78df2ba775d446546781bd",
+        "short_label_sample": [
+          {
+            "x": 40,
+            "y": 1,
+            "text": "Currently viewing :",
+            "truncated": false
+          },
+          {
+            "x": 37,
+            "y": 4,
+            "text": "Name",
+            "truncated": false
+          },
+          {
+            "x": 37,
+            "y": 6,
+            "text": "Country",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "01EF:3524",
+        "pointer_instruction": "353D",
+        "listing": "static/1-0-exe/code/seg_01EF_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:7204",
+        "caller": "01EF:3DD9",
+        "pointer_instruction": "3DDD",
+        "listing": "static/1-0-exe/code/seg_01EF_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "44b75fe6024a2017b40c0ad92c31b4bffddb8381bc6353de00df37334689df18",
+        "short_label_sample": [
+          {
+            "x": 0,
+            "y": 0,
+            "text": "LEAGUE RESULTS",
+            "truncated": false
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "text": "MATCH NO",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:3EE3",
+        "pointer_instruction": "3F52",
+        "listing": "static/1-0-exe/code/seg_01EF_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6C12",
+        "caller": "01EF:3EE3",
+        "pointer_instruction": "3F63",
+        "listing": "static/1-0-exe/code/seg_01EF_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "4192b7dc78ef61b4e425c54a776efc69d2006f44ed7c73fe4c63bb0dc2defd6c",
+        "short_label_sample": [
+          {
+            "x": 6,
+            "y": 24,
+            "text": "next  Del,",
+            "truncated": false
+          },
+          {
+            "x": 18,
+            "y": 24,
+            "text": "previous                                F5-Print",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:7766",
+        "caller": "01EF:467A",
+        "pointer_instruction": "467E",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "8353e7d1b19aa6ff06b63bbd6b58e4a439de47a4e14b91f5e1bae34c75bf8619",
+        "short_label_sample": [
+          {
+            "x": 25,
+            "y": 2,
+            "text": "P",
+            "truncated": false
+          },
+          {
+            "x": 29,
+            "y": 2,
+            "text": "HW",
+            "truncated": false
+          },
+          {
+            "x": 34,
+            "y": 2,
+            "text": "HD",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6C6C",
+        "caller": "01EF:4743",
+        "pointer_instruction": "4790",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "ecef4409165a706a1b4ef9683843b1a9f45120b23a49733fae108d2377bc9e47",
+        "short_label_sample": [
+          {
+            "x": 6,
+            "y": 24,
+            "text": "next Del,",
+            "truncated": false
+          },
+          {
+            "x": 17,
+            "y": 24,
+            "text": "last                                     F5-Prin",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:4743",
+        "pointer_instruction": "47A1",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:5666",
+        "caller": "01EF:487C",
+        "pointer_instruction": "487F",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "3d22898f605ed4283892e6d9cf46ff22caeb2c36cfa8482f8c338026b047cc9d",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 1,
+            "text": "EUROPEAN CUP GROUP STAGE",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 2,
+            "text": "Group A winner plays group B winner in final",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 5,
+            "text": "GROUP A",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:487C",
+        "pointer_instruction": "48A0",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:76E6",
+        "caller": "01EF:48DB",
+        "pointer_instruction": "48ED",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "aae9255e5d2d889d2904c847428b1028f44082a2f7d4496fbdc44fe4969fab1a",
+        "short_label_sample": [
+          {
+            "x": 6,
+            "y": 24,
+            "text": "next Del,",
+            "truncated": false
+          },
+          {
+            "x": 17,
+            "y": 24,
+            "text": "last  L.C  F.A  UEFA  C.W.C  E.C              F5",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:4E12",
+        "caller": "01EF:49EE",
+        "pointer_instruction": "49F2",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 19,
+          "height": 24
+        },
+        "resource_sha256": "d75cea50f864293d0701031a55842e0a3d40a4a202cf4b9403fc13f8f0844a3d",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 20,
+            "text": "move",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 21,
+            "text": "division",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EF4",
+        "caller": "06E8:15E2",
+        "pointer_instruction": "15EB",
+        "listing": "static/1-0-exe/code/seg_06E8_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "1f8845d989f5c8e29caab5ebb84273217fdaaa4a916f5f2a3e9c43fbe1b3bb93",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "RESULTS                                         ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EF4",
+        "caller": "06E8:1615",
+        "pointer_instruction": "161F",
+        "listing": "static/1-0-exe/code/seg_06E8_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "1f8845d989f5c8e29caab5ebb84273217fdaaa4a916f5f2a3e9c43fbe1b3bb93",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "RESULTS                                         ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:59A6",
+        "caller": "06E8:1AAA",
+        "pointer_instruction": "1ADE",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 19,
+          "width": 40,
+          "height": 2
+        },
+        "resource_sha256": "9dd6de246b4cc49ae99687e869b03702c07d38ad685b03b0e7300bef8d73f555",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 19,
+            "text": "EUROPEAN CUP GROUP STAGE TABLES",
+            "truncated": false
+          },
+          {
+            "x": 14,
+            "y": 20,
+            "text": "ON NEXT PAGE",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EAE",
+        "caller": "06E8:1B31",
+        "pointer_instruction": "1B63",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "3b1623e5d555ab7d2a58aac525c09dde905ef6027f38548b049fd133ce1bbdb7",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "CUP DRAW                                        ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EF4",
+        "caller": "06E8:1B31",
+        "pointer_instruction": "1B7A",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "1f8845d989f5c8e29caab5ebb84273217fdaaa4a916f5f2a3e9c43fbe1b3bb93",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "RESULTS                                         ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:72DE",
+        "caller": "06E8:1E98",
+        "pointer_instruction": "1EB0",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 61,
+          "height": 24
+        },
+        "resource_sha256": "a25964f4c79ec91d11264c6226267c971fbcb29465875ce9345720acff11ce3d",
+        "short_label_sample": [
+          {
+            "x": 51,
+            "y": 1,
+            "text": "CUP INFO",
+            "truncated": false
+          },
+          {
+            "x": 66,
+            "y": 1,
+            "text": "WINS",
+            "truncated": false
+          },
+          {
+            "x": 72,
+            "y": 1,
+            "text": "2nd",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "06E8:1E98",
+        "pointer_instruction": "1EBF",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2706",
+        "caller": "06E8:346F",
+        "pointer_instruction": "3481",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "14465d0e8fb402681d16955338f0d5f596e6f994f818534ad488c8ac2fffac25",
+        "short_label_sample": [
+          {
+            "x": 11,
+            "y": 0,
+            "text": "TRANSFER",
+            "truncated": false
+          },
+          {
+            "x": 20,
+            "y": 0,
+            "text": "NEWS",
+            "truncated": false
+          },
+          {
+            "x": 11,
+            "y": 1,
+            "text": "PLAYER",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "06E8:346F",
+        "pointer_instruction": "3490",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2828",
+        "caller": "06E8:36EA",
+        "pointer_instruction": "37A0",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "050490c58bdd9b0f17e51ff88491d6dee113e2ac2befb52ec8128655597f7bcd",
+        "short_label_sample": [
+          {
+            "x": 65,
+            "y": 6,
+            "text": "OFFER",
+            "truncated": false
+          },
+          {
+            "x": 62,
+            "y": 17,
+            "text": "FOR",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2004",
+        "caller": "06E8:36EA",
+        "pointer_instruction": "37C5",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 20,
+          "width": 23,
+          "height": 3
+        },
+        "resource_sha256": "a5c43205d9390eeac647e405f9aa8347aaee7d9d270228d088c31f8d61ced87f",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 21,
+            "text": "FEE SET BY TRIBUNAL",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "06E8:3B6B",
+        "pointer_instruction": "3BC5",
+        "listing": "static/1-0-exe/code/seg_06E8_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:2FA4",
+        "caller": "06E8:3B6B",
+        "pointer_instruction": "3BDC",
+        "listing": "static/1-0-exe/code/seg_06E8_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "6d99ffa550c4311400db3c06b0be49649eca5234c4a8796129415d3be7b9405b",
+        "short_label_sample": [
+          {
+            "x": 58,
+            "y": 1,
+            "text": "TRIAL PERIOD IS NOW",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 2,
+            "text": "OVER.YOU MUST DECIDE",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 3,
+            "text": "ON A BASIC WAGE IF",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2E06",
+        "caller": "0AB9:6A7A",
+        "pointer_instruction": "6A9C",
+        "listing": "static/1-0-exe/code/seg_0AB9_11.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "4051e6679c4d1c18428cf7a25f26638895accc2ffd2c8acafffddb0fab311271",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "SUBSTITUTION OPPORTUNITY                        ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:2E3C",
+        "caller": "0AB9:6A7A",
+        "pointer_instruction": "6AAD",
+        "listing": "static/1-0-exe/code/seg_0AB9_11.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "5c509ae7924e786cfe8c56dad8d767647ced8741e7c52f71687be12e9195f86b",
+        "short_label_sample": [
+          {
+            "x": 16,
+            "y": 24,
+            "text": "HAS NO GOALKEEPER                               ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:1C6E",
+        "caller": "0AB9:7EF0",
+        "pointer_instruction": "7F67",
+        "listing": "static/1-0-exe/code/seg_0AB9_13.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "e3f14f1ecea0e296f826e9938d92da2c47cd1a6cb698b47c0dc3bec5ebd91c18",
+        "short_label_sample": [
+          {
+            "x": 16,
+            "y": 24,
+            "text": "select the order for the PENALTY SHOOT OUT      ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:1B5C",
+        "caller": "0AB9:7EF0",
+        "pointer_instruction": "7FB9",
+        "listing": "static/1-0-exe/code/seg_0AB9_13.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "b6c3806c1b43db08644a7f81a72340955b0a027c66fa2e290617c299899c9f24",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 0,
+            "text": "FIRST TEAM",
+            "truncated": false
+          },
+          {
+            "x": 76,
+            "y": 11,
+            "text": "move",
+            "truncated": false
+          },
+          {
+            "x": 62,
+            "y": 12,
+            "text": "select",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6734",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "8D73",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 55,
+          "height": 24
+        },
+        "resource_sha256": "1cd4533a58d7cd43ab30b182b0d231640b60fd9f6467bfdd2a490475c8a140e3",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 0,
+            "text": "PLAYER DETAILS",
+            "truncated": false
+          },
+          {
+            "x": 18,
+            "y": 1,
+            "text": "Age     Team",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "text": "Pos.                    1st pos",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:3EB0",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "94B1",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 36,
+          "y": 15,
+          "width": 18,
+          "height": 1
+        },
+        "resource_sha256": "4d43546bc558bb8c2ebcf8738ad56535fbf555015ce8f0e339675fe699c3ffa7",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:1D38",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "94F1",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 36,
+          "y": 7,
+          "width": 18,
+          "height": 3
+        },
+        "resource_sha256": "b4fa6b1882e302d777805243650b0ed5a36d97b17057c9cf4031f7c37255065e",
+        "short_label_sample": [
+          {
+            "x": 38,
+            "y": 8,
+            "text": "TEAM CAPTAIN",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6358",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "9557",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 28,
+          "y": 22,
+          "width": 20,
+          "height": 1
+        },
+        "resource_sha256": "aba0933e27bca89c2bd043a637c00a993b42d748d0d0e71318a03f32adf7814c",
+        "short_label_sample": [
+          {
+            "x": 28,
+            "y": 22,
+            "text": "GAME RATING",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:95D1",
+        "pointer_instruction": "95F2",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:2EF0",
+        "caller": "0AB9:95D1",
+        "pointer_instruction": "9609",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "d99c0f34644dff99d3a1b552046afe09d2be5c0fcc3a01331c4568b969abf991",
+        "short_label_sample": [
+          {
+            "x": 58,
+            "y": 1,
+            "text": "SELECT TRIAL PERIOD",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 3,
+            "text": "Length",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 4,
+            "text": "1,2,3,4 games",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:176C",
+        "caller": "0AB9:966F",
+        "pointer_instruction": "9687",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "564b4df6fa081e54e9e743fa4e975f674b41fe4532ced266ad95483765142c4e",
+        "short_label_sample": [
+          {
+            "x": 63,
+            "y": 16,
+            "text": "move",
+            "truncated": false
+          },
+          {
+            "x": 63,
+            "y": 18,
+            "text": "change",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 20,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:966F",
+        "pointer_instruction": "9696",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:4F20",
+        "caller": "0AB9:9702",
+        "pointer_instruction": "970B",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 21,
+          "width": 19,
+          "height": 2
+        },
+        "resource_sha256": "3bc768d4b39fb2dcea5c2be7beef76807cb769043a330f94fe86f5f46c805321",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 21,
+            "text": "division",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 22,
+            "text": "select",
+            "truncated": false
+          },
+          {
+            "x": 12,
+            "y": 22,
+            "text": "team",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:3D72",
+        "caller": "0AB9:9FD0",
+        "pointer_instruction": "9FD4",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "40e0d028c936c09b0b521f188f86bfe671c04f977537a121d6b8ad81a61ce5a9",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 0,
+            "text": "FIRST TEAM",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 12,
+            "text": "SUBS",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:22AC",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "AC94",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 76,
+          "y": 22,
+          "width": 4,
+          "height": 2
+        },
+        "resource_sha256": "a9457a093889271e89d304c87956b4e0d537a482cb84753f524524c75284faa2",
+        "short_label_sample": [
+          {
+            "x": 76,
+            "y": 23,
+            "text": "move",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACBD",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4924",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACD4",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "df4ed83b2b0f3242301853a743e8dd6e8c167ae533ab20d2ed85bd6605270707",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "move player          spacebar-more options    H-",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACEB",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:250A",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACFA",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 13,
+          "height": 1
+        },
+        "resource_sha256": "ec36420a05a1406e32121e76a8efddfab9ab66b375c3dfab617c835e47db3a6f",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "buy player",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2EB8",
+        "caller": "0AB9:ADD0",
+        "pointer_instruction": "ADEC",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "bf9395dedb4c522b6a365c91ada2c9aff54a3cc33b91d08ee68abf500fbf78fa",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "SUBSTITUTION               on for               ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:176C",
+        "caller": "0AB9:B271",
+        "pointer_instruction": "B28A",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "564b4df6fa081e54e9e743fa4e975f674b41fe4532ced266ad95483765142c4e",
+        "short_label_sample": [
+          {
+            "x": 63,
+            "y": 16,
+            "text": "move",
+            "truncated": false
+          },
+          {
+            "x": 63,
+            "y": 18,
+            "text": "change",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 20,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:B271",
+        "pointer_instruction": "B299",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:22BE",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B878",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "858c466bbab717159764fe5898af0a8109c0213b4737dd2a7de2915d1b27ade3",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 0,
+            "text": "FIRST TEAM",
+            "truncated": false
+          },
+          {
+            "x": 62,
+            "y": 13,
+            "text": "move",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6370",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B887",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "5aa52617169c188c5bbacab8ca20c5dc705eb19ed90d09e696291ca6a0b6b2de",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "select           taker                          ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:25B2",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B896",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 18,
+          "width": 18,
+          "height": 3
+        },
+        "resource_sha256": "4584f279d88f0a855b6ac1f93b2c71bfafa89a29e727221245990e504d2cdcfb",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:23A4",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B8AB",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 13,
+          "width": 18,
+          "height": 2
+        },
+        "resource_sha256": "f5829fffc829b5be4b2508f59c3d9ce18365d6a121fd7ee19e6368c895977b18",
+        "short_label_sample": [
+          {
+            "x": 62,
+            "y": 13,
+            "text": "move",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 14,
+            "text": "space-pitch",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:14A0",
+        "caller": "0AB9:BBE2",
+        "pointer_instruction": "BBE6",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "21bd02190ecc94e9e212d4e41bc0aa68506ddbbb80629d1240c36e51f89cde72",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 1,
+            "text": "PLAYER CONTRACT",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 5,
+            "text": "Length",
+            "truncated": false
+          },
+          {
+            "x": 58,
+            "y": 6,
+            "text": "1,2,3,4 years",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:BBE2",
+        "pointer_instruction": "BBF5",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:1600",
+        "caller": "0AB9:BBE2",
+        "pointer_instruction": "BC0E",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 56,
+          "y": 19,
+          "width": 24,
+          "height": 3
+        },
+        "resource_sha256": "9a36d01c21a9457b65ed64bc46074851ca6ca990fc0bfed096fd5140fb1d5f3a",
+        "short_label_sample": [
+          {
+            "x": 61,
+            "y": 20,
+            "text": "OFFER CONTRACT",
+            "truncated": false
+          },
+          {
+            "x": 57,
+            "y": 21,
+            "text": "Esc-last category",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "0AB9:C056",
+        "pointer_instruction": "C068",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0AB9:C4CD",
+        "pointer_instruction": "C583",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:437A",
+        "caller": "0AB9:C4CD",
+        "pointer_instruction": "C592",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "3ad8495170a897d662855e82cfdf45ebe82797ad580af4e7c2f92cc91d4e33b2",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 5,
+            "text": "Reposition",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 7,
+            "text": "Club position",
+            "truncated": false
+          },
+          {
+            "x": 59,
+            "y": 9,
+            "text": "Sell",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1CC0",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CD6A",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 77,
+          "y": 0,
+          "width": 1,
+          "height": 22
+        },
+        "resource_sha256": "a0af2654f9b3457d721d81288314707ef01113368f2bcd1567a4bf3cadda82d0",
+        "short_label_sample": [
+          {
+            "x": 77,
+            "y": 0,
+            "text": "s",
+            "truncated": false
+          },
+          {
+            "x": 77,
+            "y": 1,
+            "text": "u",
+            "truncated": false
+          },
+          {
+            "x": 77,
+            "y": 2,
+            "text": "b",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1D0E",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CD86",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 58,
+          "y": 23,
+          "width": 11,
+          "height": 1
+        },
+        "resource_sha256": "96f22ed8534e4ba8cadb3b6fe9ae713b75bdd2275d866bc3495af61bce462933",
+        "short_label_sample": [
+          {
+            "x": 61,
+            "y": 23,
+            "text": "reserves",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1648",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CD97",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 58,
+          "y": 23,
+          "width": 13,
+          "height": 1
+        },
+        "resource_sha256": "bb470fe2962cb33318cdb11603f9920c54973c5e7c993b9a5449a6e35f76f52a",
+        "short_label_sample": [
+          {
+            "x": 61,
+            "y": 23,
+            "text": "first team",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:498C",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CDAC",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 45,
+          "height": 1
+        },
+        "resource_sha256": "a4bd9a35eb91b0e318a10ed8f4cfaa20e90fec713c24f59ef11774aca8c0b4b7",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "PUT HERE",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1D24",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CE15",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 59,
+          "y": 0,
+          "width": 11,
+          "height": 1
+        },
+        "resource_sha256": "26f7acbfe2f876e2c8c0ab3795e2ce63ade8409eabe5379e85d264b9eea3f0e3",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 0,
+            "text": "RESERVES",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:132E",
+        "caller": "0AB9:D5D6",
+        "pointer_instruction": "D6C7",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "1940e10891416ca0f4bf269a05d3e828b724f3598ba2481114ae38e9e1d8450f",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "INS-Change information  SPACEBAR-Squad",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:25CC",
+        "caller": "0AB9:D5D6",
+        "pointer_instruction": "D6D6",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 20,
+          "height": 24
+        },
+        "resource_sha256": "69a5368ccb59c14f4879160dbffe8ee5e0bd86759c5d1b7eac0c6f71dc31dce5",
+        "short_label_sample": [
+          {
+            "x": 6,
+            "y": 5,
+            "text": "versus",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 9,
+            "text": "Remaining subs",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 14,
+            "text": "Match stats",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:63E2",
+        "caller": "0AB9:DA41",
+        "pointer_instruction": "DA45",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "f9ae9ecb346545f88b9042317ef83b4be7a45ab48fc2c0edd5913479d9ac071d",
+        "short_label_sample": [
+          {
+            "x": 22,
+            "y": 0,
+            "text": "ONE",
+            "truncated": false
+          },
+          {
+            "x": 62,
+            "y": 0,
+            "text": "commentary",
+            "truncated": false
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "text": "versus",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:66B4",
+        "caller": "0AB9:DA41",
+        "pointer_instruction": "DA54",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "d723e373a719ea05f9691b9aed0275c752e46fa7e4d4413859519a2881a94831",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 24,
+            "text": "display",
+            "truncated": false
+          },
+          {
+            "x": 16,
+            "y": 24,
+            "text": "speed        R-result   spacebar-commentary  F9-",
+            "truncated": false
+          },
+          {
+            "x": 67,
+            "y": 24,
+            "text": "Esc,",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:19DE",
+        "caller": "0AB9:DA41",
+        "pointer_instruction": "DA63",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 28,
+          "y": 0,
+          "width": 11,
+          "height": 5
+        },
+        "resource_sha256": "b33cbd84af0d1404a172ddab240be56274a94a9cca2cf63dfc41a6c670d25f03",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:30E8",
+        "caller": "0AB9:EAB6",
+        "pointer_instruction": "EC73",
+        "listing": "static/1-0-exe/code/seg_0AB9_22.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "e1e7625004a9222d1e318c605912fa5057541a42294e2358fc250836c60ec837",
+        "short_label_sample": [
+          {
+            "x": 3,
+            "y": 24,
+            "text": "C   A  L   C   U   L   A   T   I   N   G        ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:1B10",
+        "caller": "1998:0338",
+        "pointer_instruction": "0343",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 1,
+          "y": 5,
+          "width": 17,
+          "height": 1
+        },
+        "resource_sha256": "b9160e0119e59ff305791b434b73f7011508dd235215243395c067a5c741684d",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 5,
+            "text": "half time   :  )",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1CDC",
+        "caller": "1998:039A",
+        "pointer_instruction": "039D",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 62,
+          "y": 5,
+          "width": 17,
+          "height": 1
+        },
+        "resource_sha256": "029ecd93d5965e4154a35b95c88e60aaaf52e0eaee07c263351fdc9208108b7b",
+        "short_label_sample": [
+          {
+            "x": 63,
+            "y": 5,
+            "text": "first leg   :  )",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:66B4",
+        "caller": "1998:045C",
+        "pointer_instruction": "0497",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "d723e373a719ea05f9691b9aed0275c752e46fa7e4d4413859519a2881a94831",
+        "short_label_sample": [
+          {
+            "x": 5,
+            "y": 24,
+            "text": "display",
+            "truncated": false
+          },
+          {
+            "x": 16,
+            "y": 24,
+            "text": "speed        R-result   spacebar-commentary  F9-",
+            "truncated": false
+          },
+          {
+            "x": 67,
+            "y": 24,
+            "text": "Esc,",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "1998:045C",
+        "pointer_instruction": "04A8",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:35AC",
+        "caller": "1998:045C",
+        "pointer_instruction": "04B7",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 5,
+          "width": 80,
+          "height": 19
+        },
+        "resource_sha256": "fdfb18f7bf525169b1fe0f6d980a84167d8eebce4eb1e199a49d4c03fb088898",
+        "short_label_sample": [
+          {
+            "x": 23,
+            "y": 8,
+            "text": "Corners",
+            "truncated": false
+          },
+          {
+            "x": 43,
+            "y": 8,
+            "text": "Corners",
+            "truncated": false
+          },
+          {
+            "x": 5,
+            "y": 9,
+            "text": "Scorers",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6188",
+        "caller": "1998:045C",
+        "pointer_instruction": "04D6",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 22,
+          "y": 8,
+          "width": 37,
+          "height": 15
+        },
+        "resource_sha256": "3da833f1927dcd4a9304806bbc49bfaca359ba6e674f216ecd60e8462a085c5c",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:1B30",
+        "caller": "1998:045C",
+        "pointer_instruction": "050B",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 22,
+          "y": 20,
+          "width": 36,
+          "height": 3
+        },
+        "resource_sha256": "d1001e4d42365eb094069ed1ad3cd4f15e2e464559b7e0b293435a0ca74ffff8",
+        "short_label_sample": [
+          {
+            "x": 25,
+            "y": 21,
+            "text": "MAN OF THE MATCH",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:8238",
+        "caller": "1B55:03A5",
+        "pointer_instruction": "03F1",
+        "listing": "static/1-0-exe/code/seg_1B55_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 25,
+          "y": 13,
+          "width": 38,
+          "height": 12
+        },
+        "resource_sha256": "b693053d74f3e962c270b0c4a8effef150e67bc42b9395c08fbd446e7d4afcf5",
+        "short_label_sample": [
+          {
+            "x": 47,
+            "y": 15,
+            "text": "use",
+            "truncated": false
+          },
+          {
+            "x": 54,
+            "y": 15,
+            "text": "to move",
+            "truncated": false
+          },
+          {
+            "x": 47,
+            "y": 17,
+            "text": "hit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4366",
+        "caller": "1B55:03A5",
+        "pointer_instruction": "0400",
+        "listing": "static/1-0-exe/code/seg_1B55_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 47,
+          "y": 18,
+          "width": 16,
+          "height": 1
+        },
+        "resource_sha256": "12f63cd0e5f17dbf5e52cd44a13f09eb39af4d98e21790e1624bb427ee113eb1",
+        "short_label_sample": [
+          {
+            "x": 47,
+            "y": 18,
+            "text": "saved game",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:8238",
+        "caller": "1B55:05D8",
+        "pointer_instruction": "0622",
+        "listing": "static/1-0-exe/code/seg_1B55_01.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 25,
+          "y": 13,
+          "width": 38,
+          "height": 12
+        },
+        "resource_sha256": "b693053d74f3e962c270b0c4a8effef150e67bc42b9395c08fbd446e7d4afcf5",
+        "short_label_sample": [
+          {
+            "x": 47,
+            "y": 15,
+            "text": "use",
+            "truncated": false
+          },
+          {
+            "x": 54,
+            "y": 15,
+            "text": "to move",
+            "truncated": false
+          },
+          {
+            "x": 47,
+            "y": 17,
+            "text": "hit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:0EC6",
+        "caller": "1B55:0AE5",
+        "pointer_instruction": "0AE9",
+        "listing": "static/1-0-exe/code/seg_1B55_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "2dcef4a637858baa47a2c784c7d19c1e431c52aa4e4d675e181a7dd67902dfce",
+        "short_label_sample": [
+          {
+            "x": 0,
+            "y": 24,
+            "text": "Please enter name of new game   :           .1-0",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:7B96",
+        "caller": "1B55:0BA1",
+        "pointer_instruction": "0BAF",
+        "listing": "static/1-0-exe/code/seg_1B55_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 22,
+          "y": 15,
+          "width": 36,
+          "height": 9
+        },
+        "resource_sha256": "f5b4c9b170f3ff128fb7804ea1af4469cfbf76f361edb5ff12a129d8197def83",
+        "short_label_sample": [
+          {
+            "x": 24,
+            "y": 17,
+            "text": "PLEASE SELECT NUMBER OF PLAYERS",
+            "truncated": false
+          },
+          {
+            "x": 35,
+            "y": 20,
+            "text": "ONE",
+            "truncated": false
+          },
+          {
+            "x": 41,
+            "y": 20,
+            "text": "TWO",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6AE8",
+        "caller": "1B55:0CF2",
+        "pointer_instruction": "0CF6",
+        "listing": "static/1-0-exe/code/seg_1B55_02.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 25
+        },
+        "resource_sha256": "7846051309fd7dca22b218a2fa1f8aff89c59af645e330ce690b6bab6b89047f",
+        "short_label_sample": [
+          {
+            "x": 65,
+            "y": 5,
+            "text": "c)",
+            "truncated": false
+          },
+          {
+            "x": 66,
+            "y": 6,
+            "text": "NEW",
+            "truncated": false
+          },
+          {
+            "x": 41,
+            "y": 7,
+            "text": "96",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:7076",
+        "caller": "1B55:1BFB",
+        "pointer_instruction": "1BFF",
+        "listing": "static/1-0-exe/code/seg_1B55_03.asm",
+        "status": "unresolved resource",
+        "reason": "repetition crosses row boundary"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "1B55:1C99",
+        "pointer_instruction": "1C9D",
+        "listing": "static/1-0-exe/code/seg_1B55_03.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "99cd930c59d549f1899302339fb0b1e9b3117015f2a980bb1187cc369d6e0461",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:39AA",
+        "caller": "1B55:1F46",
+        "pointer_instruction": "1F5E",
+        "listing": "static/1-0-exe/code/seg_1B55_04.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 37,
+          "height": 24
+        },
+        "resource_sha256": "23cb4afd93c632f141629c5c030f8771da25d8ca8d026d242e112ffed22db0ce",
+        "short_label_sample": [
+          {
+            "x": 23,
+            "y": 1,
+            "text": "STAFF for",
+            "truncated": false
+          },
+          {
+            "x": 23,
+            "y": 2,
+            "text": "MANAGER",
+            "truncated": false
+          },
+          {
+            "x": 23,
+            "y": 3,
+            "text": "Name",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:331E",
+        "caller": "1B55:2B43",
+        "pointer_instruction": "2C07",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "3d50e6663a11d8b7b3a62f293dea8d8955742322e5e82ac54f429ec2a870d00b",
+        "short_label_sample": [
+          {
+            "x": 0,
+            "y": 24,
+            "text": "Extra capacity:        (",
+            "truncated": false
+          },
+          {
+            "x": 27,
+            "y": 24,
+            "text": "change) costs:",
+            "truncated": false
+          },
+          {
+            "x": 60,
+            "y": 24,
+            "text": "proceed Esc-abort",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:23D8",
+        "caller": "1B55:2EFA",
+        "pointer_instruction": "2F12",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 37,
+          "height": 24
+        },
+        "resource_sha256": "8076f6d516e81ea90ac0035e14c209435e0cc1164b19835c47cee6381628001e",
+        "short_label_sample": [
+          {
+            "x": 23,
+            "y": 3,
+            "text": "Name",
+            "truncated": false
+          },
+          {
+            "x": 23,
+            "y": 5,
+            "text": "Strips",
+            "truncated": false
+          },
+          {
+            "x": 23,
+            "y": 7,
+            "text": "Country",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2522",
+        "caller": "1B55:2EFA",
+        "pointer_instruction": "3097",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 21,
+          "y": 18,
+          "width": 34,
+          "height": 5
+        },
+        "resource_sha256": "c6e558c2e280c8e3e1377dfba8f5e451b3cd3fef258c99ba90cb1950a930aa74",
+        "short_label_sample": [
+          {
+            "x": 22,
+            "y": 19,
+            "text": "Cash available",
+            "truncated": false
+          },
+          {
+            "x": 22,
+            "y": 21,
+            "text": "Max. overdraft",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:3B82",
+        "caller": "1B55:3323",
+        "pointer_instruction": "3340",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 37,
+          "height": 24
+        },
+        "resource_sha256": "78cb018c3bd3eb59e5f514701630a0a5284c5f01ec91138c16434f3429c9404d",
+        "short_label_sample": [
+          {
+            "x": 22,
+            "y": 1,
+            "text": "formation",
+            "truncated": false
+          },
+          {
+            "x": 22,
+            "y": 2,
+            "text": "FIRST TEAM AVERAGES",
+            "truncated": false
+          },
+          {
+            "x": 22,
+            "y": 3,
+            "text": "confidence",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:132E",
+        "caller": "1B55:345A",
+        "pointer_instruction": "345D",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "1940e10891416ca0f4bf269a05d3e828b724f3598ba2481114ae38e9e1d8450f",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "INS-Change information  SPACEBAR-Squad",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:6346",
+        "caller": "1B55:345A",
+        "pointer_instruction": "346C",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 71,
+          "y": 24,
+          "width": 8,
+          "height": 1
+        },
+        "resource_sha256": "8db0275be8d779fc39cd9246b6ba582ea6c8ce282ce7809439a37832b7a22676",
+        "short_label_sample": [
+          {
+            "x": 71,
+            "y": 24,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:2E6A",
+        "caller": "1B55:378A",
+        "pointer_instruction": "37E4",
+        "listing": "static/1-0-exe/code/seg_1B55_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "f82a578e1ab554cadc04f5a391df7a4211f1489fab79af1bf413ca22d75c59c6",
+        "short_label_sample": [
+          {
+            "x": 16,
+            "y": 24,
+            "text": "Your chairman has transfer-listed your entire sq",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:7CC4",
+        "caller": "1B55:38EF",
+        "pointer_instruction": "390F",
+        "listing": "static/1-0-exe/code/seg_1B55_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 25
+        },
+        "resource_sha256": "3c177a31ea369532a886458c7755cdd951b568dfdc2ac4246d134df421a70481",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 1,
+            "text": "CASH FLOW FOR",
+            "truncated": false
+          },
+          {
+            "x": 40,
+            "y": 1,
+            "text": "Cash out",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "text": "Cash in",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:26D0",
+        "caller": "1B55:3CE5",
+        "pointer_instruction": "3D00",
+        "listing": "static/1-0-exe/code/seg_1B55_06.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "db8e66262fae19ff0a1b20c9f0da4755ed0a27d01d845775fe62b10ea95cdc08",
+        "short_label_sample": [
+          {
+            "x": 1,
+            "y": 24,
+            "text": "Friendly arranged for                           ",
+            "truncated": true
+          }
+        ]
+      },
+      {
+        "resource": "2864:2906",
+        "caller": "1B55:42D7",
+        "pointer_instruction": "4314",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 25
+        },
+        "resource_sha256": "bf5e268e21ea2ed0a6f1e2fc9bc9465d6f1e991824f3ca0215da98645eb78f30",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 1,
+            "text": "FIXTURES FOR GAME #",
+            "truncated": false
+          },
+          {
+            "x": 24,
+            "y": 22,
+            "text": "move",
+            "truncated": false
+          },
+          {
+            "x": 69,
+            "y": 23,
+            "text": "Esc-exit",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4342",
+        "caller": "1B55:42D7",
+        "pointer_instruction": "4323",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 57,
+          "y": 0,
+          "width": 23,
+          "height": 3
+        },
+        "resource_sha256": "39a306940e1cc2d07bd16cbf778370969eaf691c4d8fb41205fb98cf9364807d",
+        "short_label_sample": [
+          {
+            "x": 59,
+            "y": 1,
+            "text": "GAME NAME:",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1CFC",
+        "caller": "1B55:42D7",
+        "pointer_instruction": "4456",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 30,
+          "y": 22,
+          "width": 8,
+          "height": 1
+        },
+        "resource_sha256": "cc68127f8158b07df2ab0adbb463ec11af93641604bdd651d2d6644360fffaa5",
+        "short_label_sample": [
+          {
+            "x": 33,
+            "y": 22,
+            "text": "watch",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:1D5E",
+        "caller": "1B55:478C",
+        "pointer_instruction": "4790",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 55,
+          "height": 24
+        },
+        "resource_sha256": "280ff43f26a014b867632c019cb2993f788051327ade6d35dabd683e42c186d4",
+        "short_label_sample": [
+          {
+            "x": 2,
+            "y": 0,
+            "text": "PLAYER SKILLS",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "text": "Shot stopping",
+            "truncated": false
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "text": "Tackling (1 on 1)",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "1B55:5A60",
+        "pointer_instruction": "5A8E",
+        "listing": "static/1-0-exe/code/seg_1B55_09.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "595ec16303d95f39c41773f8c56c15886ea59dec653fbff86ed234b663a54458",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:136A",
+        "caller": "1B55:5A60",
+        "pointer_instruction": "5A9D",
+        "listing": "static/1-0-exe/code/seg_1B55_09.asm",
+        "status": "unresolved resource",
+        "reason": "repetition crosses row boundary"
+      },
+      {
+        "resource": "2864:2B70",
+        "caller": "1B55:6EDF",
+        "pointer_instruction": "6EFF",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 24
+        },
+        "resource_sha256": "4015e3705334daff265aa0d86da6273694f029f984d9da760c76da46ec2a623d",
+        "short_label_sample": []
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "1B55:6EDF",
+        "pointer_instruction": "6F24",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:716A",
+        "caller": "1B55:7090",
+        "pointer_instruction": "7094",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 16,
+          "width": 80,
+          "height": 8
+        },
+        "resource_sha256": "a452772e7b6ff50039812a6713c49a2cd286cdece17d52de99ef652ff6bfb14d",
+        "short_label_sample": [
+          {
+            "x": 14,
+            "y": 16,
+            "text": "MANAGER OF THE MONTH",
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "1B55:7090",
+        "pointer_instruction": "70A3",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm",
+        "status": "decoded component; composite/runtime unverified",
+        "rectangle": {
+          "x": 0,
+          "y": 24,
+          "width": 80,
+          "height": 1
+        },
+        "resource_sha256": "37d72f4c6ab4174b8983f8d41a7d2ec124c3f64f3469ac1d80051ec4a9d0acf1",
+        "short_label_sample": [
+          {
+            "x": 32,
+            "y": 24,
+            "text": "press any key",
+            "truncated": false
+          }
+        ]
+      }
+    ]
+  }
+}
