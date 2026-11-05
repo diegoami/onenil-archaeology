@@ -1,0 +1,19 @@
+{
+  "check": "tools/inventory.py --check-embed",
+  "status": "FAIL; merge held",
+  "log_sha256": "417be09e5306c64cda9400315dc0d990619ddfcad15523d806ad8bd25c456eb8",
+  "matching_files": [
+    "runs/T50/session-r0001/step-0048.json",
+    "runs/T50/session-r0001/step-0050.json",
+    "runs/T50/session-r0001/step-0051.json",
+    "runs/T50/session-r0001/step-0056.json",
+    "runs/T50/session-r0001/step-0057.json",
+    "runs/T50/session-r0001/step-0058.json",
+    "runs/T50/session-r0001/step-0059.json",
+    "runs/T50/session-r0001/step-0060.json",
+    "runs/T50/session-r0001/step-0061.json",
+    "runs/T50/session-r0001/step-0063.json"
+  ],
+  "cause": "literal scout-screen heading in authenticated decoded text matches original executable text; owner policy clarification requested; captures unchanged",
+  "propagation": "T51 inherits T50 records"
+}
