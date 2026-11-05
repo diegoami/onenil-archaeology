@@ -1,0 +1,22 @@
+{
+  "number": 63,
+  "previous": "72bfe62c1b1ddc71863e7f56bb5fd2bfaea1db02aca2022cf9d1330fd71f4653",
+  "id": "S6062-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\nUEFA Cup Round 1\n\n\n\n -Dep. La Coruna  1v1  Spartak Moscow-   --------Dundalk  0v7  Liverpool------\n 1st leg: 0v0     2nd leg: 1v1           1st leg: 0v3     2nd leg: 4v0\n -----Anderlecht  1v3  Werder Bremen--   ------Tampeeren  1v1  Lillestrom-----\n 1st leg: 1v2     2nd leg: 1v0           1st leg: 0v0     2nd leg: 1v1\n -----------Lyon  5v1  Katowice-------   -------Freiburg  4v4  Sparta Prague--\n 1st leg: 3v0     2nd leg: 1v2           1st leg: 3v2     2nd leg: 2v1\n ---Nottingham F  5v0  Panathinaikos--   ---------Ujpest  0v5  Rangers--------\n 1st leg: 3v0     2nd leg: 0v2           1st leg: 0v2     2nd leg: 3v0\n -----Sturm Graz  1v5  Uni Craiova----   --PSV Eindhoven  3v3  Roda-----------\n 1st leg: 1v4     2nd leg: 1v0           1st leg: 2v2     2nd leg: 1v1\n -Standard Liege  1v6  Napoli---------   -Zaglebie Lubin  0v2  Motherwell-----\n 1st leg: 0v2     2nd leg: 4v1           1st leg: 0v0     2nd leg: 2v0\n ---------Kosice  0v4  AC Milan-------   --------Sevilla  4v6  Sporting Lisbon\n 1st leg: 0v0     2nd leg: 4v0           1st leg: 2v1     2nd leg: 5v2\n --------Brondby  0v2  Cas. Salzburg--   ----------Aarau  1v6  Kaiserslautern-\n 1st leg: 0v0     2nd leg: 2v0           1st leg: 1v3     2nd leg: 3v0\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "2320f5ee421d9d748a43180a5cf38e6320463be364cb727fd26023212073642d",
+  "screen_sha256": "ed7c107a79a103781c748e5530dd5cbb4e125d0679f5b1fb63c8e30da409d2aa",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0063.png",
+  "screenshot_sha256": "68bf4d04a0e6546d0a16632ab5198ddadc45e3c97136265168c8aff34c5dca92",
+  "time": "2026-11-05T22:37:34.520Z"
+}

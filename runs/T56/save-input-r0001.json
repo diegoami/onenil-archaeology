@@ -1,0 +1,10 @@
+{
+  "input_task": "T54",
+  "input_save_sha256": "abad4b6945c6c9b6bb6f6045cc12df5d3dc79193ccee889355fe21c2acc7f93c",
+  "destination_before_copy_sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+  "destination_after_copy_sha256": "abad4b6945c6c9b6bb6f6045cc12df5d3dc79193ccee889355fe21c2acc7f93c",
+  "input_final_save_step": "T54/session-r0001/step-0133.json",
+  "initial_process_state": "title only; no Y/load or match played",
+  "intervention": "Copied only SAVE1.1-0 to the isolated initial scratch copy, then requested manual_session fresh restart. The old process must not load it; restart copies saves into a verified fresh release BEFORE new DOS process/mount. Restart receipt must match this input hash. No emulator state is used as persistence.",
+  "expected_reloaded_main_text_sha256": "f4b9bdc287761f597f528b892e68d20d853b92c0779f58a10a9efe4f7291854c"
+}

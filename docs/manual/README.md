@@ -40,6 +40,7 @@ composition, fixed spans, dynamic destinations and input/move/play boundaries.
 | [Finances, staff and stadium](administration.md) | Observed accounts, staff refusal/hire/cancel/sack cancellation, weekly posting and stadium order/abort; deferred completion pending | #141 |
 | [Statistics, histories and other teams](history.md) | Observed availability messages, transfer/team history, club/division/panel/squad browsing and exits; populated seasonal views pending | #142 |
 | [League start and weekly events](league-start.md) | Observed league4/Statistics, cup progression/injury replacement, expiry renewal, actual sale, international/suspension and progressed-save reload; later season/rollover pending | #142 |
+| [Autumn progression and cup ties](autumn.md) | Observed through league10, completed European tie, extra-time goal, eligibility refusal, contract warnings and deferred job offer; winter/rollover pending | #142 |
 
 Until a chapter cites its captures, its workflows are unvisited in this manual.
 Engine traces and older text-only observations provide research context; they

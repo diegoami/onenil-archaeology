@@ -1,0 +1,17 @@
+{
+  "status": "uploaded and metadata verified after archive-specific owner approval",
+  "archive": "T56-autumn-game-saves-r0001.tar.gz",
+  "archive_bytes": 163902,
+  "local_archive_sha256": "6abd0232cdd136bc5e50393cc62c88c7596554d1f3646ecd69cf8690d61c9800",
+  "drive_file_id": "1GCjxqJHwTaJEfNOGg-5OfyuX3J2KtHii",
+  "drive_url": "https://drive.google.com/file/d/1GCjxqJHwTaJEfNOGg-5OfyuX3J2KtHii/view?usp=drivesdk",
+  "parent_folder_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "remote_size_verified": 163902,
+  "remote_mime_verified": "application/gzip",
+  "remote_checksum": "not provided by connector; no remote SHA claim",
+  "members": [
+    "league8/SAVE1.1-0",
+    "league10/SAVE1.1-0"
+  ],
+  "final_save_sha256": "c43fd8ffc31a17e5fc460541cbb6ef5448689830a4b0cc8b1933c5f423edddb0"
+}
