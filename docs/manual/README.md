@@ -27,6 +27,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Squad browsing and player details](squad.md) | Observed skills/details, three players, empty reserves, options/cancel, Space/Ins shortcuts; lineup/individual changes are in selection.md; conditional availability remains pending | #138 |
 | [Lineup and individual instructions](selection.md) | Observed swap/cancel, current-position cycle, Club position restore, goalkeeper instruction cycle and changed-state reload; team tactics/conditional validation pending | #138 |
 | [Match preparation](match-preparation.md) | Observed opponent/configuration, eight team instruction cycles, formation change/restoration, statistics, pitch kickoff and insufficient-player refusal; watched/quick completion pending | #139 |
+| [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
@@ -94,3 +95,11 @@ its captures; team-level tactics and match admission remain separate work.
 | S032 | Transfer browser, exploratory arrival | Wrong-route capture retained in T47-r0002; no admission claim |
 | S033 | Incomplete pre-match variant | Same S028 view with ten visible starters; no refusal yet |
 | S034 | Insufficient-player refusal | PLAY GAME blocked; Space dismisses back to preparation |
+
+[confirmed] [Watched match](watched-match.md), W024–W030, adds S035 live/completed
+bench, S036 substitution-request state, S037 commentary history, S038 halftime
+statistics, S039 replacement target selection and S040 fulltime pitch. S041 and
+S042 are route variants returning to the existing fulltime/statistics views.
+S043 is cash flow, S044 transfer news, and S045 the next-week main-menu arrival
+(same S002 screen type). These IDs distinguish captured workflow states; the
+chapter's captions define the actual view rather than exploratory label text.
