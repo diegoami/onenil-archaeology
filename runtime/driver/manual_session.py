@@ -65,6 +65,13 @@ def run(out,persistence=False):
     sys.path.insert(0,str(ROOT/'runtime/driver'))
     import driver
     import screens
+    class ManualDriver(driver.Driver):
+        def _wait_window(self,timeout):
+            window=super()._wait_window(timeout)
+            # First reads can arrive during BIOS initialization on this host.
+            time.sleep(3)
+            self.log('manual: waited 3 seconds after window appeared before first savestate')
+            return window
     if git('status','--porcelain','--','runtime/driver').strip():raise ValueError('commit driver source first')
     out.mkdir(parents=True,exist_ok=True)
     n=1
@@ -72,7 +79,7 @@ def run(out,persistence=False):
     directory=out/f'session-r{n:04d}';directory.mkdir()
     scratch=Path('/tmp')/f'onenil-manual-{out.name}-{directory.name}'
     if scratch.exists():raise ValueError(f'scratch exists: {scratch}')
-    d=driver.Driver(workdir=scratch,game_dir=scratch/'game')
+    d=ManualDriver(workdir=scratch,game_dir=scratch/'game')
     write(directory/'session.json',dict(schema='original-ui-session/1',edition='96',game_files=release(),
         code_commit=git('rev-parse','HEAD').decode().strip(),source_sha256=sha(Path(__file__).read_bytes()),
         dosbox_version=driver.require_dosbox() and driver.WANT_DOSBOX,started=driver.host_times()['utc'],requires_restart=persistence,
@@ -109,7 +116,7 @@ def run(out,persistence=False):
                 old_pid=d.dbx.pid;exited=d.terminate()
                 if not exited:raise RuntimeError('old processes remain')
                 next_scratch=scratch/f'restart-{number}'
-                d=driver.Driver(workdir=next_scratch,game_dir=next_scratch/'game')
+                d=ManualDriver(workdir=next_scratch,game_dir=next_scratch/'game')
                 d.launch()
                 for name,data in files.items():
                     (d.game_dir/name).write_bytes(data)
