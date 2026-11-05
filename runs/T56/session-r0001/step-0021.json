@@ -1,0 +1,22 @@
+{
+  "number": 21,
+  "previous": "aa8aaea82d73f4733254d16be4ca6e3034f13a020ee2e88ac81e1569231a225c",
+  "id": "S453-european-one-cashflow",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\nCup Win. Round 1\n\n\n\n ----------Porto  3v2  Bor. M'gladbach   --Jeunesse Esch  3v2  Tirane---------\n 1st leg: 3v2     2nd leg:  v            1st leg: 3v2     2nd leg:  v\n ----------Parma  0v0  Auxerre--------   -----Hibernians  0v4  Ajax-----------\n 1st leg: 0v0     2nd leg:  v            1st leg: 0v4     2nd leg:  v\n ---------Nantes  1v2  Twente---------   ------Guimaraes  1v1  Eendracht Aalst\n 1st leg: 1v2     2nd leg:  v            1st leg: 1v1     2nd leg:  v\n -Manchester Utd  3v0  Olympiakos-----   ----------Malmo  1v1  Slo. Bratislava\n 1st leg: 3v0     2nd leg:  v            1st leg: 1v1     2nd leg:  v\n ---Levski Sofia  5v0  Legia Warsaw---   ---------Lugano  0v1  IA Akranes-----\n 1st leg: 5v0     2nd leg:  v            1st leg: 0v1     2nd leg:  v\n ---HJK Helsinki  1v2  Viking---------   ----Trabzonspor  2v3  Barcelona------\n 1st leg: 1v2     2nd leg:  v            1st leg: 2v3     2nd leg:  v\n ----Ferencvaros  0v2  Aalborg--------   --Dynamo Moscow  2v1  Steau Bucharest\n 1st leg: 0v2     2nd leg:  v            1st leg: 2v1     2nd leg:  v\n -----------Roma  1v0  Celtic---------   ---R S Belgrade  6v0  Omonia Nicosia-\n 1st leg: 1v0     2nd leg:  v            1st leg: 6v0     2nd leg:  v\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "87a92b35aa2a1c4b34d3db95a458fb28d586a7ddbfbd28ece91068e8f3f43626",
+  "screen_sha256": "ec0153021ebab6d8de815abc2cf690e317cf169d22fb7508d726635045814dac",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0021.png",
+  "screenshot_sha256": "a1e1c2b65bca20fdc531207d333b365744b66a201b29f548e0b32727b295ee95",
+  "time": "2026-11-05T21:42:39.043Z"
+}
