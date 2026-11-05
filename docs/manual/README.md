@@ -24,7 +24,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Startup and main menu](startup.md) | Observed supplied-save route: S001/S002, W001; other main-menu actions unvisited | #136 |
 | [New-game setup](setup.md) | Observed S003–S009/W002–W004: England 1994/95, one manager, club browsing, name/nationality, Escape/default/blank-name branches; all four starting-season setup routes and two managers observed; see branch matrix | #137 |
 | [Saving and loading](saves.md) | Observed F7, F10/N, two-save selector, Escape and fresh-process MANUAL reload with matching visible state; error and post-match persistence branches pending | #137 |
-| Squad and tactics | Selection, player details, roles, reserves, validation | #138 |
+| [Squad browsing and player details](squad.md) | Observed skills/details, three players, empty reserves, options/cancel, Space/Ins shortcuts; selection/tactics mutations and validation pending | #138 |
 | Matchday | Pre-match through halftime/fulltime and results | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
@@ -57,3 +57,17 @@ chapter. These do not establish every internal field's persistence.
 [confirmed] [Setup coverage matrix](setup-coverage.md) reconciles W002–W009
 and the remaining setup/load branches. S014 is the duplicate-club refusal.
 The new-game menu has NEXT PLAYER/Previous player variants for two managers.
+
+## Squad and information screen catalog
+
+[confirmed] See [squad browsing](squad.md), W010–W013, for screenshots and routes.
+
+| ID | Screen | Exercised controls/limits |
+| --- | --- | --- |
+| S015 | Player skills | Up/Down player, Insert details, Right reserves, Left first team |
+| S016 | Player details | T Flowers, I Pearce, B Mimms; empty reserves variant |
+| S017 | Selected player options | Space opens; Escape cancels; mutations pending |
+| S018 | Main-menu Space shortcut arrival | Same details panel/remembered selection as S016 |
+| S019 | Main-menu club information | First Insert; displayed fields inventoried |
+| S020 | Main-menu staff information | Second Insert; displayed staff/fields inventoried |
+| S021 | Return to original main panel | Third Insert; same formation/tactics panel as S002 |
