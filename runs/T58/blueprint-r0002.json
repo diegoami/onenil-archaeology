@@ -1,0 +1,901 @@
+{
+  "status": "failed",
+  "code_commit": "b68957cae28767c6dc6c859a7e75e8f51ec2bd41",
+  "source_sha256": {
+    "tools/static/squad_ui_blueprint.py": "93b9479861ad0f69e9e427881f14d1a03cbe30817ae2728c4a62c5755290bf1a",
+    "tools/static/ui_blueprint.py": "0b3e4a5f85e6d4cf2a8d86fa545dbd3232ea67b130919433edc2d645d23039ab"
+  },
+  "result": {
+    "decoder": "24BC:0000",
+    "fixed_span_rule": "split at template gaps of at least two spaces; cap48",
+    "listing_sha256": {
+      "static/1-0-exe/data/ds_2864_01.hex": "8110761c1f6d685df19dd15e22fd626f574be280a877aba7d2fa9b84433afc00",
+      "static/1-0-exe/data/ds_2864_02.hex": "dd3491fa3389a25c300f18df253b6b26413f70489d4a5b78df5b1c4729d8030a",
+      "static/1-0-exe/data/ds_2864_03.hex": "8711409dcdae6fd1fdfe87fe2d9ead5e9bc2fa0165915915648890d36132ad32",
+      "static/1-0-exe/data/ds_2864_04.hex": "bf6df9e7b25c00010d374538fb19fe0473a76af26dd45a49b1c6e8903fdc6df1",
+      "static/1-0-exe/data/ds_2864_05.hex": "4e9f2742b0398b9cb39df818e0054e2c1621db6d184fa8bd2ee027a6f493e9a0"
+    },
+    "resources": [
+      {
+        "name": "player_details",
+        "resource": "2864:6734",
+        "caller": "0AB9:8D6F",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 55,
+          "height": 24
+        },
+        "resource_sha256": "1cd4533a58d7cd43ab30b182b0d231640b60fd9f6467bfdd2a490475c8a140e3",
+        "base_attribute_codes": [
+          2,
+          5,
+          7,
+          11,
+          14
+        ],
+        "captured_record": "runs/T45/session-r0001/step-0004.json",
+        "captured_record_sha256": "b4b155876093b9d68d959ef22f815ef0740af342d1d7637a093772fcb7e5212f",
+        "screenshot_sha256": "58b3f0ae92392db21d2733121ca16a80bfae40a6af004a3165eb989bc77657d1",
+        "later_overlays": [],
+        "dynamic_border_destinations": [],
+        "comparison": {
+          "labels": [
+            {
+              "x": 2,
+              "y": 0,
+              "text": "PLAYER DETAILS",
+              "truncated": false
+            },
+            {
+              "x": 18,
+              "y": 1,
+              "text": "Age",
+              "truncated": false
+            },
+            {
+              "x": 26,
+              "y": 1,
+              "text": "Team",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "text": "Pos.",
+              "truncated": false
+            },
+            {
+              "x": 26,
+              "y": 2,
+              "text": "1st pos",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "text": "Country",
+              "truncated": false
+            },
+            {
+              "x": 26,
+              "y": 3,
+              "text": "Height",
+              "truncated": false
+            },
+            {
+              "x": 34,
+              "y": 3,
+              "text": "'",
+              "truncated": false
+            },
+            {
+              "x": 41,
+              "y": 3,
+              "text": "Wage",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "text": "Confidence",
+              "truncated": false
+            },
+            {
+              "x": 43,
+              "y": 5,
+              "text": "footed",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 6,
+              "text": "Fitness",
+              "truncated": false
+            },
+            {
+              "x": 30,
+              "y": 6,
+              "text": "leadership",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 7,
+              "text": "Energy",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 8,
+              "text": "Hardness",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 10,
+              "text": "Contract status",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 11,
+              "text": "Games remaining",
+              "truncated": false
+            },
+            {
+              "x": 31,
+              "y": 11,
+              "text": "Value",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 13,
+              "text": "Positioning",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 13,
+              "text": "previous y/c",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 14,
+              "text": "Possession",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 14,
+              "text": "suspended",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 15,
+              "text": "Passing",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 15,
+              "text": "international",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 16,
+              "text": "Tackling",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 16,
+              "text": "injured",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 17,
+              "text": "Mark",
+              "truncated": false
+            },
+            {
+              "x": 14,
+              "y": 18,
+              "text": "Games",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 18,
+              "text": "Goals",
+              "truncated": false
+            },
+            {
+              "x": 31,
+              "y": 18,
+              "text": "Avg",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 18,
+              "text": "substituted",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 19,
+              "text": "This season",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 19,
+              "text": "booked",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 20,
+              "text": "Club total:",
+              "truncated": false
+            },
+            {
+              "x": 38,
+              "y": 20,
+              "text": "sent off",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 22,
+              "text": "RATING",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 23,
+              "text": "INS-Player skills",
+              "truncated": false
+            }
+          ],
+          "label_count": 37,
+          "labels_matched": 37,
+          "label_mismatches": [],
+          "border_cells": 375,
+          "borders_matched": 375,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      },
+      {
+        "name": "player_skills",
+        "resource": "2864:1D5E",
+        "caller": "1B55:478C",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 55,
+          "height": 24
+        },
+        "resource_sha256": "280ff43f26a014b867632c019cb2993f788051327ade6d35dabd683e42c186d4",
+        "base_attribute_codes": [
+          5,
+          7,
+          11,
+          14
+        ],
+        "captured_record": "runs/T45/session-r0001/step-0003.json",
+        "captured_record_sha256": "ea1691cb5314f20b42859b48a7abdf48ee67f79b023035b8fcd9534f2b4fb8d5",
+        "screenshot_sha256": "fd898e89ad49408231c78a36807e202d7025470758a76a573d2b30d3a517e04c",
+        "later_overlays": [],
+        "dynamic_border_destinations": [],
+        "comparison": {
+          "labels": [
+            {
+              "x": 2,
+              "y": 0,
+              "text": "PLAYER SKILLS",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 1,
+              "text": "Shot stopping",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 2,
+              "text": "Tackling (1 on 1)",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 3,
+              "text": "Handling crosses",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 4,
+              "text": "Goal kicking",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 5,
+              "text": "Penalty stopping",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 6,
+              "text": "Tackling",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 7,
+              "text": "Blocking",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 8,
+              "text": "Marking",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 9,
+              "text": "Clearing",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 10,
+              "text": "Jumping",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 11,
+              "text": "Short passing",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 12,
+              "text": "Long passing",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 13,
+              "text": "Crossing",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 14,
+              "text": "Dribbling",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 15,
+              "text": "First touch",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 16,
+              "text": "Finding space",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 17,
+              "text": "Shooting power",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 18,
+              "text": "Shooting accuracy",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 19,
+              "text": "Heading power",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 20,
+              "text": "Heading accuracy",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 21,
+              "text": "Penalty taking",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 22,
+              "text": "Free kick taking",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 23,
+              "text": "INS-Details",
+              "truncated": false
+            }
+          ],
+          "label_count": 24,
+          "labels_matched": 24,
+          "label_mismatches": [],
+          "border_cells": 150,
+          "borders_matched": 150,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      },
+      {
+        "name": "squad_frame",
+        "resource": "2864:3D72",
+        "caller": "0AB9:9FD0",
+        "rectangle": {
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_sha256": "40e0d028c936c09b0b521f188f86bfe671c04f977537a121d6b8ad81a61ce5a9",
+        "base_attribute_codes": [
+          7,
+          11
+        ],
+        "captured_record": "runs/T45/session-r0001/step-0004.json",
+        "captured_record_sha256": "b4b155876093b9d68d959ef22f815ef0740af342d1d7637a093772fcb7e5212f",
+        "screenshot_sha256": "58b3f0ae92392db21d2733121ca16a80bfae40a6af004a3165eb989bc77657d1",
+        "later_overlays": [
+          {
+            "resource": "2864:22AC",
+            "caller_path": "0AB9:AC94..AC9E",
+            "resource_sha256": "a9457a093889271e89d304c87956b4e0d537a482cb84753f524524c75284faa2"
+          }
+        ],
+        "dynamic_border_destinations": [],
+        "comparison": {
+          "labels": [
+            {
+              "x": 59,
+              "y": 0,
+              "text": "FIRST TEAM",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 12,
+              "text": "SUBS",
+              "truncated": false
+            },
+            {
+              "x": 76,
+              "y": 23,
+              "text": "move",
+              "truncated": false
+            }
+          ],
+          "label_count": 3,
+          "labels_matched": 3,
+          "label_mismatches": [],
+          "border_cells": 118,
+          "borders_matched": 107,
+          "border_mismatch_count": 11,
+          "border_mismatch_sample": [
+            [
+              58,
+              23,
+              9552,
+              8592
+            ],
+            [
+              59,
+              23,
+              9552,
+              8594
+            ],
+            [
+              60,
+              23,
+              9552,
+              45
+            ],
+            [
+              61,
+              23,
+              9552,
+              114
+            ],
+            [
+              62,
+              23,
+              9552,
+              101
+            ],
+            [
+              63,
+              23,
+              9552,
+              115
+            ],
+            [
+              64,
+              23,
+              9552,
+              101
+            ],
+            [
+              65,
+              23,
+              9552,
+              114
+            ],
+            [
+              66,
+              23,
+              9552,
+              118
+            ],
+            [
+              67,
+              23,
+              9552,
+              101
+            ],
+            [
+              68,
+              23,
+              9552,
+              115
+            ]
+          ]
+        }
+      },
+      {
+        "name": "preparation_frame",
+        "resource": "2864:25CC",
+        "caller": "0AB9:D5D6",
+        "rectangle": {
+          "x": 0,
+          "y": 0,
+          "width": 20,
+          "height": 24
+        },
+        "resource_sha256": "69a5368ccb59c14f4879160dbffe8ee5e0bd86759c5d1b7eac0c6f71dc31dce5",
+        "base_attribute_codes": [
+          3,
+          5,
+          6,
+          7,
+          12,
+          14
+        ],
+        "captured_record": "runs/T47/session-r0001/step-0011.json",
+        "captured_record_sha256": "2b2f51d341d96ea57717a34a6205f929e8c4bb9216fde80b162fc2d73eb9958b",
+        "screenshot_sha256": "d70f0f38b23af5cd3bac5ca329b02dae7b7da7fc96dd849ddc17d2eb43776adf",
+        "later_overlays": [],
+        "dynamic_border_destinations": [],
+        "comparison": {
+          "labels": [
+            {
+              "x": 6,
+              "y": 5,
+              "text": "versus",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 9,
+              "text": "Remaining subs",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 14,
+              "text": "Match stats",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 16,
+              "text": "PLAY GAME",
+              "truncated": false
+            },
+            {
+              "x": 2,
+              "y": 18,
+              "text": "Change tactics",
+              "truncated": false
+            },
+            {
+              "x": 5,
+              "y": 19,
+              "text": "move",
+              "truncated": false
+            },
+            {
+              "x": 5,
+              "y": 20,
+              "text": "select",
+              "truncated": false
+            }
+          ],
+          "label_count": 7,
+          "labels_matched": 7,
+          "label_mismatches": [],
+          "border_cells": 212,
+          "borders_matched": 212,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      },
+      {
+        "name": "team_information",
+        "resource": "2864:3B82",
+        "caller": "1B55:3323",
+        "rectangle": {
+          "x": 19,
+          "y": 0,
+          "width": 37,
+          "height": 24
+        },
+        "resource_sha256": "78cb018c3bd3eb59e5f514701630a0a5284c5f01ec91138c16434f3429c9404d",
+        "base_attribute_codes": [
+          5,
+          7,
+          11
+        ],
+        "captured_record": "runs/T47/session-r0001/step-0011.json",
+        "captured_record_sha256": "2b2f51d341d96ea57717a34a6205f929e8c4bb9216fde80b162fc2d73eb9958b",
+        "screenshot_sha256": "d70f0f38b23af5cd3bac5ca329b02dae7b7da7fc96dd849ddc17d2eb43776adf",
+        "later_overlays": [],
+        "dynamic_border_destinations": [
+          {
+            "cells": [
+              [
+                22,
+                0
+              ],
+              [
+                23,
+                0
+              ],
+              [
+                24,
+                0
+              ],
+              [
+                25,
+                0
+              ],
+              [
+                26,
+                0
+              ],
+              [
+                27,
+                0
+              ],
+              [
+                28,
+                0
+              ],
+              [
+                29,
+                0
+              ],
+              [
+                30,
+                0
+              ],
+              [
+                31,
+                0
+              ],
+              [
+                32,
+                0
+              ],
+              [
+                33,
+                0
+              ],
+              [
+                34,
+                0
+              ],
+              [
+                35,
+                0
+              ],
+              [
+                36,
+                0
+              ]
+            ],
+            "reason": "club name field",
+            "writer": "1B55:3357 -> 0EE3"
+          },
+          {
+            "cells": [
+              [
+                36,
+                13
+              ],
+              [
+                42,
+                13
+              ],
+              [
+                48,
+                13
+              ]
+            ],
+            "reason": "numeric group separators",
+            "writer": "1B55:331C -> 101E:1056..10A7"
+          }
+        ],
+        "comparison": {
+          "labels": [
+            {
+              "x": 22,
+              "y": 1,
+              "text": "formation",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 2,
+              "text": "FIRST TEAM AVERAGES",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 3,
+              "text": "confidence",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 4,
+              "text": "fitness",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 5,
+              "text": "energy",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 6,
+              "text": "hardness",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 7,
+              "text": "RATINGS",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 8,
+              "text": "goalkeeper",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 9,
+              "text": "defence",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 10,
+              "text": "midfield",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 11,
+              "text": "attack",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 13,
+              "text": "TEAM VALUE",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 14,
+              "text": "TACTICS",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 15,
+              "text": "positioning",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 16,
+              "text": "possession",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 17,
+              "text": "passing",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 18,
+              "text": "aggression",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 19,
+              "text": "defence",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 20,
+              "text": "protection",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 21,
+              "text": "offside",
+              "truncated": false
+            },
+            {
+              "x": 22,
+              "y": 22,
+              "text": "marking",
+              "truncated": false
+            }
+          ],
+          "label_count": 21,
+          "labels_matched": 21,
+          "label_mismatches": [],
+          "border_cells": 213,
+          "borders_matched": 213,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      }
+    ]
+  }
+}

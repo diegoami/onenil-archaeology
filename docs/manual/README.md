@@ -10,6 +10,8 @@ See the [roadmap and backlog](../roadmap.md) and
 The [executable UI blueprint](executable-ui.md) recovers template geometry and
 menu/configuration handlers directly from the executable, checked against
 original captures. Use it alongside the illustrated workflows below.
+The [squad and preparation blueprint](executable-squad.md) adds component
+composition, fixed spans, dynamic destinations and input/move/play boundaries.
 
 ## Reading conventions
 
