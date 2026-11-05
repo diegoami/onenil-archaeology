@@ -48,3 +48,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T41 Illustrated manual roadmap and original startup survey](T41.md)
 
 - [T42 Original new-game setup and interactive manual capture](T42.md)
+
+- [T43 Original save, restart and reload workflow](T43.md)
