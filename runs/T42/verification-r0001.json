@@ -1,0 +1,13 @@
+{
+  "full_suite_source": "41ef16fca52143fd791adf3c1972a1426e20a9af",
+  "tests": "1573 passed, 6 skipped in 1793.22s",
+  "log_sha256": "f87d57cc821e45806df11d72db6734ccc1837c9bdecca236ab4e96cfa05a1bea",
+  "added_T41_tests_after_dependency_merge": "8 pass within 16 targeted tests",
+  "capture_check": "1 completed session,9 screens;10 exploratory screens retained",
+  "original_check": "pass",
+  "embed_check": "pass at implementation head; repeat after receipt commit",
+  "prior_evidence_static_tasks_unchanged": 744,
+  "preservation_base": "12c08d32e4f78d59bd9b7afbb79b59b19c9f996d",
+  "hosted_checked_head": "671d22e071a786b0bbe53c32a98cdd63caa36937",
+  "hosted_ci": "42088660004 success; receipt commit requires final exact-head CI"
+}
