@@ -66,3 +66,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T50 Original transfer market and scouting manual](T50.md)
 
 - [T51 Original contract renewal and squad employment manual](T51.md)
+
+- [T52 Original cash flow, stadium and staff administration manual](T52.md)
