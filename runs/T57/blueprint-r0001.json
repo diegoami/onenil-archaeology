@@ -1,0 +1,1193 @@
+{
+  "status": "failed",
+  "code_commit": "102d1c2d496760ac4b25387a4bd1f4ce929bf40f",
+  "tool_sha256": "5274a0bbc604461a77c80125aa373ede4338a91d30292cca1effcb9c7e0cce9c",
+  "result": {
+    "decoder": "24BC:0000",
+    "wrapper": "232A:052F",
+    "coordinates": "zero-based x/y; resource start cell is one-based linear",
+    "listing_sha256": {
+      "static/1-0-exe/data/ds_2864_01.hex": "8110761c1f6d685df19dd15e22fd626f574be280a877aba7d2fa9b84433afc00",
+      "static/1-0-exe/data/ds_2864_02.hex": "dd3491fa3389a25c300f18df253b6b26413f70489d4a5b78df5b1c4729d8030a",
+      "static/1-0-exe/data/ds_2864_03.hex": "8711409dcdae6fd1fdfe87fe2d9ead5e9bc2fa0165915915648890d36132ad32",
+      "static/1-0-exe/data/ds_2864_04.hex": "bf6df9e7b25c00010d374538fb19fe0473a76af26dd45a49b1c6e8903fdc6df1",
+      "static/1-0-exe/data/ds_2864_05.hex": "4e9f2742b0398b9cb39df818e0054e2c1621db6d184fa8bd2ee027a6f493e9a0"
+    },
+    "resources": [
+      {
+        "name": "main_menu",
+        "resource": "2864:45E6",
+        "caller": "0006:1B52",
+        "rectangle": {
+          "start_cell": 56,
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_bytes_consumed": 652,
+        "resource_sha256": "ee88887faaf74ab72297608c37f26b4afe942157adc1d6e98b79235e61638b8a",
+        "base_attribute_codes": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          14
+        ],
+        "captured_record": "runs/T47/session-r0001/step-0001.json",
+        "captured_record_sha256": "c53f0a628c9b72f7f30420f0aeb53d87ff4389dd5f52ddf5d7f3ba813831d027",
+        "screenshot_sha256": "fbca3798822c7fd5e69176c2019a81fc2e449d68e37e3a571095452a0ec54d43",
+        "comparison": {
+          "labels": [
+            {
+              "x": 59,
+              "y": 6,
+              "text": "Players",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 7,
+              "text": "Next opponents",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 8,
+              "text": "Transfer market",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 9,
+              "text": "Use scout",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 10,
+              "text": "New staff",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 11,
+              "text": "League tables",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 12,
+              "text": "League results",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 13,
+              "text": "Cup results",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 14,
+              "text": "Weekly fixtures",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 15,
+              "text": "Fixture list",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 16,
+              "text": "Statistics",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 17,
+              "text": "Player/team history",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 18,
+              "text": "Seasonal history",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 19,
+              "text": "Other teams",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 20,
+              "text": "Game configuration",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 21,
+              "text": "Cashflow",
+              "truncated": false
+            },
+            {
+              "x": 62,
+              "y": 22,
+              "text": "move",
+              "truncated": false
+            },
+            {
+              "x": 71,
+              "y": 22,
+              "text": "select",
+              "truncated": false
+            },
+            {
+              "x": 59,
+              "y": 23,
+              "text": "F7-Save  F10-Quit",
+              "truncated": false
+            }
+          ],
+          "label_count": 19,
+          "labels_matched": 19,
+          "label_mismatches": [],
+          "border_cells": 65,
+          "borders_matched": 63,
+          "border_mismatch_count": 2,
+          "border_mismatch_sample": [
+            [
+              57,
+              5,
+              9553,
+              9567
+            ],
+            [
+              78,
+              5,
+              9553,
+              9570
+            ]
+          ]
+        }
+      },
+      {
+        "name": "main_single_player_entry",
+        "resource": "2864:5A28",
+        "caller": "0006:1B52",
+        "rectangle": {
+          "start_cell": 378,
+          "x": 57,
+          "y": 4,
+          "width": 22,
+          "height": 2
+        },
+        "resource_bytes_consumed": 37,
+        "resource_sha256": "388fe9d850486485705cc49feb64e50293630dbb76f011ebd6712b4d968a4d82",
+        "base_attribute_codes": [
+          2,
+          3,
+          14
+        ],
+        "captured_record": "runs/T47/session-r0001/step-0001.json",
+        "captured_record_sha256": "c53f0a628c9b72f7f30420f0aeb53d87ff4389dd5f52ddf5d7f3ba813831d027",
+        "screenshot_sha256": "fbca3798822c7fd5e69176c2019a81fc2e449d68e37e3a571095452a0ec54d43",
+        "comparison": {
+          "labels": [
+            {
+              "x": 59,
+              "y": 4,
+              "text": "PLAY NEXT GAME",
+              "truncated": false
+            }
+          ],
+          "label_count": 1,
+          "labels_matched": 1,
+          "label_mismatches": [],
+          "border_cells": 24,
+          "borders_matched": 24,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      },
+      {
+        "name": "configuration",
+        "resource": "2864:49E8",
+        "caller": "0006:10BF",
+        "rectangle": {
+          "start_cell": 56,
+          "x": 55,
+          "y": 0,
+          "width": 25,
+          "height": 24
+        },
+        "resource_bytes_consumed": 297,
+        "resource_sha256": "bbcff6a866539e6c55eed77088bd793c97e44cb349ad38c1de37e24efea292e5",
+        "base_attribute_codes": [
+          5,
+          7,
+          14
+        ],
+        "captured_record": "runs/T47/session-r0001/step-0006.json",
+        "captured_record_sha256": "0367ccd387327ef1ae3c665526fb1abf01cac479f4862be7b7238f74d74068b5",
+        "screenshot_sha256": "503bae9de2e7d0611cb8d6e6648f4b7c3ae20398dadb5ceb99397c860e36752e",
+        "comparison": {
+          "labels": [
+            {
+              "x": 58,
+              "y": 7,
+              "text": "Watch match",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 9,
+              "text": "Sacking",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 11,
+              "text": "Auto save game",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 13,
+              "text": "Friendlies",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 15,
+              "text": "Auto player select",
+              "truncated": false
+            },
+            {
+              "x": 58,
+              "y": 17,
+              "text": "Continue",
+              "truncated": false
+            },
+            {
+              "x": 62,
+              "y": 22,
+              "text": "move",
+              "truncated": false
+            },
+            {
+              "x": 70,
+              "y": 22,
+              "text": "select",
+              "truncated": false
+            }
+          ],
+          "label_count": 8,
+          "labels_matched": 8,
+          "label_mismatches": [],
+          "border_cells": 187,
+          "borders_matched": 187,
+          "border_mismatch_count": 0,
+          "border_mismatch_sample": []
+        }
+      }
+    ],
+    "candidate_resource_callers": [
+      {
+        "resource": "2864:4F5E",
+        "caller": "0006:02CA",
+        "pointer_instruction": "02CE",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm"
+      },
+      {
+        "resource": "2864:1AD6",
+        "caller": "0006:02CA",
+        "pointer_instruction": "02DD",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0006:02CA",
+        "pointer_instruction": "02EC",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm"
+      },
+      {
+        "resource": "2864:7148",
+        "caller": "0006:0645",
+        "pointer_instruction": "0649",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm"
+      },
+      {
+        "resource": "2864:63A8",
+        "caller": "0006:07A1",
+        "pointer_instruction": "08A7",
+        "listing": "static/1-0-exe/code/seg_0006_01.asm"
+      },
+      {
+        "resource": "2864:226C",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AA4",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:49B2",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AB3",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:3138",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AE7",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0006:0AA0",
+        "pointer_instruction": "0AF6",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:4B7A",
+        "caller": "0006:0C1E",
+        "pointer_instruction": "0C22",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:7C7E",
+        "caller": "0006:0C1E",
+        "pointer_instruction": "0CC2",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0006:10BF",
+        "pointer_instruction": "10D8",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:49E8",
+        "caller": "0006:10BF",
+        "pointer_instruction": "10E7",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:69C4",
+        "caller": "0006:1197",
+        "pointer_instruction": "11A5",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:5066",
+        "caller": "0006:144B",
+        "pointer_instruction": "1459",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:516E",
+        "caller": "0006:144B",
+        "pointer_instruction": "147A",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:55D6",
+        "caller": "0006:144B",
+        "pointer_instruction": "148B",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:4C6E",
+        "caller": "0006:14E2",
+        "pointer_instruction": "1553",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:4342",
+        "caller": "0006:14E2",
+        "pointer_instruction": "1562",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0006:14E2",
+        "pointer_instruction": "15EC",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:4C4A",
+        "caller": "0006:14E2",
+        "pointer_instruction": "15FB",
+        "listing": "static/1-0-exe/code/seg_0006_02.asm"
+      },
+      {
+        "resource": "2864:8324",
+        "caller": "0006:1A67",
+        "pointer_instruction": "1AB2",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:45E6",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1B60",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:4342",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1B6F",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:5A28",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1B88",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:5A4E",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1BA3",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:59EE",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1BB4",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1C35",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:132E",
+        "caller": "0006:1B52",
+        "pointer_instruction": "1C46",
+        "listing": "static/1-0-exe/code/seg_0006_03.asm"
+      },
+      {
+        "resource": "2864:317C",
+        "caller": "01EF:0626",
+        "pointer_instruction": "062F",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm"
+      },
+      {
+        "resource": "2864:171E",
+        "caller": "01EF:07CC",
+        "pointer_instruction": "086E",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0BD8",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm"
+      },
+      {
+        "resource": "2864:1862",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0BF4",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm"
+      },
+      {
+        "resource": "2864:1746",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0C03",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "01EF:0B1F",
+        "pointer_instruction": "0C55",
+        "listing": "static/1-0-exe/code/seg_01EF_01.asm"
+      },
+      {
+        "resource": "2864:24C4",
+        "caller": "01EF:0DB2",
+        "pointer_instruction": "0E09",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm"
+      },
+      {
+        "resource": "2864:2B5A",
+        "caller": "01EF:0DB2",
+        "pointer_instruction": "0E1E",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm"
+      },
+      {
+        "resource": "2864:2B64",
+        "caller": "01EF:0DB2",
+        "pointer_instruction": "0E2D",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "01EF:1569",
+        "pointer_instruction": "15FF",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm"
+      },
+      {
+        "resource": "2864:3EBC",
+        "caller": "01EF:1569",
+        "pointer_instruction": "160E",
+        "listing": "static/1-0-exe/code/seg_01EF_02.asm"
+      },
+      {
+        "resource": "2864:3376",
+        "caller": "01EF:1D7A",
+        "pointer_instruction": "1E00",
+        "listing": "static/1-0-exe/code/seg_01EF_03.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "01EF:1D7A",
+        "pointer_instruction": "1E0F",
+        "listing": "static/1-0-exe/code/seg_01EF_03.asm"
+      },
+      {
+        "resource": "2864:5A76",
+        "caller": "01EF:1FF2",
+        "pointer_instruction": "2005",
+        "listing": "static/1-0-exe/code/seg_01EF_03.asm"
+      },
+      {
+        "resource": "2864:5212",
+        "caller": "01EF:291E",
+        "pointer_instruction": "292C",
+        "listing": "static/1-0-exe/code/seg_01EF_04.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:291E",
+        "pointer_instruction": "293B",
+        "listing": "static/1-0-exe/code/seg_01EF_04.asm"
+      },
+      {
+        "resource": "2864:6CC2",
+        "caller": "01EF:3377",
+        "pointer_instruction": "337B",
+        "listing": "static/1-0-exe/code/seg_01EF_05.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "01EF:3524",
+        "pointer_instruction": "353D",
+        "listing": "static/1-0-exe/code/seg_01EF_05.asm"
+      },
+      {
+        "resource": "2864:7204",
+        "caller": "01EF:3DD9",
+        "pointer_instruction": "3DDD",
+        "listing": "static/1-0-exe/code/seg_01EF_06.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:3EE3",
+        "pointer_instruction": "3F52",
+        "listing": "static/1-0-exe/code/seg_01EF_06.asm"
+      },
+      {
+        "resource": "2864:6C12",
+        "caller": "01EF:3EE3",
+        "pointer_instruction": "3F63",
+        "listing": "static/1-0-exe/code/seg_01EF_06.asm"
+      },
+      {
+        "resource": "2864:7766",
+        "caller": "01EF:467A",
+        "pointer_instruction": "467E",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:6C6C",
+        "caller": "01EF:4743",
+        "pointer_instruction": "4790",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:4743",
+        "pointer_instruction": "47A1",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:5666",
+        "caller": "01EF:487C",
+        "pointer_instruction": "487F",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "01EF:487C",
+        "pointer_instruction": "48A0",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:76E6",
+        "caller": "01EF:48DB",
+        "pointer_instruction": "48ED",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:4E12",
+        "caller": "01EF:49EE",
+        "pointer_instruction": "49F2",
+        "listing": "static/1-0-exe/code/seg_01EF_07.asm"
+      },
+      {
+        "resource": "2864:4EF4",
+        "caller": "06E8:15E2",
+        "pointer_instruction": "15EB",
+        "listing": "static/1-0-exe/code/seg_06E8_02.asm"
+      },
+      {
+        "resource": "2864:4EF4",
+        "caller": "06E8:1615",
+        "pointer_instruction": "161F",
+        "listing": "static/1-0-exe/code/seg_06E8_02.asm"
+      },
+      {
+        "resource": "2864:59A6",
+        "caller": "06E8:1AAA",
+        "pointer_instruction": "1ADE",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm"
+      },
+      {
+        "resource": "2864:4EAE",
+        "caller": "06E8:1B31",
+        "pointer_instruction": "1B63",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm"
+      },
+      {
+        "resource": "2864:4EF4",
+        "caller": "06E8:1B31",
+        "pointer_instruction": "1B7A",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm"
+      },
+      {
+        "resource": "2864:72DE",
+        "caller": "06E8:1E98",
+        "pointer_instruction": "1EB0",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "06E8:1E98",
+        "pointer_instruction": "1EBF",
+        "listing": "static/1-0-exe/code/seg_06E8_03.asm"
+      },
+      {
+        "resource": "2864:2706",
+        "caller": "06E8:346F",
+        "pointer_instruction": "3481",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "06E8:346F",
+        "pointer_instruction": "3490",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm"
+      },
+      {
+        "resource": "2864:2828",
+        "caller": "06E8:36EA",
+        "pointer_instruction": "37A0",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm"
+      },
+      {
+        "resource": "2864:2004",
+        "caller": "06E8:36EA",
+        "pointer_instruction": "37C5",
+        "listing": "static/1-0-exe/code/seg_06E8_05.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "06E8:3B6B",
+        "pointer_instruction": "3BC5",
+        "listing": "static/1-0-exe/code/seg_06E8_06.asm"
+      },
+      {
+        "resource": "2864:2FA4",
+        "caller": "06E8:3B6B",
+        "pointer_instruction": "3BDC",
+        "listing": "static/1-0-exe/code/seg_06E8_06.asm"
+      },
+      {
+        "resource": "2864:2E06",
+        "caller": "0AB9:6A7A",
+        "pointer_instruction": "6A9C",
+        "listing": "static/1-0-exe/code/seg_0AB9_11.asm"
+      },
+      {
+        "resource": "2864:2E3C",
+        "caller": "0AB9:6A7A",
+        "pointer_instruction": "6AAD",
+        "listing": "static/1-0-exe/code/seg_0AB9_11.asm"
+      },
+      {
+        "resource": "2864:1C6E",
+        "caller": "0AB9:7EF0",
+        "pointer_instruction": "7F67",
+        "listing": "static/1-0-exe/code/seg_0AB9_13.asm"
+      },
+      {
+        "resource": "2864:1B5C",
+        "caller": "0AB9:7EF0",
+        "pointer_instruction": "7FB9",
+        "listing": "static/1-0-exe/code/seg_0AB9_13.asm"
+      },
+      {
+        "resource": "2864:6734",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "8D73",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm"
+      },
+      {
+        "resource": "2864:3EB0",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "94B1",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm"
+      },
+      {
+        "resource": "2864:1D38",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "94F1",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm"
+      },
+      {
+        "resource": "2864:6358",
+        "caller": "0AB9:8D6F",
+        "pointer_instruction": "9557",
+        "listing": "static/1-0-exe/code/seg_0AB9_14.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:95D1",
+        "pointer_instruction": "95F2",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm"
+      },
+      {
+        "resource": "2864:2EF0",
+        "caller": "0AB9:95D1",
+        "pointer_instruction": "9609",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm"
+      },
+      {
+        "resource": "2864:176C",
+        "caller": "0AB9:966F",
+        "pointer_instruction": "9687",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:966F",
+        "pointer_instruction": "9696",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm"
+      },
+      {
+        "resource": "2864:4F20",
+        "caller": "0AB9:9702",
+        "pointer_instruction": "970B",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm"
+      },
+      {
+        "resource": "2864:3D72",
+        "caller": "0AB9:9FD0",
+        "pointer_instruction": "9FD4",
+        "listing": "static/1-0-exe/code/seg_0AB9_15.asm"
+      },
+      {
+        "resource": "2864:22AC",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "AC94",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACBD",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:4924",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACD4",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACEB",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:250A",
+        "caller": "0AB9:AC87",
+        "pointer_instruction": "ACFA",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:2EB8",
+        "caller": "0AB9:ADD0",
+        "pointer_instruction": "ADEC",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:176C",
+        "caller": "0AB9:B271",
+        "pointer_instruction": "B28A",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:B271",
+        "pointer_instruction": "B299",
+        "listing": "static/1-0-exe/code/seg_0AB9_17.asm"
+      },
+      {
+        "resource": "2864:22BE",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B878",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:6370",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B887",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:25B2",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B896",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:23A4",
+        "caller": "0AB9:B6BD",
+        "pointer_instruction": "B8AB",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:14A0",
+        "caller": "0AB9:BBE2",
+        "pointer_instruction": "BBE6",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "0AB9:BBE2",
+        "pointer_instruction": "BBF5",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:1600",
+        "caller": "0AB9:BBE2",
+        "pointer_instruction": "BC0E",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "0AB9:C056",
+        "pointer_instruction": "C068",
+        "listing": "static/1-0-exe/code/seg_0AB9_18.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "0AB9:C4CD",
+        "pointer_instruction": "C583",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:437A",
+        "caller": "0AB9:C4CD",
+        "pointer_instruction": "C592",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:1CC0",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CD6A",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:1D0E",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CD86",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:1648",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CD97",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:498C",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CDAC",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:1D24",
+        "caller": "0AB9:CBF0",
+        "pointer_instruction": "CE15",
+        "listing": "static/1-0-exe/code/seg_0AB9_19.asm"
+      },
+      {
+        "resource": "2864:132E",
+        "caller": "0AB9:D5D6",
+        "pointer_instruction": "D6C7",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm"
+      },
+      {
+        "resource": "2864:25CC",
+        "caller": "0AB9:D5D6",
+        "pointer_instruction": "D6D6",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm"
+      },
+      {
+        "resource": "2864:63E2",
+        "caller": "0AB9:DA41",
+        "pointer_instruction": "DA45",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm"
+      },
+      {
+        "resource": "2864:66B4",
+        "caller": "0AB9:DA41",
+        "pointer_instruction": "DA54",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm"
+      },
+      {
+        "resource": "2864:19DE",
+        "caller": "0AB9:DA41",
+        "pointer_instruction": "DA63",
+        "listing": "static/1-0-exe/code/seg_0AB9_20.asm"
+      },
+      {
+        "resource": "2864:30E8",
+        "caller": "0AB9:EAB6",
+        "pointer_instruction": "EC73",
+        "listing": "static/1-0-exe/code/seg_0AB9_22.asm"
+      },
+      {
+        "resource": "2864:1B10",
+        "caller": "1998:0338",
+        "pointer_instruction": "0343",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:1CDC",
+        "caller": "1998:039A",
+        "pointer_instruction": "039D",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:66B4",
+        "caller": "1998:045C",
+        "pointer_instruction": "0497",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "1998:045C",
+        "pointer_instruction": "04A8",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:35AC",
+        "caller": "1998:045C",
+        "pointer_instruction": "04B7",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:6188",
+        "caller": "1998:045C",
+        "pointer_instruction": "04D6",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:1B30",
+        "caller": "1998:045C",
+        "pointer_instruction": "050B",
+        "listing": "static/1-0-exe/code/seg_1998_01.asm"
+      },
+      {
+        "resource": "2864:8238",
+        "caller": "1B55:03A5",
+        "pointer_instruction": "03F1",
+        "listing": "static/1-0-exe/code/seg_1B55_01.asm"
+      },
+      {
+        "resource": "2864:4366",
+        "caller": "1B55:03A5",
+        "pointer_instruction": "0400",
+        "listing": "static/1-0-exe/code/seg_1B55_01.asm"
+      },
+      {
+        "resource": "2864:8238",
+        "caller": "1B55:05D8",
+        "pointer_instruction": "0622",
+        "listing": "static/1-0-exe/code/seg_1B55_01.asm"
+      },
+      {
+        "resource": "2864:0EC6",
+        "caller": "1B55:0AE5",
+        "pointer_instruction": "0AE9",
+        "listing": "static/1-0-exe/code/seg_1B55_02.asm"
+      },
+      {
+        "resource": "2864:7B96",
+        "caller": "1B55:0BA1",
+        "pointer_instruction": "0BAF",
+        "listing": "static/1-0-exe/code/seg_1B55_02.asm"
+      },
+      {
+        "resource": "2864:6AE8",
+        "caller": "1B55:0CF2",
+        "pointer_instruction": "0CF6",
+        "listing": "static/1-0-exe/code/seg_1B55_02.asm"
+      },
+      {
+        "resource": "2864:7076",
+        "caller": "1B55:1BFB",
+        "pointer_instruction": "1BFF",
+        "listing": "static/1-0-exe/code/seg_1B55_03.asm"
+      },
+      {
+        "resource": "2864:6322",
+        "caller": "1B55:1C99",
+        "pointer_instruction": "1C9D",
+        "listing": "static/1-0-exe/code/seg_1B55_03.asm"
+      },
+      {
+        "resource": "2864:39AA",
+        "caller": "1B55:1F46",
+        "pointer_instruction": "1F5E",
+        "listing": "static/1-0-exe/code/seg_1B55_04.asm"
+      },
+      {
+        "resource": "2864:331E",
+        "caller": "1B55:2B43",
+        "pointer_instruction": "2C07",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm"
+      },
+      {
+        "resource": "2864:23D8",
+        "caller": "1B55:2EFA",
+        "pointer_instruction": "2F12",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm"
+      },
+      {
+        "resource": "2864:2522",
+        "caller": "1B55:2EFA",
+        "pointer_instruction": "3097",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm"
+      },
+      {
+        "resource": "2864:3B82",
+        "caller": "1B55:3323",
+        "pointer_instruction": "3340",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm"
+      },
+      {
+        "resource": "2864:132E",
+        "caller": "1B55:345A",
+        "pointer_instruction": "345D",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm"
+      },
+      {
+        "resource": "2864:6346",
+        "caller": "1B55:345A",
+        "pointer_instruction": "346C",
+        "listing": "static/1-0-exe/code/seg_1B55_05.asm"
+      },
+      {
+        "resource": "2864:2E6A",
+        "caller": "1B55:378A",
+        "pointer_instruction": "37E4",
+        "listing": "static/1-0-exe/code/seg_1B55_06.asm"
+      },
+      {
+        "resource": "2864:7CC4",
+        "caller": "1B55:38EF",
+        "pointer_instruction": "390F",
+        "listing": "static/1-0-exe/code/seg_1B55_06.asm"
+      },
+      {
+        "resource": "2864:26D0",
+        "caller": "1B55:3CE5",
+        "pointer_instruction": "3D00",
+        "listing": "static/1-0-exe/code/seg_1B55_06.asm"
+      },
+      {
+        "resource": "2864:2906",
+        "caller": "1B55:42D7",
+        "pointer_instruction": "4314",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm"
+      },
+      {
+        "resource": "2864:4342",
+        "caller": "1B55:42D7",
+        "pointer_instruction": "4323",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm"
+      },
+      {
+        "resource": "2864:1CFC",
+        "caller": "1B55:42D7",
+        "pointer_instruction": "4456",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm"
+      },
+      {
+        "resource": "2864:1D5E",
+        "caller": "1B55:478C",
+        "pointer_instruction": "4790",
+        "listing": "static/1-0-exe/code/seg_1B55_07.asm"
+      },
+      {
+        "resource": "2864:145E",
+        "caller": "1B55:5A60",
+        "pointer_instruction": "5A8E",
+        "listing": "static/1-0-exe/code/seg_1B55_09.asm"
+      },
+      {
+        "resource": "2864:136A",
+        "caller": "1B55:5A60",
+        "pointer_instruction": "5A9D",
+        "listing": "static/1-0-exe/code/seg_1B55_09.asm"
+      },
+      {
+        "resource": "2864:2B70",
+        "caller": "1B55:6EDF",
+        "pointer_instruction": "6EFF",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "1B55:6EDF",
+        "pointer_instruction": "6F24",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm"
+      },
+      {
+        "resource": "2864:716A",
+        "caller": "1B55:7090",
+        "pointer_instruction": "7094",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm"
+      },
+      {
+        "resource": "2864:4EDA",
+        "caller": "1B55:7090",
+        "pointer_instruction": "70A3",
+        "listing": "static/1-0-exe/code/seg_1B55_11.asm"
+      }
+    ]
+  }
+}

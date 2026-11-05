@@ -7,6 +7,10 @@ it does not describe a proposed replacement UI.
 See the [roadmap and backlog](../roadmap.md) and
 [manual milestone](https://github.com/diegoami/onenil-archaeology/issues/135).
 
+The [executable UI blueprint](executable-ui.md) recovers template geometry and
+menu/configuration handlers directly from the executable, checked against
+original captures. Use it alongside the illustrated workflows below.
+
 ## Reading conventions
 
 - **Observed** means an original-game run and rendered screenshot support the claim.
