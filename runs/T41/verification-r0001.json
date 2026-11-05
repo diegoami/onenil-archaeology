@@ -1,0 +1,11 @@
+{
+  "source": "01e68321327a24559cfba5b30426dae60efd30c9",
+  "tests": "1573 passed, 6 skipped in 1285.04s",
+  "log_sha256": "e2e9ba3d46694287145b38432af35a6e0d158500513671aa740ceb9eb2759ee0",
+  "prior_evidence_static_task_files_unchanged": 728,
+  "capture_check": "completed T41-r0002, two actual rendered screenshots",
+  "original_file_check": "pass",
+  "inventory": "30 files match",
+  "index": "pass",
+  "diff_check": "pass"
+}

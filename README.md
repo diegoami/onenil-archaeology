@@ -35,3 +35,10 @@ bytes:
 See [proposed F40](findings/F40.md) for counts,termination evidence and the
 important distinction between the retained scratch-goal field and a running
 score. This reference does not deliver a native playable match.
+
+## Original-game manual and management roadmap
+
+[Owner-directed roadmap](docs/roadmap.md): play and document the original
+with screenshots, audit rebuild gaps, decide UI technology, then implement
+a complete management week and season. The [manual](docs/manual/README.md)
+keeps observed workflows separate from unvisited paths.
