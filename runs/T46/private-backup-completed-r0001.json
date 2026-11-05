@@ -1,0 +1,10 @@
+{
+  "archive": "T46-game-save-r0001.tar.gz",
+  "bytes": 75108,
+  "sha256": "0c18acd41b06d8f45facb616d0e4a5714346fe18601fd50235fa89c3eccef058",
+  "drive_id": "1sguQjhg_1D_bj1QLsr6ysd81ezimfHWZ",
+  "folder_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "status": "uploaded after explicit archive-specific owner approval",
+  "metadata_readback": "id,name,size,MIME,parent folder match; sharing not changed",
+  "scope": "Private generated game saves only; no bytes committed to git"
+}
