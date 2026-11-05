@@ -71,3 +71,10 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     refused, a registration stop), but F02 found them switched off at compile time: it stays the
     target, runs start from DOSBox-X savestates, and a run confirms that it loads saved games and
     never stops (T04); if it does stop, the target is decided again.
+
+[designed: owner, 2026-11-05, explicit manual-workflow clarification] Readable decoded UI
+text may coincide with literal executable menu strings. The original-byte scanner may exclude
+only the bounded display text field of a completed, authenticated original manual-session step:
+producer/release identity, ordered record chain, decoded-text and rendered-screenshot hashes and
+process completion must validate. Every other field and file remains scanned for original raw
+or hex bytes. This is not a general JSON/runs exception; measured records stay immutable.
