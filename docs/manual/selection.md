@@ -122,8 +122,9 @@ no emulator savestate was restored. Evidence: steps 48–54. The save's digest i
 
 ## Remaining selection and tactics coverage
 
-[confirmed] Empty destination/reserve moves, ineligible/injured/suspended-player
-refusals, captain/set-piece responsibilities, team formation and team-level
+[confirmed] Moving into initially empty reserves and the insufficient-player refusal are
+observed in [match preparation](match-preparation.md). Other empty destination
+moves, ineligible/injured/suspended-player refusals, captain/set-piece responsibilities, team formation and team-level
 instruction editing, the other individual instruction cycles and effects during
 a match remain pending. This chapter establishes UI actions and persistence,
 not tactical formulas or how the engine responds to the changed lineup.
