@@ -30,6 +30,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
+| [Statistics, histories and other teams](history.md) | Observed availability messages, transfer/team history, club/division/panel/squad browsing and exits; populated seasonal views pending | #142 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
 
 Until a chapter cites its captures, its workflows are unvisited in this manual.

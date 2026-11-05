@@ -1,0 +1,11 @@
+{
+  "producer": "8a83c03e8233114883308fd56f2a1ade16186f6c",
+  "completed_sessions": 1,
+  "rendered_screenshots": 36,
+  "targeted_tests": "23 passed",
+  "original_file_check": "pass",
+  "diff_check": "pass",
+  "manual_links": "pass",
+  "prior_evidence_static_frozen_tasks_unchanged": 1584,
+  "scope": "No match played; unavailable Statistics/Seasonal screens documented as prerequisites, not populated coverage; other-team historical values inherited from supplied save"
+}
