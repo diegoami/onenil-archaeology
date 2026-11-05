@@ -52,3 +52,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T43 Original save, restart and reload workflow](T43.md)
 
 - [T44 Original setup alternatives and two-manager refusal paths](T44.md)
+
+- [T45 Original squad browsing and player information manual](T45.md)
