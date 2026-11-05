@@ -1,0 +1,22 @@
+{
+  "number": 44,
+  "previous": "d36bf9206731015e1df797632dd55d2b321cb93d4e3b30199db686395b776049",
+  "id": "S100-fixture-other-team",
+  "keys": [
+    "Down"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 PREMIER LEAGUE  \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2502  Aug 3  Zaglebie Lubin- home    Friendly #1       \u2502 3 2 \u2502\n\u2502 Blackburn R---- \u2502  \u2502  Aug 7  Motherwell----- home    Friendly #2       \u2502     \u2502\n\u2502 Manchester Utd- \u2502  \u2502  Aug 10 Club Brugge---- home    Friendly #3       \u2502     \u2502\n\u2502 Nottingham F--- \u2502  \u2502  Aug 14 Celtic--------- home    Friendly #4       \u2502     \u2502\n\u2502 Liverpool------ \u2502  \u2502  Aug 17 West Ham Utd--- away    League match #1   \u2502     \u2502\n\u2502 Leeds Utd------ \u2502  \u2502  Aug 21 Leeds Utd------ home    League match #2   \u2502     \u2502\n\u2502 Newcastle Utd-- \u2502  \u2502  Aug 24 Everton-------- away    League match #3   \u2502     \u2502\n\u2502 Tottenham H---- \u2502  \u2502  Aug 27 Hull City------ away    League Cup R#1    \u2502     \u2502\n\u2502 Q.P.R---------- \u2502  \u2502  Aug 31 Arsenal-------- home    League match #4   \u2502     \u2502\n\u2502 Wimbledon------ \u2502  \u2502  Spt 4  Olympiakos----- home    Cup Win. R#1 L#1  \u2502     \u2502\n\u2502 Southampton---- \u2502  \u2502  Spt 7  Tottenham H---- away    League match #5   \u2502     \u2502\n\u2502 Chelsea-------- \u2502  \u2502  Spt 11 Olympiakos----- away    Cup Win. R#1 L#2  \u2502     \u2502\n\u2502 Arsenal-------- \u2502  \u2502  Spt 14 Newcastle Utd-- home    League match #6   \u2502     \u2502\n\u2502 Sheffield Wed-- \u2502  \u2502  Spt 18                         League Cup R#2    \u2502     \u2502\n\u2502 West Ham Utd--- \u2502  \u2502  Spt 21 Blackburn R---- away    League match #7   \u2502     \u2502\n\u2502 Everton-------- \u2502  \u2502  Spt 25 Wimbledon------ home    League match #8   \u2502     \u2502\n\u2502 Coventry City-- \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2191\u2193-move\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500PgDn,PgUp-more\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\u251c\u2500\u2190\u2192-division\u2500\u2500\u2500\u2500\u2500\u2524\n\u2514\u2500\u25c4\u2518-watch game\u2500\u2500\u2500\u2518\n\n                                                                       Esc-exit",
+  "text_sha256": "0c286ecba35f6cbfc2bcc22dd97e6ae3524f91f4a4e53860c876f46416b0dc36",
+  "screen_sha256": "af1778c70ada191c126f7e59ac80627953d12cf7182ee3b3c27f62e7ebd943dd",
+  "highlighted": [
+    [
+      5,
+      "Manchester Utd-"
+    ]
+  ],
+  "screenshot": "step-0044.png",
+  "screenshot_sha256": "a308f1757353cfb5c60d0f58ed585bb9ae82b81d5a140949a6b71f27bf98c040",
+  "time": "2026-11-05T20:29:58.526Z"
+}

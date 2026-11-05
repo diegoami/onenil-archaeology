@@ -1,0 +1,22 @@
+{
+  "number": 43,
+  "previous": "4550daee5a2168dd7aa4e596f7ed8208b196a28e115ec614c1d56d2db145d32b",
+  "id": "S099-fixture-previous-page",
+  "keys": [
+    "Prior"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 PREMIER LEAGUE  \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2502  25,841 P St Germain--- home    Friendly #1       \u2502 0 2 \u2502\n\u2502 Blackburn R---- \u2502  \u2502\u221a Aug 7  Sevilla-------- away    Friendly #2       \u2502     \u2502\n\u2502 Manchester Utd- \u2502  \u2502  Aug 10 Celtic--------- away    Friendly #3       \u2502     \u2502\n\u2502 Nottingham F--- \u2502  \u2502  Aug 14 Zaglebie Lubin- home    Friendly #4       \u2502     \u2502\n\u2502 Liverpool------ \u2502  \u2502  Aug 17 Nottingham F--- home    League match #1   \u2502     \u2502\n\u2502 Leeds Utd------ \u2502  \u2502  Aug 21 Sheffield Wed-- away    League match #2   \u2502     \u2502\n\u2502 Newcastle Utd-- \u2502  \u2502  Aug 24 Southampton---- home    League match #3   \u2502     \u2502\n\u2502 Tottenham H---- \u2502  \u2502  Aug 27 Portsmouth----- home    League Cup R#1    \u2502     \u2502\n\u2502 Q.P.R---------- \u2502  \u2502  Aug 31 Coventry City-- away    League match #4   \u2502     \u2502\n\u2502 Wimbledon------ \u2502  \u2502  Spt 4  IFK Gothenburg- home    Eurpn Cup R#1 L#1 \u2502     \u2502\n\u2502 Southampton---- \u2502  \u2502  Spt 7  Liverpool------ home    League match #5   \u2502     \u2502\n\u2502 Chelsea-------- \u2502  \u2502  Spt 11 IFK Gothenburg- away    Eurpn Cup R#1 L#2 \u2502     \u2502\n\u2502 Arsenal-------- \u2502  \u2502  Spt 14 Q.P.R---------- away    League match #6   \u2502     \u2502\n\u2502 Sheffield Wed-- \u2502  \u2502  Spt 18                         League Cup R#2    \u2502     \u2502\n\u2502 West Ham Utd--- \u2502  \u2502  Spt 21 Manchester Utd- home    League match #7   \u2502     \u2502\n\u2502 Everton-------- \u2502  \u2502  Spt 25 West Ham Utd--- away    League match #8   \u2502     \u2502\n\u2502 Coventry City-- \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2191\u2193-move\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500PgDn,PgUp-more\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\u251c\u2500\u2190\u2192-division\u2500\u2500\u2500\u2500\u2500\u2524\n\u2514\u2500\u25c4\u2518-watch game\u2500\u2500\u2500\u2518\n\n                                                                       Esc-exit",
+  "text_sha256": "4d148b91da43df020ac5345554ac086d17c8409b90fcbbe14ff48cfdcfe7175a",
+  "screen_sha256": "73e84427aaa7b1d821d39d6096497a4698a1dd89365f7c161ea915a4055e40ed",
+  "highlighted": [
+    [
+      4,
+      "Blackburn R----"
+    ]
+  ],
+  "screenshot": "step-0043.png",
+  "screenshot_sha256": "8f845635102b6a1680725bc24545bfc6a5ee2928e35008c290a138e161f95d99",
+  "time": "2026-11-05T20:29:56.177Z"
+}
