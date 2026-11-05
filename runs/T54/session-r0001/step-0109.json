@@ -1,0 +1,22 @@
+{
+  "number": 109,
+  "previous": "0f57270615f0af9cf42d3d42b31b7998230326618fee1ce0c59b14e5388bdc66",
+  "id": "S408-cup-post-results-continue",
+  "keys": [
+    "space"
+  ],
+  "wait": 0,
+  "restart": null,
+  "text": "League Cup Round 2\n\n ------Liverpool   v   Manchester City\n ----------Q.P.R   v   Tottenham H----\n ---Nottingham F   v   W.B.A----------\n ------Wimbledon   v   Manchester Utd-\n ------Leeds Utd   v   Leicester City-\n ----Southampton   v   Bolton W-------\n --------Arsenal   v   Sheffield Wed--\n ---Ipswich Town   v   Southend Utd---\n -----Middlesbro   v   Coventry City--\n -----Luton Town   v   Blackburn R----\n -------Millwall   v   Port Vale------\n -----Sunderland   v   Stoke City-----\n -Bristol Rovers   v   Crystal Palace-\n ------York City   v   Chelsea--------\n -----Oxford Utd   v   Norwich City---\n ---Stockport Co   v   Barnsley-------\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "355021b80639a4b43f9c696d77ecdfd492364405d86660273d93bdfa8d8a7874",
+  "screen_sha256": "8f29d150db9baa0363910d346b369194874f67384c0a0cf4ff9f73261f8702f7",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0109.png",
+  "screenshot_sha256": "0d5d15c9e6404e7c3a9b562d17782c51df0e503e372add715da412fbdf854b9a",
+  "time": "2026-11-05T21:23:24.587Z"
+}
