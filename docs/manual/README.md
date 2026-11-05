@@ -29,7 +29,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Match preparation](match-preparation.md) | Observed opponent/configuration, eight team instruction cycles, formation change/restoration, statistics, pitch kickoff and insufficient-player refusal; watched/quick completion pending | #139 |
 | [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
 | Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
-| Finances and administration | Visible accounts, board and club actions | #141 |
+| [Finances, staff and stadium](administration.md) | Observed accounts, staff refusal/hire/cancel/sack cancellation, weekly posting and stadium order/abort; deferred completion pending | #141 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
 
 Until a chapter cites its captures, its workflows are unvisited in this manual.
