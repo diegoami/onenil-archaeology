@@ -1,0 +1,22 @@
+{
+  "number": 64,
+  "previous": "0d9ddd89ce3a22efbe4755b16f5a1558411801c3dd79a439c4d35a1bdd4d4d7e",
+  "id": "S6063-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "Eurpn Cup Round 2\n\n -------Juventus   v   Honved Kispest-\n 1st leg:  v      2nd leg:  v\n ----Club Brugge   v   Part. Belgrade-\n 1st leg:  v      2nd leg:  v\n ---P St Germain   v   Blackburn R----\n 1st leg:  v      2nd leg:  v\n --Bayern Munich   v   Rapid Vienna---\n 1st leg:  v      2nd leg:  v\n ------Sampdoria   v   Slavia Prague--\n 1st leg:  v      2nd leg:  v\n ------Feyenoord   v   Hibernian------\n 1st leg:  v      2nd leg:  v\n -Din. Bucharest   v   Bor. Dortmund--\n 1st leg:  v      2nd leg:  v\n -----Real Betis   v   Lazio----------\n 1st leg:  v      2nd leg:  v\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "8ea580957cae9bf2abbea1f92cbc499edd7b4d0e81bfc3989fae8d52ad88e5d7",
+  "screen_sha256": "b03ccfb7cf0db660d7d8ccf058dffdec16151e53af6fb91af421f35e7fd90d95",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0064.png",
+  "screenshot_sha256": "edc234148dfc4f9bfb016875fad171ef8298d3b3b03aa30946f5a47e21171558",
+  "time": "2026-11-05T22:37:45.580Z"
+}

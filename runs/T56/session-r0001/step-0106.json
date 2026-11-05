@@ -1,0 +1,22 @@
+{
+  "number": 106,
+  "previous": "e02bf17b93aa588b19a9f87ec5389fb8c5d6b0a8e0fdbeb8fbf04af3aad6c457",
+  "id": "S6105-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "League Cup Round 2\n\n ------Liverpool  1v0  Manchester City\n ------Leeds Utd  2v0  Leicester City-\n ----------Q.P.R  0v1  Tottenham H----\n ---Nottingham F  2v1  W.B.A----------\n ------Wimbledon  3v1  Manchester Utd-\n ----Southampton  3v0  Bolton W-------\n --------Arsenal  3v2  Sheffield Wed--\n ---Ipswich Town  4v1  Southend Utd---\n -----Middlesbro  1v0  Coventry City--\n -------Millwall  5v2  Port Vale------\n -----Luton Town  0v1  Blackburn R----\n -----Sunderland  1v3  Stoke City-----\n ---Stockport Co  4v5  Barnsley-------\n -----Oxford Utd\u221a 0v0  Norwich City---\n -Bristol Rovers  0v1  Crystal Palace-\n ------York City  2v7  Chelsea--------\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "5bda7a82f012c4033a6f43107b2163ed689a8c85e3782ccbd359ef7b87d4aba5",
+  "screen_sha256": "1bba964bf2b77a47a2879bb0735a8e9ef6abdbca79a1ea1fc66b3e10a4710740",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0106.png",
+  "screenshot_sha256": "5b687950afbfc27b88a80efc99b09a98341ef85b127524528b06d57ae5fbf2ee",
+  "time": "2026-11-05T22:43:47.602Z"
+}

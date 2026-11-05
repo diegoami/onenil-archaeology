@@ -1,0 +1,22 @@
+{
+  "number": 107,
+  "previous": "1dc289728e55c11a90f6900ecffbdedd016f4c24288b3bc8d471f29fe363b28b",
+  "id": "S6106-autumn-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "League Cup Round 2                      League Cup Round 3\n\n ------Liverpool  1v0  Manchester City   ----Blackburn R   v   Ipswich Town---\n ------Leeds Utd  2v0  Leicester City-   --------Chelsea   v   Southampton----\n ----------Q.P.R  0v1  Tottenham H----   ------Wimbledon   v   Tottenham H----\n ---Nottingham F  2v1  W.B.A----------   --------Arsenal   v   Leeds Utd------\n ------Wimbledon  3v1  Manchester Utd-   -Crystal Palace   v   Barnsley-------\n ----Southampton  3v0  Bolton W-------   -----Stoke City   v   Liverpool------\n --------Arsenal  3v2  Sheffield Wed--   -------Millwall   v   Nottingham F---\n ---Ipswich Town  4v1  Southend Utd---   -----Oxford Utd   v   Middlesbro-----\n -----Middlesbro  1v0  Coventry City--\n -------Millwall  5v2  Port Vale------\n -----Luton Town  0v1  Blackburn R----\n -----Sunderland  1v3  Stoke City-----\n ---Stockport Co  4v5  Barnsley-------\n -----Oxford Utd\u221a 0v0  Norwich City---\n -Bristol Rovers  0v1  Crystal Palace-\n ------York City  2v7  Chelsea--------\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "e58ed400e10658edd9b246be0cedc642cb056b8f3c559b6e44e9790d41a14041",
+  "screen_sha256": "d248f6d7d5e4f0acc1d914db659c48c4a5331ebadd799840ba872d89fad37950",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0107.png",
+  "screenshot_sha256": "7148c380d231cc302fa0e1625db6ebee35de81abb8064ff1caf6871f50e2e2c5",
+  "time": "2026-11-05T22:43:53.292Z"
+}
