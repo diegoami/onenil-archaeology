@@ -1,0 +1,11 @@
+{
+  "archive": "T43-game-saves-r0001.tar.gz",
+  "bytes": 151413,
+  "sha256": "358908cf763f1ad6769eead2a26e2f4d92a69e50e634c41efd1277d852b6cc7d",
+  "payload": [
+    "session-r0002/MANUAL.1-0",
+    "session-r0003/MANUAL.1-0"
+  ],
+  "destination_folder": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "status": "automatic approval rejected; archive-specific user approval pending; bytes remain local"
+}
