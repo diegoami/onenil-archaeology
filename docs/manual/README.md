@@ -28,7 +28,7 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Lineup and individual instructions](selection.md) | Observed swap/cancel, current-position cycle, Club position restore, goalkeeper instruction cycle and changed-state reload; team tactics/conditional validation pending | #138 |
 | [Match preparation](match-preparation.md) | Observed opponent/configuration, eight team instruction cycles, formation change/restoration, statistics, pitch kickoff and insufficient-player refusal; watched/quick completion pending | #139 |
 | [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
-| Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
+| [Transfers and scouting](transfers.md) | Observed market/scout, bid cancel/refusal, accepted purchase and squad change, listing/unlisting; renewal/expiry and completed selling pending | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
 
