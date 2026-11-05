@@ -89,6 +89,7 @@ def run(out):
         capture(dict(id='S001',keys=[],wait=0),d.launch())
         for line in sys.stdin:
             command=json.loads(line)
+            write(directory/f'command-{number:04d}.json',command)
             if command.get('finish'):status='completed';break
             if not re.fullmatch(r'S\d{3,}(?:-[a-z0-9-]+)?',command['id']):raise ValueError('screen ID')
             for key in command.get('keys',[]):
