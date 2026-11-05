@@ -1,0 +1,74 @@
+{
+  "status": "aborted",
+  "processes_exited": true,
+  "error": null,
+  "steps": 1,
+  "last_step": "bd5168ce083453ac65eb432f563fcc43cd37f46d1adc8922c939eb46dc728807",
+  "events": [
+    [
+      0.021,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.13,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.13,
+      "Xvfb :728 answering"
+    ],
+    [
+      0.151,
+      "dosbox-x started"
+    ],
+    [
+      0.28,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      3.281,
+      "manual: waited 3 seconds after window appeared before first savestate"
+    ],
+    [
+      3.285,
+      "window focused"
+    ],
+    [
+      3.809,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      3.811,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      3.857,
+      "title screen: matched after 1 savestate polls"
+    ],
+    [
+      3.857,
+      "DOS clock read back: '11/05/2026\\n21:19:28'"
+    ],
+    [
+      4.382,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      218.692,
+      "dosbox-x pid 266204 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group"
+    ],
+    [
+      218.7,
+      "dosbox-x pid 266204 ended by SIGKILL 0.509s after the first signal"
+    ],
+    [
+      218.707,
+      "Xvfb pid 266197 ended by SIGTERM 0.007s after the first signal"
+    ],
+    [
+      218.708,
+      "terminated"
+    ]
+  ],
+  "ended": "2026-11-05T20:23:07.912Z"
+}
