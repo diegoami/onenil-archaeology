@@ -1,0 +1,26 @@
+{
+  "producer": "c5f455e162ca0bba31efed7542b4666f0bb8dc5f",
+  "completed_original_sessions": 1,
+  "rendered_screenshots": 66,
+  "full_watched_no_R": true,
+  "halftime_score": [
+    1,
+    1
+  ],
+  "fulltime_score": [
+    1,
+    2
+  ],
+  "substitution": "T Gale for I Pearce; remaining7 to6; request and target cancellation observed",
+  "final_scorers": {
+    "A Shearer": 35,
+    "V Guerin": 12,
+    "J Cobos": 48
+  },
+  "man_of_match": "D Ginola",
+  "management_return": "Sevilla away Friendly2; funds421491",
+  "targeted_tests": "23 passed",
+  "prior_evidence_static_frozen_tasks_unchanged": 1554,
+  "progressed_save_sha256": "06fc0f6d48b89f23ef77c3ea64c6ce2b9d8fc5698a642e96f3bd14d7c7a87e51",
+  "private_backup": "archive-specific owner approval requested; bytes local"
+}
