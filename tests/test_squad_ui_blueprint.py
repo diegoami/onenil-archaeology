@@ -45,3 +45,23 @@ def test_dynamic_gap_contents_do_not_change_asserted_spans():
 
 def test_empty_templates_have_no_asserted_labels():
     assert ui.fixed_spans(model("     ")) == []
+
+
+def test_overlay_projects_only_intersection_and_preserves_base():
+    base=model("ABC",83)
+    later=model("12345",81)
+    composed=ui.overlay_component(base,later)
+    assert [chr(c) for c,a in composed["cells"].values()] == list("345")
+    assert [chr(c) for c,a in base["cells"].values()] == list("ABC")
+
+
+def test_traced_dynamic_border_destination_does_not_hide_other_mismatches():
+    import pytest
+    r=ui.ui.decode(struct.pack("<HBB",1,1,3)+bytes([0xC4,0xC4,0xC4]))
+    lines=[" "*80 for _ in range(25)]
+    lines[0]="X─!".ljust(80)
+    c=ui.compare(r,lines,[(0,0)])
+    assert c["border_cells"] == 2 and c["border_mismatch_count"] == 1
+    assert c["border_mismatch_sample"][0][:2] == (2,0)
+    with pytest.raises(ValueError,match="outside"):
+        ui.compare(r,lines,[(10,0)])

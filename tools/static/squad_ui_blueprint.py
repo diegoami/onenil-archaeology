@@ -29,8 +29,20 @@ def fixed_spans(model):
     return result
 
 
-def compare(model, lines):
-    result = ui.compare(model, lines)
+def overlay_component(base, overlay):
+    """Project a later original draw into the component's comparison viewport."""
+    return {**base, "cells": {p:overlay["cells"].get(p, cell) for p,cell in base["cells"].items()}}
+
+
+def compare(model, lines, dynamic_border_cells=()):
+    # Keep fixed text assertions intact. Exclude only statically traced runtime
+    # destinations from the border assertions; all other border cells stay exact.
+    dynamic = set(dynamic_border_cells)
+    if not dynamic.issubset(model["cells"]):
+        raise ValueError("dynamic destination outside component")
+    border_model = {**model, "cells": {p:((32,a) if p in dynamic else (c,a))
+                                    for p,(c,a) in model["cells"].items()}}
+    result = ui.compare(border_model, lines)
     labels = fixed_spans(model)
     mismatches = [s for s in labels if lines[s["y"]][s["x"]:s["x"] + len(s["text"])] != s["text"]]
     result.update(labels=labels, label_count=len(labels), labels_matched=len(labels)-len(mismatches),
@@ -51,6 +63,25 @@ def analyse():
         model = ui.decode(data, address)
         if not set(range(address, address + model["consumed"])).issubset(covered):
             raise ValueError("resource crosses missing listing range")
+        overlays = []
+        dynamic = []
+        comparison_model = model
+        if name == "squad_frame":
+            # AC87 draws 9FD0's frame, then DS:22AC at AC94..AC9E.
+            overlay = ui.decode(data, 0x22AC)
+            comparison_model = overlay_component(model, overlay)
+            overlays.append(dict(resource="2864:22AC", caller_path="0AB9:AC94..AC9E",
+                                 resource_sha256=ui.sha(data[0x22AC:0x22AC+overlay["consumed"]])))
+        if name == "team_information":
+            # 3357 -> 0EE3: club name/15-space field, row1/column23.
+            # 331C -> 101E: row14/right column54; comma writes are one cell
+            # right of the next digit column. Three groups give x48,42,36.
+            if data[0x0F10] != 15:
+                raise ValueError("club-name placeholder length differs from traced field")
+            dynamic = [dict(cells=[[x,0] for x in range(22,22+data[0x0F10])],
+                            reason="club name field", writer="1B55:3357 -> 0EE3"),
+                       dict(cells=[[x,13] for x in (36,42,48)],
+                            reason="numeric group separators", writer="1B55:331C -> 101E:1056..10A7")]
         p = ROOT / captured
         record, lines = ui.capture(p)
         resources.append(dict(name=name, resource=f"2864:{address:04X}", caller=caller,
@@ -58,7 +89,10 @@ def analyse():
                               resource_sha256=ui.sha(data[address:address+model["consumed"]]),
                               base_attribute_codes=sorted({a for c,a in model["cells"].values()}),
                               captured_record=captured, captured_record_sha256=ui.sha(p.read_bytes()),
-                              screenshot_sha256=record["screenshot_sha256"], comparison=compare(model, lines)))
+                              screenshot_sha256=record["screenshot_sha256"], later_overlays=overlays,
+                              dynamic_border_destinations=dynamic,
+                              comparison=compare(comparison_model, lines,
+                                                 [tuple(p) for d in dynamic for p in d["cells"]])))
     return dict(decoder="24BC:0000", fixed_span_rule="split at template gaps of at least two spaces; cap48",
                 listing_sha256={str(p.relative_to(ROOT)):ui.sha(p.read_bytes()) for p in paths}, resources=resources)
 
