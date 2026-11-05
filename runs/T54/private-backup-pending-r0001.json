@@ -1,0 +1,12 @@
+{
+  "archive": "T54-game-saves-r0001.tar.gz",
+  "bytes": 233807,
+  "sha256": "021624e49fce8dd5f42123e0545c8c78836667fbd278634490dce3cd7940812f",
+  "save_sha256": {
+    "interrupted-week-file": "8d326ad475b8904aa153d994ee921b78f22317af1938960d3315c3f15864fbe7",
+    "league-one-verified": "d17a7abbb72d6810dd4b23cb93b90419a9f47ecee5ce17e9830533c10d8bfd5d",
+    "league-four-reloaded": "abad4b6945c6c9b6bb6f6045cc12df5d3dc79193ccee889355fe21c2acc7f93c"
+  },
+  "status": "private archive prepared locally; archive-specific owner approval requested",
+  "scope": "Interrupted-week game file retained as exploratory input, verified post-league-one save, final post-league-four/reload save; no original bytes in git"
+}
