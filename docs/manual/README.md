@@ -28,7 +28,8 @@ See the [roadmap and backlog](../roadmap.md) and
 | [Lineup and individual instructions](selection.md) | Observed swap/cancel, current-position cycle, Club position restore, goalkeeper instruction cycle and changed-state reload; team tactics/conditional validation pending | #138 |
 | [Match preparation](match-preparation.md) | Observed opponent/configuration, eight team instruction cycles, formation change/restoration, statistics, pitch kickoff and insufficient-player refusal; watched/quick completion pending | #139 |
 | [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
-| Transfers and contracts | Offers, negotiation, acceptance/refusal and expiry | #140 |
+| [Quick results and fixture browsing](quick-results.md) | Observed Watch-off/R routes, halftime/fulltime/main return, tables/empty results/cup pairings/weekly fixtures and schedule paging; season progression pending | #139/#142 |
+| [Transfers and scouting](transfers.md) | Observed market/scout, bid cancel/refusal, accepted purchase and squad change, listing/unlisting; renewal/expiry and completed selling pending | #140 |
 | Finances and administration | Visible accounts, board and club actions | #141 |
 | Competitions and season | Weekly progression, cups/tables, conditional events and rollover | #142 |
 
@@ -103,3 +104,8 @@ S042 are route variants returning to the existing fulltime/statistics views.
 S043 is cash flow, S044 transfer news, and S045 the next-week main-menu arrival
 (same S002 screen type). These IDs distinguish captured workflow states; the
 chapter's captions define the actual view rather than exploratory label text.
+
+[confirmed] [Quick results](quick-results.md), W031–W035, covers S046 quick-result
+halftime/fulltime variants, league tables/results empty state, cup pairing views,
+weekly fixtures and team fixture lists. Capture IDs after S046 include exploratory
+intent labels; captions and actual rendered screens define each view.

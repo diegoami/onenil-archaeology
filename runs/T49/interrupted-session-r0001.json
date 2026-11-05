@@ -1,0 +1,5 @@
+{
+  "session": "session-r0001",
+  "reason": "Original stdin tool handle lost across context-output truncation before any game input; exact owned producer PID265828 interrupted with SIGINT; finally recorded aborted and processes_exited true. Restarted in new append-only session-r0002.",
+  "scope": "One title screenshot only; no completed route claim."
+}

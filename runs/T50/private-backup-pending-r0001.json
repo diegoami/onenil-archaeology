@@ -1,0 +1,11 @@
+{
+  "archive": "T49-T50-game-saves-r0001.tar.gz",
+  "bytes": 228405,
+  "sha256": "01027603312694225839db944fdbfc71b209ef3d7db9b3bdae95013371921e53",
+  "save_sha256": {
+    "T49/session-r0002": "c453de8da5236edd9d4c2eca35d95e1f74f37ee2a3ee5f59415f3e38044a285b",
+    "T49/session-r0003": "5ce98ec7bdc5f3205e3782780ede1b64f65d1f2e41dafe414042d48df8f6b547",
+    "T50/session-r0001": "93fcc71179a10404ce47e76548874bc1e891c51f25d022aec0d6463022e6469b"
+  },
+  "status": "private archive prepared locally; archive-specific owner approval requested"
+}

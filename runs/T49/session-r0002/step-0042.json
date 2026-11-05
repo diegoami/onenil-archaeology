@@ -1,0 +1,22 @@
+{
+  "number": 42,
+  "previous": "d41f0d024d7e8ccf3dd18a1b722c3e8fe14c9314bef6d05591097e9fb6adfd2c",
+  "id": "S098-fixture-next-page",
+  "keys": [
+    "Next"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 PREMIER LEAGUE  \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2502  Spt 28 Leeds Utd------ home    League match #9   \u2502     \u2502\n\u2502 Blackburn R---- \u2502  \u2502  Spt 30                         League Cup R#3    \u2502     \u2502\n\u2502 Manchester Utd- \u2502  \u2502  Oct 5  Everton-------- away    League match #10  \u2502     \u2502\n\u2502 Nottingham F--- \u2502  \u2502  Oct 9                          Euro cups R#2 L#1 \u2502     \u2502\n\u2502 Liverpool------ \u2502  \u2502  Oct 12 Arsenal-------- home    League match #11  \u2502     \u2502\n\u2502 Leeds Utd------ \u2502  \u2502  Oct 16                         Euro cups R#2 L#2 \u2502     \u2502\n\u2502 Newcastle Utd-- \u2502  \u2502  Oct 19 Charlton Ath--- home    FA Cup R#1        \u2502     \u2502\n\u2502 Tottenham H---- \u2502  \u2502  Oct 26 Tottenham H---- away    League match #12  \u2502     \u2502\n\u2502 Q.P.R---------- \u2502  \u2502  Oct 30                         League Cup QF     \u2502     \u2502\n\u2502 Wimbledon------ \u2502  \u2502  Nov 2  Newcastle Utd-- home    League match #13  \u2502     \u2502\n\u2502 Southampton---- \u2502  \u2502  Nov 6                          Euro cups         \u2502     \u2502\n\u2502 Chelsea-------- \u2502  \u2502  Nov 9  Chelsea-------- home    League match #14  \u2502     \u2502\n\u2502 Arsenal-------- \u2502  \u2502  Nov 16                         FA Cup R#2        \u2502     \u2502\n\u2502 Sheffield Wed-- \u2502  \u2502  Nov 23 Wimbledon------ away    League match #15  \u2502     \u2502\n\u2502 West Ham Utd--- \u2502  \u2502  Nov 30                         League Cup SF     \u2502     \u2502\n\u2502 Everton-------- \u2502  \u2502  Dec 7  Nottingham F--- away    League match #16  \u2502     \u2502\n\u2502 Coventry City-- \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2191\u2193-move\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500PgDn,PgUp-more\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\u251c\u2500\u2190\u2192-division\u2500\u2500\u2500\u2500\u2500\u2524\n\u2514\u2500\u25c4\u2518-watch game\u2500\u2500\u2500\u2518\n\n                                                                       Esc-exit",
+  "text_sha256": "8c5286c511400778a8c1e3598f60f7908cdd16fa00456f48345de7fe90d3cc45",
+  "screen_sha256": "8f33e3bd0e9e4a6d8e416d82278ee4e398620771ac3120469bb2bbaecea2aeb3",
+  "highlighted": [
+    [
+      4,
+      "Blackburn R----"
+    ]
+  ],
+  "screenshot": "step-0042.png",
+  "screenshot_sha256": "bedd1b02ed8ab60e67b69fbbccc3f7f9ddf19bcd4bdb0a7109eeb601e3422402",
+  "time": "2026-11-05T20:29:53.830Z"
+}

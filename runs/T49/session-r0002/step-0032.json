@@ -1,0 +1,17 @@
+{
+  "number": 32,
+  "previous": "1cacb610b79ad55728ec25d2be010c9535bf06bd4dc9d99af5677c628e9df030",
+  "id": "S083-cup-next",
+  "keys": [
+    "Down"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\nFA Cup Round 1\n\n\n\n ----Blackburn R   v   Charlton Ath---   -------Millwall   v   Portsmouth-----\n ---Nottingham F   v   Newcastle Utd--   ---Southend Utd   v   Derby County---\n ------Liverpool   v   Sheffield Utd--   -----Oldham Ath   v   York City------\n ------Wimbledon   v   Crewe Alexandra   -----Luton Town   v   Watford--------\n ----Southampton   v   Oxford Utd-----   -----Sunderland   v   Bristol Rovers-\n --------Chelsea   v   Notts County---   --------Burnley   v   Middlesbro-----\n --Sheffield Wed   v   Manchester Utd-   Birmingham City   v   Port Vale------\n --------Everton   v   Leeds Utd------   -Huddersfield T   v   Norwich City---\n --Coventry City   v   West Ham Utd---   -Wycombe Wandrs   v   Bolton W-------\n Manchester City   v   Bristol City---   ---Swansea City   v   Brentford------\n ----Aston Villa   v   Bradford City--   ---Stockport Co   v   Reading--------\n -Crystal Palace   v   Grimsby Town---   ------Blackpool   v   Hull City------\n -Leicester City   v   W.B.A----------   --------Wrexham   v   Arsenal--------\n ---Ipswich Town   v   Tottenham H----   ---Peterbro Utd   v   Brighton & HA--\n Tranmere Rovers   v   Swindon Town---   --Rotherham Utd   v   Wolves---------\n -------Barnsley   v   Stoke City-----   Shrewsbury Town   v   Q.P.R----------\n\n\n\n \u25c4\u2518,\u2193-next Del,\u2191-last  L.C  F.A  UEFA  C.W.C  E.C              F5-Print Esc-exit",
+  "text_sha256": "fdc2c8caaefec5b86b17654be8d00ca4cdd32b43198b9bf255cd331ea84a558c",
+  "screen_sha256": "c5e95ef74ed0cbb05bd9f09ae1d849df64a87fecc14aad24d6e98945ea2a3c4f",
+  "highlighted": [],
+  "screenshot": "step-0032.png",
+  "screenshot_sha256": "8e98f087bdb623bd62a21be5770b9547412bf3ee495771c8eb61742b57d99c1a",
+  "time": "2026-11-05T20:28:58.959Z"
+}
