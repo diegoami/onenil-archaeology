@@ -1,0 +1,145 @@
+{
+  "schema": "original-ui-manual/1",
+  "status": "completed",
+  "edition": "96",
+  "workflow": "W001",
+  "code_commit": "d82b42ba26f08016cf44e871eae58e7b06682a1c",
+  "source_sha256": "4486db23561c83987f24ae783b07f5cd149618e7d6062fbda254a0680ae94467",
+  "dosbox_version": "2024.03.01",
+  "game_files": {
+    "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+    "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+    "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+    "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+    "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+    "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+    "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+    "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+    "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+    "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+    "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+    "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+  },
+  "keys": [
+    "y"
+  ],
+  "screens": [
+    {
+      "id": "S001",
+      "text": "\n\n\n\n                       \u2590\u2580\u2580\u258c \u2590\u2580\u2580\u258c \u2590\u2580\u2580\u258c         \u2590\u2580\u2580\u258c  \u258c  \u2590\n                       \u2590  \u258c \u2590  \u258c \u2590\u2584\u2584\u258c         \u2590  \u258c  \u258c  \u2590        (c)\n                       \u2590  \u258c \u2590  \u258c \u2590      \u2580\u2580\u2580   \u2590  \u258c  \u258c  \u2590          NEW\n                       \u2590  \u258c \u2590  \u258c \u2590      '96   \u2590  \u258c  \u258c  \u2590            ERA\n                       \u2590\u2588\u2588\u258c \u2590  \u258c \u2590\u2588\u2588          \u2590  \u258c  \u258c  \u2590\u2588\u2588            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\n\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0 Do you want to load a saved game? (Y/N) \u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0",
+      "screen_sha256": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5",
+      "screenshot": "S001.png",
+      "screenshot_sha256": "0dfc06b1371ab334e85754f5cc48155bd789b0f3de5f98aca29c87c781de96a9",
+      "highlighted": []
+    },
+    {
+      "id": "S002",
+      "text": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u250c\u2500Blackburn R----\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 TEAM            \u2502 \u2502 formation                 4-4-2 \u2502  \u2502 GAME NAME: SAVE1    \u2502\n\u251c Blackburn R---- \u2524 \u251c\u2500FIRST TEAM AVERAGES\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u2502 MANAGER         \u2502 \u2502 confidence              worried \u2502  \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u251c Dalglish        \u2524 \u2502 fitness              reasonable \u2502  \u2551 PLAY NEXT GAME     \u2551\n\u2502 MONEY           \u2502 \u2502 energy                   lively \u2502  \u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2562\n\u251c 452,000         \u2524 \u2502 hardness                average \u2502  \u2551 Players            \u2551\n\u2502 LEAGUE POS.   1 \u2502 \u251c\u2500RATINGS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2524  \u2551 Next opponents     \u2551\n\u2502 SEASON  1994/95 \u2502 \u2502 goalkeeper     \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 Transfer market    \u2551\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 defence        \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 Use scout          \u2551\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 midfield       \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 New staff          \u2551\n\u2502 NEXT OPPONENTS  \u2502 \u2502 attack         \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 League tables      \u2551\n\u251c P St Germain--- \u2524 \u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2534\u252c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u2524  \u2551 League results     \u2551\n\u2502 MANAGER         \u2502 \u251c\u2500TEAM VALUE\u2500\u2500\u2500\u2500\u2524 \u25021\u25027,9\u25024\u25020,0\u25020\u25020\u2502  \u2551 Cup results        \u2551\n\u251c Fernandez       \u2524 \u251c\u2500TACTICS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2524  \u2551 Weekly fixtures    \u2551\n\u2502 LEAGUE          \u2502 \u2502 positioning        push forward \u2502  \u2551 Fixture list       \u2551\n\u251c EUROPEAN        \u2502 \u2502 possession         pass quickly \u2502  \u2551 Statistics         \u2551\n\u2502 LEAGUE POS.     \u2502 \u2502 passing            short passes \u2502  \u2551 Player/team history\u2551\n\u255e\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2561 \u2502 aggression           go in hard \u2502  \u2551 Seasonal history   \u2551\n\u2502COMPETITION      \u2502 \u2502 defence              half pitch \u2502  \u2551 Other teams        \u2551\n\u251cFriendly #1      \u2524 \u2502 protection      sag back to box \u2502  \u2551 Game configuration \u2551\n\u2502VENUE       home \u2502 \u2502 offside            offside trap \u2502  \u2551 Cashflow           \u2551\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 marking                   zonal \u2502  \u255a\u2550\u2191\u2193-move\u2550\u2550\u25c4\u2518-select\u2550\u255d\n                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad",
+      "screen_sha256": "2eb6ffb296cb2e54b46b8601735d202f54b81cca195335933858e0385cc1b952",
+      "screenshot": "S002.png",
+      "screenshot_sha256": "fbca3798822c7fd5e69176c2019a81fc2e449d68e37e3a571095452a0ec54d43",
+      "highlighted": [
+        [
+          4,
+          "PLAY NEXT GAME"
+        ]
+      ]
+    }
+  ],
+  "started": "2026-11-05T17:41:23.523Z",
+  "scope": "Fresh launch and supplied SAVE1 load only;host clock/seed uncontrolled;no new-game or menu-action coverage.",
+  "processes_exited": true,
+  "events": [
+    [
+      0.012,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.117,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.117,
+      "Xvfb :445 answering"
+    ],
+    [
+      0.13,
+      "dosbox-x started"
+    ],
+    [
+      0.247,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      0.25,
+      "window focused"
+    ],
+    [
+      0.772,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      0.774,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      1.325,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      1.326,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      1.35,
+      "title screen: matched after 2 savestate polls"
+    ],
+    [
+      1.35,
+      "DOS clock read back: '11/05/2026\\n18:41:22'"
+    ],
+    [
+      1.873,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      2.157,
+      "key y held 0.08s (raw keycode 29)"
+    ],
+    [
+      5.68,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      5.681,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      5.699,
+      "supplied-save main menu: matched after 1 savestate polls"
+    ],
+    [
+      6.221,
+      "emulator key Pause (for host+p) held 0.52s (raw keycode 127)"
+    ],
+    [
+      6.93,
+      "dosbox-x pid 182259 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group"
+    ],
+    [
+      6.937,
+      "dosbox-x pid 182259 ended by SIGKILL 0.507s after the first signal"
+    ],
+    [
+      6.941,
+      "Xvfb pid 182252 ended by SIGTERM 0.004s after the first signal"
+    ],
+    [
+      6.941,
+      "terminated"
+    ]
+  ],
+  "ended": "2026-11-05T17:41:30.464Z"
+}
