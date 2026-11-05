@@ -59,6 +59,8 @@ def validate(directory,source=True):
             require(any('F7' in s['keys'] for s in steps[:n]),'missing game save action')
             require(any('y' in s['keys'] for s in steps[n+1:]),'missing game reload action')
             require(any('PLAY NEXT GAME' in s['text'] for s in steps[n+1:]),'reload main menu')
+            saved=[s for s in steps[:n] if 'F7' in s['keys']][-1]
+            require('GAME NAME:' in saved['text'] and any(s['text']==saved['text'] for s in steps[n+1:]),'reload visible state mismatch')
     return steps
 
 def run(out,persistence=False):
@@ -66,6 +68,10 @@ def run(out,persistence=False):
     import driver
     import screens
     class ManualDriver(driver.Driver):
+        def _start_xvfb(self):
+            for name,data in getattr(self,'preload_saves',{}).items():
+                (self.game_dir/name).write_bytes(data)
+            return super()._start_xvfb()
         def _wait_window(self,timeout):
             window=super()._wait_window(timeout)
             # First reads can arrive during BIOS initialization on this host.
@@ -117,14 +123,13 @@ def run(out,persistence=False):
                 if not exited:raise RuntimeError('old processes remain')
                 next_scratch=scratch/f'restart-{number}'
                 d=ManualDriver(workdir=next_scratch,game_dir=next_scratch/'game')
+                d.preload_saves=files
                 d.launch()
-                for name,data in files.items():
-                    (d.game_dir/name).write_bytes(data)
                 source_hashes={name:sha(data) for name,data in files.items()}
                 destination_hashes={name:sha((d.game_dir/name).read_bytes()) for name in files}
                 command['restart_receipt']=dict(old_pid=old_pid,new_pid=d.dbx.pid,old_processes_exited=exited,
                     saved_files=source_hashes,restored_files=destination_hashes,
-                    intervention='Copied only game saves after fresh release launch reached startup; no emulator state restored.')
+                    intervention='Copied only game saves after verified release copy and before new emulator process/mount; no emulator state restored.')
             for key in command.get('keys',[]):
                 if key=='F1':raise ValueError('F1 crashes calibrated savestate reader')
                 d.keys(key)
