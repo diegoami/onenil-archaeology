@@ -1,0 +1,13 @@
+{
+  "status": "uploaded and metadata verified; owner approved upload and public provenance publication",
+  "owner_authorization": "yes approve all, in response to the separate T59/T60/T61 approval requests",
+  "archive": "T61-season-rollover-game-saves-r0001.tar.gz",
+  "archive_bytes": 342471,
+  "local_archive_sha256": "1758739aaeeded5ad12bf7c14dc55d6f461d97d54a8887086235ea191b9985be",
+  "drive_file_id": "1LwYvHIYFOgP87KzgXNP0yMHKvjMD9PKQ",
+  "drive_url": "https://drive.google.com/file/d/1LwYvHIYFOgP87KzgXNP0yMHKvjMD9PKQ/view?usp=drivesdk",
+  "parent_folder_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "remote_size_verified": 342471,
+  "remote_mime_verified": "application/gzip",
+  "remote_checksum": "not provided by connector; no remote SHA claim"
+}
