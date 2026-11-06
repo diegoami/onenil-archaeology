@@ -1,0 +1,22 @@
+{
+  "number": 113,
+  "previous": "37f1d85221ba3e5514a4d95f1d3ff8ea88482be88ccafedc484ddf3349415908",
+  "id": "S10112-later-season-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "Cup Win. Round 2                        Cup Win. Quarter Finals\n\n ----------Parma  1v2  Roma-----------   -Manchester Utd  3v2  Twente---------\n 1st leg: 0v1     2nd leg: 1v1           1st leg: 1v1     2nd leg: 1v2\n -----------Ajax  2v5  Bor. M'gladbach   -----------Roma  2v3  Bor. M'gladbach\n 1st leg: 0v1     2nd leg: 4v2           1st leg: 1v1     2nd leg: 2v1\n -Manchester Utd  2v2  Barcelona------   ---------Lugano  2v3  Levski Sofia---\n 1st leg: 1v0     2nd leg: 2v1           1st leg: 1v0     2nd leg: 3v1\n ---------Tirane  0v12 Twente---------   --Dynamo Moscow  4v2  Eendracht Aalst\n 1st leg: 0v5     2nd leg: 7v0           1st leg: 3v1     2nd leg: 1v1\n Eendracht Aalst  7v2  Aalborg--------\n 1st leg: 3v1     2nd leg: 1v4          Cup Win. Semi Finals\n Slo. Bratislava  2v3  Levski Sofia---\n 1st leg: 1v3     2nd leg: 0v1           -Manchester Utd  4v3  Levski Sofia---\n ---------Viking  1v5  Lugano---------   1st leg: 1v0     2nd leg: 3v3\n 1st leg: 1v3     2nd leg: 2v0           Bor. M'gladbach  7v3  Dynamo Moscow--\n ---R S Belgrade  3v8  Dynamo Moscow--   1st leg: 4v1     2nd leg: 2v3\n 1st leg: 2v3     2nd leg: 5v1\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "763bc53bfb39e851208bbb85dd9f2c549708ecea7f694f70bb3983117f8d2e8e",
+  "screen_sha256": "8aa24e9975e6d13c89f95602d3b28314ceeb67835db2e833e2e9797c46d3fd0e",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0113.png",
+  "screenshot_sha256": "20da90d7a7839051a67f7ffb7e3bf5e9d5b0b0382c7aed0446224b68c478b5f0",
+  "time": "2026-11-06T00:02:41.811Z"
+}

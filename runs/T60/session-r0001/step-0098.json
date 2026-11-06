@@ -1,0 +1,22 @@
+{
+  "number": 98,
+  "previous": "7b70e1249dc91b8d25426485a0fa9266cdc887bfce932a83c84ed4d2e48989d0",
+  "id": "S10097-later-season-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2                          FA Cup Round 3\n\n ---Nottingham F  3v0  Millwall-------   ------Liverpool  3v2  Q.P.R----------\n ----Tottenham H  2v1  Blackburn R----   ---Nottingham F  0v1  Manchester City\n ------Wimbledon  4v1  Southend Utd---   ----Tottenham H  2v0  Coventry City--\n ----Southampton  2v0  Leicester City-   ------Wimbledon  1v1 \u221aArsenal--------\n --------Everton  3v1  Watford--------   ----Southampton  1v0  Middlesbro-----\n ----Aston Villa  0v3  Liverpool------   --------Reading  2v0  Bolton W-------\n -------Bolton W\u221a 1v1  Crystal Palace-   ---Norwich City\u221a 1v1  Chelsea--------\n -----Middlesbro  2v0  Oldham Ath-----   ---Swansea City  2v4  Everton--------\n ---------Wolves  0v2  Reading--------\n ---Norwich City  3v1  Manchester Utd-  FA Cup Quarter Finals\n Tranmere Rovers  1v2  Chelsea--------\n -----Stoke City  0v4  Arsenal--------   ------Liverpool  2v1  Tottenham H----\n ------Port Vale  0v5  Manchester City   ----Southampton  1v0  Everton--------\n -----Sunderland  0v4  Q.P.R----------   Manchester City  2v0  Reading--------\n ---Swansea City  1v0  Brighton & HA--   ---Norwich City  1v0  Arsenal--------\n ------Blackpool  0v2  Coventry City--\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "0dac2dabcfd321f234576c6acd7779cb7f0067f704390f72bf7b8da8d87ad8aa",
+  "screen_sha256": "44ccf0bb7659ac749097a390d70fced41f93920d108e4787a532d2cd7af1c9f4",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0098.png",
+  "screenshot_sha256": "a2a7071b309458b3e3604d8e903e2a939556c13f7d7b40ba9f37d6924965fc34",
+  "time": "2026-11-06T00:00:47.764Z"
+}

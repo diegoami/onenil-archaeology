@@ -1,0 +1,7 @@
+{
+  "source_task": "T59",
+  "source_capture": "runs/T59/session-r0001/step-0176.json",
+  "source_save_sha256": "5983cd6197e80bacecd99ae1f22827da13e7d0fb86866b4b3bf1dfbf91217859",
+  "destination_save_sha256": "5983cd6197e80bacecd99ae1f22827da13e7d0fb86866b4b3bf1dfbf91217859",
+  "intervention": "Copied game save at startup only; next command restarts into a fresh process with before-mount preload. No savestate loaded."
+}
