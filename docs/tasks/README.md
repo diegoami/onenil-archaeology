@@ -92,3 +92,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T63 Correct referenced aborted-session attribution](T63.md)
 
 - [T64 Correct PUT HERE card-following documentation](T64.md)
+
+- [T65 Original saved club seed for native persistence](T65.md)
