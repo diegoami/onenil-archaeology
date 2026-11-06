@@ -1,0 +1,22 @@
+{
+  "number": 39,
+  "previous": "295ce56bae39faed4a3dae376e920da1263c204a659b446d92d1caf05a667ef7",
+  "id": "S8038-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2\n\n ---Nottingham F   v   Millwall-------\n ----Tottenham H   v   Blackburn R----\n ------Wimbledon   v   Southend Utd---\n ----Southampton   v   Leicester City-\n --------Everton   v   Watford--------\n ----Aston Villa   v   Liverpool------\n -------Bolton W   v   Crystal Palace-\n -----Middlesbro   v   Oldham Ath-----\n Tranmere Rovers   v   Chelsea--------\n ---------Wolves   v   Reading--------\n ---Norwich City   v   Manchester Utd-\n -----Stoke City   v   Arsenal--------\n ------Port Vale   v   Manchester City\n -----Sunderland   v   Q.P.R----------\n ---Swansea City   v   Brighton & HA--\n ------Blackpool   v   Coventry City--\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "e2f9b1df1c37554cab3c031f4878f44721b60f0a5ae35995590e79a080f46d87",
+  "screen_sha256": "2f775e473ab851249e2369060740122be7ad1958f5ec98ec9d610d282e7ae8e0",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0039.png",
+  "screenshot_sha256": "10c0455febb7b291bf0622e6f86df12e34e39c0b6a1a61f85cd381037619f369",
+  "time": "2026-11-05T23:16:23.853Z"
+}

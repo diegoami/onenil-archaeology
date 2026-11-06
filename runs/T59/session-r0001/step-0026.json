@@ -1,0 +1,22 @@
+{
+  "number": 26,
+  "previous": "f87d183c606097caba7665a5fe2f3e12b29e55fc4b84368f99524a49a6818a2e",
+  "id": "S8025-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "Cup Win. Round 2\n\n -----------Ajax  2v5  Bor. M'gladbach\n 1st leg: 0v1     2nd leg: 4v2\n ----------Parma  1v2  Roma-----------\n 1st leg: 0v1     2nd leg: 1v1\n -Manchester Utd  2v2  Barcelona------\n 1st leg: 1v0     2nd leg: 2v1\n ---------Tirane  0v12 Twente---------\n 1st leg: 0v5     2nd leg: 7v0\n Eendracht Aalst  7v2  Aalborg--------\n 1st leg: 3v1     2nd leg: 1v4\n Slo. Bratislava  2v3  Levski Sofia---\n 1st leg: 1v3     2nd leg: 0v1\n ---------Viking  1v5  Lugano---------\n 1st leg: 1v3     2nd leg: 2v0\n ---R S Belgrade  3v8  Dynamo Moscow--\n 1st leg: 2v3     2nd leg: 5v1\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "9731dc2862577057b0a7af04cecfe38710e0b9f88613a7b1f5a0f68836386554",
+  "screen_sha256": "c05edbbff9951a6680b6fdd2dce17673a68a624f1877497001c9c4fb58234180",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0026.png",
+  "screenshot_sha256": "fbaa86989a839c76824ace49e88a5ce7a25880dde403bf2ddc15319dca87804f",
+  "time": "2026-11-05T23:14:40.114Z"
+}
