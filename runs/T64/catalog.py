@@ -16,6 +16,7 @@ def inherited():
     # Execute the historical checker with only its catalog destination adapted.
     # Its assertion bodies and immutable source file remain unchanged.
     code=CHECKER.read_text()
+    assert hashlib.sha256(code.encode()).hexdigest()=='c9de6108aa1f68e77a9cd5785cce8ea4df9d769308d87637d94e2b77852171ae'
     assert code.count('runs/T62/catalog-r0001.json')==2
     namespace={'__file__':str(CHECKER),'__name__':'t64_inherited_catalog'}
     exec(compile(code.replace('runs/T62/catalog-r0001.json','runs/T64/catalog-r0001.json'),str(CHECKER),'exec'),namespace)

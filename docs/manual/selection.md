@@ -12,9 +12,13 @@ the footer changes from “move player” to **PUT HERE** (S022). **Escape** can
 the original order remains. Press Enter again, then Down seventeen times to
 highlight B Mimms in the lower part of FIRST TEAM, and Enter to confirm.
 The two players exchange rows: B Mimms occupies the first slot; T Flowers is
-now below the substitutes. The left skills panel continues to show the player
-being carried while choosing a destination, so the right-hand highlight is the
-destination indicator.
+now below the substitutes. While choosing a destination, the left card follows
+the highlighted player; the carried source remains separate state. The
+[T64 read-only comparison](../../runs/T64/card-r0001.json) verifies that the
+B Mimms panel at step6 equals step8 (B Mimms selected normally), while step7
+returns to the T Flowers panel from step2. Named details in T59 steps150–153
+corroborate that destination selection changes the card during PUT HERE and
+remains selected after cancellation.
 
 [confirmed] Evidence: steps 2–7; Up seventeen times then Insert inspects B Mimms
 in the first slot at steps 8–9. This tests swapping two occupied rows, not moving
