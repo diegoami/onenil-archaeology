@@ -5,7 +5,8 @@ produced from research `67dd355b4d4e5b646422fc1fdd922064bf6868d7`, covers
 W001–W083 without gaps or duplicates. It links 338 distinct illustrated screens
 to their decoded records and screenshot digests. The 27 referenced sessions
 include 24 completed sessions authenticated by their original capture validators
-and 3 aborted T61 attempts, retained explicitly as incomplete evidence. No failed
+and 3 aborted attempts (two T61 sessions and one T42 setup exploration), retained
+explicitly as incomplete evidence. No failed
 attempt is relabelled completed. Native comparison is pinned separately in
 [the workflow gap matrix](native-gaps.md).
 
