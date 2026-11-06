@@ -1,0 +1,4011 @@
+{
+  "schema": "manual-coverage-catalog/1",
+  "research_commit": "0551ee1b7f3964fc3ef6a541364cf3761444763f",
+  "native_commit": "a634fb27a2d438c67d20e95cf66aa11bc0737732",
+  "workflow_count": 83,
+  "native_status_counts": {
+    "missing": 72,
+    "partial": 11
+  },
+  "workflows": [
+    {
+      "id": "W001",
+      "title": "load the supplied SAVE1",
+      "chapter": "docs/manual/startup.md",
+      "chapter_sha256": "1bc8926c01aba2a6283c64cc8c128bd27d7711320cab181dd02b5e667da66ac0",
+      "screenshots": [
+        {
+          "screenshot": "runs/T41/T41-r0002/S001.png",
+          "record": "runs/T41/T41-r0002/record.json",
+          "step": "S001",
+          "screenshot_sha256": "0dfc06b1371ab334e85754f5cc48155bd789b0f3de5f98aca29c87c781de96a9",
+          "session": "runs/T41/T41-r0002"
+        },
+        {
+          "screenshot": "runs/T41/T41-r0002/S002.png",
+          "record": "runs/T41/T41-r0002/record.json",
+          "step": "S002",
+          "screenshot_sha256": "fbca3798822c7fd5e69176c2019a81fc2e449d68e37e3a571095452a0ec54d43",
+          "session": "runs/T41/T41-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W002",
+      "title": "filename, season and number of managers",
+      "chapter": "docs/manual/setup.md",
+      "chapter_sha256": "fa94f3936013f9261dc33e1b4767b730159cfcdb4dd60f969fdc0484746bf0bc",
+      "screenshots": [
+        {
+          "screenshot": "runs/T42/session-r0003/step-0001.png",
+          "record": "runs/T42/session-r0003/step-0001.json",
+          "step": 1,
+          "screenshot_sha256": "c80d93c0e4d8bf9cced59cdb5b8216d8ebe5f986ea8d0b0a8d12bc703f1766c9",
+          "session": "runs/T42/session-r0003"
+        },
+        {
+          "screenshot": "runs/T42/session-r0003/step-0002.png",
+          "record": "runs/T42/session-r0003/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "96cac310c51587235dffa8af14341a4724a8ea2ef50f3ad5afe169f86ff24be2",
+          "session": "runs/T42/session-r0003"
+        },
+        {
+          "screenshot": "runs/T42/session-r0003/step-0003.png",
+          "record": "runs/T42/session-r0003/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "b7b72229d9bee88be8dd08e64adfc0996b01ff09d4e1c98a3ace1d346960bd12",
+          "session": "runs/T42/session-r0003"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W003",
+      "title": "browse and choose a club",
+      "chapter": "docs/manual/setup.md",
+      "chapter_sha256": "fa94f3936013f9261dc33e1b4767b730159cfcdb4dd60f969fdc0484746bf0bc",
+      "screenshots": [
+        {
+          "screenshot": "runs/T42/session-r0003/step-0004.png",
+          "record": "runs/T42/session-r0003/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "4c785cae81a9225dfb723053acc8b17e15c523ff843ecbdeaecfeb0c82df55f5",
+          "session": "runs/T42/session-r0003"
+        },
+        {
+          "screenshot": "runs/T42/session-r0002/step-0008.png",
+          "record": "runs/T42/session-r0002/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "ec2bfbc8939091805be05de416c89744335fedb5409bbf4c60c3fdacd5ebb160",
+          "session": "runs/T42/session-r0002"
+        },
+        {
+          "screenshot": "runs/T42/session-r0002/step-0009.png",
+          "record": "runs/T42/session-r0002/step-0009.json",
+          "step": 9,
+          "screenshot_sha256": "6a5370b88d2ef8b6851e508de044f1832fda1ba7439f2a66d4238af631020760",
+          "session": "runs/T42/session-r0002"
+        },
+        {
+          "screenshot": "runs/T42/session-r0003/step-0005.png",
+          "record": "runs/T42/session-r0003/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "1fa828418f435bbd80c98ee84d073f4b3eaa9ca5c86ec15cc650632e1075db8d",
+          "session": "runs/T42/session-r0003"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W004",
+      "title": "manager name and nationality",
+      "chapter": "docs/manual/setup.md",
+      "chapter_sha256": "fa94f3936013f9261dc33e1b4767b730159cfcdb4dd60f969fdc0484746bf0bc",
+      "screenshots": [
+        {
+          "screenshot": "runs/T42/session-r0003/step-0006.png",
+          "record": "runs/T42/session-r0003/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "1d9ee362b7006fd0c75c2d506c8fb8b08550172dd720511b1f5e9d9714868f08",
+          "session": "runs/T42/session-r0003"
+        },
+        {
+          "screenshot": "runs/T42/session-r0003/step-0007.png",
+          "record": "runs/T42/session-r0003/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "2eb69cc18b50bda350a23e570471f9f35f32e76b243fce0002a820e4668d43fe",
+          "session": "runs/T42/session-r0003"
+        },
+        {
+          "screenshot": "runs/T42/session-r0003/step-0008.png",
+          "record": "runs/T42/session-r0003/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "c4049d2e9646a3fbe8b18e82ce3a9184be102a49257360b2625f89da1e5034c1",
+          "session": "runs/T42/session-r0003"
+        },
+        {
+          "screenshot": "runs/T42/session-r0002/step-0002.png",
+          "record": "runs/T42/session-r0002/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "96cac310c51587235dffa8af14341a4724a8ea2ef50f3ad5afe169f86ff24be2",
+          "session": "runs/T42/session-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W005",
+      "title": "save and cancel quitting",
+      "chapter": "docs/manual/saves.md",
+      "chapter_sha256": "23412b31fa1f31a629759bfa6541c81df7a200a11a3b9c5799c0196169877351",
+      "screenshots": [
+        {
+          "screenshot": "runs/T43/session-r0003/step-0009.png",
+          "record": "runs/T43/session-r0003/step-0009.json",
+          "step": 9,
+          "screenshot_sha256": "7ec2395287ad3bd1a2c5282fab6d485e62915e98472f0eb86730457655e751c6",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0010.png",
+          "record": "runs/T43/session-r0003/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "91b8be76ba9928f22a5265080ec43b0b744639e3199423555b31ee74cbbe8cb6",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0011.png",
+          "record": "runs/T43/session-r0003/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "7ec2395287ad3bd1a2c5282fab6d485e62915e98472f0eb86730457655e751c6",
+          "session": "runs/T43/session-r0003"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W006",
+      "title": "choose and reload the saved game",
+      "chapter": "docs/manual/saves.md",
+      "chapter_sha256": "23412b31fa1f31a629759bfa6541c81df7a200a11a3b9c5799c0196169877351",
+      "screenshots": [
+        {
+          "screenshot": "runs/T43/session-r0003/step-0002.png",
+          "record": "runs/T43/session-r0003/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "05841529a02d6486bea7210fa749a615afad739db14f7b9ebf06653a384da7d4",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0008.png",
+          "record": "runs/T43/session-r0003/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "7ec2395287ad3bd1a2c5282fab6d485e62915e98472f0eb86730457655e751c6",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0013.png",
+          "record": "runs/T43/session-r0003/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "013db813986d648f1e3420b254e4f5cdd1e0a0083cf4025c9f65e245d4410677",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0014.png",
+          "record": "runs/T43/session-r0003/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "182e84765956b65ddc06dd9c3911ff77b98ad94d5b3360da0a7150e3040ec79a",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0015.png",
+          "record": "runs/T43/session-r0003/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "182e84765956b65ddc06dd9c3911ff77b98ad94d5b3360da0a7150e3040ec79a",
+          "session": "runs/T43/session-r0003"
+        },
+        {
+          "screenshot": "runs/T43/session-r0003/step-0016.png",
+          "record": "runs/T43/session-r0003/step-0016.json",
+          "step": 16,
+          "screenshot_sha256": "7ec2395287ad3bd1a2c5282fab6d485e62915e98472f0eb86730457655e751c6",
+          "session": "runs/T43/session-r0003"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W007",
+      "title": "two human managers and duplicate-club refusal",
+      "chapter": "docs/manual/setup.md",
+      "chapter_sha256": "fa94f3936013f9261dc33e1b4767b730159cfcdb4dd60f969fdc0484746bf0bc",
+      "screenshots": [
+        {
+          "screenshot": "runs/T44/session-r0001/step-0007.png",
+          "record": "runs/T44/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "71b54d00980d4a99dab5e80a376ff9053bc881b9a24ac5af67de155780e6875f",
+          "session": "runs/T44/session-r0001"
+        },
+        {
+          "screenshot": "runs/T44/session-r0001/step-0008.png",
+          "record": "runs/T44/session-r0001/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "2dd666be704d0849e5247725961dfff0a7425069e16b0424a17c600ee6ce8a2a",
+          "session": "runs/T44/session-r0001"
+        },
+        {
+          "screenshot": "runs/T44/session-r0001/step-0010.png",
+          "record": "runs/T44/session-r0001/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "6c9166d782eb459d4060c0b9f7575f327030aa8cdce55f895317f23d43c275ee",
+          "session": "runs/T44/session-r0001"
+        },
+        {
+          "screenshot": "runs/T44/session-r0001/step-0012.png",
+          "record": "runs/T44/session-r0001/step-0012.json",
+          "step": 12,
+          "screenshot_sha256": "90b7fd1b27e8cbe63034999a330b4617a5036cd9d84add3bbbe76290832ba950",
+          "session": "runs/T44/session-r0001"
+        },
+        {
+          "screenshot": "runs/T44/session-r0001/step-0013.png",
+          "record": "runs/T44/session-r0001/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "15880124a0e26036877655285a01ed35f13e70e466eccaf13b2ad046600b5d37",
+          "session": "runs/T44/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W008",
+      "title": "Italy 1993/94 setup",
+      "chapter": "docs/manual/setup.md",
+      "chapter_sha256": "fa94f3936013f9261dc33e1b4767b730159cfcdb4dd60f969fdc0484746bf0bc",
+      "screenshots": [
+        {
+          "screenshot": "runs/T44/session-r0002/step-0004.png",
+          "record": "runs/T44/session-r0002/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "b97034bbf0b44766b33ae017b92433e0f18493f679b9b3da3b09acfc60f3dc42",
+          "session": "runs/T44/session-r0002"
+        },
+        {
+          "screenshot": "runs/T44/session-r0002/step-0007.png",
+          "record": "runs/T44/session-r0002/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "7f9476323434ab4c6e9fe03a80eac6e362553279a441ae1216f4747aa7156bd5",
+          "session": "runs/T44/session-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W009",
+      "title": "Scotland 1993/94 setup and another nationality",
+      "chapter": "docs/manual/setup.md",
+      "chapter_sha256": "fa94f3936013f9261dc33e1b4767b730159cfcdb4dd60f969fdc0484746bf0bc",
+      "screenshots": [
+        {
+          "screenshot": "runs/T44/session-r0003/step-0004.png",
+          "record": "runs/T44/session-r0003/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "8f299ea53a052f775b7dde7d762966297e56b44f6fb539ad4bdd86f9ce6581aa",
+          "session": "runs/T44/session-r0003"
+        },
+        {
+          "screenshot": "runs/T44/session-r0003/step-0005.png",
+          "record": "runs/T44/session-r0003/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "75b85f1824219e6e0c700838221b2df8fc4ff27889df3bcd4d7b864f2a46d453",
+          "session": "runs/T44/session-r0003"
+        },
+        {
+          "screenshot": "runs/T44/session-r0003/step-0007.png",
+          "record": "runs/T44/session-r0003/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "b54e0853266f349e0ba494b84419bbc7f02f6701d5b6c4308fa8ca105d276fea",
+          "session": "runs/T44/session-r0003"
+        },
+        {
+          "screenshot": "runs/T44/session-r0003/step-0008.png",
+          "record": "runs/T44/session-r0003/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "22b65c61a244674e6511ebb1e752c80d70e6670d1e4a557b00c1fce205fc656e",
+          "session": "runs/T44/session-r0003"
+        },
+        {
+          "screenshot": "runs/T44/session-r0003/step-0009.png",
+          "record": "runs/T44/session-r0003/step-0009.json",
+          "step": 9,
+          "screenshot_sha256": "35c19a0005d92e8720f7a24effab0e1c175e2b4f3fde219b096fa32a6a5d44cb",
+          "session": "runs/T44/session-r0003"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W010",
+      "title": "enter Players, compare players and return",
+      "chapter": "docs/manual/squad.md",
+      "chapter_sha256": "39c5d33cf34652aa1ee52f2ba5f564f522111e6645d8816709d57469347cb60e",
+      "screenshots": [
+        {
+          "screenshot": "runs/T45/session-r0001/step-0003.png",
+          "record": "runs/T45/session-r0001/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "fd898e89ad49408231c78a36807e202d7025470758a76a573d2b30d3a517e04c",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0004.png",
+          "record": "runs/T45/session-r0001/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "58b3f0ae92392db21d2733121ca16a80bfae40a6af004a3165eb989bc77657d1",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0005.png",
+          "record": "runs/T45/session-r0001/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "18c506ea9e80dbf33547a1c92d63debadabe06bcb008b6f2ffcd9065500e516f",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0006.png",
+          "record": "runs/T45/session-r0001/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "fbe393dbda1b1004894a111cfc0ea26620249801c3e9108bf0e55ddac6a4206b",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0007.png",
+          "record": "runs/T45/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "bec8e3fbe9ea9f8e811637765ada0ab0301a82928e90a82917da638e6caeaada",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0008.png",
+          "record": "runs/T45/session-r0001/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "6065e1dc420377c84eeed83ccf09697e4ea97e2a7eee9b108f785ec76f163945",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0011.png",
+          "record": "runs/T45/session-r0001/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "c97c82c206a4ff3ccf74b816ff1417a7069b601be63031686bf89ffa06841f67",
+          "session": "runs/T45/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W011",
+      "title": "the main-menu squad shortcut remembers the view",
+      "chapter": "docs/manual/squad.md",
+      "chapter_sha256": "39c5d33cf34652aa1ee52f2ba5f564f522111e6645d8816709d57469347cb60e",
+      "screenshots": [
+        {
+          "screenshot": "runs/T45/session-r0001/step-0014.png",
+          "record": "runs/T45/session-r0001/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "18c506ea9e80dbf33547a1c92d63debadabe06bcb008b6f2ffcd9065500e516f",
+          "session": "runs/T45/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W012",
+      "title": "cycle main-menu information",
+      "chapter": "docs/manual/squad.md",
+      "chapter_sha256": "39c5d33cf34652aa1ee52f2ba5f564f522111e6645d8816709d57469347cb60e",
+      "screenshots": [
+        {
+          "screenshot": "runs/T45/session-r0001/step-0016.png",
+          "record": "runs/T45/session-r0001/step-0016.json",
+          "step": 16,
+          "screenshot_sha256": "40cc3461e4b9f43db961a8548481441bda7815dbb67d17009f6fde6ffd5ae403",
+          "session": "runs/T45/session-r0001"
+        },
+        {
+          "screenshot": "runs/T45/session-r0001/step-0017.png",
+          "record": "runs/T45/session-r0001/step-0017.json",
+          "step": 17,
+          "screenshot_sha256": "abecfac50be9a6421724b4d08adea5d6cb2edbda40e6b3a804bddd4b4c70875b",
+          "session": "runs/T45/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W013",
+      "title": "inspect a player outside the starting eleven",
+      "chapter": "docs/manual/squad.md",
+      "chapter_sha256": "39c5d33cf34652aa1ee52f2ba5f564f522111e6645d8816709d57469347cb60e",
+      "screenshots": [
+        {
+          "screenshot": "runs/T45/session-r0001/step-0020.png",
+          "record": "runs/T45/session-r0001/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "91a3c44d087a5caa42c7458854789bd69cd91e665ef47da97a6db71fa1df4b1d",
+          "session": "runs/T45/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W014",
+      "title": "cancel a move, then exchange goalkeepers",
+      "chapter": "docs/manual/selection.md",
+      "chapter_sha256": "cedf38416d05bfe227e18729b261a2b1ec4ecb05da6c25474e793f55ab348871",
+      "screenshots": [
+        {
+          "screenshot": "runs/T46/session-r0001/step-0002.png",
+          "record": "runs/T46/session-r0001/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "fd898e89ad49408231c78a36807e202d7025470758a76a573d2b30d3a517e04c",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0003.png",
+          "record": "runs/T46/session-r0001/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "066607a0ae9ebda9fcc61092e2dd531de7235a0e4e8b0ce403578955024e97ac",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0004.png",
+          "record": "runs/T46/session-r0001/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "fd898e89ad49408231c78a36807e202d7025470758a76a573d2b30d3a517e04c",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0006.png",
+          "record": "runs/T46/session-r0001/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "8b104998b99e3e94e02c9b47323347e414dca6f5ae8154e828e48540826c10ca",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0007.png",
+          "record": "runs/T46/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "f086812a0244cbcc788d75ace421782cb37166f6a4fb8a1738582f06b39be5c9",
+          "session": "runs/T46/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W015",
+      "title": "change individual goalkeeper instructions",
+      "chapter": "docs/manual/selection.md",
+      "chapter_sha256": "cedf38416d05bfe227e18729b261a2b1ec4ecb05da6c25474e793f55ab348871",
+      "screenshots": [
+        {
+          "screenshot": "runs/T46/session-r0001/step-0011.png",
+          "record": "runs/T46/session-r0001/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "f6d8f3ba6869ec12110d272cf6ecaefb6d9063dc4d27ede24c4da8ac7bafaf8a",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0015.png",
+          "record": "runs/T46/session-r0001/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "e127d0810efef6060fc45cb3ec493ba9488fef91b63a70401f5107c51a853f7d",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0016.png",
+          "record": "runs/T46/session-r0001/step-0016.json",
+          "step": 16,
+          "screenshot_sha256": "a9a8c0b46ff6d46067cc4d79ba2e8b33e91212bf583d08b009db7e39639468ef",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0020.png",
+          "record": "runs/T46/session-r0001/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "3e39fc168ab292db31fddfaaabdc1e2d44ad26f2f3be0111509d066c36747224",
+          "session": "runs/T46/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W016",
+      "title": "Reposition cycles current position; Club position restores it",
+      "chapter": "docs/manual/selection.md",
+      "chapter_sha256": "cedf38416d05bfe227e18729b261a2b1ec4ecb05da6c25474e793f55ab348871",
+      "screenshots": [
+        {
+          "screenshot": "runs/T46/session-r0001/step-0028.png",
+          "record": "runs/T46/session-r0001/step-0028.json",
+          "step": 28,
+          "screenshot_sha256": "84f23087b9b7fd9c9cebbe4294eeefdb50a4380f4b2d078530d1ffdc553f6b41",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0032.png",
+          "record": "runs/T46/session-r0001/step-0032.json",
+          "step": 32,
+          "screenshot_sha256": "0188bc65d0bedd32df0a081d9aac8aa6a8e5e27d6a6cdf54fb1a69d5902bf7c8",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0045.png",
+          "record": "runs/T46/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "589d1433768e9191a5d70caeaa53595d67605c057d5f0c251a39c4740b1160f0",
+          "session": "runs/T46/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W017",
+      "title": "save and reload the changed selection",
+      "chapter": "docs/manual/selection.md",
+      "chapter_sha256": "cedf38416d05bfe227e18729b261a2b1ec4ecb05da6c25474e793f55ab348871",
+      "screenshots": [
+        {
+          "screenshot": "runs/T46/session-r0001/step-0052.png",
+          "record": "runs/T46/session-r0001/step-0052.json",
+          "step": 52,
+          "screenshot_sha256": "7d11e1199ac3df2e89b39d1be6c61e3b66322493157c7d5e06b737dd149a65a6",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0053.png",
+          "record": "runs/T46/session-r0001/step-0053.json",
+          "step": 53,
+          "screenshot_sha256": "7193050908d5c356a14a1675b739d62f23422102e3dc8c4d9506617dc1e6f9b3",
+          "session": "runs/T46/session-r0001"
+        },
+        {
+          "screenshot": "runs/T46/session-r0001/step-0054.png",
+          "record": "runs/T46/session-r0001/step-0054.json",
+          "step": 54,
+          "screenshot_sha256": "063dc35a15faf4981255c265678e1ca5f376fe24e1318ed8733fa1bf7de9ac22",
+          "session": "runs/T46/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W018",
+      "title": "inspect the opponent and configuration",
+      "chapter": "docs/manual/match-preparation.md",
+      "chapter_sha256": "a5f12f6f4011cc417a0dc0b350ade752a6433cd64ea452735a26e1678de135d8",
+      "screenshots": [
+        {
+          "screenshot": "runs/T47/session-r0001/step-0003.png",
+          "record": "runs/T47/session-r0001/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "941b278be88fbfaf3bb0c116f2971437fe08bc3ff7ee0e49dc54b6894008fd41",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0006.png",
+          "record": "runs/T47/session-r0001/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "503bae9de2e7d0611cb8d6e6648f4b7c3ae20398dadb5ceb99397c860e36752e",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0007.png",
+          "record": "runs/T47/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "34a1083ded1e3441d11b18e10b6cbe47ac723bbb07d5ed3ee089ecab85655f78",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0008.png",
+          "record": "runs/T47/session-r0001/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "503bae9de2e7d0611cb8d6e6648f4b7c3ae20398dadb5ceb99397c860e36752e",
+          "session": "runs/T47/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W019",
+      "title": "enter match preparation",
+      "chapter": "docs/manual/match-preparation.md",
+      "chapter_sha256": "a5f12f6f4011cc417a0dc0b350ade752a6433cd64ea452735a26e1678de135d8",
+      "screenshots": [
+        {
+          "screenshot": "runs/T47/session-r0001/step-0011.png",
+          "record": "runs/T47/session-r0001/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "d70f0f38b23af5cd3bac5ca329b02dae7b7da7fc96dd849ddc17d2eb43776adf",
+          "session": "runs/T47/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W020",
+      "title": "edit team instructions",
+      "chapter": "docs/manual/match-preparation.md",
+      "chapter_sha256": "a5f12f6f4011cc417a0dc0b350ade752a6433cd64ea452735a26e1678de135d8",
+      "screenshots": [
+        {
+          "screenshot": "runs/T47/session-r0001/step-0013.png",
+          "record": "runs/T47/session-r0001/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "437412e7baeab02ba40fca12a1640d8d58a53e047ced2d13f29bc015662c0d55",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0018.png",
+          "record": "runs/T47/session-r0001/step-0018.json",
+          "step": 18,
+          "screenshot_sha256": "51957dbb9467133a19be64b45b78056b4a85965fdaf2da6ac3b2375efb3cf500",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0037.png",
+          "record": "runs/T47/session-r0001/step-0037.json",
+          "step": 37,
+          "screenshot_sha256": "4794687fa78cf0c8a1c83f156634d5c43fc0a5d9bbac6c165b0f337a5da1b20f",
+          "session": "runs/T47/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W021",
+      "title": "change the displayed formation through player positions",
+      "chapter": "docs/manual/match-preparation.md",
+      "chapter_sha256": "a5f12f6f4011cc417a0dc0b350ade752a6433cd64ea452735a26e1678de135d8",
+      "screenshots": [
+        {
+          "screenshot": "runs/T47/session-r0001/step-0050.png",
+          "record": "runs/T47/session-r0001/step-0050.json",
+          "step": 50,
+          "screenshot_sha256": "0262ec055f653b80d36603c4cde13a8df6a67c50295979848878ceba87d92cc6",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0052.png",
+          "record": "runs/T47/session-r0001/step-0052.json",
+          "step": 52,
+          "screenshot_sha256": "fc6aef981d4bdda259fe74b7fc9816e95108da46316292f014147303b1c664e9",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0056.png",
+          "record": "runs/T47/session-r0001/step-0056.json",
+          "step": 56,
+          "screenshot_sha256": "0188bc65d0bedd32df0a081d9aac8aa6a8e5e27d6a6cdf54fb1a69d5902bf7c8",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0058.png",
+          "record": "runs/T47/session-r0001/step-0058.json",
+          "step": 58,
+          "screenshot_sha256": "ad06bc831b3434f866e46b47f50ec2c423a09bff6decd1531d86e004e465b077",
+          "session": "runs/T47/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W022",
+      "title": "view pre-match statistics and start the watched fixture",
+      "chapter": "docs/manual/match-preparation.md",
+      "chapter_sha256": "a5f12f6f4011cc417a0dc0b350ade752a6433cd64ea452735a26e1678de135d8",
+      "screenshots": [
+        {
+          "screenshot": "runs/T47/session-r0001/step-0045.png",
+          "record": "runs/T47/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "a4978d63bcff98493b3a6592913f1c496533da78c6728ae24eaa901dc134895d",
+          "session": "runs/T47/session-r0001"
+        },
+        {
+          "screenshot": "runs/T47/session-r0001/step-0060.png",
+          "record": "runs/T47/session-r0001/step-0060.json",
+          "step": 60,
+          "screenshot_sha256": "c88f5e879df222fb32664068895a6ff533a5172c7e7839d8e88ff74f96c0c944",
+          "session": "runs/T47/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W023",
+      "title": "an incomplete lineup is refused at PLAY GAME",
+      "chapter": "docs/manual/match-preparation.md",
+      "chapter_sha256": "a5f12f6f4011cc417a0dc0b350ade752a6433cd64ea452735a26e1678de135d8",
+      "screenshots": [
+        {
+          "screenshot": "runs/T47/session-r0003/step-0009.png",
+          "record": "runs/T47/session-r0003/step-0009.json",
+          "step": 9,
+          "screenshot_sha256": "72383f782118dcae0fb620c74d3a9d749a364bc450b292d6f0db4e564b3e1119",
+          "session": "runs/T47/session-r0003"
+        },
+        {
+          "screenshot": "runs/T47/session-r0003/step-0013.png",
+          "record": "runs/T47/session-r0003/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "0b671d9ee2256e99cb79b61fa7bea6353c14862f8be25bbeae0d90d23266aa4f",
+          "session": "runs/T47/session-r0003"
+        },
+        {
+          "screenshot": "runs/T47/session-r0003/step-0014.png",
+          "record": "runs/T47/session-r0003/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "b2d31735ee89e3f9cda684635525dc5e8bcb4e7b652f2f57698b9fa7ee328b1d",
+          "session": "runs/T47/session-r0003"
+        },
+        {
+          "screenshot": "runs/T47/session-r0003/step-0015.png",
+          "record": "runs/T47/session-r0003/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "3631211ddfd9258cfa1b01476a2a50d0ca076cf2c0df9a663ee55fb0bf1a97e2",
+          "session": "runs/T47/session-r0003"
+        },
+        {
+          "screenshot": "runs/T47/session-r0003/step-0018.png",
+          "record": "runs/T47/session-r0003/step-0018.json",
+          "step": 18,
+          "screenshot_sha256": "66cee4ffb8b81c87cd9bb8836645c309e282793523b1b5209126be0ef2486560",
+          "session": "runs/T47/session-r0003"
+        },
+        {
+          "screenshot": "runs/T47/session-r0003/step-0019.png",
+          "record": "runs/T47/session-r0003/step-0019.json",
+          "step": 19,
+          "screenshot_sha256": "f07209d6f9d58c6b2f18bcdd828911af737b4882d655c03cde615f705a605981",
+          "session": "runs/T47/session-r0003"
+        },
+        {
+          "screenshot": "runs/T47/session-r0003/step-0020.png",
+          "record": "runs/T47/session-r0003/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "66cee4ffb8b81c87cd9bb8836645c309e282793523b1b5209126be0ef2486560",
+          "session": "runs/T47/session-r0003"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W024",
+      "title": "start, open the bench and resume",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0003.png",
+          "record": "runs/T48/session-r0001/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "c88f5e879df222fb32664068895a6ff533a5172c7e7839d8e88ff74f96c0c944",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0004.png",
+          "record": "runs/T48/session-r0001/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "11cd7fa11c096b41de298549d6755df39ad7e27706e2f95ee2bfe4606069ab24",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0005.png",
+          "record": "runs/T48/session-r0001/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "69f5147191ce52cfd379998b631e953a0b29a6a7f6050f738b5d692bc6b38405",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W025",
+      "title": "request and cancel a substitution",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0007.png",
+          "record": "runs/T48/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "f7396450d7aad75e41eec35977ea2a3ebd40244e9754bb997b9947e993e0760d",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0012.png",
+          "record": "runs/T48/session-r0001/step-0012.json",
+          "step": 12,
+          "screenshot_sha256": "18b4f84ec753f0d51d2ce0ce266d582bd5a25fbc3a73571dd7192ebac45335ef",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0013.png",
+          "record": "runs/T48/session-r0001/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "69f5147191ce52cfd379998b631e953a0b29a6a7f6050f738b5d692bc6b38405",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W026",
+      "title": "display and speed controls",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0010.png",
+          "record": "runs/T48/session-r0001/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "f0a03e15bf441f2c34e226129aff18df433ce24f45b90643aab8c3643ad202be",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0018.png",
+          "record": "runs/T48/session-r0001/step-0018.json",
+          "step": 18,
+          "screenshot_sha256": "bbe179fd2e52f41461c55711f69f9f4dda3fa6ea9d619afe2dba0c6f13328eb7",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W027",
+      "title": "read detailed commentary history",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0020.png",
+          "record": "runs/T48/session-r0001/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "506e982a4275235b121cd6c1dbd6ea7e224630d17d21e42a9c5a948f7ce0185e",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0021.png",
+          "record": "runs/T48/session-r0001/step-0021.json",
+          "step": 21,
+          "screenshot_sha256": "9c78d4ff5d8cbeec461d72522b92e7d2d739c698cdaa6410fb9f261a09bd78d4",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0023.png",
+          "record": "runs/T48/session-r0001/step-0023.json",
+          "step": 23,
+          "screenshot_sha256": "bb810e9ba909489fe40c4d19573f473362c721f0a18149fa56125202feccf13a",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W028",
+      "title": "halftime and a legal replacement",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0035.png",
+          "record": "runs/T48/session-r0001/step-0035.json",
+          "step": 35,
+          "screenshot_sha256": "b58cbebfa35d8d31a6896bc75d06fadca023dacf994346f39e541eab8754a324",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0037.png",
+          "record": "runs/T48/session-r0001/step-0037.json",
+          "step": 37,
+          "screenshot_sha256": "6a8cc58da39e46094387bda2907f3adf8324ac18e974d99714abbf6140f20d66",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0039.png",
+          "record": "runs/T48/session-r0001/step-0039.json",
+          "step": 39,
+          "screenshot_sha256": "f1a23edc192155558a50a1cdfcbf22096da13d02a244725c8b79b1c26f755865",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0040.png",
+          "record": "runs/T48/session-r0001/step-0040.json",
+          "step": 40,
+          "screenshot_sha256": "189d1b3853b57c24f55865257e68da971f316668d4bd2a4cf7479a6cf9660835",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0043.png",
+          "record": "runs/T48/session-r0001/step-0043.json",
+          "step": 43,
+          "screenshot_sha256": "242a700a5a5f6e9035e1ddf33d260b97f1e88ab7802ceb7b84c37a67f1c8e4ca",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0044.png",
+          "record": "runs/T48/session-r0001/step-0044.json",
+          "step": 44,
+          "screenshot_sha256": "3d95366c9c85b9abb58320573e8e5f9512c8734e8abdc94aa6bcc9468f7af7ca",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0045.png",
+          "record": "runs/T48/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "12b4561d0ae8aaf78ea211fc4804ecf217ebdabecfe8a70cdfea324e062a6660",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W029",
+      "title": "fulltime, commentary and final statistics",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0051.png",
+          "record": "runs/T48/session-r0001/step-0051.json",
+          "step": 51,
+          "screenshot_sha256": "cdafca89d0c42cd947f7f959fbf80251fcac7d2d3b3c74c2426c470af93fef72",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0053.png",
+          "record": "runs/T48/session-r0001/step-0053.json",
+          "step": 53,
+          "screenshot_sha256": "7090962c662c798c17d3a7b3d2a1235f26c09d5684cca16deaf3a28d21e15eec",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0055.png",
+          "record": "runs/T48/session-r0001/step-0055.json",
+          "step": 55,
+          "screenshot_sha256": "7f2ba69d89d43ab32c2a93f67406af556ad73b339200fedcab867c506bcfc81a",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0057.png",
+          "record": "runs/T48/session-r0001/step-0057.json",
+          "step": 57,
+          "screenshot_sha256": "6f1c44a60f7d132c4f63eac9ee213b9e0714036f8d27faabc3db26af0cf7b88a",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W030",
+      "title": "return to the next management week",
+      "chapter": "docs/manual/watched-match.md",
+      "chapter_sha256": "de97f7b3c6e713a7bb675dcfe6d5ddfb21475211726fe015b72ce7cc3667f047",
+      "screenshots": [
+        {
+          "screenshot": "runs/T48/session-r0001/step-0061.png",
+          "record": "runs/T48/session-r0001/step-0061.json",
+          "step": 61,
+          "screenshot_sha256": "5a77eb15c448bf796f84379681922bc136313992c726932ec3017b97252cdcd1",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0062.png",
+          "record": "runs/T48/session-r0001/step-0062.json",
+          "step": 62,
+          "screenshot_sha256": "04a83bcc67fa92dd13b3f50346bc8a544415c374d045188b5f5dcfd89a260d1f",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0064.png",
+          "record": "runs/T48/session-r0001/step-0064.json",
+          "step": 64,
+          "screenshot_sha256": "59406a89f3addae29f70c4544d83066e98a8de48313023e9f7e5e2605104b6f2",
+          "session": "runs/T48/session-r0001"
+        },
+        {
+          "screenshot": "runs/T48/session-r0001/step-0065.png",
+          "record": "runs/T48/session-r0001/step-0065.json",
+          "step": 65,
+          "screenshot_sha256": "b3578444db213deae4f4649026b1e4e5f226d436aa316c66bb62d42d213b114e",
+          "session": "runs/T48/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W031",
+      "title": "Disable Watch match and complete a fixture",
+      "chapter": "docs/manual/quick-results.md",
+      "chapter_sha256": "8ad36e9e5b7dc72387d293513c3ea1633ed33ab1f97d1162af292525599f8f36",
+      "screenshots": [
+        {
+          "screenshot": "runs/T49/session-r0002/step-0005.png",
+          "record": "runs/T49/session-r0002/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "34a1083ded1e3441d11b18e10b6cbe47ac723bbb07d5ed3ee089ecab85655f78",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0010.png",
+          "record": "runs/T49/session-r0002/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "e36fc5609781e347fda58ce6ecb6b9237ea89cbd5ab38fc2213270c771516b29",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0011.png",
+          "record": "runs/T49/session-r0002/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "7e19ba04af15a779c51275555407b86aaf365e1eefe4d747bbd33ba4f2f39247",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0012.png",
+          "record": "runs/T49/session-r0002/step-0012.json",
+          "step": 12,
+          "screenshot_sha256": "5d50b5c00f29a4c3524bacc7b895593778e9d36b1855427e674b8eaef4252fa4",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0013.png",
+          "record": "runs/T49/session-r0002/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "04a83bcc67fa92dd13b3f50346bc8a544415c374d045188b5f5dcfd89a260d1f",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0014.png",
+          "record": "runs/T49/session-r0002/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "49d57d1b10187f8b722e40b8f88ccc57422997f2d27c6f9525fa9ed3da8960c9",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0015.png",
+          "record": "runs/T49/session-r0002/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "e36ef48f239467a4748413d366faccc21c4ab0858a8f119fd2347ab3d3e775a6",
+          "session": "runs/T49/session-r0002"
+        }
+      ],
+      "native_status": "partial"
+    },
+    {
+      "id": "W032",
+      "title": "Switch the watched pitch to R-result",
+      "chapter": "docs/manual/quick-results.md",
+      "chapter_sha256": "8ad36e9e5b7dc72387d293513c3ea1633ed33ab1f97d1162af292525599f8f36",
+      "screenshots": [
+        {
+          "screenshot": "runs/T49/session-r0003/step-0003.png",
+          "record": "runs/T49/session-r0003/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "08cfd63a23438176151fe2a76d5ce495ab1968175a887f09999f5280078e4360",
+          "session": "runs/T49/session-r0003"
+        },
+        {
+          "screenshot": "runs/T49/session-r0003/step-0004.png",
+          "record": "runs/T49/session-r0003/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "922b7dca2ed973a94d345116f48d633191a2addd6f3ca294171cfc6b5a7d9d4c",
+          "session": "runs/T49/session-r0003"
+        },
+        {
+          "screenshot": "runs/T49/session-r0003/step-0006.png",
+          "record": "runs/T49/session-r0003/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "a24d16dd5fe7dc5d13b1b2334cbcb1fd1c0586e794c52dddb15b6d22936c03df",
+          "session": "runs/T49/session-r0003"
+        },
+        {
+          "screenshot": "runs/T49/session-r0003/step-0009.png",
+          "record": "runs/T49/session-r0003/step-0009.json",
+          "step": 9,
+          "screenshot_sha256": "65a0b01f51c7da28995aa18023b5dc1ea2b2b4e3f375b226979ca0cf91ee713f",
+          "session": "runs/T49/session-r0003"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W033",
+      "title": "League tables and results after a friendly",
+      "chapter": "docs/manual/quick-results.md",
+      "chapter_sha256": "8ad36e9e5b7dc72387d293513c3ea1633ed33ab1f97d1162af292525599f8f36",
+      "screenshots": [
+        {
+          "screenshot": "runs/T49/session-r0002/step-0023.png",
+          "record": "runs/T49/session-r0002/step-0023.json",
+          "step": 23,
+          "screenshot_sha256": "6edebf1df0e7a1a747309d403dec1b6e1193e9e1d143b0df05ed63b153f89aea",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0024.png",
+          "record": "runs/T49/session-r0002/step-0024.json",
+          "step": 24,
+          "screenshot_sha256": "f8d7d4cc286e096100b52488448af7476a06ceecd11a378d482ae24b79b0e5b7",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0028.png",
+          "record": "runs/T49/session-r0002/step-0028.json",
+          "step": 28,
+          "screenshot_sha256": "e131e37539759dbab4bc15fce9eea1247d6271285392d4417f56c9049cfd0cdc",
+          "session": "runs/T49/session-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W034",
+      "title": "Cup views and weekly fixtures",
+      "chapter": "docs/manual/quick-results.md",
+      "chapter_sha256": "8ad36e9e5b7dc72387d293513c3ea1633ed33ab1f97d1162af292525599f8f36",
+      "screenshots": [
+        {
+          "screenshot": "runs/T49/session-r0002/step-0031.png",
+          "record": "runs/T49/session-r0002/step-0031.json",
+          "step": 31,
+          "screenshot_sha256": "673d5b06b70acccf9fb09301aa28f3e4bc45160a1b60e2bd0f91095c2b85595d",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0032.png",
+          "record": "runs/T49/session-r0002/step-0032.json",
+          "step": 32,
+          "screenshot_sha256": "8e98f087bdb623bd62a21be5770b9547412bf3ee495771c8eb61742b57d99c1a",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0036.png",
+          "record": "runs/T49/session-r0002/step-0036.json",
+          "step": 36,
+          "screenshot_sha256": "30bb31b0f9f014d1db7c48f4860acbb69361e9f2a81222f8e625a6ef93ed0e69",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0037.png",
+          "record": "runs/T49/session-r0002/step-0037.json",
+          "step": 37,
+          "screenshot_sha256": "62faf037a3a98da70edfbb659dc17d0b8b665f266676493bf1e72834d234a3fb",
+          "session": "runs/T49/session-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W035",
+      "title": "Team fixture list",
+      "chapter": "docs/manual/quick-results.md",
+      "chapter_sha256": "8ad36e9e5b7dc72387d293513c3ea1633ed33ab1f97d1162af292525599f8f36",
+      "screenshots": [
+        {
+          "screenshot": "runs/T49/session-r0002/step-0041.png",
+          "record": "runs/T49/session-r0002/step-0041.json",
+          "step": 41,
+          "screenshot_sha256": "07a1c775d15861b98f528eb6bc53165f38c74aa004271ca802d6cf79a033c384",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0042.png",
+          "record": "runs/T49/session-r0002/step-0042.json",
+          "step": 42,
+          "screenshot_sha256": "bedd1b02ed8ab60e67b69fbbccc3f7f9ddf19bcd4bdb0a7109eeb601e3422402",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0044.png",
+          "record": "runs/T49/session-r0002/step-0044.json",
+          "step": 44,
+          "screenshot_sha256": "a308f1757353cfb5c60d0f58ed585bb9ae82b81d5a140949a6b71f27bf98c040",
+          "session": "runs/T49/session-r0002"
+        },
+        {
+          "screenshot": "runs/T49/session-r0002/step-0045.png",
+          "record": "runs/T49/session-r0002/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "7f7ccaa3592acdc720618e99cbaf6110560a9760375ddb00822be605ecd7fca0",
+          "session": "runs/T49/session-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W036",
+      "title": "Browse the market and cancel a bid",
+      "chapter": "docs/manual/transfers.md",
+      "chapter_sha256": "8273a51f0bc0b9fb4a7d017e533eea3c99192d7b7e33f48dcf0ebcbf667a8dac",
+      "screenshots": [
+        {
+          "screenshot": "runs/T50/session-r0001/step-0005.png",
+          "record": "runs/T50/session-r0001/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "1ee9f6337982c7dfb56562562758e14aa4e67acb5cb84c4fd74734ac32f2dc4a",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0006.png",
+          "record": "runs/T50/session-r0001/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "2cc258ddc7cda0b9eab160e1904dede3a1f32226919e19a628d957735427cec0",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0007.png",
+          "record": "runs/T50/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "1c5863a45ad73c69929bdc9d50f30ad0f0e5eaa56689dac59e4fec7e85169ec9",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0009.png",
+          "record": "runs/T50/session-r0001/step-0009.json",
+          "step": 9,
+          "screenshot_sha256": "a1dbf6d543a069a7d2b6f6bb07494d8af312a48c75a8cae0bd6ba57eed33bdc8",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0010.png",
+          "record": "runs/T50/session-r0001/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "2cc258ddc7cda0b9eab160e1904dede3a1f32226919e19a628d957735427cec0",
+          "session": "runs/T50/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W037",
+      "title": "Refused fee, accepted purchase contract and resulting squad",
+      "chapter": "docs/manual/transfers.md",
+      "chapter_sha256": "8273a51f0bc0b9fb4a7d017e533eea3c99192d7b7e33f48dcf0ebcbf667a8dac",
+      "screenshots": [
+        {
+          "screenshot": "runs/T50/session-r0001/step-0012.png",
+          "record": "runs/T50/session-r0001/step-0012.json",
+          "step": 12,
+          "screenshot_sha256": "660078c4004deb9dc55c90413b863efc82f49e5fd1fcfcf2c00def2e857860eb",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0013.png",
+          "record": "runs/T50/session-r0001/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "3b852fb098fc7658c64d56dcae0cb8d6320273feaf05b01d549b1d905aff4d55",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0015.png",
+          "record": "runs/T50/session-r0001/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "d44cee8cdb66cfbb88a20227beabacbd22f22eda15dc0d52c983637643ae6c28",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0016.png",
+          "record": "runs/T50/session-r0001/step-0016.json",
+          "step": 16,
+          "screenshot_sha256": "beb3044a8f2133fb769ef9661e378d9fbd4aba8c5f72b1f03055572bc8cd2762",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0019.png",
+          "record": "runs/T50/session-r0001/step-0019.json",
+          "step": 19,
+          "screenshot_sha256": "7b286fd2af748168bd692db48420108d3887a58bf2b60de17c52b19d14a49f18",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0020.png",
+          "record": "runs/T50/session-r0001/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "e7b3a9b669443b95a1b3e827c0207b3b6387375a4fc5d4ba2e154f263e4cccd3",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0021.png",
+          "record": "runs/T50/session-r0001/step-0021.json",
+          "step": 21,
+          "screenshot_sha256": "c4c2951b12b9679dfdeffd763d7654abb3f430a3d61b186e2614ab0187da678a",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0026.png",
+          "record": "runs/T50/session-r0001/step-0026.json",
+          "step": 26,
+          "screenshot_sha256": "e049a26502926617b258c2f550391c310eebb1607eda3a89dd78a5ad43b77911",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0031.png",
+          "record": "runs/T50/session-r0001/step-0031.json",
+          "step": 31,
+          "screenshot_sha256": "cadf987eb69e4357c1b7ecee4fab48723c9c87341bd3ede6b2712a2d09645de3",
+          "session": "runs/T50/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W038",
+      "title": "Sell confirmation, transfer listing and removal",
+      "chapter": "docs/manual/transfers.md",
+      "chapter_sha256": "8273a51f0bc0b9fb4a7d017e533eea3c99192d7b7e33f48dcf0ebcbf667a8dac",
+      "screenshots": [
+        {
+          "screenshot": "runs/T50/session-r0001/step-0035.png",
+          "record": "runs/T50/session-r0001/step-0035.json",
+          "step": 35,
+          "screenshot_sha256": "75d969c9e33b3adcbca3fe0fcfcd1b62d10ff448f2b6b7c36527a2a7beb05efd",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0036.png",
+          "record": "runs/T50/session-r0001/step-0036.json",
+          "step": 36,
+          "screenshot_sha256": "2f66da425ecd9a88db880c4f6e3bb6d5c73217c13414cbe71218cdcd6bd23a09",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0038.png",
+          "record": "runs/T50/session-r0001/step-0038.json",
+          "step": 38,
+          "screenshot_sha256": "9557b854ae95cf727cbb22ee7fb03413867d4432b113af69efc1517748bc1558",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0041.png",
+          "record": "runs/T50/session-r0001/step-0041.json",
+          "step": 41,
+          "screenshot_sha256": "b3ef477570f5be074258d2f8569457e47026db74c016a700f5d8d8c2f042d14f",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0042.png",
+          "record": "runs/T50/session-r0001/step-0042.json",
+          "step": 42,
+          "screenshot_sha256": "b9553802e8c6d043a3e5738ecc088a884672dc642fbc7da61a9cef986743e86d",
+          "session": "runs/T50/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W039",
+      "title": "Scout criteria, search results and cancellation",
+      "chapter": "docs/manual/transfers.md",
+      "chapter_sha256": "8273a51f0bc0b9fb4a7d017e533eea3c99192d7b7e33f48dcf0ebcbf667a8dac",
+      "screenshots": [
+        {
+          "screenshot": "runs/T50/session-r0001/step-0048.png",
+          "record": "runs/T50/session-r0001/step-0048.json",
+          "step": 48,
+          "screenshot_sha256": "ea7395eba5e51a3b7f638622acf76b826ba22a946e80be183d4957576116476c",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0052.png",
+          "record": "runs/T50/session-r0001/step-0052.json",
+          "step": 52,
+          "screenshot_sha256": "6d9cea6ea1c5e31a331a5c2ee8b4416809b5448e3d4563820ec3ae7c0cbe4421",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0053.png",
+          "record": "runs/T50/session-r0001/step-0053.json",
+          "step": 53,
+          "screenshot_sha256": "ab314a58e51699a6872e63f457563c9fb9a2810560c66417e523df3907d3eaeb",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0054.png",
+          "record": "runs/T50/session-r0001/step-0054.json",
+          "step": 54,
+          "screenshot_sha256": "42e4972810b6102523d3d348fc28775691fac2bc81505a9884da4be640828dd3",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0058.png",
+          "record": "runs/T50/session-r0001/step-0058.json",
+          "step": 58,
+          "screenshot_sha256": "9dd4d2872433f942054fe1568c03429bedbdbe5c199a9185c24e8d7e0d73a4b2",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0062.png",
+          "record": "runs/T50/session-r0001/step-0062.json",
+          "step": 62,
+          "screenshot_sha256": "6d9cea6ea1c5e31a331a5c2ee8b4416809b5448e3d4563820ec3ae7c0cbe4421",
+          "session": "runs/T50/session-r0001"
+        },
+        {
+          "screenshot": "runs/T50/session-r0001/step-0065.png",
+          "record": "runs/T50/session-r0001/step-0065.json",
+          "step": 65,
+          "screenshot_sha256": "f4f8a717b391cb5d4754b18943d318c8bd60ff22c1d3b9115b03be69eff12e9f",
+          "session": "runs/T50/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W040",
+      "title": "Existing-player renewal, editing and cancellation",
+      "chapter": "docs/manual/contracts.md",
+      "chapter_sha256": "9b977d415ad37f7e1a046e3858812848f33d13e693efa23846d0584982d799f7",
+      "screenshots": [
+        {
+          "screenshot": "runs/T51/session-r0001/step-0010.png",
+          "record": "runs/T51/session-r0001/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "7d43bd359aaaab380f02ecaff56d15e02e631439ab1cc59400934608cb5404bc",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0011.png",
+          "record": "runs/T51/session-r0001/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "93b167316ad4680bdafc29fdb683035baffd6aa57ebb51a98704c12602ae9fa2",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0013.png",
+          "record": "runs/T51/session-r0001/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "e6f1018d8a9f62b608c6b0d6fb083fc07d677ceb59c3a716b1a172fc78cd0b93",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0015.png",
+          "record": "runs/T51/session-r0001/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "04b8f693d6fd95232a85792195995771a4f17b50c814d1cec1ad0830ed6e1a95",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0022.png",
+          "record": "runs/T51/session-r0001/step-0022.json",
+          "step": 22,
+          "screenshot_sha256": "121202a567639ed2370903b0fb59b21936bbe158fd562ac945ca98373634be13",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0025.png",
+          "record": "runs/T51/session-r0001/step-0025.json",
+          "step": 25,
+          "screenshot_sha256": "232f9215fc8e041d8befdccb0dc890ce80a0ffd4fbe291a3859e2f8771da84aa",
+          "session": "runs/T51/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W041",
+      "title": "Fire confirmation, compensation and cancellation",
+      "chapter": "docs/manual/contracts.md",
+      "chapter_sha256": "9b977d415ad37f7e1a046e3858812848f33d13e693efa23846d0584982d799f7",
+      "screenshots": [
+        {
+          "screenshot": "runs/T51/session-r0001/step-0029.png",
+          "record": "runs/T51/session-r0001/step-0029.json",
+          "step": 29,
+          "screenshot_sha256": "fb7059f9da60b31b4f6ba2473208d172727ac23f2eb3fdffd5f210403926b5dc",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0030.png",
+          "record": "runs/T51/session-r0001/step-0030.json",
+          "step": 30,
+          "screenshot_sha256": "58b3f0ae92392db21d2733121ca16a80bfae40a6af004a3165eb989bc77657d1",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0036.png",
+          "record": "runs/T51/session-r0001/step-0036.json",
+          "step": 36,
+          "screenshot_sha256": "b7940e62e93e9fde40b462179dea7c40ab4f8d88f824265886bcd0b01b001e03",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0037.png",
+          "record": "runs/T51/session-r0001/step-0037.json",
+          "step": 37,
+          "screenshot_sha256": "58b3f0ae92392db21d2733121ca16a80bfae40a6af004a3165eb989bc77657d1",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0041.png",
+          "record": "runs/T51/session-r0001/step-0041.json",
+          "step": 41,
+          "screenshot_sha256": "5818fd973fcbce008b39b1447d382d2616601068de9a93e2854bb963daab5de6",
+          "session": "runs/T51/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W042",
+      "title": "Hire a youth player on trial",
+      "chapter": "docs/manual/contracts.md",
+      "chapter_sha256": "9b977d415ad37f7e1a046e3858812848f33d13e693efa23846d0584982d799f7",
+      "screenshots": [
+        {
+          "screenshot": "runs/T51/session-r0001/step-0042.png",
+          "record": "runs/T51/session-r0001/step-0042.json",
+          "step": 42,
+          "screenshot_sha256": "37e4df2b5809728943a4a7d949c3dc36d61920f73ea6d296b20b36fd9e2846be",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0045.png",
+          "record": "runs/T51/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "9c02527fe82cd284550fe147cbe31c5a947d5df29510611eaec83971630f6dce",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0047.png",
+          "record": "runs/T51/session-r0001/step-0047.json",
+          "step": 47,
+          "screenshot_sha256": "50a0d8a09216b4d53b4d2ce3a86e650e7387df6a79163f8303565a7b8c8d29d2",
+          "session": "runs/T51/session-r0001"
+        },
+        {
+          "screenshot": "runs/T51/session-r0001/step-0049.png",
+          "record": "runs/T51/session-r0001/step-0049.json",
+          "step": 49,
+          "screenshot_sha256": "40cc3461e4b9f43db961a8548481441bda7815dbb67d17009f6fde6ffd5ae403",
+          "session": "runs/T51/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W043",
+      "title": "Statistics availability",
+      "chapter": "docs/manual/history.md",
+      "chapter_sha256": "b6a657c5a2b9c8f99702e8215d821208340fbb0e664c4f153fb9e74d5232e750",
+      "screenshots": [
+        {
+          "screenshot": "runs/T53/session-r0001/step-0013.png",
+          "record": "runs/T53/session-r0001/step-0013.json",
+          "step": 13,
+          "screenshot_sha256": "fb297c2ae39facf39afd3fc775fab83bc75282b7c3d55618e9b30141867fccd2",
+          "session": "runs/T53/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W044",
+      "title": "Player transfer history and team history",
+      "chapter": "docs/manual/history.md",
+      "chapter_sha256": "b6a657c5a2b9c8f99702e8215d821208340fbb0e664c4f153fb9e74d5232e750",
+      "screenshots": [
+        {
+          "screenshot": "runs/T53/session-r0001/step-0016.png",
+          "record": "runs/T53/session-r0001/step-0016.json",
+          "step": 16,
+          "screenshot_sha256": "a1c2e79048d02c082b4afb62481246517cf95b8e3adbd6849ca790d19b5cf623",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0018.png",
+          "record": "runs/T53/session-r0001/step-0018.json",
+          "step": 18,
+          "screenshot_sha256": "f1c743c0624f6ad2a56a95e78886e567febe78b1e415b91d5c558b194db65b45",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0019.png",
+          "record": "runs/T53/session-r0001/step-0019.json",
+          "step": 19,
+          "screenshot_sha256": "c3ab8f27a53d939f32d96bc8f4dce198a09ca575c0984cc107e1a0ae7fb0ca1f",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0020.png",
+          "record": "runs/T53/session-r0001/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "5cf277e3c20ca0e41c55fcd6b64f84a74329bd30725a51f776c0f1e80485486d",
+          "session": "runs/T53/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W045",
+      "title": "Seasonal history availability",
+      "chapter": "docs/manual/history.md",
+      "chapter_sha256": "b6a657c5a2b9c8f99702e8215d821208340fbb0e664c4f153fb9e74d5232e750",
+      "screenshots": [
+        {
+          "screenshot": "runs/T53/session-r0001/step-0023.png",
+          "record": "runs/T53/session-r0001/step-0023.json",
+          "step": 23,
+          "screenshot_sha256": "483a59b565591610cfd32727bb55b5ddc8f93019d6475f2e0e1f79f9fdb20f23",
+          "session": "runs/T53/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W046",
+      "title": "Other-team information and squad details",
+      "chapter": "docs/manual/history.md",
+      "chapter_sha256": "b6a657c5a2b9c8f99702e8215d821208340fbb0e664c4f153fb9e74d5232e750",
+      "screenshots": [
+        {
+          "screenshot": "runs/T53/session-r0001/step-0026.png",
+          "record": "runs/T53/session-r0001/step-0026.json",
+          "step": 26,
+          "screenshot_sha256": "5993e2b4e9f79f313de30a28cf1caab5353ce926a33b61bad90abd73572d4f38",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0027.png",
+          "record": "runs/T53/session-r0001/step-0027.json",
+          "step": 27,
+          "screenshot_sha256": "b3111fa88fa00307b69eb71f09e8ba649ed42437cd46175657f6fc68a1366ac5",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0028.png",
+          "record": "runs/T53/session-r0001/step-0028.json",
+          "step": 28,
+          "screenshot_sha256": "538853b71bb6a9b67fe8324fe61b9ebd5d546bba7546ed037bea0def8681a8f9",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0029.png",
+          "record": "runs/T53/session-r0001/step-0029.json",
+          "step": 29,
+          "screenshot_sha256": "61dde01b7b06dab7efc17fbef749a42fb9e364941e63074395103ef194520bee",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0030.png",
+          "record": "runs/T53/session-r0001/step-0030.json",
+          "step": 30,
+          "screenshot_sha256": "661c31bfd95e54567cc4fc6da10c1dc7e80f326d4e7537512763d6aff79e735b",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0031.png",
+          "record": "runs/T53/session-r0001/step-0031.json",
+          "step": 31,
+          "screenshot_sha256": "4deb54154b83c7b8cb9ec35be18615ca3740f59360db9993b0e55f0835e73b2a",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0032.png",
+          "record": "runs/T53/session-r0001/step-0032.json",
+          "step": 32,
+          "screenshot_sha256": "2208d66604215210deea3d5283efe7ecb519d2b2a9d53d7a2562f8d93d3cc4bc",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0033.png",
+          "record": "runs/T53/session-r0001/step-0033.json",
+          "step": 33,
+          "screenshot_sha256": "98cbdb3f8815b22d1778defe4756190ba45aa49a3e408210c16efedb6ff0bef2",
+          "session": "runs/T53/session-r0001"
+        },
+        {
+          "screenshot": "runs/T53/session-r0001/step-0035.png",
+          "record": "runs/T53/session-r0001/step-0035.json",
+          "step": 35,
+          "screenshot_sha256": "9802f47fb5cf6f53009dda21340208ecfa03f0a4032d949409a214790d3d6b02",
+          "session": "runs/T53/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W047",
+      "title": "Read cash flow and club/staff information",
+      "chapter": "docs/manual/administration.md",
+      "chapter_sha256": "963b1db984777f95ff200aaf35f7b8236fca290b9125b2f02747f12d6368fa52",
+      "screenshots": [
+        {
+          "screenshot": "runs/T52/session-r0001/step-0006.png",
+          "record": "runs/T52/session-r0001/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "00e9651868db7e5a9c6f10a3e6cfa60bc572c444bc8d4ee07ba4e52b19f32188",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0002.png",
+          "record": "runs/T52/session-r0001/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "33f0690b73d4807cb47e1d04a1f5177a2f7b2e1ca9f1b7f974944ce0b43ba690",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0003.png",
+          "record": "runs/T52/session-r0001/step-0003.json",
+          "step": 3,
+          "screenshot_sha256": "c8088f5fd990b4f200f77bee1e4d31966ad5c8c3ca39d5128cf0362aa70d62d5",
+          "session": "runs/T52/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W048",
+      "title": "Stadium quote, abort and scheduled improvements",
+      "chapter": "docs/manual/administration.md",
+      "chapter_sha256": "963b1db984777f95ff200aaf35f7b8236fca290b9125b2f02747f12d6368fa52",
+      "screenshots": [
+        {
+          "screenshot": "runs/T52/session-r0001/step-0007.png",
+          "record": "runs/T52/session-r0001/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "5aa1b27d36b63447eb31ad7e9369cde5f0cb2b321009c5364bcc4a4a667cd3ae",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0008.png",
+          "record": "runs/T52/session-r0001/step-0008.json",
+          "step": 8,
+          "screenshot_sha256": "a8012f33a74faae045fe660c0cfc916c992eedb955ab68d3b1be5e96a93ab156",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0010.png",
+          "record": "runs/T52/session-r0001/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "bc39c37ee6970dc4e5b7f2389ddbd4170758054891a24c57cab667fdd94e571c",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0002/step-0005.png",
+          "record": "runs/T52/session-r0002/step-0005.json",
+          "step": 5,
+          "screenshot_sha256": "14e915a6e4e8b192b826e6fce4a6bffcd216751abd74500fa193e1769e075c27",
+          "session": "runs/T52/session-r0002"
+        },
+        {
+          "screenshot": "runs/T52/session-r0002/step-0007.png",
+          "record": "runs/T52/session-r0002/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "de28d6472a160b5b93c58b2cf8e5ea606e642b83343205acf585809e5c745f4d",
+          "session": "runs/T52/session-r0002"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W049",
+      "title": "Staff browser, refusals and a successful hire",
+      "chapter": "docs/manual/administration.md",
+      "chapter_sha256": "963b1db984777f95ff200aaf35f7b8236fca290b9125b2f02747f12d6368fa52",
+      "screenshots": [
+        {
+          "screenshot": "runs/T52/session-r0001/step-0021.png",
+          "record": "runs/T52/session-r0001/step-0021.json",
+          "step": 21,
+          "screenshot_sha256": "fa787085cb36bccd3a9b12b369d63af3815f63c1023477df550ed61f75fc0f76",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0024.png",
+          "record": "runs/T52/session-r0001/step-0024.json",
+          "step": 24,
+          "screenshot_sha256": "00b32d7f73b02a388d9b398f59a41ae83c0005aafc68aa232af1a0645e009353",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0026.png",
+          "record": "runs/T52/session-r0001/step-0026.json",
+          "step": 26,
+          "screenshot_sha256": "4be0c13bc8a56423d3e77d9c6582ed8a68bc56dece0e949329cbb87a8ca7c56d",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0028.png",
+          "record": "runs/T52/session-r0001/step-0028.json",
+          "step": 28,
+          "screenshot_sha256": "065afd1ee5020222e1e4ce920acf19aa1d38f2043bf9ba913958ccd7e86838b9",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0037.png",
+          "record": "runs/T52/session-r0001/step-0037.json",
+          "step": 37,
+          "screenshot_sha256": "bc9599535a4f8b258831aec497d7b9f5f78b2cd1358536ddc260367dc225d7ee",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0038.png",
+          "record": "runs/T52/session-r0001/step-0038.json",
+          "step": 38,
+          "screenshot_sha256": "f35119350a5947d0f9a106d2247a0be9de39d8413f976e44e18ff956f251844b",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0040.png",
+          "record": "runs/T52/session-r0001/step-0040.json",
+          "step": 40,
+          "screenshot_sha256": "c9510b585765c85aa6ab0ad97de080d37de2e32dd87cb54ecee274fe945f6caf",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0041.png",
+          "record": "runs/T52/session-r0001/step-0041.json",
+          "step": 41,
+          "screenshot_sha256": "4aa2418374e5f0451adc9608706ce2fbcbe64898a0b13e46eee788b07372544b",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0046.png",
+          "record": "runs/T52/session-r0001/step-0046.json",
+          "step": 46,
+          "screenshot_sha256": "754858be3391f7e70b6cb70e81e221bd48693e553581f4611b55b7bb23f0dc7b",
+          "session": "runs/T52/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W050",
+      "title": "Weekly account posting after the hire",
+      "chapter": "docs/manual/administration.md",
+      "chapter_sha256": "963b1db984777f95ff200aaf35f7b8236fca290b9125b2f02747f12d6368fa52",
+      "screenshots": [
+        {
+          "screenshot": "runs/T52/session-r0001/step-0066.png",
+          "record": "runs/T52/session-r0001/step-0066.json",
+          "step": 66,
+          "screenshot_sha256": "1abc982fafec0380aa562bd0404891511e2e665e1f40564370fc32d03a530213",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0068.png",
+          "record": "runs/T52/session-r0001/step-0068.json",
+          "step": 68,
+          "screenshot_sha256": "0f8f0ec25ba582bbe767c03ca04235b6f5302d7c0711364544fe537bee1bb75c",
+          "session": "runs/T52/session-r0001"
+        },
+        {
+          "screenshot": "runs/T52/session-r0001/step-0069.png",
+          "record": "runs/T52/session-r0001/step-0069.json",
+          "step": 69,
+          "screenshot_sha256": "7d8737dd9ec2fde1e6dd391f8e85418e808e2a2a41936bb406d6f617b7a53492",
+          "session": "runs/T52/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W051",
+      "title": "Successive weeks and the first league match",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0036.png",
+          "record": "runs/T54/session-r0001/step-0036.json",
+          "step": 36,
+          "screenshot_sha256": "d7468c5680168bab7ea50738244d3f8b59564f0dc1a756e6dfa305bb909aef7e",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0041.png",
+          "record": "runs/T54/session-r0001/step-0041.json",
+          "step": 41,
+          "screenshot_sha256": "d597d4fa7f5d1e7a1b08dce8ccd63faf10fe4351db7b7bc442894a40de0ef1e5",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0042.png",
+          "record": "runs/T54/session-r0001/step-0042.json",
+          "step": 42,
+          "screenshot_sha256": "9d052832b7b8ffba4dad82c33ddc812642d7af19f7b54769f3baeec05700b08d",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0043.png",
+          "record": "runs/T54/session-r0001/step-0043.json",
+          "step": 43,
+          "screenshot_sha256": "c11fde011a1fb5e900be5a45b9922b63c8140244384afb2d69248446f6457033",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W052",
+      "title": "Expiring contract interrupts weekly processing",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0045.png",
+          "record": "runs/T54/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "17e6cebf59433394ce059959756cac97131ad9bf48b3720158dd06c1b43612ea",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0052.png",
+          "record": "runs/T54/session-r0001/step-0052.json",
+          "step": 52,
+          "screenshot_sha256": "982ba31c489d2df480eb324adcbefeecfbf65260cd1b25cafa4a58ec590c519c",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0053.png",
+          "record": "runs/T54/session-r0001/step-0053.json",
+          "step": 53,
+          "screenshot_sha256": "303d115c362ae39f2ee003bbf0047b3d897052a2a02b97d58378f74c8fdf2e97",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0055.png",
+          "record": "runs/T54/session-r0001/step-0055.json",
+          "step": 55,
+          "screenshot_sha256": "17c8bf96b3bf70be301d836f6b04da8b5c9e6503feb12d24e3cfe3cde4c79dec",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W053",
+      "title": "Incoming offer and completed sale during the week",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0064.png",
+          "record": "runs/T54/session-r0001/step-0064.json",
+          "step": 64,
+          "screenshot_sha256": "ee9ea9982d03547c07fb7cbd9cf719fcca49e4b445f9d4e33f93f48b0f488da1",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0065.png",
+          "record": "runs/T54/session-r0001/step-0065.json",
+          "step": 65,
+          "screenshot_sha256": "bb29bd83528509b63545e95a02d1c62e1ba74e951b036a642b0774a6300c0b7a",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0091.png",
+          "record": "runs/T54/session-r0001/step-0091.json",
+          "step": 91,
+          "screenshot_sha256": "ff5cbbc97b9f663fc5c075f45ebfec9ba3d3c0068379c7878d361c5fbfc79ee4",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W054",
+      "title": "International duty, suspension and an incomplete lineup",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0068.png",
+          "record": "runs/T54/session-r0001/step-0068.json",
+          "step": 68,
+          "screenshot_sha256": "277e0da4f26e30aa896104dd1dc4a258cd7d68902e932acdc4a753f699437bff",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0071.png",
+          "record": "runs/T54/session-r0001/step-0071.json",
+          "step": 71,
+          "screenshot_sha256": "869fbec59c1d45a39dd0c3b212e19fb2a1a22930a243efc5ac064ae08f7f1fca",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0072.png",
+          "record": "runs/T54/session-r0001/step-0072.json",
+          "step": 72,
+          "screenshot_sha256": "ffa7de2b7744439d0fc702c1ff3f941681be61cda9211ad383617502ae33b184",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0081.png",
+          "record": "runs/T54/session-r0001/step-0081.json",
+          "step": 81,
+          "screenshot_sha256": "70528c41c126fb3aa08b4a8cb6750c640bdd20931aa7b3284ddc5072914f7bae",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0083.png",
+          "record": "runs/T54/session-r0001/step-0083.json",
+          "step": 83,
+          "screenshot_sha256": "b6569804e8ebdb57a3a9dd9859a24e78f094ec4c0c5605cb4066ec20976a5646",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0085.png",
+          "record": "runs/T54/session-r0001/step-0085.json",
+          "step": 85,
+          "screenshot_sha256": "9dba8fea46b92e84c4fec78b734afd9e8f23474c3cf44fa243bf89cf0a513f30",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W055",
+      "title": "Cup injury interruption, replacement and next-round draw",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0095.png",
+          "record": "runs/T54/session-r0001/step-0095.json",
+          "step": 95,
+          "screenshot_sha256": "d86d6765139d563c459165376e58679cc6ceff7ecf7eaf86fd3e65d2dccdb5b1",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0100.png",
+          "record": "runs/T54/session-r0001/step-0100.json",
+          "step": 100,
+          "screenshot_sha256": "3bc4d823076a34c38e47dc611bed37f15a5358c317114f25f7453429b1bd5731",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0102.png",
+          "record": "runs/T54/session-r0001/step-0102.json",
+          "step": 102,
+          "screenshot_sha256": "e52e2d70be62f1b55e37b313bd446150c2f4a9972e9a1aa77bcb92ec0e254fb2",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0104.png",
+          "record": "runs/T54/session-r0001/step-0104.json",
+          "step": 104,
+          "screenshot_sha256": "0b85ff669137d44e35469b1baa658f9dac1e51e8a232ba2d245577da96e29209",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0105.png",
+          "record": "runs/T54/session-r0001/step-0105.json",
+          "step": 105,
+          "screenshot_sha256": "f29afd8f3afbff1db6c4abc1c304c474a69b5600964b6c587521314d05d9f9c1",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0107.png",
+          "record": "runs/T54/session-r0001/step-0107.json",
+          "step": 107,
+          "screenshot_sha256": "b30bc58820f61a6b73d8c0a0d5a10d17bb9ac332a80b2a1e1a8327b4fd3758e5",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0108.png",
+          "record": "runs/T54/session-r0001/step-0108.json",
+          "step": 108,
+          "screenshot_sha256": "ca51deec088b0821c9e1ed675450b9f310f3af51c5b375ac3a6cdea4db3c9929",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0109.png",
+          "record": "runs/T54/session-r0001/step-0109.json",
+          "step": 109,
+          "screenshot_sha256": "0d5d15c9e6404e7c3a9b562d17782c51df0e503e372add715da412fbdf854b9a",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W056",
+      "title": "Statistics after league fixture four",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0124.png",
+          "record": "runs/T54/session-r0001/step-0124.json",
+          "step": 124,
+          "screenshot_sha256": "97c88c9247b8d354c411c3f33e961d04882af15b8d07aa792209abde23eb40d8",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0125.png",
+          "record": "runs/T54/session-r0001/step-0125.json",
+          "step": 125,
+          "screenshot_sha256": "34319be0b8087a5a433201280a426506d420a53f5270c04b077c091cd37733a8",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0128.png",
+          "record": "runs/T54/session-r0001/step-0128.json",
+          "step": 128,
+          "screenshot_sha256": "97c88c9247b8d354c411c3f33e961d04882af15b8d07aa792209abde23eb40d8",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0118.png",
+          "record": "runs/T54/session-r0001/step-0118.json",
+          "step": 118,
+          "screenshot_sha256": "0ba19c4e73fcd8e05765ccde6767e2952a3c0abc588d48ddf7a3725213c3db86",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W057",
+      "title": "Save and reload the progressed week in a fresh process",
+      "chapter": "docs/manual/league-start.md",
+      "chapter_sha256": "21632805a32cd3af80431d7fce0d8b8aa0d9f69e55e5819834f87ffdcd23ebcd",
+      "screenshots": [
+        {
+          "screenshot": "runs/T54/session-r0001/step-0130.png",
+          "record": "runs/T54/session-r0001/step-0130.json",
+          "step": 130,
+          "screenshot_sha256": "c40789816986c0b5bac9388aa014e94afb1f2cab9f31177ca60009bb47c43196",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0131.png",
+          "record": "runs/T54/session-r0001/step-0131.json",
+          "step": 131,
+          "screenshot_sha256": "0dfc06b1371ab334e85754f5cc48155bd789b0f3de5f98aca29c87c781de96a9",
+          "session": "runs/T54/session-r0001"
+        },
+        {
+          "screenshot": "runs/T54/session-r0001/step-0132.png",
+          "record": "runs/T54/session-r0001/step-0132.json",
+          "step": 132,
+          "screenshot_sha256": "2a5fb38658dbed64cd5327e51d2dab105fdb0cd5a2b1e4aa37823c8d93c9e2ad",
+          "session": "runs/T54/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W058",
+      "title": "Restore and inspect availability",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0002.png",
+          "record": "runs/T56/session-r0001/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "2a5fb38658dbed64cd5327e51d2dab105fdb0cd5a2b1e4aa37823c8d93c9e2ad",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W059",
+      "title": "Complete a European two-leg tie",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0019.png",
+          "record": "runs/T56/session-r0001/step-0019.json",
+          "step": 19,
+          "screenshot_sha256": "3552f19defc989d4fad7b33918514f9eb17901bb8a6d510c9bc12074a0451435",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0045.png",
+          "record": "runs/T56/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "d0353f5907b917b88e2dad8aa3e60bb0c9103380a52b7b823abe851ba133c1fe",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0060.png",
+          "record": "runs/T56/session-r0001/step-0060.json",
+          "step": 60,
+          "screenshot_sha256": "e1e453a63d1628e9b77393db41e48bbba4517ccdbb74d823640336c868ef28c8",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0061.png",
+          "record": "runs/T56/session-r0001/step-0061.json",
+          "step": 61,
+          "screenshot_sha256": "eef21e91faf64da7ddfdeea0bd7b3fa554e64e33e6597d3d55629258b6d438a2",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0064.png",
+          "record": "runs/T56/session-r0001/step-0064.json",
+          "step": 64,
+          "screenshot_sha256": "edc234148dfc4f9bfb016875fad171ef8298d3b3b03aa30946f5a47e21171558",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W060",
+      "title": "Injury replacement and recovery",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0052.png",
+          "record": "runs/T56/session-r0001/step-0052.json",
+          "step": 52,
+          "screenshot_sha256": "f276126d5e6990f69d3bf28761aee078ee3776b63dad3cab8c7890bf473bd817",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0055.png",
+          "record": "runs/T56/session-r0001/step-0055.json",
+          "step": 55,
+          "screenshot_sha256": "bcb8352045662fba83def1cef6da10b156c55735e9f628e82150c096956e603c",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0058.png",
+          "record": "runs/T56/session-r0001/step-0058.json",
+          "step": 58,
+          "screenshot_sha256": "0898e82b0007e98787741961958c25f855f8b37cef2b88c75f8bb5931428420f",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0059.png",
+          "record": "runs/T56/session-r0001/step-0059.json",
+          "step": 59,
+          "screenshot_sha256": "19de9ece1c28f9036aca6b322a9c9f05c569d97d71a7f59e0d60de5db929aef8",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W061",
+      "title": "Ineligible-player refusal and extra time",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0093.png",
+          "record": "runs/T56/session-r0001/step-0093.json",
+          "step": 93,
+          "screenshot_sha256": "4c29ea9a33d9859561e41844fd99247c75d48b8fba0a433561ea74db0ed3be26",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0096.png",
+          "record": "runs/T56/session-r0001/step-0096.json",
+          "step": 96,
+          "screenshot_sha256": "09989a8df6a29d47c4ab431aa86a4b828cc9f490c7fc2d86bb62e2a49b498354",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0104.png",
+          "record": "runs/T56/session-r0001/step-0104.json",
+          "step": 104,
+          "screenshot_sha256": "20fbecf051eb2551f4e4f84fa44bb8f53da1d1e2dd3210a56afaf69d5da3e5ee",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0105.png",
+          "record": "runs/T56/session-r0001/step-0105.json",
+          "step": 105,
+          "screenshot_sha256": "40fe35aec79fbb72fbc82b5777a55872fc3751d82ca3bdc38fa6724bb450fff6",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0161.png",
+          "record": "runs/T56/session-r0001/step-0161.json",
+          "step": 161,
+          "screenshot_sha256": "28065d11b039100b5e374aea76ead2b2b5eff28a6cc6b548d11246f2d115ebe6",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W062",
+      "title": "Ten-week contract warnings",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0118.png",
+          "record": "runs/T56/session-r0001/step-0118.json",
+          "step": 118,
+          "screenshot_sha256": "ca4fbf460619ede26c299288cbc8d076f2b5000d0433ad026bc1c6510602bda4",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0152.png",
+          "record": "runs/T56/session-r0001/step-0152.json",
+          "step": 152,
+          "screenshot_sha256": "ac24420630d480e84a85ec2c7ec346114add0f03c32b7d1a5ae7596beb0e7fd3",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0153.png",
+          "record": "runs/T56/session-r0001/step-0153.json",
+          "step": 153,
+          "screenshot_sha256": "121e099c2017772777cf5d58ed34dfefcfb05ee669a543c10b392b224a6c2695",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W063",
+      "title": "Managerial approach, deferred decision and refusal",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0120.png",
+          "record": "runs/T56/session-r0001/step-0120.json",
+          "step": 120,
+          "screenshot_sha256": "15aad995c5d732ff691e8aa2717216457318f68044871b02e73a491217897555",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0142.png",
+          "record": "runs/T56/session-r0001/step-0142.json",
+          "step": 142,
+          "screenshot_sha256": "8e8d66a38f5381bed22684de30e3422b8d25282bee4125d58d1c98edee4cd2a7",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W064",
+      "title": "Scenario changes and league-ten checkpoint",
+      "chapter": "docs/manual/autumn.md",
+      "chapter_sha256": "bdbc3ede0590ffab9c0703fa90b72eded1c6bdf88832d7eb4b85e504601e011f",
+      "screenshots": [
+        {
+          "screenshot": "runs/T56/session-r0001/step-0124.png",
+          "record": "runs/T56/session-r0001/step-0124.json",
+          "step": 124,
+          "screenshot_sha256": "ba9236327edfbd89af0db775ff6cb36fffb51544d6e3f586e953ada1f2197ddf",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0133.png",
+          "record": "runs/T56/session-r0001/step-0133.json",
+          "step": 133,
+          "screenshot_sha256": "ebdab1253f312b792f4f4d6591bfd5d40e97cf997e97e16cad3e814ab1f09223",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0171.png",
+          "record": "runs/T56/session-r0001/step-0171.json",
+          "step": 171,
+          "screenshot_sha256": "3b00cf2161b527a9d974d8e0ee7aa673c8cc1a5596f55c55bb0c299750d061b4",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0172.png",
+          "record": "runs/T56/session-r0001/step-0172.json",
+          "step": 172,
+          "screenshot_sha256": "57ee99b61e2e9dfb86042e3fc234b7e7b5d3c6badc2699fad2b731e80837f5b6",
+          "session": "runs/T56/session-r0001"
+        },
+        {
+          "screenshot": "runs/T56/session-r0001/step-0175.png",
+          "record": "runs/T56/session-r0001/step-0175.json",
+          "step": 175,
+          "screenshot_sha256": "dba74d89d157b653aff82fb48f0667a785ab505d150f58a9cb44f29066e5dc4f",
+          "session": "runs/T56/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W065",
+      "title": "Resume the saved season and progress through league sixteen",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0002.png",
+          "record": "runs/T59/session-r0001/step-0002.json",
+          "step": 2,
+          "screenshot_sha256": "dba74d89d157b653aff82fb48f0667a785ab505d150f58a9cb44f29066e5dc4f",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W066",
+      "title": "European elimination and the following group stage",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0006.png",
+          "record": "runs/T59/session-r0001/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "81e10c305c950b330aa770a24ab880161537041434d0ed1bba49137fc5a32818",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0025.png",
+          "record": "runs/T59/session-r0001/step-0025.json",
+          "step": 25,
+          "screenshot_sha256": "becd7315e9a1d17c693c375c094422942fb829c8ce7b5acf581d0a7999cbe62a",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0092.png",
+          "record": "runs/T59/session-r0001/step-0092.json",
+          "step": 92,
+          "screenshot_sha256": "4dffb9c926e0cf24f336d2a79b0b7b75dfc7d8467b652ec5968e2cc85b39a0e4",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0093.png",
+          "record": "runs/T59/session-r0001/step-0093.json",
+          "step": 93,
+          "screenshot_sha256": "701fe93a44a8778b2aff7ddd5cb277523703a99d9842269492b4deb4b2f7fe34",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0094.png",
+          "record": "runs/T59/session-r0001/step-0094.json",
+          "step": 94,
+          "screenshot_sha256": "583b283f6eba48b69951d6b3e5b3d573b7b063a4fbeb95bb51749ebecf8167c2",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W067",
+      "title": "Injury replacement, recovery and international absence",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0045.png",
+          "record": "runs/T59/session-r0001/step-0045.json",
+          "step": 45,
+          "screenshot_sha256": "a8082344bf2b4bc346e17dc3aebbd3d9201a66e1ca497be0d8e7cbd1be7414aa",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0050.png",
+          "record": "runs/T59/session-r0001/step-0050.json",
+          "step": 50,
+          "screenshot_sha256": "b3c2098e116895dbce4d772096da2a58f6d4457bbb4b8c455a6dd62aa3eb935d",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0052.png",
+          "record": "runs/T59/session-r0001/step-0052.json",
+          "step": 52,
+          "screenshot_sha256": "98e74c1147fae2635309848921726390bb94d7836d2eeeabe8dd5306c958aa36",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0061.png",
+          "record": "runs/T59/session-r0001/step-0061.json",
+          "step": 61,
+          "screenshot_sha256": "30160c07500eaa1742b1e8dc53bd872a1aa2dd0527213f9ebf3aee92698bf86c",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0065.png",
+          "record": "runs/T59/session-r0001/step-0065.json",
+          "step": 65,
+          "screenshot_sha256": "23c5a16a6a744841c1f6e72e9157b8cc1f58250f0afe99a83a54f5dacda8564a",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W068",
+      "title": "Expiry cancellation leaves a listed squad member",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0076.png",
+          "record": "runs/T59/session-r0001/step-0076.json",
+          "step": 76,
+          "screenshot_sha256": "bb047f7cfa127710b113972932318f75734669cefe2f1e65bc0a199f986cd086",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0081.png",
+          "record": "runs/T59/session-r0001/step-0081.json",
+          "step": 81,
+          "screenshot_sha256": "9f4d602168c5566c2abb08a734eebac58b75ef4cd92c55a5c6bd9a33e5deea58",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W069",
+      "title": "Renew a player still marked as retiring",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0098.png",
+          "record": "runs/T59/session-r0001/step-0098.json",
+          "step": 98,
+          "screenshot_sha256": "4587f3a8c7e3d57e016b73e17c435c6e13a658d5acf77a127389d663d6cfe4b6",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0101.png",
+          "record": "runs/T59/session-r0001/step-0101.json",
+          "step": 101,
+          "screenshot_sha256": "4b905002f16919089327c34a80c70273ec7874b5e1ef074d89d01ac162f277ae",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0111.png",
+          "record": "runs/T59/session-r0001/step-0111.json",
+          "step": 111,
+          "screenshot_sha256": "5bdcbf174bb4a2704400fcbd08c12189fa97dafa8aeb92b0013c61eb03cfdc92",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0114.png",
+          "record": "runs/T59/session-r0001/step-0114.json",
+          "step": 114,
+          "screenshot_sha256": "7694f8781071701c9e276414619bdeb063e74bef9481f26eee229fc0f567f756",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W070",
+      "title": "Domestic cups, extra time and neutral semi-final",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0129.png",
+          "record": "runs/T59/session-r0001/step-0129.json",
+          "step": 129,
+          "screenshot_sha256": "1f25172019b6c04522857a2c5a4802d83fe8a335ff7d173bc12e8ae3e3b05efd",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0145.png",
+          "record": "runs/T59/session-r0001/step-0145.json",
+          "step": 145,
+          "screenshot_sha256": "4c6d4f8c0593a6b76c086812ffcaf46319346b3623ad426a7c42435c722b8c75",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0161.png",
+          "record": "runs/T59/session-r0001/step-0161.json",
+          "step": 161,
+          "screenshot_sha256": "c0c20cb1229c2d20aa0d36a47f9055da71b5256e2cee88f44cde9a34f6533ef6",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0163.png",
+          "record": "runs/T59/session-r0001/step-0163.json",
+          "step": 163,
+          "screenshot_sha256": "ed3c4cb14f0b630c44f4bf486e0074b1cc4102e07b531d8a1d19ac73aeb36d60",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W071",
+      "title": "Inspect actual selection and cancel before committing a move",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0153.png",
+          "record": "runs/T59/session-r0001/step-0153.json",
+          "step": 153,
+          "screenshot_sha256": "d5cd47fbd0b7c3c28b5bc4e09300c73d11e537f9ad5efb4f1df9817792ed1209",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0155.png",
+          "record": "runs/T59/session-r0001/step-0155.json",
+          "step": 155,
+          "screenshot_sha256": "e96e66c4c33c552ec99ab1218507bca8e3b7365ec233abe1bd6620ba14fa03af",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0158.png",
+          "record": "runs/T59/session-r0001/step-0158.json",
+          "step": 158,
+          "screenshot_sha256": "52b7ce398a273a5192e7ef1d72ac733ef6d95c7fee522dc4a866efd1c6d6d006",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W072",
+      "title": "Weekly announcements and saved continuation",
+      "chapter": "docs/manual/midseason.md",
+      "chapter_sha256": "d7e38eb52e19d20b5f99a66bc031449d4256b03fa282f56fe9977d942c0fe550",
+      "screenshots": [
+        {
+          "screenshot": "runs/T59/session-r0001/step-0132.png",
+          "record": "runs/T59/session-r0001/step-0132.json",
+          "step": 132,
+          "screenshot_sha256": "1651da9af1dcf7650708de499167bb3d20084f34eb456159fc5a490429a6d50f",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0144.png",
+          "record": "runs/T59/session-r0001/step-0144.json",
+          "step": 144,
+          "screenshot_sha256": "92ae6e86d1cd976fbe531eeedacdcfc2e76d920cef2e04b442bc1aba9291ec93",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0165.png",
+          "record": "runs/T59/session-r0001/step-0165.json",
+          "step": 165,
+          "screenshot_sha256": "d918a6ad605188afad5ed5b39958c76fac8b22c19a2c6bf2871d9b7a51594800",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0172.png",
+          "record": "runs/T59/session-r0001/step-0172.json",
+          "step": 172,
+          "screenshot_sha256": "c7846633df705a193e86a01527efdb618a226a4797e258740df4e1a7729fb9a9",
+          "session": "runs/T59/session-r0001"
+        },
+        {
+          "screenshot": "runs/T59/session-r0001/step-0176.png",
+          "record": "runs/T59/session-r0001/step-0176.json",
+          "step": 176,
+          "screenshot_sha256": "76b331f2bd5d11ba77f9a30192184b19d248612b7201482b223bf746232a5ec9",
+          "session": "runs/T59/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W073",
+      "title": "Expired player leaves at a tribunal-set fee",
+      "chapter": "docs/manual/later-season.md",
+      "chapter_sha256": "a825840dfcadc4f51c2b8cbb0fd5cd70a62fac00a1aad8f15ea7da212cf6264d",
+      "screenshots": [
+        {
+          "screenshot": "runs/T60/session-r0001/step-0010.png",
+          "record": "runs/T60/session-r0001/step-0010.json",
+          "step": 10,
+          "screenshot_sha256": "fc2420ea248f6a5f576308f4a4102853a9be0e5483bd0a67b75d170d6d568a7c",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0011.png",
+          "record": "runs/T60/session-r0001/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "b76c5ef3b86e46134e7487a4ddb709dd5906fe80f37efe93f399ec45bcfcfda2",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0012.png",
+          "record": "runs/T60/session-r0001/step-0012.json",
+          "step": 12,
+          "screenshot_sha256": "4d4878fcf0dedf57564e6ac6c3c0cef6d312da72bac51a35436255754cb71ec0",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0014.png",
+          "record": "runs/T60/session-r0001/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "14059ea414b67c41bec3705c95ccadf6fdbf8900f524190d3ab522c2c3b9cc99",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0022.png",
+          "record": "runs/T60/session-r0001/step-0022.json",
+          "step": 22,
+          "screenshot_sha256": "25ec9b1a32d81cca7ef7f29a4242e8b7d7f4db9d79320680a22a9159709d5624",
+          "session": "runs/T60/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W074",
+      "title": "Announced friendlies become actual fixtures",
+      "chapter": "docs/manual/later-season.md",
+      "chapter_sha256": "a825840dfcadc4f51c2b8cbb0fd5cd70a62fac00a1aad8f15ea7da212cf6264d",
+      "screenshots": [
+        {
+          "screenshot": "runs/T60/session-r0001/step-0024.png",
+          "record": "runs/T60/session-r0001/step-0024.json",
+          "step": 24,
+          "screenshot_sha256": "9a7bcbebd15ce9ad7b5906de1ce2a47d3f0d8aa689e978053729b1dd853b9458",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0028.png",
+          "record": "runs/T60/session-r0001/step-0028.json",
+          "step": 28,
+          "screenshot_sha256": "a25b10587d394cd6432fef6242254689fd12901101624d0c6b76494e089bb9d0",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0031.png",
+          "record": "runs/T60/session-r0001/step-0031.json",
+          "step": 31,
+          "screenshot_sha256": "85af227d99e9e8fcba90b90d43bd505424c31f2afc82126638354dde80055348",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0093.png",
+          "record": "runs/T60/session-r0001/step-0093.json",
+          "step": 93,
+          "screenshot_sha256": "3bede34b682e36e7fccf051c0dfd23b5a7c959fc63e11994d39ba32708bbd30f",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0097.png",
+          "record": "runs/T60/session-r0001/step-0097.json",
+          "step": 97,
+          "screenshot_sha256": "daa0d8a41213b1660f0260d8763173fee0c6b4ad62349fd265201a57649067c4",
+          "session": "runs/T60/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W075",
+      "title": "Neutral final, injury replacement and winner celebration",
+      "chapter": "docs/manual/later-season.md",
+      "chapter_sha256": "a825840dfcadc4f51c2b8cbb0fd5cd70a62fac00a1aad8f15ea7da212cf6264d",
+      "screenshots": [
+        {
+          "screenshot": "runs/T60/session-r0001/step-0044.png",
+          "record": "runs/T60/session-r0001/step-0044.json",
+          "step": 44,
+          "screenshot_sha256": "dd10e0f2dbf28a6ee482af9b5d5194d854eaf581379d6373155525a8a2a21ca5",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0049.png",
+          "record": "runs/T60/session-r0001/step-0049.json",
+          "step": 49,
+          "screenshot_sha256": "e4f3cbc7652211aac89215e6758be289bc14a5d5fe385ed24c1e7150d67de447",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0055.png",
+          "record": "runs/T60/session-r0001/step-0055.json",
+          "step": 55,
+          "screenshot_sha256": "956d604ec0f5f59599a704abe16f6228729f938be04fa484f0adf97607972742",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0061.png",
+          "record": "runs/T60/session-r0001/step-0061.json",
+          "step": 61,
+          "screenshot_sha256": "155b6c926a2b2bc3d6afa812d0c7c0de4df052d059249d9cb53fc5291707fc80",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0063.png",
+          "record": "runs/T60/session-r0001/step-0063.json",
+          "step": 63,
+          "screenshot_sha256": "8cfd50efdf54435f038abb1d0f38f76d6b78dd9011a1c2f2b024d3e1aba99eca",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0064.png",
+          "record": "runs/T60/session-r0001/step-0064.json",
+          "step": 64,
+          "screenshot_sha256": "144bf77ac364a1e0250681cdb0a2bc6be8ea60c9c4255b5f10e39bb94ff7aaa9",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0065.png",
+          "record": "runs/T60/session-r0001/step-0065.json",
+          "step": 65,
+          "screenshot_sha256": "f244d7dc96e67272567fd38578d176dae79cc39d97fc6da24758b687a8180907",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0066.png",
+          "record": "runs/T60/session-r0001/step-0066.json",
+          "step": 66,
+          "screenshot_sha256": "dd20c086fc4f50b9f0dcf65cb0d47e8a8d222c50f000f22270a6d4f520fdce4c",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0067.png",
+          "record": "runs/T60/session-r0001/step-0067.json",
+          "step": 67,
+          "screenshot_sha256": "d57533fda66cd2ba316b951f2fe35c7089bc8c28a66e30b8f1f24cd0d6185a59",
+          "session": "runs/T60/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W076",
+      "title": "Listed expiry and actual eligibility are separate observations",
+      "chapter": "docs/manual/later-season.md",
+      "chapter_sha256": "a825840dfcadc4f51c2b8cbb0fd5cd70a62fac00a1aad8f15ea7da212cf6264d",
+      "screenshots": [
+        {
+          "screenshot": "runs/T60/session-r0001/step-0137.png",
+          "record": "runs/T60/session-r0001/step-0137.json",
+          "step": 137,
+          "screenshot_sha256": "818446b17dcffc71b7660de960bb05c5ce0debec3a5178e6d2502621ce359460",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0146.png",
+          "record": "runs/T60/session-r0001/step-0146.json",
+          "step": 146,
+          "screenshot_sha256": "60b2cceb240429dbefbcc5f356b14f74541ecaa21cb14995d2fc6dae355c0f4c",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0147.png",
+          "record": "runs/T60/session-r0001/step-0147.json",
+          "step": 147,
+          "screenshot_sha256": "35414a1611fc0aa5c8e0f894dd53dc1743f1cf3127444a1b5219efaeecff361f",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0153.png",
+          "record": "runs/T60/session-r0001/step-0153.json",
+          "step": 153,
+          "screenshot_sha256": "ffe506f50d79b07e02396d700d9dd25f9e4af634f36e8a115c75eedd99ee8194",
+          "session": "runs/T60/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W077",
+      "title": "Later weekly flow and league progression",
+      "chapter": "docs/manual/later-season.md",
+      "chapter_sha256": "a825840dfcadc4f51c2b8cbb0fd5cd70a62fac00a1aad8f15ea7da212cf6264d",
+      "screenshots": [
+        {
+          "screenshot": "runs/T60/session-r0001/step-0139.png",
+          "record": "runs/T60/session-r0001/step-0139.json",
+          "step": 139,
+          "screenshot_sha256": "8b5bba58950b0a0398a5d2f861533c91e131b98768ab7d598ecdf267f50d9c52",
+          "session": "runs/T60/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W078",
+      "title": "Save the league-twenty-four endpoint",
+      "chapter": "docs/manual/later-season.md",
+      "chapter_sha256": "a825840dfcadc4f51c2b8cbb0fd5cd70a62fac00a1aad8f15ea7da212cf6264d",
+      "screenshots": [
+        {
+          "screenshot": "runs/T60/session-r0001/step-0158.png",
+          "record": "runs/T60/session-r0001/step-0158.json",
+          "step": 158,
+          "screenshot_sha256": "d13397d4cf2a8e28653537efbf556bb83dc9fbde17614ade05044e7d9a088ad8",
+          "session": "runs/T60/session-r0001"
+        },
+        {
+          "screenshot": "runs/T60/session-r0001/step-0162.png",
+          "record": "runs/T60/session-r0001/step-0162.json",
+          "step": 162,
+          "screenshot_sha256": "e2b7ad685d75c5a55f99f36f8fa72edd1bf11547448d718ddb020c3b4381f429",
+          "session": "runs/T60/session-r0001"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W079",
+      "title": "Finish fixtures and handle unavailable players",
+      "chapter": "docs/manual/season-rollover.md",
+      "chapter_sha256": "3216d75cd3a9b5db2a8f2acecaef8bda4b9770619faba30a06f6c5ac3f4a6a94",
+      "screenshots": [
+        {
+          "screenshot": "runs/T61/session-r0001/step-0011.png",
+          "record": "runs/T61/session-r0001/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "701888a10428786d3a6759aa58f8adb6736ef4b3d63052b7c995f9c9465200f0",
+          "session": "runs/T61/session-r0001"
+        },
+        {
+          "screenshot": "runs/T61/session-r0001/step-0014.png",
+          "record": "runs/T61/session-r0001/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "07755424874e692d528c7ae598dafc42527cec2bfd524cf96a911479dd1fcffd",
+          "session": "runs/T61/session-r0001"
+        },
+        {
+          "screenshot": "runs/T61/session-r0001/step-0024.png",
+          "record": "runs/T61/session-r0001/step-0024.json",
+          "step": 24,
+          "screenshot_sha256": "96d925c31d0edd6b30f198a462a275289b31dd81df515a3f8d090fc99f525012",
+          "session": "runs/T61/session-r0001"
+        },
+        {
+          "screenshot": "runs/T61/session-r0001/step-0044.png",
+          "record": "runs/T61/session-r0001/step-0044.json",
+          "step": 44,
+          "screenshot_sha256": "d2d9254375788ef5ab90415b74e0d8328725e7f5b12e7a527f54dacd786f6ae2",
+          "session": "runs/T61/session-r0001"
+        },
+        {
+          "screenshot": "runs/T61/session-r0001/step-0074.png",
+          "record": "runs/T61/session-r0001/step-0074.json",
+          "step": 74,
+          "screenshot_sha256": "a0f8430c2e429dfd209d108165ffaf5400ca0c8675d8ae7e8d0cdf949b72b905",
+          "session": "runs/T61/session-r0001"
+        },
+        {
+          "screenshot": "runs/T61/session-r0002/step-0039.png",
+          "record": "runs/T61/session-r0002/step-0039.json",
+          "step": 39,
+          "screenshot_sha256": "d4cebd966fbfb45267e3a9557e91daf3585d6a5f8be35f652a42ab7dd731ee64",
+          "session": "runs/T61/session-r0002"
+        },
+        {
+          "screenshot": "runs/T61/session-r0005/step-0004.png",
+          "record": "runs/T61/session-r0005/step-0004.json",
+          "step": 4,
+          "screenshot_sha256": "9d323b0f09fbfebe89369be0eb9312b876992988ee52af79badaf697a7052fcc",
+          "session": "runs/T61/session-r0005"
+        },
+        {
+          "screenshot": "runs/T61/session-r0005/step-0007.png",
+          "record": "runs/T61/session-r0005/step-0007.json",
+          "step": 7,
+          "screenshot_sha256": "3d0b4cd41d2761f1e971c00bbc9c017c2f4f8e332acf15bb0c69c9d895b153f7",
+          "session": "runs/T61/session-r0005"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W080",
+      "title": "European final and the actual End of season entry",
+      "chapter": "docs/manual/season-rollover.md",
+      "chapter_sha256": "3216d75cd3a9b5db2a8f2acecaef8bda4b9770619faba30a06f6c5ac3f4a6a94",
+      "screenshots": [
+        {
+          "screenshot": "runs/T61/session-r0004/step-0006.png",
+          "record": "runs/T61/session-r0004/step-0006.json",
+          "step": 6,
+          "screenshot_sha256": "083bcaf97555dc9ef987b6e63af11774c88dd77544d998051fb6b43ced3af726",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0011.png",
+          "record": "runs/T61/session-r0004/step-0011.json",
+          "step": 11,
+          "screenshot_sha256": "4d744c7a350b3dc09f3c6477eeca1eec11518ff77434d081fa60ada54a8be2a2",
+          "session": "runs/T61/session-r0004"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W081",
+      "title": "Save seasonal information, promotion and retirement",
+      "chapter": "docs/manual/season-rollover.md",
+      "chapter_sha256": "3216d75cd3a9b5db2a8f2acecaef8bda4b9770619faba30a06f6c5ac3f4a6a94",
+      "screenshots": [
+        {
+          "screenshot": "runs/T61/session-r0004/step-0014.png",
+          "record": "runs/T61/session-r0004/step-0014.json",
+          "step": 14,
+          "screenshot_sha256": "94e4406fbd7025ec446694c16c50e6e20a00b9c595a81ee275d0c49370e73d36",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0015.png",
+          "record": "runs/T61/session-r0004/step-0015.json",
+          "step": 15,
+          "screenshot_sha256": "b5bda312643dada32e569c7e2b0f9573eaac838ad24fff5fa7caff66b267bfa9",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0016.png",
+          "record": "runs/T61/session-r0004/step-0016.json",
+          "step": 16,
+          "screenshot_sha256": "d8f7b4cf88ceeee1b2517ca5c281412232dab7899c5129704c5745e9a50d23aa",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0017.png",
+          "record": "runs/T61/session-r0004/step-0017.json",
+          "step": 17,
+          "screenshot_sha256": "74968882bb32b3df3e2075cc7590cdd93bb222646cb6d0851a6f4126fba6db6f",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0018.png",
+          "record": "runs/T61/session-r0004/step-0018.json",
+          "step": 18,
+          "screenshot_sha256": "6a2eb21d0246376b7c8e007a7b6cdc7cff5eeccd2b46fa3394f9d014a80d9fc1",
+          "session": "runs/T61/session-r0004"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W082",
+      "title": "Inspect populated history and the new-season state",
+      "chapter": "docs/manual/season-rollover.md",
+      "chapter_sha256": "3216d75cd3a9b5db2a8f2acecaef8bda4b9770619faba30a06f6c5ac3f4a6a94",
+      "screenshots": [
+        {
+          "screenshot": "runs/T61/session-r0004/step-0020.png",
+          "record": "runs/T61/session-r0004/step-0020.json",
+          "step": 20,
+          "screenshot_sha256": "4318b9da83a32974d7166338e50c5953b5ab2ad76f3abdbf41062bcff72dbd26",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0024.png",
+          "record": "runs/T61/session-r0004/step-0024.json",
+          "step": 24,
+          "screenshot_sha256": "6ccdb8288ae99fb0ed0bc113baede29962e9491d964245fadd8b5f1359b35500",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0027.png",
+          "record": "runs/T61/session-r0004/step-0027.json",
+          "step": 27,
+          "screenshot_sha256": "50a6765ce22abe8dc767baf5ceb233c1c03839382f3703fb85bde0e3cc551bec",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0030.png",
+          "record": "runs/T61/session-r0004/step-0030.json",
+          "step": 30,
+          "screenshot_sha256": "a1f5c613fb1069f22d6ac9612f29c37357f7f0ca2cf1d905f65da60fe9de2ab6",
+          "session": "runs/T61/session-r0004"
+        }
+      ],
+      "native_status": "missing"
+    },
+    {
+      "id": "W083",
+      "title": "Verify next-season persistence with a fresh process",
+      "chapter": "docs/manual/season-rollover.md",
+      "chapter_sha256": "3216d75cd3a9b5db2a8f2acecaef8bda4b9770619faba30a06f6c5ac3f4a6a94",
+      "screenshots": [
+        {
+          "screenshot": "runs/T61/session-r0004/step-0034.png",
+          "record": "runs/T61/session-r0004/step-0034.json",
+          "step": 34,
+          "screenshot_sha256": "6a2eb21d0246376b7c8e007a7b6cdc7cff5eeccd2b46fa3394f9d014a80d9fc1",
+          "session": "runs/T61/session-r0004"
+        },
+        {
+          "screenshot": "runs/T61/session-r0004/step-0036.png",
+          "record": "runs/T61/session-r0004/step-0036.json",
+          "step": 36,
+          "screenshot_sha256": "6a2eb21d0246376b7c8e007a7b6cdc7cff5eeccd2b46fa3394f9d014a80d9fc1",
+          "session": "runs/T61/session-r0004"
+        }
+      ],
+      "native_status": "missing"
+    }
+  ],
+  "sessions": [
+    {
+      "path": "runs/T41/T41-r0002",
+      "producer": "d82b42ba26f08016cf44e871eae58e7b06682a1c",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T42/session-r0002",
+      "producer": "5a1422c32b1eef22c26bda5af329e6d74762dcdd",
+      "status": "aborted",
+      "error": "RuntimeError: dosbox-x exited with code 0 during a savestate",
+      "canonical_authenticated": false
+    },
+    {
+      "path": "runs/T42/session-r0003",
+      "producer": "1bd53c2f190999d20797fdf070b4466e733a5048",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T43/session-r0003",
+      "producer": "2272f9ef2525d715808a1d9ca28768bf5e404878",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T44/session-r0001",
+      "producer": "a25747ac55b91d467dfebda8e709116b1be90a37",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T44/session-r0002",
+      "producer": "a25747ac55b91d467dfebda8e709116b1be90a37",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T44/session-r0003",
+      "producer": "a25747ac55b91d467dfebda8e709116b1be90a37",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T45/session-r0001",
+      "producer": "e078adf19d165995dab137d605f1f0d6a511a05d",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T46/session-r0001",
+      "producer": "e0dbb83b8ccf64b5e5b8a358d4311ec3652be650",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T47/session-r0001",
+      "producer": "64689808f72118f2f2d37ea06b6ed89370bd4cb3",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T47/session-r0003",
+      "producer": "d2cb7e700e8a3813cf85b5b79aab94fbeda21abd",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T48/session-r0001",
+      "producer": "c5f455e162ca0bba31efed7542b4666f0bb8dc5f",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T49/session-r0002",
+      "producer": "f9de1a46afb41160516b10e56b4c8cffc5c85703",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T49/session-r0003",
+      "producer": "94899850eeff427a300d4ef4205fae23f04bb725",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T50/session-r0001",
+      "producer": "079f1edf4fcfaac753e09ff2d24aa3c02861d6ae",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T51/session-r0001",
+      "producer": "2ef23f52ec17a3a33f920d59be84c5532a0c6807",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T52/session-r0001",
+      "producer": "351550edf70950631a8573c2f7e894d2b0088303",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T52/session-r0002",
+      "producer": "a7514bf5bd75ebcd79a49489d705e67670a5ca9b",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T53/session-r0001",
+      "producer": "8a83c03e8233114883308fd56f2a1ade16186f6c",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T54/session-r0001",
+      "producer": "62761bb31e1a199ee02d8199b7861c5c1a54c319",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T56/session-r0001",
+      "producer": "1bf1f5551dc4d2a268c26f48e9ae6d134bd6e7fb",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T59/session-r0001",
+      "producer": "b2ecf631f80f365a5dbdf3a8a1732af8fb583818",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T60/session-r0001",
+      "producer": "576448a92dcd7af283cbd48b55a107d8814c70fc",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T61/session-r0001",
+      "producer": "361b6890b93ee526f21a77b1c79bef8b44074b50",
+      "status": "aborted",
+      "error": "ValueError: screen ID",
+      "canonical_authenticated": false
+    },
+    {
+      "path": "runs/T61/session-r0002",
+      "producer": "c6fbb0999ca83b507e6dd3971cc67a3b95d2d368",
+      "status": "aborted",
+      "error": "RuntimeError: dosbox-x exited with code -6 during a savestate",
+      "canonical_authenticated": false
+    },
+    {
+      "path": "runs/T61/session-r0004",
+      "producer": "ecbf0be37540e1504fe09bcf632f5ef4ea29f9d1",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    },
+    {
+      "path": "runs/T61/session-r0005",
+      "producer": "28999b86b38d64ab71543eeeedafb109543c575c",
+      "status": "completed",
+      "error": null,
+      "canonical_authenticated": true
+    }
+  ],
+  "native_source_manifest": [
+    {
+      "path": "engine/examples/prepared_watched_match_probe.rs",
+      "sha256": "756000676f8b50717dd2f5649a4d5acfcde816e9b2576fcb6d2f95b15b24bcc7"
+    },
+    {
+      "path": "engine/examples/prepared_watched_probe.rs",
+      "sha256": "f31848da2aaea41f65475df07ea410ea47e38cfea636c3a38cc5535b7e35c6ba"
+    },
+    {
+      "path": "engine/examples/watched_actor_probe.rs",
+      "sha256": "49e25577bf5a6dff80106b9b20ea9d2788e23dba52c41695b2d205951575f745"
+    },
+    {
+      "path": "engine/examples/watched_caller_probe.rs",
+      "sha256": "03187dd3f4080e29fc0fe28b8b8ce1c0ec0071b2209a09becd11d9dd74c2a569"
+    },
+    {
+      "path": "engine/examples/watched_match_probe.rs",
+      "sha256": "b8e18af00199691e4ad239e0b87a20bb30afbdd18715e9ccc218e1dd6f4d05ab"
+    },
+    {
+      "path": "engine/examples/watched_tick_probe.rs",
+      "sha256": "c786a7299c4d85f2017d7bf5d6b9c45b7ff06faf97b87949f73e916a48694ca8"
+    },
+    {
+      "path": "engine/src/ai_selection.rs",
+      "sha256": "76c9f2218178dde81d6cdb040eff8997868633596ddeddae8b04e32d5bbc71dd"
+    },
+    {
+      "path": "engine/src/cache_helpers.rs",
+      "sha256": "9c039b09018fa431452178ecc1ab9c45c45b8ea35ea2942d5b8cfd4095b71b5d"
+    },
+    {
+      "path": "engine/src/cache_selection.rs",
+      "sha256": "6f9ae79ed7112edb71f98f5251b92ee67bae4c96f21ef5f19cb3a9c2adf92b46"
+    },
+    {
+      "path": "engine/src/continuous.rs",
+      "sha256": "55345ac701575575117f128e115888b7baa3287a5af2d8850eaa3ea0644bf782"
+    },
+    {
+      "path": "engine/src/event_effects.rs",
+      "sha256": "f7f3a1039763e628de6b177d9a3e7612c8f836e143c8c067cb0ad4e879b0a7a0"
+    },
+    {
+      "path": "engine/src/extra_event.rs",
+      "sha256": "3b82d7b02b7f2b38ce9bae8a250e1b9527d74cb9f5777a53b0d05114a8809827"
+    },
+    {
+      "path": "engine/src/goal_effects.rs",
+      "sha256": "0046e7e9691b3d82e92e21edb15b44d5c3310a4e7061ae9bf7261fe0d03f8b7e"
+    },
+    {
+      "path": "engine/src/layout.rs",
+      "sha256": "fc5c1904982c90d585727ab9115cdf6af467d4a1de32bb0811355757517420a7"
+    },
+    {
+      "path": "engine/src/lib.rs",
+      "sha256": "7ee203bfaf695a5dd9e6d43e9e873dde45f38aec7711e1b27421d223e8eb68d8"
+    },
+    {
+      "path": "engine/src/match_session.rs",
+      "sha256": "e66f7f82972bb7ed5a3c10712714d809e1fe128b8edb929dba31577d0d67e05e"
+    },
+    {
+      "path": "engine/src/native_image.rs",
+      "sha256": "f92ef6de961e139c032f24036eb6e9d048254577a940d4cf2a4002cb7848820c"
+    },
+    {
+      "path": "engine/src/neutral_input.rs",
+      "sha256": "0cab3313b3c621fc90edade820dd79b3af4216f322e39278a9ab58d58a34dba0"
+    },
+    {
+      "path": "engine/src/placement.rs",
+      "sha256": "5d7d8ef7ac4c3a15d0b377ad1e2217d983f7fd445c7e69dc9168fca274d9b359"
+    },
+    {
+      "path": "engine/src/player_cache.rs",
+      "sha256": "81e96d31d674fd4bc8f92380f1417643337839a4a8e54d6810d446dbc0c9f09a"
+    },
+    {
+      "path": "engine/src/post_score.rs",
+      "sha256": "0514e5c0928c5250a51cdbe4e93ac9cc354d7911eb67f8d8a6d668ecd2a7648a"
+    },
+    {
+      "path": "engine/src/quick_reset.rs",
+      "sha256": "4d989cfb32681beef18368f0b05c056bc46ef16b0bbf7606596b449e074b2da0"
+    },
+    {
+      "path": "engine/src/ratings.rs",
+      "sha256": "6804b00eaae2b762f57acdc61df5b448bb8dad6241ffc07f799fca60f94d2f06"
+    },
+    {
+      "path": "engine/src/rearrangement.rs",
+      "sha256": "0b14b3106cf51bbc6cb126186215c4f7980b6310d75647a1353e43e742722b06"
+    },
+    {
+      "path": "engine/src/replacement.rs",
+      "sha256": "1bc9a327fd9db65ca15dafa157753b38fdfe8aa3099c5c8fe29c918ced4924f4"
+    },
+    {
+      "path": "engine/src/role_cache.rs",
+      "sha256": "3809caad6ef747a9397535619c761a587afcd500b0385c1aa517ac33c4d2a81a"
+    },
+    {
+      "path": "engine/src/role_pairing.rs",
+      "sha256": "e3491568e871de094cb7dde3123bab0e0f59744213a85d3819110557f51a9f11"
+    },
+    {
+      "path": "engine/src/role_scores.rs",
+      "sha256": "8514f89687f3bccc59ab14630fb735470cdffd4d2fb4605fe06a93059f597978"
+    },
+    {
+      "path": "engine/src/scene_assignment.rs",
+      "sha256": "3059a94b060bb69c9be765ea00e409b2a341429336a05aa1c9a78af37680fcb4"
+    },
+    {
+      "path": "engine/src/scene_codes.rs",
+      "sha256": "05e6a9e6733d1993c29e9bd8e71d1632d97455f1fde64de7f507d7a20d479b4b"
+    },
+    {
+      "path": "engine/src/setup.rs",
+      "sha256": "f1710261cafbde0b12bfe0d2cd6b7a374e0300820da891b5c76f7a0cd78c3f62"
+    },
+    {
+      "path": "engine/src/shared_image_tests.rs",
+      "sha256": "fc73c96a10b91d48fb962ef358c3fd03ed77faca4bc8fa4d76cce6724f1c1e80"
+    },
+    {
+      "path": "engine/src/step_tail.rs",
+      "sha256": "b534a57c5e0948f4f6fd5d9091ae1a4e3de1cae125e20db7d32f75d9b3b9ef5e"
+    },
+    {
+      "path": "engine/src/substitution.rs",
+      "sha256": "97fcc061819d51bf29a13c95f1b60cb2c03bf0b996fc32ba3efe07c6d18ea7bf"
+    },
+    {
+      "path": "engine/src/terminal.rs",
+      "sha256": "1178e4ebbdbee0480aef220a4bcfa21147b0dc8ceb07631dd161c298d7171502"
+    },
+    {
+      "path": "engine/src/watched_ball.rs",
+      "sha256": "8c36e87bcf2dc47b40d6210961914151949f39c47e263a3d2d9d9ef633748193"
+    },
+    {
+      "path": "engine/src/watched_compiled/action.rs",
+      "sha256": "607d38fde670f2d843bfb594ceacfe5415d70d0b61bcb50e9e174270c8e954e8"
+    },
+    {
+      "path": "engine/src/watched_compiled/action_graph.rs",
+      "sha256": "ff84f648a1926229a245172b16d158b5303b899da32b3679bcdc84c0de2acea6"
+    },
+    {
+      "path": "engine/src/watched_compiled/adjustment.rs",
+      "sha256": "29294186e009e9b160be52f93ff41c6417448d6154f056b97665ce50d897da1c"
+    },
+    {
+      "path": "engine/src/watched_compiled/caller.rs",
+      "sha256": "1769cadcf5502fcfb81e1107c6301cc121ee8d0bf147b8466d1dad3630dcded1"
+    },
+    {
+      "path": "engine/src/watched_compiled/caller_graph.rs",
+      "sha256": "fad58cb6ef564025bb26efd295889be3450196f3582cf812eb800958a320f21f"
+    },
+    {
+      "path": "engine/src/watched_compiled/compiled.rs",
+      "sha256": "74e1d5ad890f20134d87da50fe70553a259c20dd11b9893e5bbad5109aadd266"
+    },
+    {
+      "path": "engine/src/watched_compiled/lineup_validation.rs",
+      "sha256": "59bd0e76f6931029827eef8c36989361bd09d074e5ab30b746c7b8f43ff106e6"
+    },
+    {
+      "path": "engine/src/watched_compiled/match_graph.rs",
+      "sha256": "2671582c71fdf52c2063c0473a32d0bae76cfc484d1fafd4faeb49554600c057"
+    },
+    {
+      "path": "engine/src/watched_compiled/mod.rs",
+      "sha256": "7a3641c4c4240a81d85651cc0f8e623670dc20f4b10c13a844decb76208ac626"
+    },
+    {
+      "path": "engine/src/watched_compiled/prepared.rs",
+      "sha256": "90585c03d3df5f176e99900e59ef876867879f9f78fe2039f5c4d10a9a479164"
+    },
+    {
+      "path": "engine/src/watched_compiled/prepared_graph.rs",
+      "sha256": "378f353237c664caa12350f1dd0078043d1e05beea38f9d6e2185b4599095f39"
+    },
+    {
+      "path": "engine/src/watched_compiled/projections.rs",
+      "sha256": "e5fdbebd4d0ea56a5f72ab81e80071df8524f8fc4441a3dd578eae98b697009a"
+    },
+    {
+      "path": "engine/src/watched_compiled/selection.rs",
+      "sha256": "2cc57e913263774436a95f999ea7f584ab040bc06938f55a8a803dcb3a1539b3"
+    },
+    {
+      "path": "engine/src/watched_compiled/tick.rs",
+      "sha256": "f3d945b7e8c183d8fce8bdcd3364edaa5cdd1ab0e7b806f7b65eebe0f45f49d6"
+    },
+    {
+      "path": "engine/src/watched_compiled/tick_graph.rs",
+      "sha256": "b25630a13738ce80c02a56aec01ea7757c80bf6459f9467af5d53dcad13f5ef8"
+    },
+    {
+      "path": "engine/src/watched_compiled/watched_match.rs",
+      "sha256": "9a6b70221f245b3c82703f361dd489f509a446c0ffb06232e95c53c868e17ab9"
+    },
+    {
+      "path": "engine/src/watched_direction.rs",
+      "sha256": "746bd5fbe51ca452ad7a5e5ebb04a9a88d4189b90205ac9e20c70bb999e2e299"
+    },
+    {
+      "path": "engine/src/watched_kickoff.rs",
+      "sha256": "ad6ccf34ffe480f226a8a07f188834d21c3520b33f2caab9d8b9aa2701bbb86d"
+    },
+    {
+      "path": "engine/src/watched_movement.rs",
+      "sha256": "ea9c861176d642a54bdc7e1b9cc5a060272c7ab9b662b9f8b72ba48343a1c017"
+    },
+    {
+      "path": "engine/src/watched_setup.rs",
+      "sha256": "69cfe2441860a402053d1be946a31b5def32b4f69f9d4a440fa95c961d50969d"
+    },
+    {
+      "path": "engine/src/watched_target.rs",
+      "sha256": "882bc0740f2ecbaa93a6a70cc1b87306c931b9e4d336297de0ac52e91d166c04"
+    },
+    {
+      "path": "engine/tests/ai_selection.rs",
+      "sha256": "d300e725d61ca3330669f485ce8d0ec9f9cec1c550c59f654589712c647a9df2"
+    },
+    {
+      "path": "engine/tests/cache_helpers.rs",
+      "sha256": "d627d0abaa679958032ae836328d3365330912a3b0e655f697b75bd8980cb408"
+    },
+    {
+      "path": "engine/tests/cache_selection.rs",
+      "sha256": "66671d39dbf5fe23e25d8a99ffc9347342bf5c510f6cdad327602ea6efcb0097"
+    },
+    {
+      "path": "engine/tests/event_effects.rs",
+      "sha256": "91daeb6f15f33b44d2a1a8eed0008f62db57e5ea5161b78f2f55431495db147a"
+    },
+    {
+      "path": "engine/tests/extra_event.rs",
+      "sha256": "80d5a5f822cda127feb7103176a4f77babdf04ba6947057f588d56d4cf9f7391"
+    },
+    {
+      "path": "engine/tests/goal_effects.rs",
+      "sha256": "3be5074e5049d0507cfd9338d58448de397429fae67667f893305cef2abf2133"
+    },
+    {
+      "path": "engine/tests/neutral_input.rs",
+      "sha256": "703bce003e9234e796ff148c64ef39ad6d51769dfa6210c7fd48e301cdd38f82"
+    },
+    {
+      "path": "engine/tests/placement.rs",
+      "sha256": "7e1062c5050e79460583539492299d473eedceec7c36a69e3ae9bd94331eb325"
+    },
+    {
+      "path": "engine/tests/player_cache.rs",
+      "sha256": "64de2c50026e5e9dd8942aef5d676ed3e4db601fc23863d031adea4622ba8ebb"
+    },
+    {
+      "path": "engine/tests/post_score.rs",
+      "sha256": "186931a133a31ee08395ad10c818ceebf54ca6ea566287ff65227b3f9b4203ad"
+    },
+    {
+      "path": "engine/tests/prepared_match.rs",
+      "sha256": "914be2a74fb3ac33fcf05f3442650770621e253ff77866568ffe346df76b8211"
+    },
+    {
+      "path": "engine/tests/quick_reset.rs",
+      "sha256": "2556bd1ee3cb397cdc070297c44768746368769fa15532ad38c6082c01ea802c"
+    },
+    {
+      "path": "engine/tests/ratings.rs",
+      "sha256": "4968e519484110ed3f8ee513972e45337114eb130131148bf7b10c6f378b3ec5"
+    },
+    {
+      "path": "engine/tests/rearrangement.rs",
+      "sha256": "93b54355b7485bf35f1ae61b886aa0dba66cf9700faf930976294ab17a818787"
+    },
+    {
+      "path": "engine/tests/replacement.rs",
+      "sha256": "7d2d7596f532ce5275043c7bc9613547733f7d9b8f44dd5976a7e3240764ddeb"
+    },
+    {
+      "path": "engine/tests/replay.rs",
+      "sha256": "81dd2a1cc14bfab22c4fba32a5dab41fb77b8ab25f879257d28e0b47dac90011"
+    },
+    {
+      "path": "engine/tests/role_cache.rs",
+      "sha256": "5874e4030997ab852a01deb347faea010beba726b9b7791df174d75c785f656f"
+    },
+    {
+      "path": "engine/tests/role_pairing.rs",
+      "sha256": "2a3666f7982c00eee2abd5f868288aa8e2e10a2958ede2f3ea0d47200afa3f9c"
+    },
+    {
+      "path": "engine/tests/role_scores.rs",
+      "sha256": "10892ffa05e7e9d1321d541cdc4e76aaf50d4c3a0b9ec5f641c3cc7633964435"
+    },
+    {
+      "path": "engine/tests/scene_assignment.rs",
+      "sha256": "575a4401d71e8217744cc692a8263f89bd4cd7d8a833aaec9a30509eadd90090"
+    },
+    {
+      "path": "engine/tests/scene_codes.rs",
+      "sha256": "b901257182b40ec11a1ad8769159377e102ddbc8f0c74125b0604ac624097514"
+    },
+    {
+      "path": "engine/tests/step_tail.rs",
+      "sha256": "44b9d8a935106ab72ba138440574b92722c60004d893a054bf7de9f2e32fdbb9"
+    },
+    {
+      "path": "engine/tests/substitution.rs",
+      "sha256": "3479df8c088cb284b99abc7d3ec814c40fd4ffc2e5751e8c6705802c6f24eabb"
+    },
+    {
+      "path": "engine/tests/terminal.rs",
+      "sha256": "541ce8362f921d636d7929689395bd7de1da6e47ffaeeff4fd3164a6783f9910"
+    },
+    {
+      "path": "engine/tests/watched_match.rs",
+      "sha256": "c154f566ae1cebeac7dcf24cf7f9bcdac7b846b40fffeaf474a457788813056c"
+    },
+    {
+      "path": "records/T36/validate_frame_joins.py",
+      "sha256": "35d9937877d77c79d4eca148053bbe4bb8e092ac1ebb8c1db2beba4f509be029"
+    },
+    {
+      "path": "records/T37/validate_provenance.py",
+      "sha256": "00256db97ee50c9f60d8b7e5b2e932d20ebaca1dea78fc9b0e1fd1f7d69b1a89"
+    },
+    {
+      "path": "records/T37/validate_public_fixtures.py",
+      "sha256": "b4a690485c51b601dc4aac0f82525b4195bc4c2e8efeb159c8146102c4928d6d"
+    },
+    {
+      "path": "records/T38/validate_provenance.py",
+      "sha256": "5608badbf056a2635e68e240d6ac7db685c7353fa2fa7c00b31bc2744f0a6a75"
+    },
+    {
+      "path": "records/T39/validate_provenance.py",
+      "sha256": "43a4d97a9c044974279cea0b359bddae51a86385c43877dc95a21d49c22573f0"
+    },
+    {
+      "path": "records/T40/validate_audits.py",
+      "sha256": "29a75a6ee35744ec71a5b63383c58da940b1001a2a4187defff737703ca1c89c"
+    },
+    {
+      "path": "records/T40/validate_provenance.py",
+      "sha256": "b243cebf4a165b33dbdbcec1f72e9f92db48b6c4a2a36dfb1e7485a613e14ba0"
+    },
+    {
+      "path": "records/T41/validate_audits.py",
+      "sha256": "aa9ba08c698ba93a6484862d6080c55dd0dd2b41b2138f900fed642736127fcd"
+    },
+    {
+      "path": "records/T41/validate_native_guards.py",
+      "sha256": "1a8568962470d831b96104c2cc519a5650b1ca98cf00183bc1423e6713a53286"
+    },
+    {
+      "path": "records/T41/validate_presentation_provenance.py",
+      "sha256": "bba02e21d9add2c77ffbce5eef289c4dcba94d31383c9e0f16e69287110bce59"
+    },
+    {
+      "path": "records/T41/validate_provenance.py",
+      "sha256": "83362664ee0c685f6a374a839d47092efb9502ca4820cad557429237c03fdcab"
+    },
+    {
+      "path": "records/T42/validate_audits.py",
+      "sha256": "16892d00ca5c565132b25b3e7fbc29b26b6a94324fb7b8866c3bf5b282d74dfd"
+    },
+    {
+      "path": "records/T43/validate_audits.py",
+      "sha256": "c02f45eed20fafe9885fc5a86102a4b06e22b0f18f686747b6d5be5e97469bab"
+    },
+    {
+      "path": "records/T43/validate_provenance.py",
+      "sha256": "2e9d7b45961302419842f2295c4acb7060609fb2f474209a9a78c0bd963dd469"
+    },
+    {
+      "path": "records/T44/check_headless_pitch.py",
+      "sha256": "c0aa4c68010c22ae17e1bcd87e765e3fd6d1a5ac8aa2dbbca4e343cbfcf35966"
+    },
+    {
+      "path": "records/T44/validate_audits.py",
+      "sha256": "4f6cea3a7a3d897631b2ea1753e3d04e16d14e628da591f6fa90fa8e21b12aa6"
+    },
+    {
+      "path": "records/T44/validate_provenance.py",
+      "sha256": "e7526bc3fad4d3af45ec367d9caa99ff229b7567dc6de7bffb4a9d3dc080cddc"
+    },
+    {
+      "path": "records/T44/validate_release.py",
+      "sha256": "35fccf0eb7dfdac5a5fa22cd93ccfc55f7d82d6553619dfdc3ace226135fab08"
+    },
+    {
+      "path": "records/T45/preservation-observer-r0001.py",
+      "sha256": "1b0769a780c9e44a99bac128e0a441debdfcd42f5d3860ea41d542da8a4b7a9c"
+    },
+    {
+      "path": "records/T45/preservation-observer-r0002.py",
+      "sha256": "8d1574ea3f6c06d75c92657f2a8ea2089fbc6697dd5573bd17201e77f31d173c"
+    },
+    {
+      "path": "records/T45/preservation-observer-r0003.py",
+      "sha256": "e6eaf5da519c3d075e3439bc323ffb6fcef92503b1ca7fc60bd35e4324d1d6e0"
+    },
+    {
+      "path": "records/T45/validate_audits.py",
+      "sha256": "78d980ad6238e6ad890167bd520a469fe7b2676a35b95049ba16ca7df9f2504d"
+    },
+    {
+      "path": "records/T45/validate_clock_census.py",
+      "sha256": "70d4416f0b6f28a6aeac48a067be2288aca03dd05e3fbaf5bd80d213c7dbf498"
+    },
+    {
+      "path": "records/T45/validate_release.py",
+      "sha256": "f8b07541698eb3ea1ac172ffef54cd6e655775caf8f5895d8aa784b646a37ea8"
+    },
+    {
+      "path": "records/T46/validate_audits.py",
+      "sha256": "1a414fbdf406b86e3f62f764d6718d95347d7a0e9ed888d5a39c40ccc187cfeb"
+    },
+    {
+      "path": "records/T46/validate_release.py",
+      "sha256": "ccbabecf81ff91a39527fe23ab33ed652bca4dd34fd0b32c964c6d7c6f1fd45e"
+    },
+    {
+      "path": "tools/artifacts.py",
+      "sha256": "71f7753ffc77513cf8a6e32694a302233e5da31a41d7364a9ed9c4769dc8b312"
+    },
+    {
+      "path": "tools/benchmark_shared_layout.py",
+      "sha256": "75e9e92240367dc255e794a7e8b71ff5ce010cb28246bcdf2300397cb7679d66"
+    },
+    {
+      "path": "tools/check_originals.py",
+      "sha256": "75ac04ecab3b70b6790a88580988031d54dd3f35012706d2f709d63f67117218"
+    },
+    {
+      "path": "tools/compile_watched.py",
+      "sha256": "5b9802232d5cb5f1efe202e83719e249da46d710c5b674605d91aa62ec35bc6e"
+    },
+    {
+      "path": "tools/play_match.py",
+      "sha256": "88c7219f877134cfaa5e4859ad993195ac835d576dc4e8b6a35c058b1387a7ba"
+    },
+    {
+      "path": "tools/play_watched.py",
+      "sha256": "b09bf018c701ee7235a9f7785724474966c6b10d3d5bd600998babcabb395a93"
+    },
+    {
+      "path": "tools/prepared_match_oracle.py",
+      "sha256": "e6eaf5da519c3d075e3439bc323ffb6fcef92503b1ca7fc60bd35e4324d1d6e0"
+    },
+    {
+      "path": "tools/prepared_watched_oracle.py",
+      "sha256": "95e63438e5edbbe464f13b313badeee15570e546c7cbd26afdf13e5493aabfeb"
+    },
+    {
+      "path": "tools/replay_ai_selection.py",
+      "sha256": "cdcb3471471b44a40903f71c6f93a9caadf90712fed2536ef12f036c6c17a312"
+    },
+    {
+      "path": "tools/replay_cache_helpers.py",
+      "sha256": "a2b4989b35a6bf7fba340b8b97675065a21d78d8a90a6e90423cd9b436bd55c5"
+    },
+    {
+      "path": "tools/replay_cache_selection.py",
+      "sha256": "ce805f8b779f1f48dd9bccb6a690ab34d079bac23f185aa26842e40c0fa91218"
+    },
+    {
+      "path": "tools/replay_contests.py",
+      "sha256": "007970c06cdbe359d46e3b91e3fcef1867b9f7a4ed000d3d3cf7a6dc66be9d31"
+    },
+    {
+      "path": "tools/replay_continuous_match.py",
+      "sha256": "246f84971c0dd28f8b3aaa13f7ecc4835a409ef92178df31b8006767dec866c2"
+    },
+    {
+      "path": "tools/replay_continuous_step.py",
+      "sha256": "e3d9f2850268478a6c39f265bd73fd7c751c5c128837cae3a5458cfbe957623d"
+    },
+    {
+      "path": "tools/replay_event_effects.py",
+      "sha256": "9aef4a839b40baf607b9185ff233474c25e4a48f7ad6d6472548955e0706d40f"
+    },
+    {
+      "path": "tools/replay_extra_event.py",
+      "sha256": "44d5fb449783611ea6ea7296f6138e1b09f973d14b33ac166c04b9f298e89f80"
+    },
+    {
+      "path": "tools/replay_goal_effects.py",
+      "sha256": "1032f5cfadce95f4e336e536706d359f596e042ec0af99ffb7aa09825c193917"
+    },
+    {
+      "path": "tools/replay_match_setup.py",
+      "sha256": "d3a1ba8c6a72535abf5a182e5dfab10b4e64713a4be0812715e494cd779cd0fb"
+    },
+    {
+      "path": "tools/replay_neutral_input.py",
+      "sha256": "28c25d9e7d771d4991b4c0671dfe27a9ea19eac315046d811817fefac17fb993"
+    },
+    {
+      "path": "tools/replay_placement.py",
+      "sha256": "2dc7fa628adaabc521b5ff7177c7031871ca348e4bf90a5fedf5e057330d9277"
+    },
+    {
+      "path": "tools/replay_player_cache.py",
+      "sha256": "77814cd8ee0f9367962c4e0a95d03c506824aca36ba8916629c0b3c065fde58d"
+    },
+    {
+      "path": "tools/replay_post_score.py",
+      "sha256": "41d522ec0e5d8d5e7208c01ba8039ce70b0452ecd81ac14f9ac1ea4ef7508a8e"
+    },
+    {
+      "path": "tools/replay_prepared_choices.py",
+      "sha256": "ace79034027ddeabe61ec3b93f32e520fa36577d9a65ebfb618916f0d0e3127c"
+    },
+    {
+      "path": "tools/replay_prepared_match.py",
+      "sha256": "e306cb768e794720488b8c969411353fc0b2da38bf30ecbfc2852d40f9f2de74"
+    },
+    {
+      "path": "tools/replay_prepared_watched.py",
+      "sha256": "8816716f57afa03638bc9ab6bd973410a3b5108698a07283eb9fd3c9f618b309"
+    },
+    {
+      "path": "tools/replay_quick_reset.py",
+      "sha256": "c758c22a584d009d3feb7776b3da96f83b1e28f7e0e706a93e9cd1257ca42127"
+    },
+    {
+      "path": "tools/replay_ratings.py",
+      "sha256": "836b221ab8e03d94bffd4937389803d647b847e150ccc410005d4fd40a82a632"
+    },
+    {
+      "path": "tools/replay_rearrangement.py",
+      "sha256": "ac28722865370d2c9c8d4c9925c70a467df369d0359f8dc6ff14cb8b7804dc76"
+    },
+    {
+      "path": "tools/replay_replacement.py",
+      "sha256": "3d0b866cde21272d17e5d2a885aca52d1d15cd81b86e24d629310931f95dc9f3"
+    },
+    {
+      "path": "tools/replay_role_cache.py",
+      "sha256": "4246bce35bf5b6fbbf782b84e4ca017a6577acf84c89c0bb1314710dd6caad52"
+    },
+    {
+      "path": "tools/replay_role_pairing.py",
+      "sha256": "cf778fde8e4e9eae7c6cfdb9dac055bdc69795ef55acc48ee0078f3e10ef90e8"
+    },
+    {
+      "path": "tools/replay_role_scores.py",
+      "sha256": "3fdca00d6cfbb898bb66a0020f200a3e43edf9c51f94efbe75bbb103d339eb0b"
+    },
+    {
+      "path": "tools/replay_scene_assignment.py",
+      "sha256": "bd5bd2f643cf23c7bd6508dd011cc8a4ef44cd439b59ddb0bd161eb8169cd8fe"
+    },
+    {
+      "path": "tools/replay_scene_codes.py",
+      "sha256": "96e995d82fd41a0068c5f63fe36ef79f047a6a260d2fdf23d826d2454b914661"
+    },
+    {
+      "path": "tools/replay_step_tail.py",
+      "sha256": "44456183bd762aa8abe793fa02d4ac2ffec7e9954a006561a23327e880904cc4"
+    },
+    {
+      "path": "tools/replay_substitution.py",
+      "sha256": "d35057e71c62c442bde02ddcf4cf7eab001dd65f656d88e15d8f2273ae0b9708"
+    },
+    {
+      "path": "tools/replay_terminal.py",
+      "sha256": "9168f06d303cf520e4f5eed8ae851d8ca4fb6aa82a18a2cd99b0763db1a5cb31"
+    },
+    {
+      "path": "tools/replay_watched_action.py",
+      "sha256": "c2377d2d3b27194af20237e53024ab23e320017fcf5a891b93c15ee0d4d27643"
+    },
+    {
+      "path": "tools/replay_watched_actor.py",
+      "sha256": "b31da278d20591c09542ac3be53b18f406e546b3f3fcf3611e9303cdffa67cb8"
+    },
+    {
+      "path": "tools/replay_watched_adjustment.py",
+      "sha256": "0ffc907eaea78aadfaca9a2e13f827dbf1068bba7fc21f3b91cb9dea56941d5f"
+    },
+    {
+      "path": "tools/replay_watched_ball.py",
+      "sha256": "59a182b9bde944b4fc71e97c92ac884f4cc6224fab8547ee3a81a7b88eeee04f"
+    },
+    {
+      "path": "tools/replay_watched_caller.py",
+      "sha256": "dde7d3c2d9b6c1869ce98b02710636d731791db51c94b5158c8d489a169f9485"
+    },
+    {
+      "path": "tools/replay_watched_direction.py",
+      "sha256": "8cfccb7ee2821e489735527484aa29164972ebbe65c0194b343b4d6ed95e4531"
+    },
+    {
+      "path": "tools/replay_watched_kickoff.py",
+      "sha256": "ec9756cc956c45b5da45de5280796cbc97b66154914120e36cecd259f187fb16"
+    },
+    {
+      "path": "tools/replay_watched_match.py",
+      "sha256": "61f44d1f3a8c50c4a48737acec2371cc1f69995de48d6879ab48d2a29725deed"
+    },
+    {
+      "path": "tools/replay_watched_movement.py",
+      "sha256": "b30db8bf5b472393feb9408e9b71636a903f157e6d93e386aa57b8f51b099352"
+    },
+    {
+      "path": "tools/replay_watched_selection.py",
+      "sha256": "429ee4174ba2ef18e655e3b4568185172f9e4d38205c97aa7b0165c76d713001"
+    },
+    {
+      "path": "tools/replay_watched_setup.py",
+      "sha256": "1ea78b96ede37dfb7829b3c4ed15693809f140b02fde13d70c4a6802cbc6cf91"
+    },
+    {
+      "path": "tools/replay_watched_target.py",
+      "sha256": "8b2fc44787087aba62392f8f19d8b36229aada5f7c636979b185059c055f752d"
+    },
+    {
+      "path": "tools/replay_watched_tick.py",
+      "sha256": "d3536cc37cefb9a2075866d3f2298af6eb4c08ec1c57f601eee987c93e1c8c2a"
+    },
+    {
+      "path": "tools/smoke_match_viewer.py",
+      "sha256": "b68ca8a15a0571948b480ffa6c18fcd0f54912409dd348828029655c6c78183b"
+    },
+    {
+      "path": "tools/smoke_watched_viewer.py",
+      "sha256": "44e84aa0d13aad6c1a00954e5bdb1267ab5cb644e19c3b922b775939151b2a27"
+    },
+    {
+      "path": "tools/test_play_match.py",
+      "sha256": "5f23b4d0f5765dd108d14a1b6e9cc9e0d48c759fd2501f3a2ff956610f8c48e9"
+    },
+    {
+      "path": "tools/test_play_watched.py",
+      "sha256": "520a4c05b19ae4f01f2b84a9e2523e4998582dd9e9686f20a857876543ce1ec2"
+    },
+    {
+      "path": "tools/watched_action_export.py",
+      "sha256": "e5a19fdd39367be6c03c69283ebae0e66de4cb8e9497175bdba6192b25c2b13c"
+    },
+    {
+      "path": "tools/watched_caller_oracle.py",
+      "sha256": "8af501b96ed929de35805dec05a2a564369a704da3eafffd7a4f39833b94ccb1"
+    },
+    {
+      "path": "tools/watched_match_oracle.py",
+      "sha256": "92cc939a057c14a5b76d1481f6dfd75e06cdc3115bf31f4c5d3b64dd8b3d6545"
+    },
+    {
+      "path": "tools/watched_oracle.py",
+      "sha256": "453addf16c4cfc8e748bce31e9acc6c9d2a316c063e269f7bf40a1fa39d00942"
+    },
+    {
+      "path": "tools/watched_parent.py",
+      "sha256": "4e2ef3785fd005511576d8dd244c3ad299ee7cc3ce9a44b66081eac89115117c"
+    },
+    {
+      "path": "tools/watched_setup_oracle.py",
+      "sha256": "9ac599ab266c76c95ce096330b2ba3957f09a9ee0f259b8bf4f69557f5688e80"
+    },
+    {
+      "path": "tools/watched_tick_oracle.py",
+      "sha256": "f77482e0aac281af2e72f0a788aa559c0e0f647d919bac853eb1dfa6bf451359"
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "58b4dc405fca9a98be8448b982e7530d72a93aa7fd1beb6d24030f31eb3762ca"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "384f17ea0be0b5b50b864725b0f300e60e588f1aacc3fc550b23a3506bc4c015"
+    },
+    {
+      "path": "web/watched/app.js",
+      "sha256": "c1b28772b845bd6792c2f93cc5cf7fa9feb95b57e7204137163999f13b61d488"
+    },
+    {
+      "path": "web/watched/index.html",
+      "sha256": "e48ea30e343def6e75e36044da26220ffd9dc55d522d120d81094a76e97e8eb5"
+    }
+  ],
+  "scope": "Documentary audit; completed capture authentication is distinct from aborted prefix observations. Native source/tests inspected, not newly executed."
+}
