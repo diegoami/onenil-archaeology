@@ -1,0 +1,26 @@
+{
+  "number": 1,
+  "previous": "6019865e68d213999ed95790ac62d945a159e54c405c105399c55fadc64f38f7",
+  "id": "S17000-restore-final-results-checkpoint",
+  "keys": [],
+  "wait": 1,
+  "restart": {
+    "old_pid": 1061399,
+    "new_pid": 1061793,
+    "old_processes_exited": true,
+    "saved_files": {
+      "SAVE1.1-0": "b246c62ff3b39c1e0bec42b30eb192a712bea01f8ee38035699424e1c2b7aa12"
+    },
+    "restored_files": {
+      "SAVE1.1-0": "b246c62ff3b39c1e0bec42b30eb192a712bea01f8ee38035699424e1c2b7aa12"
+    },
+    "intervention": "Copied only game saves after verified release copy and before new emulator process/mount; no emulator state restored."
+  },
+  "text": "\n\n\n\n                       \u2590\u2580\u2580\u258c \u2590\u2580\u2580\u258c \u2590\u2580\u2580\u258c         \u2590\u2580\u2580\u258c  \u258c  \u2590\n                       \u2590  \u258c \u2590  \u258c \u2590\u2584\u2584\u258c         \u2590  \u258c  \u258c  \u2590        (c)\n                       \u2590  \u258c \u2590  \u258c \u2590      \u2580\u2580\u2580   \u2590  \u258c  \u258c  \u2590          NEW\n                       \u2590  \u258c \u2590  \u258c \u2590      '96   \u2590  \u258c  \u258c  \u2590            ERA\n                       \u2590\u2588\u2588\u258c \u2590  \u258c \u2590\u2588\u2588          \u2590  \u258c  \u258c  \u2590\u2588\u2588            1992-96\n\n\n                    Advanced management for football addicts\n\n\n\n\n\n\n\n\n\n\n\n\n\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0 Do you want to load a saved game? (Y/N) \u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0",
+  "text_sha256": "26eb7100f0bfbfd9210fe77d88926e01539acb0b6aae297963e65f27102e451d",
+  "screen_sha256": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5",
+  "highlighted": [],
+  "screenshot": "step-0001.png",
+  "screenshot_sha256": "484fe112b233746ac52350e60e362f746ae81e6785578be30cd85af2b1cef51f",
+  "time": "2026-11-06T01:00:45.986Z"
+}

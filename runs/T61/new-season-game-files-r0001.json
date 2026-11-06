@@ -1,0 +1,14 @@
+{
+  "capture": "runs/T61/session-r0004/step-0019.json",
+  "files": {
+    "SAVE1.1-0": {
+      "bytes": 194426,
+      "sha256": "f6b0f07dae4d76047a8fe975abb970683f6f9bdbf426e363c1522f9474f0748e"
+    },
+    "SAVE1.95": {
+      "bytes": 194426,
+      "sha256": "d1652e7905bc02433106d0f5b8ffc3a77a93616c00791ce37b8aa98d5519833e"
+    }
+  },
+  "status": "local; archive and public provenance approval pending"
+}

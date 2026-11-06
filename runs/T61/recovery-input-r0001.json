@@ -1,0 +1,5 @@
+{
+  "source": "runs/T61/pre-league28-game-save-r0001.json",
+  "restore_sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275",
+  "reason": "session-r0001 aborted on invalid uppercase screen ID; new process will copy only game save before mount"
+}

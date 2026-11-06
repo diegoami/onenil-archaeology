@@ -1,0 +1,17 @@
+{
+  "number": 39,
+  "previous": "b4ebd6fe1557b5a6dc83fdff4147bd15e28ddc37628639249be6ec25bd1218ec",
+  "id": "S12038-season-finish-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "LEAGUE RESULTS\n\nMATCH NO #26\n\n                  \u250c\u2500PREMIER LEAGUE\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                  \u2502 --------Arsenal  1v4  Blackburn R---- \u2502\n                  \u2502                                       \u2502\n                  \u2502 --------Everton  0v4  Wimbledon------ \u2502\n                  \u2502                                       \u2502\n                  \u2502 ------Leeds Utd  0v3  Nottingham F--- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ------Liverpool  3v2  Chelsea-------- \u2502\n                  \u2502                                       \u2502\n                  \u2502 -Manchester Utd  0v0  Southampton---- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ----------Q.P.R  2v2  Coventry City-- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ----Tottenham H  1v3  Newcastle Utd-- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ---West Ham Utd  1v2  Sheffield Wed-- \u2502\n                  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\n\n\n                                press any key",
+  "text_sha256": "f45f1c7f886a0b6b096bca9461aa111df533af54a9e19d726c062fc8b64f4659",
+  "screen_sha256": "e4b135e76c685d72d731e135dae5081bbe11e00c8fda1966ef451a8c8b285611",
+  "highlighted": [],
+  "screenshot": "step-0039.png",
+  "screenshot_sha256": "1f6e9b8c6019c6c72e0109175e735892f8535a5a900448a53e7a4cbbf0e42114",
+  "time": "2026-11-06T00:24:19.725Z"
+}

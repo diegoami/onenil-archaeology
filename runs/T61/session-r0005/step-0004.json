@@ -1,0 +1,17 @@
+{
+  "number": 4,
+  "previous": "ab2bde3300b8d7a80a274978420affbd82c0d734e83328ec61f08dc6aa9b6856",
+  "id": "S17003-open-final-league-results",
+  "keys": [
+    "Return"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "LEAGUE RESULTS\n\nMATCH NO #30\n\n                  \u250c\u2500PREMIER LEAGUE\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n                  \u2502 --------Arsenal  3v0  Southampton---- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ----Blackburn R  5v3  Wimbledon------ \u2502\n                  \u2502                                       \u2502\n                  \u2502 --------Everton  1v4  Coventry City-- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ------Leeds Utd  0v5  Liverpool------ \u2502\n                  \u2502                                       \u2502\n                  \u2502 -Manchester Utd  3v0  Chelsea-------- \u2502\n                  \u2502                                       \u2502\n                  \u2502 --Newcastle Utd  2v3  Nottingham F--- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ----Tottenham H  1v0  Sheffield Wed-- \u2502\n                  \u2502                                       \u2502\n                  \u2502 ---West Ham Utd  1v3  Q.P.R---------- \u2502\n                  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\n\n\n \u25c4\u2518,\u2193-next  Del,\u2191-previous                                F5-Print-out Esc-exit",
+  "text_sha256": "588877457cd4178647b190d6eacbbb31ae855ed06d655d34dafd4ce089f70de6",
+  "screen_sha256": "2d4f71c53637ee86b0043f799b30b9cc6d3af7dd13fbaa64f8f6c6554678656f",
+  "highlighted": [],
+  "screenshot": "step-0004.png",
+  "screenshot_sha256": "9d323b0f09fbfebe89369be0eb9312b876992988ee52af79badaf697a7052fcc",
+  "time": "2026-11-06T01:01:09.928Z"
+}

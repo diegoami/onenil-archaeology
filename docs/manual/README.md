@@ -43,6 +43,7 @@ composition, fixed spans, dynamic destinations and input/move/play boundaries.
 | [Autumn progression and cup ties](autumn.md) | Observed through league10, completed European tie, extra-time goal, eligibility refusal, contract warnings and deferred job offer; winter/rollover pending | #142 |
 | [Midseason progression](midseason.md) | Observed through league16, European/FA elimination, group-stage observer week, expiry listing, retiring-player renewal, neutral semi-final and weekly announcements; season finish pending | #142 |
 | [Later-season progression](later-season.md) | Observed through league24, tribunal departure/payment, scheduled friendlies, neutral cup win/celebration, expiry listing and admitted lineup; finish/rollover pending | #142 |
+| [Season finish and rollover](season-rollover.md) | Observed final results, season-information confirmation, promotion/relegation summaries, retirement despite renewal, populated history, new fixtures/reset table and fresh-process 1995/96 reload; failed attempts and deeper-history limitation retained | #142 |
 
 Until a chapter cites its captures, its workflows are unvisited in this manual.
 Engine traces and older text-only observations provide research context; they
