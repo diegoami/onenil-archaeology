@@ -1,0 +1,7 @@
+{
+  "status": "owner explicitly approved publication of the prepared T59 receipt",
+  "authorization": "yes approve all, in response to the three explicit T59/T60/T61 requests",
+  "approved_receipt": "runs/T59/private-backup-completed-r0001.json",
+  "scope": "archive name, size, checksum and private Drive file ID/link on GitHub; original save bytes remain private",
+  "previous_pending_records": "retained unchanged"
+}
