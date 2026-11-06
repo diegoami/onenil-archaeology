@@ -90,3 +90,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T62 Illustrated-manual coverage and native gap audit](T62.md)
 
 - [T63 Correct referenced aborted-session attribution](T63.md)
+
+- [T64 Correct PUT HERE card-following documentation](T64.md)
