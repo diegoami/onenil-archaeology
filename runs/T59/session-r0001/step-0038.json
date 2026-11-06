@@ -1,0 +1,22 @@
+{
+  "number": 38,
+  "previous": "71688f4d20ab6dcae2bf056718c704ba8002ca69aba7afc54566a1155e24662d",
+  "id": "S8037-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "\nFA Cup Round 1\n\n\n\n ------Liverpool  3v1  Sheffield Utd--   ---Southend Utd  2v1  Derby County---\n ----Blackburn R  5v0  Charlton Ath---   -------Millwall  3v2  Portsmouth-----\n ---Nottingham F  1v0  Newcastle Utd--   -----Luton Town  0v1  Watford--------\n ------Wimbledon  6v1  Crewe Alexandra   -----Sunderland\u221a 1v1  Bristol Rovers-\n --------Chelsea  4v0  Notts County---   --------Burnley  1v2  Middlesbro-----\n ----Southampton  3v0  Oxford Utd-----   -----Oldham Ath  1v0  York City------\n --Coventry City  3v2  West Ham Utd---   Birmingham City  0v3  Port Vale------\n --Sheffield Wed  4v5  Manchester Utd-   -Huddersfield T  1v2  Norwich City---\n --------Everton  1v0  Leeds Utd------   ---Stockport Co  0v3  Reading--------\n Manchester City  4v0  Bristol City---   ---Swansea City  2v0  Brentford------\n ----Aston Villa  5v0  Bradford City--   --Rotherham Utd  0v5  Wolves---------\n ---Ipswich Town  2v3  Tottenham H----   ------Blackpool  2v1  Hull City------\n -Leicester City  4v0  W.B.A----------   ---Peterbro Utd  1v3  Brighton & HA--\n -Crystal Palace  2v0  Grimsby Town---   -Wycombe Wandrs  1v2  Bolton W-------\n Tranmere Rovers  3v0  Swindon Town---   --------Wrexham  0v4  Arsenal--------\n -------Barnsley  3v5  Stoke City-----   Shrewsbury Town  1v4  Q.P.R----------\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "4aaa019dd29a11fc2ad497fdd5c97640e98bc3cc8eb39d05dad2d22e484646fd",
+  "screen_sha256": "2840fa3434d734dd670d56020f66ba365074704889247d7cee03b914b2615ccb",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0038.png",
+  "screenshot_sha256": "e110479952eb446cfc0ef4554c9a82a8776d8649a12b1a73e1dc8508309ca453",
+  "time": "2026-11-05T23:16:18.374Z"
+}

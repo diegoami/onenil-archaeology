@@ -1,0 +1,12 @@
+{
+  "status": "private backup pending owner approval",
+  "archive": "/home/diego/projects/onenil-archaeology/.cache/recovery/T59-midseason-game-saves-r0001.tar.gz",
+  "archive_bytes": 168793,
+  "archive_sha256": "6764e4520b7d7f3f0aadcba8dbdbc4a7e4d485a9ef0919f00af76ebf2edc1f85",
+  "final_capture": "runs/T59/session-r0001/step-0176.json",
+  "final_save_sha256": "5983cd6197e80bacecd99ae1f22827da13e7d0fb86866b4b3bf1dfbf91217859",
+  "members": [
+    "league12-cup-qf/SAVE1.1-0",
+    "league16/SAVE1.1-0"
+  ]
+}
