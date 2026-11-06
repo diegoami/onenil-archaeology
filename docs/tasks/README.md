@@ -94,3 +94,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T64 Correct PUT HERE card-following documentation](T64.md)
 
 - [T65 Original saved club seed for native persistence](T65.md)
+
+- [T66 Initial saved PSG fixture: original preparation admission capture](T66.md)
