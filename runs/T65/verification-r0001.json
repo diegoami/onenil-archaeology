@@ -1,0 +1,8 @@
+{
+  "checked_head": "496b12e38e201ade7ea96472f0d9e4a2c1a11df6",
+  "synthetic_tests": "2 PASS unittest",
+  "public_check": "PASS;4 corruptions refused; authenticated original capture references",
+  "raw_hex_changed_files": 4,
+  "preserved_prior_run_static_task_entries": 5249,
+  "scope": "One coherent supplied96 saved-club projection, no engine simulation or private upload"
+}
