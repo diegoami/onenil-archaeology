@@ -1,0 +1,6 @@
+{
+  "source_commit": "37d144a",
+  "command": "python3 runs/T62/catalog-source-r0001.py --build --native <native checkout>",
+  "status": "failed before output",
+  "reason": "T41 uses record.json with named screens, rather than per-step JSON; retain original validator for that schema."
+}
