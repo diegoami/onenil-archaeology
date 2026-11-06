@@ -1,0 +1,12 @@
+{
+  "keys": [
+    "Insert",
+    "Down",
+    "Down",
+    "Down",
+    "Down",
+    "Down"
+  ],
+  "id": "S14012-inspect-selected-defender",
+  "wait": 1
+}
