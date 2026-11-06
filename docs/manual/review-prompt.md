@@ -3,10 +3,10 @@
 [designed] **OWNER RUNS** this review on the model of their choice. The agent
 prepares this prompt and does not execute or delegate the review.
 
-Status: prepared locally. Before submitting, require T59–T62 merged with
-approved provenance handling and exact-head green hosted CI. Replace the
-candidate references below with the actual checked research merge head. Do not
-treat the current local audit as a completed publication/merge gate.
+Status: prepared for owner use after T59–T62 are merged with
+approved provenance handling and exact-head green hosted CI. Supply the
+actual checked research merge head with the prompt. Earlier local candidates
+are not evidence that those merge/CI gates completed.
 
 > Review onenil-archaeology milestone#135 against its illustrated-manual and
 > workflow-coverage acceptance, using the checked research main head supplied by

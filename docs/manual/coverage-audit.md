@@ -132,10 +132,25 @@ T62's first inventory attempt encountered T41's older schema, failed before
 output, and is retained in [its failure receipt](../../runs/T62/catalog-failure-r0001.json).
 
 [designed] This audit prepares the [owner review](review-prompt.md); it does not
-run it or declare the manual milestone accepted. T59–T61 upload/publication
-permissions and pinned merges remain separate gates. A pending receipt is not
+run it or declare the manual milestone accepted. T59–T61 backup uploads and provenance publication have explicit owner approval;
+completed metadata-readback receipts are recorded. Pinned merges and exact-head
+CI remain separate gates. A pending receipt is not
 an upload, green CI on an earlier head is not CI on a later candidate, and a
 local chapter is not a merged deliverable. Native UI choice follows the accepted
 manual/gap audit in #103. The first practical implementation target is a real,
 saved management week around the already working watched match, as scoped by
 B1–B6 in the [native roadmap](native-gaps.md).
+
+## Approved private preservation and publication
+
+[confirmed] The owner explicitly approved all three previously requested
+operations: T59 receipt publication and T60/T61 archive uploads plus public
+receipt/provenance metadata. The archives remain in the owner’s private1-0
+folder. Completed readback receipts preserve observed Drive IDs/links, sizes,
+MIME types and parent folders: [T59](../../runs/T59/private-backup-completed-r0001.json),
+[T60](../../runs/T60/private-backup-completed-r0001.json), and
+[T61](../../runs/T61/private-backup-completed-r0001.json). Local SHA-256 values
+identify the uploaded payloads; the connector does not supply a remote checksum,
+so no remote SHA verification is claimed. Earlier pending/local-only receipts
+remain unchanged as historical checkpoints. Original save/archive bytes never
+enter git.

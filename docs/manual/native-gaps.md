@@ -7,8 +7,9 @@ ported. The native watched exhibition is playable; it does not yet provide a
 campaign load→squad→match→results→next-week loop.
 
 [confirmed] Research input commit is
-`67dd355b4d4e5b646422fc1fdd922064bf6868d7`, including local T59–T61 candidates;
-those dependencies await approved publication and merge. Native source is pinned
+`67dd355b4d4e5b646422fc1fdd922064bf6868d7`, including T59–T61 candidates as they stood at inventory time. Their backup
+uploads and provenance publication are now owner-approved and recorded in the
+completed receipts; pinned merges and exact-head CI remain required. Native source is pinned
 to `a634fb27a2d438c67d20e95cf66aa11bc0737732`. The inspected checkout
 `6253ec222f0e80d56d2795163500a365ce422c9c` has an identical tree. The
 [catalog](../../runs/T62/catalog-r0001.json) records all 83 workflow headings,

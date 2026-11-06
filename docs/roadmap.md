@@ -76,7 +76,7 @@ supported original procedures and 72 missing full procedures in the native
 application. This is a workflow count, not a fraction of engine code completed.
 The accepted watched exhibition remains the reusable match component.
 
-[designed] Complete the approved publication/merge/CI gates, then obtain owner
+[designed] Complete the pinned merge/CI gates after approved publication, then obtain owner
 acceptance of the manual and audit together. Native#103 selects the management
 UI technology after that acceptance. The first campaign milestone is B1–B6:
 one persistent club/fixture state, club load, squad edit/admission, the existing
