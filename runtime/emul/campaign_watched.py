@@ -43,6 +43,11 @@ def check(directory):
     base = source()
     start = json.loads((directory / 'start.json').read_text())
     identity(start, base)
+    producers = set()
+    for attempt_path in sorted(directory.glob('attempt-*-start.json')):
+        attempt = json.loads(attempt_path.read_text())
+        identity(attempt, base)
+        producers.add(attempt['producer'])
     index = json.loads((directory / 'index.json').read_text())
     if index['start_sha256'] != sha((directory / 'start.json').read_bytes()):
         raise ValueError('campaign stream start digest differs')
@@ -57,6 +62,8 @@ def check(directory):
         if sha(data) != item['sha256']:
             raise ValueError('campaign chunk digest differs')
         row = json.loads(data)
+        if row['producer'] not in producers:
+            raise ValueError('campaign chunk observer identity differs')
         if sha(encoded(row['payload'])) != row['payload_sha256']:
             raise ValueError('campaign chunk payload digest differs')
         cursor = prior.validate_chunk(row['payload'], cursor)
@@ -70,6 +77,8 @@ def check(directory):
     if sha(finish_data) != index['finish']['sha256']:
         raise ValueError('campaign finish digest differs')
     finish = json.loads(finish_data)
+    if finish['producer'] not in producers:
+        raise ValueError('campaign finish observer identity differs')
     if finish['status'] != 'completed' or finish['boundary'] != prior.match.MATCH_RETURN:
         raise ValueError('campaign did not reach original match return')
     if cursor is None or (finish['ticks'], finish['draws'], finish['actions']) != (cursor['tick'] - 1, cursor['draw'], cursor['action']):
@@ -148,6 +157,9 @@ def run(state_path, directory, repeat=False, max_ticks=10000, max_draws=1000000)
 
     def entry(g):
         nonlocal joined
+        # 7C67 is the watched loop header, revisited after each physical tick.
+        if joined:
+            return
         if prior.state(g) != base['payload']['first_entry'] or [e for e in week.events if e['kind'] == 'draw'] != base['payload']['draws']:
             raise ValueError('original campaign preparation/entry differs')
         joined = True
