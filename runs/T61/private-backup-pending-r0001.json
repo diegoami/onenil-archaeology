@@ -1,0 +1,14 @@
+{
+  "status": "private upload and public provenance approval pending",
+  "archive": "/home/diego/projects/onenil-archaeology/.cache/recovery/T61-season-rollover-game-saves-r0001.tar.gz",
+  "archive_bytes": 342471,
+  "archive_sha256": "1758739aaeeded5ad12bf7c14dc55d6f461d97d54a8887086235ea191b9985be",
+  "members": [
+    "pre-league28/SAVE1.1-0",
+    "post-league30/SAVE1.1-0",
+    "new-season/SAVE1.1-0",
+    "new-season/SAVE1.95"
+  ],
+  "final_save_sha256": "9a027f4b5d3a8e9c119bec42fe01a547dd972cfb48ff2aa02868bf7338a27549",
+  "final_capture": "runs/T61/session-r0004/step-0036.json"
+}

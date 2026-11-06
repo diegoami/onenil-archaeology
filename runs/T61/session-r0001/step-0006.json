@@ -1,0 +1,22 @@
+{
+  "number": 6,
+  "previous": "6b9ee2ed32461f41335de4a2275ff3ec2e4a230abe97bac281c3c858ae400fa9",
+  "id": "S12005-season-finish-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "UEFA Cup Round 2                        UEFA Cup Quarter Finals\n\n -Dep. La Coruna  5v0  Liverpool------   -Dep. La Coruna  2v1  Lyon-----------\n 1st leg: 3v0     2nd leg: 0v2           1st leg: 1v0     2nd leg: 1v1\n -----------Roda  3v0  Rangers--------   -Kaiserslautern  1v1  Roda-----------\n 1st leg: 2v0     2nd leg: 0v1           1st leg: 1v1     2nd leg: 0v0\n --Werder Bremen  0v1  Lyon-----------   ---------Napoli  4v0  Cas. Salzburg--\n 1st leg: 0v1     2nd leg: 0v0           1st leg: 2v0     2nd leg: 0v2\n ---Nottingham F  2v7  Kaiserslautern-   ----Uni Craiova  2v2  Sporting Lisbon\n 1st leg: 2v3     2nd leg: 4v0           1st leg: 0v1     2nd leg: 1v2\n --Cas. Salzburg  3v2  Tampeeren------\n 1st leg: 1v1     2nd leg: 1v2          UEFA Cup Semi Finals\n -------AC Milan  1v5  Sporting Lisbon\n 1st leg: 0v3     2nd leg: 2v1           -Dep. La Coruna  3v2  Roda-----------\n ---------Napoli  4v2  Motherwell-----   1st leg: 1v1     2nd leg: 1v2\n 1st leg: 2v1     2nd leg: 1v2           ----Uni Craiova  4v5  Napoli---------\n ----Uni Craiova  5v2  Sparta Prague--   1st leg: 2v2     2nd leg: 3v2\n 1st leg: 4v1     2nd leg: 1v1\n\n                                        UEFA Cup\n\n                                         ---------Napoli  3v0  Dep. La Coruna-\n                                         1st leg: 3v0     2nd leg:  v\n\n   RESULTS                                                     press any key",
+  "text_sha256": "15e7549ff7fe56d7a4953562ebfc723b099ce2b66799a0546f18752ef2bcadd5",
+  "screen_sha256": "3dc12206d719a9f99425fb8d6c2c16ffbdd7530c9fb5887e6869b2549cf4de06",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0006.png",
+  "screenshot_sha256": "4d182cb9047999aae86a25933f405958451b1938e0848f198b3b38be6096154e",
+  "time": "2026-11-06T00:19:15.568Z"
+}

@@ -1,0 +1,22 @@
+{
+  "number": 3,
+  "previous": "34b78c906269a6c0608ef7b3595aac79d87a568907ccdb5b39d15a0659912699",
+  "id": "S12002-season-finish-observed-action",
+  "keys": [
+    "Return"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "Eurpn Cup Round 2                        -------Juventus  2v3  P St Germain---\n                                         --Bor. Dortmund  2v2  Sampdoria------\n -------Juventus  6v2  Honved Kispest-   ------Sampdoria  2v2  Juventus-------\n 1st leg: 3v2     2nd leg: 0v3           ---P St Germain  2v3  Bor. Dortmund--\n ----Club Brugge  2v1  Part. Belgrade-   ------Sampdoria  3v1  P St Germain---\n 1st leg: 2v0     2nd leg: 1v0           --Bor. Dortmund  1v1  Juventus-------\n ---P St Germain  4v3  Blackburn R----   ------Sampdoria  1v1  Bor. Dortmund--\n 1st leg: 2v2     2nd leg: 1v2           ---P St Germain  2v2  Juventus-------\n --Bayern Munich  5v0  Rapid Vienna---   -------Juventus  3v0  Sampdoria------\n 1st leg: 2v0     2nd leg: 0v3           --Bor. Dortmund  0v2  P St Germain---\n ------Sampdoria  2v0  Slavia Prague--   -------Juventus   v   Bor. Dortmund--\n 1st leg: 1v0     2nd leg: 0v1           ---P St Germain   v   Sampdoria------\n ------Feyenoord  4v3  Hibernian------   --Bayern Munich  0v0  Feyenoord------\n 1st leg: 2v1     2nd leg: 2v2           ----Club Brugge  1v2  Lazio----------\n -Din. Bucharest  1v3  Bor. Dortmund--   ----------Lazio  2v2  Bayern Munich--\n 1st leg: 0v1     2nd leg: 2v1           ------Feyenoord  1v2  Club Brugge----\n -----Real Betis  2v3  Lazio----------   ----------Lazio  3v1  Feyenoord------\n 1st leg: 0v2     2nd leg: 1v2           ----Club Brugge  1v0  Bayern Munich--\n                                         ----------Lazio  4v0  Club Brugge----\n                                         ------Feyenoord  4v1  Bayern Munich--\n                                         --Bayern Munich  1v2  Lazio----------\n                                         ----Club Brugge  2v1  Feyenoord------\n                                         --Bayern Munich   v   Club Brugge----\n                                         ------Feyenoord   v   Lazio----------\n   RESULTS                                                     press any key",
+  "text_sha256": "3a1ef96623667043d966b3cad06ea77f94cdc2ffc499ae651ac94a80aebdb7b6",
+  "screen_sha256": "1875e40a63d27ff25b7c919501d5995f965d790cf8d9f14da466a0f200ec0c42",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0003.png",
+  "screenshot_sha256": "48188ae02fc9bbe5d164e2eb3c36f101830ca81c6f9b1d86baaee6c1b93531b6",
+  "time": "2026-11-06T00:18:57.174Z"
+}

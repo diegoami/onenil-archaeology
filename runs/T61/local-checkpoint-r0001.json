@@ -1,0 +1,23 @@
+{
+  "status": "local validation complete; publication and archive approval pending",
+  "full_embed_scan": {
+    "head": "28999b86b38d64ab71543eeeedafb109543c575c",
+    "command": "python3 tools/inventory.py --check-embed",
+    "exit_code": 0,
+    "output": "embed check: ok\n"
+  },
+  "incremental_embed_scan": "runs/T61/embed-incremental-r0001.json",
+  "canonical_sessions": 2,
+  "canonical_screens": 46,
+  "targeted_tests_passed": 75,
+  "unchanged_prior_evidence_files": 3350,
+  "illustrated_chapter": "docs/manual/season-rollover.md",
+  "screenshots": 21,
+  "private_backup": "prepared locally; archive-specific upload and public metadata authorization requested",
+  "remaining": [
+    "Approve and publish pending T59 receipt, T60 archive/provenance and T61 archive/provenance within approved scope",
+    "Integrate dependencies, recheck final head and obtain hosted CI before pinned merges",
+    "T62 coverage/native-gap audit is frozen on main; owner review not started"
+  ],
+  "failure_scope": "Full seasonal info capture exited DOSBox-X -6; incomplete attempts remain immutable and are not claimed as passed sessions."
+}

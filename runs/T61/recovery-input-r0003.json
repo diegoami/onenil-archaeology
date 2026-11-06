@@ -1,0 +1,5 @@
+{
+  "source": "runs/T61/post-league30-game-save-r0001.json",
+  "restore_sha256": "b246c62ff3b39c1e0bec42b30eb192a712bea01f8ee38035699424e1c2b7aa12",
+  "reason": "normal supplied-route session; startup restore precedes in-session F7, final restart/load checked explicitly"
+}

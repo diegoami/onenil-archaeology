@@ -1,0 +1,14 @@
+{
+  "canonical_check": "2 completed sessions, 46 screens verified",
+  "completed_sessions": [
+    "session-r0004",
+    "session-r0005"
+  ],
+  "restored_final_league_management_text": "matches source F7 capture exactly",
+  "final_results_rows": "session5 step4 matches session2 step52",
+  "final_table_rows": "session5 step7 matches session2 step53",
+  "manual_links_checked": 52,
+  "targeted_tests": "75 passed",
+  "screen_record_embed_scan": "PASS, including aborted attempts; see embed-targeted-r0001.json",
+  "full_repository_embed_scan": "running separately against tracked head 28999b86b38d64ab71543eeeedafb109543c575c; no pass claimed here"
+}

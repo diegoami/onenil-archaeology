@@ -1,0 +1,46 @@
+{
+  "sessions": [
+    {
+      "directory": "runs/T61/session-r0001",
+      "status": "aborted",
+      "error": "ValueError: screen ID",
+      "screens": 95,
+      "producer": "361b6890b93ee526f21a77b1c79bef8b44074b50",
+      "prefix_hashes_verified": true,
+      "canonical_completed": false
+    },
+    {
+      "directory": "runs/T61/session-r0002",
+      "status": "aborted",
+      "error": "RuntimeError: dosbox-x exited with code -6 during a savestate",
+      "screens": 80,
+      "producer": "c6fbb0999ca83b507e6dd3971cc67a3b95d2d368",
+      "prefix_hashes_verified": true,
+      "canonical_completed": false
+    },
+    {
+      "directory": "runs/T61/session-r0003",
+      "status": "aborted",
+      "error": null,
+      "screens": 21,
+      "producer": "8f6e63be8c798041efcfb3f3bfe3e743cdf1822b",
+      "prefix_hashes_verified": true,
+      "canonical_completed": false
+    },
+    {
+      "directory": "runs/T61/session-r0004",
+      "status": "completed",
+      "error": null,
+      "screens": 37,
+      "producer": "ecbf0be37540e1504fe09bcf632f5ef4ea29f9d1",
+      "prefix_hashes_verified": true,
+      "canonical_completed": true
+    }
+  ],
+  "next_season_visible_reload": "exact text match step34 to step36",
+  "fresh_process_receipt_verified": true,
+  "prior_evidence_base": "361b6890b93ee526f21a77b1c79bef8b44074b50",
+  "prior_evidence_files_unchanged": 3350,
+  "chapter_and_index_links_checked": 51,
+  "note": "Aborted prefix hash checks do not satisfy the completed-session scanner exception or mark those attempts passed."
+}
