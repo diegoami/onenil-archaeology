@@ -1,0 +1,33 @@
+{
+  "status": "local checks pass; dependency publication/hosted CI/merges pending",
+  "candidate_before_receipt": "9ec0131f446dd7a141b6d7b149ab22d8c3d0bce1",
+  "workflow_catalog": "runs/T62/catalog-r0001.json",
+  "workflows": 83,
+  "menu_slots": 18,
+  "screenshot_references": 338,
+  "referenced_sessions": {
+    "completed_authenticated": 24,
+    "aborted_retained": 3
+  },
+  "native_statuses": {
+    "partial": 11,
+    "missing": 72
+  },
+  "native_commit": "a634fb27a2d438c67d20e95cf66aa11bc0737732",
+  "native_tree_matches_inspected_checkout": true,
+  "targeted_tests": "75 passed",
+  "capture_checks": {
+    "T59": "1 session, 177 screens",
+    "T60": "1 session, 163 screens",
+    "T61": "2 sessions, 46 screens"
+  },
+  "prior_evidence_unchanged": 5129,
+  "full_embed_scan": {
+    "baseline": "ae01199aebb56e119349bb08ae81fde359f29351",
+    "exit_code": 0,
+    "output": "embed check: ok\n"
+  },
+  "followups": "R0 owner review, U0 owner UI decision, B1-B6 first campaign week; G01-G14 unvisited research branches remain explicit",
+  "publication": "Not pushed: local ancestors include T59 receipt and T60/T61 provenance awaiting previously requested permission. No archive uploaded by T62.",
+  "owner_review": "Prompt prepared; not executed."
+}

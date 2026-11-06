@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "base": "43beb38c1993e89beaf99bcf72f51d2ab66c1b3f",
+  "prior_evidence_files_unchanged": 5129,
+  "method": "git diff --quiet BASE -- runs records traces :(exclude)runs/T62",
+  "scope": "All pre-existing original measured evidence, including local T59-T61 candidates. New T62 records are append-only."
+}

@@ -4,7 +4,8 @@
 workflows before the management rebuild. It is being built from actual play;
 it does not describe a proposed replacement UI.
 
-See the [roadmap and backlog](../roadmap.md) and
+See the [current coverage audit](coverage-audit.md), [native workflow gap matrix](native-gaps.md),
+[owner review prompt](review-prompt.md), [roadmap and backlog](../roadmap.md) and
 [manual milestone](https://github.com/diegoami/onenil-archaeology/issues/135).
 
 The [executable UI blueprint](executable-ui.md) recovers template geometry and
@@ -27,24 +28,27 @@ composition, fixed spans, dynamic destinations and input/move/play boundaries.
 
 | Chapter | Evidence requirement | Backlog |
 | --- | --- | --- |
-| [Startup and main menu](startup.md) | Observed supplied-save route: S001/S002, W001; other main-menu actions unvisited | #136 |
-| [New-game setup](setup.md) | Observed S003–S009/W002–W004: England 1994/95, one manager, club browsing, name/nationality, Escape/default/blank-name branches; all four starting-season setup routes and two managers observed; see branch matrix | #137 |
-| [Saving and loading](saves.md) | Observed F7, F10/N, two-save selector, Escape and fresh-process MANUAL reload with matching visible state; error and post-match persistence branches pending | #137 |
-| [Squad browsing and player details](squad.md) | Observed skills/details, three players, empty reserves, options/cancel, Space/Ins shortcuts; lineup/individual changes are in selection.md; conditional availability remains pending | #138 |
-| [Lineup and individual instructions](selection.md) | Observed swap/cancel, current-position cycle, Club position restore, goalkeeper instruction cycle and changed-state reload; team tactics/conditional validation pending | #138 |
-| [Match preparation](match-preparation.md) | Observed opponent/configuration, eight team instruction cycles, formation change/restoration, statistics, pitch kickoff and insufficient-player refusal; watched/quick completion pending | #139 |
-| [Watched match](watched-match.md) | Observed display/speed/history, bench, request cancellation, halftime/replacement, fulltime/statistics and next-week management return; quick/conditional branches pending | #139 |
-| [Quick results and fixture browsing](quick-results.md) | Observed Watch-off/R routes, halftime/fulltime/main return, tables/empty results/cup pairings/weekly fixtures and schedule paging; season progression pending | #139/#142 |
-| [Transfers and scouting](transfers.md) | Observed market/scout, bid cancel/refusal, accepted purchase and squad change, listing/unlisting; renewal/expiry and completed selling pending | #140 |
-| [Contracts and youth trials](contracts.md) | Observed renewal editing/cancel/refusal, both dismissal confirmations/cancellations and actual removal, goalkeeper trial recruitment; expiry/accepted renewal pending | #140 |
-| [Finances, staff and stadium](administration.md) | Observed accounts, staff refusal/hire/cancel/sack cancellation, weekly posting and stadium order/abort; deferred completion pending | #141 |
-| [Statistics, histories and other teams](history.md) | Observed availability messages, transfer/team history, club/division/panel/squad browsing and exits; populated seasonal views pending | #142 |
-| [League start and weekly events](league-start.md) | Observed league4/Statistics, cup progression/injury replacement, expiry renewal, actual sale, international/suspension and progressed-save reload; later season/rollover pending | #142 |
-| [Autumn progression and cup ties](autumn.md) | Observed through league10, completed European tie, extra-time goal, eligibility refusal, contract warnings and deferred job offer; winter/rollover pending | #142 |
-| [Midseason progression](midseason.md) | Observed through league16, European/FA elimination, group-stage observer week, expiry listing, retiring-player renewal, neutral semi-final and weekly announcements; season finish pending | #142 |
-| [Later-season progression](later-season.md) | Observed through league24, tribunal departure/payment, scheduled friendlies, neutral cup win/celebration, expiry listing and admitted lineup; finish/rollover pending | #142 |
-| [Season finish and rollover](season-rollover.md) | Observed final results, season-information confirmation, promotion/relegation summaries, retirement despite renewal, populated history, new fixtures/reset table and fresh-process 1995/96 reload; failed attempts and deeper-history limitation retained | #142 |
+| [Startup and main menu](startup.md) | Observed supplied-save route W001; menu actions reconciled across later chapters in coverage-audit.md; Previous player remains unvisited | #136 |
+| [New-game setup](setup.md) | Observed W002–W004/W007–W009: four starting-season routes, one/two managers, names/nationalities and duplicate refusal; invalid-input/load-error branches remain G01/G02 | #137 |
+| [Saving and loading](saves.md) | Observed F7, quit N, multiple-save selector/Escape and fresh-process reload; W017/W057/W083 extend to changed lineup, weeks and next season; errors/F10-Y remain G01 | #137 |
+| [Squad browsing and player details](squad.md) | Observed W010–W013 skills/details/reserves/options and shortcuts; W054/W067 add availability/injury states; remaining variants G04/G05 | #138 |
+| [Lineup and individual instructions](selection.md) | Observed W014–W017 move/cancel, positions/instructions and changed-state reload; W020 adds team instruction cycles, W023/W061 admission refusal; remaining G04/G05 | #138 |
+| [Match preparation](match-preparation.md) | Observed W018–W023 opponent/configuration, team instructions, formation, statistics, kickoff and missing-player refusal; W061 adds unavailable-player refusal; other options G03/G05 | #139 |
+| [Watched match](watched-match.md) | Observed W024–W030 named actions/history, display/speed, bench/cancel, halftime/replacement, final statistics and next-week return; further managed variants G05/G10 | #139 |
+| [Quick results and fixture browsing](quick-results.md) | Observed W031–W035 Watch-off/R, browsing and next week; later chapters add league/cup progression, extra time and rollover; penalties/viewer watch/print remain G10/G11/G14 | #139/#142 |
+| [Transfers and scouting](transfers.md) | Observed W036–W039 bid cancel/refusal/purchase, listing and scout search; W053/W073 add actual sales/tribunal payment; negotiation/empty-results cases G06 | #140 |
+| [Contracts and youth trials](contracts.md) | Observed W040–W042 edit/cancel/refusal, dismissal and trial; W052/W068/W069/W076 add expiry/listing/renewal and W081 retirement despite renewal; trial lifecycle/other refusals G06/G07 | #140 |
+| [Finances, staff and stadium](administration.md) | Observed W047–W050 accounts, staff refusal/hire/cancel/sack N, weekly posting and stadium order/abort; actual staff dismissal, stadium completion and isolated admin reload remain G07–G09 | #141 |
+| [Statistics, histories and other teams](history.md) | Observed W043–W046 unavailable views, history and other-club browsing; W056 adds populated statistics, W082 seasonal summary; deeper history/categories remain G12/G13 | #142 |
+| [League start and weekly events](league-start.md) | Observed W051–W057 league4, expiry/sale/availability, cup injury and progressed-save reload; later traversal reaches next season; rule/variant gaps G05–G13 | #142 |
+| [Autumn progression and cup ties](autumn.md) | Observed W058–W064 league10, completed European tie, extra time, eligibility refusal, warnings and deferred/refused job offer; later lifecycle in W065–W083; job acceptance G08 | #142 |
+| [Midseason progression](midseason.md) | Observed W065–W072 league16, elimination/groups, listed expiry, retiring-player renewal, neutral semi-final and announcements; later continuation W073–W083 | #142 |
+| [Later-season progression](later-season.md) | Observed W073–W078 league24, tribunal payment, friendlies, neutral cup win/celebration, listed expiry and actual admission; final results/rollover W079–W083 | #142 |
+| [Season finish and rollover](season-rollover.md) | Observed W079–W083 final results, season-information Y, promotion/relegation summaries, retirement, populated history, new fixtures/reset table and exact1995/96 reload; failed prefixes/deeper-history gap G13 retained | #142 |
 
+[designed] The audit is the current cross-chapter coverage statement. Early
+chapters describe their own original slice; a later cited procedure can close a
+previously pending observation without rewriting that slice’s measured records.
 Until a chapter cites its captures, its workflows are unvisited in this manual.
 Engine traces and older text-only observations provide research context; they
 are not substitutes for the requested illustrated walkthrough.

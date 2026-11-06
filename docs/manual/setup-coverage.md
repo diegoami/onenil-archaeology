@@ -34,8 +34,11 @@ of a season, competition or every input string.
 | Escape in saved-game selector | Observed: remains | T43/session-r0003 step 15 |
 | No save files / unreadable save | Unvisited | Separate isolated filesystem scenario needed |
 | New-game filename collision | Partly observed | Default SAVE1 accepted; destructive/overwrite semantics untested |
-| Persistence after tactics, match or week | Unvisited | Squad/matchday/season chapters must check it |
+| Persistence after tactics, match or week | Observed within named scenarios | Selection W017, league-start W057 and season-rollover W083 verify exact visible state after fresh-process game-save reload |
 
 The manual milestone remains open until these gaps and the other management
 chapters are reconciled by the coverage audit (#143). This matrix does not close
 #137 merely because the four season selectors have been traversed.
+
+[confirmed] The [coverage audit](coverage-audit.md) reconciles later observations
+and retains G01/G02 for the still-unvisited setup/load/manager branches.
