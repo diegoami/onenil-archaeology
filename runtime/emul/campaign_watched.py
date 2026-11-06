@@ -2,6 +2,7 @@
 """T67: execute the actual original saved-campaign watched match, without a model."""
 import argparse
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -29,6 +30,8 @@ def source():
 
 
 def identity(start, base):
+    if set(start) != {'schema', 'producer', 'producer_files', 'source', 'state_sha256', 'release', 'watch_setting', 'interventions'} or start['schema'] != 'original-campaign-watched-start/1':
+        raise ValueError('campaign start metadata fields differ')
     if start['source'] != {'record': SOURCE, 'sha256': SOURCE_SHA}:
         raise ValueError('watched campaign source differs')
     if start['state_sha256'] != admission.STATE_SHA or start['release'] != base['source']['release']:
@@ -168,12 +171,19 @@ def publish_prefix(directory):
     import inventory
     scanner = inventory.EmbedIndex(inventory.original_sources())
     for name in names:
+        if not re.fullmatch(r'(?:start|index|chunk-\d{6}|repeat-\d{4}|attempt-\d{4}-(?:start|finish|verified-\d{6}))\.json', Path(name).name):
+            raise ValueError('unexpected campaign publication leaf: ' + name)
         data = (ROOT / name).read_bytes()
         json.loads(data)
         if scanner.find(data) is not None:
             raise ValueError('original-byte publication refusal: ' + name)
+    # The live writer may have closed another chunk since the first census.
+    # Revalidate after reading the publication snapshot, before staging it.
+    check_prefix(directory)
+    if (directory / 'index.json').exists():
+        check(directory)
     subprocess.run(['git', 'add', '--', *names], cwd=ROOT, check=True)
-    subprocess.run(['git', 'commit', '-m', f'T67 original campaign checkpoint: {result["ticks"]} ticks'], cwd=ROOT, check=True)
+    subprocess.run(['git', 'commit', '-m', 'T67: preserve verified decoded campaign stream checkpoint'], cwd=ROOT, check=True)
     subprocess.run(['git', 'push'], cwd=ROOT, check=True, timeout=120)
     text = ('T67 original campaign capture checkpoint pushed on task/T67-campaign-watched. '
             'This is an in-progress source stream; no completed match or independent repeat is assumed. '

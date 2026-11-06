@@ -68,7 +68,10 @@ def test_changed_source_start_release_and_intervention_refuse():
     base = module.source()
     start = dict(source={'record': module.SOURCE, 'sha256': module.SOURCE_SHA},
                  state_sha256=module.admission.STATE_SHA, release=base['source']['release'],
-                 watch_setting=1, interventions=[], producer_files={})
+                 watch_setting=1, interventions=[], schema='original-campaign-watched-start/1',
+                 producer=module.admission.git('rev-parse', 'HEAD').decode().strip(),
+                 producer_files={module.TOOL: module.sha(module.admission.git('show', 'HEAD:' + module.TOOL))})
+    module.identity(start, base)
     for field in ['source', 'state_sha256', 'release', 'watch_setting', 'interventions']:
         bad = copy.deepcopy(start)
         if field == 'source': bad[field]['sha256'] = '0' * 64
