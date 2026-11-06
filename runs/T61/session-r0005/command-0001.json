@@ -1,0 +1,5 @@
+{
+  "restart": true,
+  "id": "S17000-restore-final-results-checkpoint",
+  "wait": 1
+}

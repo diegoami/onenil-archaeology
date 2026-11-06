@@ -9,8 +9,10 @@ decoded displays and PNG digests are in the adjacent step records. Producers:
 [session3](../../runs/T61/session-r0003/session.json),
 `8f6e63be8c798041efcfb3f3bfe3e743cdf1822b`;
 [session4](../../runs/T61/session-r0004/session.json),
-`ecbf0be37540e1504fe09bcf632f5ef4ea29f9d1`.
-Only session4 completed and passes the canonical session validator. Earlier
+`ecbf0be37540e1504fe09bcf632f5ef4ea29f9d1`;
+[session5](../../runs/T61/session-r0005/session.json),
+`28999b86b38d64ab71543eeeedafb109543c575c`.
+Sessions4/5 completed and pass the canonical session validator. Earlier
 attempts remain immutable failure evidence; their observed displays are
 identified separately below. Scores are this run's outcomes, not predictions.
 
@@ -59,8 +61,15 @@ Blackburn41, Manchester United40; Blackburn played30, scored68 and conceded41
 (step53). F7 at step57 preserves the final-league continuation used below.
 
 ![Final-match injury](../../runs/T61/session-r0002/step-0039.png)
-![Final league results](../../runs/T61/session-r0002/step-0052.png)
-![Final league table](../../runs/T61/session-r0002/step-0053.png)
+[confirmed: completed session5] A separate fresh-process restoration of the
+post-league30 save reproduces the saved management text (steps1/2). Navigate
+Down seven to League results, Enter: MATCH NO#30 shows the same5–3 result
+(steps3/4). Escape, Up to League tables, Enter reproduces the same final table
+(steps5–7). Escape exits and the session ends cleanly (step8). These completed
+captures establish the final results independently of the interrupted playthrough.
+
+![Final league results](../../runs/T61/session-r0005/step-0004.png)
+![Final league table](../../runs/T61/session-r0005/step-0007.png)
 
 ## W080 — European final and the actual End of season entry
 
