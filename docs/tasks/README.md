@@ -88,3 +88,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T61 Original season finish and rollover manual](T61.md)
 
 - [T62 Illustrated-manual coverage and native gap audit](T62.md)
+
+- [T63 Correct referenced aborted-session attribution](T63.md)
