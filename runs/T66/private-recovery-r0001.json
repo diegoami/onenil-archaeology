@@ -1,0 +1,11 @@
+{
+  "schema": "private-recovery-receipt/1",
+  "name": "T66-initial-PSG-start-r0001.tar.gz",
+  "size": 274127,
+  "sha256": "46bef08e9f9f829ebdc0b395faf9d73331149e25201924789ab6c2d53401d2d8",
+  "state_sha256": "7a66ef10043b0a6da9312b8f729a5c4e6009096d955c1f7f4a7cf9b2507a78fc",
+  "drive_file_id": "1H6Px4EjiTCO-MOclPosRtVBX87TnYUA0",
+  "parent_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "shared": false,
+  "metadata_readback_verified": true
+}
