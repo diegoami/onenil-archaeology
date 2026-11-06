@@ -153,3 +153,24 @@ whole workflow group.
 exhibition. The missing bridge is persistent campaign state and the management
 transitions feeding that engine and consuming its result. Counts above must not
 be presented as a percentage of game code completed or a delivery-time estimate.
+
+## Requirements for the later UI decision
+
+[derived from the named original workflows] Native#103 can compare the same
+acceptance cases across its proposed delivery technologies. These requirements
+describe what the spikes must demonstrate; this audit selects no technology.
+
+| Requirement | Original evidence | Concrete spike acceptance |
+| --- | --- | --- |
+| Dense squad and linked detail panels | W010–W017, executable-squad.md | Navigate first XI/subs/reserves by keyboard, keep selected player identity stable, and show detail/skills without losing the pending move. |
+| Explicit transaction and cancellation boundaries | W014/W025/W036–W042/W048/W049/W068 | Preview one move or contract edit, commit once, cancel without unintended mutation, and distinguish a dismissal confirmation from a listing/expiry transition. |
+| File persistence and offline use | W005/W006/W017/W057/W083 | Save real state, close/reopen the application offline, load it and compare the visible lineup/instructions/week. Include an invalid-save refusal without replacing current state. |
+| Responsive match preparation and matchday return | W019/W024–W030, native N1/N2 | Keep the UI responsive while the existing Rust engine prepares the selected XI; follow commentary/pitch/halftime/fulltime and commit the actual result into one campaign fixture. |
+| Long, navigable competition/history views | W033–W035/W044/W056/W082 | Browse a populated table, fixture schedule and history with keyboard/paging while preserving club/year/category context. |
+| Clear conditional availability and accounting feedback | W023/W050/W054/W061/W067/W073 | Surface a refused XI with the actual reason, preserve the edit, and show one real weekly posting/tribunal payment without using display text as the state model. |
+| Separate normal save and seasonal archive | W081–W083 and G13 | Define how both file purposes are represented/exported; retain the unverified .95 deeper-view limitation and do not claim it already reloads correctly. |
+
+[designed] The owner chooses technology after the combined manual/audit review.
+Accessibility, installation/distribution, Rust integration and validation costs
+belong in that comparison alongside these original-workflow cases. The current
+browser exhibition establishes one working presentation, not that decision.
