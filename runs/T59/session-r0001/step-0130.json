@@ -1,0 +1,22 @@
+{
+  "number": 130,
+  "previous": "5c30313765939a3c4b9e7c01210e539fa79cd9d17c1234ed569d965ecc4157cd",
+  "id": "S8129-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2\n\n ---Nottingham F  3v0  Millwall-------\n ----Tottenham H  2v1  Blackburn R----\n ------Wimbledon  4v1  Southend Utd---\n ----Southampton  2v0  Leicester City-\n --------Everton  3v1  Watford--------\n ----Aston Villa  0v3  Liverpool------\n -------Bolton W\u221a 1v1  Crystal Palace-\n -----Middlesbro  2v0  Oldham Ath-----\n ---------Wolves  0v2  Reading--------\n Tranmere Rovers  1v2  Chelsea--------\n ---Norwich City  3v1  Manchester Utd-\n -----Stoke City  0v4  Arsenal--------\n -----Sunderland  0v4  Q.P.R----------\n ------Port Vale  0v5  Manchester City\n ---Swansea City  1v0  Brighton & HA--\n ------Blackpool  0v2  Coventry City--\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "3f8afecbbbe69dac9763a7c7e82c16cff6f210c80714931dcc5454d2c20d17f9",
+  "screen_sha256": "090796528a1e775636f58a95b85f63a1ee418c6c8313d8e44ce66a1ec1167d96",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0130.png",
+  "screenshot_sha256": "c4b1feebdd5671de7fdda612a2874c6c5a6b459655a921e6685862c884fd4634",
+  "time": "2026-11-05T23:32:51.460Z"
+}

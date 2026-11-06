@@ -1,0 +1,17 @@
+{
+  "number": 31,
+  "previous": "f793514823759715100510975c56b91669bc9aca478ca6a4090a87c2d63d696b",
+  "id": "S10030-later-season-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2                          FA Cup Round 3\n\n ----Tottenham H  2v1  Blackburn R----   ------Liverpool  3v2  Q.P.R----------\n ---Nottingham F  3v0  Millwall-------   ----Tottenham H  2v0  Coventry City--\n ----Southampton  2v0  Leicester City-   ---Nottingham F  0v1  Manchester City\n ------Wimbledon  4v1  Southend Utd---   ----Southampton  1v0  Middlesbro-----\n --------Everton  3v1  Watford--------   ------Wimbledon  1v1 \u221aArsenal--------\n ----Aston Villa  0v3  Liverpool------   --------Reading  2v0  Bolton W-------\n -------Bolton W\u221a 1v1  Crystal Palace-   ---Norwich City\u221a 1v1  Chelsea--------\n -----Middlesbro  2v0  Oldham Ath-----   ---Swansea City  2v4  Everton--------\n ---------Wolves  0v2  Reading--------\n ---Norwich City  3v1  Manchester Utd-  FA Cup Quarter Finals\n Tranmere Rovers  1v2  Chelsea--------\n -----Stoke City  0v4  Arsenal--------   ------Liverpool   v   Tottenham H----\n ------Port Vale  0v5  Manchester City   ----Southampton   v   Everton--------\n -----Sunderland  0v4  Q.P.R----------   Manchester City   v   Reading--------\n ---Swansea City  1v0  Brighton & HA--   ---Norwich City   v   Arsenal--------\n ------Blackpool  0v2  Coventry City--\n\n\n\n\n\n\n Friendly arranged for  Jan 18    ---------Celtic v Blackburn R----   Press ESC",
+  "text_sha256": "29402c000bb971d4daff0c23bd8186ccf883a16aab0a7a7c228a21bb6cc4535b",
+  "screen_sha256": "0f56821b4dad5316e32fecca638742930d4ffc1c119803d109712986b5ed7eaf",
+  "highlighted": [],
+  "screenshot": "step-0031.png",
+  "screenshot_sha256": "85af227d99e9e8fcba90b90d43bd505424c31f2afc82126638354dde80055348",
+  "time": "2026-11-05T23:50:30.899Z"
+}

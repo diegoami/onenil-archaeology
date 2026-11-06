@@ -1,0 +1,22 @@
+{
+  "number": 131,
+  "previous": "cfea0295546e60557349c9f8387018cd3f11533f4eca8b3077919c5d4d4babd8",
+  "id": "S8130-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2                          FA Cup Round 3\n\n ---Nottingham F  3v0  Millwall-------   ------Liverpool   v   Q.P.R----------\n ----Tottenham H  2v1  Blackburn R----   ---Nottingham F   v   Manchester City\n ------Wimbledon  4v1  Southend Utd---   ----Tottenham H   v   Coventry City--\n ----Southampton  2v0  Leicester City-   ------Wimbledon   v   Arsenal--------\n --------Everton  3v1  Watford--------   ----Southampton   v   Middlesbro-----\n ----Aston Villa  0v3  Liverpool------   --------Reading   v   Bolton W-------\n -------Bolton W\u221a 1v1  Crystal Palace-   ---Norwich City   v   Chelsea--------\n -----Middlesbro  2v0  Oldham Ath-----   ---Swansea City   v   Everton--------\n ---------Wolves  0v2  Reading--------\n Tranmere Rovers  1v2  Chelsea--------\n ---Norwich City  3v1  Manchester Utd-\n -----Stoke City  0v4  Arsenal--------\n -----Sunderland  0v4  Q.P.R----------\n ------Port Vale  0v5  Manchester City\n ---Swansea City  1v0  Brighton & HA--\n ------Blackpool  0v2  Coventry City--\n\n\n\n\n\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "a581e5f42122ed35fa900078d996987c77f08271dceeefcecce6758a162a3940",
+  "screen_sha256": "949266951529af5beb0cc274d2f81829c62f9dfffe3d35f5e46650c71fd95ed0",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0131.png",
+  "screenshot_sha256": "3610a999a2f098f6db51e145bdd88535004b0bc773315ecd0f2b087c8f4591ba",
+  "time": "2026-11-05T23:32:57.473Z"
+}

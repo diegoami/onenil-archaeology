@@ -1,0 +1,22 @@
+{
+  "number": 73,
+  "previous": "35a6c16b2f6a82217a8aa440f8383ba18e83fede284059d2132fd9872bc31e4e",
+  "id": "S8072-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "League Cup Round 2                      League Cup Round 3\n\n ----------Q.P.R  0v1  Tottenham H----   ----Blackburn R  2v1  Ipswich Town---\n ------Leeds Utd  2v0  Leicester City-   ------Wimbledon\u221a 1v1  Tottenham H----\n ------Liverpool  1v0  Manchester City   --------Chelsea  1v0  Southampton----\n ---Nottingham F  2v1  W.B.A----------   --------Arsenal  1v2  Leeds Utd------\n ------Wimbledon  3v1  Manchester Utd-   -Crystal Palace  2v0  Barnsley-------\n ----Southampton  3v0  Bolton W-------   -----Stoke City  1v2  Liverpool------\n --------Arsenal  3v2  Sheffield Wed--   -------Millwall  0v2  Nottingham F---\n ---Ipswich Town  4v1  Southend Utd---   -----Oxford Utd  1v1 \u221aMiddlesbro-----\n -----Middlesbro  1v0  Coventry City--\n -------Millwall  5v2  Port Vale------  League Cup Quarter Finals\n -----Luton Town  0v1  Blackburn R----\n -----Sunderland  1v3  Stoke City-----   ------Leeds Utd  3v1  Middlesbro-----\n ---Stockport Co  4v5  Barnsley-------   ------Liverpool  1v1 \u221aNottingham F---\n -----Oxford Utd\u221a 0v0  Norwich City---   ------Wimbledon  2v0  Crystal Palace-\n ------York City  2v7  Chelsea--------   --------Chelsea  0v4  Blackburn R----\n -Bristol Rovers  0v1  Crystal Palace-\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "17ae73242942a23114f60bed037d109864922d248d71ad44a163206dd18f6e99",
+  "screen_sha256": "8e7680e5f800e4ab172a56f84e50ba87a9bd16744273702f8e58b768e843783d",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0073.png",
+  "screenshot_sha256": "8ffb315802d7a58d57ff45d21c58e4f865b428cdfb491f0111f1831e8048c451",
+  "time": "2026-11-05T23:22:44.471Z"
+}

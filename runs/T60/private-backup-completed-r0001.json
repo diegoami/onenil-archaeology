@@ -1,0 +1,13 @@
+{
+  "status": "uploaded and metadata verified; owner approved upload and public provenance publication",
+  "owner_authorization": "yes approve all, in response to the separate T59/T60/T61 approval requests",
+  "archive": "T60-later-season-game-saves-r0001.tar.gz",
+  "archive_bytes": 172255,
+  "local_archive_sha256": "305f34ca50313df4d5d190513d5ba237a84d1e18ed21baee2315d3688284eb73",
+  "drive_file_id": "1yCPGguEzBKtSCJN99GHTBfEO6LfBh4NA",
+  "drive_url": "https://drive.google.com/file/d/1yCPGguEzBKtSCJN99GHTBfEO6LfBh4NA/view?usp=drivesdk",
+  "parent_folder_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "remote_size_verified": 172255,
+  "remote_mime_verified": "application/gzip",
+  "remote_checksum": "not provided by connector; no remote SHA claim"
+}
