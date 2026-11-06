@@ -1,0 +1,12 @@
+{
+  "checked_head": "75708169000fd167e0693339332d9e9a6307aeeb",
+  "checks": {
+    "observer": "PASS",
+    "current_catalog": "PASS:83 workflows,18 menus,20 families,14 gaps; inherited T62 assertions",
+    "original_file_check": "PASS",
+    "raw_and_hex_byte_scan": "PASS:6 changed files, original_sources()",
+    "preservation": "PASS:5243 earlier runs/static/task tree entries unchanged",
+    "git_diff_check": "PASS"
+  },
+  "historical_catalog": "T62 checker and records unchanged; apply to historical source head. T64 is current chapter-hash revision, assertions unchanged."
+}
