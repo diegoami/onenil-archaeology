@@ -19,6 +19,10 @@ Press **N** to cancel and return to the same main menu. This cancellation was
 exercised, not inferred from the wording. The Y confirmation branch has not yet
 been exercised in this persistence scenario.
 
+![S010: menu after F7](../../runs/T43/session-r0003/step-0009.png)
+![S011: quit confirmation](../../runs/T43/session-r0003/step-0010.png)
+![S009 variant: quit cancelled](../../runs/T43/session-r0003/step-0011.png)
+
 ## Harness intervention and limits
 
 [designed] A controlled fresh emulator process preserves only `.1-0` game saves,
@@ -57,9 +61,6 @@ menu. `end.json` records a completed capture and termination of its processes.
 
 ![S003 variant: edited filename](../../runs/T43/session-r0003/step-0002.png)
 ![S009: named game before save](../../runs/T43/session-r0003/step-0008.png)
-![S010: menu after F7](../../runs/T43/session-r0003/step-0009.png)
-![S011: quit confirmation](../../runs/T43/session-r0003/step-0010.png)
-![S009 variant: quit cancelled](../../runs/T43/session-r0003/step-0011.png)
 ![S012: saved-game selector](../../runs/T43/session-r0003/step-0013.png)
 ![S012 variant: SAVE1 selected](../../runs/T43/session-r0003/step-0014.png)
 ![S012 variant: Escape leaves list](../../runs/T43/session-r0003/step-0015.png)
