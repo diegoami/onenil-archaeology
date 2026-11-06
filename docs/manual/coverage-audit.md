@@ -42,6 +42,15 @@ bytes are not product assets.
 a visible label. Enter activates a highlighted item; Escape and conditional
 outcomes follow the cited procedure, not a blanket cancel convention.
 
+[confirmed] Static reconstruction is useful but bounded: T57 compares main-menu
+and configuration templates with original captures; T58 compares five squad and
+preparation components,93 fixed spans and1057 border cells. T57's146 decodable
+callsites are candidate components, not146 verified whole screens. Resources
+2864:7076 and2864:136A remain unresolved under the strict decoder; no guard was
+relaxed. The338 illustrated states and83 procedures are a different measure from
+the count of executable template components. These unresolved static cases stay
+visible alongside G14's remaining presentation/output work.
+
 | Slot | Action | Illustrated transition evidence | Current boundary / remaining case |
 | --- | --- | --- | --- |
 | 1 | PLAY NEXT GAME / NEXT PLAYER | W007 two-manager handover; W019/W024/W030/W031 preparation and next week; W051–W083 season progression | Single-manager play and first-to-second manager handover observed. Full two-manager match/week progression remains G02. |

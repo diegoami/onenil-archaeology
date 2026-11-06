@@ -1,0 +1,13 @@
+{
+  "base": "ae01199aebb56e119349bb08ae81fde359f29351",
+  "head": "7cc85d9866c583ae77dc3180f059f13cf2304ffb",
+  "files_checked": [
+    "docs/manual/README.md",
+    "docs/manual/coverage-audit.md",
+    "docs/manual/native-gaps.md",
+    "docs/manual/review-prompt.md",
+    "docs/roadmap.md"
+  ],
+  "status": "PASS",
+  "hits": []
+}
