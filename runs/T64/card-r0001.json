@@ -1,0 +1,112 @@
+{
+  "schema": "original-put-here-card-proof/1",
+  "source": "0c5779cb93013cada63706c92c390def83705ee4",
+  "observer_sha256": "d8713a2c6a490ba82fea9f3505ccd72e8f27776ea95f5d95c5c5fd874e6e89a9",
+  "region": [
+    0,
+    0,
+    480,
+    376
+  ],
+  "colour_mode": "RGB; decompressed rendered pixels read only",
+  "skills": [
+    {
+      "record": "runs/T46/session-r0001/step-0002.json",
+      "record_sha256": "38e7fb71fcca2ffbfdd1b9b516a4da4836396404c3e5c535925eec29f2ffb3b6",
+      "screenshot_sha256": "fd898e89ad49408231c78a36807e202d7025470758a76a573d2b30d3a517e04c",
+      "highlighted_player": "T Flowers",
+      "panel_rgb_sha256": "aa3709f72912ee3af806a1d06b67e15d5c254abb355c6c29f8ac5edac0739766",
+      "action": "move player"
+    },
+    {
+      "record": "runs/T46/session-r0001/step-0003.json",
+      "record_sha256": "dfc0dc4ab599d052f9f74d1652043ef23b25a7f7ec9950722c255f838f3e5357",
+      "screenshot_sha256": "066607a0ae9ebda9fcc61092e2dd531de7235a0e4e8b0ce403578955024e97ac",
+      "highlighted_player": "T Flowers",
+      "panel_rgb_sha256": "aa3709f72912ee3af806a1d06b67e15d5c254abb355c6c29f8ac5edac0739766",
+      "action": "PUT HERE"
+    },
+    {
+      "record": "runs/T46/session-r0001/step-0004.json",
+      "record_sha256": "2a96898e37b8edec1786f620f97304084c2911f80371f653ec3780bdd303afbb",
+      "screenshot_sha256": "fd898e89ad49408231c78a36807e202d7025470758a76a573d2b30d3a517e04c",
+      "highlighted_player": "T Flowers",
+      "panel_rgb_sha256": "aa3709f72912ee3af806a1d06b67e15d5c254abb355c6c29f8ac5edac0739766",
+      "action": "move player"
+    },
+    {
+      "record": "runs/T46/session-r0001/step-0006.json",
+      "record_sha256": "7f00c57803e0e1a296d81eba8cc83b6b8add54d8a5cd0e6182a840165dbf8ca6",
+      "screenshot_sha256": "8b104998b99e3e94e02c9b47323347e414dca6f5ae8154e828e48540826c10ca",
+      "highlighted_player": "B Mimms",
+      "panel_rgb_sha256": "ef609c9244e8e77721eca54c8cf3836f807f27c57018be4431f3fe787e87cfda",
+      "action": "PUT HERE"
+    },
+    {
+      "record": "runs/T46/session-r0001/step-0007.json",
+      "record_sha256": "4b27c1fc007a86693865970aa0e325f094ccac08969f24dacf56df477e73ae0e",
+      "screenshot_sha256": "f086812a0244cbcc788d75ace421782cb37166f6a4fb8a1738582f06b39be5c9",
+      "highlighted_player": "T Flowers",
+      "panel_rgb_sha256": "aa3709f72912ee3af806a1d06b67e15d5c254abb355c6c29f8ac5edac0739766",
+      "action": "move player"
+    },
+    {
+      "record": "runs/T46/session-r0001/step-0008.json",
+      "record_sha256": "017e7d56fecaebe8f7349131e3a368da0ef82b96ee4042dcd7b03e16f91625b2",
+      "screenshot_sha256": "1c5d9f101281f9cc669a23c99ee80747cee16c6dee1246f7db6254d50e896b61",
+      "highlighted_player": "B Mimms",
+      "panel_rgb_sha256": "ef609c9244e8e77721eca54c8cf3836f807f27c57018be4431f3fe787e87cfda",
+      "action": "move player"
+    }
+  ],
+  "details": [
+    {
+      "record": "runs/T59/session-r0001/step-0150.json",
+      "record_sha256": "9991ceda687d77a8083e93f918b2161a03b407a5d13fd1983ba38f61beb37bca",
+      "keys": [
+        "Down",
+        "Down",
+        "Down",
+        "Down",
+        "Down",
+        "Down",
+        "Down",
+        "Down",
+        "Down",
+        "Down"
+      ],
+      "card_name": "M Newell",
+      "action": "MAKE SUBSTITUTION"
+    },
+    {
+      "record": "runs/T59/session-r0001/step-0151.json",
+      "record_sha256": "f3e368d738cf31606a3bdc40b614958e73fa934211ecfc8623b5a5ef555689ed",
+      "keys": [
+        "Return"
+      ],
+      "card_name": "M Newell",
+      "action": "PUT HERE"
+    },
+    {
+      "record": "runs/T59/session-r0001/step-0152.json",
+      "record_sha256": "bb9a4c00f641b6b3d3b140a038f5d97bb2a386ad905a56c80226f624e023370e",
+      "keys": [
+        "Down"
+      ],
+      "card_name": "S Ripley",
+      "action": "PUT HERE"
+    },
+    {
+      "record": "runs/T59/session-r0001/step-0153.json",
+      "record_sha256": "414c80a73334c5f97dc3056f82ae23de7652939da24792f4aaaccb25fa8445d1",
+      "keys": [
+        "Escape"
+      ],
+      "card_name": "S Ripley",
+      "action": "MAKE SUBSTITUTION"
+    }
+  ],
+  "conclusion": "Card follows highlighted destination during PUT HERE; carried source identity remains separate. Escape in T59 leaves destination selected without committing swap.",
+  "scope": "Existing public completed captures; no original execution or new game outcome; region equality plus named detail corroboration",
+  "status": "passed"
+}

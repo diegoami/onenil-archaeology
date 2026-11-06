@@ -4,6 +4,11 @@
 workflows before the management rebuild. It is being built from actual play;
 it does not describe a proposed replacement UI.
 
+[confirmed: T64] The [PUT HERE card correction](selection.md) is checked by
+`python3 runs/T64/catalog.py --check`, using an append-only catalog revision.
+The T62 catalog/checker remain unchanged for their historical accepted head.
+The read-only pixel/details proof is `runs/T64/observe.py` (Pillow12.0.0).
+
 See the [current coverage audit](coverage-audit.md), [native workflow gap matrix](native-gaps.md),
 [owner review prompt](review-prompt.md), [roadmap and backlog](../roadmap.md) and
 [manual milestone](https://github.com/diegoami/onenil-archaeology/issues/135).
