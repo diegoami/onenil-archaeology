@@ -1,0 +1,12 @@
+{
+  "status": "uploaded and metadata verified after archive-specific owner approval",
+  "archive": "T59-midseason-game-saves-r0001.tar.gz",
+  "archive_bytes": 168793,
+  "local_archive_sha256": "6764e4520b7d7f3f0aadcba8dbdbc4a7e4d485a9ef0919f00af76ebf2edc1f85",
+  "drive_file_id": "1WNdU3j6y0GGLgwGS9uEtu-DhWMPci6FN",
+  "drive_url": "https://drive.google.com/file/d/1WNdU3j6y0GGLgwGS9uEtu-DhWMPci6FN/view?usp=drivesdk",
+  "parent_folder_id": "1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8",
+  "remote_size_verified": 168793,
+  "remote_mime_verified": "application/gzip",
+  "remote_checksum": "not provided by connector; no remote SHA claim"
+}
