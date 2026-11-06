@@ -1,0 +1,40 @@
+{
+  "schema": "T66-public-decoded-safety/1",
+  "policy": "CLAUDE.md rule14: records hold digests,counts and decoded values; original binaries/data/font/save/savestate bytes never enter git",
+  "private_sources": 37,
+  "original_window": 64,
+  "files": [
+    {
+      "path": "runs/T66/admission-r0001.json",
+      "sha256": "9639833b657ed2cf0c5684e7338843534f0d552e8323b55dd12e947a5b6e6331",
+      "size": 16212001,
+      "json_types": {
+        "dict": 32513,
+        "str": 1530,
+        "int": 358043,
+        "float": 1,
+        "NoneType": 1,
+        "list": 10111
+      },
+      "strings_longer_than100": [],
+      "original_raw_hex_hits": []
+    },
+    {
+      "path": "runs/T66/admission-r0002.json",
+      "sha256": "1740b20d867391823970d9feb0c02b3e0040f476e8d492282c38363f0015414f",
+      "size": 16212001,
+      "json_types": {
+        "dict": 32513,
+        "str": 1530,
+        "int": 358043,
+        "float": 1,
+        "NoneType": 1,
+        "list": 10111
+      },
+      "strings_longer_than100": [],
+      "original_raw_hex_hits": []
+    }
+  ],
+  "private_start_ram": "excluded from git; separately preserved in private1-0 Drive",
+  "purpose": "Authorized public archaeology evidence; both records contain the established named scalar observer protocol,not RAM/save byte dumps"
+}
