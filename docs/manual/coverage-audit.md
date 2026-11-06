@@ -2,10 +2,10 @@
 
 [confirmed: T62 catalog] The [inventory](../../runs/T62/catalog-r0001.json),
 produced from research `67dd355b4d4e5b646422fc1fdd922064bf6868d7`, covers
-W001–W083 without gaps or duplicates. It links338 distinct illustrated screens
-to their decoded records and screenshot digests. The27 referenced sessions
-include24 completed sessions authenticated by their original capture validators
-and3 aborted T61 attempts, retained explicitly as incomplete evidence. No failed
+W001–W083 without gaps or duplicates. It links 338 distinct illustrated screens
+to their decoded records and screenshot digests. The 27 referenced sessions
+include 24 completed sessions authenticated by their original capture validators
+and 3 aborted T61 attempts, retained explicitly as incomplete evidence. No failed
 attempt is relabelled completed. Native comparison is pinned separately in
 [the workflow gap matrix](native-gaps.md).
 

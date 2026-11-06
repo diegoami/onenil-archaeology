@@ -13,7 +13,7 @@ to `a634fb27a2d438c67d20e95cf66aa11bc0737732`. The inspected checkout
 `6253ec222f0e80d56d2795163500a365ce422c9c` has an identical tree. The
 [catalog](../../runs/T62/catalog-r0001.json) records all 83 workflow headings,
 338 screenshot/record references, 27 referenced sessions and 173 native source
-file digests. Of the referenced sessions,24 authenticate as completed and3 are
+file digests. Of the referenced sessions, 24 authenticate as completed and 3 are
 retained aborted attempts. Their scope is explicit in [coverage](coverage-audit.md).
 
 ## Native evidence and interpretation

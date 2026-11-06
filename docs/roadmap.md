@@ -71,8 +71,8 @@ explicit in archaeology; the manual does not retroactively accept those claims.
 
 [derived: T62 pinned source audit] See the [coverage reconciliation](manual/coverage-audit.md),
 [83-workflow native matrix and B1–B10 dependencies](manual/native-gaps.md), and
-[owner-run review prompt](manual/review-prompt.md). The audit finds11 partially
-supported original procedures and72 missing full procedures in the native
+[owner-run review prompt](manual/review-prompt.md). The audit finds 11 partially
+supported original procedures and 72 missing full procedures in the native
 application. This is a workflow count, not a fraction of engine code completed.
 The accepted watched exhibition remains the reusable match component.
 

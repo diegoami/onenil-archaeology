@@ -4,7 +4,7 @@
 workflows before the management rebuild. It is being built from actual play;
 it does not describe a proposed replacement UI.
 
-See the [current coverage audit](coverage-audit.md), [all83 native workflow gaps](native-gaps.md),
+See the [current coverage audit](coverage-audit.md), [native workflow gap matrix](native-gaps.md),
 [owner review prompt](review-prompt.md), [roadmap and backlog](../roadmap.md) and
 [manual milestone](https://github.com/diegoami/onenil-archaeology/issues/135).
 

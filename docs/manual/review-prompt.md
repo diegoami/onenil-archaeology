@@ -11,7 +11,7 @@ treat the current local audit as a completed publication/merge gate.
 > Review onenil-archaeology milestone#135 against its illustrated-manual and
 > workflow-coverage acceptance, using the checked research main head supplied by
 > the owner. Start with docs/manual/README.md, coverage-audit.md, native-gaps.md,
-> and runs/T62/catalog-r0001.json. Reconcile W001–W083 and all18 executable menu
+> and runs/T62/catalog-r0001.json. Reconcile W001–W083 and all 18 executable menu
 > slots against their actual screenshot/decoded-record/key sequences and source
 > identities. Check that defaults, controls, state changes, confirmations,
 > refusals, cancellation and persistence are supported by original observations;
