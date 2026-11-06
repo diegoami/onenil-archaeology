@@ -1,0 +1,22 @@
+{
+  "number": 6,
+  "previous": "facf8d11552ae15ec40fe174ff6c96ad39b49df099447520d51ac2f2135bbd47",
+  "id": "S10005-later-season-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "UEFA Cup Round 2                        UEFA Cup Quarter Finals\n\n -Dep. La Coruna  5v0  Liverpool------   -Dep. La Coruna  2v1  Lyon-----------\n 1st leg: 3v0     2nd leg: 0v2           1st leg: 1v0     2nd leg: 1v1\n --Werder Bremen  0v1  Lyon-----------   -Kaiserslautern  1v1  Roda-----------\n 1st leg: 0v1     2nd leg: 0v0           1st leg: 1v1     2nd leg: 0v0\n -----------Roda  3v0  Rangers--------   ---------Napoli  4v0  Cas. Salzburg--\n 1st leg: 2v0     2nd leg: 0v1           1st leg: 2v0     2nd leg: 0v2\n ---Nottingham F  2v7  Kaiserslautern-   ----Uni Craiova  2v2  Sporting Lisbon\n 1st leg: 2v3     2nd leg: 4v0           1st leg: 0v1     2nd leg: 1v2\n --Cas. Salzburg  3v2  Tampeeren------\n 1st leg: 1v1     2nd leg: 1v2\n -------AC Milan  1v5  Sporting Lisbon\n 1st leg: 0v3     2nd leg: 2v1\n ---------Napoli  4v2  Motherwell-----\n 1st leg: 2v1     2nd leg: 1v2\n ----Uni Craiova  5v2  Sparta Prague--\n 1st leg: 4v1     2nd leg: 1v1\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "790af1b4d7666d2edec9c0d926eaf11cbd8d918ab58b5fe1db351189f5008d62",
+  "screen_sha256": "6a5b2fb39b4b9c16a2ac71d895382d954406d3a940691c792621d77adbd05d7c",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0006.png",
+  "screenshot_sha256": "37c3056ea07b0c32842e2146cea3d3f2aa877b5e95359c1fb0abb6fa3a8d6861",
+  "time": "2026-11-05T23:46:37.189Z"
+}
