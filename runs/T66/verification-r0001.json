@@ -1,0 +1,62 @@
+{
+  "schema": "T66-verification-v1",
+  "checked_head": "13833e96087a17773a6f0f9e0d9896c9eab1ca63",
+  "original_sources_count": 37,
+  "window_bytes": 64,
+  "scanned_files": [
+    {
+      "path": "docs/campaign-admission.md",
+      "size": 4382,
+      "sha256": "c9869cd8da0037ebb80977f9f7d4555be1384f44add9de2e7e266db832dd6965",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "runs/T66/admission-r0001.json",
+      "size": 16212001,
+      "sha256": "9639833b657ed2cf0c5684e7338843534f0d552e8323b55dd12e947a5b6e6331",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "runs/T66/admission-r0002.json",
+      "size": 16212001,
+      "sha256": "1740b20d867391823970d9feb0c02b3e0040f476e8d492282c38363f0015414f",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "runs/T66/incoming-r0001.json",
+      "size": 71354,
+      "sha256": "550ac2590e78256ab3c442c61b2f7eaac1259872fb327a1a43b8775fea37d755",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "runs/T66/private-recovery-r0001.json",
+      "size": 442,
+      "sha256": "b9b2275a7e73ca55cc6682ab5fc8511fc2380c087330c30ba33460b8e93bf22c",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "runs/T66/public-safety-r0001.json",
+      "size": 1295,
+      "sha256": "15199178fc0ed95aae5d4eb8099472f2764f8c6d3c5888327ee2ed51cf6128ab",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "runtime/emul/campaign_admission.py",
+      "size": 14051,
+      "sha256": "11841b40bf309dced816bb6653befba5f678a19c3f0f2df1cc65c3db977415cb",
+      "raw_hex_64_byte_hits": 0
+    },
+    {
+      "path": "tests/emul/test_campaign_admission.py",
+      "size": 1693,
+      "sha256": "2608d01fd21cc8d7eb2da4464ccb73b39468ea304e8495e80727bd8b54936567",
+      "raw_hex_64_byte_hits": 0
+    }
+  ],
+  "preserved_prior_tree_entries": 5437,
+  "public_check": "independent payload equality and four corruption refusals PASS; incoming source/state/draw join PASS",
+  "extension_check": "PASS",
+  "diff_check": "PASS",
+  "targeted_tests": "3 passed; tests/emul/test_campaign_admission.py",
+  "full_suite": "pending; required separately before merge with exact-head hosted CI"
+}
