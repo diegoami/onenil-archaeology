@@ -1,0 +1,29 @@
+{
+  "schema": "original-campaign-watched-finish/1",
+  "producer": "c8e9cf7472cfb7d47c6925eaa4f5b4827c08da33",
+  "status": "aborted",
+  "error": "ValueError: original campaign preparation/entry differs",
+  "boundary": null,
+  "ticks": 1,
+  "draws": 318,
+  "actions": 0,
+  "final": null,
+  "result": {
+    "chunk_payloads": [],
+    "final": null,
+    "ticks": 1,
+    "draws": 318,
+    "actions": 0
+  },
+  "keys_delivered": [
+    [
+      "Return",
+      "24BC:0C58"
+    ],
+    [
+      "Return",
+      "24BC:0C58"
+    ]
+  ],
+  "unsupported": []
+}
