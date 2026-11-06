@@ -1,0 +1,22 @@
+{
+  "number": 47,
+  "previous": "75a868ed834e99915974c06f6b8f61ec75325ccb7dcbae1ae1b791bd1b845207",
+  "id": "S12046-season-finish-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2                          FA Cup Round 3\n\n ---Nottingham F  3v0  Millwall-------   ---Nottingham F  0v1  Manchester City\n ----Tottenham H  2v1  Blackburn R----   ------Liverpool  3v2  Q.P.R----------\n ------Wimbledon  4v1  Southend Utd---   ----Tottenham H  2v0  Coventry City--\n ----Southampton  2v0  Leicester City-   ------Wimbledon  1v1 \u221aArsenal--------\n --------Everton  3v1  Watford--------   ----Southampton  1v0  Middlesbro-----\n ----Aston Villa  0v3  Liverpool------   --------Reading  2v0  Bolton W-------\n -----Middlesbro  2v0  Oldham Ath-----   ---Norwich City\u221a 1v1  Chelsea--------\n -------Bolton W\u221a 1v1  Crystal Palace-   ---Swansea City  2v4  Everton--------\n ---------Wolves  0v2  Reading--------\n ---Norwich City  3v1  Manchester Utd-  FA Cup Quarter Finals\n Tranmere Rovers  1v2  Chelsea--------\n -----Stoke City  0v4  Arsenal--------   ------Liverpool  2v1  Tottenham H----\n ------Port Vale  0v5  Manchester City   ----Southampton  1v0  Everton--------\n -----Sunderland  0v4  Q.P.R----------   Manchester City  2v0  Reading--------\n ---Swansea City  1v0  Brighton & HA--   ---Norwich City  1v0  Arsenal--------\n ------Blackpool  0v2  Coventry City--\n\nFA Cup Semi Finals                      FA Cup\n\n ------Liverpool  4v2  Manchester City   ------Liverpool  2v1  Southampton----\n ----Southampton  1v0  Norwich City---\n\n   RESULTS                                                     press any key",
+  "text_sha256": "82e68a53ec364ab44e54c5c49ed90cfef36e5508a78fcde68221514935c68d10",
+  "screen_sha256": "cc4a422292f16f76b7134d36508b47ae5a399375a5572d5ec16c5a4f3770df2e",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0047.png",
+  "screenshot_sha256": "d32891110d999b2bdb49f94e930cfc2bdc8162c51bd4a87d8cee9400d760cfbe",
+  "time": "2026-11-06T00:25:26.618Z"
+}
