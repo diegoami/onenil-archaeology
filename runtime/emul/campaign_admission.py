@@ -30,6 +30,9 @@ def validate_payload(p):
  if p['fixture_request']!={'week':1,'club':130}:raise ValueError('caller fixture differs')
  if [point['site'] for point in p['points']]!=list(SITES):raise ValueError('boundary census/order differs')
  points=p['points'];draws=p['draws']
+ # [confirmed] Original19CA overwrites the seed from season/week before selector draws.
+ config=points[0]['state']['initial']['config']
+ if not draws or draws[0]['seed_before']!=(config[1]*58+config[0])&65535:raise ValueError('selector reseeding alias differs')
  if [d['i'] for d in draws]!=list(range(len(draws))):raise ValueError('draw cursor differs')
  for before,after in zip(draws,draws[1:]):
   if before['seed_after']!=after['seed_before']:raise ValueError('RNG chain differs')
@@ -38,6 +41,8 @@ def validate_payload(p):
   cursor=point['draw']
   if cursor<0 or cursor>len(draws):raise ValueError('boundary draw cursor outside prefix')
   if cursor and point['seed']!=draws[cursor-1]['seed_after']:raise ValueError('boundary seed differs')
+
+  if point['seed']!=point['state']['caller']['seed']:raise ValueError('caller seed alias differs')
   clubs=point['state']['caller']['pairing']['context']['rebuild']['outer']['selection']['clubs']
   if {club['id'] for club in clubs}!={130,17}:raise ValueError('selected club aliases differ')
  before=points[2]['state'];derived=setup.admission(before)
@@ -52,6 +57,8 @@ def validate_payload(p):
  watched.state_check(p['first_entry'])
  if p['first_entry']['seed']!=points[-1]['seed']:raise ValueError('first-entry seed alias differs')
  if len(p['first_entry']['scenes'])!=22:raise ValueError('first-entry player census differs')
+ ball=p['first_entry']['ball'];incoming=p['incoming']
+ if (ball['byte6'],ball['word7'],ball['word9'],p['first_entry']['scores'])!=(incoming['ball_byte6'],incoming['ball_word7'],incoming['ball_word9'],incoming['scores']):raise ValueError('incoming watched preservation alias differs')
  if set(p['supplement'])!={'capacities','start_gate','club_factors','fixture_factors'}:raise ValueError('incoming supplement shape differs')
  if {row['club'] for row in p['supplement']['capacities']}!={130,17}:raise ValueError('supplement club differs')
 def validate_record(r):
