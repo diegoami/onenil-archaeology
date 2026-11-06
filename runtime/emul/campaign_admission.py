@@ -57,6 +57,10 @@ def validate_payload(p):
 def validate_record(r):
  if r['schema']!='original-campaign-admission/1' or r['status']!='completed':raise ValueError('incomplete campaign admission')
  if r['source']['state_sha256']!=STATE_SHA or r['source']['t65_record_sha256']!=sha((ROOT/SEED_RECORD).read_bytes()):raise ValueError('source identity differs')
+ source=json.loads((ROOT/SEED_RECORD).read_text())
+ if r['source']['save_sha256']!=source['save_sha256'] or r['source']['league_sha256']!=source['league_sha256']:raise ValueError('save/league source identity differs')
+ release={p['name']:p['sha256'] for p in json.loads((ROOT/'records/T01/inventory.json').read_text())['files'] if p['edition']=='96'}
+ if r['source']['release']!=release or r['unsupported']:raise ValueError('release/runtime identity differs')
  for name,digest in r['producer_files'].items():
   if sha(git('show',r['producer']+':'+name))!=digest:raise ValueError('producer source differs')
  if sha(encoded(r['payload']))!=r['payload_sha256']:raise ValueError('payload digest differs')
@@ -104,13 +108,51 @@ def capture(path,out):
  with out.open('x') as f:json.dump(result,f,indent=2);f.write('\n')
  print(status,error or '',len(payload['points']),'boundaries',len(payload['draws']),'draws',flush=True)
  if status!='completed':raise ValueError(error)
+def incoming_supplement(path,base_path,out):
+ if out.exists():raise ValueError('record path already exists')
+ if git('status','--porcelain','--','runtime/emul').strip():raise ValueError('commit observer first')
+ base=json.loads(base_path.read_text());validate_record(base);data=path.read_bytes()
+ if sha(data)!=STATE_SHA:raise ValueError('start RAM identity differs')
+ week=match.Week(data);g=week.g
+ require_campaign(seed.project(memory_save(g),seed.names(week.files_at_start['ENGL-95.DAT'])))
+ result=None
+ class Complete(Exception):pass
+ def observe(g):
+  nonlocal result
+  current=setup.state(week);expected=base['payload']['points'][2]
+  if current!=expected['state'] or week.draws!=expected['draw']:raise ValueError('supplement reached a different pre86E9 state')
+  result=dict(pre86_state_sha256=sha(encoded(current)),draws=[e for e in week.events if e['kind']=='draw'],
+   fields=dict(managed_selection_mode=g.mem(g.far(0xD7D2)+0xF6,1)[0],legacy_income_total=g.rd(0xD6E8,4),
+   legacy_queue_zero=dict(index=0,code=g.rd(0xA52A,1),first_player=g.rd(0xA52B),second_player=g.rd(0xA52D),side=g.rd(0xA52F,1))))
+  raise Complete()
+ g.code_hook('0AB9:86E9',observe)
+ try:week.play()
+ except Complete:pass
+ if result is None or g.unsupported:raise ValueError('supplement incomplete/unsupported')
+ r=dict(schema='original-campaign-incoming/1',producer=git('rev-parse','HEAD').decode().strip(),observer_sha256=sha(Path(__file__).read_bytes()),source=dict(record=str(base_path.relative_to(ROOT) if base_path.is_absolute() else base_path),record_sha256=sha(base_path.read_bytes()),state_sha256=sha(data)),payload=result)
+ out.parent.mkdir(parents=True,exist_ok=True)
+ with out.open('x') as f:json.dump(r,f,indent=2);f.write('\n')
+ validate_incoming(r);print('PASS same original pre86E9; additional incoming fields',result['fields'],flush=True)
+def validate_incoming(r):
+ if r['schema']!='original-campaign-incoming/1' or r['source']['state_sha256']!=STATE_SHA:raise ValueError('supplement identity differs')
+ if sha(git('show',r['producer']+':'+TOOL))!=r['observer_sha256']:raise ValueError('supplement observer identity differs')
+ base_path=ROOT/r['source']['record']
+ if sha(base_path.read_bytes())!=r['source']['record_sha256']:raise ValueError('supplement base identity differs')
+ base=json.loads(base_path.read_text());validate_record(base);point=base['payload']['points'][2];p=r['payload']
+ if p['pre86_state_sha256']!=sha(encoded(point['state'])) or p['draws']!=base['payload']['draws'][:point['draw']]:raise ValueError('supplement join differs')
+ if set(p['fields'])!={'managed_selection_mode','legacy_income_total','legacy_queue_zero'}:raise ValueError('supplement fields differ')
+ if p['fields']['legacy_income_total']!=point['income_total']:raise ValueError('supplement income alias differs')
 def main():
- p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--run',type=Path);g.add_argument('--check',type=Path);p.add_argument('--record',type=Path);p.add_argument('--compare',type=Path);a=p.parse_args()
+ p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--run',type=Path);g.add_argument('--check',type=Path);p.add_argument('--record',type=Path);p.add_argument('--compare',type=Path);p.add_argument('--supplement-of',type=Path);a=p.parse_args()
  if a.run:
   if a.record is None:p.error('--run needs --record')
-  capture(a.run,a.record)
+  if a.supplement_of:incoming_supplement(a.run,a.supplement_of,a.record)
+  else:capture(a.run,a.record)
  else:
-  r=json.loads(a.check.read_text());validate_record(r)
+  r=json.loads(a.check.read_text())
+  if r['schema']=='original-campaign-incoming/1':
+   validate_incoming(r);print('PASS incoming supplement source,observer and original draw/state join');return
+  validate_record(r)
   for field in ['fixture','roster','seed','projection']:
    bad=copy.deepcopy(r)
    if field=='fixture':bad['payload']['fixture_request']['club']=134

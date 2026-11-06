@@ -16,3 +16,13 @@ class CampaignAdmissionTests(unittest.TestCase):
   for bad in [{},{'schema':'original-campaign-admission/1','status':'aborted'},{'schema':'other','status':'completed'}]:
    with self.assertRaises((KeyError,ValueError)):module.validate_record(bad)
 if __name__=='__main__':unittest.main()
+
+class PublicCaptureNegativeTests(unittest.TestCase):
+ def test_wrong_source_and_fixture_aliases(self):
+  import json
+  original=json.loads((ROOT/'runs/T66/admission-r0001.json').read_text());module.validate_record(original)
+  for field in ['state_sha256','save_sha256','league_sha256']:
+   bad=copy.deepcopy(original);bad['source'][field]='0'*64
+   with self.assertRaises(ValueError):module.validate_record(bad)
+  bad=copy.deepcopy(original);bad['payload']['fixture_request']['club']=134;bad['payload_sha256']=module.sha(module.encoded(bad['payload']))
+  with self.assertRaises(ValueError):module.validate_record(bad)
