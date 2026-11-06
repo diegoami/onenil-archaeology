@@ -148,8 +148,8 @@ def check(directory, require_repeat=False):
     return finish, index
 
 
-def publish_prefix(directory):
-    """One explicitly authorized checkpoint; only complete new decoded leaves."""
+def publish_prefix(directory, push=True):
+    """Checkpoint complete decoded leaves; network publication is a separate mode."""
     if admission.git('branch', '--show-current').decode().strip() != 'task/T67-campaign-watched':
         raise ValueError('campaign publication requires its task branch')
     if admission.git('diff', '--cached', '--name-only').strip():
@@ -166,12 +166,14 @@ def publish_prefix(directory):
         check(directory)
     names = admission.git('ls-files', '--others', '--exclude-standard', '--', str(relative)).decode().splitlines()
     if not names:
+        if push and admission.git('rev-list', '--count', '@{upstream}..HEAD').strip() != b'0':
+            subprocess.run(['git', 'push'], cwd=ROOT, check=True, timeout=120)
         return False
     sys.path.insert(0, str(ROOT / 'tools'))
     import inventory
     scanner = inventory.EmbedIndex(inventory.original_sources())
     for name in names:
-        if not re.fullmatch(r'(?:start|index|chunk-\d{6}|repeat-\d{4}|attempt-\d{4}-(?:start|finish|verified-\d{6}))\.json', Path(name).name):
+        if (ROOT / name).parent.resolve() != directory.resolve() or not re.fullmatch(r'(?:start|index|chunk-\d{6}|repeat-\d{4}|attempt-\d{4}-(?:start|finish|verified-\d{6}))\.json', Path(name).name):
             raise ValueError('unexpected campaign publication leaf: ' + name)
         data = (ROOT / name).read_bytes()
         json.loads(data)
@@ -184,6 +186,8 @@ def publish_prefix(directory):
         check(directory)
     subprocess.run(['git', 'add', '--', *names], cwd=ROOT, check=True)
     subprocess.run(['git', 'commit', '-m', 'T67: preserve verified decoded campaign stream checkpoint'], cwd=ROOT, check=True)
+    if not push:
+        return True
     subprocess.run(['git', 'push'], cwd=ROOT, check=True, timeout=120)
     text = ('T67 original campaign capture checkpoint pushed on task/T67-campaign-watched. '
             'This is an in-progress source stream; no completed match or independent repeat is assumed. '
@@ -360,6 +364,7 @@ def main():
     group.add_argument('--check', action='store_true')
     group.add_argument('--check-prefix', action='store_true')
     group.add_argument('--publish-prefix', action='store_true')
+    group.add_argument('--checkpoint-prefix', action='store_true')
     parser.add_argument('--directory', type=Path, required=True)
     parser.add_argument('--repeat', action='store_true')
     args = parser.parse_args()
@@ -369,6 +374,8 @@ def main():
         check_prefix(args.directory)
     elif args.publish_prefix:
         publish_prefix(args.directory)
+    elif args.checkpoint_prefix:
+        publish_prefix(args.directory, push=False)
     else:
         check(args.directory, require_repeat=True)
 
