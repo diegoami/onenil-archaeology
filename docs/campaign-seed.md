@@ -12,8 +12,8 @@ uses the exact1B55:091D block sequence in tools/data/save.py.
 | Field | Read and executable reference |
 | --- | --- |
 | Current manager and managed club | game[D7D2]+4; DS:DCBA[manager−1], 0006:1197/1B52 |
-| Manager name | game+2×manager+3 gives a word into DCCC eleven-byte Pascal entries, 0006:11DE..11F7 |
-| Cash | DCC4+(manager−1)×94+82, little-endian32-bit; 0006:1216..1231 passes both words to formatter |
+| Manager name | game+2×manager+3 gives a word into DCCC eleven-byte Pascal entries, 0006:11CA..11ED |
+| Cash | DCC4+(manager−1)×94+82, little-endian32-bit; 0006:1216..1227 passes both words to formatter |
 | Current week and displayed season | game+0 and+1; 0006:1197 adds1 for next fixture and year+counter−2/−1 for season |
 | First team | D7C2+(club−1)×62, twenty little-endian player words; squad/selection routines |
 | Manager reserve list | game+40×manager+48, twenty words; 1B55:6E74 and squad caller |
