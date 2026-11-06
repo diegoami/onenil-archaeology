@@ -1,0 +1,12 @@
+{
+  "status": "private upload and public receipt metadata awaiting owner approval",
+  "archive_name": "T60-later-season-game-saves-r0001.tar.gz",
+  "archive_bytes": 172255,
+  "archive_sha256": "305f34ca50313df4d5d190513d5ba237a84d1e18ed21baee2315d3688284eb73",
+  "final_capture": "runs/T60/session-r0001/step-0162.json",
+  "final_save_sha256": "83ca2bc3761302dbdb86dc9833102d7bc9edf35b53a7e67424bbc22b1ef9ee07",
+  "members": [
+    "cup-winner/SAVE1.1-0",
+    "league24/SAVE1.1-0"
+  ]
+}

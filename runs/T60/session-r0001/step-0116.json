@@ -1,0 +1,22 @@
+{
+  "number": 116,
+  "previous": "0cba17b8cae73f0d868c6dcf8d8e48c0a126a30ef3ec9e295c8213ca64fb7527",
+  "id": "S10115-later-season-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "UEFA Cup Round 2                        UEFA Cup Quarter Finals\n\n -Dep. La Coruna  5v0  Liverpool------   -Dep. La Coruna  2v1  Lyon-----------\n 1st leg: 3v0     2nd leg: 0v2           1st leg: 1v0     2nd leg: 1v1\n --Werder Bremen  0v1  Lyon-----------   -Kaiserslautern  1v1  Roda-----------\n 1st leg: 0v1     2nd leg: 0v0           1st leg: 1v1     2nd leg: 0v0\n -----------Roda  3v0  Rangers--------   ---------Napoli  4v0  Cas. Salzburg--\n 1st leg: 2v0     2nd leg: 0v1           1st leg: 2v0     2nd leg: 0v2\n ---Nottingham F  2v7  Kaiserslautern-   ----Uni Craiova  2v2  Sporting Lisbon\n 1st leg: 2v3     2nd leg: 4v0           1st leg: 0v1     2nd leg: 1v2\n --Cas. Salzburg  3v2  Tampeeren------\n 1st leg: 1v1     2nd leg: 1v2          UEFA Cup Semi Finals\n -------AC Milan  1v5  Sporting Lisbon\n 1st leg: 0v3     2nd leg: 2v1           -Dep. La Coruna  3v2  Roda-----------\n ---------Napoli  4v2  Motherwell-----   1st leg: 1v1     2nd leg: 1v2\n 1st leg: 2v1     2nd leg: 1v2           ----Uni Craiova  4v5  Napoli---------\n ----Uni Craiova  5v2  Sparta Prague--   1st leg: 2v2     2nd leg: 3v2\n 1st leg: 4v1     2nd leg: 1v1\n\n                                        UEFA Cup\n\n                                         ---------Napoli   v   Dep. La Coruna-\n                                         1st leg:  v      2nd leg:  v\n\n   CUP DRAW                                                    press any key",
+  "text_sha256": "e5b8b56d601c987d19ca90f15df00e296624ceac30677b2b84083ef392a087bd",
+  "screen_sha256": "6ee82c1cfb52c2f07db4f4254aff13dc1c1cd06ac16d8fa5d7f90814326d4e2c",
+  "highlighted": [
+    [
+      24,
+      "CUP DRAW"
+    ]
+  ],
+  "screenshot": "step-0116.png",
+  "screenshot_sha256": "86d555f6ed9648729d5f9675215a52db35b47c3615b7f6ec925f9d73190d0257",
+  "time": "2026-11-06T00:02:57.981Z"
+}
