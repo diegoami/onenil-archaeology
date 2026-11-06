@@ -82,3 +82,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T58 Executable-derived squad and preparation blueprint](T58.md)
 
 - [T59 Original midseason progression manual](T59.md)
+
+- [T60 Original later-season progression manual](T60.md)
