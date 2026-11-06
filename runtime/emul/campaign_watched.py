@@ -2,6 +2,9 @@
 """T67: execute the actual original saved-campaign watched match, without a model."""
 import argparse
 import json
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 
 import campaign_admission as admission
@@ -39,7 +42,48 @@ def identity(start, base):
             raise ValueError('campaign observer source differs')
 
 
-def check(directory):
+def check_prefix(directory):
+    """Verify completed immutable leaves while the original writer is still running."""
+    base = source()
+    identity(json.loads((directory / 'start.json').read_text()), base)
+    producers = set()
+    for path in sorted(directory.glob('attempt-*-start.json')):
+        attempt = json.loads(path.read_text())
+        identity(attempt, base)
+        producers.add(attempt['producer'])
+    cursor, first = None, None
+    setup_draws = []
+    paths = sorted(directory.glob('chunk-*.json'))
+    for number, path in enumerate(paths):
+        if path.name != f'chunk-{number:06d}.json':
+            raise ValueError('campaign prefix chunk order differs')
+        row = json.loads(path.read_text())
+        payload = row['payload']
+        if row['producer'] not in producers or sha(encoded(payload)) != row['payload_sha256']:
+            raise ValueError('campaign prefix producer/payload differs')
+        cursor = prior.validate_chunk(payload, cursor)
+        if first is None and payload['ticks']:
+            first = payload['ticks'][0]['before']
+        if len(setup_draws) < 258:
+            setup_draws.extend(payload['draws'][:258 - len(setup_draws)])
+    if paths and (first != base['payload']['first_entry'] or setup_draws != base['payload']['draws']):
+        raise ValueError('campaign prefix preparation/entry differs')
+    for path in sorted(directory.glob('attempt-*-verified-*.json')):
+        verified = json.loads(path.read_text())
+        observed = json.loads((directory / verified['chunk']).read_text())
+        if (verified['producer'] not in producers
+                or verified['payload_sha256'] != observed['payload_sha256']
+                or verified['tick'] != observed['payload']['tick_end']
+                or verified['draws'] != observed['payload']['draw_end']):
+            raise ValueError('independent verified prefix differs')
+    result = dict(chunks=len(paths), ticks=cursor['tick'] - 1 if cursor else 0,
+                  draws=cursor['draw'] if cursor else 0, actions=cursor['action'] if cursor else 0)
+    print('PASS authenticated campaign prefix', result)
+    return result
+
+
+def check(directory, require_repeat=False):
+    prefix_result = check_prefix(directory)
     base = source()
     start = json.loads((directory / 'start.json').read_text())
     identity(start, base)
@@ -49,6 +93,8 @@ def check(directory):
         identity(attempt, base)
         producers.add(attempt['producer'])
     index = json.loads((directory / 'index.json').read_text())
+    if len(index['chunks']) != prefix_result['chunks']:
+        raise ValueError('campaign indexed chunk census differs')
     if index['start_sha256'] != sha((directory / 'start.json').read_bytes()):
         raise ValueError('campaign stream start digest differs')
     cursor = None
@@ -84,14 +130,60 @@ def check(directory):
     if cursor is None or (finish['ticks'], finish['draws'], finish['actions']) != (cursor['tick'] - 1, cursor['draw'], cursor['action']):
         raise ValueError('campaign final stream cursors differ')
     prior.validate_finish(finish['final'], actions)
-    for repeat_path in sorted(directory.glob('repeat-*.json')):
+    repeats = sorted(directory.glob('repeat-*.json'))
+    if require_repeat and not repeats:
+        raise ValueError('completed independent campaign repeat is still required')
+    for repeat_path in repeats:
         repeat = json.loads(repeat_path.read_text())
+        if repeat['producer'] not in producers:
+            raise ValueError('repeat observer identity differs')
         if repeat['payload_sha256'] != sha(encoded(finish['result'])) or repeat['result'] != finish['result']:
             raise ValueError('independent campaign repeat differs')
         if repeat['chunk_payloads'] != [json.loads((directory / item['path']).read_text())['payload_sha256'] for item in index['chunks']]:
             raise ValueError('independent campaign chunk repeat differs')
     print(f'PASS original campaign complete:{finish["ticks"]} ticks,{finish["draws"]} draws,{finish["actions"]} actions;score{finish["final"]["scores"]}')
     return finish, index
+
+
+def publish_prefix(directory):
+    """One explicitly authorized checkpoint; only complete new decoded leaves."""
+    if admission.git('branch', '--show-current').decode().strip() != 'task/T67-campaign-watched':
+        raise ValueError('campaign publication requires its task branch')
+    if admission.git('diff', '--cached', '--name-only').strip():
+        raise ValueError('campaign publication refuses preexisting staged work')
+    if admission.git('status', '--porcelain', '--', TOOL).strip():
+        raise ValueError('commit campaign publication tool first')
+    relative = directory.resolve().relative_to(ROOT)
+    if relative.parts[:2] != ('runs', 'T67'):
+        raise ValueError('campaign publication path outside task records')
+    if admission.git('diff', '--name-only', 'HEAD', '--', str(relative)).strip():
+        raise ValueError('immutable campaign record was changed')
+    result = check_prefix(directory)
+    if (directory / 'index.json').exists():
+        check(directory)
+    names = admission.git('ls-files', '--others', '--exclude-standard', '--', str(relative)).decode().splitlines()
+    if not names:
+        return False
+    sys.path.insert(0, str(ROOT / 'tools'))
+    import inventory
+    scanner = inventory.EmbedIndex(inventory.original_sources())
+    for name in names:
+        data = (ROOT / name).read_bytes()
+        json.loads(data)
+        if scanner.find(data) is not None:
+            raise ValueError('original-byte publication refusal: ' + name)
+    subprocess.run(['git', 'add', '--', *names], cwd=ROOT, check=True)
+    subprocess.run(['git', 'commit', '-m', f'T67 original campaign checkpoint: {result["ticks"]} ticks'], cwd=ROOT, check=True)
+    subprocess.run(['git', 'push'], cwd=ROOT, check=True, timeout=120)
+    text = ('T67 original campaign capture checkpoint pushed on task/T67-campaign-watched. '
+            'This is an in-progress source stream; no completed match or independent repeat is assumed. '
+            'Resume/recheck with runtime/emul/campaign_watched.py and runs/T67/reference-r0001. '
+            'Native preparation milestone134 is separate; full native campaign result posting remains open.')
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.txt') as body:
+        body.write(text)
+        body.flush()
+        subprocess.run(['gh', 'issue', 'comment', '1', '--body-file', body.name], cwd=ROOT, check=True, timeout=60)
+    return True
 
 
 def run(state_path, directory, repeat=False, max_ticks=10000, max_draws=1000000):
@@ -141,6 +233,10 @@ def run(state_path, directory, repeat=False, max_ticks=10000, max_draws=1000000)
             previous = json.loads(path.read_text())
             if previous['payload_sha256'] != digest or previous['payload'] != payload:
                 raise ValueError('campaign verified-prefix replay differs')
+            if repeat:
+                write(directory / f'attempt-{attempt:04d}-verified-{chunk_index:06d}.json',
+                      dict(producer=metadata['producer'], chunk=path.name,
+                           payload_sha256=digest, tick=ticks, draws=week.draws))
         elif repeat:
             raise ValueError('repeat extends original campaign stream')
         else:
@@ -252,13 +348,19 @@ def main():
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--run', type=Path)
     group.add_argument('--check', action='store_true')
+    group.add_argument('--check-prefix', action='store_true')
+    group.add_argument('--publish-prefix', action='store_true')
     parser.add_argument('--directory', type=Path, required=True)
     parser.add_argument('--repeat', action='store_true')
     args = parser.parse_args()
     if args.run:
         run(args.run, args.directory, args.repeat)
+    elif args.check_prefix:
+        check_prefix(args.directory)
+    elif args.publish_prefix:
+        publish_prefix(args.directory)
     else:
-        check(args.directory)
+        check(args.directory, require_repeat=True)
 
 
 if __name__ == '__main__':
