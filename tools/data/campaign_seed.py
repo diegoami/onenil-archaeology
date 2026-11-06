@@ -55,7 +55,7 @@ def project(data,tables):
     cash=struct.unpack_from('<i',b['[DS:DCC4]'],(manager-1)*94+82)[0]
     return dict(schema='original-club-seed/1',namespace=dict(edition=96,league='ENGL-95.DAT',league_year=year),season=dict(counter=game[1],start_year=year+game[1]-2,end_year=year+game[1]-1),week_index=week,manager=dict(slot=manager,name_id=name_id,name=manager_name),club=dict(id=club,name=tables['clubs'][club-1],first_team=first,reserves=reserve,team_instructions=clubrow[57]),cash=cash,next_fixture=dict(slot=slot,club=club,opponent=opponent,opponent_name=tables['clubs'][opponent-1],competition_code=competition,flags=flags,venue_code=flags&15,opponent_flags=reverse[2]),players=players)
 
-LISTINGS=['static/1-0-exe/code/seg_0006_02.asm','static/1-0-exe/code/seg_0006_03.asm','static/1-0-exe/code/seg_1B55_02.asm','static/1-0-exe/code/seg_1B55_05.asm','static/1-0-exe/code/seg_1B55_07.asm','static/1-0-exe/code/seg_0AB9_14.asm','static/1-0-exe/code/seg_0AB9_19.asm']
+LISTINGS=['static/1-0-exe/code/seg_0006_02.asm','static/1-0-exe/code/seg_0006_03.asm','static/1-0-exe/code/seg_1B55_02.asm','static/1-0-exe/code/seg_1B55_05.asm','static/1-0-exe/code/seg_1B55_07.asm','static/1-0-exe/code/seg_0AB9_14.asm','static/1-0-exe/code/seg_0AB9_19.asm','static/1-0-exe/code/seg_1B55_01.asm','static/1-0-exe/code/seg_1B55_11.asm']
 
 def corroborate(initial,changed):
     spec=importlib.util.spec_from_file_location('capture_blueprint',ROOT/'tools/static/ui_blueprint.py');ui=importlib.util.module_from_spec(spec);spec.loader.exec_module(ui)
@@ -81,11 +81,17 @@ def corroborate(initial,changed):
     _,rows=capture('runs/T46/session-r0001/step-0054.json')
     pearce=next(p for p in changed['players'] if p['name']=='I Pearce')
     if 'sweeper' not in '\n'.join(rows) or pearce['current_position']!=1 or pearce['club_position']!=2:raise ValueError('changed Pearce position differs')
+    if initial['next_fixture']['venue_code']!=1 or initial['next_fixture']['opponent_flags']!=0 or 'home' not in main or 'Friendly #1' not in main:raise ValueError('initial fixture venue/competition differs')
+    if first['current_position']!=0 or first['club_position']!=0 or new_keeper['individual_instructions']!=16 or pool[new_keeper['id']]['individual_instructions']!=17:raise ValueError('observed keeper positioning bits differ')
     if initial['club']['first_team'][0]!=changed['club']['first_team'][17] or initial['club']['first_team'][17]!=changed['club']['first_team'][0]:raise ValueError('recorded goalkeeper swap differs')
     if {k:initial[k] for k in ['namespace','season','week_index','manager','cash','next_fixture']}!={k:changed[k] for k in ['namespace','season','week_index','manager','cash','next_fixture']}:raise ValueError('unrelated campaign context changed')
     return references
 
 def validate(record):
+    subprocess.check_output(['git','cat-file','-e',record['producer']+'^{commit}'],cwd=ROOT)
+    for path,digest in record['producer_files'].items():
+        produced=subprocess.check_output(['git','show',record['producer']+':'+path],cwd=ROOT)
+        if sha(produced)!=digest:raise ValueError('producer file identity differs')
     for path,digest in record['listing_sha256'].items():
         if sha((ROOT/path).read_bytes())!=digest:raise ValueError('listing identity differs')
     actual=corroborate(record['initial'],record['changed'])
@@ -98,7 +104,17 @@ def validate(record):
 def main():
     p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--record',type=Path);g.add_argument('--check',type=Path);p.add_argument('--changed-archive',type=Path);args=p.parse_args()
     if args.check:
-        r=json.loads(args.check.read_text());validate(r);print('PASS original club projection and authenticated UI references');return
+        r=json.loads(args.check.read_text());validate(r)
+        for field in ['cash','capture','digest','keeper']:
+            changed=copy.deepcopy(r)
+            if field=='cash':changed['initial']['cash']+=1
+            elif field=='capture':changed['capture_references'][0]['sha256']='0'*64
+            elif field=='keeper':changed['changed']['players'][-1]['individual_instructions']=17
+            else:changed['projection_sha256']['initial']='0'*64
+            try:validate(changed)
+            except ValueError:pass
+            else:raise ValueError('corrupted public record accepted: '+field)
+        print('PASS original club projection and authenticated UI references;4 corruptions rejected');return
     tracked=['tools/data/campaign_seed.py','tools/data/save.py','tools/data/league.py']
     if subprocess.check_output(['git','status','--porcelain','--',*tracked],cwd=ROOT):raise ValueError('commit producer first')
     sys.path.insert(0,str(ROOT/'tools'));import inventory
