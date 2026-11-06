@@ -1,0 +1,22 @@
+{
+  "number": 9,
+  "previous": "1be6d556ea77414a5c2a576cef9ec54052ec734cbd7c4e2a0321e1911cfc3be1",
+  "id": "S8008-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "UEFA Cup Round 2\n\n -----------Roda  2v0  Rangers--------\n 1st leg: 2v0     2nd leg:  v\n -Dep. La Coruna  3v0  Liverpool------\n 1st leg: 3v0     2nd leg:  v\n --Werder Bremen  0v1  Lyon-----------\n 1st leg: 0v1     2nd leg:  v\n ---Nottingham F  2v3  Kaiserslautern-\n 1st leg: 2v3     2nd leg:  v\n --Cas. Salzburg  1v1  Tampeeren------\n 1st leg: 1v1     2nd leg:  v\n -------AC Milan  0v3  Sporting Lisbon\n 1st leg: 0v3     2nd leg:  v\n ---------Napoli  2v1  Motherwell-----\n 1st leg: 2v1     2nd leg:  v\n ----Uni Craiova  4v1  Sparta Prague--\n 1st leg: 4v1     2nd leg:  v\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "5254f6cba0a4dde751cec2c6f61c5f1f51a522145c490f896e580f7bb25becc6",
+  "screen_sha256": "b755169a74cefb88e643320a4b696fa261b16fda0bb648b15c493901108ccd17",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0009.png",
+  "screenshot_sha256": "c5f3898c1b65a32714372ab34393738ff8008bd3425b2203bfdac47e3778cf9a",
+  "time": "2026-11-05T23:12:21.730Z"
+}

@@ -1,0 +1,17 @@
+{
+  "number": 132,
+  "previous": "510cfec2e42cc26339ac1bae4da05a88a8c5568012fb5664f2356324f160dbf1",
+  "id": "S8131-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "FA Cup Round 2                          FA Cup Round 3\n\n ---Nottingham F  3v0  Millwall-------   ------Liverpool   v   Q.P.R----------\n ----Tottenham H  2v1  Blackburn R----   ---Nottingham F   v   Manchester City\n ------Wimbledon  4v1  Southend Utd---   ----Tottenham H   v   Coventry City--\n ----Southampton  2v0  Leicester City-   ------Wimbledon   v   Arsenal--------\n --------Everton  3v1  Watford--------   ----Southampton   v   Middlesbro-----\n ----Aston Villa  0v3  Liverpool------   --------Reading   v   Bolton W-------\n -------Bolton W\u221a 1v1  Crystal Palace-   ---Norwich City   v   Chelsea--------\n -----Middlesbro  2v0  Oldham Ath-----   ---Swansea City   v   Everton--------\n ---------Wolves  0v2  Reading--------\n Tranmere Rovers  1v2  Chelsea--------\n ---Norwich City  3v1  Manchester Utd-\n -----Stoke City  0v4  Arsenal--------\n -----Sunderland  0v4  Q.P.R----------\n ------Port Vale  0v5  Manchester City\n ---Swansea City  1v0  Brighton & HA--\n ------Blackpool  0v2  Coventry City--\n\n\n\n\n\n\n Friendly arranged for  Dec 18    ----Blackburn R v Sevilla--------   Press ESC",
+  "text_sha256": "e53e9cecbb52fa28150b5bd35395cd72c53270d9c87094e0d24fe19d32345452",
+  "screen_sha256": "aaaa938bf3a5ede84f666deb72465bcbe41b613358b562f004b8a049e53b6ac7",
+  "highlighted": [],
+  "screenshot": "step-0132.png",
+  "screenshot_sha256": "1651da9af1dcf7650708de499167bb3d20084f34eb456159fc5a490429a6d50f",
+  "time": "2026-11-05T23:33:03.353Z"
+}

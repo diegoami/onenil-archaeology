@@ -1,0 +1,22 @@
+{
+  "number": 162,
+  "previous": "a225cc1fb3a63e02515a637de3966e864c50f709414ae84b7a913df8a8dc5ea2",
+  "id": "S8161-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "League Cup Round 2                      League Cup Round 3\n\n ----------Q.P.R  0v1  Tottenham H----   ----Blackburn R  2v1  Ipswich Town---\n ------Leeds Utd  2v0  Leicester City-   --------Chelsea  1v0  Southampton----\n ------Liverpool  1v0  Manchester City   ------Wimbledon\u221a 1v1  Tottenham H----\n ---Nottingham F  2v1  W.B.A----------   --------Arsenal  1v2  Leeds Utd------\n ----Southampton  3v0  Bolton W-------   -Crystal Palace  2v0  Barnsley-------\n ------Wimbledon  3v1  Manchester Utd-   -----Stoke City  1v2  Liverpool------\n --------Arsenal  3v2  Sheffield Wed--   -------Millwall  0v2  Nottingham F---\n ---Ipswich Town  4v1  Southend Utd---   -----Oxford Utd  1v1 \u221aMiddlesbro-----\n -----Middlesbro  1v0  Coventry City--\n -------Millwall  5v2  Port Vale------  League Cup Quarter Finals\n -----Sunderland  1v3  Stoke City-----\n -----Luton Town  0v1  Blackburn R----   ------Leeds Utd  3v1  Middlesbro-----\n ---Stockport Co  4v5  Barnsley-------   ------Liverpool  1v1 \u221aNottingham F---\n -----Oxford Utd\u221a 0v0  Norwich City---   --------Chelsea  0v4  Blackburn R----\n ------York City  2v7  Chelsea--------   ------Wimbledon  2v0  Crystal Palace-\n -Bristol Rovers  0v1  Crystal Palace-\n\nLeague Cup Semi Finals\n\n ----Blackburn R  3v0  Leeds Utd------\n ---Nottingham F  0v1  Wimbledon------\n\n   RESULTS                                                     press any key",
+  "text_sha256": "1a17c8846b21a2312a363bd221d78a9f0bfeb841113c20820167c8ab5f0f6795",
+  "screen_sha256": "0dcd1cc086d53fdf4f696451dcfa0b1df2bed6bd1aeea6dfca20bf361972aba6",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0162.png",
+  "screenshot_sha256": "897f5e8072bccbde6ac4da5c9ec6cfa7c81f0050783adc779998e6ee73e70b0b",
+  "time": "2026-11-05T23:37:25.722Z"
+}

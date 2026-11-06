@@ -1,0 +1,22 @@
+{
+  "number": 25,
+  "previous": "22e74299e91e88355322532c49354711621ff7106485ca8a18d49579f93ea446",
+  "id": "S8024-midseason-observed-action",
+  "keys": [
+    "space"
+  ],
+  "wait": 1,
+  "restart": null,
+  "text": "Eurpn Cup Round 2\n\n -------Juventus  6v2  Honved Kispest-\n 1st leg: 3v2     2nd leg: 0v3\n ----Club Brugge  2v1  Part. Belgrade-\n 1st leg: 2v0     2nd leg: 1v0\n ---P St Germain  4v3  Blackburn R----\n 1st leg: 2v2     2nd leg: 1v2\n --Bayern Munich  5v0  Rapid Vienna---\n 1st leg: 2v0     2nd leg: 0v3\n ------Sampdoria  2v0  Slavia Prague--\n 1st leg: 1v0     2nd leg: 0v1\n ------Feyenoord  4v3  Hibernian------\n 1st leg: 2v1     2nd leg: 2v2\n -Din. Bucharest  1v3  Bor. Dortmund--\n 1st leg: 0v1     2nd leg: 2v1\n -----Real Betis  2v3  Lazio----------\n 1st leg: 0v2     2nd leg: 1v2\n\n\n\n\n\n\n   RESULTS                                                     press any key",
+  "text_sha256": "6f3853de14136a646422fbf3abb31cfd0dd0c2aea0693626dd583de221372daa",
+  "screen_sha256": "7c4d442990cf785d2dbcb393985e67b5b57b0d4ab64127e1838dc49ac2a3f555",
+  "highlighted": [
+    [
+      24,
+      "RESULTS"
+    ]
+  ],
+  "screenshot": "step-0025.png",
+  "screenshot_sha256": "becd7315e9a1d17c693c375c094422942fb829c8ce7b5acf581d0a7999cbe62a",
+  "time": "2026-11-05T23:14:34.356Z"
+}
