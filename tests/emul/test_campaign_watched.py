@@ -1,5 +1,6 @@
 import copy
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -80,3 +81,61 @@ def test_changed_source_start_release_and_intervention_refuse():
         elif field == 'watch_setting': bad[field] = 0
         else: bad[field] = [{'mutation': 'not allowed'}]
         with pytest.raises(ValueError): module.identity(bad, base)
+
+
+def complete_stream(directory, monkeypatch):
+    """Synthetic protocol fixture; no original match behavior is simulated."""
+    payload = chunk()
+    payload['ticks'][0]['after'].update(elapsed=90, remaining=0)
+    for event, (code, minute) in enumerate([(64, 45), (63, 90)]):
+        payload['actions'].append(dict(event=event, code=code, side=0,
+            actor_slot=0, secondary_slot=0, club=1, player=0, secondary=0,
+            minute=minute, tick=1, draw_start=0, draw_end=0, seed_before=1,
+            seed_after=1, head_before=event, caller='0AB9:0000',
+            queue=dict(index=event + 1, code=code, player=0, secondary=0, side=0)))
+    payload['action_end'] = 2
+    monkeypatch.setattr(module, 'source', lambda: {'payload': {
+        'first_entry': payload['ticks'][0]['before'], 'draws': payload['draws']}})
+    monkeypatch.setattr(module, 'identity', lambda *_: None)
+    def put(name, value):
+        data = module.encoded(value)
+        (directory / name).write_bytes(data)
+        return module.sha(data)
+    put('start.json', {'producer': 'synthetic'})
+    put('attempt-0001-start.json', {'producer': 'synthetic'})
+    digest = module.sha(module.encoded(payload))
+    leaf = dict(schema='original-campaign-watched-chunk/1', producer='synthetic',
+                payload_sha256=digest, payload=payload)
+    leaf_sha = put('chunk-000000.json', leaf)
+    final = payload['ticks'][0]['after']
+    result = dict(chunk_payloads=[digest], final=final, ticks=1, draws=1, actions=2)
+    finish = dict(schema='original-campaign-watched-finish/1', producer='synthetic',
+                  status='completed', error=None, boundary=module.prior.match.MATCH_RETURN,
+                  ticks=1, draws=1, actions=2, final=final, result=result,
+                  keys_delivered=[], unsupported=[])
+    index = dict(start_sha256=module.sha((directory / 'start.json').read_bytes()),
+                 chunks=[dict(path='chunk-000000.json', sha256=leaf_sha)],
+                 finish=dict(path='attempt-0001-finish.json', sha256=put('attempt-0001-finish.json', finish)))
+    put('index.json', index)
+    return finish, index, put
+
+
+@pytest.mark.parametrize('damage', ['result-count', 'result-state', 'result-chunks', 'unsupported', 'error', 'schema'])
+def test_corrupted_completion_receipt_refuses(tmp_path, monkeypatch, damage):
+    finish, index, put = complete_stream(tmp_path, monkeypatch)
+    module.check(tmp_path)
+    if damage == 'result-count': finish['result']['ticks'] += 1
+    elif damage == 'result-state': finish['result']['final'] = state(3)
+    elif damage == 'result-chunks': finish['result']['chunk_payloads'] = ['0' * 64]
+    elif damage == 'unsupported': finish['unsupported'] = ['uncovered guest service']
+    elif damage == 'error': finish['error'] = 'capture failed'
+    else: finish['schema'] = 'other'
+    index['finish']['sha256'] = put(index['finish']['path'], finish)
+    put('index.json', index)
+    with pytest.raises(ValueError): module.check(tmp_path)
+
+
+def test_full_acceptance_requires_completed_repeat(tmp_path, monkeypatch):
+    complete_stream(tmp_path, monkeypatch)
+    with pytest.raises(ValueError, match='independent campaign repeat'):
+        module.check(tmp_path, require_repeat=True)

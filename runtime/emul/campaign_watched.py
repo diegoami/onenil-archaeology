@@ -73,6 +73,8 @@ def check_prefix(directory):
         raise ValueError('campaign prefix preparation/entry differs')
     for path in sorted(directory.glob('attempt-*-verified-*.json')):
         verified = json.loads(path.read_text())
+        if verified['chunk'] not in {p.name for p in paths}:
+            raise ValueError('verified prefix names an unknown campaign chunk')
         observed = json.loads((directory / verified['chunk']).read_text())
         if (verified['producer'] not in producers
                 or verified['payload_sha256'] != observed['payload_sha256']
@@ -103,6 +105,7 @@ def check(directory, require_repeat=False):
     cursor = None
     actions = []
     draws = []
+    payload_digests = []
     first = None
     for number, item in enumerate(index['chunks']):
         if item['path'] != f'chunk-{number:06d}.json':
@@ -115,6 +118,7 @@ def check(directory, require_repeat=False):
             raise ValueError('campaign chunk observer identity differs')
         if sha(encoded(row['payload'])) != row['payload_sha256']:
             raise ValueError('campaign chunk payload digest differs')
+        payload_digests.append(row['payload_sha256'])
         cursor = prior.validate_chunk(row['payload'], cursor)
         draws.extend(row['payload']['draws'])
         actions.extend(row['payload']['actions'])
@@ -122,10 +126,14 @@ def check(directory, require_repeat=False):
             first = row['payload']['ticks'][0]['before']
     if first != base['payload']['first_entry'] or draws[:258] != base['payload']['draws']:
         raise ValueError('campaign T66 preparation/entry join differs')
+    if not re.fullmatch(r'attempt-\d{4}-finish\.json', index['finish']['path']):
+        raise ValueError('campaign finish path differs')
     finish_data = (directory / index['finish']['path']).read_bytes()
     if sha(finish_data) != index['finish']['sha256']:
         raise ValueError('campaign finish digest differs')
     finish = json.loads(finish_data)
+    if finish['schema'] != 'original-campaign-watched-finish/1' or finish['error'] is not None or finish['unsupported']:
+        raise ValueError('campaign completion metadata differs')
     if finish['producer'] not in producers:
         raise ValueError('campaign finish observer identity differs')
     if finish['status'] != 'completed' or finish['boundary'] != prior.match.MATCH_RETURN:
@@ -133,6 +141,10 @@ def check(directory, require_repeat=False):
     if cursor is None or (finish['ticks'], finish['draws'], finish['actions']) != (cursor['tick'] - 1, cursor['draw'], cursor['action']):
         raise ValueError('campaign final stream cursors differ')
     prior.validate_finish(finish['final'], actions)
+    expected_result = dict(chunk_payloads=payload_digests, final=finish['final'],
+                           ticks=finish['ticks'], draws=finish['draws'], actions=finish['actions'])
+    if finish['result'] != expected_result:
+        raise ValueError('campaign completion result aliases differ')
     repeats = sorted(directory.glob('repeat-*.json'))
     if require_repeat and not repeats:
         raise ValueError('completed independent campaign repeat is still required')
