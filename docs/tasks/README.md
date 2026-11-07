@@ -102,3 +102,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T68 Original incoming read witnesses for the fresh watched caller](T68.md)
 
 - [T69 Original keyboard-edited initial XI through watched entry](T69.md)
+
+- [T70 Continuing edited watched observer and independent 64-tick prefix](T70.md)
