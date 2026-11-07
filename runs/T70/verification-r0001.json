@@ -1,0 +1,55 @@
+{
+  "schema": "edited-bounded-verification/1",
+  "files": [
+    {
+      "path": "runs/T70/reference-r0001/attempt-0001-bounded.json",
+      "size": 10327,
+      "sha256": "4384e9a89ed305a233f09fde93f82055dbac1210debbc822d255c6148a2d8404"
+    },
+    {
+      "path": "runs/T70/reference-r0001/attempt-0001-start.json",
+      "size": 10223,
+      "sha256": "124fe90298175e0f29c369580ecd5b663fec5cc0830c9da540db98beca627258"
+    },
+    {
+      "path": "runs/T70/reference-r0001/attempt-0002-bounded.json",
+      "size": 10327,
+      "sha256": "d4e1d086522b1b9f058b6aacf59f1000baa8e02f78f7af79c5be982d734a2780"
+    },
+    {
+      "path": "runs/T70/reference-r0001/attempt-0002-start.json",
+      "size": 10223,
+      "sha256": "c05c0fe65b17043c365abd369821e03d7992b6e85fbb23dd55ad779985ae30ca"
+    },
+    {
+      "path": "runs/T70/reference-r0001/attempt-0002-verified-000000.json",
+      "size": 212,
+      "sha256": "b5c4afc720d8d6f2bfee57cb3113a449a4d42318ca7795e0847723f0acc00ea9"
+    },
+    {
+      "path": "runs/T70/reference-r0001/chunk-000000.json",
+      "size": 883516,
+      "sha256": "fd3a4a638339d9e664b34b517b1a81b083df08beb4ceabe5ea4e49cac30d3f09"
+    },
+    {
+      "path": "runs/T70/reference-r0001/start.json",
+      "size": 10223,
+      "sha256": "124fe90298175e0f29c369580ecd5b663fec5cc0830c9da540db98beca627258"
+    }
+  ],
+  "bounded": {
+    "ticks": 64,
+    "draws": 1670,
+    "actions": 3,
+    "attempts": 2,
+    "boundary": "0AB9:7B79",
+    "full_match": false
+  },
+  "tests": {
+    "command": "python3 -m pytest -q tests/emul/test_edited_watched.py tests/emul/test_edited_admission.py tests/emul/test_campaign_admission.py tests/emul/test_campaign_watched.py",
+    "passed": 72
+  },
+  "source": "T69 accepted pair; exact keyboard edit and preparation/entry joined",
+  "private_recovery": "existing T66 original start reused; no new original assets",
+  "next": "continuing original full match,independent repeat and any missing incoming support before native edited-XI admission"
+}
