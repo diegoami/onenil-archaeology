@@ -35,7 +35,6 @@ def test_prefix_cannot_masquerade_as_completion_or_corrupt_stop(damage):
 
 def test_public_bounded_original_and_independent_repeat():
     directory=ROOT/'runs/T70/reference-r0001'
-    if not directory.exists():pytest.skip('original bounded pair not yet retained')
     result=module.check_bounded(directory,require_repeat=True)
     assert result['ticks']==64 and result['attempts']>=2
 
@@ -43,7 +42,6 @@ def test_public_bounded_original_and_independent_repeat():
 def test_public_prefix_corruption_controls(damage,tmp_path):
     import shutil
     source=ROOT/'runs/T70/reference-r0001'
-    if not (source/'attempt-0002-bounded.json').exists():pytest.skip('original repeated prefix not yet retained')
     directory=tmp_path/'case';shutil.copytree(source,directory)
     if damage in ('entry','rng','tick','seed'):
         path=directory/'chunk-000000.json';row=json.loads(path.read_text())
