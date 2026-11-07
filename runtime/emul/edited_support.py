@@ -177,17 +177,23 @@ def preparation_check(value,base):
 
 
 def catalog(pairs):
-    combined={};preparation=None
+    if len(pairs)!=2:raise ValueError('two independent request groups required')
+    combined={};preparation=None;witnesses={}
     for first,second in pairs:
         a=json.loads(first.read_text());b=json.loads(second.read_text())
         rows=check(a);check(b)
         if any(a[k]!=b[k] for k in ('payload','request','ui','keys_delivered','source')):raise ValueError('independent edited support differs')
         if preparation is None:preparation=a['payload']['preparation']
         elif preparation!=a['payload']['preparation']:raise ValueError('cross-group preparation differs')
+        for observed in a['payload']['fields']:
+            key=observed['area'],observed['offset']
+            if key in witnesses and witnesses[key]!=observed:raise ValueError('conflicting cross-group observations')
+            witnesses[key]=observed
         for row in rows:
             key=row['area'],row['offset']
             if key in combined and combined[key]!=row['value']:raise ValueError('conflicting edited incoming witness')
             combined[key]=row['value']
+    if set(witnesses)!=known_requests():raise ValueError('edited witness census incomplete')
     result=dict(preparation_inputs={k:v for k,v in preparation['points'][0]['fields'].items() if preparation['eligible'][k]},incoming=[dict(area=a,offset=o,value=v) for (a,o),v in sorted(combined.items())])
     print('PASS reconciled edited input catalog',len(result['preparation_inputs']),'preparation fields',len(combined),'unchanged support bytes')
     return result

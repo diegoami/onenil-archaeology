@@ -65,7 +65,6 @@ def test_later_computation_is_not_a_preparation_input():
 @pytest.mark.parametrize('damage',['source','request','producer','ui','keys','prep','witness','opaque'])
 def test_real_original_record_corruption_controls(damage):
     path=ROOT/'runs/T72/support-r0001.json'
-    if not path.exists():pytest.skip('original edited witnesses not yet retained')
     value=json.loads(path.read_text());module.check(value);bad=copy.deepcopy(value)
     if damage=='source':bad['source']['state_sha256']='0'*64
     elif damage=='request':bad['request']['path']='traces/T68/requests-r0003.json'
@@ -80,10 +79,14 @@ def test_real_original_record_corruption_controls(damage):
 
 def test_both_original_pairs_and_cross_group_preparation():
     directory=ROOT/'runs/T72'
-    if not (directory/'support-r0004.json').exists():pytest.skip('both original pairs not yet retained')
     value=module.catalog([(directory/'support-r0001.json',directory/'support-r0002.json'),(directory/'support-r0003.json',directory/'support-r0004.json')])
     assert len(value['incoming'])<=2032
 
 def test_unchanged_case_record_cannot_claim_edited_inputs():
     old=json.loads((ROOT/'runs/T68/support-r0005.json').read_text())
     with pytest.raises(ValueError):module.check(old)
+
+def test_catalog_cannot_substitute_one_group_for_the_complete_census():
+    directory=ROOT/'runs/T72';pair=(directory/'support-r0001.json',directory/'support-r0002.json')
+    with pytest.raises(ValueError,match='two independent'):module.catalog([pair])
+    with pytest.raises(ValueError,match='census incomplete'):module.catalog([pair,pair])
