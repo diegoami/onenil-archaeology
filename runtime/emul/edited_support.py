@@ -260,7 +260,7 @@ def capture(state_path, request_path, output):
         payload_check(payload, request, base)
     except (Exception, KeyboardInterrupt) as exc:
         status, error = 'aborted', f'{type(exc).__name__}: {exc}'
-    result = dict(schema='original-edited-support/1', status=status, error=error, producer=prior.git('rev-parse', 'HEAD').decode().strip(), producer_files={name: prior.sha((ROOT / name).read_bytes()) for name in producers}, source=dict(record=BASE, sha256=BASE_SHA, state_sha256=prior.STATE_SHA, release=base['source']['release']), request=dict(path=str(relative), sha256=prior.sha(prior.encoded(request))), interventions=[], payload=payload, payload_sha256=prior.sha(prior.encoded(payload)), unsupported=week.g.unsupported,ui=ui,keys_delivered=week.g.keys_delivered)
+    result = dict(schema='original-edited-support/1', status=status, error=error, producer=prior.git('rev-parse', 'HEAD').decode().strip(), producer_files={name: prior.sha((ROOT / name).read_bytes()) for name in producers}, source=dict(record=BASE, sha256=BASE_SHA, state_sha256=prior.STATE_SHA, release=base['source']['release']), request=dict(path=str(relative), sha256=prior.sha(prior.encoded(request))), interventions=[], payload=payload, payload_sha256=prior.sha(prior.encoded(payload)), unsupported=week.g.unsupported,ui=ui,keys_delivered=[list(k) for k in week.g.keys_delivered])
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open('x') as out:
         json.dump(result, out, indent=2)
