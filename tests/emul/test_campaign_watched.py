@@ -151,7 +151,7 @@ def test_full_acceptance_requires_completed_repeat(tmp_path, monkeypatch):
         module.check(tmp_path, require_repeat=True)
 
 
-@pytest.mark.parametrize('damage', [None, 'missing-start', 'missing-finish', 'aborted', 'different-result', 'different-keys', 'missing-prefix'])
+@pytest.mark.parametrize('damage', [None, 'missing-start', 'missing-finish', 'aborted', 'different-result', 'different-keys', 'missing-prefix', 'foreign-receipt-producer'])
 def test_independent_repeat_requires_its_own_completed_attempt(tmp_path, monkeypatch, damage):
     finish, index, put = complete_stream(tmp_path, monkeypatch)
     candidate = copy.deepcopy(finish)
@@ -167,6 +167,11 @@ def test_independent_repeat_requires_its_own_completed_attempt(tmp_path, monkeyp
     if damage == 'missing-start': (tmp_path / 'attempt-0002-start.json').unlink()
     elif damage == 'missing-finish': (tmp_path / 'attempt-0002-finish.json').unlink()
     elif damage == 'missing-prefix': (tmp_path / 'attempt-0002-verified-000000.json').unlink()
+    elif damage == 'foreign-receipt-producer':
+        put('attempt-0003-start.json', {'producer': 'other'})
+        receipt = json.loads((tmp_path / 'attempt-0002-verified-000000.json').read_text())
+        receipt['producer'] = 'other'
+        put('attempt-0002-verified-000000.json', receipt)
     else:
         if damage == 'aborted': candidate['status'] = 'aborted'
         elif damage == 'different-result': candidate['result']['draws'] += 1

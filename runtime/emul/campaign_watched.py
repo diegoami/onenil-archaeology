@@ -56,10 +56,12 @@ def check_prefix(directory):
     base = source()
     identity(json.loads((directory / 'start.json').read_text()), base)
     producers = set()
+    attempts = {}
     for path in sorted(directory.glob('attempt-*-start.json')):
         attempt = json.loads(path.read_text())
         identity(attempt, base)
         producers.add(attempt['producer'])
+        attempts[path.name.removesuffix('-start.json')] = attempt['producer']
     cursor, first = None, None
     setup_draws = []
     paths = sorted(directory.glob('chunk-*.json'))
@@ -79,6 +81,10 @@ def check_prefix(directory):
         raise ValueError('campaign prefix preparation/entry differs')
     for path in sorted(directory.glob('attempt-*-verified-*.json')):
         verified = json.loads(path.read_text())
+        match = re.fullmatch(r'(attempt-\d{4})-verified-(\d{6})\.json', path.name)
+        if (match is None or verified['producer'] != attempts.get(match[1])
+                or verified['chunk'] != f'chunk-{match[2]}.json'):
+            raise ValueError('independent verified prefix attempt/chunk identity differs')
         if verified['chunk'] not in {p.name for p in paths}:
             raise ValueError('verified prefix names an unknown campaign chunk')
         observed = json.loads((directory / verified['chunk']).read_text())
