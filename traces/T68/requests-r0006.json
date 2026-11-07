@@ -1,0 +1,9 @@
+{
+  "schema": "fresh-caller-read-request/1",
+  "fields": [
+    {
+      "area": "ds",
+      "offset": 41538
+    }
+  ]
+}
