@@ -2,6 +2,7 @@
 """T68: bounded original incoming read witnesses, never a native engine model."""
 import argparse
 import json
+import re
 from pathlib import Path
 
 import campaign_admission as prior
@@ -33,7 +34,7 @@ def source():
 
 
 def allowed(area, offset):
-    if type(offset) is not int or offset < 0:
+    if type(area) is not str or type(offset) is not int or offset < 0:
         return False
     if area == 'ds':
         return offset in DS_CELLS or any(lo <= offset < hi for lo, hi in DS_RANGES)
@@ -49,7 +50,7 @@ def request_check(value):
         raise ValueError('fresh support request bound differs')
     seen = set()
     for field in value['fields']:
-        if set(field) != {'area', 'offset'} or not allowed(field['area'], field['offset']):
+        if not isinstance(field, dict) or set(field) != {'area', 'offset'} or not allowed(field['area'], field['offset']):
             raise ValueError('unsupported fresh support request')
         key = field['area'], field['offset']
         if key in seen:
@@ -68,6 +69,8 @@ def payload_check(payload, request, base):
         raise ValueError('fresh support payload fields differ')
     if [point['site'] for point in payload['points']] != list(SITES):
         raise ValueError('fresh support boundary census differs')
+    if any(set(point) != {'site', 'join_sha256'} for point in payload['points']):
+        raise ValueError('fresh support boundary fields differ')
     if [point['join_sha256'] for point in payload['points']] != joins(base):
         raise ValueError('fresh support source state joins differ')
     if payload['draw_count'] != 258 or payload['draws_sha256'] != prior.sha(prior.encoded(base['payload']['draws'])):
@@ -88,12 +91,23 @@ def payload_check(payload, request, base):
 
 def check(value):
     base = source()
-    if value['schema'] != 'original-fresh-support/1' or value['status'] != 'completed' or value['unsupported']:
+    if set(value) != {'schema', 'status', 'error', 'producer', 'producer_files', 'source', 'request', 'interventions', 'payload', 'payload_sha256', 'unsupported'}:
+        raise ValueError('fresh support record fields differ')
+    if value['schema'] != 'original-fresh-support/1' or value['status'] != 'completed' or value['unsupported'] or value['error'] is not None:
         raise ValueError('fresh support run incomplete')
+    if not re.fullmatch(r'[0-9a-f]{40}', value['producer']):
+        raise ValueError('fresh support producer identity differs')
     if value['source'] != dict(record=BASE, sha256=BASE_SHA, state_sha256=prior.STATE_SHA, release=base['source']['release']):
         raise ValueError('fresh support source identity differs')
     if value['interventions']:
         raise ValueError('unexpected fresh support intervention')
+    if set(value['request']) != {'path', 'sha256'} or Path(value['request']['path']).parts[:2] != ('traces', 'T68') or '..' in Path(value['request']['path']).parts:
+        raise ValueError('fresh support request identity differs')
+    source_paths = prior.git('ls-tree', '-r', '--name-only', value['producer'], '--', 'runtime/emul').decode().splitlines()
+    required = {name for name in source_paths if Path(name).parent == Path('runtime/emul') and name.endswith('.py')}
+    required.update(['runtime/driver/savestate.py', 'runtime/driver/screens.py', 'tools/data/campaign_seed.py', 'tools/data/save.py', 'tools/data/league.py', value['request']['path']])
+    if set(value['producer_files']) != required:
+        raise ValueError('fresh support producer dependency census differs')
     for name, digest in value['producer_files'].items():
         if prior.sha(prior.git('show', value['producer'] + ':' + name)) != digest:
             raise ValueError('fresh support producer differs')

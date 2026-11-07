@@ -1,5 +1,6 @@
 import copy
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -58,3 +59,19 @@ def test_original_computation_is_excluded_from_incoming():
     base, payload = witnesses()
     payload['fields'][0].update(entry=4, incoming=False)
     module.payload_check(payload, request(), base)
+
+
+@pytest.mark.parametrize('damage', ['source', 'join', 'witness', 'request', 'dependency', 'error', 'opaque'])
+def test_authentic_record_rejects_corrupted_aliases(damage):
+    value = json.loads((ROOT / 'runs/T68/support-r0003.json').read_text())
+    assert module.check(value)
+    bad = copy.deepcopy(value)
+    if damage == 'source': bad['source']['state_sha256'] = '0' * 64
+    elif damage == 'join': bad['payload']['points'][0]['join_sha256'] = '0' * 64
+    elif damage == 'witness': bad['payload']['fields'][0]['entry'] ^= 1
+    elif damage == 'request': bad['request']['sha256'] = '0' * 64
+    elif damage == 'dependency': bad['producer_files'].pop('runtime/emul/guest.py')
+    elif damage == 'error': bad['error'] = 'aborted'
+    else: bad['opaque'] = 'unrecognized data'
+    bad['payload_sha256'] = module.prior.sha(module.prior.encoded(bad['payload']))
+    with pytest.raises(ValueError): module.check(bad)
