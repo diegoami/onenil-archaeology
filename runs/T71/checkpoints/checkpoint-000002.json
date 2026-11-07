@@ -1,0 +1,20 @@
+{
+  "schema": "local-edited-capture-checkpoint/1",
+  "producer": "eadffa7ea14fa53cbad6fbaef55d6afceddf4ded",
+  "verified": {
+    "retained_prefix": {
+      "chunks": 3,
+      "ticks": 192,
+      "draws": 7371,
+      "actions": 41
+    },
+    "full_index": false,
+    "repeats": 0
+  },
+  "leaves": {
+    "runs/T70/reference-r0001/chunk-000002.json": {
+      "size": 1053982,
+      "sha256": "1602a227dd5063045fe264e080265c023c9d922dc2cd36f50ec628e26b4c4188"
+    }
+  }
+}
