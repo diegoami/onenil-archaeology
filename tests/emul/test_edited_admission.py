@@ -33,7 +33,6 @@ def test_old_unchanged_capture_is_not_edited_evidence():
 @pytest.mark.parametrize('damage',['source','ui','admission','entry','keys','digest','producer'])
 def test_public_original_record_joins(damage):
  path=ROOT/'runs/T69/admission-r0002.json'
- if not path.exists():pytest.skip('original edited capture not yet retained')
  original=json.loads(path.read_text());module.validate_record(original);bad=copy.deepcopy(original)
  if damage=='source':bad['source']['state_sha256']='0'*64
  elif damage=='ui':bad['payload']['ui'][2]['selected_player']=2583

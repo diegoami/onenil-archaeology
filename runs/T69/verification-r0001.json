@@ -1,0 +1,50 @@
+{
+  "schema": "edited-preparation-verification/1",
+  "accepted_pair": [
+    {
+      "path": "runs/T69/admission-r0002.json",
+      "size": 16225793,
+      "sha256": "45ca77eda64349d90700eb3983f6c725b5308e0dcf87c8a788bb081fde3ab627",
+      "producer": "e2179a11b17523a574571cbb1e779b7e6e18473b"
+    },
+    {
+      "path": "runs/T69/admission-r0003.json",
+      "size": 16225793,
+      "sha256": "a4bdfe03398b7c9de21ca8c6800b7c15cda7873218d413806b643fa31ce7b4af",
+      "producer": "e2179a11b17523a574571cbb1e779b7e6e18473b"
+    }
+  ],
+  "independent_payload_keys_and_sources": "equal",
+  "ui_witnesses": 8,
+  "delivered_keys": 9,
+  "boundaries": 11,
+  "draws": 258,
+  "case": {
+    "club": 130,
+    "opponent": 17,
+    "initial_slots_1_2": [
+      2582,
+      2583
+    ],
+    "edited_slots_1_2": [
+      2583,
+      2582
+    ],
+    "roles": [
+      2,
+      2
+    ],
+    "entry_scene_2_3": [
+      2583,
+      2582
+    ]
+  },
+  "tests": {
+    "command": "python3 -m pytest -q tests/emul/test_edited_admission.py tests/emul/test_campaign_admission.py",
+    "passed": 23
+  },
+  "private_recovery": "reuse accepted T66 original start SHA7a66ef10043b0a6da9312b8f729a5c4e6009096d955c1f7f4a7cf9b2507a78fc; no new private artifact",
+  "earlier_evidence": "unchanged",
+  "publication": "awaits explicit owner authorization for this numeric payload",
+  "native_admission": "still unchanged-only; no edited full-match claim"
+}

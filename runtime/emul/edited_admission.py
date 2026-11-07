@@ -163,6 +163,10 @@ def capture(path,out):
   payload['draws']=[d for d in week.events if d['kind']=='draw'];validate_payload(payload)
  except (Exception,KeyboardInterrupt) as exc:status='aborted';error=f'{type(exc).__name__}: {exc}';payload['draws']=[d for d in week.events if d['kind']=='draw']
  result=dict(schema='original-edited-admission/1',producer=git('rev-parse','HEAD').decode().strip(),producer_files={name:sha((ROOT/name).read_bytes()) for name in producer_files},source=dict(state_sha256=sha(data),state_size=len(data),save_sha256=sha(files['SAVE1.1-0']),league_sha256=sha(files['ENGL-95.DAT']),release=release,t65_record_sha256=sha((ROOT/SEED_RECORD).read_bytes())),runtime=dict(python=platform.python_version(),unicorn=__import__('unicorn').__version__),elapsed_seconds=time.monotonic()-start,status=status,error=error,payload=payload,payload_sha256=sha(encoded(payload)),unsupported=g.unsupported,keys_delivered=g.keys_delivered)
+ if status=='completed':
+  try:validate_record(result)
+  except (ValueError,KeyError,TypeError) as exc:
+   status='aborted';error='public validation: '+str(exc);result.update(status=status,error=error)
  out.parent.mkdir(parents=True,exist_ok=True)
  with out.open('x') as f:json.dump(result,f,indent=2);f.write('\n')
  print(status,error or '',len(payload['points']),'boundaries',len(payload['draws']),'draws',flush=True)
