@@ -90,3 +90,19 @@ def test_catalog_cannot_substitute_one_group_for_the_complete_census():
     directory=ROOT/'runs/T72';pair=(directory/'support-r0001.json',directory/'support-r0002.json')
     with pytest.raises(ValueError,match='two independent'):module.catalog([pair])
     with pytest.raises(ValueError,match='census incomplete'):module.catalog([pair,pair])
+
+def test_verification_manifest_binds_files_and_owned_catalog():
+    import subprocess
+    manifest=json.loads((ROOT/'runs/T72/verification-r0001.json').read_text())
+    assert manifest['schema']=='edited-support-verification/1'
+    paths=[f'runs/T72/support-r{i:04d}.json' for i in range(1,5)]
+    assert [row['path'] for row in manifest['files']]==paths
+    for row in manifest['files']:
+        data=(ROOT/row['path']).read_bytes()
+        assert (len(data),module.prior.sha(data))==(row['size'],row['sha256'])
+    observer=subprocess.check_output(['git','show',manifest['producer']+':'+module.TOOL],cwd=ROOT)
+    assert module.prior.sha(observer)==manifest['observer_sha256']
+    value=module.catalog([(ROOT/paths[0],ROOT/paths[1]),(ROOT/paths[2],ROOT/paths[3])])
+    assert module.prior.sha(module.prior.encoded(value))==manifest['canonical_catalog_sha256']
+    assert value['preparation_inputs']==manifest['preparation_inputs']
+    assert len(value['incoming'])==manifest['incoming_support_bytes']==2032
