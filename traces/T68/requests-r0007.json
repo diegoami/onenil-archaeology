@@ -1,0 +1,49 @@
+{
+  "schema": "fresh-caller-read-request/1",
+  "fields": [
+    {
+      "area": "ds",
+      "offset": 38047
+    },
+    {
+      "area": "ds",
+      "offset": 38048
+    },
+    {
+      "area": "ds",
+      "offset": 38049
+    },
+    {
+      "area": "ds",
+      "offset": 38050
+    },
+    {
+      "area": "ds",
+      "offset": 38051
+    },
+    {
+      "area": "ds",
+      "offset": 38052
+    },
+    {
+      "area": "ds",
+      "offset": 38053
+    },
+    {
+      "area": "ds",
+      "offset": 38054
+    },
+    {
+      "area": "ds",
+      "offset": 38055
+    },
+    {
+      "area": "ds",
+      "offset": 38056
+    },
+    {
+      "area": "ds",
+      "offset": 38057
+    }
+  ]
+}
