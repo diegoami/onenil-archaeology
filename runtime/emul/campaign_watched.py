@@ -40,6 +40,12 @@ def identity(start, base):
         raise ValueError('unexpected campaign watch intervention')
     if not start['producer_files'] or TOOL not in start['producer_files']:
         raise ValueError('missing campaign observer identity')
+    source_paths = admission.git('ls-tree', '-r', '--name-only', start['producer'], '--', 'runtime/emul').decode().splitlines()
+    required = {name for name in source_paths if Path(name).parent == Path('runtime/emul') and name.endswith('.py')}
+    required.update(['runtime/driver/savestate.py', 'runtime/driver/screens.py',
+                     'tools/data/campaign_seed.py', 'tools/data/save.py', 'tools/data/league.py'])
+    if set(start['producer_files']) != required:
+        raise ValueError('campaign observer dependency census differs')
     for name, digest in start['producer_files'].items():
         if sha(admission.git('show', start['producer'] + ':' + name)) != digest:
             raise ValueError('campaign observer source differs')

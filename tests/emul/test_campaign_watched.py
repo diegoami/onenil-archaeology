@@ -67,11 +67,7 @@ def test_changed_source_pin_refuses(monkeypatch):
 
 def test_changed_source_start_release_and_intervention_refuse():
     base = module.source()
-    start = dict(source={'record': module.SOURCE, 'sha256': module.SOURCE_SHA},
-                 state_sha256=module.admission.STATE_SHA, release=base['source']['release'],
-                 watch_setting=1, interventions=[], schema='original-campaign-watched-start/1',
-                 producer=module.admission.git('rev-parse', 'HEAD').decode().strip(),
-                 producer_files={module.TOOL: module.sha(module.admission.git('show', 'HEAD:' + module.TOOL))})
+    start = json.loads((ROOT / 'runs/T67/reference-r0001/start.json').read_text())
     module.identity(start, base)
     for field in ['source', 'state_sha256', 'release', 'watch_setting', 'interventions']:
         bad = copy.deepcopy(start)
@@ -81,6 +77,20 @@ def test_changed_source_start_release_and_intervention_refuse():
         elif field == 'watch_setting': bad[field] = 0
         else: bad[field] = [{'mutation': 'not allowed'}]
         with pytest.raises(ValueError): module.identity(bad, base)
+
+
+@pytest.mark.parametrize('damage', ['missing', 'extra'])
+def test_observer_dependency_census_cannot_be_weakened(damage):
+    base = module.source()
+    start = json.loads((ROOT / 'runs/T67/reference-r0001/start.json').read_text())
+    module.identity(start, base)
+    if damage == 'missing':
+        start['producer_files'].pop('runtime/emul/guest.py')
+    else:
+        name = 'CLAUDE.md'
+        start['producer_files'][name] = module.sha(module.admission.git('show', start['producer'] + ':' + name))
+    with pytest.raises(ValueError, match='dependency census'):
+        module.identity(start, base)
 
 
 def complete_stream(directory, monkeypatch):
