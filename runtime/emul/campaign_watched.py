@@ -136,6 +136,9 @@ def check(directory, require_repeat=False):
         raise ValueError('campaign completion metadata differs')
     if finish['producer'] not in producers:
         raise ValueError('campaign finish observer identity differs')
+    finish_start_path = directory / index['finish']['path'].replace('-finish.json', '-start.json')
+    if not finish_start_path.exists() or json.loads(finish_start_path.read_text())['producer'] != finish['producer']:
+        raise ValueError('campaign finish attempt identity differs')
     if finish['status'] != 'completed' or finish['boundary'] != prior.match.MATCH_RETURN:
         raise ValueError('campaign did not reach original match return')
     if cursor is None or (finish['ticks'], finish['draws'], finish['actions']) != (cursor['tick'] - 1, cursor['draw'], cursor['action']):
@@ -152,6 +155,21 @@ def check(directory, require_repeat=False):
         repeat = json.loads(repeat_path.read_text())
         if repeat['producer'] not in producers:
             raise ValueError('repeat observer identity differs')
+        number = repeat_path.stem.removeprefix('repeat-')
+        attempt_start = directory / f'attempt-{number}-start.json'
+        attempt_finish = directory / f'attempt-{number}-finish.json'
+        if not attempt_start.exists() or not attempt_finish.exists():
+            raise ValueError('repeat completed attempt is missing')
+        if json.loads(attempt_start.read_text())['producer'] != repeat['producer']:
+            raise ValueError('repeat attempt observer differs')
+        repeated = json.loads(attempt_finish.read_text())
+        if repeated['producer'] != repeat['producer'] or any(repeated[field] != finish[field] for field in (
+                'schema', 'status', 'error', 'boundary', 'ticks', 'draws', 'actions',
+                'final', 'result', 'keys_delivered', 'unsupported')):
+            raise ValueError('repeat actual return differs')
+        expected_receipts = {f'attempt-{number}-verified-{i:06d}.json' for i in range(len(index['chunks']))}
+        if {p.name for p in directory.glob(f'attempt-{number}-verified-*.json')} != expected_receipts:
+            raise ValueError('repeat verified chunk census differs')
         if repeat['payload_sha256'] != sha(encoded(finish['result'])) or repeat['result'] != finish['result']:
             raise ValueError('independent campaign repeat differs')
         if repeat['chunk_payloads'] != [json.loads((directory / item['path']).read_text())['payload_sha256'] for item in index['chunks']]:

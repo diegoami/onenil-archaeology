@@ -139,3 +139,27 @@ def test_full_acceptance_requires_completed_repeat(tmp_path, monkeypatch):
     complete_stream(tmp_path, monkeypatch)
     with pytest.raises(ValueError, match='independent campaign repeat'):
         module.check(tmp_path, require_repeat=True)
+
+
+@pytest.mark.parametrize('damage', [None, 'missing-start', 'missing-finish', 'aborted', 'different-result', 'different-keys', 'missing-prefix'])
+def test_independent_repeat_requires_its_own_completed_attempt(tmp_path, monkeypatch, damage):
+    finish, index, put = complete_stream(tmp_path, monkeypatch)
+    candidate = copy.deepcopy(finish)
+    put('attempt-0002-start.json', {'producer': 'synthetic'})
+    put('attempt-0002-finish.json', candidate)
+    put('attempt-0002-verified-000000.json', dict(producer='synthetic',
+        chunk='chunk-000000.json', payload_sha256=finish['result']['chunk_payloads'][0], tick=1, draws=1))
+    put('repeat-0002.json', dict(producer='synthetic', result=finish['result'],
+        chunk_payloads=finish['result']['chunk_payloads'], payload_sha256=module.sha(module.encoded(finish['result']))))
+    if damage is None:
+        module.check(tmp_path, require_repeat=True)
+        return
+    if damage == 'missing-start': (tmp_path / 'attempt-0002-start.json').unlink()
+    elif damage == 'missing-finish': (tmp_path / 'attempt-0002-finish.json').unlink()
+    elif damage == 'missing-prefix': (tmp_path / 'attempt-0002-verified-000000.json').unlink()
+    else:
+        if damage == 'aborted': candidate['status'] = 'aborted'
+        elif damage == 'different-result': candidate['result']['draws'] += 1
+        else: candidate['keys_delivered'] = [['different input', '0AB9:0000']]
+        put('attempt-0002-finish.json', candidate)
+    with pytest.raises(ValueError): module.check(tmp_path, require_repeat=True)
