@@ -98,3 +98,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T66 Initial saved PSG fixture: original preparation admission capture](T66.md)
 
 - [T67 Complete original saved-campaign watched match reference](T67.md)
+
+- [T68 Original incoming read witnesses for the fresh watched caller](T68.md)
