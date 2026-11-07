@@ -12,9 +12,10 @@ SITES=('0AB9:E24C','0AB9:E24F','0AB9:86E9','0AB9:E2D4','0AB9:E2D9','0AB9:E2EF','
 sha=lambda data:hashlib.sha256(data).hexdigest()
 def encoded(value):return json.dumps(value,sort_keys=True,separators=(',',':')).encode()
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args])
-UI_KEYS=['space','Down','Return','Down','Return','Escape']
-UI_STAGES=['main-before','squad','source','picked','destination','placed','main-after']
-UI_SELECTED=[None,2581,2582,2582,2583,2582,None]
+UI_KEYS=['space','Down','Return','Down','Return','Escape','Up']
+UI_STAGES=['main-before','squad','source','picked','destination','placed','main-return','main-after']
+UI_SELECTED=[None,2581,2582,2582,2583,2582,None,None]
+UI_MENU=['PLAY NEXT GAME',None,None,None,None,None,'Players','PLAY NEXT GAME']
 def initial_campaign():return json.loads((ROOT/SEED_RECORD).read_text())['initial']
 def expected_campaign():
  value=initial_campaign();value['club']['first_team'][1:3]=[2583,2582];return value
@@ -23,11 +24,12 @@ def validate_edit(payload):
  if payload['initial_campaign']!=initial_campaign():raise ValueError('initial campaign differs')
  require_campaign(payload['campaign'])
  ui=payload['ui']
- if len(ui)!=7:raise ValueError('incomplete UI edit witness')
+ if len(ui)!=8:raise ValueError('incomplete UI edit witness')
  for i,step in enumerate(ui):
-  if set(step)!={'stage','key','selected_player','put_here','screen_sha256','roster'}:raise ValueError('UI shape differs')
+  if set(step)!={'stage','key','selected_player','put_here','screen_sha256','roster','menu'}:raise ValueError('UI shape differs')
   if step['stage']!=UI_STAGES[i] or step['key']!=(None if i==0 else UI_KEYS[i-1]):raise ValueError('UI key/stage differs')
   if step['selected_player']!=UI_SELECTED[i] or step['put_here']!=(i in (3,4)):raise ValueError('UI selection/pick differs')
+  if step['menu']!=UI_MENU[i]:raise ValueError('original menu selection differs')
   digest=step['screen_sha256']
   if len(digest)!=64 or any(c not in '0123456789abcdef' for c in digest):raise ValueError('invalid screen digest')
   expected=initial_campaign() if i<5 else expected_campaign()
@@ -41,8 +43,9 @@ def edit_week(week,ui):
   if key:g.press(key)
   if not g.run(max_steps=400_000_000):raise ValueError('UI key wait not reached')
   sc=g.screen();text=sc.text();highlights=[t for _,t in match.screens.highlighted(sc)]
-  if i in (0,6):
+  if i in (0,6,7):
    if 'GAME NAME' not in text or 'PLAY NEXT GAME' not in text:raise ValueError('expected original main menu')
+   if not any(t.startswith(UI_MENU[i]) for t in highlights):raise ValueError('original main selection differs')
    selected=None
   else:
    matches={identifier for identifier,name in names.items() if any(name in t for t in highlights)}
@@ -52,7 +55,7 @@ def edit_week(week,ui):
   if put_here!=(i in (3,4)):raise ValueError('original pick mode differs')
   address=g.far(0xD7C2)+(130-1)*62
   roster=[g.word_at(address+2*j) for j in range(20)]
-  ui.append(dict(stage=stage,key=key,selected_player=selected,put_here=put_here,screen_sha256=sc.digest(),roster=roster))
+  ui.append(dict(stage=stage,key=key,selected_player=selected,put_here=put_here,menu=UI_MENU[i],screen_sha256=sc.digest(),roster=roster))
   print('original edit',stage,'selected',selected,'draws',week.draws,flush=True)
  result=seed.project(memory_save(g),tables);require_campaign(result)
  return result
