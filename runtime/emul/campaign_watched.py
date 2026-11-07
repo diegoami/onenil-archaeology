@@ -231,10 +231,20 @@ def publish_prefix(directory, push=True):
     if not push:
         return True
     subprocess.run(['git', 'push'], cwd=ROOT, check=True, timeout=120)
-    text = ('T67 original campaign capture checkpoint pushed on task/T67-campaign-watched. '
-            'This is an in-progress source stream; no completed match or independent repeat is assumed. '
+    head = admission.git('rev-parse', 'HEAD').decode().strip()
+    if (directory / 'index.json').exists():
+        if list(directory.glob('repeat-*.json')):
+            check(directory, require_repeat=True)
+            status = 'The complete independent original replay is verified; final acceptance/CI remains a separate gate. '
+        else:
+            verified_tick = max((json.loads(path.read_text())['tick'] for path in directory.glob('attempt-*-verified-*.json')), default=0)
+            status = f'The first original match is complete; independent replay is verified through tick {verified_tick} and remains unfinished. '
+    else:
+        status = f'Original capture is an unfinished prefix through tick {result["ticks"]}; no complete match is claimed. '
+    text = (f'T67 source-only checkpoint pushed at {head} on task/T67-campaign-watched. '
+            + status +
             'Resume/recheck with runtime/emul/campaign_watched.py and runs/T67/reference-r0001. '
-            'Native preparation milestone134 is separate; full native campaign result posting remains open.')
+            'Native implementation/desktop status is tracked separately in diegoami/onenil; campaign result posting remains open.')
     with tempfile.NamedTemporaryFile(mode='w', suffix='.txt') as body:
         body.write(text)
         body.flush()
