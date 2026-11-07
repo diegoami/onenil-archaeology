@@ -38,3 +38,27 @@ def test_public_bounded_original_and_independent_repeat():
     if not directory.exists():pytest.skip('original bounded pair not yet retained')
     result=module.check_bounded(directory,require_repeat=True)
     assert result['ticks']==64 and result['attempts']>=2
+
+@pytest.mark.parametrize('damage',['entry','rng','tick','seed','receipt','closure','keys','completion'])
+def test_public_prefix_corruption_controls(damage,tmp_path):
+    import shutil
+    source=ROOT/'runs/T70/reference-r0001'
+    if not (source/'attempt-0002-bounded.json').exists():pytest.skip('original repeated prefix not yet retained')
+    directory=tmp_path/'case';shutil.copytree(source,directory)
+    if damage in ('entry','rng','tick','seed'):
+        path=directory/'chunk-000000.json';row=json.loads(path.read_text())
+        if damage=='entry':row['payload']['ticks'][0]['before']['scenes'][1]['word14']=2582
+        elif damage=='rng':row['payload']['draws'][0]['seed_before']^=1
+        elif damage=='tick':row['payload']['ticks'][0]['tick']=2
+        else:row['payload']['ticks'][-1]['after']['seed']^=1
+        row['payload_sha256']=module.sha(module.encoded(row['payload']));path.write_text(json.dumps(row))
+    elif damage=='receipt':
+        path=directory/'attempt-0002-verified-000000.json';row=json.loads(path.read_text());row['payload_sha256']='0'*64;path.write_text(json.dumps(row))
+    elif damage=='closure':
+        path=directory/'start.json';row=json.loads(path.read_text());row['producer_files'].pop('runtime/emul/guest.py');path.write_text(json.dumps(row))
+    else:
+        path=directory/'attempt-0002-bounded.json';row=json.loads(path.read_text())
+        if damage=='keys':row['keys_delivered'][0][0]='Return'
+        else:row.update(status='completed',boundary='0AB9:EBE2')
+        path.write_text(json.dumps(row))
+    with pytest.raises((ValueError,KeyError)):module.check_bounded(directory,require_repeat=True)
