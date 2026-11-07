@@ -22,6 +22,12 @@ read again from the actual fresh original state. Old-fixture values are never
 copied. The current fixture kind already belongs to T66's typed income input and
 must not be replaced with an older fixture's support cell.
 
+[confirmed] Original1998:0C7A's post-match AI reset indexes the formation-role
+table at9404 by `14 * formation + slot` for slots1..11 (0D2F..0D64).
+The reached formation11 row949F..94A9 is requested separately in request7;
+support-r0013/r0014 reproduce all11 unchanged incoming values. These are
+inputs to the original roster reset, not captured post-match player outputs.
+
 Each witness records `before`, `precall` and `entry`. Only equality across all
 three makes it eligible as unchanged incoming support. A changed value is
 reported and excluded; its original computation needs native ownership rather
@@ -38,6 +44,7 @@ python3 runtime/emul/fresh_support.py --run <private-start.sav> --request traces
 python3 runtime/emul/fresh_support.py --check runs/T68/support-r0006.json --compare runs/T68/support-r0005.json
 python3 runtime/emul/fresh_support.py --check runs/T68/support-r0008.json --compare runs/T68/support-r0007.json
 python3 runtime/emul/fresh_support.py --check runs/T68/support-r0010.json --compare runs/T68/support-r0009.json
+python3 runtime/emul/fresh_support.py --check runs/T68/support-r0014.json --compare runs/T68/support-r0013.json
 ```
 
 The public checker returns only eligible incoming facts. A native importer must
