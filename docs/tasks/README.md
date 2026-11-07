@@ -100,3 +100,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T67 Complete original saved-campaign watched match reference](T67.md)
 
 - [T68 Original incoming read witnesses for the fresh watched caller](T68.md)
+
+- [T69 Original keyboard-edited initial XI through watched entry](T69.md)
