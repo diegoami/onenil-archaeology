@@ -15,6 +15,12 @@ REPEAT_SHA = 'a4bdfe03398b7c9de21ca8c6800b7c15cda7873218d413806b643fa31ce7b4af'
 BASE_SHA = '45ca77eda64349d90700eb3983f6c725b5308e0dcf87c8a788bb081fde3ab627'
 SITES = ('0AB9:E24C', '0AB9:E008', '0AB9:7C67')
 PREP_SITES = ('0AB9:E24C','0AB9:86E9','0AB9:E008','0AB9:7C67')
+T72_PINS = {
+    'support-r0001.json':'f5c1bf9e4d22c327b36cfaf7b38151f5dc58cbee06db33382cb7f938652dddd6',
+    'support-r0002.json':'78186b820c55909b2b181a614bfb4e639494882522f1ffa1c9f8fe96f4081abd',
+    'support-r0003.json':'75fd970f22015e7ea5b98fa35a947fd9cdf642460ce96700965456d9796e90f6',
+    'support-r0004.json':'75fd970f22015e7ea5b98fa35a947fd9cdf642460ce96700965456d9796e90f6',
+}
 LEGACY_REQUEST_PINS = {}
 FAR = {}
 
@@ -164,6 +170,8 @@ def catalog(pair):
         raise ValueError('complete32-byte lookup census required')
     import edited_support as accepted
     directory=ROOT/'runs/T72'
+    for name,digest in T72_PINS.items():
+        if prior.sha((directory/name).read_bytes())!=digest:raise ValueError('accepted T72 source pin differs')
     old=accepted.catalog([(directory/'support-r0001.json',directory/'support-r0002.json'),(directory/'support-r0003.json',directory/'support-r0004.json')])
     old_fields={(r['area'],r['offset']):r['value'] for r in old['incoming']}
     overlaps=0
