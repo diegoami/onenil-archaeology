@@ -54,9 +54,12 @@ checks; this does not permit bypassing editor/gameplay algorithms.
 also packed in ignored `.cache/recovery/T75-editor-states-r0001.tar.gz`,
 6,183,224 bytes, SHA256
 `4fb1933638c4c8d4270b6ed161ff8b8043415e556396d3eee3e100c6e80be5f5`.
-The upload to the owner's private1-0 Drive folder is pending archive-specific
-approval after automatic approval review rejected it. Local states remain
-available; no private bytes are published with these records.
+The owner explicitly approved this payload after automatic approval review
+rejected the initial upload. It is now uploaded and metadata-verified in the
+private1-0 folder as Drive file1OCH_JhncRKPeJCDHjKDKxmWRyRefIyVD,
+6,183,224bytes, shared=false. The local rclone remote was unavailable; the
+connected Google Drive plugin completed the approved upload. No private bytes
+are published with these records.
 
 [confirmed:runs/T75/inputs-r0004.json,inputs-r0005.json,repeat-r0002.json]
 The reached player-panel dispatch95B6 reads DS:9A2A. Both original halftime
@@ -72,3 +75,13 @@ transaction independently establishes the non-warning successful path. Native
 projection may retain this false-only return under exact C866 caller/string
 checks, while refusing every true predicate; the eligibility computation stays
 in original C866. This avoids embedding original warning-string bytes.
+
+[confirmed:static1d6b5b9,CA2B..CA58;1B55:44DC..453A;26C9:0BD2..0BFB]
+The first-team incoming eligibility warning also formats a player name and
+appends a literal suffix before0098 sees the already computed predicate.
+44DC's hidden output pointer remains on the caller's stack (retf2);0BD2 appends
+to it and consumes only the suffix pointer (retf4). For a false predicate this
+local string has no consumer outside the no-dialog0098 path. A native
+presentation boundary may omit both unavailable text producers only with exact
+caller, local buffer, player and false-predicate guards, preserving the stack
+cleanup and original eligibility computation. True warnings remain unsupported.
