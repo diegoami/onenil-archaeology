@@ -1,0 +1,104 @@
+{
+  "schema": "original-halftime-replacement/1",
+  "producer": "1f0c98c1447fa383952a485845454ad0ff1d93c4",
+  "producer_files": {
+    "runtime/driver/halftime_replacement.py": "7d2099a14a96088a49072954ab35c59bb29d21f772d005ecd1c024b741d71afb",
+    "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+    "runtime/driver/dosbox-x-2024.03.01-default.map": "1849ec80ad0b32949869ed8b2d38e7b2e1e89f5959965328b5f8c561196b589a"
+  },
+  "release": {
+    "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+    "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+    "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+    "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+    "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+    "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+    "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+    "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+    "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+    "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+    "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+    "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+  },
+  "dosbox_version": "2024.03.01",
+  "status": "aborted",
+  "processes_exited": true,
+  "payload": {
+    "start": null,
+    "stages": []
+  },
+  "error": "RuntimeError: dosbox-x exited with code -6 during a savestate",
+  "elapsed_seconds": 7.865048958999978,
+  "driver_events": [
+    [
+      0.014,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.119,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.119,
+      "Xvfb :806 answering"
+    ],
+    [
+      0.134,
+      "dosbox-x started"
+    ],
+    [
+      0.254,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      3.254,
+      "T74: waited 3 seconds after window creation before first savestate"
+    ],
+    [
+      3.257,
+      "window focused"
+    ],
+    [
+      3.78,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      3.782,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      3.824,
+      "title screen: matched after 1 savestate polls"
+    ],
+    [
+      3.825,
+      "DOS clock read back: '11/08/2026\\n12:50:57'"
+    ],
+    [
+      6.907,
+      "key y held 0.08s (raw keycode 29)"
+    ],
+    [
+      7.43,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      7.833,
+      "dosbox-x pid 12531 ended by SIGTERM 0.0s after the first signal"
+    ],
+    [
+      7.865,
+      "Xvfb pid 12524 ended by SIGTERM 0.032s after the first signal"
+    ],
+    [
+      7.865,
+      "terminated"
+    ]
+  ],
+  "payload_sha256": "f66144dddab72ab2dcf716912023e7849b3ebfaa82ed8dd1aec8aa3e9069f458"
+}
