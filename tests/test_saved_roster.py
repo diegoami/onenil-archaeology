@@ -35,7 +35,7 @@ def session_payload():
  ft=copy.deepcopy(stages[-1]['state']);ft['elapsed']=93
  menu=copy.deepcopy(ft);menu['seed']=4242
  saved=dict(clubs={'130':{'roster':menu['clubs'][0]['roster'],'players':{'2582':dict(current_position=9,club_position=3,condition=80,instructions=0,status=4),'2592':dict(current_position=2,club_position=1,condition=90,instructions=0,status=0)}},'17':{'roster':list(range(321,341))}},seed_word=4242,header_byte=1,year=1995,clubs_block_sha256='k'*64,players8_block_sha256='l'*64,players15_block_sha256='m'*64)
- stages+=[row('fulltime',ft),row('bench-ft',ft,['Return']),row('stats',menu,['n']),row('cash',menu,['space']),row('transfer',menu,['space']),row('menu-after',menu,['space']),row('saved',menu)]
+ stages+=[row('fulltime',ft),row('bench-ft',ft,['Return']),row('stats',menu,['n']),row('cash',menu,['space']),row('transfer',menu,['space']),row('menu-after',menu,['space']),row('saved',menu,['F7'])]
  reload=copy.deepcopy(menu);reload['players']=[dict(id=i,current_position=9,club_position=3,condition=80,instructions=0,status=4) if i==2582 else dict(id=i,current_position=2,club_position=1,condition=90,instructions=0,status=0) for i in (2582,2592)]
  stages.append(row('reloaded',reload))
  return dict(start=dict(savestate_sha256='c'*64),stages=stages,

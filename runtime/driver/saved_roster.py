@@ -326,6 +326,7 @@ def run(out, scratch):
         d.wait_screen(lambda s: projection(d.last[1])['elapsed'] > stages[-1]['state']['elapsed'],
                       timeout=30, what='second half progression')
         observe('resumed')
+        stages[-1]['keys'] = ['Return']
         validate_transaction(stages[1:stages.index(next(s for s in stages if s['name'] == 'resumed')) + 1])
         deadline = time.monotonic() + 1200
         while time.monotonic() < deadline:
@@ -350,6 +351,7 @@ def run(out, scratch):
             raise ValueError('F7 left the save file unchanged')
         decoded_saves['saved'] = decode_save((Path(d.game_dir) / SAVE_FILE).read_bytes())
         observe('saved')
+        stages[-1]['keys'] = ['F7']
         files = {p.name: p.read_bytes() for p in Path(d.game_dir).iterdir()
                  if p.suffix.lower() == '.1-0'}
         old_pid = d.dbx.pid
@@ -491,7 +493,7 @@ def validate_session(payload, baseline):
     if rows['reloaded']['state']['seed'] != saved['seed_word']:
         raise ValueError('reloaded seed differs from the saved seed word')
     fixed = {'preparation': [], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
-             'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': [],
+             'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': ['F7'],
              'reloaded': []}
     for name, keys in fixed.items():
         if rows[name]['keys'] != keys:
