@@ -1,0 +1,41 @@
+{
+  "schema": "original-halftime-repeat/1",
+  "sources": [
+    {
+      "path": "session-r0005.json",
+      "sha256": "8bab9929881953f8d063cc1fbf45b106ce7f7330d1b750e068b32fd9d44011f8",
+      "producer": "047b70b83ac1c9ccf1c8aadac3374296ee9b9eb4"
+    },
+    {
+      "path": "session-r0006.json",
+      "sha256": "cd1e42aa43b80ac9e0a796edad5111b06c5b05297431fa7ca0cce60ccbdafaac",
+      "producer": "18b13c3c6d302e0652a2b7150f10590014ed200b"
+    }
+  ],
+  "stages_equal": {
+    "halftime": true,
+    "bench": true,
+    "players": true,
+    "pearce": true,
+    "picked": true,
+    "cancelled": true,
+    "picked-again": true,
+    "gale": true,
+    "confirmed": true,
+    "bench-after": true,
+    "resumed": false
+  },
+  "transaction": {
+    "club": 130,
+    "outgoing": 2582,
+    "incoming": 2592,
+    "slots": [
+      1,
+      11
+    ],
+    "capacity_before": 7,
+    "capacity_after": 6
+  },
+  "status": "passed",
+  "scope": "Independent fresh original executions; bounded transaction invariants, not full tick/RNG or substituted-match parity."
+}
