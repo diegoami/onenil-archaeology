@@ -114,3 +114,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T74 Original managed halftime replacement boundary](T74.md)
 
 - [T75 Fresh halftime editor incoming support](T75.md)
+
+- [T80 Authenticate saved roster after a managed watched-match replacement](T80.md)
