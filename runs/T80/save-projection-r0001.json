@@ -1,0 +1,102 @@
+{
+  "schema": "original-saved-roster-projection/1",
+  "producer": "9c08cb232aa70224fe506f60f2c528f3b36f2547",
+  "producer_files": {
+    "runtime/driver/saved_roster.py": "7a6cb54b55a965e265e285de8c211bca013508048fd895d02a97d6b30999934d",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045"
+  },
+  "source": {
+    "path": "One-Nil96/SAVE1.1-0",
+    "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "size": 194426
+  },
+  "reference": {
+    "path": "runs/T74/session-r0005.json",
+    "sha256": "8bab9929881953f8d063cc1fbf45b106ce7f7330d1b750e068b32fd9d44011f8"
+  },
+  "save": {
+    "header_byte": 9,
+    "year": 1995,
+    "seed_word": 23260,
+    "clubs_block_sha256": "82ec12718ae36b109e6dcf054a4cf7e78d215aa8931c57f40bf321224867d882",
+    "players8_block_sha256": "88ad40cd4cefda890d27b3246486fa5452b870ab416282ae5ecec9fb70683c66",
+    "players15_block_sha256": "18df11a2e66f9f26425155b51e174ab30185d57a2964054dd18591546386ba51",
+    "clubs": {
+      "130": {
+        "roster": [
+          2581,
+          2582,
+          2583,
+          2584,
+          2585,
+          2586,
+          2587,
+          2588,
+          2589,
+          2590,
+          2591,
+          2592,
+          2593,
+          2594,
+          2595,
+          2596,
+          2597,
+          2598,
+          0,
+          0
+        ],
+        "players": {
+          "2582": {
+            "current_position": 2,
+            "club_position": 2,
+            "condition": 31,
+            "instructions": 178,
+            "status": 0
+          },
+          "2592": {
+            "current_position": 2,
+            "club_position": 2,
+            "condition": 17,
+            "instructions": 50,
+            "status": 0
+          }
+        }
+      },
+      "17": {
+        "roster": [
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "club": 130,
+    "halftime_roster_sha256": "5160f708628872fe752d8b999071c12da46bea6e76617e93a664eb2bbd7cebf3",
+    "equal": true,
+    "slots_zero_based": {
+      "outgoing": 1,
+      "incoming": 11
+    },
+    "note": "opponent club 17 words are the saved arrangement; its match arrangement is execution state (ai-selection)"
+  },
+  "interpretation": "bounded decoded values and digests only; no save bytes enter git"
+}
