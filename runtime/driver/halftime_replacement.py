@@ -90,7 +90,14 @@ def validate_record(record):
 def run(out,scratch):
  if out.exists() or scratch.exists():raise ValueError('fresh output/scratch required')
  if git('status','--porcelain','--',*DEPENDENCIES).strip():raise ValueError('commit observer first')
- d=driver.Driver(workdir=scratch,game_dir=scratch/'game');stages=[];record=dict(schema='original-halftime-replacement/1',producer=git('rev-parse','HEAD').decode().strip(),producer_files={p:sha((ROOT/p).read_bytes()) for p in DEPENDENCIES},release=release(),dosbox_version=driver.WANT_DOSBOX,status='aborted',processes_exited=False,payload={'start':None,'stages':stages},error=None)
+ # [confirmed:T42..T61 manual driver] Let BIOS initialization finish before
+ # the first savestate; an early boot capture breaks this calibrated runtime.
+ class IntervalDriver(driver.Driver):
+  def _wait_window(self,timeout):
+   window=super()._wait_window(timeout);time.sleep(3)
+   self.log('T74: waited 3 seconds after window creation before first savestate')
+   return window
+ d=IntervalDriver(workdir=scratch,game_dir=scratch/'game');stages=[];record=dict(schema='original-halftime-replacement/1',producer=git('rev-parse','HEAD').decode().strip(),producer_files={p:sha((ROOT/p).read_bytes()) for p in DEPENDENCIES},release=release(),dosbox_version=driver.WANT_DOSBOX,status='aborted',processes_exited=False,payload={'start':None,'stages':stages},error=None)
  start=time.monotonic()
  def observe(name,keys=(),selected=None):
   for key in keys:d.keys(key)
