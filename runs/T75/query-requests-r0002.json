@@ -1,0 +1,16 @@
+[
+  {
+    "stage": "halftime",
+    "area": "config",
+    "offset": 4,
+    "width": 8,
+    "consumer": "0AB9:D1F1"
+  },
+  {
+    "stage": "halftime",
+    "area": "ds",
+    "offset": 894,
+    "width": 8,
+    "consumer": "0AB9:CCB2"
+  }
+]
