@@ -112,3 +112,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T73 Complete edited-route character-classification lookup witnesses](T73.md)
 
 - [T74 Original managed halftime replacement boundary](T74.md)
+
+- [T75 Fresh halftime editor incoming support](T75.md)
