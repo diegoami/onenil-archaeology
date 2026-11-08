@@ -63,3 +63,19 @@ def test_retained_source_capture_and_query():
  for field,value in [('value',2),('offset',5),('address',0),('savestate_sha256','f'*64)]:
   bad=copy.deepcopy(packet);bad['facts'][0][field]=value
   with pytest.raises(ValueError):q.validate(bad)
+
+def test_independent_original_repeat_and_equal_inputs(tmp_path):
+ import json
+ root=ROOT/'runs/T75';paths=[root/f'session-r000{i}.json' for i in [1,2]]
+ h.check(paths)
+ with pytest.raises(ValueError,match='independent fresh'):h.check([paths[0],paths[0]])
+ q=module('independent_query','runtime/driver/halftime_support_query.py')
+ packets=[json.loads((root/f'inputs-r000{i}.json').read_text()) for i in [2,3]]
+ for packet in packets:q.validate(packet)
+ logical=lambda p:[{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in p['facts']]
+ assert logical(packets[0])==logical(packets[1])
+ receipt=json.loads((root/'repeat-r0001.json').read_text());assert receipt['status']=='passed' and receipt['independent_starts'] and receipt['inputs_equal']
+ for item in receipt['sources']:assert h.sha((root/item['path']).read_bytes())==item['sha256']
+ changed=json.loads(paths[1].read_text());s=changed['payload']['stages'][0];s['support']['value']=2;s['support_sha256']=h.sha(h.encoded(s['support']));changed['payload_sha256']=h.sha(h.encoded(changed['payload']))
+ p=tmp_path/'changed.json';p.write_text(json.dumps(changed))
+ with pytest.raises(ValueError,match='support values differ'):h.check([paths[0],p])

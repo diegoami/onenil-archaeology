@@ -18,7 +18,7 @@ capacity7→6 exactly once. Its pointer offset/segment, physical field address,
 value, stage, rendered-screen and private savestate digests are retained.
 `inputs-r0001.json` extracts just this concrete D1F1 incoming write baseline
 from the authenticated halftime state; it is not a guessed zero or an expected
-post-replacement snapshot. Independent repeat is still pending.
+post-replacement snapshot. The independent second session0357be3 agrees; repeat-r0001 binds both runs and input extractions.
 
 [designed:T75] Private boundary savestates are retained under the ignored
 `.cache/T75-original-rNNNN` directories for bounded later queries. Each extraction
@@ -35,3 +35,25 @@ python3 -m pytest -q tests/test_halftime_editor_support.py tests/test_halftime_r
 
 Native#166 remains an unfinished draft; desktop replacement controls and
 substituted full-match parity are not established by this source input record.
+
+[confirmed:runs/T75/inputs-r0002.json and inputs-r0003.json] Native retry then
+identified DS:037E's initial write baseline at CCB2. This byte is the editor
+player cursor; CCB2 stores1 before ordinary Down moves it. Both authentic
+halftime states independently read1 at this concrete field. No broad memory
+range was copied. Selected-team CONFIG+4 also independently remains1.
+
+[confirmed:static1d6b5b9,CBF0;232A:052F..0545] CBF0's template calls at
+CD74/CD90/CDA1/CDB6/CE1F and the player panel's1B55:479A use the same generic
+232A:052F destination-page copy. It obtains the destination through its passed
+header, passes the template to24BC:0000, and restores its frame. The existing
+T41 presentation-boundary evidence owns that generic copy. Native projection
+admission must retain the exact source template/caller/header and owned interval
+checks; this does not permit bypassing editor/gameplay algorithms.
+
+[designed:recovery] Both original processes exited. Private boundary states are
+also packed in ignored `.cache/recovery/T75-editor-states-r0001.tar.gz`,
+6,183,224 bytes, SHA256
+`4fb1933638c4c8d4270b6ed161ff8b8043415e556396d3eee3e100c6e80be5f5`.
+The upload to the owner's private1-0 Drive folder is pending archive-specific
+approval after automatic approval review rejected it. Local states remain
+available; no private bytes are published with these records.
