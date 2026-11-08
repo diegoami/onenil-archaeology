@@ -1,0 +1,22 @@
+{
+  "schema": "original-halftime-support-validation/1",
+  "producer": "7060caa30704e00b560107285c0106464cded702",
+  "focused_tests": 46,
+  "focused_log_sha256": "e06de0dd899e4371af17d77e65b5ad5211d21b3df26f936b47bfd0b3cd6b8cff",
+  "independent_original_sessions": 2,
+  "latest_input_queries": [
+    "inputs-r0008.json",
+    "inputs-r0009.json"
+  ],
+  "runtime_input_bytes": 44,
+  "source_post_editor_club_count": 18,
+  "scan": {
+    "files": 24,
+    "bytes": 651349,
+    "mode": "raw+hex",
+    "status": "passed"
+  },
+  "prior_evidence_unchanged": true,
+  "private_recovery": "private-recovery-r0001.json: uploaded, owner-approved, metadata verified private",
+  "status": "local relevant gates passed; exact-head CI required before merge"
+}
