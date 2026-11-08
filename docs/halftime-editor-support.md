@@ -50,16 +50,10 @@ T41 presentation-boundary evidence owns that generic copy. Native projection
 admission must retain the exact source template/caller/header and owned interval
 checks; this does not permit bypassing editor/gameplay algorithms.
 
-[designed:recovery] Both original processes exited. Private boundary states are
-also packed in ignored `.cache/recovery/T75-editor-states-r0001.tar.gz`,
-6,183,224 bytes, SHA256
-`4fb1933638c4c8d4270b6ed161ff8b8043415e556396d3eee3e100c6e80be5f5`.
-The owner explicitly approved this payload after automatic approval review
-rejected the initial upload. It is now uploaded and metadata-verified in the
-private1-0 folder as Drive file1OCH_JhncRKPeJCDHjKDKxmWRyRefIyVD,
-6,183,224bytes, shared=false. The local rclone remote was unavailable; the
-connected Google Drive plugin completed the approved upload. No private bytes
-are published with these records.
+[designed:recovery] Both original processes exited. The owner-approved private
+boundary-state backup is uploaded and verified as unshared in the owner's
+private folder. Backup identifiers are retained only in ignored local recovery
+notes following the owner's authorized redaction; original bytes remain private.
 
 [confirmed:runs/T75/inputs-r0004.json,inputs-r0005.json,repeat-r0002.json]
 The reached player-panel dispatch95B6 reads DS:9A2A. Both original halftime
@@ -100,3 +94,9 @@ references. This complete loop input is measured, not assumed. D1D4 then calls
 1B55:7777 on the same configured list to compute its source-owned role/ordering
 work. The native incoming transport expands each decoded word to two byte
 facts; none of the observed post-editor values is supplied as an engine input.
+
+[designed:owner,2026-11-08] The instruction “redact them” authorizes this narrow
+exception to CLAUDE.md rule13 for private backup identifiers in T75's recovery
+and validation metadata. Game observations, input queries, producer identities
+and scientific evidence remain unchanged. The identifiers are retained only in
+ignored local recovery notes. Existing commit history is preserved.

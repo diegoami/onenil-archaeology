@@ -13,10 +13,8 @@
   },
   "prior_evidence_unchanged": true,
   "private_archive": {
-    "path": "T75-editor-states-r0001.tar.gz",
-    "bytes": 6183224,
-    "sha256": "4fb1933638c4c8d4270b6ed161ff8b8043415e556396d3eee3e100c6e80be5f5",
-    "upload": "pending payload-specific approval"
+    "upload": "pending payload-specific approval at recording time",
+    "redaction": "Owner-authorized removal of private backup identifiers; local recovery notes retain them."
   },
   "status": "focused checks passed; exact-head public CI required before merge"
 }
