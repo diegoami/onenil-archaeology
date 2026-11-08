@@ -1,0 +1,28 @@
+{
+  "schema": "local-edited-capture-checkpoint/1",
+  "producer": "6e7863f0b18f776d156072b3411c683612edfa10",
+  "verified": {
+    "retained_prefix": {
+      "chunks": 18,
+      "ticks": 1152,
+      "draws": 52203,
+      "actions": 270
+    },
+    "full_index": false,
+    "repeats": 0
+  },
+  "leaves": {
+    "runs/T70/reference-r0001/chunk-000015.json": {
+      "size": 1056595,
+      "sha256": "8804f5998f72b3b2cc86129c08c03c442517d74e708ad20579a2ac998cb29fd9"
+    },
+    "runs/T70/reference-r0001/chunk-000016.json": {
+      "size": 1078806,
+      "sha256": "7aa8d3a22cd2ef011484e76ad2a5cbb305876c8165f90b00a80889967082cc1a"
+    },
+    "runs/T70/reference-r0001/chunk-000017.json": {
+      "size": 1124446,
+      "sha256": "8bbed0c77b650fec3e9d68b5aa5336d3175bd80f01c8b3423eb533c53bbc489e"
+    }
+  }
+}
