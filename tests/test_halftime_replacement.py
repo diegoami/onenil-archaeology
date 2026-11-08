@@ -8,13 +8,13 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('halftime_replacement',ROOT/'runtime/driver/halftime_replacement.py')
 h=importlib.util.module_from_spec(spec);spec.loader.exec_module(h)
 def payload():
- s=dict(clubs=[dict(id=130,roster=[2581,2582]+list(range(2583,2593))+[0]*8),dict(id=17,roster=list(range(321,341)))],allowance=0,reserves=[7,3],sub_flags=[0,0],seed=1,elapsed=46,remaining=45,stoppage=0,live_goals=[0,1])
+ s=dict(clubs=[dict(id=130,roster=[2581,2582]+list(range(2583,2593))+[0]*8),dict(id=17,roster=list(range(321,341)))],allowance=0,reserves=[7,3],sub_flags=[0,0],seed=1,elapsed=46,remaining=45,stoppage=0,live_goals=[0,1],scenes=[dict(index=i+1,word14=2582 if i==1 else i+1) for i in range(22)])
  out=[]
  fixed={'bench':['space'],'players':['space'],'pearce':['Down'],'picked':['Return'],'cancelled':['Escape'],'picked-again':['Return'],'gale':['Down']*11,'confirmed':['Return'],'bench-after':['Escape'],'resumed':['Return']}
  for name in h.STAGES:
   state=copy.deepcopy(s)
   if name in ('confirmed','bench-after','resumed'):
-   state['clubs'][0]['roster'][1],state['clubs'][0]['roster'][11]=2592,2582;state['reserves'][0]-=1
+   state['clubs'][0]['roster'][1],state['clubs'][0]['roster'][11]=2592,2582;state['reserves'][0]-=1;state['scenes'][1]['word14']=2592
   if name=='resumed':state['elapsed']+=1
   out.append(dict(name=name,keys=fixed.get(name,[]),selected=2582 if name=='pearce' else 2592 if name=='gale' else None,put_here=name in ('picked','picked-again','gale'),remaining_display=7 if name=='bench' else 6 if name=='bench-after' else None,state=state,state_sha256=h.sha(h.encoded(state)),screen_sha256='a'*64,savestate_sha256='b'*64))
  return dict(stages=out,start=dict(savestate_sha256='c'*64))
@@ -26,7 +26,7 @@ def test_synthetic_valid_transaction_and_wrapping_capacity():
  assert h.validate_transaction(payload())==dict(club=130,outgoing=2582,incoming=2592,slots=[1,11],capacity_delta=-1)
  assert h.capacity(dict(allowance=0,reserves=[0],sub_flags=[1]),0)==65535
 
-@pytest.mark.parametrize('damage',range(10))
+@pytest.mark.parametrize('damage',range(11))
 def test_transaction_rejects_corruptions(damage):
  p=payload();r={s['name']:s for s in p['stages']}
  if damage==0:p['stages'][0],p['stages'][1]=p['stages'][1],p['stages'][0]
@@ -39,6 +39,7 @@ def test_transaction_rejects_corruptions(damage):
  if damage==7:r['confirmed']['state']['live_goals']=[4,5]
  if damage==8:r['confirmed']['keys']=['Escape']
  if damage==9:r['resumed']['state']['elapsed']=46
+ if damage==10:r['confirmed']['state']['scenes'][1]['word14']=2582
  with pytest.raises(ValueError):h.validate_transaction(reseal(p))
 
 def record():

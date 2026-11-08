@@ -1,0 +1,82 @@
+{
+  "schema": "original-halftime-delta/1",
+  "source": {
+    "path": "session-r0005.json",
+    "sha256": "8bab9929881953f8d063cc1fbf45b106ce7f7330d1b750e068b32fd9d44011f8"
+  },
+  "cancel_equal": true,
+  "selection_equal": true,
+  "changed_leaves": [
+    {
+      "path": "/clubs/1/roster/1",
+      "before": 2582,
+      "after": 2592
+    },
+    {
+      "path": "/clubs/1/roster/11",
+      "before": 2592,
+      "after": 2582
+    },
+    {
+      "path": "/players/19/status",
+      "before": 0,
+      "after": 4
+    },
+    {
+      "path": "/scenes/1/word14",
+      "before": 2582,
+      "after": 2592
+    },
+    {
+      "path": "/scenes/1/byte12",
+      "before": 3,
+      "after": 0
+    },
+    {
+      "path": "/scenes/1/byte13",
+      "before": 9,
+      "after": 0
+    },
+    {
+      "path": "/scenes/1/byte18",
+      "before": 60,
+      "after": 65
+    },
+    {
+      "path": "/scenes/1/byte23",
+      "before": 125,
+      "after": 0
+    },
+    {
+      "path": "/scenes/21/word20",
+      "before": 2582,
+      "after": 2592
+    },
+    {
+      "path": "/reserves/1",
+      "before": 7,
+      "after": 6
+    },
+    {
+      "path": "/event_totals/1/1",
+      "before": 88,
+      "after": 55
+    },
+    {
+      "path": "/event_totals/1/11",
+      "before": 55,
+      "after": 88
+    },
+    {
+      "path": "/event_flags/1/1",
+      "before": 5,
+      "after": 4
+    },
+    {
+      "path": "/event_flags/1/11",
+      "before": 3,
+      "after": 5
+    }
+  ],
+  "interpretation": "Bounded observed numeric changes only; no full substituted-match parity claim."
+}

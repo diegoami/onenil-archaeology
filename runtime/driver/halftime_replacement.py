@@ -65,6 +65,10 @@ def validate_transaction(payload):
  if not (a<11<=b):raise ValueError('not a first-team/bench replacement')
  want[a],want[b]=want[b],want[a]
  if after['clubs'][side]['roster']!=want or after['clubs'][1-side]!=before['clubs'][1-side]:raise ValueError('roster exchange differs')
+ expected_players=[scene['word14'] for scene in before['scenes']]
+ if expected_players.count(2582)!=1 or 2592 in expected_players:raise ValueError('outgoing active scene differs')
+ expected_players[expected_players.index(2582)]=2592
+ if [scene['word14'] for scene in after['scenes']]!=expected_players:raise ValueError('live scene replacement differs')
  if capacity(after,side)!=capacity(before,side)-1:raise ValueError('capacity did not decrease once')
  for name in ('seed','elapsed','remaining','stoppage','live_goals'):
   if before[name]!=after[name]:raise ValueError('replacement changed clock/score/seed')

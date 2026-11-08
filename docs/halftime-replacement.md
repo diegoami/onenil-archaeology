@@ -68,3 +68,27 @@ compiler had disappeared. The next two hit the existing T04-documented DOSBox-X
 savestate crash during SAVE1 loading. The observer now applies the established
 three-second boot and SAVE1-load waits; the local run uses system Xvfb. Neither
 failure is evidence of a completed match or replacement transaction.
+
+## First successful numeric transaction
+
+[confirmed: runs/T74/session-r0005.json, producer047b70b]
+The genuine interval reached elapsed46. Cancellation and selection of the reserve
+left the full bounded gameplay projection unchanged. Confirmation exchanged
+roster slots2and12 (zero-based1and11), I Pearce2582 and T Gale2592. The active
+physical scene2 now identifies2592, while scene22's word20 target reference also
+changes2582→2592. The outgoing player's status changes0→4. Selected scene cache
+fields are rebuilt; the managed reserve count decreases7→6. Original displayed
+Remaining subs agrees7→6. Clock, score and seed remain unchanged across the
+transaction, and the second half advances to elapsed47 after PLAY GAME.
+
+[confirmed: same record] `runs/T74/transaction-r0001.json` lists all14 changed
+leaves in this projection, including the two roster entries, four selected-scene
+byte fields, scene player/target identities, outgoing status, reserve count and
+four slot-accounting cells. These are this execution's changes; the projection
+is bounded, and unknown/raw memory is not asserted unchanged.
+
+[designed] Native integration should retain one owned engine image at the interval,
+execute this editor/closure against that image and resume the second half from it.
+The current complete-timeline viewer cannot implement this by changing its already
+computed frames. A separate native pause/resume task must preserve the existing
+no-substitution full-match traces before a replacement transaction is admitted.
