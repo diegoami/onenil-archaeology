@@ -57,3 +57,18 @@ also packed in ignored `.cache/recovery/T75-editor-states-r0001.tar.gz`,
 The upload to the owner's private1-0 Drive folder is pending archive-specific
 approval after automatic approval review rejected it. Local states remain
 available; no private bytes are published with these records.
+
+[confirmed:runs/T75/inputs-r0004.json,inputs-r0005.json,repeat-r0002.json]
+The reached player-panel dispatch95B6 reads DS:9A2A. Both original halftime
+states independently yield1, selecting the1B55:478C panel. This third bounded
+input is separate from the selected-team and player-cursor baselines.
+
+[confirmed:static1d6b5b9,232A:0098..00D2;C866] The warning helper first copies
+its supplied string into local scratch, then calls24BC:0702 only if the supplied
+predicate is nonzero; it returns the original predicate byte inAL. C866 computes
+and immediately tests each predicate. For false predicates the helper has only
+local scratch effects; no warning is shown. The original successful T74/T75
+transaction independently establishes the non-warning successful path. Native
+projection may retain this false-only return under exact C866 caller/string
+checks, while refusing every true predicate; the eligibility computation stays
+in original C866. This avoids embedding original warning-string bytes.
