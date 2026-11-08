@@ -1,0 +1,29 @@
+{
+  "schema": "edited-lookup-verification/1",
+  "producer": "508bbadb1f3fd0f6232b300d8eef5e967af597ab",
+  "observer_sha256": "fa456d90e2147775f8a86f515a36ae0105aabe6863ab9344ba5a5c4cca046d66",
+  "files": [
+    {
+      "path": "runs/T73/lookup-r0001.json",
+      "size": 18882,
+      "sha256": "55b9a3e238732b99a810a8837d1a74714f5578cf2c50ac38c098847c3984689b"
+    },
+    {
+      "path": "runs/T73/lookup-r0002.json",
+      "size": 18882,
+      "sha256": "55b9a3e238732b99a810a8837d1a74714f5578cf2c50ac38c098847c3984689b"
+    }
+  ],
+  "catalog_sha256": "cd4bd013e0ebad2baadcbf45b250fa10fea2a2484328e029904ff44452ee5e6f",
+  "eligible_before_bytes": 32,
+  "accepted_T72_overlaps": 5,
+  "new_lookup_bytes": 27,
+  "accepted_T72_pins": {
+    "support-r0001.json": "f5c1bf9e4d22c327b36cfaf7b38151f5dc58cbee06db33382cb7f938652dddd6",
+    "support-r0002.json": "78186b820c55909b2b181a614bfb4e639494882522f1ffa1c9f8fe96f4081abd",
+    "support-r0003.json": "75fd970f22015e7ea5b98fa35a947fd9cdf642460ce96700965456d9796e90f6",
+    "support-r0004.json": "75fd970f22015e7ea5b98fa35a947fd9cdf642460ce96700965456d9796e90f6"
+  },
+  "tests_passed": 76,
+  "scope": "Complete declared32-byte character-classification bitmap only;before values unchanged at three authenticated joins;no original assets or full-match admission"
+}

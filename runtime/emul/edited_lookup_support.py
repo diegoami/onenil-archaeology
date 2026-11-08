@@ -1,0 +1,291 @@
+#!/usr/bin/env python3
+"""T73: declared32-byte character lookup; independently witnessed edited inputs."""
+import argparse
+import json
+import re
+from pathlib import Path
+
+import edited_admission as prior
+
+ROOT = prior.ROOT
+TOOL = 'runtime/emul/edited_lookup_support.py'
+BASE = 'runs/T69/admission-r0002.json'
+REPEAT_BASE = 'runs/T69/admission-r0003.json'
+REPEAT_SHA = 'a4bdfe03398b7c9de21ca8c6800b7c15cda7873218d413806b643fa31ce7b4af'
+BASE_SHA = '45ca77eda64349d90700eb3983f6c725b5308e0dcf87c8a788bb081fde3ab627'
+SITES = ('0AB9:E24C', '0AB9:E008', '0AB9:7C67')
+PREP_SITES = ('0AB9:E24C','0AB9:86E9','0AB9:E008','0AB9:7C67')
+T72_PINS = {
+    'support-r0001.json':'f5c1bf9e4d22c327b36cfaf7b38151f5dc58cbee06db33382cb7f938652dddd6',
+    'support-r0002.json':'78186b820c55909b2b181a614bfb4e639494882522f1ffa1c9f8fe96f4081abd',
+    'support-r0003.json':'75fd970f22015e7ea5b98fa35a947fd9cdf642460ce96700965456d9796e90f6',
+    'support-r0004.json':'75fd970f22015e7ea5b98fa35a947fd9cdf642460ce96700965456d9796e90f6',
+}
+LEGACY_REQUEST_PINS = {}
+FAR = {}
+
+
+def source():
+    data = (ROOT / BASE).read_bytes()
+    if prior.sha(data) != BASE_SHA:
+        raise ValueError('fresh support base source differs')
+    value = json.loads(data)
+    prior.validate_record(value)
+    raw = (ROOT/REPEAT_BASE).read_bytes()
+    if prior.sha(raw) != REPEAT_SHA:raise ValueError('edited support repeat source differs')
+    repeated = json.loads(raw);prior.validate_record(repeated)
+    if any(value[k] != repeated[k] for k in ('payload','source','keys_delivered')):
+        raise ValueError('edited preparation source repeat differs')
+    return value
+
+
+def allowed(area, offset):
+    return type(area) is str and area == 'ds' and type(offset) is int and 0xD36 <= offset < 0xD56
+
+
+def known_requests():
+    return {('ds',i) for i in range(0xD36,0xD56)}
+
+
+def request_check(value):
+    if set(value) != {'schema', 'fields'} or value['schema'] != 'edited-lookup-read-request/1':
+        raise ValueError('fresh support request fields differ')
+    if not isinstance(value['fields'], list) or not 1 <= len(value['fields']) <= 32:
+        raise ValueError('fresh support request bound differs')
+    seen = set()
+    census=known_requests()
+    for field in value['fields']:
+        if not isinstance(field, dict) or set(field) != {'area', 'offset'} or not allowed(field['area'], field['offset']):
+            raise ValueError('unsupported fresh support request')
+        key = field['area'], field['offset']
+        if key not in census:raise ValueError('request outside bounded edited census')
+        if key in seen:
+            raise ValueError('duplicate fresh support request')
+        seen.add(key)
+
+
+def joins(base):
+    payload = base['payload']
+    return [prior.sha(prior.encoded(payload['points'][i]['state'])) for i in (0, 7)] + [prior.sha(prior.encoded(payload['first_entry']))]
+
+
+def payload_check(payload, request, base):
+    request_check(request)
+    preparation_check(payload['preparation'],base)
+    if set(payload) != {'points', 'draw_count', 'draws_sha256', 'fields', 'preparation'}:
+        raise ValueError('fresh support payload fields differ')
+    if [point['site'] for point in payload['points']] != list(SITES):
+        raise ValueError('fresh support boundary census differs')
+    if any(set(point) != {'site', 'join_sha256'} for point in payload['points']):
+        raise ValueError('fresh support boundary fields differ')
+    if [point['join_sha256'] for point in payload['points']] != joins(base):
+        raise ValueError('fresh support source state joins differ')
+    if payload['draw_count'] != 258 or payload['draws_sha256'] != prior.sha(prior.encoded(base['payload']['draws'])):
+        raise ValueError('fresh support preparation RNG differs')
+    if len(payload['fields']) != len(request['fields']):
+        raise ValueError('fresh support witness census differs')
+    for wanted, observed in zip(request['fields'], payload['fields']):
+        if set(observed) != {'area', 'offset', 'before', 'precall', 'entry', 'incoming'}:
+            raise ValueError('fresh support witness fields differ')
+        if {k: observed[k] for k in ('area', 'offset')} != wanted:
+            raise ValueError('fresh support request alias differs')
+        values = [observed[k] for k in ('before', 'precall', 'entry')]
+        if any(type(v) is not int or not 0 <= v <= 255 for v in values):
+            raise ValueError('fresh support witness domain differs')
+        if type(observed['incoming']) is not bool or observed['incoming'] != (len(set(values)) == 1):
+            raise ValueError('fresh support input/computation ownership differs')
+
+
+def check(value):
+    base = source()
+    if set(value) != {'schema', 'status', 'error', 'producer', 'producer_files', 'source', 'request', 'interventions', 'payload', 'payload_sha256', 'unsupported', 'ui', 'keys_delivered'}:
+        raise ValueError('fresh support record fields differ')
+    if value['schema'] != 'original-edited-lookup/1' or value['status'] != 'completed' or value['unsupported'] or value['error'] is not None:
+        raise ValueError('fresh support run incomplete')
+    if not re.fullmatch(r'[0-9a-f]{40}', value['producer']):
+        raise ValueError('fresh support producer identity differs')
+    if value['source'] != dict(record=BASE, sha256=BASE_SHA, state_sha256=prior.STATE_SHA, release=base['source']['release']):
+        raise ValueError('fresh support source identity differs')
+    if value['ui']!=base['payload']['ui'] or any(type(p['put_here']) is not bool for p in value['ui']):raise ValueError('edited UI witness differs')
+    if value['keys_delivered']!=[[k,'24BC:0C58'] for k in prior.UI_KEYS+['Return','Return']]:raise ValueError('edited IRQ1 witness differs')
+    if value['interventions']:
+        raise ValueError('unexpected fresh support intervention')
+    if set(value['request']) != {'path', 'sha256'} or Path(value['request']['path']).parts[:2] != ('traces', 'T73') or '..' in Path(value['request']['path']).parts:
+        raise ValueError('fresh support request identity differs')
+    source_paths = prior.git('ls-tree', '-r', '--name-only', value['producer'], '--', 'runtime/emul').decode().splitlines()
+    required = {name for name in source_paths if Path(name).parent == Path('runtime/emul') and name.endswith('.py')}
+    required.update(['runtime/driver/savestate.py', 'runtime/driver/screens.py', 'tools/data/campaign_seed.py', 'tools/data/save.py', 'tools/data/league.py', value['request']['path']])
+    required.update(LEGACY_REQUEST_PINS)
+    if set(value['producer_files']) != required:
+        raise ValueError('fresh support producer dependency census differs')
+    for name, digest in value['producer_files'].items():
+        if prior.sha(prior.git('show', value['producer'] + ':' + name)) != digest:
+            raise ValueError('fresh support producer differs')
+    if TOOL not in value['producer_files']:
+        raise ValueError('missing fresh support observer')
+    request = json.loads(prior.git('show', value['producer'] + ':' + value['request']['path']))
+    if prior.sha(prior.encoded(request)) != value['request']['sha256']:
+        raise ValueError('fresh support committed request differs')
+    if prior.sha(prior.encoded(value['payload'])) != value['payload_sha256']:
+        raise ValueError('fresh support payload digest differs')
+    payload_check(value['payload'], request, base)
+    return [dict(area=row['area'], offset=row['offset'], value=row['before']) for row in value['payload']['fields'] if row['incoming']]
+
+
+def preparation_values(g):
+    return dict(managed_selection_mode=g.mem(g.far(0xD7D2)+0xF6,1)[0],legacy_income_total=g.rd(0xD6E8,4),legacy_queue_zero=dict(index=0,code=g.rd(0xA52A,1),first_player=g.rd(0xA52B),second_player=g.rd(0xA52D),side=g.rd(0xA52F,1)))
+
+
+def preparation_joins(base):
+    p=base['payload']
+    return [(PREP_SITES[i],prior.sha(prior.encoded(p['points'][j]['state'])),p['points'][j]['draw']) for i,j in enumerate((0,2,7))]+[(PREP_SITES[-1],prior.sha(prior.encoded(p['first_entry'])),len(p['draws']))]
+
+
+def preparation_check(value,base):
+    names={'managed_selection_mode','legacy_income_total','legacy_queue_zero'}
+    if set(value)!={'points','eligible'} or set(value['eligible'])!=names:raise ValueError('preparation witness shape differs')
+    if len(value['points'])!=4:raise ValueError('preparation boundary census differs')
+    for i,(point,expected) in enumerate(zip(value['points'],preparation_joins(base))):
+        if set(point)!={'site','join_sha256','draw_count','fields'} or type(point['draw_count']) is not int or (point['site'],point['join_sha256'],point['draw_count'])!=expected:raise ValueError('preparation source join differs')
+        fields=point['fields']
+        if set(fields)!=names:raise ValueError('preparation fields differ')
+        for name,limit in [('managed_selection_mode',255),('legacy_income_total',0xFFFFFFFF)]:
+            if type(fields[name]) is not int or not 0<=fields[name]<=limit:raise ValueError('preparation scalar outside domain')
+        q=fields['legacy_queue_zero']
+        if set(q)!={'index','code','first_player','second_player','side'} or type(q['index']) is not int or q['index']!=0:raise ValueError('queue-zero scratch shape differs')
+        for name in ('code','first_player','second_player','side'):
+            if type(q[name]) is not int or not 0<=q[name]<=(255 if name in ('code','side') else 65535):raise ValueError('queue-zero scratch outside domain')
+        if i<3 and fields['legacy_income_total']!=base['payload']['points'][(0,2,7)[i]]['income_total']:raise ValueError('preparation income alias differs')
+    for name in names:
+        expected=value['points'][0]['fields'][name]==value['points'][1]['fields'][name]
+        if type(value['eligible'][name]) is not bool or value['eligible'][name]!=expected:raise ValueError('preparation input ownership differs')
+
+
+def catalog(pair):
+    a,b=(json.loads(path.read_text()) for path in pair)
+    rows=check(a);check(b)
+    if any(a[k]!=b[k] for k in ('payload','request','ui','keys_delivered','source')):
+        raise ValueError('independent edited lookup differs')
+    if {(r['area'],r['offset']) for r in a['payload']['fields']}!=known_requests():
+        raise ValueError('complete32-byte lookup census required')
+    import edited_support as accepted
+    directory=ROOT/'runs/T72'
+    for name,digest in T72_PINS.items():
+        if prior.sha((directory/name).read_bytes())!=digest:raise ValueError('accepted T72 source pin differs')
+    old=accepted.catalog([(directory/'support-r0001.json',directory/'support-r0002.json'),(directory/'support-r0003.json',directory/'support-r0004.json')])
+    old_fields={(r['area'],r['offset']):r['value'] for r in old['incoming']}
+    overlaps=0
+    for row in a['payload']['fields']:
+        key=row['area'],row['offset']
+        if key in old_fields:
+            if not row['incoming'] or row['before']!=old_fields[key]:
+                raise ValueError('accepted T72 lookup overlap differs')
+            overlaps+=1
+    print('PASS independent lookup,accepted overlaps',len(rows),overlaps)
+    return dict(incoming=rows,overlap_count=overlaps)
+
+
+def capture(state_path, request_path, output):
+    if output.exists():
+        raise ValueError('fresh support output already exists')
+    request = json.loads(request_path.read_text())
+    request_check(request)
+    relative = request_path.resolve().relative_to(ROOT)
+    producers = [str(p.relative_to(ROOT)) for p in sorted((ROOT / 'runtime/emul').glob('*.py'))]
+    producers += ['runtime/driver/savestate.py', 'runtime/driver/screens.py', 'tools/data/campaign_seed.py', 'tools/data/save.py', 'tools/data/league.py', str(relative)]
+    producers += list(LEGACY_REQUEST_PINS)
+    if prior.git('status', '--porcelain', '--', *producers).strip():
+        raise ValueError('commit fresh support observer/request/dependencies first')
+    data = state_path.read_bytes()
+    if prior.sha(data) != prior.STATE_SHA:
+        raise ValueError('fresh support private start differs')
+    base = source()
+    week = prior.match.Week(data)
+    if {name: prior.sha(value) for name, value in week.files_at_start.items()} != base['source']['release']:
+        raise ValueError('fresh support original release differs')
+    if week.g.mem(week.g.far(0xD7D2) + 0xF2, 1)[0] != 1:
+        raise ValueError('fresh support start is not watched')
+    prior.require_campaign(prior.seed.project(prior.memory_save(week.g),prior.seed.names(week.files_at_start['ENGL-95.DAT'])),prior.initial_campaign())
+    observed = []
+    prep_points=[]
+    ui=[]
+    class Complete(Exception):
+        pass
+    def observe(g, site):
+        state = prior.watched.state(g) if site == SITES[-1] else prior.setup.state(week)
+        index = len(observed)
+        if index >= len(SITES) or SITES[index] != site or prior.sha(prior.encoded(state)) != joins(base)[index]:
+            raise ValueError('fresh support reached different original source state')
+        observe_preparation(g,site,state)
+        values = []
+        for field in request['fields']:
+            address = g.DS * 16 + field['offset'] if field['area'] == 'ds' else g.far(FAR[field['area']]) + field['offset']
+            values.append(g.mem(address, 1)[0])
+        observed.append(dict(site=site, join_sha256=prior.sha(prior.encoded(state)), values=values))
+        if site == SITES[-1]:
+            raise Complete()
+    def observe_preparation(g,site,state=None):
+        if state is None:state=prior.setup.state(week)
+        i=len(prep_points);expected=preparation_joins(base)[i]
+        found=dict(site=site,join_sha256=prior.sha(prior.encoded(state)),draw_count=week.draws,fields=preparation_values(g))
+        if (site,found['join_sha256'],week.draws)!=expected:raise ValueError('edited preparation boundary differs')
+        prep_points.append(found)
+    week.g.code_hook('0AB9:86E9',lambda g:observe_preparation(g,'0AB9:86E9'))
+    for site in SITES:
+        week.g.code_hook(site, lambda g, site=site: observe(g, site))
+    status, error, payload = 'completed', None, None
+    try:
+        prior.edit_week(week,ui)
+        try:
+            week.play()
+        except Complete:
+            pass
+        else:
+            raise ValueError('fresh support entry not reached')
+        if week.g.unsupported:
+            raise ValueError('unsupported original guest service')
+        draws = [event for event in week.events if event['kind'] == 'draw']
+        payload = dict(points=[{k: point[k] for k in ('site', 'join_sha256')} for point in observed], draw_count=len(draws), draws_sha256=prior.sha(prior.encoded(draws)), fields=[],preparation=dict(points=prep_points,eligible={name:prep_points[0]['fields'][name]==prep_points[1]['fields'][name] for name in prep_points[0]['fields']}))
+        for i, field in enumerate(request['fields']):
+            values = [point['values'][i] for point in observed]
+            payload['fields'].append(dict(**field, before=values[0], precall=values[1], entry=values[2], incoming=len(set(values)) == 1))
+        payload_check(payload, request, base)
+    except (Exception, KeyboardInterrupt) as exc:
+        status, error = 'aborted', f'{type(exc).__name__}: {exc}'
+    result = dict(schema='original-edited-lookup/1', status=status, error=error, producer=prior.git('rev-parse', 'HEAD').decode().strip(), producer_files={name: prior.sha((ROOT / name).read_bytes()) for name in producers}, source=dict(record=BASE, sha256=BASE_SHA, state_sha256=prior.STATE_SHA, release=base['source']['release']), request=dict(path=str(relative), sha256=prior.sha(prior.encoded(request))), interventions=[], payload=payload, payload_sha256=prior.sha(prior.encoded(payload)), unsupported=week.g.unsupported,ui=ui,keys_delivered=[list(k) for k in week.g.keys_delivered])
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with output.open('x') as out:
+        json.dump(result, out, indent=2)
+        out.write('\n')
+    if status != 'completed':
+        raise ValueError(error)
+    incoming = check(result)
+    print('PASS original fresh support:', len(incoming), 'unchanged incoming fields;', len(payload['fields']) - len(incoming), 'changed fields excluded')
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--run', type=Path)
+    group.add_argument('--check', type=Path)
+    parser.add_argument('--request', type=Path)
+    parser.add_argument('--record', type=Path)
+    parser.add_argument('--compare', type=Path)
+    args = parser.parse_args()
+    if args.run:
+        if args.request is None or args.record is None:
+            parser.error('--run needs --request and --record')
+        capture(args.run, args.request, args.record)
+    else:
+        value = json.loads(args.check.read_text())
+        incoming = check(value)
+        if args.compare:
+            other = json.loads(args.compare.read_text())
+            check(other)
+            if value['payload'] != other['payload'] or value['request'] != other['request']:
+                raise ValueError('independent original fresh-support repeat differs')
+        print('PASS source/request/producer/ownership;', len(incoming), 'unchanged incoming fields')
+
+
+if __name__ == '__main__':
+    main()
