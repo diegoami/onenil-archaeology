@@ -108,3 +108,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T71 Complete edited original watched stream and independent repeat](T71.md)
 
 - [T72 Edited preparation inputs and bounded incoming witnesses](T72.md)
+
+- [T73 Complete edited-route character-classification lookup witnesses](T73.md)
