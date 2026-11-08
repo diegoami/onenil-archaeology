@@ -89,3 +89,16 @@ def test_independent_player_panel_selector_inputs():
  assert [(f['offset'],f['value']) for f in facts[0]]==[(4,1),(894,1),(39466,1)]
  receipt=json.loads((root/'repeat-r0002.json').read_text());assert receipt['status']=='passed' and receipt['inputs_equal']
  for item in receipt['sources']:assert h.sha((root/item['path']).read_bytes())==item['sha256']
+
+def test_independent_reached_editor_exit_roster_counts():
+ import json
+ root=ROOT/'runs/T75';q=module('count_query','runtime/driver/halftime_support_query.py')
+ packets=[json.loads((root/f'inputs-r000{i}.json').read_text()) for i in [6,7]]
+ rows=[q.validate(p) for p in packets]
+ for facts in rows:
+  counts=[f for f in facts if f['area']=='club']
+  assert [(f['stage'],f['offset'],f['value']) for f in counts]==[('halftime',8048,18),('bench-after',8048,18)]
+  assert all(f['pointer_slot']==0xD7C2 and f['consumer']=='0AB9:D14C' for f in counts)
+ bad=copy.deepcopy(packets[0]);bad['facts'][-1]['pointer_slot']=0xD7D2
+ with pytest.raises(ValueError,match='pointer'):q.validate(bad)
+ assert [{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in rows[0]]==[{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in rows[1]]

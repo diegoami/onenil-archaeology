@@ -85,3 +85,10 @@ local string has no consumer outside the no-dialog0098 path. A native
 presentation boundary may omit both unavailable text producers only with exact
 caller, local buffer, player and false-predicate guards, preserving the stack
 cleanup and original eligibility computation. True warnings remain unsupported.
+
+[confirmed:runs/T75/inputs-r0006.json,inputs-r0007.json] The reached editor exit
+D14C writes club member50, then D151..D177 counts the nonempty20 roster slots.
+Both original states authenticate PSG club130's incoming count18 and the
+bench-after value18. The new query is bounded to byte8048 of the club area,
+with the actual D7C2 pointer and private-state identity. Its incoming value may
+enter native support; its observed post-editor value is verification only.
