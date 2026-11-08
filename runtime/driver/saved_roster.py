@@ -37,6 +37,10 @@ def git(*args):
     return subprocess.check_output(['git', '-C', str(ROOT), *args]).decode().strip()
 
 
+def git_bytes(*args):
+    return subprocess.check_output(['git', '-C', str(ROOT), *args])
+
+
 def block_offsets():
     off, out = 0, {}
     for dest, size in save_layout.BLOCKS:
@@ -133,7 +137,7 @@ def validate_baseline(record):
     if record['schema'] != 'original-saved-roster-projection/1':
         raise ValueError('schema differs')
     for name, digest in record['producer_files'].items():
-        if sha(git('show', record['producer'] + ':' + name).encode()) != digest:
+        if sha(git_bytes('show', record['producer'] + ':' + name)) != digest:
             raise ValueError('producer identity differs: ' + name)
     if record['reference']['path'] != REFERENCE:
         raise ValueError('reference differs')
