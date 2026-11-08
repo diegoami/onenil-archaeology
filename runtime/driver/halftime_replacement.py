@@ -117,7 +117,7 @@ def run(out,scratch):
    if any(name in h for _,h in screens.highlighted(sc)):return keys
   raise ValueError('requested highlighted player not reached')
  try:
-  d.launch();time.sleep(3);d.keys('y');time.sleep(2);d.wait_screen(lambda s:'PLAY NEXT GAME' in s.text(),what='supplied main')
+  d.launch();time.sleep(3);d.keys('y');time.sleep(3);d.wait_screen(lambda s:'PLAY NEXT GAME' in s.text(),what='supplied main')
   record['payload']['start']=dict(savestate_sha256=sha(d.last_blob),screen_sha256=d.last[1].screen().digest(),keys=['y','Return','Return'])
   d.keys('Return');d.wait_screen(lambda s:'PLAY GAME' in s.text(),what='preparation');d.keys('Return')
   d.wait_screen(lambda s:'HALF TIME' in s.text() and 'press any key' in s.text().lower(),timeout=240,what='genuine halftime')
