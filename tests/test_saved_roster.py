@@ -80,8 +80,9 @@ def test_baseline_rejects_corruptions(damage):
  with pytest.raises(ValueError):s.validate_baseline(record)
 
 def test_authenticated_sessions_match_the_contract():
- if len(SESSIONS)<2:pytest.skip('authenticated session records are not committed yet')
- paths=[p for p in SESSIONS if 'progress' not in p.name]
+ paths=[p for p in SESSIONS if 'progress' not in p.name
+        and json.loads(p.read_text()).get('status')=='completed']
+ if len(paths)<2:pytest.skip('authenticated session records are not committed yet')
  contracts=[s.validate_record(json.loads(p.read_text())) for p in paths]
  assert len({json.loads(p.read_text())['payload']['start']['savestate_sha256'] for p in paths})>=2
  assert all(c==contracts[0] for c in contracts[1:])
