@@ -52,3 +52,14 @@ def test_query_rejects_unbounded_or_unwitnessed_fields(monkeypatch,tmp_path,quer
  p=tmp_path/'source.json';p.write_text(json.dumps(dict(payload=payload())))
  monkeypatch.setattr(q.source,'validate_record',lambda r:True)
  with pytest.raises(ValueError):q.extract(p,tmp_path,[query])
+
+def test_retained_source_capture_and_query():
+ import json
+ root=ROOT/'runs/T75'
+ r=json.loads((root/'session-r0001.json').read_text());h.validate_record(r)
+ assert [s['support']['value'] for s in r['payload']['stages']]==[1]*len(h.STAGES)
+ q=module('public_query','runtime/driver/halftime_support_query.py')
+ packet=json.loads((root/'inputs-r0001.json').read_text());assert q.validate(packet)[0]['value']==1
+ for field,value in [('value',2),('offset',5),('address',0),('savestate_sha256','f'*64)]:
+  bad=copy.deepcopy(packet);bad['facts'][0][field]=value
+  with pytest.raises(ValueError):q.validate(bad)
