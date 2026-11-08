@@ -92,3 +92,11 @@ Both original states authenticate PSG club130's incoming count18 and the
 bench-after value18. The new query is bounded to byte8048 of the club area,
 with the actual D7C2 pointer and private-state identity. Its incoming value may
 enter native support; its observed post-editor value is verification only.
+
+[confirmed:runs/T75/inputs-r0008.json,inputs-r0009.json] D19A then scans the
+first managed club's twenty configured roster references at CONFIG:0058..007E,
+counting nonzero words. Both original halftime observations give twenty zero
+references. This complete loop input is measured, not assumed. D1D4 then calls
+1B55:7777 on the same configured list to compute its source-owned role/ordering
+work. The native incoming transport expands each decoded word to two byte
+facts; none of the observed post-editor values is supplied as an engine input.

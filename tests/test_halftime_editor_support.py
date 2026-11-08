@@ -102,3 +102,13 @@ def test_independent_reached_editor_exit_roster_counts():
  bad=copy.deepcopy(packets[0]);bad['facts'][-1]['pointer_slot']=0xD7D2
  with pytest.raises(ValueError,match='pointer'):q.validate(bad)
  assert [{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in rows[0]]==[{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in rows[1]]
+
+def test_independent_configured_roster_member_inputs():
+ import json
+ root=ROOT/'runs/T75';q=module('slots_query','runtime/driver/halftime_support_query.py')
+ packets=[json.loads((root/f'inputs-r000{i}.json').read_text()) for i in [8,9]]
+ facts=[q.validate(p) for p in packets]
+ for rows in facts:
+  slots=[f for f in rows if f['area']=='config' and f['width']==16]
+  assert [(f['offset'],f['value'],f['consumer']) for f in slots]==[(0x58+2*i,0,'0AB9:D19A') for i in range(20)]
+ assert [{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in facts[0]]==[{k:f[k] for k in ('stage','area','offset','width','consumer','value')} for f in facts[1]]
