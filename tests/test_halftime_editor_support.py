@@ -44,3 +44,11 @@ def test_source_identity_rejected(monkeypatch,damage):
  if damage=='completion':r['processes_exited']=False
  if damage=='census':r['producer_files'].pop(h.TOOL)
  with pytest.raises(ValueError):h.validate_record(r)
+
+@pytest.mark.parametrize('query',[{},dict(stage='bad',area='ds',offset=0,width=8,consumer='0AB9:CC00'),dict(stage='halftime',area='ds',offset=0,width=24,consumer='0AB9:CC00'),dict(stage='halftime',area='all',offset=0,width=8,consumer='0AB9:CC00')])
+def test_query_rejects_unbounded_or_unwitnessed_fields(monkeypatch,tmp_path,query):
+ import json
+ q=module('support_query','runtime/driver/halftime_support_query.py')
+ p=tmp_path/'source.json';p.write_text(json.dumps(dict(payload=payload())))
+ monkeypatch.setattr(q.source,'validate_record',lambda r:True)
+ with pytest.raises(ValueError):q.extract(p,tmp_path,[query])
