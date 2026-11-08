@@ -92,3 +92,22 @@ execute this editor/closure against that image and resume the second half from i
 The current complete-timeline viewer cannot implement this by changing its already
 computed frames. A separate native pause/resume task must preserve the existing
 no-substitution full-match traces before a replacement transaction is admitted.
+
+[confirmed: runs/T74/session-r0006.json, producer18b13c3;
+repeat-r0001.json] A separate fresh original process repeated the entire
+procedure. Its halftime, cancellation, before-confirmation and after-confirmation
+numeric projections equal the first execution. Both sessions resume to elapsed47.
+The receipt records equality per stage without asserting full intervening ticks
+or RNG draws. The public test authenticates both records, the independent repeat
+and every retained delta leaf;19 synthetic corruption/contract checks plus that
+real-record check cover the transaction and producer guards.
+
+```sh
+python3 runtime/driver/halftime_replacement.py --check runs/T74/session-r0005.json runs/T74/session-r0006.json
+```
+
+[confirmed: runs/T74/session-r0004.json] The earlier watched attempt timed out
+before halftime because tightly spaced savestate observations left too little
+uninterrupted play. It is retained as failed. Successful captures space reads
+by2seconds and use a bounded900second halftime wait; game speed/cycles and game
+inputs are unchanged. No old observation was edited or replaced.

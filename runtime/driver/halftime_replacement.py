@@ -48,6 +48,8 @@ def validate_transaction(payload):
  stages=payload['stages']
  if [s['name'] for s in stages]!=STAGES:raise ValueError('stage census/order differs')
  rows={s['name']:s for s in stages}
+ half=rows['halftime']['state']
+ if half['elapsed']<45 or half['remaining']<=0 or half['control']!=1 or {c['id'] for c in half['clubs']}!={17,130}:raise ValueError('genuine managed interval state differs')
  for row in stages:
   if sha(encoded(row['state']))!=row['state_sha256']:raise ValueError('state digest differs')
   if not all(re.fullmatch('[0-9a-f]{64}',row[k]) for k in ('screen_sha256','savestate_sha256')):raise ValueError('observation identity differs')
