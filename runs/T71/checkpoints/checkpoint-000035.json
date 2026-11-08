@@ -1,0 +1,40 @@
+{
+  "schema": "local-edited-capture-checkpoint/1",
+  "producer": "470a87615f503012413859a28c71077beec423ba",
+  "verified": {
+    "retained_prefix": {
+      "chunks": 63,
+      "ticks": 3970,
+      "draws": 170212,
+      "actions": 869
+    },
+    "full_index": true,
+    "repeats": 1
+  },
+  "leaves": {
+    "runs/T70/reference-r0001/attempt-0004-finish.json": {
+      "size": 25556,
+      "sha256": "ebd5a3c49942b7d073abfb07c46598663996549a876fadc01edfbc67254e7898"
+    },
+    "runs/T70/reference-r0001/attempt-0004-verified-000059.json": {
+      "size": 216,
+      "sha256": "49bdc37246a770a6f399e5baa64fbfbac03f2c312ccebff87d169a9a53abf8c3"
+    },
+    "runs/T70/reference-r0001/attempt-0004-verified-000060.json": {
+      "size": 216,
+      "sha256": "ee622fa342bf95dac1366f545ad397e391608a776d59b279f58bb90ceb106041"
+    },
+    "runs/T70/reference-r0001/attempt-0004-verified-000061.json": {
+      "size": 216,
+      "sha256": "85273b90762858b9478fe450fe3bcca0efeb8d8887192244c4813280cfd031fe"
+    },
+    "runs/T70/reference-r0001/attempt-0004-verified-000062.json": {
+      "size": 216,
+      "sha256": "f6359bbed3ab2161b6be9cedfec9c7efbff289bdaa615472a9bbe9759b1c2033"
+    },
+    "runs/T70/reference-r0001/repeat-0004.json": {
+      "size": 19883,
+      "sha256": "0940b2e103ff3bd7dc25203f3f9f711de5ec595467e9d5a8043f55b3f77b2411"
+    }
+  }
+}
