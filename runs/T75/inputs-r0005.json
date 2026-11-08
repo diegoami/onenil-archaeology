@@ -1,0 +1,45 @@
+{
+  "schema": "original-halftime-input-query/1",
+  "producer": "42c2547098feae559fa786ce35ed4032a85093c1",
+  "tool_sha256": "aaecfe3a7bce1ca22268051b7f152021857bd4de204910aba1ed2c8f828fb5c4",
+  "source": {
+    "path": "runs/T75/session-r0002.json",
+    "sha256": "f99a57720532aa2e037351a7b19269a131a4da36ecd5a6382215d880550680cc",
+    "producer": "0357be3cc86b321d6bdbe7c2550bdb90768cf653"
+  },
+  "facts": [
+    {
+      "stage": "halftime",
+      "area": "config",
+      "offset": 4,
+      "width": 8,
+      "consumer": "0AB9:D1F1",
+      "address": 450276,
+      "value": 1,
+      "savestate_sha256": "bccf969b49a490e9448014593d77dd87c8163264dfd0617c267558a6093a5ddf",
+      "screen_sha256": "bda187f1fbe8db58c28343b10fee36772aca4cb3625b22f819a47804059c6048"
+    },
+    {
+      "stage": "halftime",
+      "area": "ds",
+      "offset": 894,
+      "width": 8,
+      "consumer": "0AB9:CCB2",
+      "address": 199662,
+      "value": 1,
+      "savestate_sha256": "bccf969b49a490e9448014593d77dd87c8163264dfd0617c267558a6093a5ddf",
+      "screen_sha256": "bda187f1fbe8db58c28343b10fee36772aca4cb3625b22f819a47804059c6048"
+    },
+    {
+      "stage": "halftime",
+      "area": "ds",
+      "offset": 39466,
+      "width": 8,
+      "consumer": "0AB9:95B6",
+      "address": 238234,
+      "value": 1,
+      "savestate_sha256": "bccf969b49a490e9448014593d77dd87c8163264dfd0617c267558a6093a5ddf",
+      "screen_sha256": "bda187f1fbe8db58c28343b10fee36772aca4cb3625b22f819a47804059c6048"
+    }
+  ]
+}
