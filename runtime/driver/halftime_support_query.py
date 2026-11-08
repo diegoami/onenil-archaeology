@@ -14,15 +14,18 @@ def extract(record_path,scratch,queries):
  stages={s['name']:s for s in record['payload']['stages']};facts=[]
  if not queries or len(queries)>32:raise ValueError('bounded concrete queries required')
  for q in queries:
-  if set(q)!={'stage','area','offset','width','consumer'} or q['stage'] not in stages or q['area'] not in ('ds','config') or q['width'] not in (8,16) or not isinstance(q['offset'],int) or not 0<=q['offset']<=65536-q['width']//8 or not source.re.fullmatch(r'[0-9A-F]{4}:[0-9A-F]{4}',q['consumer']):raise ValueError('invalid bounded input query')
+  if set(q)!={'stage','area','offset','width','consumer'} or q['stage'] not in stages or q['area'] not in ('ds','config','club') or q['width'] not in (8,16) or not isinstance(q['offset'],int) or not 0<=q['offset']<=65536-q['width']//8 or not source.re.fullmatch(r'[0-9A-F]{4}:[0-9A-F]{4}',q['consumer']):raise ValueError('invalid bounded input query')
   raw=(scratch/(q['stage']+'.sav')).read_bytes();row=stages[q['stage']]
   if sha(raw)!=row['savestate_sha256']:raise ValueError('private state does not match source observation')
   st=source.savestate.Savestate(raw);ds=st.program().ds_base
   base=ds
-  if q['area']=='config':
-   off=int.from_bytes(st.memory(ds+0xD7D2,2),'little');seg=int.from_bytes(st.memory(ds+0xD7D4,2),'little');base=off+16*seg
+  pointer={}
+  if q['area'] in ('config','club'):
+   slot=0xD7D2 if q['area']=='config' else 0xD7C2
+   off=int.from_bytes(st.memory(ds+slot,2),'little');seg=int.from_bytes(st.memory(ds+slot+2,2),'little');base=off+16*seg
+   if q['area']=='club':pointer=dict(pointer_slot=slot,pointer_offset=off,pointer_segment=seg)
   address=base+q['offset'];value=int.from_bytes(st.memory(address,q['width']//8),'little')
-  facts.append(dict(**q,address=address,value=value,savestate_sha256=row['savestate_sha256'],screen_sha256=row['screen_sha256']))
+  facts.append(dict(**q,**pointer,address=address,value=value,savestate_sha256=row['savestate_sha256'],screen_sha256=row['screen_sha256']))
  return dict(schema='original-halftime-input-query/1',producer=source.git('rev-parse','HEAD').decode().strip(),tool_sha256=sha((ROOT/TOOL).read_bytes()),source=dict(path=str(record_path.relative_to(ROOT)),sha256=sha(record_path.read_bytes()),producer=record['producer']),facts=facts)
 def validate(packet):
  if packet['schema']!='original-halftime-input-query/1' or sha(source.git('show',packet['producer']+':'+TOOL))!=packet['tool_sha256']:raise ValueError('query producer differs')
@@ -34,9 +37,12 @@ def validate(packet):
  if not packet['facts'] or len(packet['facts'])>32:raise ValueError('query census differs')
  for f in packet['facts']:
   row=stages[f['stage']]
-  if f['width'] not in (8,16) or not 0<=f['value']<(1<<f['width']) or f['area'] not in ('ds','config') or not 0<=f['offset']<=65536-f['width']//8 or not source.re.fullmatch(r'[0-9A-F]{4}:[0-9A-F]{4}',f['consumer']):raise ValueError('query field differs')
+  if f['width'] not in (8,16) or not 0<=f['value']<(1<<f['width']) or f['area'] not in ('ds','config','club') or not 0<=f['offset']<=65536-f['width']//8 or not source.re.fullmatch(r'[0-9A-F]{4}:[0-9A-F]{4}',f['consumer']):raise ValueError('query field differs')
   if f['savestate_sha256']!=row['savestate_sha256'] or f['screen_sha256']!=row['screen_sha256']:raise ValueError('query stage binding differs')
   base=row['support']['ds_base'] if f['area']=='ds' else row['support']['address']-4
+  if f['area']=='club':
+   if f['pointer_slot']!=0xD7C2 or not all(isinstance(f[k],int) and 0<=f[k]<=65535 for k in ('pointer_offset','pointer_segment')):raise ValueError('club query pointer differs')
+   base=f['pointer_offset']+16*f['pointer_segment']
   if f['address']!=base+f['offset']:raise ValueError('query field address differs')
   if (f['area'],f['offset'],f['width'])==('config',4,8) and (f['value']!=row['support']['value'] or f['consumer']!='0AB9:D1F1'):raise ValueError('query selected-team alias differs')
  return packet['facts']
