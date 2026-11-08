@@ -120,7 +120,12 @@ def run(out,scratch):
   d.launch();time.sleep(3);d.keys('y');time.sleep(3);d.wait_screen(lambda s:'PLAY NEXT GAME' in s.text(),what='supplied main')
   record['payload']['start']=dict(savestate_sha256=sha(d.last_blob),screen_sha256=d.last[1].screen().digest(),keys=['y','Return','Return'])
   d.keys('Return');d.wait_screen(lambda s:'PLAY GAME' in s.text(),what='preparation');d.keys('Return')
-  d.wait_screen(lambda s:'HALF TIME' in s.text() and 'press any key' in s.text().lower(),timeout=240,what='genuine halftime')
+  deadline=time.monotonic()+900
+  while time.monotonic()<deadline:
+   time.sleep(2)  # Avoid continuously stopping play for compressed savestate reads.
+   text=d.screen().text()
+   if 'HALF TIME' in text and 'press any key' in text.lower():break
+  else:raise RuntimeError('genuine halftime not reached within 900 seconds')
   observe('halftime');observe('bench',['space']);observe('players',['space'])
   keys=select(2582);observe('pearce',selected=2582);stages[-1]['keys']=keys
   observe('picked',['Return']);observe('cancelled',['Escape']);observe('picked-again',['Return'])
