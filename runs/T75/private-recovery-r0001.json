@@ -1,0 +1,8 @@
+{
+  "schema": "private-original-recovery/1",
+  "owner_payload_approval": true,
+  "metadata_verified": true,
+  "shared": false,
+  "status": "uploaded",
+  "redaction": "Owner-authorized redaction of private backup identifiers; details retained only in ignored local recovery notes."
+}

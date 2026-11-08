@@ -1,0 +1,102 @@
+# Fresh halftime editor input support
+
+[confirmed:T74,1d6b5b9] The original Pearce→Gale transaction is documented in
+[halftime-replacement.md](halftime-replacement.md). This follow-up authenticates
+bounded inputs needed to execute that same editor path in the native engine.
+
+[confirmed:static1d6b5b9,0AB9:D1DD..D23B] D1DD compares the inspected club with
+DCBA/DCBB. For the first managed club D1F1 stores1 through the far pointer at
+DS:D7D2 plus4; the second managed club branch D20F stores2. CBF0 then reads the
+selected managed-club index. This is a managed selection, distinct from the
+club's home/away side in the watched match. D23A returns without restoring it.
+
+[confirmed:runs/T75/session-r0001.json,producer42ae2c6] A new original process
+completed the established ordinary-key procedure. Selected-team CONFIG+4 was1
+at every observed boundary, including halftime, Players, pick/cancel, confirm,
+bench return and second-half elapsed47. The original transaction still changes
+capacity7→6 exactly once. Its pointer offset/segment, physical field address,
+value, stage, rendered-screen and private savestate digests are retained.
+`inputs-r0001.json` extracts just this concrete D1F1 incoming write baseline
+from the authenticated halftime state; it is not a guessed zero or an expected
+post-replacement snapshot. The independent second session0357be3 agrees; repeat-r0001 binds both runs and input extractions.
+
+[designed:T75] Private boundary savestates are retained under the ignored
+`.cache/T75-original-rNNNN` directories for bounded later queries. Each extraction
+first checks the source record's producer/release/transaction, then hashes the
+actual private state against the corresponding committed observation. Queries
+must name a stage, area, offset, width and concrete source consumer. Publish
+only requested numeric input facts; original bytes never enter git.
+
+```sh
+python3 runtime/driver/halftime_editor_support.py --run runs/T75/session-NEW.json --scratch .cache/T75-original-NEW
+python3 runtime/driver/halftime_support_query.py --source runs/T75/session-NEW.json --scratch .cache/T75-original-NEW --queries runs/T75/query-requests-r0001.json --output runs/T75/inputs-NEW.json
+python3 -m pytest -q tests/test_halftime_editor_support.py tests/test_halftime_replacement.py
+```
+
+Native#166 remains an unfinished draft; desktop replacement controls and
+substituted full-match parity are not established by this source input record.
+
+[confirmed:runs/T75/inputs-r0002.json and inputs-r0003.json] Native retry then
+identified DS:037E's initial write baseline at CCB2. This byte is the editor
+player cursor; CCB2 stores1 before ordinary Down moves it. Both authentic
+halftime states independently read1 at this concrete field. No broad memory
+range was copied. Selected-team CONFIG+4 also independently remains1.
+
+[confirmed:static1d6b5b9,CBF0;232A:052F..0545] CBF0's template calls at
+CD74/CD90/CDA1/CDB6/CE1F and the player panel's1B55:479A use the same generic
+232A:052F destination-page copy. It obtains the destination through its passed
+header, passes the template to24BC:0000, and restores its frame. The existing
+T41 presentation-boundary evidence owns that generic copy. Native projection
+admission must retain the exact source template/caller/header and owned interval
+checks; this does not permit bypassing editor/gameplay algorithms.
+
+[designed:recovery] Both original processes exited. The owner-approved private
+boundary-state backup is uploaded and verified as unshared in the owner's
+private folder. Backup identifiers are retained only in ignored local recovery
+notes following the owner's authorized redaction; original bytes remain private.
+
+[confirmed:runs/T75/inputs-r0004.json,inputs-r0005.json,repeat-r0002.json]
+The reached player-panel dispatch95B6 reads DS:9A2A. Both original halftime
+states independently yield1, selecting the1B55:478C panel. This third bounded
+input is separate from the selected-team and player-cursor baselines.
+
+[confirmed:static1d6b5b9,232A:0098..00D2;C866] The warning helper first copies
+its supplied string into local scratch, then calls24BC:0702 only if the supplied
+predicate is nonzero; it returns the original predicate byte inAL. C866 computes
+and immediately tests each predicate. For false predicates the helper has only
+local scratch effects; no warning is shown. The original successful T74/T75
+transaction independently establishes the non-warning successful path. Native
+projection may retain this false-only return under exact C866 caller/string
+checks, while refusing every true predicate; the eligibility computation stays
+in original C866. This avoids embedding original warning-string bytes.
+
+[confirmed:static1d6b5b9,CA2B..CA58;1B55:44DC..453A;26C9:0BD2..0BFB]
+The first-team incoming eligibility warning also formats a player name and
+appends a literal suffix before0098 sees the already computed predicate.
+44DC's hidden output pointer remains on the caller's stack (retf2);0BD2 appends
+to it and consumes only the suffix pointer (retf4). For a false predicate this
+local string has no consumer outside the no-dialog0098 path. A native
+presentation boundary may omit both unavailable text producers only with exact
+caller, local buffer, player and false-predicate guards, preserving the stack
+cleanup and original eligibility computation. True warnings remain unsupported.
+
+[confirmed:runs/T75/inputs-r0006.json,inputs-r0007.json] The reached editor exit
+D14C writes club member50, then D151..D177 counts the nonempty20 roster slots.
+Both original states authenticate PSG club130's incoming count18 and the
+bench-after value18. The new query is bounded to byte8048 of the club area,
+with the actual D7C2 pointer and private-state identity. Its incoming value may
+enter native support; its observed post-editor value is verification only.
+
+[confirmed:runs/T75/inputs-r0008.json,inputs-r0009.json] D19A then scans the
+first managed club's twenty configured roster references at CONFIG:0058..007E,
+counting nonzero words. Both original halftime observations give twenty zero
+references. This complete loop input is measured, not assumed. D1D4 then calls
+1B55:7777 on the same configured list to compute its source-owned role/ordering
+work. The native incoming transport expands each decoded word to two byte
+facts; none of the observed post-editor values is supplied as an engine input.
+
+[designed:owner,2026-11-08] The instruction “redact them” authorizes this narrow
+exception to CLAUDE.md rule13 for private backup identifiers in T75's recovery
+and validation metadata. Game observations, input queries, producer identities
+and scientific evidence remain unchanged. The identifiers are retained only in
+ignored local recovery notes. Existing commit history is preserved.

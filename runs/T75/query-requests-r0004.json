@@ -1,0 +1,37 @@
+[
+  {
+    "stage": "halftime",
+    "area": "config",
+    "offset": 4,
+    "width": 8,
+    "consumer": "0AB9:D1F1"
+  },
+  {
+    "stage": "halftime",
+    "area": "ds",
+    "offset": 894,
+    "width": 8,
+    "consumer": "0AB9:CCB2"
+  },
+  {
+    "stage": "halftime",
+    "area": "ds",
+    "offset": 39466,
+    "width": 8,
+    "consumer": "0AB9:95B6"
+  },
+  {
+    "stage": "halftime",
+    "area": "club",
+    "offset": 8048,
+    "width": 8,
+    "consumer": "0AB9:D14C"
+  },
+  {
+    "stage": "bench-after",
+    "area": "club",
+    "offset": 8048,
+    "width": 8,
+    "consumer": "0AB9:D14C"
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "schema": "original-halftime-input-query/1",
+  "producer": "bfbd730e9c5fa07a59775bb3f23560ab2e99515e",
+  "tool_sha256": "aaecfe3a7bce1ca22268051b7f152021857bd4de204910aba1ed2c8f828fb5c4",
+  "source": {
+    "path": "runs/T75/session-r0001.json",
+    "sha256": "0e79934d2685c32020ac581f745b7943015d04a8af674a325fbee0600f2c03f8",
+    "producer": "42ae2c6c547319b4a7f8641a19b41b5bddcea13e"
+  },
+  "facts": [
+    {
+      "stage": "halftime",
+      "area": "config",
+      "offset": 4,
+      "width": 8,
+      "consumer": "0AB9:D1F1",
+      "address": 450276,
+      "value": 1,
+      "savestate_sha256": "2ba467daea6c77adc25b96abbb5b0151fd06e60f712fdbd2a70849deb20f2a2b",
+      "screen_sha256": "bda187f1fbe8db58c28343b10fee36772aca4cb3625b22f819a47804059c6048"
+    },
+    {
+      "stage": "halftime",
+      "area": "ds",
+      "offset": 894,
+      "width": 8,
+      "consumer": "0AB9:CCB2",
+      "address": 199662,
+      "value": 1,
+      "savestate_sha256": "2ba467daea6c77adc25b96abbb5b0151fd06e60f712fdbd2a70849deb20f2a2b",
+      "screen_sha256": "bda187f1fbe8db58c28343b10fee36772aca4cb3625b22f819a47804059c6048"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "original-halftime-support-validation/1",
+  "producer": "907c02adf5d1c3a592d78d7186d05b090c1682f6",
+  "focused_tests": 43,
+  "focused_log_sha256": "827ca9fdec3f472da4286312b898fcf03c3634b02462100d90f49b65343e1469",
+  "independent_original_sessions": 2,
+  "decoded_input_fields": 2,
+  "scan": {
+    "files": 12,
+    "bytes": 612812,
+    "mode": "raw+hex",
+    "status": "passed"
+  },
+  "prior_evidence_unchanged": true,
+  "private_archive": {
+    "upload": "pending payload-specific approval at recording time",
+    "redaction": "Owner-authorized removal of private backup identifiers; local recovery notes retain them."
+  },
+  "status": "focused checks passed; exact-head public CI required before merge"
+}

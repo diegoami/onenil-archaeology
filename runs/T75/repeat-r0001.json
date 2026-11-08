@@ -1,0 +1,42 @@
+{
+  "schema": "original-halftime-support-repeat/1",
+  "sources": [
+    {
+      "path": "session-r0001.json",
+      "sha256": "0e79934d2685c32020ac581f745b7943015d04a8af674a325fbee0600f2c03f8"
+    },
+    {
+      "path": "session-r0002.json",
+      "sha256": "f99a57720532aa2e037351a7b19269a131a4da36ecd5a6382215d880550680cc"
+    },
+    {
+      "path": "inputs-r0002.json",
+      "sha256": "d30a0b253c9ad0587fa20455a3aeeb353b9a496470b7b34b88c63120e5ffbd35"
+    },
+    {
+      "path": "inputs-r0003.json",
+      "sha256": "32d3f2024174916dff92a6bb65a6050c9ff87de9c0e3dffe833687a09648628f"
+    }
+  ],
+  "independent_starts": true,
+  "inputs_equal": true,
+  "values": [
+    {
+      "stage": "halftime",
+      "area": "config",
+      "offset": 4,
+      "width": 8,
+      "consumer": "0AB9:D1F1",
+      "value": 1
+    },
+    {
+      "stage": "halftime",
+      "area": "ds",
+      "offset": 894,
+      "width": 8,
+      "consumer": "0AB9:CCB2",
+      "value": 1
+    }
+  ],
+  "status": "passed"
+}
