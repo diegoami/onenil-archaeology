@@ -26,7 +26,7 @@ def transaction_stages():
  for row in out:row['state_sha256']=s.sha(s.encoded(row['state']))
  return out
 def session_payload():
- stages=[dict(name='preparation',keys=['Return'],selected=None,put_here=False,remaining_display=None,state=halftime_state(),state_sha256=s.sha(s.encoded(halftime_state())),screen_sha256='p'*64,savestate_sha256='q'*64)]
+ stages=[dict(name='preparation',keys=[],selected=None,put_here=False,remaining_display=None,state=halftime_state(),state_sha256=s.sha(s.encoded(halftime_state())),screen_sha256='p'*64,savestate_sha256='q'*64)]
  stages+=transaction_stages()
  stages[-1]['state']['elapsed']=92;stages[-1]['state_sha256']=s.sha(s.encoded(stages[-1]['state']))
  base=dict(keys=[],selected=None,put_here=False,remaining_display=None,screen_sha256='x'*64,savestate_sha256='y'*64)

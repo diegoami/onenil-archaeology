@@ -295,8 +295,11 @@ def run(out, scratch):
             raise ValueError('boot save file differs from the authenticated baseline')
         record['payload']['start'] = dict(savestate_sha256=sha(d.last_blob),
                                           screen_sha256=d.last[1].screen().digest(),
-                                          save_file=boot_file, keys=['y'])
-        observe('preparation', ['Return'], want='PLAY GAME')
+                                          save_file=boot_file, keys=['y', 'Return'])
+        d.keys('Return')
+        d.wait_screen(lambda s: 'PLAY GAME' in s.text(), what='preparation')
+        observe('preparation')
+        d.keys('Return')  # PLAY GAME starts the match (T74's calibrated preparation route)
         deadline = time.monotonic() + 900
         while time.monotonic() < deadline:
             time.sleep(2)  # avoid continuously stopping play for compressed savestate reads
@@ -487,7 +490,7 @@ def validate_session(payload, baseline):
             raise ValueError('reloaded player fields differ: ' + identifier)
     if rows['reloaded']['state']['seed'] != saved['seed_word']:
         raise ValueError('reloaded seed differs from the saved seed word')
-    fixed = {'preparation': ['Return'], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
+    fixed = {'preparation': [], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
              'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': [],
              'reloaded': []}
     for name, keys in fixed.items():
