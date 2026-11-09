@@ -339,6 +339,83 @@ def validate_fixtures(record):
     return dict(following=record['cross_check']['following'])
 
 
+def roster_conditions(data):
+    """The managed club's twenty roster players' bounded fields, decoded from a
+    save image: id, condition (p15+8), status (+11), instructions (+10),
+    current/club position (p8+6/+7). Zero slots are skipped."""
+    off = block_offsets()
+    p8, _ = off['[DS:D7BA]']
+    p15, _ = off['[DS:D7BE]']
+    clubs_at, _ = off['[DS:D7C2]']
+    roster = list(struct.unpack_from('<20H', data, clubs_at + (MANAGED_CLUB - 1) * 62))
+    out = {}
+    for slot, pid in enumerate(roster):
+        if pid == 0:
+            continue
+        out[str(pid)] = dict(slot=slot,
+            current_position=data[p8_at := p8 + 8 * pid + 6],
+            club_position=data[p8 + 8 * pid + 7],
+            condition=data[p15 + 15 * pid + 8],
+            instructions=data[p15 + 15 * pid + 10],
+            status=data[p15 + 15 * pid + 11])
+    return out
+
+
+def conditions_record(out, pre_path, post_path, session_path):
+    """The full managed-roster condition fields before and after the completed
+    friendly week, from the digest-chained private saves (no bytes in git)."""
+    pre_path = Path(pre_path).resolve()
+    post_path = Path(post_path).resolve()
+    session_path = Path(session_path).resolve()
+    session = json.loads(session_path.read_text())
+    baseline_path = ROOT / BASELINE
+    baseline = json.loads(baseline_path.read_text())
+    pre = Path(pre_path).read_bytes()
+    post = Path(post_path).read_bytes()
+    saved_digest = {t['at']: t['sha256'] for t in session['payload']['save_timeline']}['saved']
+    if sha(post) != saved_digest:
+        raise ValueError('the post-week save differs from the committed session timeline')
+    if sha(pre) != baseline['source']['sha256']:
+        raise ValueError('the pre-match save differs from the pinned baseline')
+    menu = next(s for s in session['payload']['stages'] if s['name'] == 'menu-after')['text']
+    conditions_pre = roster_conditions(pre)
+    conditions_post = roster_conditions(post)
+    if set(conditions_pre) != set(conditions_post):
+        raise ValueError('the roster membership changed during the week')
+    moved = {pid: (conditions_pre[pid]['condition'], conditions_post[pid]['condition'])
+             for pid in conditions_pre
+             if conditions_pre[pid]['condition'] != conditions_post[pid]['condition']}
+    stable_positions = all(conditions_pre[pid]['current_position'] == conditions_post[pid]['current_position']
+                           and conditions_pre[pid]['club_position'] == conditions_post[pid]['club_position']
+                           and conditions_pre[pid]['instructions'] == conditions_post[pid]['instructions']
+                           for pid in conditions_pre)
+    record = dict(
+        schema='original-week-conditions/1', producer=git('rev-parse', 'HEAD'),
+        producer_files={p: sha((ROOT / p).read_bytes()) for p in DEPENDENCIES},
+        session=dict(path=str(session_path.relative_to(ROOT)), sha256=sha(session_path.read_bytes())),
+        sources=dict(pre=dict(path=SOURCE, sha256=sha(pre), size=len(pre)),
+                     post=dict(origin='the T81 session r0007 scratch game save (host-local)',
+                               sha256=sha(post), size=len(post))),
+        decoded=dict(manager=decode_save_week(pre)['manager'], club=MANAGED_CLUB,
+                     cash_pre=decode_save_week(pre)['cash'], cash_post=decode_save_week(post)['cash'],
+                     roster=len(conditions_pre), conditions_pre=conditions_pre,
+                     conditions_post=conditions_post, condition_moved=moved,
+                     positions_and_instructions_stable=stable_positions),
+        cross_check=dict(note='the case values reproduce the committed T81 decoded refreshes',
+                         gale_condition=conditions_post.get('2592', {}).get('condition'),
+                         pearce_condition=conditions_post.get('2582', {}).get('condition')),
+        interpretation='the week refreshes the roster players condition fields; positions, '
+                       'instructions and the roster arrangement stay stable; one friendly week',
+    )
+    if out.exists():
+        raise ValueError('run records are immutable: %s exists' % out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open('x') as f:
+        json.dump(record, f, indent=2)
+        f.write('\n')
+    print('wrote', out, 'roster', len(conditions_pre), 'condition moved:', moved)
+
+
 def validate_session(payload, baseline):
     """The T81 contract: the plain week transaction, decoded and bound."""
     stages = payload['stages']
@@ -462,6 +539,7 @@ def main(argv):
     p.add_argument('--run', type=Path)
     p.add_argument('--scratch', type=Path)
     p.add_argument('--fixtures', type=Path)
+    p.add_argument('--conditions', type=Path)
     p.add_argument('--save-pre', type=Path)
     p.add_argument('--save-post', type=Path)
     p.add_argument('--session', type=Path)
@@ -470,6 +548,8 @@ def main(argv):
         check(a.check)
     elif a.run and a.scratch:
         run(a.run, a.scratch)
+    elif a.conditions and a.save_pre and a.save_post and a.session:
+        conditions_record(a.conditions, a.save_pre, a.save_post, a.session)
     elif a.fixtures and a.save_pre and a.save_post and a.session:
         fixtures_record(a.save_pre, a.save_post, a.session, a.fixtures)
         print('PASS next-fixture record:', validate_fixtures(json.loads(a.fixtures.read_text())))

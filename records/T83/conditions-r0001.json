@@ -1,0 +1,407 @@
+{
+  "schema": "original-week-conditions/1",
+  "producer": "b79e47b3b94537ff9dcface2b596a66c1baac3ee",
+  "producer_files": {
+    "runtime/driver/week_completion.py": "363487d829c46a8760cf7b72d2ff5daee9433256709425dbade654f877ad131e",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045",
+    "runtime/driver/halftime_replacement.py": "f8d9d2fa227893f237a1d6a4083b7431194d36b88884e3eda4d524168c14e7dc",
+    "runtime/driver/saved_roster.py": "6c9be070d7bba23bbdfee78d3b931959a008860258184d9514df119d1f5e8e8f",
+    "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+    "runtime/driver/dosbox-x-2024.03.01-default.map": "1849ec80ad0b32949869ed8b2d38e7b2e1e89f5959965328b5f8c561196b589a"
+  },
+  "session": {
+    "path": "runs/T81/session-r0007.json",
+    "sha256": "825f1b3945a863d35886ff74f1e0d8f4dd91085c4cfa58f4bcc89d490ad7ba27"
+  },
+  "sources": {
+    "pre": {
+      "path": "One-Nil96/SAVE1.1-0",
+      "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "size": 194426
+    },
+    "post": {
+      "origin": "the T81 session r0007 scratch game save (host-local)",
+      "sha256": "f3aa2e4f076891fca47ca686664502a0f69ed79bdd67de0910bf0ed932225e29",
+      "size": 194426
+    }
+  },
+  "decoded": {
+    "manager": 1,
+    "club": 130,
+    "cash_pre": 452000,
+    "cash_post": 421491,
+    "roster": 18,
+    "conditions_pre": {
+      "2581": {
+        "slot": 0,
+        "current_position": 0,
+        "club_position": 0,
+        "condition": 10,
+        "instructions": 17,
+        "status": 1
+      },
+      "2582": {
+        "slot": 1,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 31,
+        "instructions": 178,
+        "status": 0
+      },
+      "2583": {
+        "slot": 2,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 20,
+        "instructions": 50,
+        "status": 1
+      },
+      "2584": {
+        "slot": 3,
+        "current_position": 3,
+        "club_position": 3,
+        "condition": 9,
+        "instructions": 17,
+        "status": 1
+      },
+      "2585": {
+        "slot": 4,
+        "current_position": 4,
+        "club_position": 4,
+        "condition": 30,
+        "instructions": 17,
+        "status": 1
+      },
+      "2586": {
+        "slot": 5,
+        "current_position": 5,
+        "club_position": 5,
+        "condition": 19,
+        "instructions": 0,
+        "status": 1
+      },
+      "2587": {
+        "slot": 6,
+        "current_position": 6,
+        "club_position": 6,
+        "condition": 8,
+        "instructions": 0,
+        "status": 1
+      },
+      "2588": {
+        "slot": 7,
+        "current_position": 10,
+        "club_position": 10,
+        "condition": 29,
+        "instructions": 0,
+        "status": 1
+      },
+      "2589": {
+        "slot": 8,
+        "current_position": 11,
+        "club_position": 11,
+        "condition": 18,
+        "instructions": 0,
+        "status": 1
+      },
+      "2590": {
+        "slot": 9,
+        "current_position": 12,
+        "club_position": 12,
+        "condition": 30,
+        "instructions": 0,
+        "status": 0
+      },
+      "2591": {
+        "slot": 10,
+        "current_position": 13,
+        "club_position": 13,
+        "condition": 28,
+        "instructions": 0,
+        "status": 1
+      },
+      "2592": {
+        "slot": 11,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 17,
+        "instructions": 50,
+        "status": 0
+      },
+      "2593": {
+        "slot": 12,
+        "current_position": 12,
+        "club_position": 12,
+        "condition": 6,
+        "instructions": 0,
+        "status": 1
+      },
+      "2594": {
+        "slot": 13,
+        "current_position": 5,
+        "club_position": 5,
+        "condition": 11,
+        "instructions": 0,
+        "status": 1
+      },
+      "2595": {
+        "slot": 14,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 26,
+        "instructions": 50,
+        "status": 1
+      },
+      "2596": {
+        "slot": 15,
+        "current_position": 13,
+        "club_position": 13,
+        "condition": 6,
+        "instructions": 0,
+        "status": 1
+      },
+      "2597": {
+        "slot": 16,
+        "current_position": 4,
+        "club_position": 4,
+        "condition": 25,
+        "instructions": 145,
+        "status": 1
+      },
+      "2598": {
+        "slot": 17,
+        "current_position": 0,
+        "club_position": 0,
+        "condition": 14,
+        "instructions": 17,
+        "status": 1
+      }
+    },
+    "conditions_post": {
+      "2581": {
+        "slot": 0,
+        "current_position": 0,
+        "club_position": 0,
+        "condition": 9,
+        "instructions": 17,
+        "status": 1
+      },
+      "2582": {
+        "slot": 1,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 31,
+        "instructions": 178,
+        "status": 0
+      },
+      "2583": {
+        "slot": 2,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 26,
+        "instructions": 50,
+        "status": 1
+      },
+      "2584": {
+        "slot": 3,
+        "current_position": 3,
+        "club_position": 3,
+        "condition": 14,
+        "instructions": 17,
+        "status": 1
+      },
+      "2585": {
+        "slot": 4,
+        "current_position": 4,
+        "club_position": 4,
+        "condition": 31,
+        "instructions": 17,
+        "status": 1
+      },
+      "2586": {
+        "slot": 5,
+        "current_position": 5,
+        "club_position": 5,
+        "condition": 21,
+        "instructions": 0,
+        "status": 1
+      },
+      "2587": {
+        "slot": 6,
+        "current_position": 6,
+        "club_position": 6,
+        "condition": 11,
+        "instructions": 0,
+        "status": 1
+      },
+      "2588": {
+        "slot": 7,
+        "current_position": 10,
+        "club_position": 10,
+        "condition": 31,
+        "instructions": 0,
+        "status": 1
+      },
+      "2589": {
+        "slot": 8,
+        "current_position": 11,
+        "club_position": 11,
+        "condition": 19,
+        "instructions": 0,
+        "status": 1
+      },
+      "2590": {
+        "slot": 9,
+        "current_position": 12,
+        "club_position": 12,
+        "condition": 31,
+        "instructions": 0,
+        "status": 0
+      },
+      "2591": {
+        "slot": 10,
+        "current_position": 13,
+        "club_position": 13,
+        "condition": 27,
+        "instructions": 0,
+        "status": 1
+      },
+      "2592": {
+        "slot": 11,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 19,
+        "instructions": 50,
+        "status": 0
+      },
+      "2593": {
+        "slot": 12,
+        "current_position": 12,
+        "club_position": 12,
+        "condition": 5,
+        "instructions": 0,
+        "status": 1
+      },
+      "2594": {
+        "slot": 13,
+        "current_position": 5,
+        "club_position": 5,
+        "condition": 10,
+        "instructions": 0,
+        "status": 1
+      },
+      "2595": {
+        "slot": 14,
+        "current_position": 2,
+        "club_position": 2,
+        "condition": 25,
+        "instructions": 50,
+        "status": 1
+      },
+      "2596": {
+        "slot": 15,
+        "current_position": 13,
+        "club_position": 13,
+        "condition": 7,
+        "instructions": 0,
+        "status": 1
+      },
+      "2597": {
+        "slot": 16,
+        "current_position": 4,
+        "club_position": 4,
+        "condition": 26,
+        "instructions": 145,
+        "status": 1
+      },
+      "2598": {
+        "slot": 17,
+        "current_position": 0,
+        "club_position": 0,
+        "condition": 13,
+        "instructions": 17,
+        "status": 1
+      }
+    },
+    "condition_moved": {
+      "2581": [
+        10,
+        9
+      ],
+      "2583": [
+        20,
+        26
+      ],
+      "2584": [
+        9,
+        14
+      ],
+      "2585": [
+        30,
+        31
+      ],
+      "2586": [
+        19,
+        21
+      ],
+      "2587": [
+        8,
+        11
+      ],
+      "2588": [
+        29,
+        31
+      ],
+      "2589": [
+        18,
+        19
+      ],
+      "2590": [
+        30,
+        31
+      ],
+      "2591": [
+        28,
+        27
+      ],
+      "2592": [
+        17,
+        19
+      ],
+      "2593": [
+        6,
+        5
+      ],
+      "2594": [
+        11,
+        10
+      ],
+      "2595": [
+        26,
+        25
+      ],
+      "2596": [
+        6,
+        7
+      ],
+      "2597": [
+        25,
+        26
+      ],
+      "2598": [
+        14,
+        13
+      ]
+    },
+    "positions_and_instructions_stable": true
+  },
+  "cross_check": {
+    "note": "the case values reproduce the committed T81 decoded refreshes",
+    "gale_condition": 19,
+    "pearce_condition": 31
+  },
+  "interpretation": "the week refreshes the roster players condition fields; positions, instructions and the roster arrangement stay stable; one friendly week"
+}
