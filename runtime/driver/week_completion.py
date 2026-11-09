@@ -289,6 +289,8 @@ def validate_session(payload, baseline):
             raise ValueError('reloaded player fields differ: ' + identifier)
     if rows['reloaded']['state']['seed'] != saved['seed_word']:
         raise ValueError('reloaded seed differs from the saved seed word')
+    if rows['menu-after'].get('text') and format(saved['cash'], ',d') not in rows['menu-after']['text']:
+        raise ValueError('the management menu does not display the saved club funds')
     fixed = {'preparation': [], 'halftime': [], 'bench': ['space'],
              'resumed': [], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
              'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': [],
@@ -296,7 +298,9 @@ def validate_session(payload, baseline):
     for name, keys in fixed.items():
         if rows[name]['keys'] != keys:
             raise ValueError('%s input differs' % name)
-    return dict(cash=saved['cash'], roster_slots=20)
+    # Fixture-dependent values (cash amount, score, news rows) stay per session;
+    # only the structural contract is compared across independent sessions.
+    return dict(roster_slots=20, cash_moved=saved['cash'] != boot_decoded['cash'])
 
 
 def validate_record(record):
