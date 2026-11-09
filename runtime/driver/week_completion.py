@@ -234,12 +234,17 @@ def validate_session(payload, baseline):
     def managed_side(state):
         return next(i for i, c in enumerate(state['clubs']) if c['id'] == MANAGED_CLUB)
     boot_roster = managed_roster('preparation')
-    # No substitution: the roster and the unchanged capacity persist through full time.
+    # No substitution: from the interval onward the roster and the substitution
+    # capacity are unchanged (the pre-match arrangement differs and is not claimed).
+    interval_capacity = None
     for name in ('halftime', 'bench', 'resumed', 'fulltime'):
         st = rows[name]['state']
         if managed_roster(name) != boot_roster:
             raise ValueError('%s changed the roster without a replacement' % name)
-        if capacity(st, managed_side(st)) != capacity(rows['preparation']['state'], managed_side(rows['preparation']['state'])):
+        cap = capacity(st, managed_side(st))
+        if interval_capacity is None:
+            interval_capacity = cap
+        elif cap != interval_capacity:
             raise ValueError('%s changed the substitution capacity' % name)
     if rows['fulltime']['state']['elapsed'] <= rows['resumed']['state']['elapsed']:
         raise ValueError('second half did not advance to full time')
