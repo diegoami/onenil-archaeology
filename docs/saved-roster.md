@@ -70,6 +70,40 @@ independent session must reproduce every decoded comparison.
 
 ## Result
 
-Pending the authenticated sessions; this section will state exactly which
-persisted mutation the native campaign may commit, and which effects are
-scene-local or week-processing output instead.
+[confirmed: runs/T80/session-r0006.json, producer934e992] The complete
+authenticated route — genuine halftime Pearce→Gale exchange, second half to
+full time, the W029/W030 week route to the management menu, F7, and a
+fresh-process reload with a save-copy restart receipt — keeps the post-exchange
+arrangement at every stage: the managed club's roster words carry Gale 2592 in
+the first team and Pearce 2582 in the bench slot at confirmed, full time, the
+menu, in the saved file's decoded club block, and in the reloaded memory. The
+reloaded player fields and RNG seed equal the saved file's decodes exactly.
+
+[confirmed: same record, save timeline] The original writes the save file
+while completing the management week: the scratch save digest changes between
+match start and the management menu, before F7, exactly as the W030 chapter
+remarked. F7 at the menu is the explicit save control; on the already-autosaved
+state it rewrote byte-identical data in this case.
+
+[derived] Exactly which persisted mutation the native campaign may commit
+(native #171/T78): the halftime replacement's durable effect is the C866
+closure's exchange of the two two-byte roster entries in the managed club's
+first-team array (the save block `[DS:D7C2]`) — incoming player into the
+selected first-team slot, outgoing player into the opposite-side bench slot —
+and nothing else about the transaction. The exchange's in-match side effects
+are not durable: the outgoing player's status flag (4 at the exchange) is
+reset to 0 and the players' condition values are refreshed by week processing
+(Pearce 31, Gale 16 in the saved week), the scene records and D146/D197 slot
+accounting are execution state, and the remaining-substitutions counters
+belong to the match. The saved week also records the played result and the
+advanced week, per the original's own week-completion save; a native campaign
+must integrate any roster mutation with that same exactly-once result ticket
+rather than saving separately.
+
+Corruption controls: the public validation rejects wrong release/producer
+identities, unbound or mutated decoded roster values, a saved file that lacks
+the exchanged arrangement, a week route that loses it, a reload that differs
+from the saved file's fields or seed, and timelines where the week left no
+file change. The independent repeat (runs/T80/session-r0007.json) must
+reproduce the contract; the retained aborted sessions r0001–r0005 document
+each route boundary the driver had to learn.
