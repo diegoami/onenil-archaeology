@@ -118,3 +118,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T80 Authenticate saved roster after a managed watched-match replacement](T80.md)
 
 - [T81 Authenticate the original management-week completion transaction](T81.md)
+
+- [T82 Authenticate the original next-fixture lookup after a completed friendly week](T82.md)
