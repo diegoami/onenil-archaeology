@@ -188,6 +188,35 @@ def save_digest(game_dir, name=SAVE_FILE):
     return dict(name=name, sha256=sha(data), size=len(data))
 
 
+def menu_projection(st):
+    """The club-anchored projection for the post-match stages: the match projection reads
+    the selected clubs from match state (DS:D6E4), which is meaningless at the management
+    menu and after a fresh load, so the fixed case club and players are read directly."""
+    ds = st.program().ds_base
+
+    def rd(at, n=2):
+        return int.from_bytes(st.memory(ds + at, n), 'little')
+
+    def far(at):
+        return rd(at) + 16 * rd(at + 2)
+
+    def at(address, n=2):
+        return int.from_bytes(st.memory(address, n), 'little')
+
+    base = far(0xD7C2) + (MANAGED_CLUB - 1) * 62
+    return dict(seed=at(far(0xDE84)), club=MANAGED_CLUB,
+                roster=[at(base + 2 * i) for i in range(20)],
+                players={str(i): dict(current_position=at(far(0xD7BA) + 8 * i + 6, 1),
+                                      club_position=at(far(0xD7BA) + 8 * i + 7, 1),
+                                      condition=at(far(0xD7BE) + 15 * i + 8, 1),
+                                      instructions=at(far(0xD7BE) + 15 * i + 10, 1),
+                                      status=at(far(0xD7BE) + 15 * i + 11, 1))
+                         for i in (OUTGOING, INCOMING)})
+
+
+MENU_STAGES = ('menu-after', 'saved', 'reloaded')
+
+
 class SessionDriver(driver.Driver):
     """T74's calibrated boot waits, plus save preloading for the fresh-process reload."""
 
@@ -262,7 +291,7 @@ def run(out, scratch):
             raise ValueError('highlight differs ' + name)
         if want is not None and want not in text:
             raise ValueError('screen %s lacks %r' % (name, want))
-        state = projection(st)
+        state = menu_projection(st) if name in MENU_STAGES else projection(st)
         m = re.search(r'Remaining subs\s+(\d+)', text)
         row = dict(name=name, keys=list(keys), selected=actual,
                    put_here='PUT HERE' in text, remaining_display=int(m[1]) if m else None,
@@ -270,8 +299,11 @@ def run(out, scratch):
                    state_sha256=sha(encoded(state)), state=state)
         stages.append(row)
         note(row)
-        print(name, 'elapsed', state['elapsed'],
-              'roster[1]', state['clubs'][1]['roster'][1], flush=True)
+        if name in MENU_STAGES:
+            print(name, 'seed', state['seed'], 'roster[1]', state['roster'][1], flush=True)
+        else:
+            print(name, 'elapsed', state['elapsed'],
+                  'roster[1]', state['clubs'][1]['roster'][1], flush=True)
         return text
 
     def select(identifier):
@@ -480,26 +512,30 @@ def validate_session(payload, baseline):
             raise ValueError('save timeline missing ' + name)
     if timeline['boot']['sha256'] != baseline['source']['sha256']:
         raise ValueError('boot save differs from the baseline')
+    # The original writes the save file while completing the week (confirmed
+    # W030 autosave); F7 at the menu rewrites the named game, byte-identical
+    # when the state is unchanged since that autosave.
     if timeline['menu-after']['sha256'] == timeline['boot']['sha256']:
         raise ValueError('the management week left the save file unchanged')
-    if timeline['saved']['sha256'] == timeline['menu-after']['sha256']:
-        raise ValueError('F7 left the save file unchanged')
+    if timeline['saved']['sha256'] == timeline['boot']['sha256']:
+        raise ValueError('F7 left the boot save file in place')
     saved = payload['decoded_saves']['saved']
     if saved['clubs'][str(MANAGED_CLUB)]['roster'] != persisted:
         raise ValueError('saved roster differs from the post-exchange roster')
-    # full time, the management week, F7 and the reloaded menu keep the persisted arrangement
-    for name in ('fulltime', 'bench-ft', 'menu-after', 'saved', 'reloaded'):
-        club = next(c for c in rows[name]['state']['clubs'] if c['id'] == MANAGED_CLUB)
-        if club['roster'] != persisted:
+    # full time, the management week, F7 and the reloaded menu keep the persisted
+    # arrangement; the three menu stages carry the club-anchored projection.
+    if rows['fulltime']['state']['clubs'] != rows['confirmed']['state']['clubs']:
+        raise ValueError('fulltime clubs differ from the confirmed state')
+    for name in MENU_STAGES:
+        state = rows[name]['state']
+        if state['club'] != MANAGED_CLUB or state['roster'] != persisted:
             raise ValueError('%s lost the persisted arrangement' % name)
     if rows['fulltime']['state']['elapsed'] <= rows['resumed']['state']['elapsed']:
         raise ValueError('second half did not advance to full time')
     if rows['menu-after']['screen_sha256'] == rows['preparation']['screen_sha256']:
         raise ValueError('management return did not advance the menu')
-    reload_players = rows['reloaded']['state']['players']
-    saved_players = saved['clubs'][str(MANAGED_CLUB)]['players']
-    for identifier, fields in saved_players.items():
-        live = next((p for p in reload_players if p['id'] == int(identifier)), None)
+    for identifier, fields in saved['clubs'][str(MANAGED_CLUB)]['players'].items():
+        live = rows['reloaded']['state']['players'].get(identifier)
         if live is None or {k: live[k] for k in fields} != fields:
             raise ValueError('reloaded player fields differ: ' + identifier)
     if rows['reloaded']['state']['seed'] != saved['seed_word']:

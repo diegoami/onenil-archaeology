@@ -33,11 +33,12 @@ def session_payload():
  def row(name,state,keys=[]):
   st=copy.deepcopy(state);r=dict(base,name=name,keys=list(keys),state=st);r['state_sha256']=s.sha(s.encoded(st));return r
  ft=copy.deepcopy(stages[-1]['state']);ft['elapsed']=93
- menu=copy.deepcopy(ft);menu['seed']=4242
- saved=dict(clubs={'130':{'roster':menu['clubs'][0]['roster'],'players':{'2582':dict(current_position=9,club_position=3,condition=80,instructions=0,status=4),'2592':dict(current_position=2,club_position=1,condition=90,instructions=0,status=0)}},'17':{'roster':list(range(321,341))}},seed_word=4242,header_byte=1,year=1995,clubs_block_sha256='k'*64,players8_block_sha256='l'*64,players15_block_sha256='m'*64)
- stages+=[row('fulltime',ft),row('bench-ft',ft,['Return']),row('stats',menu,['n']),row('cash',menu,['space']),row('transfer',menu,['space']),row('menu-after',menu,['space']),row('saved',menu,['F7'])]
- reload=copy.deepcopy(menu);reload['players']=[dict(id=i,current_position=9,club_position=3,condition=80,instructions=0,status=4) if i==2582 else dict(id=i,current_position=2,club_position=1,condition=90,instructions=0,status=0) for i in (2582,2592)]
- stages.append(row('reloaded',reload))
+ persisted=ft['clubs'][0]['roster']
+ def menu():
+  return dict(seed=4242,club=130,roster=list(persisted),players={'2582':dict(current_position=9,club_position=3,condition=80,instructions=0,status=4),'2592':dict(current_position=2,club_position=1,condition=90,instructions=0,status=0)})
+ saved=dict(clubs={'130':{'roster':list(persisted),'players':menu()['players']},'17':{'roster':list(range(321,341))}},seed_word=4242,header_byte=1,year=1995,clubs_block_sha256='k'*64,players8_block_sha256='l'*64,players15_block_sha256='m'*64)
+ stages+=[row('fulltime',ft),row('bench-ft',ft,['Return']),row('stats',menu(),['n']),row('cash',menu(),['space']),row('transfer',menu(),['space']),row('menu-after',menu(),['space']),row('saved',menu(),['F7'])]
+ stages.append(row('reloaded',menu()))
  return dict(start=dict(savestate_sha256='c'*64),stages=stages,
   save_timeline=[dict(at='boot',name='SAVE1.1-0',sha256='bootd',size=1),dict(at='menu-after',name='SAVE1.1-0',sha256='weekd',size=1),dict(at='saved',name='SAVE1.1-0',sha256='f7d',size=1)],
   decoded_saves={'saved':saved})
@@ -56,13 +57,13 @@ def test_session_rejects_corruptions(damage):
  if damage==0:p['stages'].pop()
  if damage==1:rows['fulltime']['state']['clubs'][0]['roster'][1]=2582;reseal(p)
  if damage==2:p['save_timeline'][0]['sha256']='other'
- if damage==3:p['save_timeline'][2]['sha256']='weekd'
+ if damage==3:p['save_timeline'][1]['sha256']='bootd'
  if damage==4:p['decoded_saves']['saved']['clubs']['130']['roster'][1]=2582
  if damage==5:rows['reloaded']['state']['seed']=1;reseal(p)
- if damage==6:rows['reloaded']['state']['players'][0]['status']=0;reseal(p)
+ if damage==6:rows['reloaded']['state']['players']['2582']['status']=0;reseal(p)
  if damage==7:rows['menu-after']['screen_sha256']='p'*64;reseal(p)
  if damage==8:rows['stats']['keys']=['space'];reseal(p)
- if damage==9:rows['saved']['state']['clubs'][0]['roster'][1]=2582;reseal(p)
+ if damage==9:rows['saved']['state']['roster'][1]=2582;reseal(p)
  with pytest.raises(ValueError):s.validate_session(p,BASELINE_SYNTH)
 
 def test_authenticated_baseline_record_passes():
