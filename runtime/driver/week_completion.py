@@ -43,7 +43,7 @@ DEPENDENCIES = [TOOL, 'tools/data/save.py', 'runtime/driver/halftime_replacement
                 'runtime/driver/saved_roster.py',
                 'runtime/driver/driver.py', 'runtime/driver/screens.py', 'runtime/driver/savestate.py',
                 'runtime/driver/xkeys.py', 'runtime/driver/dosbox-x-2024.03.01-default.map']
-STAGES = ['preparation', 'halftime', 'bench', 'bench-after', 'resumed', 'fulltime',
+STAGES = ['preparation', 'halftime', 'bench', 'resumed', 'fulltime',
           'bench-ft', 'stats', 'cash', 'transfer', 'menu-after', 'saved', 'reloaded']
 # Full screen texts are evidence only on the week-transaction screens.
 TEXT_STAGES = {'halftime', 'cash', 'transfer', 'menu-after'}
@@ -144,7 +144,7 @@ def run(out, scratch):
             raise RuntimeError('genuine halftime not reached within 900 seconds')
         observe('halftime', keep_text=True)
         observe('bench', ['space'])
-        observe('bench-after', ['Escape'])
+        # [confirmed:T74 route] PLAY GAME on the halftime bench resumes the match.
         d.keys('Return')
         d.wait_screen(lambda s: projection(d.last[1])['elapsed'] > stages[-1]['state']['elapsed'],
                       timeout=30, what='second half progression')
@@ -235,7 +235,7 @@ def validate_session(payload, baseline):
         return next(i for i, c in enumerate(state['clubs']) if c['id'] == MANAGED_CLUB)
     boot_roster = managed_roster('preparation')
     # No substitution: the roster and the unchanged capacity persist through full time.
-    for name in ('halftime', 'bench', 'bench-after', 'resumed', 'fulltime'):
+    for name in ('halftime', 'bench', 'resumed', 'fulltime'):
         st = rows[name]['state']
         if managed_roster(name) != boot_roster:
             raise ValueError('%s changed the roster without a replacement' % name)
@@ -281,7 +281,7 @@ def validate_session(payload, baseline):
             raise ValueError('reloaded player fields differ: ' + identifier)
     if rows['reloaded']['state']['seed'] != saved['seed_word']:
         raise ValueError('reloaded seed differs from the saved seed word')
-    fixed = {'preparation': ['Return'], 'halftime': [], 'bench': ['space'], 'bench-after': ['Escape'],
+    fixed = {'preparation': ['Return'], 'halftime': [], 'bench': ['space'],
              'resumed': ['Return'], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
              'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': [],
              'reloaded': []}

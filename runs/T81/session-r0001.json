@@ -1,0 +1,1154 @@
+{
+  "schema": "original-week-completion/1",
+  "producer": "ba02039da8fdbdcec8ef00140f68c273c151b7e1",
+  "producer_files": {
+    "runtime/driver/week_completion.py": "43aa11225bce5462147532b773832fc341c609776d983cfbece4ef749dd887c4",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045",
+    "runtime/driver/halftime_replacement.py": "f8d9d2fa227893f237a1d6a4083b7431194d36b88884e3eda4d524168c14e7dc",
+    "runtime/driver/saved_roster.py": "6c9be070d7bba23bbdfee78d3b931959a008860258184d9514df119d1f5e8e8f",
+    "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+    "runtime/driver/dosbox-x-2024.03.01-default.map": "1849ec80ad0b32949869ed8b2d38e7b2e1e89f5959965328b5f8c561196b589a"
+  },
+  "release": {
+    "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+    "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+    "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+    "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+    "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+    "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+    "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+    "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+    "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+    "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+    "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+    "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+  },
+  "dosbox_version": "2024.03.01",
+  "status": "aborted",
+  "processes_exited": true,
+  "baseline": {
+    "path": "runs/T80/save-projection-r0001.json",
+    "sha256": "be3c54d0125d4726e608fae2276c63ac2a036e5872d0423daeccada29c3053b3"
+  },
+  "restart": null,
+  "payload": {
+    "start": {
+      "savestate_sha256": "fd7181fd39dab153c844a137aecccfbbb1202e4dc9949c1fd48c9b974a04c2a7",
+      "screen_sha256": "2eb6ffb296cb2e54b46b8601735d202f54b81cca195335933858e0385cc1b952",
+      "save_file": {
+        "name": "SAVE1.1-0",
+        "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+        "size": 194426
+      },
+      "keys": [
+        "y",
+        "Return"
+      ]
+    },
+    "stages": [
+      {
+        "name": "preparation",
+        "keys": [],
+        "screen_sha256": "4361807016fd9da25b466b543b95a406849896b03eccbd58a300436f52ed18d7",
+        "savestate_sha256": "5966688096004108e0c87f29da31af49c029f142a0578995957d2e09e3e6870a",
+        "state_sha256": "3ddf49e57b17bad5858a353264f275e27870d8b8e78ce5326e220f1e14778898",
+        "state": {
+          "seed": 49333,
+          "clubs": [
+            {
+              "id": 17,
+              "roster": [
+                321,
+                322,
+                323,
+                324,
+                325,
+                326,
+                327,
+                333,
+                329,
+                330,
+                331,
+                338,
+                336,
+                334,
+                328,
+                335,
+                337,
+                332,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 130,
+              "roster": [
+                2581,
+                2582,
+                2583,
+                2584,
+                2585,
+                2586,
+                2587,
+                2588,
+                2589,
+                2590,
+                2591,
+                2592,
+                2593,
+                2594,
+                2595,
+                2596,
+                2597,
+                2598,
+                0,
+                0
+              ]
+            }
+          ],
+          "players": [
+            {
+              "id": 321,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 15,
+              "instructions": 145,
+              "status": 1
+            },
+            {
+              "id": 322,
+              "current_position": 1,
+              "club_position": 1,
+              "condition": 4,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 323,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 17,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 324,
+              "current_position": 3,
+              "club_position": 3,
+              "condition": 14,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 325,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 3,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 326,
+              "current_position": 6,
+              "club_position": 6,
+              "condition": 24,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 327,
+              "current_position": 7,
+              "club_position": 7,
+              "condition": 13,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 328,
+              "current_position": 9,
+              "club_position": 9,
+              "condition": 14,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 329,
+              "current_position": 11,
+              "club_position": 11,
+              "condition": 23,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 330,
+              "current_position": 12,
+              "club_position": 12,
+              "condition": 12,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 331,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 18,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 332,
+              "current_position": 8,
+              "club_position": 8,
+              "condition": 21,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 333,
+              "current_position": 9,
+              "club_position": 10,
+              "condition": 10,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 334,
+              "current_position": 6,
+              "club_position": 6,
+              "condition": 31,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 335,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 20,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 336,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 9,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 337,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 30,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 338,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 7,
+              "instructions": 145,
+              "status": 1
+            },
+            {
+              "id": 2581,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 10,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 2582,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 31,
+              "instructions": 178,
+              "status": 0
+            },
+            {
+              "id": 2583,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 20,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 2584,
+              "current_position": 3,
+              "club_position": 3,
+              "condition": 9,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 2585,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 30,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 2586,
+              "current_position": 5,
+              "club_position": 5,
+              "condition": 19,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2587,
+              "current_position": 6,
+              "club_position": 6,
+              "condition": 8,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2588,
+              "current_position": 10,
+              "club_position": 10,
+              "condition": 29,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2589,
+              "current_position": 11,
+              "club_position": 11,
+              "condition": 18,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2590,
+              "current_position": 12,
+              "club_position": 12,
+              "condition": 30,
+              "instructions": 0,
+              "status": 0
+            },
+            {
+              "id": 2591,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 28,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2592,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 17,
+              "instructions": 50,
+              "status": 0
+            },
+            {
+              "id": 2593,
+              "current_position": 12,
+              "club_position": 12,
+              "condition": 6,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2594,
+              "current_position": 5,
+              "club_position": 5,
+              "condition": 11,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2595,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 26,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 2596,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 6,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2597,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 25,
+              "instructions": 145,
+              "status": 1
+            },
+            {
+              "id": 2598,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 14,
+              "instructions": 17,
+              "status": 1
+            }
+          ],
+          "scenes": [
+            {
+              "index": 1,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2561,
+              "word8": 0,
+              "word10": 56064,
+              "word14": 2581,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 1,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 2,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 56829,
+              "word14": 2582,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 2,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 54,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 3,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 56579,
+              "word14": 2583,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 3,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 4,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 57338,
+              "word14": 2584,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 4,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 5,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 57094,
+              "word14": 2585,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 5,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 6,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 57600,
+              "word14": 2586,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 6,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 7,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 58368,
+              "word14": 2587,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 7,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 8,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 60153,
+              "word14": 2588,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 8,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 9,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 59911,
+              "word14": 2589,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 9,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 10,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 60160,
+              "word14": 2590,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 10,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 11,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 60928,
+              "word14": 2591,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 11,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 12,
+              "word0": 247,
+              "word2": 247,
+              "word4": 3841,
+              "word8": 0,
+              "word10": 56064,
+              "word14": 321,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 12,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 13,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 56320,
+              "word14": 322,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 13,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 14,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 56576,
+              "word14": 323,
+              "word16": 5,
+              "word20": 2591,
+              "byte6": 0,
+              "byte7": 14,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 15,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 57338,
+              "word14": 324,
+              "word16": 5,
+              "word20": 2590,
+              "byte6": 0,
+              "byte7": 15,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 16,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 57094,
+              "word14": 325,
+              "word16": 5,
+              "word20": 2588,
+              "byte6": 0,
+              "byte7": 16,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 72,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 17,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 58368,
+              "word14": 326,
+              "word16": 5,
+              "word20": 2586,
+              "byte6": 0,
+              "byte7": 17,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 18,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 58875,
+              "word14": 327,
+              "word16": 5,
+              "word20": 2589,
+              "byte6": 0,
+              "byte7": 18,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 19,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 59392,
+              "word14": 333,
+              "word16": 5,
+              "word20": 2585,
+              "byte6": 0,
+              "byte7": 19,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 20,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 59911,
+              "word14": 329,
+              "word16": 5,
+              "word20": 2584,
+              "byte6": 0,
+              "byte7": 20,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 21,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 60160,
+              "word14": 330,
+              "word16": 5,
+              "word20": 2583,
+              "byte6": 0,
+              "byte7": 21,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 22,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 60928,
+              "word14": 331,
+              "word16": 5,
+              "word20": 2582,
+              "byte6": 0,
+              "byte7": 22,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            }
+          ],
+          "elapsed": 0,
+          "remaining": 91,
+          "stoppage": 0,
+          "active": 0,
+          "phase": 45,
+          "live_goals": [
+            0,
+            0
+          ],
+          "allowance": 0,
+          "sub_flags": [
+            0,
+            0
+          ],
+          "reserves": [
+            9,
+            9
+          ],
+          "pending": 0,
+          "control": 1,
+          "event_totals": [
+            [
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55
+            ],
+            [
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55
+            ]
+          ],
+          "event_flags": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    ],
+    "save_timeline": [
+      {
+        "at": "boot",
+        "name": "SAVE1.1-0",
+        "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+        "size": 194426
+      }
+    ],
+    "decoded_saves": {
+      "boot": {
+        "header_byte": 9,
+        "year": 1995,
+        "seed_word": 23260,
+        "clubs_block_sha256": "82ec12718ae36b109e6dcf054a4cf7e78d215aa8931c57f40bf321224867d882",
+        "players8_block_sha256": "88ad40cd4cefda890d27b3246486fa5452b870ab416282ae5ecec9fb70683c66",
+        "players15_block_sha256": "18df11a2e66f9f26425155b51e174ab30185d57a2964054dd18591546386ba51",
+        "clubs": {
+          "130": {
+            "roster": [
+              2581,
+              2582,
+              2583,
+              2584,
+              2585,
+              2586,
+              2587,
+              2588,
+              2589,
+              2590,
+              2591,
+              2592,
+              2593,
+              2594,
+              2595,
+              2596,
+              2597,
+              2598,
+              0,
+              0
+            ],
+            "players": {
+              "2582": {
+                "current_position": 2,
+                "club_position": 2,
+                "condition": 31,
+                "instructions": 178,
+                "status": 0
+              },
+              "2592": {
+                "current_position": 2,
+                "club_position": 2,
+                "condition": 17,
+                "instructions": 50,
+                "status": 0
+              }
+            }
+          },
+          "17": {
+            "roster": [
+              321,
+              322,
+              323,
+              324,
+              325,
+              326,
+              327,
+              328,
+              329,
+              330,
+              331,
+              332,
+              333,
+              334,
+              335,
+              336,
+              337,
+              338,
+              0,
+              0
+            ]
+          }
+        },
+        "manager": 130,
+        "club_bytes": 0,
+        "cash": 100663296
+      }
+    }
+  },
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: 'runs/T81/session-r0001-progress.jsonl'",
+  "elapsed_seconds": 12.387919687000249,
+  "driver_events": [
+    [
+      0.052,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.084,
+      "Xvfb poll: answered after 1 polls of 0.1s"
+    ],
+    [
+      0.085,
+      "Xvfb :516 answering"
+    ],
+    [
+      0.1,
+      "dosbox-x started"
+    ],
+    [
+      0.222,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      3.222,
+      "T80: waited 3 seconds after window creation before first savestate"
+    ],
+    [
+      3.227,
+      "window focused"
+    ],
+    [
+      3.749,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      3.751,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      3.78,
+      "title screen: matched after 1 savestate polls"
+    ],
+    [
+      3.781,
+      "DOS clock read back: '11/09/2026\\n10:12:21'"
+    ],
+    [
+      6.862,
+      "key y held 0.08s (raw keycode 29)"
+    ],
+    [
+      10.385,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      10.387,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      10.42,
+      "supplied main: matched after 1 savestate polls"
+    ],
+    [
+      10.503,
+      "key Return held 0.08s (raw keycode 36)"
+    ],
+    [
+      11.027,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      11.029,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      11.051,
+      "preparation: matched after 1 savestate polls"
+    ],
+    [
+      11.833,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      11.834,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      12.37,
+      "dosbox-x pid 5242 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group"
+    ],
+    [
+      12.38,
+      "dosbox-x pid 5242 ended by SIGKILL 0.51s after the first signal"
+    ],
+    [
+      12.387,
+      "Xvfb pid 5236 ended by SIGTERM 0.008s after the first signal"
+    ],
+    [
+      12.387,
+      "terminated"
+    ]
+  ],
+  "payload_sha256": "27d8bdf6bf62a94520ae9dfac7db49869834ded8348c2cc40f7619d6c023a5d3"
+}
