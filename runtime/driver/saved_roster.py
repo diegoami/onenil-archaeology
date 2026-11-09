@@ -337,13 +337,23 @@ def run(out, scratch):
                 break
         else:
             raise RuntimeError('full time not reached within 1200 seconds')
+        # The commentary shows FULL TIME while the match engine is still running its tail
+        # (the live footer keeps -speed); the W029 footer with P-print appears only settled.
+        deadline = time.monotonic() + 120
+        while time.monotonic() < deadline:
+            time.sleep(2)
+            text = d.screen().text()
+            if 'FULL TIME' in text and 'print commentary' in text:
+                break
+        else:
+            raise RuntimeError('fulltime pitch did not settle within 120 seconds')
         observe('fulltime', want='FULL TIME')
         observe('bench-ft', ['Return'], wait='CONTINUE')
         d.keys('Return')          # CONTINUE returns to the fulltime pitch
         time.sleep(1)
         observe('stats', ['n'], wait='MAN OF THE MATCH')
         observe('cash', ['space'], wait='CASH FLOW')
-        observe('transfer', ['space'], wait='TRANSFER NEWS')
+        observe('transfer', ['space'], wait='TRANSFER')
         observe('menu-after', ['space'], wait='PLAY NEXT GAME')
         file_digest('menu-after')
         d.keys('F7')
