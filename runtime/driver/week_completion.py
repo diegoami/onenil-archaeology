@@ -55,12 +55,15 @@ def decode_save_week(data):
     DCC4+(manager-1)*94+82 (campaign-seed.md)."""
     d = decode_save(data)
     off = block_offsets()
-    manager = data[off['DS:DCBA'][0]]
-    club = data[off['DS:DCBA'][0] + 1]
-    base = off['[DS:DCC4]'][0] + (manager - 1) * 94
+    # [confirmed static: campaign-seed.md] The manager number lives at
+    # game[D7D2]+4, the managed club at DS:DCBA[manager-1], and the club's
+    # signed cash word at DCC4+(manager-1)*94+82.
+    manager = data[off['[DS:D7D2]'][0] + 4]
+    club = data[off['DS:DCBA'][0] + manager - 1]
+    cash = struct.unpack_from('<i', data, off['[DS:DCC4]'][0] + (manager - 1) * 94 + 82)[0]
     d['manager'] = manager
     d['club_bytes'] = club
-    d['cash'] = struct.unpack_from('<i', data, base + 82)[0]
+    d['cash'] = cash
     return d
 
 
