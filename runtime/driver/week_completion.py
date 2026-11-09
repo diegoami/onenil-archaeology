@@ -289,7 +289,7 @@ def validate_session(payload, baseline):
             raise ValueError('reloaded player fields differ: ' + identifier)
     if rows['reloaded']['state']['seed'] != saved['seed_word']:
         raise ValueError('reloaded seed differs from the saved seed word')
-    fixed = {'preparation': ['Return'], 'halftime': [], 'bench': ['space'],
+    fixed = {'preparation': [], 'halftime': [], 'bench': ['space'],
              'resumed': ['Return'], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
              'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': [],
              'reloaded': []}
