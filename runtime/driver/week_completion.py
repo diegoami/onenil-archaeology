@@ -290,7 +290,7 @@ def validate_session(payload, baseline):
     if rows['reloaded']['state']['seed'] != saved['seed_word']:
         raise ValueError('reloaded seed differs from the saved seed word')
     fixed = {'preparation': [], 'halftime': [], 'bench': ['space'],
-             'resumed': ['Return'], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
+             'resumed': [], 'fulltime': [], 'bench-ft': ['Return'], 'stats': ['n'],
              'cash': ['space'], 'transfer': ['space'], 'menu-after': ['space'], 'saved': [],
              'reloaded': []}
     for name, keys in fixed.items():
