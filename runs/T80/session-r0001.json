@@ -1,0 +1,3907 @@
+{
+  "schema": "original-saved-roster-session/1",
+  "producer": "4a37d6950271074f6a1028ce3539b5e29b7502dd",
+  "producer_files": {
+    "runtime/driver/saved_roster.py": "11a05f9cfa22eecc3811f05b59e94c26b97c6630d87edac9c84af1e939e3f0be",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045",
+    "runtime/driver/halftime_replacement.py": "f8d9d2fa227893f237a1d6a4083b7431194d36b88884e3eda4d524168c14e7dc",
+    "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+    "runtime/driver/dosbox-x-2024.03.01-default.map": "1849ec80ad0b32949869ed8b2d38e7b2e1e89f5959965328b5f8c561196b589a"
+  },
+  "release": {
+    "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+    "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+    "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+    "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+    "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+    "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+    "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+    "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+    "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+    "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+    "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+    "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+  },
+  "dosbox_version": "2024.03.01",
+  "status": "aborted",
+  "processes_exited": true,
+  "baseline": {
+    "path": "runs/T80/save-projection-r0001.json",
+    "sha256": "be3c54d0125d4726e608fae2276c63ac2a036e5872d0423daeccada29c3053b3"
+  },
+  "restart": null,
+  "payload": {
+    "start": {
+      "savestate_sha256": "d95070e3f8e6ffd0869a62570ccc27c99a4b706bd18db086313f72ec643a87f8",
+      "screen_sha256": "2eb6ffb296cb2e54b46b8601735d202f54b81cca195335933858e0385cc1b952",
+      "save_file": {
+        "name": "SAVE1.1-0",
+        "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+        "size": 194426
+      },
+      "keys": [
+        "y"
+      ]
+    },
+    "stages": [
+      {
+        "name": "preparation",
+        "keys": [
+          "Return"
+        ],
+        "selected": null,
+        "put_here": false,
+        "remaining_display": 9,
+        "screen_sha256": "4361807016fd9da25b466b543b95a406849896b03eccbd58a300436f52ed18d7",
+        "savestate_sha256": "de1f37cd624edbd42afa33aa64d59e35df3ad066d7b9a36575dbb1a7d34c271b",
+        "state_sha256": "3ddf49e57b17bad5858a353264f275e27870d8b8e78ce5326e220f1e14778898",
+        "state": {
+          "seed": 49333,
+          "clubs": [
+            {
+              "id": 17,
+              "roster": [
+                321,
+                322,
+                323,
+                324,
+                325,
+                326,
+                327,
+                333,
+                329,
+                330,
+                331,
+                338,
+                336,
+                334,
+                328,
+                335,
+                337,
+                332,
+                0,
+                0
+              ]
+            },
+            {
+              "id": 130,
+              "roster": [
+                2581,
+                2582,
+                2583,
+                2584,
+                2585,
+                2586,
+                2587,
+                2588,
+                2589,
+                2590,
+                2591,
+                2592,
+                2593,
+                2594,
+                2595,
+                2596,
+                2597,
+                2598,
+                0,
+                0
+              ]
+            }
+          ],
+          "players": [
+            {
+              "id": 321,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 15,
+              "instructions": 145,
+              "status": 1
+            },
+            {
+              "id": 322,
+              "current_position": 1,
+              "club_position": 1,
+              "condition": 4,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 323,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 17,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 324,
+              "current_position": 3,
+              "club_position": 3,
+              "condition": 14,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 325,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 3,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 326,
+              "current_position": 6,
+              "club_position": 6,
+              "condition": 24,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 327,
+              "current_position": 7,
+              "club_position": 7,
+              "condition": 13,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 328,
+              "current_position": 9,
+              "club_position": 9,
+              "condition": 14,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 329,
+              "current_position": 11,
+              "club_position": 11,
+              "condition": 23,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 330,
+              "current_position": 12,
+              "club_position": 12,
+              "condition": 12,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 331,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 18,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 332,
+              "current_position": 8,
+              "club_position": 8,
+              "condition": 21,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 333,
+              "current_position": 9,
+              "club_position": 10,
+              "condition": 10,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 334,
+              "current_position": 6,
+              "club_position": 6,
+              "condition": 31,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 335,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 20,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 336,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 9,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 337,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 30,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 338,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 7,
+              "instructions": 145,
+              "status": 1
+            },
+            {
+              "id": 2581,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 10,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 2582,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 31,
+              "instructions": 178,
+              "status": 0
+            },
+            {
+              "id": 2583,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 20,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 2584,
+              "current_position": 3,
+              "club_position": 3,
+              "condition": 9,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 2585,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 30,
+              "instructions": 17,
+              "status": 1
+            },
+            {
+              "id": 2586,
+              "current_position": 5,
+              "club_position": 5,
+              "condition": 19,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2587,
+              "current_position": 6,
+              "club_position": 6,
+              "condition": 8,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2588,
+              "current_position": 10,
+              "club_position": 10,
+              "condition": 29,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2589,
+              "current_position": 11,
+              "club_position": 11,
+              "condition": 18,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2590,
+              "current_position": 12,
+              "club_position": 12,
+              "condition": 30,
+              "instructions": 0,
+              "status": 0
+            },
+            {
+              "id": 2591,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 28,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2592,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 17,
+              "instructions": 50,
+              "status": 0
+            },
+            {
+              "id": 2593,
+              "current_position": 12,
+              "club_position": 12,
+              "condition": 6,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2594,
+              "current_position": 5,
+              "club_position": 5,
+              "condition": 11,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2595,
+              "current_position": 2,
+              "club_position": 2,
+              "condition": 26,
+              "instructions": 50,
+              "status": 1
+            },
+            {
+              "id": 2596,
+              "current_position": 13,
+              "club_position": 13,
+              "condition": 6,
+              "instructions": 0,
+              "status": 1
+            },
+            {
+              "id": 2597,
+              "current_position": 4,
+              "club_position": 4,
+              "condition": 25,
+              "instructions": 145,
+              "status": 1
+            },
+            {
+              "id": 2598,
+              "current_position": 0,
+              "club_position": 0,
+              "condition": 14,
+              "instructions": 17,
+              "status": 1
+            }
+          ],
+          "scenes": [
+            {
+              "index": 1,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2561,
+              "word8": 0,
+              "word10": 56064,
+              "word14": 2581,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 1,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 2,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 56829,
+              "word14": 2582,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 2,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 54,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 3,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 56579,
+              "word14": 2583,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 3,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 4,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 57338,
+              "word14": 2584,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 4,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 5,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 57094,
+              "word14": 2585,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 5,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 6,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 57600,
+              "word14": 2586,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 6,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 7,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 58368,
+              "word14": 2587,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 7,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 8,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 60153,
+              "word14": 2588,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 8,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 9,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 59911,
+              "word14": 2589,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 9,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 10,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 60160,
+              "word14": 2590,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 10,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 11,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2450,
+              "word8": 0,
+              "word10": 60928,
+              "word14": 2591,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 11,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 59,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 12,
+              "word0": 247,
+              "word2": 247,
+              "word4": 3841,
+              "word8": 0,
+              "word10": 56064,
+              "word14": 321,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 12,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 13,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 56320,
+              "word14": 322,
+              "word16": 5,
+              "word20": 0,
+              "byte6": 0,
+              "byte7": 13,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 14,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 56576,
+              "word14": 323,
+              "word16": 5,
+              "word20": 2591,
+              "byte6": 0,
+              "byte7": 14,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 15,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 57338,
+              "word14": 324,
+              "word16": 5,
+              "word20": 2590,
+              "byte6": 0,
+              "byte7": 15,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 16,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 57094,
+              "word14": 325,
+              "word16": 5,
+              "word20": 2588,
+              "byte6": 0,
+              "byte7": 16,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 72,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 17,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 58368,
+              "word14": 326,
+              "word16": 5,
+              "word20": 2586,
+              "byte6": 0,
+              "byte7": 17,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 18,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 58875,
+              "word14": 327,
+              "word16": 5,
+              "word20": 2589,
+              "byte6": 0,
+              "byte7": 18,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 19,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 59392,
+              "word14": 333,
+              "word16": 5,
+              "word20": 2585,
+              "byte6": 0,
+              "byte7": 19,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 20,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 59911,
+              "word14": 329,
+              "word16": 5,
+              "word20": 2584,
+              "byte6": 0,
+              "byte7": 20,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 21,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 60160,
+              "word14": 330,
+              "word16": 5,
+              "word20": 2583,
+              "byte6": 0,
+              "byte7": 21,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            },
+            {
+              "index": 22,
+              "word0": 247,
+              "word2": 247,
+              "word4": 2972,
+              "word8": 0,
+              "word10": 60928,
+              "word14": 331,
+              "word16": 5,
+              "word20": 2582,
+              "byte6": 0,
+              "byte7": 22,
+              "byte12": 0,
+              "byte13": 0,
+              "byte18": 75,
+              "byte19": 0,
+              "byte22": 0,
+              "byte23": 0,
+              "byte24": 0
+            }
+          ],
+          "elapsed": 0,
+          "remaining": 91,
+          "stoppage": 0,
+          "active": 0,
+          "phase": 45,
+          "live_goals": [
+            0,
+            0
+          ],
+          "allowance": 0,
+          "sub_flags": [
+            0,
+            0
+          ],
+          "reserves": [
+            9,
+            9
+          ],
+          "pending": 0,
+          "control": 1,
+          "event_totals": [
+            [
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55
+            ],
+            [
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55,
+              55
+            ]
+          ],
+          "event_flags": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    ],
+    "save_timeline": [
+      {
+        "at": "boot",
+        "name": "SAVE1.1-0",
+        "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+        "size": 194426
+      }
+    ],
+    "decoded_saves": {}
+  },
+  "error": "RuntimeError: genuine halftime not reached within 900 seconds",
+  "elapsed_seconds": 913.427698694999,
+  "driver_events": [
+    [
+      0.076,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.226,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.226,
+      "Xvfb :593 answering"
+    ],
+    [
+      0.241,
+      "dosbox-x started"
+    ],
+    [
+      0.361,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      3.361,
+      "T80: waited 3 seconds after window creation before first savestate"
+    ],
+    [
+      3.365,
+      "window focused"
+    ],
+    [
+      3.887,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      3.891,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      3.919,
+      "title screen: matched after 1 savestate polls"
+    ],
+    [
+      3.919,
+      "DOS clock read back: '11/09/2026\\n0:29:45'"
+    ],
+    [
+      7.001,
+      "key y held 0.08s (raw keycode 29)"
+    ],
+    [
+      10.523,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      10.524,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      10.548,
+      "supplied main: matched after 1 savestate polls"
+    ],
+    [
+      10.63,
+      "key Return held 0.08s (raw keycode 36)"
+    ],
+    [
+      11.403,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      11.404,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      13.961,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      13.963,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      16.502,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      16.503,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      19.043,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      19.044,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      21.588,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      21.59,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      24.129,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      24.131,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      26.669,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      26.671,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      29.216,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      29.218,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      31.754,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      31.756,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      34.293,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      34.294,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      36.83,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      36.832,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      39.373,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      39.375,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      41.91,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      41.912,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      44.448,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      44.449,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      46.986,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      46.988,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      49.535,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      49.536,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      52.078,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      52.08,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      54.618,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      54.62,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      57.161,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      57.163,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      59.711,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      59.712,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      62.249,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      62.251,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      64.788,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      64.789,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      67.325,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      67.327,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      69.865,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      69.867,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      72.408,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      72.409,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      74.957,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      74.959,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      77.503,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      77.504,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      80.042,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      80.044,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      82.579,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      82.58,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      85.115,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      85.117,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      87.65,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      87.652,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      90.186,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      90.187,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      92.721,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      92.722,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      95.258,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      95.259,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      97.793,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      97.794,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      100.328,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      100.33,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      102.865,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      102.867,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      105.409,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      105.411,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      107.946,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      107.948,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      110.484,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      110.486,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      113.022,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      113.023,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      115.559,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      115.56,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      118.096,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      118.097,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      120.635,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      120.637,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      123.172,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      123.174,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      125.713,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      125.715,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      128.253,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      128.254,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      130.789,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      130.79,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      133.325,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      133.327,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      135.862,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      135.863,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      138.399,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      138.4,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      140.935,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      140.936,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      143.47,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      143.472,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      146.006,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      146.007,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      148.541,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      148.542,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      151.077,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      151.079,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      153.614,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      153.615,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      156.151,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      156.152,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      158.685,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      158.687,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      161.22,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      161.222,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      163.757,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      163.758,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      166.298,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      166.299,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      168.838,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      168.839,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      171.374,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      171.375,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      173.911,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      173.912,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      176.45,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      176.452,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      178.994,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      178.996,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      181.54,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      181.542,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      184.085,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      184.086,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      186.623,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      186.624,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      189.158,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      189.16,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      191.694,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      191.696,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      194.232,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      194.233,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      196.769,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      196.77,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      199.305,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      199.307,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      201.846,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      201.847,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      204.389,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      204.39,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      206.924,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      206.926,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      209.459,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      209.461,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      211.997,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      211.998,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      214.532,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      214.533,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      217.069,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      217.07,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      219.608,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      219.61,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      222.148,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      222.149,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      224.684,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      224.686,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      227.224,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      227.226,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      229.764,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      229.765,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      232.301,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      232.303,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      234.841,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      234.842,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      237.383,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      237.385,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      239.919,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      239.921,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      242.456,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      242.457,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      244.994,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      244.995,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      247.534,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      247.535,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      250.073,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      250.075,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      252.61,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      252.612,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      255.147,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      255.149,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      257.687,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      257.688,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      260.228,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      260.229,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      262.77,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      262.772,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      265.308,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      265.309,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      267.843,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      267.845,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      270.381,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      270.383,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      272.922,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      272.924,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      275.462,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      275.463,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      277.997,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      277.998,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      280.532,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      280.533,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      283.067,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      283.069,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      285.602,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      285.604,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      288.141,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      288.143,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      290.677,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      290.679,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      293.216,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      293.218,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      295.752,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      295.753,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      298.287,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      298.288,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      300.824,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      300.825,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      303.362,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      303.364,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      305.897,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      305.899,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      308.432,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      308.433,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      310.968,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      310.97,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      313.504,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      313.505,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      316.04,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      316.041,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      318.576,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      318.577,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      321.112,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      321.115,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      323.737,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      323.738,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      326.324,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      326.325,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      328.897,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      328.898,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      331.439,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      331.44,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      333.978,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      333.98,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      336.521,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      336.522,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      339.056,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      339.057,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      341.592,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      341.593,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      344.128,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      344.13,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      346.664,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      346.666,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      349.205,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      349.207,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      351.746,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      351.747,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      354.281,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      354.282,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      356.818,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      356.819,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      359.353,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      359.354,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      361.888,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      361.89,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      364.425,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      364.426,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      366.966,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      366.968,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      369.507,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      369.508,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      372.042,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      372.043,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      374.578,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      374.579,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      377.116,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      377.118,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      379.658,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      379.659,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      382.199,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      382.2,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      384.739,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      384.74,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      387.276,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      387.278,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      389.816,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      389.817,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      392.357,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      392.359,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      394.894,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      394.896,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      397.434,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      397.436,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      399.97,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      399.971,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      402.505,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      402.506,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      405.04,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      405.041,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      407.576,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      407.577,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      410.111,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      410.112,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      412.65,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      412.651,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      415.185,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      415.186,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      417.72,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      417.722,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      420.256,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      420.257,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      422.793,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      422.795,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      425.333,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      425.334,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      427.868,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      427.869,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      430.402,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      430.404,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      432.941,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      432.943,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      435.478,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      435.479,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      438.017,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      438.019,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      440.557,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      440.559,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      443.093,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      443.094,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      445.628,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      445.63,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      448.166,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      448.167,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      450.706,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      450.707,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      453.246,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      453.247,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      455.781,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      455.783,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      458.331,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      458.333,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      460.871,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      460.872,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      463.414,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      463.415,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      465.949,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      465.951,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      468.486,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      468.488,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      471.029,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      471.031,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      473.573,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      473.575,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      476.118,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      476.12,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      478.662,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      478.665,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      481.207,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      481.209,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      483.752,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      483.754,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      486.296,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      486.297,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      488.838,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      488.84,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      491.373,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      491.375,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      493.909,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      493.911,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      496.447,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      496.448,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      498.984,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      498.986,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      501.521,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      501.522,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      504.057,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      504.059,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      506.599,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      506.6,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      509.138,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      509.14,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      511.673,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      511.675,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      514.208,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      514.21,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      516.744,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      516.745,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      519.28,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      519.281,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      521.817,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      521.819,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      524.365,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      524.368,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      526.91,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      526.911,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      529.451,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      529.453,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      531.995,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      531.996,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      534.532,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      534.534,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      537.072,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      537.074,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      539.611,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      539.612,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      542.152,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      542.154,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      544.689,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      544.691,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      547.225,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      547.227,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      549.762,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      549.764,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      552.297,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      552.298,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      554.834,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      554.836,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      557.371,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      557.372,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      559.908,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      559.909,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      562.449,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      562.451,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      564.989,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      564.991,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      567.526,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      567.527,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      570.068,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      570.069,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      572.603,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      572.604,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      575.142,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      575.143,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      577.677,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      577.679,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      580.215,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      580.216,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      582.753,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      582.754,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      585.291,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      585.292,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      587.829,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      587.831,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      590.368,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      590.369,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      592.905,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      592.907,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      595.442,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      595.443,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      597.979,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      597.98,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      600.516,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      600.518,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      603.052,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      603.054,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      605.589,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      605.591,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      608.129,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      608.131,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      610.671,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      610.672,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      613.207,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      613.208,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      615.744,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      615.745,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      618.281,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      618.283,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      620.823,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      620.824,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      623.364,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      623.365,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      625.9,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      625.902,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      628.436,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      628.437,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      630.973,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      630.975,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      633.513,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      633.514,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      636.054,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      636.056,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      638.589,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      638.591,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      641.125,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      641.126,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      643.66,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      643.661,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      646.196,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      646.197,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      648.732,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      648.735,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      651.276,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      651.277,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      653.815,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      653.816,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      656.35,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      656.351,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      658.885,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      658.887,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      661.421,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      661.422,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      663.956,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      663.958,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      666.494,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      666.496,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      669.035,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      669.037,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      671.571,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      671.572,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      674.111,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      674.113,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      676.647,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      676.648,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      679.183,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      679.185,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      681.723,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      681.725,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      684.261,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      684.262,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      686.797,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      686.798,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      689.335,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      689.336,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      691.877,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      691.878,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      694.417,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      694.419,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      696.952,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      696.953,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      699.487,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      699.489,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      702.024,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      702.025,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      704.559,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      704.56,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      707.096,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      707.098,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      709.634,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      709.635,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      712.173,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      712.175,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      714.713,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      714.714,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      717.251,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      717.252,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      719.79,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      719.792,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      722.326,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      722.327,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      724.861,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      724.862,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      727.401,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      727.402,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      729.936,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      729.937,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      732.472,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      732.473,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      735.007,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      735.008,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      737.543,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      737.544,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      740.08,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      740.082,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      742.62,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      742.621,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      745.16,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      745.162,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      747.701,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      747.702,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      750.237,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      750.239,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      752.779,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      752.781,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      755.325,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      755.326,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      757.87,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      757.871,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      760.411,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      760.413,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      762.948,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      762.95,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      765.484,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      765.485,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      768.019,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      768.021,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      770.557,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      770.558,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      773.097,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      773.098,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      775.641,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      775.643,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      778.195,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      778.197,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      780.74,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      780.742,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      783.285,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      783.286,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      785.822,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      785.824,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      788.362,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      788.363,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      790.902,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      790.903,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      793.44,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      793.441,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      795.98,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      795.981,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      798.515,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      798.516,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      801.05,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      801.052,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      803.587,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      803.588,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      806.126,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      806.128,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      808.661,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      808.662,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      811.197,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      811.198,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      813.733,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      813.734,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      816.269,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      816.271,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      818.813,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      818.815,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      821.354,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      821.355,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      823.89,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      823.891,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      826.425,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      826.427,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      828.963,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      828.965,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      831.503,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      831.504,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      834.043,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      834.044,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      836.579,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      836.58,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      839.115,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      839.116,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      841.65,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      841.651,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      844.185,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      844.186,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      846.721,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      846.723,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      849.261,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      849.262,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      851.802,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      851.805,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      854.347,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      854.349,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      856.897,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      856.9,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      859.451,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      859.453,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      862.0,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      862.002,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      864.552,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      864.554,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      867.097,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      867.098,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      869.643,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      869.644,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      872.187,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      872.189,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      874.73,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      874.732,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      877.271,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      877.273,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      879.81,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      879.812,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      882.356,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      882.357,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      884.899,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      884.901,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      887.438,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      887.439,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      889.978,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      889.981,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      892.528,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      892.53,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      895.073,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      895.075,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      897.622,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      897.624,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      900.173,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      900.175,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      902.721,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      902.723,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      905.263,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      905.265,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      907.807,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      907.808,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      910.346,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      910.347,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      912.886,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      912.887,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      913.404,
+      "dosbox-x pid 117348 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group"
+    ],
+    [
+      913.411,
+      "dosbox-x pid 117348 ended by SIGKILL 0.508s after the first signal"
+    ],
+    [
+      913.427,
+      "Xvfb pid 117341 ended by SIGTERM 0.016s after the first signal"
+    ],
+    [
+      913.427,
+      "terminated"
+    ]
+  ],
+  "payload_sha256": "e06ac9e87e37c0a1fe94828116c1aa0cdbff785686206832dd9c16d093e0de04"
+}
