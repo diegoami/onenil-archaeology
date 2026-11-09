@@ -66,3 +66,18 @@ def test_authenticated_sessions_match_the_contract():
  contracts=[w.validate_record(json.loads(p.read_text())) for p in paths]
  assert len({json.loads(p.read_text())['payload']['start']['savestate_sha256'] for p in paths})>=2
  assert all(c==contracts[0] for c in contracts[1:])
+
+def test_authenticated_next_fixture_record_passes():
+    record=json.load(open(ROOT/'records/T82/next-fixture-r0001.json'))
+    assert w.validate_fixtures(record)==dict(following=dict(week=1,competition=1,opponent=176,flags=0))
+
+@pytest.mark.parametrize('damage',range(6))
+def test_next_fixture_rejects_corruptions(damage):
+    record=json.load(open(ROOT/'records/T82/next-fixture-r0001.json'))
+    if damage==0:record['decoded']['fixtures_post'][1]['opponent']=28
+    if damage==1:record['decoded']['week_byte_post']=0
+    if damage==2:record['decoded']['cash_post']=record['decoded']['cash_pre']
+    if damage==3:record['sources']['post']['sha256']='0'*64
+    if damage==4:record['decoded']['fixtures_pre'][0]['opponent']=28
+    if damage==5:record['cross_check']['following']=dict(week=1,competition=1,opponent=28,flags=0)
+    with pytest.raises(ValueError):w.validate_fixtures(record)
