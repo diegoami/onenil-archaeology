@@ -246,9 +246,11 @@ def run(out, scratch):
         timeline.append(dict(at=at, **row))
         return row
 
-    def observe(name, keys=(), selected=None, want=None):
+    def observe(name, keys=(), selected=None, want=None, wait=None):
         for key in keys:
             d.keys(key)
+        if wait is not None:
+            d.wait_screen(lambda s: wait in s.text(), timeout=20, what=name)
         time.sleep(.25)
         _, st, data = d.read()
         sc = st.screen()
@@ -336,13 +338,13 @@ def run(out, scratch):
         else:
             raise RuntimeError('full time not reached within 1200 seconds')
         observe('fulltime', want='FULL TIME')
-        observe('bench-ft', ['Return'])
+        observe('bench-ft', ['Return'], wait='CONTINUE')
         d.keys('Return')          # CONTINUE returns to the fulltime pitch
         time.sleep(1)
-        observe('stats', ['n'], want='MAN OF THE MATCH')
-        observe('cash', ['space'], want='CASH FLOW')
-        observe('transfer', ['space'], want='TRANSFER NEWS')
-        observe('menu-after', ['space'], want='PLAY NEXT GAME')
+        observe('stats', ['n'], wait='MAN OF THE MATCH')
+        observe('cash', ['space'], wait='CASH FLOW')
+        observe('transfer', ['space'], wait='TRANSFER NEWS')
+        observe('menu-after', ['space'], wait='PLAY NEXT GAME')
         file_digest('menu-after')
         d.keys('F7')
         time.sleep(2.5)           # W005: the save writes during a one-second observation delay
@@ -350,7 +352,7 @@ def run(out, scratch):
         if saved_file['sha256'] == boot_file['sha256']:
             raise ValueError('F7 left the save file unchanged')
         decoded_saves['saved'] = decode_save((Path(d.game_dir) / SAVE_FILE).read_bytes())
-        observe('saved')
+        observe('saved', wait='PLAY NEXT GAME')
         stages[-1]['keys'] = ['F7']
         files = {p.name: p.read_bytes() for p in Path(d.game_dir).iterdir()
                  if p.suffix.lower() == '.1-0'}
