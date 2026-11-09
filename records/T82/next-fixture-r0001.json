@@ -1,0 +1,112 @@
+{
+  "schema": "original-next-fixture/1",
+  "producer": "2cc4d7def35e1afbe158b847c0b8d8fac431b901",
+  "producer_files": {
+    "runtime/driver/week_completion.py": "e7e967ab9d24d5531ea3c11a6225aa8c7df34b85ebfe6e88bbc79d87960ab876",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045",
+    "runtime/driver/halftime_replacement.py": "f8d9d2fa227893f237a1d6a4083b7431194d36b88884e3eda4d524168c14e7dc",
+    "runtime/driver/saved_roster.py": "6c9be070d7bba23bbdfee78d3b931959a008860258184d9514df119d1f5e8e8f",
+    "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+    "runtime/driver/dosbox-x-2024.03.01-default.map": "1849ec80ad0b32949869ed8b2d38e7b2e1e89f5959965328b5f8c561196b589a"
+  },
+  "session": {
+    "path": "runs/T81/session-r0007.json",
+    "sha256": "825f1b3945a863d35886ff74f1e0d8f4dd91085c4cfa58f4bcc89d490ad7ba27"
+  },
+  "sources": {
+    "pre": {
+      "path": "One-Nil96/SAVE1.1-0",
+      "sha256": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "size": 194426
+    },
+    "post": {
+      "origin": "the T81 session r0007 scratch game save (host-local)",
+      "sha256": "f3aa2e4f076891fca47ca686664502a0f69ed79bdd67de0910bf0ed932225e29",
+      "size": 194426
+    }
+  },
+  "decoded": {
+    "manager": 1,
+    "club": 130,
+    "cash_pre": 452000,
+    "cash_post": 421491,
+    "week_byte_pre": 0,
+    "week_byte_post": 1,
+    "fixtures_pre": [
+      {
+        "week": 0,
+        "competition": 1,
+        "opponent": 17,
+        "flags": 1
+      },
+      {
+        "week": 1,
+        "competition": 1,
+        "opponent": 176,
+        "flags": 0
+      },
+      {
+        "week": 2,
+        "competition": 1,
+        "opponent": 28,
+        "flags": 0
+      },
+      {
+        "week": 3,
+        "competition": 1,
+        "opponent": 49,
+        "flags": 1
+      }
+    ],
+    "fixtures_post": [
+      {
+        "week": 0,
+        "competition": 1,
+        "opponent": 17,
+        "flags": 65
+      },
+      {
+        "week": 1,
+        "competition": 1,
+        "opponent": 176,
+        "flags": 0
+      },
+      {
+        "week": 2,
+        "competition": 1,
+        "opponent": 28,
+        "flags": 0
+      },
+      {
+        "week": 3,
+        "competition": 1,
+        "opponent": 49,
+        "flags": 1
+      }
+    ],
+    "reciprocal_played": {
+      "week": 0,
+      "competition": 1,
+      "opponent": 130,
+      "flags": 0
+    }
+  },
+  "cross_check": {
+    "menu_markers": [
+      "Next opponents",
+      "Sevilla",
+      "Friendly #2"
+    ],
+    "following": {
+      "week": 1,
+      "competition": 1,
+      "opponent": 176,
+      "flags": 0
+    },
+    "note": "the original menu advertises the following fixture (Sevilla, Friendly #2) after the week; W030 describes it as away"
+  },
+  "interpretation": "the native B5 week advance sets the following fixture to the witnessed triple and advances the week byte exactly once; one friendly week, no scheduler claim"
+}

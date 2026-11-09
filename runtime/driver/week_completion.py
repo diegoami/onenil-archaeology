@@ -220,6 +220,125 @@ def run(out, scratch):
     validate_record(record)
 
 
+def decode_fixture_triples(data, club, weeks=4):
+    """[confirmed static: campaign-seed.md] The club's fixture triples at
+    D7CA+club*174+(week+1)*3-177, competition/opponent/flags, in block order."""
+    base = block_offsets()['[DS:D7CA]'][0]
+    out = []
+    for week in range(weeks):
+        at = base + club * 174 + (week + 1) * 3 - 177
+        out.append(dict(week=week, competition=data[at], opponent=data[at + 1], flags=data[at + 2]))
+    return out
+
+
+def decode_week_byte(data):
+    """[confirmed: T82 records/T82/next-fixture-r0001.json] The week counter byte
+    at game[D7D2]+0: 0 before the first managed week, 1 after it completes."""
+    return data[block_offsets()['[DS:D7D2]'][0]]
+
+
+WITNESSED_FOLLOWING = dict(week=1, competition=1, opponent=176, flags=0)
+
+
+def fixtures_record(save_pre_path, save_post_path, session_path, out):
+    """Decode the next-fixture lookup around the played friendly from the two
+    private saves, authenticated against the committed T80/T81 evidence."""
+    session_path = Path(session_path).resolve()
+    save_pre_path = Path(save_pre_path).resolve()
+    save_post_path = Path(save_post_path).resolve()
+    session_raw = session_path.read_bytes()
+    session = json.loads(session_raw)
+    pre = save_pre_path.read_bytes()
+    post = save_post_path.read_bytes()
+    baseline_path = ROOT / BASELINE
+    baseline = json.loads(baseline_path.read_text())
+    saved_digest = {t['at']: t['sha256'] for t in session['payload']['save_timeline']}['saved']
+    if sha(Path(save_post_path).read_bytes()) != saved_digest:
+        raise ValueError('the post-week save differs from the committed session timeline')
+    if sha(pre) != baseline['source']['sha256']:
+        raise ValueError('the pre-match save differs from the pinned baseline')
+    menu = next(s for s in session['payload']['stages'] if s['name'] == 'menu-after')['text']
+    fixtures_pre = decode_fixture_triples(pre, MANAGED_CLUB)
+    fixtures_post = decode_fixture_triples(post, MANAGED_CLUB)
+    played = fixtures_pre[0]
+    if (played['competition'], played['opponent']) != (1, 17) or played['flags'] != 1:
+        raise ValueError('the played friendly triple differs from the witnessed admission')
+    following = fixtures_post[1]
+    if following != WITNESSED_FOLLOWING:
+        raise ValueError('the following fixture differs from the witnessed triple')
+    reciprocal = decode_fixture_triples(pre, 17)[0]
+    if (reciprocal['competition'], reciprocal['opponent']) != (1, MANAGED_CLUB):
+        raise ValueError('the played friendly reciprocal row differs')
+    if decode_week_byte(pre) != 0 or decode_week_byte(post) != 1:
+        raise ValueError('the week counter did not advance exactly once')
+    marked = decode_fixture_triples(post, MANAGED_CLUB)[0]
+    if marked['flags'] & 64 != 64 or decode_fixture_triples(post, 17)[0]['flags'] & 64 != 64:
+        raise ValueError('the played fixture lost its played marker')
+    for marker in ('Next opponents', 'Sevilla', 'Friendly #2'):
+        if marker not in menu:
+            raise ValueError('the management menu lacks %r' % marker)
+    record = dict(
+        schema='original-next-fixture/1', producer=git('rev-parse', 'HEAD'),
+        producer_files={p: sha((ROOT / p).read_bytes()) for p in DEPENDENCIES},
+        session=dict(path=str(session_path.relative_to(ROOT)), sha256=sha(session_path.read_bytes())),
+        sources=dict(pre=dict(path=SOURCE, sha256=sha(pre), size=len(pre)),
+                     post=dict(origin="the T81 session r0007 scratch game save (host-local)",
+                               sha256=sha(post), size=len(post))),
+        decoded=dict(manager=session['payload']['decoded_saves']['saved']['manager'],
+                     club=MANAGED_CLUB,
+                     cash_pre=session['payload']['decoded_saves']['boot']['cash'],
+                     cash_post=session['payload']['decoded_saves']['saved']['cash'],
+                     week_byte_pre=decode_week_byte(pre), week_byte_post=decode_week_byte(post),
+                     fixtures_pre=fixtures_pre, fixtures_post=fixtures_post,
+                     reciprocal_played=reciprocal),
+        cross_check=dict(menu_markers=['Next opponents', 'Sevilla', 'Friendly #2'],
+                         following=dict(WITNESSED_FOLLOWING),
+                         note='the original menu advertises the following fixture (Sevilla, '
+                              'Friendly #2) after the week; W030 describes it as away'),
+        interpretation='the native B5 week advance sets the following fixture to the '
+                       'witnessed triple and advances the week byte exactly once; one '
+                       'friendly week, no scheduler claim',
+    )
+    out = Path(out)
+    if out.exists():
+        raise ValueError('run records are immutable: %s exists' % out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open('x') as f:
+        json.dump(record, f, indent=2)
+        f.write('\n')
+    print('wrote', out, 'following fixture', following)
+
+
+def validate_fixtures(record):
+    if record['schema'] != 'original-next-fixture/1':
+        raise ValueError('schema differs')
+    for name, digest in record['producer_files'].items():
+        if sha(git_bytes('show', record['producer'] + ':' + name)) != digest:
+            raise ValueError('producer identity differs: ' + name)
+    session_path = ROOT / record['session']['path']
+    if sha(session_path.read_bytes()) != record['session']['sha256']:
+        raise ValueError('session record differs')
+    session = json.loads(session_path.read_text())
+    saved_digest = {t['at']: t['sha256'] for t in session['payload']['save_timeline']}['saved']
+    if record['sources']['post']['sha256'] != saved_digest:
+        raise ValueError('post-week save digest differs from the session timeline')
+    if record['sources']['pre']['sha256'] != json.loads((ROOT / BASELINE).read_text())['source']['sha256']:
+        raise ValueError('pre-match save digest differs from the baseline')
+    if record['decoded']['week_byte_pre'] != 0 or record['decoded']['week_byte_post'] != 1:
+        raise ValueError('week bookkeeping differs')
+    if record['decoded']['fixtures_post'][1] != record['cross_check']['following']:
+        raise ValueError('the following fixture differs from the witnessed triple')
+    if record['decoded']['fixtures_pre'][0]['opponent'] != 17:
+        raise ValueError('the played fixture differs')
+    if record['decoded']['cash_post'] == record['decoded']['cash_pre']:
+        raise ValueError('the recorded week cash did not move')
+    menu = next(s for s in session['payload']['stages'] if s['name'] == 'menu-after')['text']
+    for marker in record['cross_check']['menu_markers']:
+        if marker not in menu:
+            raise ValueError('the committed menu text lacks %r' % marker)
+    return dict(following=record['cross_check']['following'])
+
+
 def validate_session(payload, baseline):
     """The T81 contract: the plain week transaction, decoded and bound."""
     stages = payload['stages']
@@ -342,13 +461,20 @@ def main(argv):
     p.add_argument('--check', type=Path, nargs='+')
     p.add_argument('--run', type=Path)
     p.add_argument('--scratch', type=Path)
+    p.add_argument('--fixtures', type=Path)
+    p.add_argument('--save-pre', type=Path)
+    p.add_argument('--save-post', type=Path)
+    p.add_argument('--session', type=Path)
     a = p.parse_args(argv)
     if a.check:
         check(a.check)
     elif a.run and a.scratch:
         run(a.run, a.scratch)
+    elif a.fixtures and a.save_pre and a.save_post and a.session:
+        fixtures_record(a.save_pre, a.save_post, a.session, a.fixtures)
+        print('PASS next-fixture record:', validate_fixtures(json.loads(a.fixtures.read_text())))
     else:
-        p.error('choose --run OUTPUT --scratch NEW_PATH or --check RECORDS')
+        p.error('choose --run OUTPUT --scratch NEW_PATH, --check RECORDS or --fixtures OUT --save-pre PRE --save-post POST --session RECORD')
 
 
 if __name__ == '__main__':
