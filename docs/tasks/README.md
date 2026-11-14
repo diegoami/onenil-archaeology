@@ -122,3 +122,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T82 Authenticate the original next-fixture lookup after a completed friendly week](T82.md)
 
 - [T83 Authenticate the original's week condition-refresh rule](T83.md)
+- [T84 Original condition-refresh routine replay cases](T84.md)
