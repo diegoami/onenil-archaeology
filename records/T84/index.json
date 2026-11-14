@@ -1,0 +1,13 @@
+{
+  "schema": "original-condition-call-index/1",
+  "runs": [
+    {
+      "path": "records/T84/calls-r0007.json",
+      "sha256": "a7f1926e513bd42af53de4f1921b5551a01775c5c27a69db3976e719f0f4fc8a"
+    },
+    {
+      "path": "records/T84/calls-r0008.json",
+      "sha256": "a7f1926e513bd42af53de4f1921b5551a01775c5c27a69db3976e719f0f4fc8a"
+    }
+  ]
+}
