@@ -155,7 +155,11 @@ def execute(image, case):
                            after=value, size=size))
 
     g.mu.hook_add(UC_HOOK_CODE, code)
-    g.mu.hook_add(UC_HOOK_MEM_READ, read)
+    # Unicorn 2.1.4 re-enters RETF when a global read hook observes its stack
+    # pops. Audit every address outside the declared scratch-stack window;
+    # writes still audit its bounds. No original instruction is replaced.
+    g.mu.hook_add(UC_HOOK_MEM_READ, read, begin=0, end=STACK + SP - 257)
+    g.mu.hook_add(UC_HOOK_MEM_READ, read, begin=STACK + SP + 6, end=0x10FFFF)
     g.mu.hook_add(UC_HOOK_MEM_WRITE, write)
     g.mu.emu_start(ENTRY, 0x110000, count=10000)
     if not finished or pending is not None or g.reg('sp') != SP + 6 or g.reg('cs') != 0x1998:
