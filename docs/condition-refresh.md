@@ -115,3 +115,63 @@ shared RNG stream. It must not reuse this week's eighteen output bytes as
 a general refresh rule, or consume fresh arbitrary draws after match posting.
 Original per-call RNG/entry-state tracing and native composed replay remain
 follow-ups; this one friendly save pair establishes endpoint values only.
+
+## T84 controlled original-call replay contract
+
+[confirmed: records/T84/calls-r0007.json and calls-r0008.json, producer e04ca81]
+Two separate fresh-machine executions each reproduce **21 isolated calls / 47
+RNG draws** of the original 1998:14A5. The program is loaded from the known
+packed executable (89ff9c5f…) through the pinned unpacker (unpacked digest
+887ed2a9…). Every executed instruction is compared with that loaded image.
+The harness supplies controlled scalar inputs and a scratch stack, executes the
+actual original helpers and RNG, and stops only after the near `ret 4` reaches
+the declared sentinel with the expected CS and SP. No helper or output is
+implemented in Python. These are **controlled routine calls**, not observations
+of the naturally reached match-postprocessing caller or the completed T81 week.
+
+[confirmed: same records] The cases exercise both positive-condition flags,
+flag 255, seeds 0/7/65535, the 19→20 facility-cap boundary, equality/inequality
+at age_reference+3, both original table caps, the signed floor, and the
+post-clamp unused-player increment. For example, the signed-max case starts
+p15+7=127 and seed 0; actual R(2)=1 then R(8)=2 produces the signed-byte
+wrap and original output 1. The signed-underflow case starts −128 with flag 0;
+actual draws are R(3)=2 then R(2)=1, and the original output is 31. Nonpositive
+cases separately observe recovery (copy at 1546), a blocked copy, a negative
+counter floored to zero, and −128 decrementing with byte wrap to 127. The
+blocked case leaves condition zero; the nonpositive examples establish only
+this helper's controlled effects, not an injury/suspension model.
+
+[designed:T84] Each case's `input` contains the player/club IDs, age and age
+reference, facility byte, original cap values, p15+7/+8/+14 signed bytes, flag
+and seed. The consumer must calculate `output` (the three signed bytes and
+seed), ordered `draws` and numeric writes. Expected outputs never initialize or
+steer a native replay. Memory layout and stack are controlled harness details;
+the memory-field map in condition_refresh.py declares the pointers and scalar
+operands. Reads outside those fields refuse, and every non-stack write is
+recorded with field, width, previous value and new value. The public checker
+binds both immutable run files by digest, authenticates their producer files
+and code identities, checks full controlled input/branch/read censuses, return,
+literal write and draw continuity, and requires byte-equivalent decoded cases
+between the two fresh-machine runs. With the private executable available, the
+focused test independently executes the cases again and compares observations.
+
+[confirmed: records/T84/calls-r0001.json and calls-r0002.json] The first two
+attempts aborted before a completed case because Unicorn 2.1.4's global
+memory-read instrumentation re-entered a `RETF` during stack pops. The recorder
+now excludes the declared scratch-stack window from read hooks; semantic reads
+elsewhere and all write bounds remain audited. No guest instructions change.
+The earlier completed r0003/r0004 (16 cases) and r0005/r0006 (21 cases before
+explicit cap inputs) remain immutable at their own producer versions. The
+current index selects r0007/r0008; earlier attempts are not current acceptance
+fixtures. The index is a derived pointer manifest, not a measured output.
+
+```sh
+.cache/venv/bin/python runtime/emul/condition_refresh.py --check
+.cache/venv/bin/python -m pytest -q tests/emul/test_condition_calls.py
+```
+
+[derived] This supplies original-code cases for a bounded native 14A5 port.
+It does not yet establish the live p15+7 handoff, all intervening caller draws,
+the distinct manager-roster pass, or the campaign's persistence of those fields.
+Those remain prerequisites to enabling a faithful desktop week refresh. The
+T83 save endpoint record and the native B5 exclusion are unchanged.

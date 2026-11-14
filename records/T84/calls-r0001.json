@@ -1,0 +1,24 @@
+{
+  "cases": [],
+  "error": "ValueError: execution left authenticated original code",
+  "intervention": "controlled isolated near calls; no naturally reached caller claim",
+  "payload_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "producer": "8fac7efc05c95496684ba418691f75fa73f7dc53",
+  "producer_files": {
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/emul/condition_refresh.py": "c50206113a2173cdd1598bdd89e6647a6d37a1a001daa102c51724ccfe296a0a",
+    "runtime/emul/guest.py": "45b12121ad07d29f4ee82270cf55515317477dc7c9fa4feee24e68f7e559ecb3",
+    "tools/static/onilexe.py": "ecfe6139be0f542986650afda558a5dac15f945297054c0f5c33dc8413be4fab",
+    "tools/static/unlzexe.py": "52ba9c42e5651e1bafa1e4bd97a0124c01a5692c30dbf85b98d2aeda548fdd49"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "unicorn": "2.1.4"
+  },
+  "schema": "original-condition-calls/1",
+  "source": {
+    "packed_sha256": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "unpacked_sha256": "887ed2a92767950e5309b2052409f875668605939b69e00737aa3047022b9f51"
+  },
+  "status": "aborted"
+}

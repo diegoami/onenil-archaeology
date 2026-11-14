@@ -238,7 +238,12 @@ def validate(record):
         raise ValueError('case payload digest differs')
     if [dict(name=c['name'], input=c['input']) for c in cases] != inputs():
         raise ValueError('controlled input census differs')
+    required_sites = {'1998:%04X' % site for site in MARKS}
+    if {site for case in cases for site in case['sites']} != required_sites:
+        raise ValueError('branch observation census differs')
     for case in cases:
+        if case['sites'] != sorted(set(case['sites'])):
+            raise ValueError('branch observations are not ordered/unique')
         if case['returned'] != dict(cs='1998', ip=RETURN, sp=SP + 6):
             raise ValueError('incomplete original return')
         state = {k: case['input'][k] & 255 for k in ('base_condition', 'condition', 'recovery')}
