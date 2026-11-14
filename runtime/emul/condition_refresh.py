@@ -54,10 +54,14 @@ def inputs():
     variants = [
         ('active', {}), ('unused', dict(flag=0)),
         ('cap32', dict(age=19, base_condition=40)),
+        ('age20_facility', dict(age=20, facility=0, base_condition=40)),
+        ('age_reference_equal', dict(age=28, age_reference=25, facility=224, base_condition=40)),
+        ('age_reference_above', dict(age=29, age_reference=25, facility=224, base_condition=40)),
         ('cap25', dict(age=30, age_reference=20, base_condition=40)),
         ('facility_cap', dict(facility=0, base_condition=40)),
-        ('signed_max', dict(base_condition=127)),
+        ('signed_max', dict(base_condition=127, seed=0)),
         ('signed_min', dict(base_condition=-128)),
+        ('signed_underflow', dict(base_condition=-128, flag=0)),
         ('unused_floor', dict(flag=0, base_condition=-20)),
         ('unused_below25', dict(flag=0, base_condition=23)),
         ('unused_at25', dict(flag=0, base_condition=26)),
@@ -67,6 +71,7 @@ def inputs():
         ('negative_counter', dict(condition=0, recovery=-5)),
         ('counter_wrap', dict(condition=0, recovery=-128)),
         ('byte_flag', dict(flag=255)),
+        ('seed_max', dict(seed=65535)),
     ]
     return [dict(name=name, input={**base, **changes}) for name, changes in variants]
 
@@ -173,6 +178,8 @@ def execute(image, case):
 
 
 def run(path):
+    if path.exists():
+        raise ValueError('run records are immutable: ' + str(path))
     for name in DEPENDENCIES:
         if (ROOT / name).read_bytes() != git('show', 'HEAD:' + name):
             raise ValueError('commit producer first: ' + name)
@@ -197,7 +204,11 @@ def run(path):
                   status='aborted' if error else 'completed', error=error,
                   cases=cases, payload_sha256=sha(encoded(cases)))
     if not error:
-        validate(record)
+        try:
+            validate(record)
+        except Exception as exc:
+            error = type(exc).__name__ + ': ' + str(exc)
+            record.update(status='aborted', error=error)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('x') as f:
         json.dump(record, f, indent=2, sort_keys=True)
@@ -210,6 +221,9 @@ def run(path):
 def validate(record):
     if record['schema'] != 'original-condition-calls/1' or record['status'] != 'completed':
         raise ValueError('incomplete condition calls')
+    if record['error'] is not None or record['intervention'] != (
+            'controlled isolated near calls; no naturally reached caller claim'):
+        raise ValueError('condition capture intervention/error differs')
     if record['source'] != dict(packed_sha256=PACKED, unpacked_sha256=UNPACKED):
         raise ValueError('original code identity differs')
     if set(record['producer_files']) != set(DEPENDENCIES):
