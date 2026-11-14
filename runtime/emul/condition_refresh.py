@@ -50,7 +50,7 @@ def git(*args):
 def inputs():
     """[designed:T84] Controlled scalar interventions, not natural match inputs."""
     base = dict(player=1, club=1, age=25, age_reference=25, facility=128,
-                base_condition=17, condition=10, recovery=0, flag=1, seed=7)
+                caps=[32, 25], base_condition=17, condition=10, recovery=0, flag=1, seed=7)
     variants = [
         ('active', {}), ('unused', dict(flag=0)),
         ('cap32', dict(age=19, base_condition=40)),
@@ -105,6 +105,8 @@ def execute(image, case):
                     SS=STACK // 16, ESP=SP, EBP=0, EFLAGS=2))
     data = case['input']
     ds = g.DS * 16
+    if list(g.mem(ds + 0xD72, 2)) != data['caps']:
+        raise ValueError('original cap table differs from declared input')
     for off, address in ((0xD7BA, P8), (0xD7BE, P15), (0xD7C2, CLUB),
                          (0xDCC8, STAFF), (0xDE84, SEED)):
         g.put(ds + off, struct.pack('<HH', 0, address // 16))
@@ -263,6 +265,14 @@ def validate(record):
         if not case['reads'] or set(case['reads']) - set(memory_fields()) or any(
                 type(n) is not int or n <= 0 for n in case['reads'].values()):
             raise ValueError('undeclared semantic read')
+        required = {'player8_pointer', 'player15_pointer', 'seed_pointer', 'caps',
+                    'age', 'age_reference', 'base_condition', 'condition', 'seed'}
+        if case['input']['age'] > 19 or case['input']['condition'] <= 0:
+            required |= {'club', 'clubs_pointer', 'staff_pointer', 'staff_id', 'facility'}
+        if case['input']['condition'] <= 0:
+            required.add('recovery')
+        if set(case['reads']) != required:
+            raise ValueError('semantic read census differs')
         if not 0 < case['instructions'] < 10000:
             raise ValueError('instruction budget differs')
     return cases
