@@ -124,7 +124,8 @@ def execute(image, case):
         # Authenticate every executed instruction, including helpers, against
         # the pinned unpacked image. No service stubs or patched code run.
         if not (0 <= address < len(image)) or g.mem(address, size) != image[address:address + size]:
-            raise ValueError('execution left authenticated original code')
+            raise ValueError('execution left authenticated original code at %s (linear %x)' %
+                             (g.where(), address))
         executed += 1
         if g.reg('cs') == 0x1998 and g.reg('ip') in MARKS:
             sites.add('1998:%04X' % g.reg('ip'))
