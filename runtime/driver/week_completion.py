@@ -364,6 +364,9 @@ def roster_conditions(data):
 def conditions_record(out, pre_path, post_path, session_path):
     """The full managed-roster condition fields before and after the completed
     friendly week, from the digest-chained private saves (no bytes in git)."""
+    for name in DEPENDENCIES:
+        if (ROOT / name).read_bytes() != git_bytes('show', 'HEAD:' + name):
+            raise ValueError('commit condition producer first: ' + name)
     pre_path = Path(pre_path).resolve()
     post_path = Path(post_path).resolve()
     session_path = Path(session_path).resolve()
@@ -414,6 +417,66 @@ def conditions_record(out, pre_path, post_path, session_path):
         json.dump(record, f, indent=2)
         f.write('\n')
     print('wrote', out, 'roster', len(conditions_pre), 'condition moved:', moved)
+
+
+CONDITIONS_PATH = 'records/T83/conditions-r0001.json'
+CONDITIONS_COMMIT = '61118f37f2effd37d3abb84660d7e8e20b6da40e'
+
+
+def validate_conditions(record, pre=None, post=None):
+    """Authenticate the retained decode, without modelling the refresh routine.
+
+    Public validation binds the complete numeric projection to its immutable
+    capture commit. Two players can additionally be checked against the T81
+    observer; the other sixteen have no public raw save to re-decode. Supplying
+    both private saves independently re-decodes every recorded roster field.
+    """
+    retained = json.loads(git_bytes('show', CONDITIONS_COMMIT + ':' + CONDITIONS_PATH))
+    for key in ('schema', 'session', 'sources', 'decoded', 'cross_check', 'interpretation'):
+        if record[key] != retained[key]:
+            raise ValueError('condition capture differs from its immutable committed receipt: ' + key)
+    if set(record['producer_files']) != set(DEPENDENCIES):
+        raise ValueError('condition producer census differs')
+    for name, digest in record['producer_files'].items():
+        if sha(git_bytes('show', record['producer'] + ':' + name)) != digest:
+            raise ValueError('condition producer identity differs: ' + name)
+    session_path = ROOT / record['session']['path']
+    if sha(session_path.read_bytes()) != record['session']['sha256']:
+        raise ValueError('condition session digest differs')
+    session = json.loads(session_path.read_text())
+    validate_record(session)
+    timeline = {t['at']: t for t in session['payload']['save_timeline']}
+    baseline = json.loads((ROOT / BASELINE).read_text())
+    for side, witness in (('pre', baseline['source']), ('post', timeline['saved'])):
+        if any(record['sources'][side][k] != witness[k] for k in ('sha256', 'size')):
+            raise ValueError('condition save identity differs: ' + side)
+    decoded = record['decoded']
+    for side, stage in (('pre', 'boot'), ('post', 'saved')):
+        source = session['payload']['decoded_saves'][stage]
+        rows = decoded['conditions_' + side]
+        roster = source['clubs'][str(decoded['club'])]['roster']
+        if len(rows) != decoded['roster'] or len(rows) != sum(pid != 0 for pid in roster):
+            raise ValueError('condition roster census differs')
+        if {row['slot']: int(pid) for pid, row in rows.items()} != {
+                slot: pid for slot, pid in enumerate(roster) if pid}:
+            raise ValueError('condition roster differs')
+        if decoded['cash_' + side] != source['cash'] or decoded['manager'] != source['manager']:
+            raise ValueError('condition campaign context differs')
+        for pid, fields in source['clubs'][str(decoded['club'])]['players'].items():
+            if any(rows[pid][key] != value for key, value in fields.items()):
+                raise ValueError('condition case differs from T81: ' + pid)
+    if (pre is None) != (post is None):
+        raise ValueError('both private saves are required')
+    if pre is not None:
+        for side, data in (('pre', pre), ('post', post)):
+            source = record['sources'][side]
+            if sha(data) != source['sha256'] or len(data) != source['size']:
+                raise ValueError('private condition save digest differs: ' + side)
+            if roster_conditions(data) != decoded['conditions_' + side]:
+                raise ValueError('private condition decode differs: ' + side)
+    return dict(roster=decoded['roster'], changed=len(decoded['condition_moved']),
+                gale=decoded['conditions_post']['2592']['condition'],
+                pearce=decoded['conditions_post']['2582']['condition'])
 
 
 def validate_session(payload, baseline):
@@ -540,6 +603,7 @@ def main(argv):
     p.add_argument('--scratch', type=Path)
     p.add_argument('--fixtures', type=Path)
     p.add_argument('--conditions', type=Path)
+    p.add_argument('--check-conditions', type=Path)
     p.add_argument('--save-pre', type=Path)
     p.add_argument('--save-post', type=Path)
     p.add_argument('--session', type=Path)
@@ -548,6 +612,11 @@ def main(argv):
         check(a.check)
     elif a.run and a.scratch:
         run(a.run, a.scratch)
+    elif a.check_conditions:
+        pre = a.save_pre.read_bytes() if a.save_pre else None
+        post = a.save_post.read_bytes() if a.save_post else None
+        print('PASS week conditions:', validate_conditions(
+            json.loads(a.check_conditions.read_text()), pre, post))
     elif a.conditions and a.save_pre and a.save_post and a.session:
         conditions_record(a.conditions, a.save_pre, a.save_post, a.session)
     elif a.fixtures and a.save_pre and a.save_post and a.session:
