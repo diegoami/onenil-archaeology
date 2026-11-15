@@ -92,3 +92,9 @@ def test_generic_numeric_trace_corruptions_refuse(damage):
     if damage==11:a['frame']['performance_flag']^=1
     if damage==12:a['ops'].pop()
     with pytest.raises((ValueError,KeyError)):p.numeric_caller(r)
+
+
+def test_partial_public_prefix_is_authenticated_but_not_completion():
+    result=p.check_prefix(ROOT/'records/T88/source-r0001')
+    assert result['status']=='prefix-only' and result['ticks']>=72
+    with pytest.raises(ValueError,match='two sealed completed'):p.check()

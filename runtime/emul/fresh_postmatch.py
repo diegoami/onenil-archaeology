@@ -435,6 +435,18 @@ def validate_result(record):
     if record['code_before']!=record['code_after']:raise ValueError('original code changed')
     return dict(ticks=progress['ticks'],draws=progress['draws'],actions=progress['actions'],**numeric_caller(record))
 
+def check_prefix(directory):
+    start=json.loads((directory/'start.json').read_text());authenticate_producer(start)
+    if start['source']!=reference()[0] or start['interventions']:raise ValueError('wrong prefix start')
+    previous=(0,0,0);count=0
+    for path in sorted(directory.glob('checkpoint-r*.json')):
+        receipt=json.loads(path.read_text());validate_checkpoint(receipt)
+        current=tuple(receipt['progress'][k]for k in ('ticks','draws','actions'))
+        if any(a>b for a,b in zip(previous,current)):raise ValueError('nonmonotonic source recovery prefix')
+        previous=current;count+=1
+    if not count:raise ValueError('no authenticated prefix checkpoints')
+    return dict(status='prefix-only',checkpoints=count,ticks=previous[0],draws=previous[1],actions=previous[2])
+
 def check():
     if len(ACCEPTED)!=2:raise ValueError('two sealed completed caller records required')
     records=[];counts=[]
@@ -446,9 +458,10 @@ def check():
     return counts[0]
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--run',type=Path);parser.add_argument('--resume',type=Path);parser.add_argument('--stop-ticks',type=int,default=0);parser.add_argument('--checkpoint-seconds',type=float,default=300);parser.add_argument('--check',action='store_true')
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--run',type=Path);parser.add_argument('--resume',type=Path);parser.add_argument('--stop-ticks',type=int,default=0);parser.add_argument('--checkpoint-seconds',type=float,default=300);parser.add_argument('--check',action='store_true');parser.add_argument('--check-prefix',type=Path)
     args=parser.parse_args()
     if args.check:print(json.dumps(check(),sort_keys=True))
+    elif args.check_prefix:print(json.dumps(check_prefix(args.check_prefix),sort_keys=True))
     elif args.run:run(args.run,args.resume,args.stop_ticks,args.checkpoint_seconds)
     else:parser.error('choose --run or --check')
 if __name__=='__main__':main()
