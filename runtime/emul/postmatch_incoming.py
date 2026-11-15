@@ -22,7 +22,12 @@ LATE=ROOT/'records/T86/tail-r0009.json'
 LATE_SHA='1163ecc7f55c46d35a3cc74d80792e8e0bb7511ea21b301792effceef1a7d4d0'
 DEPENDENCIES=sorted(set(tail.DEPENDENCIES)|{'runtime/emul/postmatch_incoming.py'})
 # Set only after the two immutable originals are independently captured.
-ACCEPTED={}
+ACCEPTED={
+    'incoming-r0001.json':'d301ca8d2cb507522b8f2ab8882520e86047bb43671a957714ede0f5138d435a',
+    'incoming-r0002.json':'e84b5c800cf6bdfd8ac6bc6873514accef954df24bf237b86d68dd6281bdd4f0',
+}
+INVENTORY_SHA='6c82541c7adf26f806b7cb3304f3f964f6066f2e0ac7e0b54b2c4d6a416b06a5'
+CODE_SHA={'0AB9': 'fef42b5059eff5c0a7bf5b2aab6771efe4cdeeec1c630ccf1532658af32ed3be', '1998': 'ff7477a156612fa29589af6090c12a310a1d40cbbb99e25b5becb987a7736067', '1B55': 'ec23a1b827360ef59165a3bafcb14ccb27fa1d0f904b00e000fe8d29a66f93ff', '232A': '59f62999dc209a7a7f46fa0eb181502dd18bcc7b1353bbe08d9cd300e35d37ac', '24BC': '205a1a9db6860d3901780d33074b23e42762d06d414ba03ed18dc5df7ce0b315'}
 
 
 @lru_cache(maxsize=1)
@@ -184,6 +189,7 @@ def validate(record):
     if record['schema']!='original-postmatch-incoming/1' or record['status']!='completed' or record['error'] is not None or record['unsupported']:
         raise ValueError('incomplete original pre-match capture')
     if record['source']!=source():raise ValueError('original pre-match source differs')
+    if not re.fullmatch('[0-9a-f]{40}',record['producer']):raise ValueError('invalid producer identity')
     paths=git('ls-tree','-r','--name-only',record['producer']).decode().splitlines()
     required={n for n in paths if Path(n).suffix=='.py'and str(Path(n).parent)in('runtime/emul','runtime/driver','tools/static')}
     if set(record['producer_files'])!=required:raise ValueError('producer dependency census differs')
@@ -198,12 +204,11 @@ def validate(record):
     if m['bp']!=regs['bp'] or m['saved_parent']!=c['parent_bp'] or m['return_ip']!=0xEBE2 or c['parent_bp']<=m['bp']:
         raise ValueError('real parent/static return frame differs')
     old=late_record()['payload']['caller']['frame']
+    load=regs['ds']-tail.prior.match.guest.DS_PARAGRAPH
+    if load<0 or regs['cs']!=(load+0x0AB9)&65535 or c['parent_bp']!=old['parent_bp']:
+        raise ValueError('original register/frame binding differs')
     identity={k:old[k]for k in ('week_slot','schedule_index','detailed','club','opponent','competition')}
     if f!=identity or (m['week_slot'],m['club'])!=(f['week_slot'],f['club']):raise ValueError('source fixture identity differs')
-    if c['parent_frame']!={str(o):next(x['value']for x in p['fields']if x['coordinate']==dict(region='frame',index=0,offset=o))for o in(-7,-6,-2,6)}:
-        raise ValueError('parent frame observation differs')
-    if c['parent_frame']['6']!=f['week_slot'] or c['parent_frame']['-2']!=f['schedule_index'] or c['parent_frame']['-7']!=f['detailed']:
-        raise ValueError('parent fixture fields differ')
     if len(c['regions'])!=len(tail.POOL_SPECS):raise ValueError('pool census differs')
     names=set();ranges=[]
     for r in c['regions']:
@@ -225,6 +230,10 @@ def validate(record):
         for i,b in enumerate(value.to_bytes(size,'little')):
             if a+i in memory:raise ValueError('overlapping early observations')
             memory[a+i]=b
+    if c['parent_frame']!={str(o):next(x['value']for x in p['fields']if x['coordinate']==dict(region='frame',index=0,offset=o))for o in(-7,-6,-2,6)}:
+        raise ValueError('parent frame observation differs')
+    if c['parent_frame']['6']!=f['week_slot'] or c['parent_frame']['-2']!=f['schedule_index'] or c['parent_frame']['-7']!=f['detailed']:
+        raise ValueError('parent fixture fields differ')
     def word(at):return memory[at]|memory[at+1]<<8
     ds=regs['ds']*16
     for r in c['regions']:
@@ -241,8 +250,11 @@ def validate(record):
 
     for name,digest in late_record()['code'].items():
         if p['code_before'].get(name)!=digest:raise ValueError('original loaded code differs')
-    if set(p['code_before'])!={'0AB9','1998','1B55','232A','24BC'} or p['code_after']!=p['code_before']:raise ValueError('code changed during original prefix')
-    if p['game_files'].get('1-0.EXE')!=record['source']['packed_sha256'] or any(not re.fullmatch('[0-9a-f]{64}',x)for x in p['game_files'].values()):raise ValueError('game file identity differs')
+    if p['code_before']!=CODE_SHA or p['code_after']!=p['code_before']:raise ValueError('code changed during original prefix')
+    inventory=(ROOT/'records/T01/inventory.json').read_bytes()
+    if sha(inventory)!=INVENTORY_SHA:raise ValueError('accepted game inventory digest differs')
+    files={r['name'].upper():r['sha256']for r in json.loads(inventory)['files']if r['edition']=='96'}
+    if p['game_files']!=files:raise ValueError('game file identity differs')
     intervention=p['watch_intervention'];game=next(r for r in c['regions']if r['name']=='game')
     if intervention['site']!='0AB9:E24C' or intervention['address']!=game['base']+0xF2 or intervention['after']!=1 or intervention['outside_unchanged']is not True:
         raise ValueError('retained watch intervention differs')

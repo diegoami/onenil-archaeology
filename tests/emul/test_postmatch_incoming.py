@@ -32,7 +32,7 @@ def test_requests_contain_coordinates_not_late_values():
     assert {x['coordinate']['offset']for x in req if x['coordinate']['region']=='frame'}=={-7,-6,-2,6}
 
 
-@pytest.mark.parametrize('damage',range(22))
+@pytest.mark.parametrize('damage',range(30))
 def test_resealed_provenance_coordinate_and_census_corruption_refuses(damage):
     r=capture();a=r['payload'];c=a['context']
     if damage==0:r['status']='aborted'
@@ -57,6 +57,14 @@ def test_resealed_provenance_coordinate_and_census_corruption_refuses(damage):
     if damage==19:a['watch_intervention']['after']=0
     if damage==20:a['code_after']['1998']='0'*64
     if damage==21:a['boundary']['prefix_sha256']='0'*64
+    if damage==22:a['game_files']['SAVE1.1-0']='0'*64
+    if damage==23:a['code_before']['0AB9']='0'*64;a['code_after']['0AB9']='0'*64
+    if damage==24:a['boundary']['phase']='late'
+    if damage==25:a['fields'][0]['expected']=0
+    if damage==26:c['registers']['ds']+=1
+    if damage==27:r['source']['invented']='test'
+    if damage==28:a['boundary']['seed']^=1
+    if damage==29:c['registers']['cs']+=1
     r['payload_sha256']=p.sha(p.encoded(a))
     with pytest.raises(ValueError):p.validate(r)
 
