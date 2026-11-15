@@ -94,7 +94,7 @@ def test_resealed_capture_corruptions_refuse(damage):
         c.validate(value)
 
 
-@pytest.mark.parametrize('damage', range(8))
+@pytest.mark.parametrize('damage', range(9))
 def test_native_receipt_corruptions_refuse(damage):
     value = json.loads((ROOT / 'records/T85/native-r0001.json').read_text())
     if damage == 0:
@@ -113,6 +113,8 @@ def test_native_receipt_corruptions_refuse(damage):
         value['status'] = 'aborted'
     if damage == 7:
         value['native_tree'] = '0' * 40
+    if damage == 8:
+        value['build']['lock_sha256'] = '0' * 64
     with pytest.raises(ValueError):
         c.validate_native(value, RUN, capture())
 
@@ -136,3 +138,11 @@ def test_manifest_rejects_mutated_initial_fields_without_private_bytes(tmp_path,
 def test_partition_rejects_overlapping_spans():
     with pytest.raises(ValueError, match='overlapping'):
         c.partition([dict(draw_start=2, draw_end=4), dict(draw_start=3, draw_end=5)], 6)
+
+
+def test_fresh_probe_has_the_receipts_dependency_lock(tmp_path):
+    project = tmp_path / 'fresh-probe'
+    c.prepare_native_probe(tmp_path / 'native-source', project)
+    native = json.loads((ROOT / 'records/T85/native-r0001.json').read_text())
+    assert c.sha((project / 'Cargo.lock').read_bytes()) == native['build']['lock_sha256']
+    assert (project / 'src/main.rs').read_text() == c.PROBE

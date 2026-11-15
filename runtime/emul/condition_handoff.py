@@ -488,6 +488,15 @@ def projections(capture):
     return [{key: call[key] for key in ('output', 'draws', 'writes')} for call in capture['payload']['calls']]
 
 
+def prepare_native_probe(native_root, project):
+    (project / 'src').mkdir(parents=True, exist_ok=True)
+    (project / 'src/main.rs').write_text(PROBE)
+    (project / 'Cargo.toml').write_text('[package]\nname="t85-condition-probe"\nversion="0.1.0"\nedition="2021"\n'
+        '[dependencies]\nonenil-engine={path=' + json.dumps(str(native_root / 'engine')) + '}\nserde_json="=1.0.154"\n')
+    # Build inputs travel with the receipt; --locked must work on a fresh cache.
+    (project / 'Cargo.lock').write_bytes((ROOT / 'records/T85/native-probe.lock').read_bytes())
+
+
 def native_run(out, source_path, native_root):
     if out.exists():
         raise ValueError('native receipts are immutable')
@@ -508,10 +517,7 @@ def native_run(out, source_path, native_root):
         counts=counts, status='aborted', error=None, matches=0)
     try:
         project = ROOT / '.cache/T85-native-probe'
-        (project / 'src').mkdir(parents=True, exist_ok=True)
-        (project / 'src/main.rs').write_text(PROBE)
-        (project / 'Cargo.toml').write_text('[package]\nname="t85-condition-probe"\nversion="0.1.0"\nedition="2021"\n'
-            '[dependencies]\nonenil-engine={path=' + json.dumps(str(native_root / 'engine')) + '}\nserde_json="=1.0.154"\n')
+        prepare_native_probe(native_root, project)
         build = subprocess.run(['cargo', 'build', '--locked', '--manifest-path', str(project / 'Cargo.toml')],
                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         (project / 'build.log').write_text(build.stdout)
@@ -564,6 +570,8 @@ def validate_native(record, source_path, capture):
         raise ValueError('native projection digest differs')
     if record['build']['probe_sha256'] != sha(PROBE.encode()):
         raise ValueError('native probe identity differs')
+    if record['build']['lock_sha256'] != sha((ROOT / 'records/T85/native-probe.lock').read_bytes()):
+        raise ValueError('native dependency lock differs')
     return counts
 
 

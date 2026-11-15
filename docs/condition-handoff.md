@@ -102,6 +102,9 @@ native commit/tree, observer/probe code, lockfile, binary digest and build
 settings. No expected output enters the Rust process. The Python tool only
 decodes observations and compares results; it implements no refresh or RNG
 model. Native draw-site labels are excluded from the numeric comparison.
+The exact comparison dependency lock is committed as
+`records/T85/native-probe.lock`; a fresh probe cache receives it before the
+locked Cargo build. Its digest must match the immutable comparison receipt.
 
 ## Remaining caller effects
 
