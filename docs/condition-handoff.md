@@ -30,6 +30,20 @@ condition branch. T84's nonpositive coverage remains controlled-call evidence.
 
 ## Shared RNG and memory effects
 
+[confirmed static: 83b7ef7, code/seg_0AB9_22.asm EBD2–EBE6;
+native772cb7ae, watched_compiled/watched_match.rs] The owned match's
+`0AB9:EBE2` return precedes post-match processing: EBE2 pushes the parent
+frame link and EBE3 calls `E679`. The native match therefore stops before
+this outer caller work; a condition call is not the next direct operation.
+
+[derived: retained T08 match-return mark and first T85 caller scope] The
+quick match returns after draw 5,853; the first `1897` visit starts at 5,897,
+with seed 3,910. Thus **44 intervening draws** precede even that caller's
+entry. The native live return seed cannot be replaced with 3,910 to bridge
+the gap. The enclosing `E679` prefix, its frame/state dependencies and the
+later `1897` helper effects must be established for a composed implementation.
+This static call boundary does not establish watched-mode numeric inputs.
+
 [confirmed: same records and literal T08 draw slices] The 3,028 calls own
 **6,056 draws**. Their complete complement contains **16,950 outside draws**;
 none is discarded or assigned a fabricated value. Caller scopes together
