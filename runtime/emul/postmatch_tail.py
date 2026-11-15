@@ -416,7 +416,12 @@ def validate(record, expected=None):
     if record['schema'] != 'original-watched-postmatch/1' or record['status'] != 'completed' \
             or record['error'] is not None:
         raise ValueError('incomplete watched caller capture')
-    if set(record['producer_files']) != set(DEPENDENCIES):
+    # Historical captures own their committed dependency census. Adding a new
+    # recorder today must not add it retroactively to an accepted producer.
+    paths = git('ls-tree', '-r', '--name-only', record['producer']).decode().splitlines()
+    required = {name for name in paths if Path(name).suffix == '.py'
+                and str(Path(name).parent) in ('runtime/emul', 'runtime/driver', 'tools/static')}
+    if set(record['producer_files']) != required:
         raise ValueError('producer dependency census differs')
     for name, digest in record['producer_files'].items():
         if sha(git('show', record['producer'] + ':' + name)) != digest:
