@@ -125,3 +125,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T84 Original condition-refresh routine replay cases](T84.md)
 - [T85 Naturally reached post-match condition handoff](T85.md)
 - [T86 Watched post-return caller contract](T86.md)
+
+- [T87 Authenticate pre-match fields for the enclosing post-match caller](T87.md)
