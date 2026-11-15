@@ -1,0 +1,29 @@
+{
+  "schema": "fresh-private-recovery-backup/1",
+  "backups": [
+    {
+      "checkpoint": "checkpoint-r0009.json",
+      "private_sha256": "6e06569c01b749bf74aa75ff3246cfdd39d60eb58e3bdbddd0a761de1d8f692b",
+      "bytes": 622143,
+      "owner_folder_verified": true,
+      "shared": false,
+      "readback_sha256_verified": true
+    },
+    {
+      "checkpoint": "checkpoint-r0010.json",
+      "private_sha256": "8ff2bae845c918711c90d596591bf6c0d92c294fcbbcf00fdb062981716f38f4",
+      "bytes": 622308,
+      "owner_folder_verified": true,
+      "shared": false,
+      "readback_sha256_verified": true
+    },
+    {
+      "checkpoint": "checkpoint-r0011.json",
+      "private_sha256": "4cd2bb5dcb155425a52f825a898fb0f4a6833eaf35bcb25d11341527ab7e49df",
+      "bytes": 622307,
+      "owner_folder_verified": true,
+      "shared": false,
+      "readback_sha256_verified": true
+    }
+  ]
+}
