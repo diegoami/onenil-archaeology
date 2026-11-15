@@ -127,3 +127,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T86 Watched post-return caller contract](T86.md)
 
 - [T87 Authenticate pre-match fields for the enclosing post-match caller](T87.md)
+
+- [T88 Original fresh-friendly caller and authenticated recovery](T88.md)
