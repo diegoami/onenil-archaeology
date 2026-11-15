@@ -123,3 +123,4 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 
 - [T83 Authenticate the original's week condition-refresh rule](T83.md)
 - [T84 Original condition-refresh routine replay cases](T84.md)
+- [T85 Naturally reached post-match condition handoff](T85.md)
