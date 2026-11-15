@@ -1,0 +1,45 @@
+{
+  "actual_sha256": "563f3f700aa843dfbede410bcd03e91cc34c7be76758124930e5f45cb8f9e429",
+  "build": {
+    "binary_sha256": "2d491308db28a9de202979697d012e1aa792c5b10c18f986ba73e7cfc08237db",
+    "features": [],
+    "lock_sha256": "2c34d1b9fc012c4b92786bcc4a86f44b097506d3800710dff458354eb83262a7",
+    "probe_sha256": "2579f41ef616845f06fc29c5d2c7fc0ffec3de10763e5b550234c2881e560cba",
+    "profile": "dev",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+  },
+  "counts": {
+    "call_draws": 6056,
+    "calls": 3028,
+    "contexts": 178,
+    "initial_players": 18,
+    "outside_draws": 16950,
+    "quick_steps": 92
+  },
+  "error": null,
+  "expected_sha256": "563f3f700aa843dfbede410bcd03e91cc34c7be76758124930e5f45cb8f9e429",
+  "matches": 3028,
+  "native_commit": "772cb7ae4afe630be6387f82f0ff8298b98827c9",
+  "native_tree": "6e8c5a94a7d1b4de460cda60c736822ff5bfff72",
+  "producer": "0ac2fa02cff1e8511e35ba53c828a34c6eaa548a",
+  "producer_files": {
+    "runtime/driver/cycle.py": "39f0ac6bae470622dba9384025124f0312f32f9f25831edff737ce845c290a83",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/emul/checkpoint.py": "a690e3b0f1b7044ce879fec214d4787cc49f35ca58b9d9dd45b27a0dfef5d908",
+    "runtime/emul/condition_handoff.py": "81ff072c59a0d45bf5fe874ea86fed6aed3fea369d4c2340bae7517fe05f6905",
+    "runtime/emul/condition_refresh.py": "bd61e6559d72ddfd32f533a227622a2367c0e93743e642a9649e165e05648ba9",
+    "runtime/emul/guest.py": "45b12121ad07d29f4ee82270cf55515317477dc7c9fa4feee24e68f7e559ecb3",
+    "runtime/emul/listing.py": "ccb3235c458a681a183724e07f5457fcebc521189e7111ae28f6fe4481c1027b",
+    "runtime/emul/match.py": "f3a87e0d6ffc92f9e194e4bb0ae6d8dfe8fff174e5eecfeb9a09f7a40b196507",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045",
+    "tools/static/onilexe.py": "ecfe6139be0f542986650afda558a5dac15f945297054c0f5c33dc8413be4fab",
+    "tools/static/unlzexe.py": "52ba9c42e5651e1bafa1e4bd97a0124c01a5692c30dbf85b98d2aeda548fdd49"
+  },
+  "schema": "native-condition-handoff/1",
+  "source": {
+    "path": "records/T85/handoff-r0003.json",
+    "sha256": "be3624ebc0e170513a91d6aadcd9267196b11cc7814d0fe7645e6666e4c13d87"
+  },
+  "status": "completed"
+}

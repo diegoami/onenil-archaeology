@@ -1,0 +1,17 @@
+{
+  "schema": "original-condition-handoff-index/1",
+  "runs": [
+    {
+      "path": "records/T85/handoff-r0003.json",
+      "sha256": "be3624ebc0e170513a91d6aadcd9267196b11cc7814d0fe7645e6666e4c13d87"
+    },
+    {
+      "path": "records/T85/handoff-r0004.json",
+      "sha256": "be3624ebc0e170513a91d6aadcd9267196b11cc7814d0fe7645e6666e4c13d87"
+    }
+  ],
+  "native": {
+    "path": "records/T85/native-r0001.json",
+    "sha256": "e2aecec171f99922cf260e09963e9a9040d7db5b39942378a297c75be9444019"
+  }
+}
