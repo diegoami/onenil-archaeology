@@ -57,3 +57,9 @@ def test_unpublished_recovery_receipt_refuses_before_pickle(tmp_path,monkeypatch
     loaded=[];monkeypatch.setattr(p.checkpoint,'read_private',lambda *_:loaded.append(True))
     with pytest.raises((ValueError,subprocess.CalledProcessError)):p.restore(receipt,private)
     assert loaded==[]
+
+
+def test_mutating_a_receipt_cannot_change_expected_source_identity():
+    first=p.synthetic_receipt();first['source']['state_sha256']='0'*64
+    assert p.reference()[0]['state_sha256']=='7a66ef10043b0a6da9312b8f729a5c4e6009096d955c1f7f4a7cf9b2507a78fc'
+    with pytest.raises(ValueError):p.validate_checkpoint(first)

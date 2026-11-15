@@ -39,7 +39,7 @@ def authenticate_producer(record):
         if sha(git('show',record['producer']+':'+name))!=record['producer_files'][name]:raise ValueError('producer file differs')
 
 @lru_cache(maxsize=1)
-def reference():
+def _load_reference():
     if sha((REFERENCE/'index.json').read_bytes())!=REFERENCE_SHA:raise ValueError('accepted fresh index differs')
     finish,index=campaign.check(REFERENCE,require_repeat=True)
     rows=dict(ticks=[],draws=[],actions=[],finish=finish)
@@ -50,6 +50,12 @@ def reference():
     source=dict(reference_index_sha256=REFERENCE_SHA,admission_sha256=campaign.SOURCE_SHA,
         state_sha256=campaign.admission.STATE_SHA,release=base['source']['release'],interventions=[])
     return source,rows
+
+def reference():
+    # Immutable expected identity must not alias a caller's mutable receipt.
+    if sha((REFERENCE/'index.json').read_bytes())!=REFERENCE_SHA:raise ValueError('accepted fresh index differs')
+    source,rows=_load_reference()
+    return copy.deepcopy(source),rows
 
 def initial_progress():
     return dict(ticks=0,draws=0,actions=0,pending_tick=None,pending_action=None,joined=False,returned=None,post_draws=[])
@@ -128,6 +134,10 @@ def run(directory,resume=None,stop_ticks=0,checkpoint_seconds=300):
     meta=producer();src,expected=reference();directory.mkdir(parents=True,exist_ok=True)
     start=directory/'start.json'
     if not start.exists():tail.full.write(start,dict(schema='fresh-postmatch-start/1',**meta,source=src,runtime=dict(python=platform.python_version(),unicorn=unicorn.__version__),interventions=[]))
+    existing=json.loads(start.read_text())
+    if existing['schema']!='fresh-postmatch-start/1' or existing['source']!=src or existing['interventions']:
+        raise ValueError('foreign immutable source start')
+    authenticate_producer(existing)
     if resume is not None:
         receipt=json.loads(resume.read_text());week,state=restore(resume,ROOT/receipt['private_path'])
     else:
