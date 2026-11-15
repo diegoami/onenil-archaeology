@@ -89,6 +89,33 @@ settings. No expected output enters the Rust process. The Python tool only
 decodes observations and compares results; it implements no refresh or RNG
 model. Native draw-site labels are excluded from the numeric comparison.
 
+## Remaining caller effects
+
+[derived: literal T08 draw slices within T85 caller scopes] The 2,191
+non-condition draws inside `1897` are fully attributed:
+
+| Original return sites | Observed draws | Work still outside the native condition port |
+| --- | --- | --- |
+| 1998:19C5 /19CD | 1,088 R(4) and 1,088 R(2) | Unused later-slot p15+6 update, clamped through `0DAE` |
+| 1998:1999 /19A1 | 4 R(2) at each site | Used later-slot p15+6 update |
+| 1998:15EB | 7 R(4) | 154E's optional p8+4 branch through `24BC:0D1C` |
+
+[confirmed static: 83b7ef7, code/seg_1998_02.asm 0DAE–0DD2;
+code/seg_1998_03.asm 154E–15F7,186C–1894,1897–1B98;
+code/seg_1B55_08.asm 5284–5357] Further non-RNG caller effects include
+guarded p15 counter writes through `186C`, p8+3/+4 updates and the `5284` helper,
+p15+11 bit transformations through `12BE`, and p8+6 restoration from p8+7 for
+non-managed later slots. The post-loop goalkeeper/scorer branches have
+additional counters, p15+6 updates and RNG guarded by D6DD and the score
+arguments. Their complete input/output contract is not supplied by `14A5`'s
+case alone. No claim is made that these writes are absent simply because
+they are outside the condition observer's active window.
+
+[designed:T85 boundary] A composed `1897` port therefore needs these additional
+field/flag/helper contracts and their natural entry/exit observations. The
+outside-draw table is evidence of the gap, not permission to consume expected
+draws or copy expected helper outputs in an implementation.
+
 [designed:T85] This is **per-call replay**, with each observed entry seed
 admitted explicitly for that isolated call. It is not a composed native `1897`
 or week replay. The outside draw partition identifies the remaining work;
