@@ -4,6 +4,7 @@ import argparse
 import copy
 import hashlib
 import json
+import platform
 import struct
 import subprocess
 import sys
@@ -14,6 +15,7 @@ sys.path.insert(0, str(ROOT / 'runtime/emul'))
 import checkpoint
 import condition_handoff as prior
 import watched_complete as full
+import unicorn
 from unicorn import UC_HOOK_MEM_READ, UC_HOOK_MEM_WRITE
 
 NATIVE = prior.NATIVE
@@ -111,6 +113,8 @@ def normalized(draw):
 
 def restore(private):
     rows = lineage()
+    if unicorn.__version__ != '2.1.4':
+        raise ValueError('unsupported Unicorn checkpoint context version; not loading it')
     receipt, start = rows['checkpoint.json'], rows['start.json']
     if sha(private.read_bytes()) != receipt['private_sha256']:
         raise ValueError('private checkpoint digest differs; not loading it')
@@ -140,6 +144,7 @@ class NumericAudit:
         self.week = week
         self.active = False
         self.entry = self.returned = self.frame = None
+        self.timer_effects = None
         self.initial, self.ops, self.regions = [], [], []
         self.known = {}
         self.draw_start = self.draw_end = None
@@ -155,6 +160,7 @@ class NumericAudit:
         if self.entry is not None:
             raise ValueError('second enclosing caller before stop')
         self.entry = prior.registers(g)
+        self.timer_start = (g.timer_ticks, g.game_timer_ticks)
         self.draw_start = self.week.draws
         stack = g.reg('ss') * 16
         self.stack_lo = stack + g.reg('sp') - 1024
@@ -247,6 +253,8 @@ class NumericAudit:
         if not self.active:
             return
         self.returned = prior.registers(g)
+        self.timer_effects = dict(bios_interrupts=g.timer_ticks - self.timer_start[0],
+                                 game_interrupts=g.game_timer_ticks - self.timer_start[1], divisor=g.divisor)
         self.draw_end = self.week.draws
         self.active = False
         raise Complete()
@@ -264,6 +272,7 @@ def run(out, private):
         source=dict(native_commit=NATIVE, public_index_sha256=sha((SOURCE / 'index.json').read_bytes()),
                     private_sha256=rows['checkpoint.json']['private_sha256'], reference_index_sha256=REFERENCE_SHA),
         interventions=['retained declared watch flag and numeric background initializer; no new state/clock edit'],
+        runtime=dict(python=platform.python_version(), unicorn=unicorn.__version__),
         status='aborted', error=None)
     audit = observer = week = None
     suffix = []
@@ -332,6 +341,7 @@ def run(out, private):
     payload = dict(suffix=suffix, match_return=match_return,
         caller=None if audit is None else dict(entry=audit.entry, returned=audit.returned, frame=audit.frame,
             regions=audit.regions, initial=audit.initial, operations=audit.ops,
+            timer_effects=audit.timer_effects,
             draw_start=audit.draw_start, draw_end=audit.draw_end),
         contexts=[] if observer is None else observer.contexts,
         calls=[] if observer is None else observer.calls,
