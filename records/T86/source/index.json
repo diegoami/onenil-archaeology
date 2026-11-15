@@ -1,0 +1,25 @@
+{
+  "files": {
+    "checkpoint.json": {
+      "sha256": "f9c58322102cdebd7fca897f0ee58b59899732918750711c662b1e5c2fcd10b1",
+      "source": "records/T45/original-r0003/checkpoint-r0047.json"
+    },
+    "manifest.json": {
+      "sha256": "9006f2df5853ca8922b7e0a17b8c5899493178f80ec82a321e641b194d56dfd7",
+      "source": "records/T45/original-r0003/manifest.json"
+    },
+    "observer.py": {
+      "sha256": "e6eaf5da519c3d075e3439bc323ffb6fcef92503b1ca7fc60bd35e4324d1d6e0",
+      "source": "records/T45/preservation-observer-r0003.py"
+    },
+    "result.json": {
+      "sha256": "f2314c53cf0f8c4b56c73ad7851379cd5af9cc411009f6496f18f24f8c031c19",
+      "source": "records/T45/original-r0003/result.json"
+    },
+    "start.json": {
+      "sha256": "a11b01c0675150306b37620b8f78a5bbd6732754b76a249bcb9f1bbb9bfc3d23",
+      "source": "records/T45/original-r0003/start.json"
+    }
+  },
+  "native_commit": "772cb7ae4afe630be6387f82f0ff8298b98827c9"
+}
