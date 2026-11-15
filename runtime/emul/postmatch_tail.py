@@ -19,6 +19,7 @@ from unicorn import UC_HOOK_MEM_READ, UC_HOOK_MEM_WRITE
 NATIVE = prior.NATIVE
 REFERENCE_SHA = '30a4fe8003f4677c2e2af0966d5fe81055c728a1b41c998a9d03766637414886'
 SOURCE = ROOT / 'records/T86/source'
+SOURCE_INDEX_SHA = 'd89f6152c66dcd7eac1ee1fe5779164d6c97c376bec82c3c1b9ef36a4ed26122'
 INDEX = ROOT / 'records/T86/index.json'
 PUBLIC = {
     'checkpoint.json': 'records/T45/original-r0003/checkpoint-r0047.json',
@@ -52,6 +53,8 @@ def prepare_source(native_root):
 
 
 def lineage():
+    if sha((SOURCE / 'index.json').read_bytes()) != SOURCE_INDEX_SHA:
+        raise ValueError('accepted public checkpoint lineage root differs')
     index = json.loads((SOURCE / 'index.json').read_text())
     if index['native_commit'] != NATIVE or set(index['files']) != set(PUBLIC):
         raise ValueError('checkpoint lineage census differs')
@@ -141,7 +144,8 @@ class NumericAudit:
         self.known = {}
         self.draw_start = self.draw_end = None
         self.ds_ranges = [(0xD72, 4), (0xD1A, 14), (0xD74, 8), (0xD075, 1),
-            (0xD086, 2), (0xD6DD, 1), (0xDCBA, 2), (0xD4FB, 177),
+            (0xD0C4, 2), (0xD146, 82),  # 0F7E live scores and two20-word performance rows
+            (0xD086, 2), (0xD6DD, 1), (0xD6E4, 4), (0xDCBA, 2), (0xD4FB, 177),
             *[(off, 4) for off in (0xD7BA, 0xD7BE, 0xD7C2, 0xD7C6, 0xD7CA,
                                   0xD7CE, 0xD7D2, 0xDCC0, 0xDCC8, 0xDE84)]]
         week.g.code_hook('0AB9:E679', self.enter)
