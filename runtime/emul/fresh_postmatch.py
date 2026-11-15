@@ -146,7 +146,9 @@ def run(directory,resume=None,stop_ticks=0,checkpoint_seconds=300):
         week=tail.full.match.Week(data);state=initial_progress();week.events=Events(state,expected)
         if {n:sha(v)for n,v in week.files_at_start.items()}!=src['release']:raise ValueError('wrong original release')
         campaign.admission.require_campaign(campaign.admission.seed.project(campaign.admission.memory_save(week.g),campaign.admission.seed.names(week.files_at_start['ENGL-95.DAT'])))
-    g=week.g;code=early.authenticate_code(g);audit=condition=None;began=time.monotonic();due=began
+    g=week.g
+    if g.mem(g.far(0xD7D2)+0xF2,1)[0]!=1:raise ValueError('fresh watch setting differs; no patch permitted')
+    code=early.authenticate_code(g);audit=condition=None;began=time.monotonic();due=began+(checkpoint_seconds if resume is not None else 0)
     last_checkpoint=None
     def safe_boundary(current):
         nonlocal due,last_checkpoint
