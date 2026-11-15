@@ -94,7 +94,8 @@ def test_generic_numeric_trace_corruptions_refuse(damage):
     with pytest.raises((ValueError,KeyError)):p.numeric_caller(r)
 
 
-def test_partial_public_prefix_is_authenticated_but_not_completion():
+def test_partial_public_prefix_is_authenticated_but_not_completion(monkeypatch):
     result=p.check_prefix(ROOT/'records/T88/source-r0001')
     assert result['status']=='prefix-only' and result['ticks']>=72
+    monkeypatch.setattr(p,'ACCEPTED',{})
     with pytest.raises(ValueError,match='two sealed completed'):p.check()
