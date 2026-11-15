@@ -1,0 +1,7 @@
+{
+  "producer": "fa2faff",
+  "command": ".cache/venv/bin/python -m pytest -q tests/emul/test_postmatch_incoming.py",
+  "exit_code": 2,
+  "failure": "FileNotFoundError: runtime/emul/postmatch_incoming.py",
+  "scope": "Source capture/checker acceptance absent, not native integration parity."
+}

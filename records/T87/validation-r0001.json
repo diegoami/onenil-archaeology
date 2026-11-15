@@ -1,0 +1,43 @@
+{
+  "task": "T87",
+  "frozen_task": "635c258; ownership clarification c639c5f",
+  "fail_before_commit": "fa2faff",
+  "source_commit": "ba499b9a678254d6a14497153581f85f93ee4e18",
+  "scope": "Original pre19CA observations only; no unchanged-ownership, native handoff or new full-match claim.",
+  "captures": [
+    {
+      "path": "records/T87/incoming-r0001.json",
+      "producer": "0a6e2931b4e6d38aea04b18d086eeec1257adf70",
+      "capture_status": "completed",
+      "cli_exit": 1,
+      "post_capture_error": "Initial validator incorrectly required the pre19CA seed to equal the first draw seed. Original19ED seed store explains the phase distinction. Record is immutable and accepted by corrected sealed checker."
+    },
+    {
+      "path": "records/T87/incoming-r0002.json",
+      "producer": "2edd077246bfc7f014ab17ac1007928037892517",
+      "capture_status": "completed",
+      "cli_exit": 0
+    }
+  ],
+  "original_acceptance": {
+    "equal_payloads": true,
+    "fields": 482,
+    "bytes": 583,
+    "earlier_vs_late_different_values": 71,
+    "rng_draws_before_boundary": 0,
+    "seed_before_19CA": 65341,
+    "first_reference_draw_seed": 64,
+    "late_caller_seed": 15361,
+    "game_files_match_accepted_inventory": 14,
+    "loaded_code_segments_unchanged": 5
+  },
+  "focused_tests_passed": 80,
+  "original_file_and_diff_checks": "passed",
+  "merge_gate": "Full research suite and exact-head PR #206 CI must pass before pinned merge; final completion is recorded in PR/checkpoint status.",
+  "sha256": {
+    "runtime/emul/postmatch_incoming.py": "2f4418310f050e0d79391a282395c2cfccb0d4f825bedcf776de9d41b71f7031",
+    "runtime/emul/postmatch_tail.py": "46ef3fcc5ba5e263a59e9ccbd876bde5f1080af1e80a05adc834ad75b508f815",
+    "tests/emul/test_postmatch_incoming.py": "5cbd2b00dcbb5f31f605089ecad1689f86db8ad495ae468579234f19856c78e8",
+    "records/T87/index.json": "6ab53aed7aa283b7230aa9889b79a8cc20353669d0c4977203b33d25b5a7e671"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "postmatch-incoming-index/1",
+  "source_commit": "ba499b9a678254d6a14497153581f85f93ee4e18",
+  "runs": [
+    {
+      "path": "records/T87/incoming-r0001.json",
+      "sha256": "d301ca8d2cb507522b8f2ab8882520e86047bb43671a957714ede0f5138d435a",
+      "producer": "0a6e2931b4e6d38aea04b18d086eeec1257adf70"
+    },
+    {
+      "path": "records/T87/incoming-r0002.json",
+      "sha256": "e84b5c800cf6bdfd8ac6bc6873514accef954df24bf237b86d68dd6281bdd4f0",
+      "producer": "2edd077246bfc7f014ab17ac1007928037892517"
+    }
+  ]
+}
