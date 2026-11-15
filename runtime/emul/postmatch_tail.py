@@ -145,7 +145,7 @@ class NumericAudit:
         self.draw_start = self.draw_end = None
         self.ds_ranges = [(0xD72, 4), (0xD1A, 14), (0xD74, 8), (0xD075, 1),
             (0xD0C4, 2), (0xD146, 82),  # 0F7E live scores and two20-word performance rows
-            (0xD086, 2), (0xD6DD, 1), (0xD6E4, 4), (0xDCBA, 2), (0xD4FB, 177),
+            (0xD086, 2), (0xD6DD, 1), (0xD6E4, 4), (0xDCBA, 2), (0xDCE0, 1), (0xD4FB, 177),
             *[(off, 4) for off in (0xD7BA, 0xD7BE, 0xD7C2, 0xD7C6, 0xD7CA,
                                   0xD7CE, 0xD7D2, 0xDCC0, 0xDCC8, 0xDE84)]]
         week.g.code_hook('0AB9:E679', self.enter)
@@ -166,6 +166,11 @@ class NumericAudit:
         self.frame = dict(parent_bp=link, week_slot=g.word_at(stack + link + 6),
                           schedule_index=g.word_at(stack + link - 2),
                           detailed=g.mem(stack + link - 7, 1)[0])
+        club = g.rd(0xD4FB + self.frame['schedule_index'], 1)
+        fixture = g.far(0xD7CA) + 174 * (club - 1) + 3 * (self.frame['week_slot'] - 1)
+        self.frame.update(club=club, opponent=g.mem(fixture + 1, 1)[0],
+                          competition=g.mem(fixture, 1)[0], performance_flag=g.rd(0xD075, 1),
+                          stat_flag=g.rd(0xD6DD, 1), scores=list(g.mem(g.DS * 16 + 0xD086, 2)))
         for off, name, count, stride, origin in (
                 (0xD7BA, 'player8', 3921, 8, 0), (0xD7BE, 'player15', 3921, 15, 0),
                 (0xD7C2, 'club', 176, 62, 1), (0xD7C6, 'club_stats', 176, 12, 1),
