@@ -234,7 +234,11 @@ def validate(record):
     draws=reference()[1];n=boundary['draw_cursor']
     if type(n)is not int or not 0<=n<len(draws) or boundary['prefix_sha256']!=sha(encoded([tail.normalized(d)for d in draws[:n]])):
         raise ValueError('accepted original prefix differs')
-    if boundary['seed']!=(draws[n-1]['seed_after']if n else draws[0]['seed_before']):raise ValueError('original prefix seed differs')
+    # [confirmed:0AB9:19E9/19ED] The next routine stores a setup-owned
+    # seed before its first RNG call. A pre19CA observation is not that seed.
+    # Authenticate the actual early value through its typed observation and
+    # sealed record; prefix comparison authenticates draws already executed.
+
     for name,digest in late_record()['code'].items():
         if p['code_before'].get(name)!=digest:raise ValueError('original loaded code differs')
     if set(p['code_before'])!={'0AB9','1998','1B55','232A','24BC'} or p['code_after']!=p['code_before']:raise ValueError('code changed during original prefix')

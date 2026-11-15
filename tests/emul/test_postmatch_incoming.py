@@ -67,7 +67,9 @@ def test_numeric_late_value_cannot_be_resealed_into_accepted_early_record(tmp_pa
     late=p.late_record()['payload']['caller']['initial']
     late_seed=next(x['value']for x in late if x['field']=='seed+0')
     assert seed['value']!=late_seed
-    seed['value']=late_seed;r['payload_sha256']=p.sha(p.encoded(r['payload']))
+    seed['value']=late_seed;r['payload']['boundary']['seed']=late_seed
+    r['payload_sha256']=p.sha(p.encoded(r['payload']))
+    p.validate(r)  # Structural consistency alone is not numeric authenticity.
     # Numeric provenance cannot be manufactured by recomputing a payload hash.
     path=tmp_path/'incoming-r0001.json';path.write_text(json.dumps(r))
     with pytest.raises(ValueError,match='accepted.*digest'):p.check_leaf(path)
