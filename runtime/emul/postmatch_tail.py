@@ -145,6 +145,7 @@ class NumericAudit:
         self.active = False
         self.entry = self.returned = self.frame = None
         self.timer_effects = None
+        self.service_effects = None
         self.initial, self.ops, self.regions = [], [], []
         self.known = {}
         self.draw_start = self.draw_end = None
@@ -161,6 +162,7 @@ class NumericAudit:
             raise ValueError('second enclosing caller before stop')
         self.entry = prior.registers(g)
         self.timer_start = (g.timer_ticks, g.game_timer_ticks)
+        self.service_start = dict(g.service_counts)
         self.draw_start = self.week.draws
         stack = g.reg('ss') * 16
         self.stack_lo = stack + g.reg('sp') - 1024
@@ -255,6 +257,11 @@ class NumericAudit:
         self.returned = prior.registers(g)
         self.timer_effects = dict(bios_interrupts=g.timer_ticks - self.timer_start[0],
                                  game_interrupts=g.game_timer_ticks - self.timer_start[1], divisor=g.divisor)
+        self.service_effects = {key: value - self.service_start.get(key, 0)
+                               for key, value in g.service_counts.items()
+                               if value != self.service_start.get(key, 0)}
+        if self.service_effects:
+            raise ValueError('external service inside numeric caller scope')
         self.draw_end = self.week.draws
         self.active = False
         raise Complete()
@@ -342,6 +349,7 @@ def run(out, private):
         caller=None if audit is None else dict(entry=audit.entry, returned=audit.returned, frame=audit.frame,
             regions=audit.regions, initial=audit.initial, operations=audit.ops,
             timer_effects=audit.timer_effects,
+            service_effects=audit.service_effects,
             draw_start=audit.draw_start, draw_end=audit.draw_end),
         contexts=[] if observer is None else observer.contexts,
         calls=[] if observer is None else observer.calls,
