@@ -354,6 +354,9 @@ def validate(record):
         raise ValueError('handoff source identity differs')
     if record['mode'] != 'original96 quick week; no watched-mode claim':
         raise ValueError('mode claim differs')
+    if set(record['code']) != {'1998', '232A', '24BC'} or any(
+            len(v) != 64 or any(ch not in '0123456789abcdef' for ch in v) for v in record['code'].values()):
+        raise ValueError('loaded-code digest manifest differs')
     pinned = json.loads((ROOT / 'records/T83/conditions-r0002.json').read_text())
     if any(record['save'][k] != pinned['sources']['pre'][k] for k in ('sha256', 'size')):
         raise ValueError('initial save identity differs')
@@ -389,8 +392,17 @@ def validate(record):
     if not calls or [c['index'] for c in calls] != list(range(len(calls))) \
             or [c['index'] for c in contexts] != list(range(len(contexts))):
         raise ValueError('call/context indices differ')
+    # [confirmed:T85 source week] All 176 club passes precede the two
+    # unconditional manager visits (01EF:4E14..4E2A). This census belongs
+    # to this pinned friendly, not a scheduler model for arbitrary weeks.
+    if [c['kind'] for c in contexts] != ['first_team'] * 176 + ['manager_roster'] * 2 \
+            or sorted(c['club'] for c in contexts[:176]) != list(range(1, 177)) \
+            or [c['manager'] for c in contexts[176:]] != [1, 2]:
+        raise ValueError('complete caller visit census differs')
     owned = []
     for parent in contexts:
+        if any(type(i) is not int or not 0 <= i < len(calls) for i in parent['calls']):
+            raise ValueError('invalid caller-owned call index')
         selected = [calls[i] for i in parent['calls']]
         expected = [(i + 1, pid) for i, pid in enumerate(parent['roster']) if pid and parent['active']]
         if len(parent['roster']) != 20 or [(c['slot'], c['input']['player']) for c in selected] != expected:
@@ -400,6 +412,9 @@ def validate(record):
         if parent['kind'] not in ('first_team', 'manager_roster'):
             raise ValueError('unknown caller class')
         pop = 10 if parent['kind'] == 'first_team' else 6
+        expected_ret = '1998:1B96' if parent['kind'] == 'first_team' else '1998:1869'
+        if parent.get('return_instruction') != expected_ret:
+            raise ValueError('caller return instruction differs')
         if parent['returned']['sp'] != (parent['entry']['sp'] + pop) & 65535 \
                 or any(parent['entry'][k] != parent['returned'][k] for k in ('ss', 'ds', 'bp')):
             raise ValueError('caller ABI return differs')
@@ -536,6 +551,9 @@ def validate_native(record, source_path, capture):
     if record['schema'] != 'native-condition-handoff/1' or record['status'] != 'completed' \
             or record['error'] is not None or record['native_commit'] != NATIVE:
         raise ValueError('incomplete/foreign native receipt')
+    if record['native_tree'] != '6e8c5a94a7d1b4de460cda60c736822ff5bfff72' \
+            or record['build']['profile'] != 'dev' or record['build']['features'] != []:
+        raise ValueError('native tree/build contract differs')
     if record['source'] != dict(path=str(source_path.relative_to(ROOT)), sha256=sha(source_path.read_bytes())):
         raise ValueError('native source digest differs')
     counts = validate(capture)
