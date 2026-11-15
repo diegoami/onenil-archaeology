@@ -147,6 +147,8 @@ class NumericAudit:
         self.entry = self.returned = self.frame = None
         self.timer_effects = None
         self.service_effects = None
+        self.final = self.census = self.preservation = None
+        self.read_count = self.write_count = 0
         self.initial, self.ops, self.regions = [], [], []
         self.known = {}
         self.draw_start = self.draw_end = None
@@ -180,6 +182,7 @@ class NumericAudit:
         self.frame.update(club=club, opponent=g.mem(fixture + 1, 1)[0],
                           competition=g.mem(fixture, 1)[0], performance_flag=g.rd(0xD075, 1),
                           stat_flag=g.rd(0xD6DD, 1), scores=list(g.mem(g.DS * 16 + 0xD086, 2)))
+        self.before_memory = g.mem(0,0x110000)
         for off, name, count, stride, origin in (
                 (0xD7BA, 'player8', 3921, 8, 0), (0xD7BE, 'player15', 3921, 15, 0),
                 (0xD7C2, 'club', 176, 62, 1), (0xD7C6, 'club_stats', 176, 12, 1),
@@ -237,6 +240,7 @@ class NumericAudit:
     def read(self, mu, access, address, size, value, _):
         if not self.active:
             return
+        self.read_count += 1
         field = self.describe(address, size)
         current = self.learn(address, size)
         self.ops.append(dict(kind='read', address=address, field=field, size=size,
@@ -245,6 +249,7 @@ class NumericAudit:
     def write(self, mu, access, address, size, value, _):
         if not self.active or self.stack_lo <= address and address + size <= self.stack_hi:
             return
+        self.write_count += 1
         field = self.describe(address, size)
         before = self.learn(address, size)
         self.ops.append(dict(kind='write', address=address, field=field, size=size,
@@ -263,6 +268,18 @@ class NumericAudit:
                                if value != self.service_start.get(key, 0)}
         if self.service_effects:
             raise ValueError('external service inside numeric caller scope')
+        self.final = [dict(item,value=int.from_bytes(g.mem(item['address'],item['size']),'little'))
+                      for item in self.initial]
+        after = g.mem(0,0x110000)
+        expected_writes = {i for op in self.ops if op['kind']=='write'
+                           for i in range(op['address'],op['address']+op['size'])}
+        changed = [i for i,(a,b) in enumerate(zip(self.before_memory,after)) if a!=b]
+        unexpected = [i for i in changed if i not in expected_writes and not self.stack_lo<=i<self.stack_hi]
+        self.preservation = dict(before_sha256=sha(self.before_memory),after_sha256=sha(after),
+            changed_bytes=len(changed),unexpected_count=len(unexpected),unexpected_first=unexpected[:20])
+        self.census = dict(reads=self.read_count,writes=self.write_count,initial=len(self.initial))
+        if unexpected or any(self.known.get(i)!=after[i] for i in self.known):
+            raise ValueError('final memory differs from recorded write footprint')
         self.draw_end = self.week.draws
         self.active = False
         raise Complete()
@@ -351,6 +368,7 @@ def run(out, private):
             regions=audit.regions, initial=audit.initial, operations=audit.ops,
             timer_effects=audit.timer_effects,
             service_effects=audit.service_effects,
+            final=audit.final,census=audit.census,preservation=audit.preservation,
             draw_start=audit.draw_start, draw_end=audit.draw_end),
         contexts=[] if observer is None else observer.contexts,
         calls=[] if observer is None else observer.calls,
@@ -437,6 +455,12 @@ def validate(record, expected=None):
     if caller['timer_effects'] != dict(bios_interrupts=0, game_interrupts=0, divisor=65535) \
             or caller['service_effects'] != {}:
         raise ValueError('unmodelled timer/external service effects')
+    census=dict(reads=sum(x['kind']=='read' for x in caller['operations']),
+                writes=sum(x['kind']=='write' for x in caller['operations']),initial=len(caller['initial']))
+    if caller['census']!=census:
+        raise ValueError('complete operand event census differs')
+    if caller['preservation']['unexpected_count']!=0 or caller['preservation']['unexpected_first']!=[]:
+        raise ValueError('memory outside the declared footprint changed')
     draws = payload['draws']
     if [d['i'] for d in draws] != list(range(receipt['draws'], caller['draw_end'])):
         raise ValueError('watched/caller draw ordering differs')
@@ -538,6 +562,12 @@ def validate(record, expected=None):
         raise ValueError('caller RNG writes differ from literal draw order')
     if touched != set(initial):
         raise ValueError('unused or missing initial operand coverage')
+    if len(caller['final'])!=len(caller['initial']):
+        raise ValueError('final observation census differs')
+    for before,after in zip(caller['initial'],caller['final']):
+        if {k:v for k,v in before.items() if k!='value'}!={k:v for k,v in after.items() if k!='value'} \
+                or memory_value(memory,after['address'],after['size'])!=after['value']:
+            raise ValueError('independent final memory observation differs')
 
     contexts, calls = payload['contexts'], payload['calls']
     if len(contexts) != 2 or [x['index'] for x in contexts] != [0, 1] \
