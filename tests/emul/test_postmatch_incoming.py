@@ -93,3 +93,17 @@ def test_wrong_field_values_outside_byte_domain_refuse():
     r=capture();f=next(x for x in r['payload']['fields']if x['size']==1)
     f['value']=256;r['payload_sha256']=p.sha(p.encoded(r['payload']))
     with pytest.raises(ValueError):p.validate(r)
+
+
+def test_sealed_index_census_is_authenticated(tmp_path,monkeypatch):
+    index=json.loads(p.INDEX.read_text());index['runs'][0]['sha256']='0'*64
+    path=tmp_path/'index.json';path.write_text(json.dumps(index))
+    monkeypatch.setattr(p,'INDEX',path)
+    with pytest.raises(ValueError,match='sealed capture index'):p.check()
+
+
+def test_changed_late_source_is_rechecked_after_an_earlier_valid_read(tmp_path,monkeypatch):
+    p.requests()
+    path=tmp_path/'tail.json';path.write_bytes(p.LATE.read_bytes()+b'\n')
+    monkeypatch.setattr(p,'LATE',path)
+    with pytest.raises(ValueError,match='footprint digest'):p.requests()

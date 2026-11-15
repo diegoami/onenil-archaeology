@@ -19,6 +19,7 @@ sha=tail.sha
 encoded=tail.encoded
 git=tail.git
 LATE=ROOT/'records/T86/tail-r0009.json'
+INDEX=ROOT/'records/T87/index.json'
 LATE_SHA='1163ecc7f55c46d35a3cc74d80792e8e0bb7511ea21b301792effceef1a7d4d0'
 DEPENDENCIES=sorted(set(tail.DEPENDENCIES)|{'runtime/emul/postmatch_incoming.py'})
 # Set only after the two immutable originals are independently captured.
@@ -30,7 +31,6 @@ INVENTORY_SHA='6c82541c7adf26f806b7cb3304f3f964f6066f2e0ac7e0b54b2c4d6a416b06a5'
 CODE_SHA={'0AB9': 'fef42b5059eff5c0a7bf5b2aab6771efe4cdeeec1c630ccf1532658af32ed3be', '1998': 'ff7477a156612fa29589af6090c12a310a1d40cbbb99e25b5becb987a7736067', '1B55': 'ec23a1b827360ef59165a3bafcb14ccb27fa1d0f904b00e000fe8d29a66f93ff', '232A': '59f62999dc209a7a7f46fa0eb181502dd18bcc7b1353bbe08d9cd300e35d37ac', '24BC': '205a1a9db6860d3901780d33074b23e42762d06d414ba03ed18dc5df7ce0b315'}
 
 
-@lru_cache(maxsize=1)
 def late_record():
     data=LATE.read_bytes()
     if sha(data)!=LATE_SHA:raise ValueError('accepted T86 footprint digest differs')
@@ -271,6 +271,11 @@ def check_leaf(path):
 def check():
     if len(ACCEPTED)!=2:raise ValueError('two sealed original captures required')
     records=[check_leaf(ROOT/'records/T87'/name)for name in ACCEPTED]
+    expected_index=dict(schema='postmatch-incoming-index/1',
+        source_commit='ba499b9a678254d6a14497153581f85f93ee4e18',
+        runs=[dict(path='records/T87/'+name,sha256=digest,producer=record['producer'])
+              for (name,digest),record in zip(ACCEPTED.items(),records)])
+    if json.loads(INDEX.read_text())!=expected_index:raise ValueError('sealed capture index differs')
     if records[0]['payload']!=records[1]['payload']:raise ValueError('independent early original captures differ')
     return dict(repeats=2,**validate(records[0]))
 
