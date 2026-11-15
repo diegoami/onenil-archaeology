@@ -5,6 +5,7 @@ import copy
 import hashlib
 import json
 import platform
+import re
 import struct
 import subprocess
 import sys
@@ -367,15 +368,292 @@ def run(out, private):
         raise ValueError(record['error'])
 
 
+POOL_SPECS = {
+    'player8': (0xD7BA, 3921, 8, 0), 'player15': (0xD7BE, 3921, 15, 0),
+    'club': (0xD7C2, 176, 62, 1), 'club_stats': (0xD7C6, 176, 12, 1),
+    'fixture': (0xD7CA, 176, 174, 1), 'history': (0xD7CE, 176, 58, 1),
+    'game': (0xD7D2, 1, 247, 0), 'club_aux': (0xDCC0, 176, 46, 1),
+    'staff': (0xDCC8, 1001, 4, 0),
+}
+DS_RANGES = [(0xD72, 4), (0xD1A, 14), (0xD74, 8), (0xD075, 1), (0xD0C4, 2),
+    (0xD146, 82), (0xD086, 2), (0xD6DD, 1), (0xD6E4, 4), (0xDCBA, 2), (0xDCE0, 1),
+    (0xD4FB, 177), *[(off, 4) for off in (0xD7BA, 0xD7BE, 0xD7C2, 0xD7C6, 0xD7CA,
+                                        0xD7CE, 0xD7D2, 0xDCC0, 0xDCC8, 0xDE84)]]
+
+
+def value_bytes(value, size):
+    if type(size) is not int or size not in (1, 2, 4) or type(value) is not int \
+            or not 0 <= value < 256 ** size:
+        raise ValueError('numeric operand width/value differs')
+    return value.to_bytes(size, 'little')
+
+
+def memory_value(memory, address, size):
+    if any(address + i not in memory for i in range(size)):
+        raise ValueError('missing initial semantic operand')
+    return int.from_bytes(bytes(memory[address + i] for i in range(size)), 'little')
+
+
+def validate(record, expected=None):
+    if record['schema'] != 'original-watched-postmatch/1' or record['status'] != 'completed' \
+            or record['error'] is not None:
+        raise ValueError('incomplete watched caller capture')
+    if set(record['producer_files']) != set(DEPENDENCIES):
+        raise ValueError('producer dependency census differs')
+    for name, digest in record['producer_files'].items():
+        if sha(git('show', record['producer'] + ':' + name)) != digest:
+            raise ValueError('producer identity differs')
+    rows = lineage()
+    receipt = rows['checkpoint.json']
+    if record['source'] != dict(native_commit=NATIVE, public_index_sha256=SOURCE_INDEX_SHA,
+            private_sha256=receipt['private_sha256'], reference_index_sha256=REFERENCE_SHA):
+        raise ValueError('private/public source lineage differs')
+    if record['runtime']['unicorn'] != '2.1.4' or not record['runtime']['python']:
+        raise ValueError('runtime protocol differs')
+    if record['interventions'] != ['retained declared watch flag and numeric background initializer; no new state/clock edit']:
+        raise ValueError('intervention claim differs')
+    ticks, expected_draws, actions, finish = reference() if expected is None else expected
+    payload = record['payload']
+    if sha(encoded(payload)) != record['payload_sha256']:
+        raise ValueError('watched caller payload digest differs')
+    if payload['suffix'] != ticks[receipt['ticks']:]:
+        raise ValueError('watched suffix differs from accepted source')
+    boundary = payload['match_return']
+    if boundary['site'] != '0AB9:EBE2' or boundary['draw'] != len(expected_draws) \
+            or boundary['seed'] != finish['final']['seed'] \
+            or boundary['state_sha256'] != sha(encoded(finish['final'])):
+        raise ValueError('accepted match-return boundary differs')
+    caller = payload['caller']
+    if caller is None or caller['returned'] is None or caller['draw_start'] != boundary['draw']:
+        raise ValueError('enclosing caller incomplete or starts after a hidden gap')
+    entry, returned, match_regs = caller['entry'], caller['returned'], boundary['registers']
+    if entry['sp'] != (match_regs['sp'] - 4) & 65535 \
+            or returned['sp'] != (entry['sp'] + 4) & 65535 \
+            or any(entry[k] != match_regs[k] or entry[k] != returned[k] for k in ('cs', 'ss', 'ds', 'bp')):
+        raise ValueError('enclosing static-link/return ABI differs')
+    frame = caller['frame']
+    if frame['parent_bp'] != entry['bp'] or frame['detailed'] != 1:
+        raise ValueError('enclosing frame contract differs')
+    if caller['timer_effects'] != dict(bios_interrupts=0, game_interrupts=0, divisor=65535) \
+            or caller['service_effects'] != {}:
+        raise ValueError('unmodelled timer/external service effects')
+    draws = payload['draws']
+    if [d['i'] for d in draws] != list(range(receipt['draws'], caller['draw_end'])):
+        raise ValueError('watched/caller draw ordering differs')
+    watch_count = len(expected_draws) - receipt['draws']
+    if [normalized(d) for d in draws[:watch_count]] != [normalized(d) for d in expected_draws[receipt['draws']:]]:
+        raise ValueError('watched draw suffix differs')
+    previous = expected_draws[receipt['draws']]['seed_before']
+    for draw in draws:
+        if draw['seed_before'] != previous or not 1 <= draw['value'] <= max(1, draw['n']):
+            raise ValueError('draw seed/range continuity differs')
+        previous = draw['seed_after']
+    post = draws[watch_count:]
+    if not post or post[0]['seed_before'] != boundary['seed']:
+        raise ValueError('post-match live seed handoff differs')
+
+    memory = {}
+    for item in caller['initial']:
+        raw = value_bytes(item['value'], item['size'])
+        if any(item['address'] + i in memory for i in range(item['size'])):
+            raise ValueError('overlapping initial operand observations')
+        memory.update({item['address'] + i: b for i, b in enumerate(raw)})
+    initial = dict(memory)
+    ds, ss = entry['ds'] * 16, entry['ss'] * 16
+    def far(off):
+        value = memory_value(initial, ds + off, 4)
+        return (value >> 16) * 16 + (value & 65535)
+    seed = far(0xDE84)
+    regions = {r['name']: r for r in caller['regions']}
+    if set(regions) != set(POOL_SPECS):
+        raise ValueError('declared pool census differs')
+    for name, (pointer, count, stride, origin) in POOL_SPECS.items():
+        if regions[name] != dict(name=name, base=far(pointer), count=count, stride=stride, origin=origin):
+            raise ValueError('semantic pool binding differs')
+    scratch_lo, scratch_hi = ss + entry['sp'] - 1024, ss + entry['sp'] + 6
+    def location(item):
+        address, size, field = item['address'], item['size'], item['field']
+        if not 0 <= address < address + size <= 0x110000 \
+                or max(address, scratch_lo) < min(address + size, scratch_hi):
+            raise ValueError('operand escapes semantic/frame bounds')
+        if field.startswith('seed+'):
+            offset = int(field[5:])
+            if offset < 0 or offset + size > 2 or address != seed + offset:
+                raise ValueError('seed operand binding differs')
+        elif field.startswith('DS:'):
+            offset = int(field[3:], 16)
+            if address != ds + offset or not any(lo <= offset and offset + size <= lo + n for lo, n in DS_RANGES):
+                raise ValueError('undeclared DS numeric operand')
+        elif field.startswith('frame:'):
+            offset = int(field[6:], 16)
+            if address != ss + offset or not scratch_hi <= address < address + size <= ss + entry['bp'] + 8:
+                raise ValueError('parent frame input bounds differ')
+        else:
+            match = re.fullmatch(r'([a-z0-9_]+)\[(\d+)\]\+(\d+)', field)
+            if not match or match[1] not in regions:
+                raise ValueError('unclassified semantic operand')
+            r = regions[match[1]]
+            entity, offset = int(match[2]), int(match[3])
+            if not r['origin'] <= entity < r['origin'] + r['count'] or not 0 <= offset < offset + size <= r['stride'] \
+                    or address != r['base'] + (entity - r['origin']) * r['stride'] + offset:
+                raise ValueError('semantic record/address binding differs')
+    for item in caller['initial']:
+        location(item)
+    if memory_value(initial, seed, 2) != boundary['seed']:
+        raise ValueError('initial live seed differs')
+    if [memory_value(initial, ds + 0xD086 + i, 1) for i in range(2)] != frame['scores'] \
+            or memory_value(initial, ds + 0xD075, 1) != frame['performance_flag'] \
+            or memory_value(initial, ds + 0xD6DD, 1) != frame['stat_flag']:
+        raise ValueError('caller score/performance inputs differ')
+
+    written, required, touched, snapshots, seed_writes = set(), set(), set(), {}, []
+    last_cursor = caller['draw_start']
+    for op in caller['operations']:
+        location(op)
+        raw = value_bytes(op['value'], op['size'])
+        if not re.fullmatch(r'[0-9A-F]{4}:[0-9A-F]{4}', op['site']) \
+                or not last_cursor <= op['draw'] <= caller['draw_end']:
+            raise ValueError('operand site/draw order differs')
+        last_cursor = op['draw']
+        if op['site'] == '1998:14AD' and op['draw'] not in snapshots:
+            snapshots[op['draw']] = dict(memory)
+        old = memory_value(memory, op['address'], op['size'])
+        keys = set(range(op['address'], op['address'] + op['size']))
+        touched |= keys
+        if op['kind'] == 'read':
+            if old != op['value']:
+                raise ValueError('read differs from entry/observed write state')
+            required |= keys - written
+        elif op['kind'] == 'write':
+            if old != op['before']:
+                raise ValueError('write-before observation differs')
+            if op['field'] == 'seed+0':
+                seed_writes.append((op['draw'], op['before'], op['value']))
+            memory.update({op['address'] + i: b for i, b in enumerate(raw)})
+            written |= keys
+        else:
+            raise ValueError('unknown operand operation')
+    if seed_writes != [(d['i'], d['seed_before'], d['seed_after']) for d in post] \
+            or memory_value(memory, seed, 2) != post[-1]['seed_after']:
+        raise ValueError('caller RNG writes differ from literal draw order')
+    if touched != set(initial):
+        raise ValueError('unused or missing initial operand coverage')
+
+    contexts, calls = payload['contexts'], payload['calls']
+    if len(contexts) != 2 or [x['index'] for x in contexts] != [0, 1] \
+            or [x['club'] for x in contexts] != [frame['club'], frame['opponent']]:
+        raise ValueError('first post-match pair census differs')
+    if [x['index'] for x in calls] != list(range(len(calls))):
+        raise ValueError('condition call indices differ')
+    owned, covered = [], []
+    draw_map = {d['i']:d for d in post}
+    for context in contexts:
+        if context['kind'] != 'first_team' or not context['active'] or len(context['roster']) != 20 \
+                or any(not 0 <= i < len(calls) for i in context['calls']):
+            raise ValueError('caller roster/class differs')
+        selected = [calls[i] for i in context['calls']]
+        if [(c['slot'],c['input']['player']) for c in selected] != [(i+1,p) for i,p in enumerate(context['roster']) if p] \
+                or any(c['context'] != context['index'] for c in selected):
+            raise ValueError('missing or foreign roster slot call')
+        if context['arguments'] != [255,255,context['club']] or context['return_instruction'] != '1998:1B96' \
+                or context['returned']['sp'] != (context['entry']['sp'] + 10) & 65535 \
+                or any(context['returned'][k] != context['entry'][k] for k in ('ds','ss','bp')):
+            raise ValueError('first-pair caller arguments/ABI differ')
+        if not caller['draw_start'] <= context['draw_start'] <= context['draw_end'] <= caller['draw_end']:
+            raise ValueError('nested caller draw scope differs')
+        owned += context['calls']
+    if owned != list(range(len(calls))) or len(snapshots) != len(calls):
+        raise ValueError('incomplete condition-entry coverage')
+    for call in calls:
+        prior.validate_input(call['input'])
+        if call['return_site'] not in ('1998:193A','1998:19FB') \
+                or call['returned']['sp'] != (call['entry']['sp']+6) & 65535 \
+                or any(call['returned'][k] != call['entry'][k] for k in ('cs','ds','ss','bp')):
+            raise ValueError('condition ABI differs')
+        if call['input']['flag'] != int(call['slot'] <= 11 or call['status_byte'] & 4 != 0):
+            raise ValueError('condition caller flag differs')
+        begin,end = call['draw_start'],call['draw_end']
+        if not contexts[call['context']]['draw_start'] <= begin < end <= contexts[call['context']]['draw_end']:
+            raise ValueError('condition span outside parent')
+        observed = [{k:draw_map[i][k] for k in ('n','seed_before','seed_after','value')} for i in range(begin,end)]
+        if observed != call['draws'] or call['input']['seed'] != observed[0]['seed_before']:
+            raise ValueError('condition literal draw span differs')
+        covered += list(range(begin,end))
+        before = snapshots[begin]
+        pid = call['input']['player']
+        p8,p15 = regions['player8']['base']+8*pid,regions['player15']['base']+15*pid
+        for key,address,signed in [('club',p8,False),('age',p8+1,False),('age_reference',p8+2,False),
+                                  ('base_condition',p15+7,True),('condition',p15+8,True)]:
+            value=memory_value(before,address,1)
+            if call['input'][key] != (prior.signed(value) if signed else value):
+                raise ValueError('condition input differs from caller memory')
+        if call['status_byte'] != memory_value(before,p15+11,1):
+            raise ValueError('condition status differs from caller memory')
+        staff = memory_value(before,regions['club']['base']+62*(call['input']['club']-1)+44,2)
+        facility = memory_value(before,regions['staff']['base']+4*staff+2,1)
+        if call['dependencies'] != dict(staff_id=staff,facility=facility) or call['input']['facility'] != facility:
+            raise ValueError('condition staff dependency differs from caller memory')
+        state={k:call['input'][k]&255 for k in ('base_condition','condition','recovery')}
+        state['seed']=call['input']['seed']
+        for write in call['writes']:
+            key=write['field']
+            if key not in state or write['before'] != state[key] or write['size'] != (2 if key=='seed' else 1):
+                raise ValueError('condition write chain differs')
+            value_bytes(write['after'],write['size']);state[key]=write['after']
+        if {k:v if k=='seed' else prior.signed(v) for k,v in state.items()} != call['output'] \
+                or state['seed'] != observed[-1]['seed_after']:
+            raise ValueError('condition output differs')
+        stores={'1998:14EE','1998:151C','1998:1527','1998:1546','1998:1449','1998:147E','1998:1489'}
+        observed_writes=[]
+        for op in caller['operations']:
+            if op['kind']!='write':continue
+            if op['field']=='seed+0' and begin<=op['draw']<end:
+                key='seed'
+            elif op['site'] in stores and begin<=op['draw']<=end \
+                    and op['address'] in (p15+7,p15+8,p15+14):
+                key={p15+7:'base_condition',p15+8:'condition',p15+14:'recovery'}[op['address']]
+            else:continue
+            observed_writes.append(dict(field=key,size=op['size'],before=op['before'],after=op['value']))
+        if observed_writes!=call['writes']:
+            raise ValueError('condition writes differ from enclosing operand audit')
+    if covered != sorted(set(covered)):
+        raise ValueError('overlapping condition draws')
+    return dict(suffix_ticks=len(payload['suffix']), suffix_draws=watch_count,
+                caller_draws=len(post), condition_calls=len(calls), condition_draws=len(covered),
+                other_draws=len(post)-len(covered), initial_observations=len(caller['initial']),
+                read_before_write_bytes=len(required), context_only_bytes=len(initial)-len(required),
+                reads=sum(op['kind']=='read' for op in caller['operations']),
+                writes=sum(op['kind']=='write' for op in caller['operations']))
+
+
+def check():
+    index=json.loads(INDEX.read_text())
+    if index['schema']!='watched-postmatch-index/1' or len(index['runs'])!=2 \
+            or index['runs'][0]['path']==index['runs'][1]['path']:
+        raise ValueError('two independent restored runs required')
+    expected=reference();records=[];counts=[]
+    for entry in index['runs']:
+        path=ROOT/entry['path']
+        if sha(path.read_bytes())!=entry['sha256']:
+            raise ValueError('immutable watched-tail run digest differs')
+        record=json.loads(path.read_text());counts.append(validate(record,expected));records.append(record)
+    if counts[0]!=counts[1] or records[0]['payload']!=records[1]['payload'] or records[0]['code']!=records[1]['code']:
+        raise ValueError('independent watched caller repeat differs')
+    print('PASS original watched post-match contract:',counts[0])
+
+
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--prepare-source', type=Path)
     p.add_argument('--run', type=Path)
     p.add_argument('--private', type=Path)
+    p.add_argument('--check', action='store_true')
     args = p.parse_args()
     if args.prepare_source:
         prepare_source(args.prepare_source.resolve())
     elif args.run and args.private:
         run(args.run, args.private)
+    elif args.check:
+        check()
     else:
         p.error('choose --prepare-source or --run/--private')
