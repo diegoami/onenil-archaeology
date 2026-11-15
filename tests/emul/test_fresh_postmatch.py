@@ -2,6 +2,7 @@
 import copy
 import importlib.util
 import json
+import subprocess
 from pathlib import Path
 from types import SimpleNamespace
 import pytest
@@ -31,7 +32,7 @@ def test_actual_rng_prefix_is_compared_never_used_as_state():
 def test_bad_recovery_refuses_before_deserialization(tmp_path,monkeypatch,damage):
     # A valid public receipt is supplied by the producer fixture helper; every
     # negative must stop before any local/owner pickle is deserialized.
-    receipt=p.synthetic_receipt();private=tmp_path/'machine.pkl.gz';private.write_bytes(b'not a pickle')
+    receipt=p.synthetic_receipt();p.validate_checkpoint(receipt);private=tmp_path/'machine.pkl.gz';private.write_bytes(b'not a pickle')
     receipt['private_sha256']=p.sha(private.read_bytes())
     if damage=='source':receipt['source']['state_sha256']='0'*64
     if damage=='producer':receipt['producer']='HEAD'
@@ -41,10 +42,18 @@ def test_bad_recovery_refuses_before_deserialization(tmp_path,monkeypatch,damage
     if damage=='runtime':receipt['unicorn']='0'
     loaded=[]
     monkeypatch.setattr(p.checkpoint,'read_private',lambda *_:loaded.append(True))
-    with pytest.raises((ValueError,AssertionError)):p.restore(receipt,private)
+    with pytest.raises((ValueError,AssertionError)):p.authenticate_recovery(receipt,private)
     assert loaded==[]
 
 
 def test_partial_source_is_not_completion():
     r={'schema':'fresh-postmatch-result/1','status':'paused','error':None}
     with pytest.raises(ValueError):p.validate_result(r)
+
+
+def test_unpublished_recovery_receipt_refuses_before_pickle(tmp_path,monkeypatch):
+    receipt=tmp_path/'checkpoint.json';receipt.write_text(json.dumps(p.synthetic_receipt()))
+    private=tmp_path/'machine.pkl.gz';private.write_bytes(b'not a pickle')
+    loaded=[];monkeypatch.setattr(p.checkpoint,'read_private',lambda *_:loaded.append(True))
+    with pytest.raises((ValueError,subprocess.CalledProcessError)):p.restore(receipt,private)
+    assert loaded==[]
