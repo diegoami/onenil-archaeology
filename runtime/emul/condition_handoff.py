@@ -72,6 +72,12 @@ def fields(g, player):
                 recovery=signed(g.mem(p15 + 14, 1)[0]))
 
 
+def staff_dependency(g, player):
+    club = g.mem(g.far(0xD7BA) + 8 * player, 1)[0]
+    staff = g.word_at(g.far(0xD7C2) + 62 * club - 18)
+    return dict(staff_id=staff, facility=g.mem(g.far(0xDCC8) + 4 * staff + 2, 1)[0])
+
+
 class SaveView:
     """Decode the same declared fields from T03's save blocks, not an engine."""
     DS = match.guest.DS_PARAGRAPH
@@ -107,10 +113,13 @@ def initial(g, data):
     saved_first = [view.word_at(view.far(0xD7C2) + 62 * (club - 1) + 2 * i) for i in range(20)]
     saved_reserves = [view.word_at(view.far(0xD7D2) + 40 * manager + 48 + 2 * i) for i in range(20)]
     saved = {pid: fields(view, int(pid)) for pid in players}
-    if (first, reserves, players) != (saved_first, saved_reserves, saved):
+    staff = {str(p['club']): staff_dependency(g, p['player']) for p in players.values()}
+    saved_staff = {str(p['club']): staff_dependency(view, p['player']) for p in saved.values()}
+    if (first, reserves, players, staff) != (saved_first, saved_reserves, saved, saved_staff):
         raise ValueError('initial memory differs from pinned save fields')
     return dict(manager=manager, club=club, first_team=first, manager_roster=reserves,
-                caps_source='original DS:0D72/0D73, not serialized in the save', players=players)
+                caps_source='original DS:0D72/0D73, not serialized in the save',
+                players=players, staff_by_club=staff)
 
 
 def registers(g):
@@ -150,6 +159,8 @@ class Recorder:
             g.code_hook(site, lambda machine, kind=kind: self.enter_parent(machine, kind))
         for site in ('1998:1B96', '1998:1869'):
             g.code_hook(site, self.leave_parent)
+        for site in ('0AB9:E7FE', '0AB9:E81E', '0AB9:ED5B', '01EF:4E26'):
+            g.code_hook(site, self.parent_returned)
         g.code_hook('1998:14A5', self.enter)
         for site in RETURNS:
             g.code_hook(site, self.leave)
@@ -170,15 +181,30 @@ class Recorder:
             manager = g.stack_word(4)
             club = g.rd(0xDCB9 + manager, 1)
             roster = [g.word_at(g.far(0xD7D2) + 40 * manager + 48 + 2 * i) for i in range(20)]
-            context = dict(kind=kind, manager=manager, club=club, active=club != 0)
+            competition = None
+            if club:
+                week = g.mem(g.far(0xD7D2), 1)[0]
+                competition = g.mem(g.far(0xD7CA) + 174 * club + 3 * week - 176, 1)[0]
+            context = dict(kind=kind, manager=manager, club=club, active=club != 0,
+                           competition_byte=competition)
         self.parent = dict(index=len(self.contexts), **context, roster=roster,
+                           entry=registers(g), entry_seed=g.word_at(g.far(0xDE84)),
+                           return_site=g.image_address(g.stack_word(2), g.stack_word(0)),
                            draw_start=self.week.draws, draw_end=None, calls=[])
         self.contexts.append(self.parent)
 
     def leave_parent(self, g):
         if self.parent is None or self.pending is not None:
             raise ValueError('unmatched/incomplete caller return')
-        self.parent['draw_end'] = self.week.draws
+        self.parent['return_instruction'] = g.where()
+
+    def parent_returned(self, g):
+        if self.parent is None:
+            return
+        if g.where() != self.parent['return_site'] or self.pending is not None:
+            raise ValueError('wrong caller return boundary')
+        self.parent.update(draw_end=self.week.draws, returned=registers(g),
+                           exit_seed=g.word_at(g.far(0xDE84)))
         self.parent = None
 
     def enter(self, g):
@@ -195,6 +221,7 @@ class Recorder:
                             return_site=site, input=dict(**fields(g, player), flag=flag,
                             seed=g.word_at(g.far(0xDE84))), entry=registers(g),
                             status_byte=g.mem(g.far(0xD7BE) + 15 * player + 11, 1)[0],
+                            dependencies=staff_dependency(g, player),
                             draw_start=self.week.draws, writes=[])
 
     def leave(self, g):
@@ -295,11 +322,269 @@ def run(path):
         raise ValueError(record['error'])
 
 
+def authenticate_producer(record):
+    if set(record['producer_files']) != set(DEPENDENCIES):
+        raise ValueError('producer census differs')
+    for name, digest in record['producer_files'].items():
+        if sha(git('show', record['producer'] + ':' + name)) != digest:
+            raise ValueError('producer identity differs: ' + name)
+
+
+def validate_input(data):
+    if set(data) != set(controlled.inputs()[0]['input']):
+        raise ValueError('incomplete routine inputs')
+    for key in ('base_condition', 'condition', 'recovery'):
+        if type(data[key]) is not int or not -128 <= data[key] <= 127:
+            raise ValueError('signed condition input outside byte')
+    for key in ('age', 'age_reference', 'facility', 'flag'):
+        if type(data[key]) is not int or not 0 <= data[key] <= 255:
+            raise ValueError('unsigned condition input outside byte')
+    if not 1 <= data['player'] <= 3920 or not 1 <= data['club'] <= 176 \
+            or not 0 <= data['seed'] <= 65535 or data['caps'] != [32, 25]:
+        raise ValueError('routine input domain differs')
+
+
+def validate(record):
+    if record['schema'] != 'original-condition-handoff/1' or record['status'] != 'completed' \
+            or record['error'] is not None:
+        raise ValueError('incomplete handoff capture')
+    authenticate_producer(record)
+    source, retained = reference()
+    if record['source'] != source or record['start_state']['sha256'] != source['start_state_sha256']:
+        raise ValueError('handoff source identity differs')
+    if record['mode'] != 'original96 quick week; no watched-mode claim':
+        raise ValueError('mode claim differs')
+    pinned = json.loads((ROOT / 'records/T83/conditions-r0002.json').read_text())
+    if any(record['save'][k] != pinned['sources']['pre'][k] for k in ('sha256', 'size')):
+        raise ValueError('initial save identity differs')
+    initial_state = record['initial']
+    expected_first = [0] * 20
+    for pid, value in pinned['decoded']['conditions_pre'].items():
+        expected_first[value['slot']] = int(pid)
+        if initial_state['players'][pid]['condition'] != value['condition']:
+            raise ValueError('initial condition differs from T83 save decode')
+    if initial_state['club'] != 130 or initial_state['manager'] != 1 \
+            or initial_state['first_team'] != expected_first or len(initial_state['manager_roster']) != 20:
+        raise ValueError('initial managed roster differs')
+    ids = set(initial_state['first_team'] + initial_state['manager_roster']) - {0}
+    if set(initial_state['players']) != {str(pid) for pid in ids}:
+        raise ValueError('initial player census differs')
+    for pid, player in initial_state['players'].items():
+        validate_input(dict(**player, flag=0, seed=0))
+        staff = initial_state['staff_by_club'][str(player['club'])]
+        if player['player'] != int(pid) or staff['facility'] != player['facility'] \
+                or not 0 <= staff['staff_id'] <= 1000:
+            raise ValueError('initial staff/player provenance differs')
+    payload = record['payload']
+    if sha(encoded(payload)) != record['payload_sha256'] or payload['pending'] is not None:
+        raise ValueError('handoff payload differs or is incomplete')
+    draws = [d for d in retained if d['kind'] == 'draw']
+    events = retained[1:-1]
+    wanted_comparison = dict(t08_equal=True, dosbox_equal=True, events_sha256=sha(encoded(events)),
+                             waits=sum(e['kind'] == 'screen' for e in events))
+    if record['comparison'] != wanted_comparison or payload['draws'] != len(draws) \
+            or payload['quick_steps'] <= 0:
+        raise ValueError('original comparison/draw census differs')
+    calls, contexts = payload['calls'], payload['contexts']
+    if not calls or [c['index'] for c in calls] != list(range(len(calls))) \
+            or [c['index'] for c in contexts] != list(range(len(contexts))):
+        raise ValueError('call/context indices differ')
+    owned = []
+    for parent in contexts:
+        selected = [calls[i] for i in parent['calls']]
+        expected = [(i + 1, pid) for i, pid in enumerate(parent['roster']) if pid and parent['active']]
+        if len(parent['roster']) != 20 or [(c['slot'], c['input']['player']) for c in selected] != expected:
+            raise ValueError('caller slot census differs')
+        if any(c['context'] != parent['index'] for c in selected):
+            raise ValueError('caller ownership differs')
+        if parent['kind'] not in ('first_team', 'manager_roster'):
+            raise ValueError('unknown caller class')
+        pop = 10 if parent['kind'] == 'first_team' else 6
+        if parent['returned']['sp'] != (parent['entry']['sp'] + pop) & 65535 \
+                or any(parent['entry'][k] != parent['returned'][k] for k in ('ss', 'ds', 'bp')):
+            raise ValueError('caller ABI return differs')
+        begin, end = parent['draw_start'], parent['draw_end']
+        if not 0 <= begin <= end <= len(draws):
+            raise ValueError('caller draw scope differs')
+        if parent['entry_seed'] != (draws[begin]['seed_before'] if begin < len(draws) else draws[-1]['seed_after']) \
+                or parent['exit_seed'] != (draws[end - 1]['seed_after'] if end else draws[0]['seed_before']):
+            raise ValueError('caller seed handoff differs')
+        if any(not begin <= c['draw_start'] <= c['draw_end'] <= end for c in selected):
+            raise ValueError('condition call outside caller draw scope')
+        owned += parent['calls']
+    if owned != list(range(len(calls))):
+        raise ValueError('missing/duplicated caller-owned call')
+    covered = []
+    for call in calls:
+        validate_input(call['input'])
+        parent = contexts[call['context']]
+        if RETURNS.get(call['return_site']) != parent['kind']:
+            raise ValueError('routine caller return site differs')
+        before, after = call['entry'], call['returned']
+        if after['sp'] != (before['sp'] + 6) & 65535 \
+                or any(after[k] != before[k] for k in ('cs', 'ds', 'ss', 'bp')):
+            raise ValueError('routine ABI return differs')
+        if parent['kind'] == 'first_team' and call['input']['flag'] != int(
+                call['slot'] <= 11 or call['status_byte'] & 4 != 0):
+            raise ValueError('first-team live flag differs')
+        dependency = call['dependencies']
+        if not 0 <= dependency['staff_id'] <= 1000 or dependency['facility'] != call['input']['facility']:
+            raise ValueError('live staff dependency differs')
+        begin, end = call['draw_start'], call['draw_end']
+        observed = [{k: d[k] for k in ('n', 'seed_before', 'seed_after', 'value')} for d in draws[begin:end]]
+        if not observed or observed != call['draws'] or observed[0]['seed_before'] != call['input']['seed']:
+            raise ValueError('literal routine draw span differs')
+        covered += list(range(begin, end))
+        state = {k: call['input'][k] & 255 for k in ('base_condition', 'condition', 'recovery')}
+        state['seed'] = call['input']['seed']
+        for write in call['writes']:
+            field = write['field']
+            if field not in state or write['size'] != (2 if field == 'seed' else 1) \
+                    or write['before'] != state[field] or not 0 <= write['after'] < 256 ** write['size']:
+                raise ValueError('observed numeric write differs')
+            state[field] = write['after']
+        output = {k: v if k == 'seed' else signed(v) for k, v in state.items()}
+        if output != call['output'] or output['seed'] != observed[-1]['seed_after'] \
+                or [w['after'] for w in call['writes'] if w['field'] == 'seed'] != [d['seed_after'] for d in observed]:
+            raise ValueError('output/write/draw handoff differs')
+    direct_sites = {'1998:14D0', '1998:14D8', '1998:14FE', '1998:1506'}
+    helper_sites = {'1998:1429', '1998:1431', '1998:147B'}
+    attributed = [d['i'] for d in draws if direct_sites.intersection(d['callers']) or
+                  (helper_sites.intersection(d['callers']) and '1998:153B' in d['callers'])]
+    if covered != attributed or payload['outside'] != partition(calls, len(draws)):
+        raise ValueError('condition/outside draw partition differs')
+    return dict(calls=len(calls), call_draws=len(covered), outside_draws=len(draws) - len(covered),
+                contexts=len(contexts), initial_players=len(ids), quick_steps=payload['quick_steps'])
+
+
+PROBE = '''use std::io::{self, BufRead};
+use onenil_engine::condition_refresh::{Input, replay};
+fn main() {
+    for line in io::stdin().lock().lines() {
+        let input: Input = serde_json::from_str(&line.unwrap()).unwrap();
+        let result = replay(&input).unwrap();
+        println!("{}", serde_json::to_string(&result).unwrap());
+    }
+}
+'''
+
+
+def projections(capture):
+    return [{key: call[key] for key in ('output', 'draws', 'writes')} for call in capture['payload']['calls']]
+
+
+def native_run(out, source_path, native_root):
+    if out.exists():
+        raise ValueError('native receipts are immutable')
+    for name in DEPENDENCIES:
+        if (ROOT / name).read_bytes() != git('show', 'HEAD:' + name):
+            raise ValueError('commit comparison producer first')
+    native_root = native_root.resolve()
+    def ng(*args):
+        return subprocess.check_output(['git', '-C', str(native_root), *args]).decode().strip()
+    if ng('rev-parse', 'HEAD') != NATIVE or ng('status', '--porcelain', '--untracked-files=no'):
+        raise ValueError('native accepted source is not clean/pinned')
+    capture = json.loads(source_path.read_text())
+    counts = validate(capture)
+    record = dict(schema='native-condition-handoff/1', producer=git('rev-parse', 'HEAD').decode().strip(),
+        producer_files={p: sha((ROOT / p).read_bytes()) for p in DEPENDENCIES},
+        native_commit=NATIVE, native_tree=ng('rev-parse', 'HEAD^{tree}'),
+        source=dict(path=str(source_path.relative_to(ROOT)), sha256=sha(source_path.read_bytes())),
+        counts=counts, status='aborted', error=None, matches=0)
+    try:
+        project = ROOT / '.cache/T85-native-probe'
+        (project / 'src').mkdir(parents=True, exist_ok=True)
+        (project / 'src/main.rs').write_text(PROBE)
+        (project / 'Cargo.toml').write_text('[package]\nname="t85-condition-probe"\nversion="0.1.0"\nedition="2021"\n'
+            '[dependencies]\nonenil-engine={path=' + json.dumps(str(native_root / 'engine')) + '}\nserde_json="=1.0.154"\n')
+        build = subprocess.run(['cargo', 'build', '--locked', '--manifest-path', str(project / 'Cargo.toml')],
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        (project / 'build.log').write_text(build.stdout)
+        if build.returncode:
+            raise ValueError('native probe build failed; see .cache/T85-native-probe/build.log')
+        binary = project / 'target/debug/t85-condition-probe'
+        record['build'] = dict(profile='dev', features=[], probe_sha256=sha(PROBE.encode()),
+            binary_sha256=sha(binary.read_bytes()), lock_sha256=sha((project / 'Cargo.lock').read_bytes()),
+            rustc=subprocess.check_output(['rustc', '--version']).decode().strip())
+        actual = subprocess.run([str(binary)], input=''.join(json.dumps(c['input']) + '\n'
+            for c in capture['payload']['calls']), stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if actual.returncode:
+            raise ValueError('native execution failed: ' + actual.stderr[:1000])
+        results = [json.loads(line) for line in actual.stdout.splitlines()]
+        for result in results:
+            result['draws'] = [{k: d[k] for k in ('n', 'seed_before', 'seed_after', 'value')} for d in result['draws']]
+        expected = projections(capture)
+        record['matches'] = sum(a == b for a, b in zip(results, expected))
+        record['actual_sha256'] = sha(encoded(results))
+        record['expected_sha256'] = sha(encoded(expected))
+        if results != expected:
+            raise ValueError('native natural-case replay differs')
+        record['status'] = 'completed'
+    except (Exception, KeyboardInterrupt) as exc:
+        record['error'] = type(exc).__name__ + ': ' + str(exc)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open('x') as f:
+        json.dump(record, f, indent=2, sort_keys=True)
+        f.write('\n')
+    print(out, record['status'], record['matches'], 'native matches', record['error'])
+    if record['status'] != 'completed':
+        raise ValueError(record['error'])
+
+
+def validate_native(record, source_path, capture):
+    authenticate_producer(record)
+    if record['schema'] != 'native-condition-handoff/1' or record['status'] != 'completed' \
+            or record['error'] is not None or record['native_commit'] != NATIVE:
+        raise ValueError('incomplete/foreign native receipt')
+    if record['source'] != dict(path=str(source_path.relative_to(ROOT)), sha256=sha(source_path.read_bytes())):
+        raise ValueError('native source digest differs')
+    counts = validate(capture)
+    if record['counts'] != counts or record['matches'] != counts['calls']:
+        raise ValueError('native comparison census differs')
+    digest = sha(encoded(projections(capture)))
+    if record['actual_sha256'] != digest or record['expected_sha256'] != digest:
+        raise ValueError('native projection digest differs')
+    if record['build']['probe_sha256'] != sha(PROBE.encode()):
+        raise ValueError('native probe identity differs')
+    return counts
+
+
+def check():
+    index = json.loads(INDEX.read_text())
+    if index['schema'] != 'original-condition-handoff-index/1' or len(index['runs']) != 2 \
+            or index['runs'][0]['path'] == index['runs'][1]['path']:
+        raise ValueError('two fresh-machine repeats required')
+    captures = []
+    for row in index['runs']:
+        path = ROOT / row['path']
+        if sha(path.read_bytes()) != row['sha256']:
+            raise ValueError('immutable handoff run digest differs')
+        capture = json.loads(path.read_text())
+        validate(capture)
+        captures.append(capture)
+    if any(captures[0][key] != captures[1][key] for key in ('initial', 'code', 'comparison', 'payload')):
+        raise ValueError('fresh-machine handoff repeat differs')
+    row = index['native']
+    path = ROOT / row['path']
+    if sha(path.read_bytes()) != row['sha256']:
+        raise ValueError('immutable native receipt digest differs')
+    counts = validate_native(json.loads(path.read_text()), ROOT / index['runs'][0]['path'], captures[0])
+    print('PASS natural quick-week condition handoff:', counts)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', type=Path)
+    parser.add_argument('--check', action='store_true')
+    parser.add_argument('--native-run', type=Path)
+    parser.add_argument('--native-root', type=Path)
+    parser.add_argument('--source', type=Path)
     args = parser.parse_args()
     if args.run:
         run(args.run)
+    elif args.check:
+        check()
+    elif args.native_run and args.native_root and args.source:
+        native_run(args.native_run, args.source.resolve(), args.native_root)
     else:
-        parser.error('choose --run')
+        parser.error('choose --run, --check or --native-run with --native-root/--source')
