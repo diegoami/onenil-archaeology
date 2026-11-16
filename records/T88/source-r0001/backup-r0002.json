@@ -1,0 +1,13 @@
+{
+  "schema": "fresh-private-recovery-backup/1",
+  "backups": [
+    {
+      "checkpoint": "checkpoint-r0004.json",
+      "private_sha256": "a861fb7473212cb9d518856b966ff509bbc82a53ef5e804136432bf66c4cf3b7",
+      "bytes": 622025,
+      "owner_folder_verified": true,
+      "shared": false,
+      "readback_sha256_verified": true
+    }
+  ]
+}

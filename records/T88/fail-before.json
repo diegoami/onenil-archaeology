@@ -1,0 +1,7 @@
+{
+  "commit": "2b89d75",
+  "command": ".cache/venv/bin/python -m pytest -q tests/emul/test_fresh_postmatch.py",
+  "exit_code": 2,
+  "failure": "FileNotFoundError: runtime/emul/fresh_postmatch.py",
+  "scope": "Source/recovery protocol absent; not original caller completion."
+}
