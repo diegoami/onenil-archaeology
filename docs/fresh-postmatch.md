@@ -41,6 +41,26 @@ This is prefix/recovery evidence, not a completed fresh post-match contract.
 Private checkpoint backups have owner-folder/non-sharing metadata and byte
 readback verification; only their digests and status enter public records.
 
+[confirmed:records/T88/source-r0001/result-r0002..r0005 and checkpoint-r0045..r0048]
+The natural fresh source completed at the full accepted T67 reference
+(3825 ticks, 158992 draws, 748 actions, natural 0AB9:EBE2 return), then the
+original caller observed 431 typed operands, 2247+107 reads, 407 writes, 107
+literal caller draws and 36 condition-service calls across both club contexts
+with zero unexpected preservation differences and unchanged original code.
+Two independent fresh-process repeats restored from checkpoint-r0045 and
+produced byte-identical complete observations (result-r0004/r0005, sealed in
+`ACCEPTED`), so `--check` accepts. result-r0002 is retained and not accepted:
+its audit missed exactly one seed read per draw (24BC:0CE6) because Unicorn
+does not fire memory hooks added after a translation block was already cached
+during the 3,825-tick prefix; fresh processes with empty caches reproduce the
+complete read set. The caller checker now resolves a pool base only from
+observed pointer reads and binds it to the recorder's machine declaration:
+the fresh caller reads six pool pointers; club_stats/game/club_aux are
+untouched, and any operand naming an unresolved pool refuses. The embedded
+per-call draws copy of T86 was attached at record-assembly time from the same
+ledger, so the checker pins each condition span by its input seed, output
+seed and write chain instead.
+
 [designed:T88 public validation] The generic caller checker reconstructs only
 observed memory reads/stores, pool/parent bindings, ordered seed writes and
 literal callee draw/write spans. It implements no game or RNG algorithm.

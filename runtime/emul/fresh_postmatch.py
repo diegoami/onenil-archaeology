@@ -23,7 +23,8 @@ encoded=tail.encoded
 git=tail.git
 REFERENCE=ROOT/'runs/T67/reference-r0001'
 REFERENCE_SHA='ad30ff29d886aff9812a26ef2cfe65362f66026da78f69d3d43cf62b855fe6fb'
-ACCEPTED={}
+ACCEPTED={'source-r0001/result-r0004.json':'9064243194d1bbbdd4dba1602d784c41e4bcba034e4ddbd94cc68b1e718d7c29',
+          'source-r0001/result-r0005.json':'9064243194d1bbbdd4dba1602d784c41e4bcba034e4ddbd94cc68b1e718d7c29'}
 FOLDERS=('runtime/emul','runtime/driver','tools/static','tools/data')
 
 def dependencies(producer):
