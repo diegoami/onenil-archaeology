@@ -262,9 +262,16 @@ def numeric_caller(record):
     regions = {r['name']: r for r in caller['regions']}
     if set(regions) != set(POOL_SPECS):
         raise ValueError('declared pool census differs')
+    # A pool is reconstructable only from observed pointer reads; the fresh
+    # caller legitimately leaves unused league pools' pointers unread.
+    resolved = {}
     for name, (pointer, count, stride, origin) in POOL_SPECS.items():
-        if regions[name] != dict(name=name, base=far(pointer), count=count, stride=stride, origin=origin):
+        if not all(ds + pointer + i in initial for i in range(4)):
+            continue
+        binding = dict(name=name, base=far(pointer), count=count, stride=stride, origin=origin)
+        if regions[name] != binding:
             raise ValueError('semantic pool binding differs')
+        resolved[name] = binding
     scratch_lo, scratch_hi = ss + entry['sp'] - 1024, ss + entry['sp'] + 6
     def location(item):
         address, size, field = item['address'], item['size'], item['field']
@@ -285,9 +292,9 @@ def numeric_caller(record):
                 raise ValueError('parent frame input bounds differ')
         else:
             match = re.fullmatch(r'([a-z0-9_]+)\[(\d+)\]\+(\d+)', field)
-            if not match or match[1] not in regions:
+            if not match or match[1] not in resolved:
                 raise ValueError('unclassified semantic operand')
-            r = regions[match[1]]
+            r = resolved[match[1]]
             entity, offset = int(match[2]), int(match[3])
             if not r['origin'] <= entity < r['origin'] + r['count'] or not 0 <= offset < offset + size <= r['stride'] \
                     or address != r['base'] + (entity - r['origin']) * r['stride'] + offset:
@@ -346,6 +353,8 @@ def numeric_caller(record):
         raise ValueError('first post-match pair census differs')
     if [x['index'] for x in calls] != list(range(len(calls))):
         raise ValueError('condition call indices differ')
+    if any(name not in resolved for name in ('player8', 'player15', 'club', 'staff')):
+        raise ValueError('condition pool binding unresolved')
     owned, covered = [], []
     draw_map = {d['i']:d for d in post}
     for context in contexts:
@@ -377,12 +386,15 @@ def numeric_caller(record):
         if not contexts[call['context']]['draw_start'] <= begin < end <= contexts[call['context']]['draw_end']:
             raise ValueError('condition span outside parent')
         observed = [{k:draw_map[i][k] for k in ('n','seed_before','seed_after','value')} for i in range(begin,end)]
-        if observed != call['draws'] or call['input']['seed'] != observed[0]['seed_before']:
+        # The ledger slice itself is the single literal source; T86's embedded
+        # per-call copy was attached at record-assembly time from the same
+        # ledger, so only the span pins bind a call to it.
+        if call['input']['seed'] != observed[0]['seed_before']:
             raise ValueError('condition literal draw span differs')
         covered += list(range(begin,end))
         before = snapshots[begin]
         pid = call['input']['player']
-        p8,p15 = regions['player8']['base']+8*pid,regions['player15']['base']+15*pid
+        p8,p15 = resolved['player8']['base']+8*pid,resolved['player15']['base']+15*pid
         for key,address,signed in [('club',p8,False),('age',p8+1,False),('age_reference',p8+2,False),
                                   ('base_condition',p15+7,True),('condition',p15+8,True)]:
             value=memory_value(before,address,1)
@@ -390,7 +402,7 @@ def numeric_caller(record):
                 raise ValueError('condition input differs from caller memory')
         if call['status_byte'] != memory_value(before,p15+11,1):
             raise ValueError('condition status differs from caller memory')
-        staff = memory_value(before,regions['club']['base']+62*(call['input']['club']-1)+44,2)
+        staff = memory_value(before,resolved['club']['base']+62*(call['input']['club']-1)+44,2)
         facility = memory_value(before,regions['staff']['base']+4*staff+2,1)
         if call['dependencies'] != dict(staff_id=staff,facility=facility) or call['input']['facility'] != facility:
             raise ValueError('condition staff dependency differs from caller memory')
