@@ -1,0 +1,142 @@
+{
+  "schema": "fresh-private-recovery-archive-backup/1",
+  "archive_sha256": "a53dd7bea5254ce3daa68053af751d76e95279ba6aff4db2c015d7ed7033736c",
+  "archive_bytes": 7445801,
+  "owner_folder_verified": true,
+  "shared": false,
+  "readback_sha256_verified": true,
+  "members": [
+    {
+      "checkpoint": "checkpoint-r0013.json",
+      "member": "checkpoint-r0013.pkl.gz",
+      "sha256": "ef3c628e749484991e1a4e01560904d0a8e78126f53fef8178f680c5b16e6a10",
+      "bytes": 622325,
+      "progress": {
+        "ticks": 1180,
+        "draws": 51264,
+        "actions": 259
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0014.json",
+      "member": "checkpoint-r0014.pkl.gz",
+      "sha256": "3da808a298c7b49ae20f4675282c1477f6171c2a5344d127fe07b6dd98ae1849",
+      "bytes": 622305,
+      "progress": {
+        "ticks": 1294,
+        "draws": 55882,
+        "actions": 285
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0015.json",
+      "member": "checkpoint-r0015.pkl.gz",
+      "sha256": "882d7548fe6c1037798fb0bc1487617fa3973dfa71d6063e99080f9c4a71cd47",
+      "bytes": 622395,
+      "progress": {
+        "ticks": 1409,
+        "draws": 58461,
+        "actions": 305
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0016.json",
+      "member": "checkpoint-r0016.pkl.gz",
+      "sha256": "d7fdd8dbd83e9674e04323a5b434a80d4f3be825cb2b42d94821b6329e5223bb",
+      "bytes": 622402,
+      "progress": {
+        "ticks": 1468,
+        "draws": 61098,
+        "actions": 322
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0017.json",
+      "member": "checkpoint-r0017.pkl.gz",
+      "sha256": "3acbe08791919b0515eb351d07f177a54aff5b736a7d28cf1b241d7c0e5c966c",
+      "bytes": 622424,
+      "progress": {
+        "ticks": 1525,
+        "draws": 63710,
+        "actions": 333
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0018.json",
+      "member": "checkpoint-r0018.pkl.gz",
+      "sha256": "a4c8ea993e13b1be274bc246a2a28ae2d9b8a66ceff935a83e4b6139d03ace65",
+      "bytes": 622426,
+      "progress": {
+        "ticks": 1584,
+        "draws": 66768,
+        "actions": 345
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0019.json",
+      "member": "checkpoint-r0019.pkl.gz",
+      "sha256": "3b8d41c15b48958274d688f94ea80c3c845b61b2d187a15e0a8a59d8b11f2c1a",
+      "bytes": 622508,
+      "progress": {
+        "ticks": 1687,
+        "draws": 71383,
+        "actions": 378
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0020.json",
+      "member": "checkpoint-r0020.pkl.gz",
+      "sha256": "862f28f31b7defb1f9f3c3767835a2f9140e3780ff472a20d259ebd3e296740e",
+      "bytes": 622524,
+      "progress": {
+        "ticks": 1794,
+        "draws": 74168,
+        "actions": 389
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0021.json",
+      "member": "checkpoint-r0021.pkl.gz",
+      "sha256": "ab8c211a905d286a6e16ddc8edc574a86a106219450b127e3f953885e0651f20",
+      "bytes": 622584,
+      "progress": {
+        "ticks": 1906,
+        "draws": 77678,
+        "actions": 412
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0022.json",
+      "member": "checkpoint-r0022.pkl.gz",
+      "sha256": "295893f877d7c3d9c2303a60e77fb1be6ff8322b1ea5e491e354e5755b8e4573",
+      "bytes": 622591,
+      "progress": {
+        "ticks": 2022,
+        "draws": 81206,
+        "actions": 437
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0023.json",
+      "member": "checkpoint-r0023.pkl.gz",
+      "sha256": "6ef3478af59b24c4e190d330096bb79e0e0ccb8ea40af2af4841b9906a3cb282",
+      "bytes": 622548,
+      "progress": {
+        "ticks": 2110,
+        "draws": 85500,
+        "actions": 455
+      }
+    },
+    {
+      "checkpoint": "checkpoint-r0024.json",
+      "member": "checkpoint-r0024.pkl.gz",
+      "sha256": "9a8c70af749e597ac0084153533d35de94dbb298b21892ec371c65ea2829eca3",
+      "bytes": 622581,
+      "progress": {
+        "ticks": 2226,
+        "draws": 90907,
+        "actions": 472
+      }
+    }
+  ]
+}

@@ -50,9 +50,11 @@ the natural complete fresh prefix and independently restored suffix/caller
 with sealed public output digests. Until then `--check` deliberately refuses.
 
 ```sh
+T88_CHECKPOINT=$(git ls-files 'records/T88/source-r0001/checkpoint-r*.json' | sort | tail -n 1)
+test -n "$T88_CHECKPOINT"
 .cache/venv/bin/python runtime/emul/fresh_postmatch.py \
   --run records/T88/source-r0001 \
-  --resume records/T88/source-r0001/checkpoint-r0003.json
+  --resume "$T88_CHECKPOINT"
 .cache/venv/bin/python -m pytest -q tests/emul/test_fresh_postmatch.py
 ```
 
@@ -63,3 +65,35 @@ before changing profile/competition/injury guards. Edited and halftime variants
 need their own source coverage. Campaign schema, atomic persistence and weekly
 player enabling remain later gates. No completed game or season is claimed by
 this research capture.
+
+## Session-safe recovery operations
+
+[confirmed:T88 recovery inspection,2026-11-16] Tool session IDs and code-mode
+backup monitors do not survive every environment/session renewal. A running
+identifier in an old checkpoint is not proof of a live or completed capture.
+Inspect fresh checkpoint/result files and actual process identity before
+starting anything. Do not launch a duplicate. A missing tool handle plus stale
+checkpoints is a recovery boundary, not evidence that the caller completed.
+
+[designed:T88] The resume command above selects the newest **committed** receipt;
+untracked receipts must first pass prefix validation, private byte-digest
+checks, backup/readback and publication. A resume deliberately rejects a
+receipt that differs from its Git blob before deserializing the owner pickle.
+Use the latest checkpoint comment for current status; this document does not
+name a permanently current process or recovery cursor.
+
+Private locations are recorded only in the ignored
+`.cache/T88/source-r0001/drive-index.json`. Its `files` map covers individual
+backups and archive-backed members. For an archived member, use
+`archive_members` and `archives`, verify the archive SHA256, extract only the
+named ordinary member into its expected ignored path, then verify its member
+SHA256 against the public checkpoint. The public backup receipt exposes only
+digests/status, not private Drive locators. Do not copy ignored locator metadata
+into public comments or PRs.
+
+Keep the backup/publication worker independent from scientific acceptance.
+It must stop publication on any failing prefix/original-byte check, verify the
+private destination is unshared and compare actual downloaded bytes before
+publishing a backup claim. Do not assume that worker continues after clearing
+a session. Recreate monitoring explicitly after verifying the source process.
+The original capture and its backup monitor are separate jobs.
