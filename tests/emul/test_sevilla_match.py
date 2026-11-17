@@ -233,6 +233,9 @@ def synth_capture(tmp_path):
                  payload_sha256=sha(encoded(payload)), payload=payload)
     result = dict(chunk_payloads=[sha(encoded(chunk))], final=synth_state(200), ticks=1,
                   draws=1, actions=0, first_entry=synth_state(100), entry_draws=0,
+                  match_return=dict(site='0AB9:EBE2', draw=1, seed=200),
+                  caller=dict(entry={}, returned={}, census=dict(reads=1, writes=1, initial=1)),
+                  condition=dict(calls=[], contexts=[]),
                   seconds=1.0, smoke=True)
     finish = dict(schema='sevilla-watched-finish/1', status='completed', error=None,
                   producer=head, result=result, keys_delivered=[['Return', '24BC:0C58']],

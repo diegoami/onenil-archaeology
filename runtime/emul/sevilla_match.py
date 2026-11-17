@@ -248,6 +248,9 @@ def capture(directory, state_path, max_ticks=0):
     joined = False
     pending_tick = pending_action = None
     first_entry = entry_draws = final = None
+    match_return = None
+    audit = None
+    condition = None
 
     def flush():
         nonlocal cursor, chunk_index, export_draw, export_action, export_tick, tick_rows, action_rows
@@ -337,17 +340,23 @@ def capture(directory, state_path, max_ticks=0):
         all_actions.append(row)
 
     def end(current):
-        nonlocal final
-        if not ticks:
-            return
-        if pending_tick is not None or pending_action is not None:
+        """EBE2, the match return: record the boundary, then install the sealed
+        numeric observer and the condition recorder — the original's own
+        post-match caller (E679→EBE6) runs next, and NumericAudit.leave raises
+        Complete when it returns. T88's caller phase, recorded not verified."""
+        nonlocal final, match_return, audit, condition
+        if not ticks or pending_tick is not None or pending_action is not None:
             raise ValueError('sevilla match returned with a pending observer frame')
         final = prior.state(current)
-        raise Complete()
+        match_return = dict(site=current.where(), draw=week.draws,
+                            seed=current.word_at(current.far(0xDE84)),
+                            registers=tail.prior.registers(current), state=final)
+        audit = tail.NumericAudit(week)
+        condition = tail.prior.Recorder(week)
 
     for site, callback in [('0AB9:7C67', entry), ('0AB9:7A02', tick_enter),
                            ('0AB9:7B79', tick_leave), ('0AB9:0F94', action_enter),
-                           ('0AB9:0FFC', action_leave), (prior.match.MATCH_RETURN, end)]:
+                           ('0AB9:0FFC', action_leave), ('0AB9:EBE2', end)]:
         g.code_hook(site, callback)
 
     status, error = 'completed', None
@@ -355,25 +364,32 @@ def capture(directory, state_path, max_ticks=0):
     try:
         try:
             week.play(max_run_on=500000)
-        except Complete:
+        except tail.Complete:
             pass
         else:
-            raise ValueError('the sevilla match did not return')
+            raise ValueError('the sevilla match and its caller did not return')
         if max_ticks:
             # A bounded smoke verifies the plumbing: joined, ticking, chunking.
             # It has no match return; check_capture refuses smoke directories.
             if not joined:
                 raise ValueError('the smoke run did not join the sevilla match')
         else:
-            if not joined or final is None or g.unsupported:
+            if not joined or match_return is None or audit is None or audit.returned is None \
+                    or g.unsupported:
                 raise ValueError('unsupported/incomplete sevilla capture')
         flush()
     except (Exception, KeyboardInterrupt) as exc:
         status, error = 'aborted', f'{type(exc).__name__}: {exc}'
     chunks = sorted(directory.glob('chunk-*.json'))
+    caller = None if audit is None else {k: getattr(audit, k) for k in
+                                         ('entry', 'returned', 'frame', 'initial', 'final', 'ops',
+                                          'regions', 'draw_start', 'draw_end', 'census',
+                                          'preservation', 'timer_effects', 'service_effects')}
+    cond = None if condition is None else dict(calls=condition.calls, contexts=condition.contexts)
     result = dict(chunk_payloads=[sha(p.read_bytes()) for p in chunks], final=final,
                   ticks=ticks, draws=week.draws, actions=len(all_actions),
                   first_entry=first_entry, entry_draws=entry_draws,
+                  match_return=match_return, caller=caller, condition=cond,
                   seconds=round(time.monotonic() - began, 1), smoke=bool(max_ticks))
     prior.write(directory / 'finish.json',
                 dict(schema='sevilla-watched-finish/1', status=status, error=error,
@@ -442,6 +458,10 @@ def check_capture(directory):
             or result['actions'] != cursor['action'] or not result['final'] \
             or result['entry_draws'] is None:
         raise ValueError('capture result identities differ')
+    if not result.get('caller') or result['caller'].get('returned') is None \
+            or not result.get('caller', {}).get('census') \
+            or result.get('match_return') is None or result.get('condition') is None:
+        raise ValueError('capture lacks the sealed post-match caller observations')
     print('sevilla capture verified:', directory,
           f"ticks {result['ticks']}, draws {result['draws']}, actions {result['actions']}")
 
