@@ -7,6 +7,7 @@ identity against the committed T82 record — the real digest gate only opens
 for the owner-local f3aa2e4f save at capture time.
 """
 import copy
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -19,6 +20,8 @@ p = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(p)
 
 SIZE = 194426
+sha = lambda data: hashlib.sha256(data).hexdigest()
+encoded = lambda value: json.dumps(value, sort_keys=True, separators=(',', ':')).encode()
 
 
 def t82_record():
@@ -187,3 +190,99 @@ def test_preparation_state_digest_refuses_before_boot(tmp_path):
         p.authenticate_preparation_state(fake)
     with pytest.raises(ValueError, match='digest'):
         p.authenticate_preparation_state(tmp_path / 'missing.sav')
+
+
+# --- stage 2: capture-directory contract (check_capture) ---
+
+
+def synth_state(seed):
+    return dict(seed=seed, elapsed=0, remaining=5400, quick=0, scores=[0, 0], phase=1,
+                active=1, hold=0, stoppage=0, actor=0, secondary=0,
+                ball={**{f'word{k}': 0 for k in (0, 2, 4, 7, 9, 11)},
+                      **{f'byte{k}': 0 for k in (6, 13, 14)}},
+                scenes=[dict(index=i, **{f'word{k}': 0 for k in (0, 2, 4, 8, 10, 14, 16, 20)},
+                             **{f'byte{k}': 0 for k in (6, 7, 12, 13, 18, 19, 22, 23, 24)})
+                        for i in range(1, 23)])
+
+
+def synth_capture(tmp_path):
+    """A minimal valid capture directory: one chunk, one tick, one draw."""
+    import subprocess
+    head = subprocess.check_output(['git', '-C', str(ROOT), 'rev-parse', 'HEAD']).decode().strip()
+    names = subprocess.check_output(
+        ['git', '-C', str(ROOT), 'ls-tree', '-r', '--name-only', head]).decode().splitlines()
+    census = {n: sha(subprocess.check_output(['git', '-C', str(ROOT), 'show', f'{head}:{n}']))
+              for n in p.watcher_census() if n in names}
+    boot = json.loads((ROOT / 'records/T89/boot-r0001.json').read_bytes())
+    boot_path = ROOT / 'records/T89/boot-r0001.json'
+    start = dict(schema='sevilla-watched-start/1', producer=head, producer_files=census,
+                 preparation_state=dict(path='.cache/T89/states/x.sav', sha256=p.PREPARATION_STATE_SHA),
+                 boot=dict(record='records/T89/boot-r0001.json',
+                           record_sha256=sha(boot_path.read_bytes()),
+                           projection_sha256=boot['projection_sha256']),
+                 release=p.release_96(), watch_setting=1, live_context=dict(p.PREPARATION_LIVE),
+                 interventions=[])
+    payload = dict(index=0, draw_start=0, draw_end=1, tick_start=1, tick_end=1,
+                   action_start=0, action_end=0,
+                   draws=[dict(kind='draw', i=0, n=1, seed_before=100, seed_after=200,
+                               value=42, callers=[])],
+                   ticks=[dict(tick=1, draw_start=0, draw_end=1,
+                               before=synth_state(100), after=synth_state(200))],
+                   actions=[])
+    chunk = dict(schema='sevilla-watched-chunk/1', producer=head,
+                 payload_sha256=sha(encoded(payload)), payload=payload)
+    result = dict(chunk_payloads=[sha(encoded(chunk))], final=synth_state(200), ticks=1,
+                  draws=1, actions=0, first_entry=synth_state(100), entry_draws=0,
+                  seconds=1.0, smoke=True)
+    finish = dict(schema='sevilla-watched-finish/1', status='completed', error=None,
+                  producer=head, result=result, keys_delivered=[['Return', '24BC:0C58']],
+                  unsupported=[])
+    d = tmp_path / 'capture'
+    d.mkdir(parents=True)
+    (d / 'start.json').write_bytes(encoded(start))
+    (d / 'chunk-000000.json').write_bytes(encoded(chunk))
+    (d / 'finish.json').write_bytes(encoded(finish))
+    (d / 'index.json').write_bytes(encoded(dict(
+        start_sha256=sha(encoded(start)),
+        chunks=[dict(path='chunk-000000.json', sha256=sha(encoded(chunk)))],
+        finish_sha256=sha(encoded(finish)))))
+    return d
+
+
+def test_check_capture_accepts_a_valid_directory(tmp_path, monkeypatch):
+    d = synth_capture(tmp_path)
+    monkeypatch.chdir(ROOT)
+    p.check_capture(d)
+
+
+def test_check_capture_refuses_tampering(tmp_path, monkeypatch):
+    import subprocess
+    monkeypatch.chdir(ROOT)
+    base = synth_capture(tmp_path)
+    p.check_capture(base)  # sanity: the synth directory is valid
+
+    def rewrite(d, name, mutate):
+        value = json.loads((d / name).read_text())
+        mutate(value)
+        (d / name).write_bytes(encoded(value))
+
+    # chunk payload tampered but chunk-file digest untouched -> payload digest pin
+    d = synth_capture(tmp_path / 'a')
+    rewrite(d, 'chunk-000000.json', lambda c: c['payload']['draws'][0].update(value=43))
+    with pytest.raises(ValueError):
+        p.check_capture(d)
+    # index chunk digest tampered
+    d = synth_capture(tmp_path / 'b')
+    rewrite(d, 'index.json', lambda i: i['chunks'][0].update(sha256='0' * 64))
+    with pytest.raises(ValueError):
+        p.check_capture(d)
+    # result identities disagree with the chunk index
+    d = synth_capture(tmp_path / 'c')
+    rewrite(d, 'finish.json', lambda f: f['result'].update(ticks=2))
+    with pytest.raises(ValueError):
+        p.check_capture(d)
+    # boot anchor diverges from the committed boot record
+    d = synth_capture(tmp_path / 'd')
+    rewrite(d, 'start.json', lambda s: s['boot'].update(projection_sha256='0' * 64))
+    with pytest.raises(ValueError):
+        p.check_capture(d)

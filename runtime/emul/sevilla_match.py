@@ -233,6 +233,7 @@ def capture(directory, state_path, max_ticks=0):
     start = dict(schema='sevilla-watched-start/1', **meta,
                  preparation_state=dict(path=str(state_path), sha256=PREPARATION_STATE_SHA),
                  boot=dict(record='records/T89/boot-r0001.json',
+                           record_sha256=sha((ROOT / 'records/T89/boot-r0001.json').read_bytes()),
                            projection_sha256=boot_record['projection_sha256']),
                  release=release_96(), watch_setting=watch, live_context=PREPARATION_LIVE,
                  interventions=[])
@@ -381,6 +382,64 @@ def capture(directory, state_path, max_ticks=0):
     return result
 
 
+def check_capture(directory):
+    """Public re-validation of a capture directory: producer census against its
+    own commit, digest-chained chunk replay, and result identities. No private
+    savestate is needed."""
+    import watched_complete as prior
+    directory = Path(directory)
+    start = json.loads((directory / 'start.json').read_text())
+    if start['schema'] != 'sevilla-watched-start/1' or start['interventions'] \
+            or start['watch_setting'] != 1 \
+            or start['preparation_state']['sha256'] != PREPARATION_STATE_SHA \
+            or start['live_context'] != PREPARATION_LIVE:
+        raise ValueError('foreign sevilla capture start')
+    names = git('ls-tree', '-r', '--name-only', start['producer']).decode().splitlines()
+    wanted = {n for n in names if Path(n).parent == Path('runtime/emul') and n.endswith('.py')} | \
+             {'runtime/driver/savestate.py', 'runtime/driver/screens.py',
+              'tools/data/campaign_seed.py', 'tools/data/save.py', 'tools/data/league.py'}
+    if set(start['producer_files']) != wanted:
+        raise ValueError('capture producer census differs')
+    for name, digest in start['producer_files'].items():
+        if sha(git('show', start['producer'] + ':' + name)) != digest:
+            raise ValueError('capture producer source differs: ' + name)
+    if start['release'] != release_96():
+        raise ValueError('capture release identity differs')
+    boot_record = json.loads((ROOT / start['boot']['record']).read_bytes())
+    if sha((ROOT / start['boot']['record']).read_bytes()) != start['boot']['record_sha256'] \
+            or start['boot']['projection_sha256'] != boot_record['projection_sha256']:
+        raise ValueError('capture boot anchor differs from the committed boot record')
+    index = json.loads((directory / 'index.json').read_text())
+    finish = json.loads((directory / 'finish.json').read_text())
+    if index['start_sha256'] != sha((directory / 'start.json').read_bytes()) \
+            or index['finish_sha256'] != sha((directory / 'finish.json').read_bytes()):
+        raise ValueError('capture identity digests differ')
+    if finish['status'] != 'completed' or finish['error'] or finish['unsupported']:
+        raise ValueError('capture is not a completed clean run')
+    cursor = None
+    draws_end = 0
+    for row in index['chunks']:
+        path = directory / row['path']
+        if sha(path.read_bytes()) != row['sha256']:
+            raise ValueError('capture chunk digest differs: ' + row['path'])
+        chunk = json.loads(path.read_text())
+        if chunk['schema'] != 'sevilla-watched-chunk/1' or chunk['producer'] != start['producer']:
+            raise ValueError('foreign capture chunk')
+        if chunk['payload_sha256'] != sha(encoded(chunk['payload'])):
+            raise ValueError('capture chunk payload digest differs')
+        cursor = prior.validate_chunk(chunk['payload'], cursor)
+        draws_end = chunk['payload']['draw_end']
+    result = finish['result']
+    if result['chunk_payloads'] != [row['sha256'] for row in index['chunks']]:
+        raise ValueError('capture result does not match the chunk index')
+    if result['draws'] != draws_end or result['ticks'] != cursor['tick'] - 1 \
+            or result['actions'] != cursor['action'] or not result['final'] \
+            or result['entry_draws'] is None:
+        raise ValueError('capture result identities differ')
+    print('sevilla capture verified:', directory,
+          f"ticks {result['ticks']}, draws {result['draws']}, actions {result['actions']}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--entry', type=Path, help='owner-local post-week save to authenticate')
@@ -389,8 +448,11 @@ def main():
     ap.add_argument('--boot-out', type=Path, help='write the boot context record here')
     ap.add_argument('--capture-dir', type=Path, help='directory for the watched match chunks')
     ap.add_argument('--max-ticks', type=int, default=0, help='smoke bound; 0 = full match')
+    ap.add_argument('--check-capture', type=Path, help='publicly re-validate a capture directory')
     args = ap.parse_args()
-    if args.capture_dir:
+    if args.check_capture:
+        check_capture(args.check_capture)
+    elif args.capture_dir:
         if not args.state:
             ap.error('--capture-dir needs --state')
         result = capture(args.capture_dir, args.state, max_ticks=args.max_ticks)
