@@ -11,6 +11,7 @@ transplanted; the checker refines only from observed reads.
 import argparse
 import hashlib
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -33,6 +34,11 @@ PLAYED_FRIENDLY = dict(week=0, competition=1, opponent=17, flags=65)
 decode_fixture_triples = week_completion.decode_fixture_triples
 decode_week_byte = week_completion.decode_week_byte
 sha = lambda data: hashlib.sha256(data).hexdigest()
+encoded = lambda value: json.dumps(value, sort_keys=True, separators=(',', ':')).encode()
+
+
+def git(*args):
+    return subprocess.check_output(['git', '-C', str(ROOT), *args])
 
 
 def entry_structure(data):
@@ -187,14 +193,210 @@ def release_96():
     return {p['name']: p['sha256'] for p in inventory['files'] if p['edition'] == '96'}
 
 
+def watcher_census():
+    """The observer dependency census for the watched capture (campaign_watched's
+    shape): every runtime/emul module plus the driver/tool files it loads."""
+    names = [str(p.relative_to(ROOT)) for p in sorted((ROOT / 'runtime/emul').glob('*.py'))]
+    names += ['runtime/driver/savestate.py', 'runtime/driver/screens.py',
+              'tools/data/campaign_seed.py', 'tools/data/save.py', 'tools/data/league.py']
+    return sorted(set(names))
+
+
+def capture(directory, state_path, max_ticks=0):
+    """The watched Sevilla match, recorded. Boots from the pinned preparation
+    savestate (boot() authenticates context first), delivers PLAY GAME, joins
+    the match at the watched loop header and records ticks/draws/actions into
+    digest-chained chunks until the match returns. No expected stream exists:
+    the entry state is recorded, and only structural chaining is enforced.
+    max_ticks bounds a smoke run; the real capture leaves it at 0."""
+    import campaign_admission as admission
+    import watched_complete as prior
+    import postmatch_tail as tail
+    directory = Path(directory)
+    if (directory / 'finish.json').exists():
+        raise ValueError('capture directory already complete')
+    meta = dict(producer=git('rev-parse', 'HEAD').decode().strip(),
+                producer_files={p: sha((ROOT / p).read_bytes()) for p in watcher_census()})
+    for name, digest in meta['producer_files'].items():
+        if sha(git('show', meta['producer'] + ':' + name)) != digest:
+            raise ValueError('commit the observer before the capture: ' + name)
+    week, projected, context = boot(state_path)
+    g = week.g
+    watch = g.mem(g.far(0xD7D2) + 0xF2, 1)[0]
+    if watch != 1:
+        raise ValueError('the saved campaign does not carry the enabled watch setting')
+    boot_record = json.loads((ROOT / 'records/T89/boot-r0001.json').read_text())
+    if boot_record['projection_sha256'] != hashlib.sha256(
+            json.dumps(projected, sort_keys=True).encode()).hexdigest():
+        raise ValueError('the live projection differs from the published boot record')
+    start = dict(schema='sevilla-watched-start/1', **meta,
+                 preparation_state=dict(path=str(state_path), sha256=PREPARATION_STATE_SHA),
+                 boot=dict(record='records/T89/boot-r0001.json',
+                           projection_sha256=boot_record['projection_sha256']),
+                 release=release_96(), watch_setting=watch, live_context=PREPARATION_LIVE,
+                 interventions=[])
+    directory.mkdir(parents=True, exist_ok=True)
+    prior.write(directory / 'start.json', start)
+
+    ticks = 0
+    cursor = None
+    chunk_index = export_draw = export_action = 0
+    export_tick = 1
+    tick_rows, action_rows, all_actions = [], [], []
+    joined = False
+    pending_tick = pending_action = None
+    first_entry = entry_draws = final = None
+
+    def flush():
+        nonlocal cursor, chunk_index, export_draw, export_action, export_tick, tick_rows, action_rows
+        draws = [e for e in week.events if e['kind'] == 'draw']
+        payload = dict(index=chunk_index, draw_start=export_draw, draw_end=week.draws,
+                       tick_start=export_tick, tick_end=ticks,
+                       action_start=export_action, action_end=len(all_actions),
+                       draws=draws[export_draw:], ticks=tick_rows, actions=action_rows)
+        cursor = prior.validate_chunk(payload, cursor)
+        digest = sha(encoded(payload))
+        path = directory / f'chunk-{chunk_index:06d}.json'
+        if path.exists():
+            previous = json.loads(path.read_text())
+            if previous['payload_sha256'] != digest or previous['payload'] != payload:
+                raise ValueError('sevilla verified-prefix replay differs')
+        else:
+            with path.open('xb') as out:
+                out.write(encoded(dict(schema='sevilla-watched-chunk/1', producer=meta['producer'],
+                                       payload_sha256=digest, payload=payload)) + b'\n')
+        print(f'sevilla chunk{chunk_index}: tick{ticks}, draw{week.draws}, '
+              f'actions{len(all_actions)}', flush=True)
+        chunk_index += 1
+        export_draw, export_action, export_tick = week.draws, len(all_actions), ticks + 1
+        tick_rows, action_rows = [], []
+
+    class Complete(Exception):
+        pass
+
+    def entry(current):
+        nonlocal joined, first_entry, entry_draws
+        if joined:
+            return
+        # The first watched entry into the Sevilla match is recorded, never
+        # assumed: its state and the draws consumed before it become the pin.
+        first_entry = prior.state(current)
+        entry_draws = week.draws
+        joined = True
+        print(f'sevilla joined: entry draws {entry_draws}', flush=True)
+
+    def tick_enter(current):
+        nonlocal ticks, pending_tick
+        if not joined or pending_tick is not None:
+            raise ValueError('unjoined/nested sevilla tick')
+        ticks += 1
+        if max_ticks and ticks > max_ticks:
+            raise Complete()
+        pending_tick = dict(tick=ticks, draw_start=week.draws, before=prior.state(current))
+
+    def tick_leave(current):
+        nonlocal pending_tick, tick_rows
+        if pending_tick is None:
+            return
+        pending_tick.update(draw_end=week.draws, after=prior.state(current))
+        tick_rows.append(pending_tick)
+        pending_tick = None
+        if len(tick_rows) == prior.CHUNK_TICKS:
+            flush()
+
+    def action_enter(current):
+        nonlocal pending_action
+        if not ticks:
+            return
+        if pending_action is not None:
+            raise ValueError('nested sevilla commentary')
+        args = prior.prefix.arguments(current)
+        club = current.rd(0xD6E4 + 2 * args['side'])
+
+        def player(slot):
+            return 0 if slot == 0 else current.word_at(current.far(0xD7C2) + 62 * (club - 1) + 2 * (slot - 1))
+
+        pending_action = dict(**args, club=club, player=player(args['actor_slot']),
+                              secondary=player(args['secondary_slot']), minute=current.rd(0xD0B2),
+                              tick=ticks, draw_start=week.draws, seed_before=current.rd(0xA51C),
+                              head_before=current.rd(0x380),
+                              caller=current.image_address(current.reg('cs'), current.stack_word(0)))
+
+    def action_leave(current):
+        nonlocal pending_action, action_rows, all_actions
+        if pending_action is None:
+            return
+        row, pending_action = pending_action, None
+        if current.rd(0x380) == row['head_before']:
+            return
+        row.update(event=len(all_actions), draw_end=week.draws, seed_after=current.rd(0xA51C),
+                   queue=prior.prefix.row(current))
+        action_rows.append(row)
+        all_actions.append(row)
+
+    def end(current):
+        nonlocal final
+        if not ticks:
+            return
+        if pending_tick is not None or pending_action is not None:
+            raise ValueError('sevilla match returned with a pending observer frame')
+        final = prior.state(current)
+        raise Complete()
+
+    for site, callback in [('0AB9:7C67', entry), ('0AB9:7A02', tick_enter),
+                           ('0AB9:7B79', tick_leave), ('0AB9:0F94', action_enter),
+                           ('0AB9:0FFC', action_leave), (prior.match.MATCH_RETURN, end)]:
+        g.code_hook(site, callback)
+
+    status, error = 'completed', None
+    began = time.monotonic()
+    try:
+        try:
+            week.play(max_run_on=500000)
+        except Complete:
+            pass
+        else:
+            raise ValueError('the sevilla match did not return')
+        if not joined or final is None or g.unsupported:
+            raise ValueError('unsupported/incomplete sevilla capture')
+        flush()
+    except (Exception, KeyboardInterrupt) as exc:
+        status, error = 'aborted', f'{type(exc).__name__}: {exc}'
+    chunks = sorted(directory.glob('chunk-*.json'))
+    result = dict(chunk_payloads=[sha(p.read_bytes()) for p in chunks], final=final,
+                  ticks=ticks, draws=week.draws, actions=len(all_actions),
+                  first_entry=first_entry, entry_draws=entry_draws,
+                  seconds=round(time.monotonic() - began, 1), smoke=bool(max_ticks))
+    prior.write(directory / 'finish.json',
+                dict(schema='sevilla-watched-finish/1', status=status, error=error,
+                     producer=meta['producer'], result=result,
+                     keys_delivered=g.keys_delivered, unsupported=g.unsupported))
+    if status != 'completed':
+        raise ValueError(error)
+    prior.write(directory / 'index.json',
+                dict(start_sha256=sha((directory / 'start.json').read_bytes()),
+                     chunks=[dict(path=p.name, sha256=sha(p.read_bytes())) for p in chunks],
+                     finish_sha256=sha((directory / 'finish.json').read_bytes())))
+    return result
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--entry', type=Path, help='owner-local post-week save to authenticate')
     ap.add_argument('--record', type=Path, help='write the authenticated entry record here')
     ap.add_argument('--state', type=Path, help='owner-local preparation savestate for --boot')
     ap.add_argument('--boot-out', type=Path, help='write the boot context record here')
+    ap.add_argument('--capture-dir', type=Path, help='directory for the watched match chunks')
+    ap.add_argument('--max-ticks', type=int, default=0, help='smoke bound; 0 = full match')
     args = ap.parse_args()
-    if args.state:
+    if args.capture_dir:
+        if not args.state:
+            ap.error('--capture-dir needs --state')
+        result = capture(args.capture_dir, args.state, max_ticks=args.max_ticks)
+        print('capture', 'completed' if not args.max_ticks else 'smoke',
+              'ticks', result['ticks'], 'draws', result['draws'], 'actions', result['actions'],
+              'entry draws', result['entry_draws'])
+    elif args.state:
         week, projected, context = boot(args.state)
         record = dict(schema='sevilla-boot/1',
                       preparation_state=dict(path=str(args.state), sha256=PREPARATION_STATE_SHA),
