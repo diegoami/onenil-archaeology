@@ -291,9 +291,9 @@ def capture(directory, state_path, max_ticks=0):
         nonlocal ticks, pending_tick
         if not joined or pending_tick is not None:
             raise ValueError('unjoined/nested sevilla tick')
-        ticks += 1
-        if max_ticks and ticks > max_ticks:
+        if max_ticks and ticks + 1 > max_ticks:
             raise Complete()
+        ticks += 1
         pending_tick = dict(tick=ticks, draw_start=week.draws, before=prior.state(current))
 
     def tick_leave(current):
