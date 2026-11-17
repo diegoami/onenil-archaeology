@@ -359,8 +359,14 @@ def capture(directory, state_path, max_ticks=0):
             pass
         else:
             raise ValueError('the sevilla match did not return')
-        if not joined or final is None or g.unsupported:
-            raise ValueError('unsupported/incomplete sevilla capture')
+        if max_ticks:
+            # A bounded smoke verifies the plumbing: joined, ticking, chunking.
+            # It has no match return; check_capture refuses smoke directories.
+            if not joined:
+                raise ValueError('the smoke run did not join the sevilla match')
+        else:
+            if not joined or final is None or g.unsupported:
+                raise ValueError('unsupported/incomplete sevilla capture')
         flush()
     except (Exception, KeyboardInterrupt) as exc:
         status, error = 'aborted', f'{type(exc).__name__}: {exc}'
