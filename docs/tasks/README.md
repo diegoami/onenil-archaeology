@@ -129,3 +129,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T87 Authenticate pre-match fields for the enclosing post-match caller](T87.md)
 
 - [T88 Original fresh-friendly caller and authenticated recovery](T88.md)
+
+- [T89 Capture the authenticated Sevilla friendly — stream and post-match caller](T89.md)
