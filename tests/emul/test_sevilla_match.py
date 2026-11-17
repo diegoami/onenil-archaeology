@@ -121,3 +121,69 @@ def test_entry_record_binds_the_authenticated_identity(tmp_path, monkeypatch):
     assert record['source']['size'] == SIZE
     assert record['decoded']['following'] == dict(p.WITNESSED_FOLLOWING)
     assert record['decoded']['week_byte'] == 1
+
+
+# --- stage 2: boot context protocol ---
+
+
+def test_week_one_anchors_come_from_the_committed_records():
+    a = p.week_one_anchors()
+    assert a['seed_word'] == 10649 and a['cash'] == 421491 and a['week_byte'] == 1
+    assert a['roster'][:6] == [2581, 2582, 2583, 2584, 2585, 2586] and a['roster'][18:] == [0, 0]
+    assert a['following'] == dict(p.WITNESSED_FOLLOWING)
+    assert a['slot_after'] == dict(week=2, competition=1, opponent=28, flags=0)
+    assert 'Sevilla' in a['menu_markers'] and 'Friendly #2' in a['menu_markers']
+
+
+def preparation_projected():
+    t65 = json.loads((ROOT / 'runs/T65/seed-r0001.json').read_text())['initial']
+    projected = json.loads(json.dumps(t65))
+    anchors = p.week_one_anchors()
+    projected['week_index'] = p.PREPARATION_LIVE['week_index']
+    projected['cash'] = anchors['cash']
+    projected['club']['first_team'] = list(anchors['roster'])
+    projected['next_fixture'].update(slot=3, opponent=28, opponent_name='Celtic',
+                                     competition_code=1, flags=0, venue_code=0, opponent_flags=1)
+    return projected
+
+
+def test_preparation_context_accepts_the_pre_advanced_projection():
+    fixture = p.check_preparation_context(preparation_projected(), p.week_one_anchors())
+    assert (fixture['competition_code'], fixture['opponent']) == (1, 28)
+
+
+@pytest.mark.parametrize('field,value', [
+    ('week_index', 1), ('week_index', 0), ('cash', 452000),
+    ('manager', {'slot': 1, 'name_id': 130, 'name': 'Keegan'}),
+])
+def test_tampered_preparation_context_refuses(field, value):
+    projected = preparation_projected()
+    if field == 'manager':
+        projected['manager'] = value
+    else:
+        projected[field] = value
+    with pytest.raises(ValueError):
+        p.check_preparation_context(projected, p.week_one_anchors())
+
+
+def test_tampered_roster_live_fixture_and_season_refuse():
+    for mutate in (lambda c: c['club']['first_team'].__setitem__(1, 2592),
+                   lambda c: c['next_fixture'].update(opponent=17),
+                   lambda c: c['next_fixture'].update(opponent=176),
+                   lambda c: c['next_fixture'].update(competition_code=0),
+                   lambda c: c['season'].update(start_year=1995)):
+        projected = preparation_projected()
+        mutate(projected)
+        with pytest.raises(ValueError):
+            p.check_preparation_context(projected, p.week_one_anchors())
+
+
+def test_preparation_state_digest_refuses_before_boot(tmp_path):
+    import hashlib
+    fake = tmp_path / 'sevilla-preparation.sav'
+    fake.write_bytes(b'not a savestate')
+    assert hashlib.sha256(fake.read_bytes()).hexdigest() != p.PREPARATION_STATE_SHA
+    with pytest.raises(ValueError, match='digest'):
+        p.authenticate_preparation_state(fake)
+    with pytest.raises(ValueError, match='digest'):
+        p.authenticate_preparation_state(tmp_path / 'missing.sav')
