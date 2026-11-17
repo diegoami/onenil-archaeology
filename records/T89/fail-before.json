@@ -1,0 +1,7 @@
+{
+ "commit": "4ee87c6",
+ "command": ".cache/venv/bin/python -m pytest -q tests/emul/test_sevilla_match.py",
+ "exit_code": 2,
+ "failure": "FileNotFoundError: runtime/emul/sevilla_match.py (collection error)",
+ "scope": "Entry-state protocol absent; not Sevilla capture completion."
+}

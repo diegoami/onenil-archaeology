@@ -37,7 +37,7 @@ def synthesized_entry(club=130):
     data[at(17) + 0], data[at(17) + 1], data[at(17) + 2] = 1, club, 64
     # following fixture: Sevilla, Friendly #2, no played marker
     data[at(club) + 3], data[at(club) + 4], data[at(club) + 5] = 1, 176, 0
-    data[at(176) + 0], data[at(176) + 1], data[at(176) + 2] = 1, club, 0
+    data[at(176) + 3], data[at(176) + 4], data[at(176) + 5] = 1, club, 0
     data[week_at] = 1
     return bytes(data)
 
@@ -60,7 +60,6 @@ def test_structurally_valid_entry_is_accepted():
     assert entry['reciprocal_played'] == (1, p.MANAGED_CLUB)
     assert entry['reciprocal_following'] == (1, p.MANAGED_CLUB)
 
-
 @pytest.mark.parametrize('damage,marker', [
     ('played', 'played friendly triple'),
     ('reciprocal', 'reciprocal'),
@@ -81,7 +80,7 @@ def test_tampered_entry_structure_refuses(damage, marker):
     if damage == 'following':
         data[at(130) + 4] = 175
     if damage == 'reciprocal_following':
-        data[at(176) + 1] = 131
+        data[at(176) + 4] = 131
     if damage == 'played_marker':
         data[at(130) + 2] = 0
     if damage == 'following_marker':
