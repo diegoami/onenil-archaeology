@@ -174,6 +174,13 @@ def boot(state_path):
     data = authenticate_preparation_state(state_path)
     week = tail.full.match.Week(data)
     g = week.g
+    # [confirmed static: guest.py F06 docstring] The game programs the PIT to
+    # 0x400 for a match at 1998:0096; [confirmed dynamic: the fresh route's live
+    # machine carries divisor 1024 mid-match]. That write precedes the restored
+    # savestate, and the DOSBox savestate format cannot carry the timer chip:
+    # restore the divisor exactly as the game's own write would have left it.
+    g.divisor = 0x400
+    g._retime = True
     release_digests = release_96()
     if {name: sha(value) for name, value in week.files_at_start.items()} != release_digests:
         raise ValueError('wrong original release at preparation boot')
@@ -236,6 +243,10 @@ def capture(directory, state_path, max_ticks=0):
                            record_sha256=sha((ROOT / 'records/T89/boot-r0001.json').read_bytes()),
                            projection_sha256=boot_record['projection_sha256']),
                  release=release_96(), watch_setting=watch, live_context=PREPARATION_LIVE,
+                 emulated_hardware=dict(pit_divisor=0x400,
+                                        reason="the game's own PIT write (1998:0096, divisor 0x400 "
+                                               "for a match) precedes the restored savestate; the "
+                                               "savestate format cannot carry the timer chip"),
                  interventions=[])
     directory.mkdir(parents=True, exist_ok=True)
     prior.write(directory / 'start.json', start)
@@ -414,7 +425,10 @@ def check_capture(directory):
     if start['schema'] != 'sevilla-watched-start/1' or start['interventions'] \
             or start['watch_setting'] != 1 \
             or start['preparation_state']['sha256'] != PREPARATION_STATE_SHA \
-            or start['live_context'] != PREPARATION_LIVE:
+            or start['live_context'] != PREPARATION_LIVE \
+            or start.get('emulated_hardware') != dict(pit_divisor=0x400,
+                reason="the game's own PIT write (1998:0096, divisor 0x400 for a match) precedes "
+                       "the restored savestate; the savestate format cannot carry the timer chip"):
         raise ValueError('foreign sevilla capture start')
     names = git('ls-tree', '-r', '--name-only', start['producer']).decode().splitlines()
     wanted = {n for n in names if Path(n).parent == Path('runtime/emul') and n.endswith('.py')} | \

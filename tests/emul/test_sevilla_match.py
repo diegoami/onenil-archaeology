@@ -221,6 +221,10 @@ def synth_capture(tmp_path):
                            record_sha256=sha(boot_path.read_bytes()),
                            projection_sha256=boot['projection_sha256']),
                  release=p.release_96(), watch_setting=1, live_context=dict(p.PREPARATION_LIVE),
+                 emulated_hardware=dict(pit_divisor=0x400,
+                                        reason="the game's own PIT write (1998:0096, divisor 0x400 "
+                                               "for a match) precedes the restored savestate; the "
+                                               "savestate format cannot carry the timer chip"),
                  interventions=[])
     payload = dict(index=0, draw_start=0, draw_end=1, tick_start=1, tick_end=1,
                    action_start=0, action_end=0,
