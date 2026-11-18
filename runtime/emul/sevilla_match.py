@@ -287,9 +287,6 @@ def capture(directory, state_path, max_ticks=0):
         export_draw, export_action, export_tick = week.draws, len(all_actions), ticks + 1
         tick_rows, action_rows = [], []
 
-    class Complete(Exception):
-        pass
-
     def entry(current):
         nonlocal joined, first_entry, entry_draws
         if joined:
@@ -306,7 +303,7 @@ def capture(directory, state_path, max_ticks=0):
         if not joined or pending_tick is not None:
             raise ValueError('unjoined/nested sevilla tick')
         if max_ticks and ticks + 1 > max_ticks:
-            raise Complete()
+            raise tail.Complete()
         ticks += 1
         pending_tick = dict(tick=ticks, draw_start=week.draws, before=prior.state(current))
 
