@@ -1,0 +1,295 @@
+{
+  "schema": "original-sevilla-entry/1",
+  "producer": "61b78e28cba30d7e4e12bda1641d79ca0e2abe36",
+  "producer_files": {
+    "runtime/driver/sevilla_entry.py": "7989e3460f8d92173ada26abf19f75cd7ca1637f5dab234a04b36a4b5a025428",
+    "runtime/emul/sevilla_match.py": "687a094abda8c5061f95c4ddfeb60e1a20c3836791d91cdd5f44d633f09ecdc1",
+    "runtime/driver/week_completion.py": "fd4d7d1ec99f1dd3e8b096031a6cf9c9affba81d8b00a2f4fca0d44f053cedeb",
+    "runtime/driver/halftime_replacement.py": "f8d9d2fa227893f237a1d6a4083b7431194d36b88884e3eda4d524168c14e7dc",
+    "runtime/driver/saved_roster.py": "6c9be070d7bba23bbdfee78d3b931959a008860258184d9514df119d1f5e8e8f",
+    "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+    "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+    "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+    "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+    "runtime/driver/dosbox-x-2024.03.01-default.map": "1849ec80ad0b32949869ed8b2d38e7b2e1e89f5959965328b5f8c561196b589a",
+    "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045",
+    "tools/data/league.py": "13155352f10b7d57215ccfe826ae11e2d6f99eb17ab0aca1356913a0003d45ab",
+    "tools/data/campaign_seed.py": "ace94f637abf68595bffd82410cc92e576137a0ce9341384ea447874c03e4207"
+  },
+  "release": {
+    "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+    "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+    "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+    "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+    "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+    "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+    "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+    "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+    "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+    "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+    "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+    "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+    "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+    "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+  },
+  "dosbox_version": "2024.03.01",
+  "status": "completed",
+  "processes_exited": true,
+  "entry": {
+    "path": ".cache/T81-original-r0003/game/SAVE1.1-0",
+    "sha256": "f3aa2e4f076891fca47ca686664502a0f69ed79bdd67de0910bf0ed932225e29",
+    "size": 194426
+  },
+  "payload": {
+    "decoded": {
+      "club": 130,
+      "week_byte": 1,
+      "played": {
+        "week": 0,
+        "competition": 1,
+        "opponent": 17,
+        "flags": 65
+      },
+      "following": {
+        "week": 1,
+        "competition": 1,
+        "opponent": 176,
+        "flags": 0
+      },
+      "reciprocal_played": [
+        1,
+        130
+      ],
+      "reciprocal_following": [
+        1,
+        130
+      ]
+    },
+    "boot": {
+      "save_sha256": "f3aa2e4f076891fca47ca686664502a0f69ed79bdd67de0910bf0ed932225e29",
+      "keys": [
+        "y",
+        "Return"
+      ]
+    },
+    "menu": {
+      "name": "menu-sevilla",
+      "keys": [],
+      "text": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u250c\u2500Blackburn R----\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 TEAM            \u2502 \u2502 formation                 4-4-2 \u2502  \u2502 GAME NAME: SAVE1    \u2502\n\u251c Blackburn R---- \u2524 \u251c\u2500FIRST TEAM AVERAGES\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\u2502 MANAGER         \u2502 \u2502 confidence              nervous \u2502  \u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u251c Dalglish        \u2524 \u2502 fitness           not quite fit \u2502  \u2551 PLAY NEXT GAME     \u2551\n\u2502 MONEY           \u2502 \u2502 energy                   mobile \u2502  \u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2562\n\u251c 421,491         \u2524 \u2502 hardness                average \u2502  \u2551 Players            \u2551\n\u2502 LEAGUE POS.   1 \u2502 \u251c\u2500RATINGS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2524  \u2551 Next opponents     \u2551\n\u2502 SEASON  1994/95 \u2502 \u2502 goalkeeper     \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 Transfer market    \u2551\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 defence        \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 Use scout          \u2551\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 midfield       \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 New staff          \u2551\n\u2502 NEXT OPPONENTS  \u2502 \u2502 attack         \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 League tables      \u2551\n\u251c Sevilla-------- \u2524 \u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2534\u252c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u2524  \u2551 League results     \u2551\n\u2502 MANAGER         \u2502 \u251c\u2500TEAM VALUE\u2500\u2500\u2500\u2500\u2524 \u25021\u25027,9\u25024\u25020,0\u25020\u25020\u2502  \u2551 Cup results        \u2551\n\u251c Aragones        \u2524 \u251c\u2500TACTICS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2524  \u2551 Weekly fixtures    \u2551\n\u2502 LEAGUE          \u2502 \u2502 positioning        push forward \u2502  \u2551 Fixture list       \u2551\n\u251c EUROPEAN        \u2502 \u2502 possession         pass quickly \u2502  \u2551 Statistics         \u2551\n\u2502 LEAGUE POS.     \u2502 \u2502 passing            short passes \u2502  \u2551 Player/team history\u2551\n\u255e\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2561 \u2502 aggression           go in hard \u2502  \u2551 Seasonal history   \u2551\n\u2502COMPETITION      \u2502 \u2502 defence              half pitch \u2502  \u2551 Other teams        \u2551\n\u251cFriendly #2      \u2524 \u2502 protection      sag back to box \u2502  \u2551 Game configuration \u2551\n\u2502VENUE       away \u2502 \u2502 offside            offside trap \u2502  \u2551 Cashflow           \u2551\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 marking                   zonal \u2502  \u255a\u2550\u2191\u2193-move\u2550\u2550\u25c4\u2518-select\u2550\u255d\n                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518    F7-Save  F10-Quit\n INS-Change information  SPACEBAR-Squad",
+      "screen_sha256": "48e12f6307b6103c5aa8074222337b6cb816032ceda60ad1015f2915d447c72c",
+      "savestate_sha256": "8ee2e81b27d5e84fd9f1556fc3074ed2a9c501f3091241cda9fa7886c285f298",
+      "state_sha256": "82faa9046acc4faaf3773a5a2e16285d2d9301388c27b91a9b0771a314ba67c2",
+      "state": {
+        "seed": 10649,
+        "club": 130,
+        "roster": [
+          2581,
+          2582,
+          2583,
+          2584,
+          2585,
+          2586,
+          2587,
+          2588,
+          2589,
+          2590,
+          2591,
+          2592,
+          2593,
+          2594,
+          2595,
+          2596,
+          2597,
+          2598,
+          0,
+          0
+        ],
+        "players": {
+          "2582": {
+            "current_position": 2,
+            "club_position": 2,
+            "condition": 31,
+            "instructions": 178,
+            "status": 0
+          },
+          "2592": {
+            "current_position": 2,
+            "club_position": 2,
+            "condition": 19,
+            "instructions": 50,
+            "status": 0
+          }
+        }
+      }
+    },
+    "preparation": {
+      "name": "preparation-sevilla",
+      "keys": [],
+      "text": "Blackburn R----     \u250c\u2500Blackburn R----\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u2554\u2550FIRST TEAM\u2550\u2550\u2550\u2566\u2550\u2557\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 formation                 4-4-2 \u2502  \u2551 T Flowers    \u2551G\u2551\n\u2502Friendly #2      \u2502 \u251c\u2500FIRST TEAM AVERAGES\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2551 I Pearce     \u2551C\u2551\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524 \u2502 confidence              nervous \u2502  \u2551 C Hendry     \u2551C\u2551\n\u2502 Sevilla-------- \u2502 \u2502 fitness           not quite fit \u2502  \u2551 G Le Saux    \u2551b\u2551\n\u2502     versus      \u2502 \u2502 energy                   mobile \u2502  \u2551 H Berg       \u2551B\u2551\n\u2502 Blackburn R---- \u2502 \u2502 hardness                average \u2502  \u2551 M Atkins     \u2551D\u2551\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u251c\u2500RATINGS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2524  \u2551 T Sherwood   \u2551\u00c7\u2551\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 goalkeeper     \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 J Wilcox     \u2551w\u2551\n\u2502 Remaining subs 9\u2502 \u2502 defence        \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 S Ripley     \u2551W\u2551\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 midfield       \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 C Sutton     \u2551\u00a2\u2551\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2502 attack         \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 A Shearer    \u2551$\u2551\n\u2551 Sevilla-------- \u2551 \u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2534\u252c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u253c\u2500\u252c\u2500\u2524  \u255f\u2500SUBS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256b\u2500\u2562\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2562 \u251c\u2500TEAM VALUE\u2500\u2500\u2500\u2500\u2524 \u25021\u25027,9\u25024\u25020,0\u25020\u25020\u2502  \u2551 T Gale       \u2551C\u2551\n\u2551 Match stats     \u2551 \u251c\u2500TACTICS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2524  \u2551 P Warhurst   \u2551\u00a2\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2562 \u2502 positioning        push forward \u2502  \u2551 R Slater     \u2551D\u2551\n\u2551 PLAY GAME       \u2551 \u2502 possession         pass quickly \u2502  \u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256b\u2500\u2562\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2562 \u2502 passing            short passes \u2502  \u2551 N Marker     \u2551C\u2551\n\u2551 Change tactics  \u2551 \u2502 aggression           go in hard \u2502  \u2551 M Newell     \u2551$\u2551\n\u255f\u2500\u2191\u2193-move\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2562 \u2502 defence              half pitch \u2502  \u2551 A Wright     \u2551B\u2551\n\u2559\u2500\u25c4\u2518-select\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u255c \u2502 protection      sag back to box \u2502  \u2551 B Mimms      \u2551G\u2551\n                    \u2502 offside            offside trap \u2502  \u2551              \u2551 \u2551\n                    \u2502 marking                   zonal \u2502  \u2551              \u2551 \u2551\n                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518  \u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2569\u2550\u255d\n INS-Change information  SPACEBAR-Squad",
+      "screen_sha256": "52cb56d0840fa3e7894c70e3fe252e1837000def781d3f2718543ebec0f49c51",
+      "savestate_sha256": "98275eb59475dc155e12c915996c2c2cbd0fc1298ffedf14490ff2aa118805c9",
+      "state_sha256": "1886375e710425dae7bab8f29810e52fcb507d8e2c92005fc51db22ee9a53ecc",
+      "state": {
+        "seed": 50238,
+        "club": 130,
+        "roster": [
+          2581,
+          2582,
+          2583,
+          2584,
+          2585,
+          2586,
+          2587,
+          2588,
+          2589,
+          2590,
+          2591,
+          2592,
+          2593,
+          2594,
+          2595,
+          2596,
+          2597,
+          2598,
+          0,
+          0
+        ],
+        "players": {
+          "2582": {
+            "current_position": 2,
+            "club_position": 2,
+            "condition": 31,
+            "instructions": 178,
+            "status": 0
+          },
+          "2592": {
+            "current_position": 2,
+            "club_position": 2,
+            "condition": 19,
+            "instructions": 50,
+            "status": 0
+          }
+        }
+      }
+    },
+    "savestate": {
+      "path": ".cache/T89/states/sevilla-preparation-0001.sav",
+      "sha256": "98275eb59475dc155e12c915996c2c2cbd0fc1298ffedf14490ff2aa118805c9",
+      "size": 283109,
+      "at": "fixture preparation entry; nothing keyed past PLAY GAME"
+    }
+  },
+  "error": null,
+  "elapsed_seconds": 13.359243587000492,
+  "driver_events": [
+    [
+      0.021,
+      "mapper file (written), sha256 7b2f6f958fdb0a0b6a68e12611c3e3ab8554f0872c048ab8a8a05da2fff73a23: savestate on Scroll_Lock, load on Print"
+    ],
+    [
+      0.173,
+      "Xvfb poll: answered after 2 polls of 0.1s"
+    ],
+    [
+      0.173,
+      "Xvfb :549 answering"
+    ],
+    [
+      0.192,
+      "dosbox-x started"
+    ],
+    [
+      0.316,
+      "window found after 2 polls of 0.1s"
+    ],
+    [
+      3.317,
+      "T80: waited 3 seconds after window creation before first savestate"
+    ],
+    [
+      3.322,
+      "window focused"
+    ],
+    [
+      3.845,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      3.849,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      3.879,
+      "title screen: matched after 1 savestate polls"
+    ],
+    [
+      3.879,
+      "DOS clock read back: '11/17/2026\\n17:42:50'"
+    ],
+    [
+      6.964,
+      "key y held 0.08s (raw keycode 29)"
+    ],
+    [
+      10.502,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      10.504,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      10.53,
+      "restored main: matched after 1 savestate polls"
+    ],
+    [
+      11.319,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      11.321,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      11.437,
+      "key Return held 0.08s (raw keycode 36)"
+    ],
+    [
+      11.987,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      11.989,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      12.005,
+      "preparation: matched after 1 savestate polls"
+    ],
+    [
+      12.82,
+      "emulator key Scroll_Lock (for host+s) held 0.52s (raw keycode 78)"
+    ],
+    [
+      12.821,
+      "savestate complete after 1 polls of 0.05s"
+    ],
+    [
+      13.349,
+      "dosbox-x pid 16482 alive 0.5s after SIGTERM (grace 0.5s): SIGKILL to its group"
+    ],
+    [
+      13.355,
+      "dosbox-x pid 16482 ended by SIGKILL 0.507s after the first signal"
+    ],
+    [
+      13.359,
+      "Xvfb pid 16475 ended by SIGTERM 0.003s after the first signal"
+    ],
+    [
+      13.359,
+      "terminated"
+    ]
+  ],
+  "payload_sha256": "578f171f1a717d4a458bc11bf51fc13b01ee1c6197ed49f8d8640b5078813ff4"
+}
