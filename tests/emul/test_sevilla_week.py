@@ -73,3 +73,30 @@ def test_the_week_facts_refuse_transplanted_week0_values():
 def test_the_check_contract_exists_and_refuses_an_unrecorded_run():
     with pytest.raises(Exception):
         sevilla_week.check(directory=None)
+
+
+def test_the_check_binds_the_sealed_identity_through_the_payload_layer(tmp_path):
+    # [T93 aborted-r0001 lesson] The chunk wrappers legitimately differ between
+    # captures (each carries its own producer and schema), so the sealed
+    # identity binds through the chunk PAYLOAD digests; the record's own file
+    # digests prove the record's integrity. A re-wrapped copy of every sealed
+    # chunk — foreign producer, identical payloads — must therefore pass the
+    # identity comparison and fail later, on the observed counts.
+    sealed_dir = ROOT / 'runs/T89/sevilla-r0001'
+    leaves = []
+    for leaf in t89_index()['chunks']:
+        chunk = json.loads((sealed_dir / leaf['path']).read_text())
+        rewrapped = dict(schema='sevilla-watched-chunk/1', producer='0' * 40,
+                         payload_sha256=chunk['payload_sha256'], payload=chunk['payload'])
+        data = json.dumps(rewrapped, sort_keys=True, separators=(',', ':')).encode() + b'\n'
+        (tmp_path / leaf['path']).write_bytes(data)
+        leaves.append(dict(path=leaf['path'], sha256=SHA(data)))
+    (tmp_path / 'start.json').write_text(json.dumps(dict(schema='sevilla-week-start/1')))
+    (tmp_path / 'finish.json').write_text(json.dumps(dict(
+        schema='sevilla-week-finish/1', status='completed',
+        result=dict(ticks=0, draws=0, actions=0, chunk_payloads=[l['sha256'] for l in leaves]))))
+    (tmp_path / 'index.json').write_text(json.dumps(dict(chunks=leaves)))
+    with pytest.raises(ValueError) as caught:
+        sevilla_week.check(tmp_path)
+    assert 'count differs from the sealed identity' in str(caught.value)
+    assert 'stream differs' not in str(caught.value)

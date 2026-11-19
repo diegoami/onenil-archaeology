@@ -407,9 +407,19 @@ def check(directory):
     if finish['status'] != 'completed':
         raise ValueError('the recorded sevilla week run did not complete')
     identity = match_identity()
-    if [leaf['sha256'] for leaf in index['chunks']] != identity['chunk_sha256']:
+    # Layer discipline [T93, the aborted-r0001 lesson]: the record's own file
+    # digests prove the record's integrity; the sealed identity binds through
+    # the chunk PAYLOAD digests, because the wrapper (producer, schema) is
+    # legitimately different between captures.
+    for leaf, path in zip(index['chunks'], sorted(directory.glob('chunk-*.json'))):
+        if leaf['path'] != path.name or sha(path.read_bytes()) != leaf['sha256']:
+            raise ValueError('the recorded chunk ledger differs from the chunk files')
+    payloads = [json.loads(p.read_text())['payload_sha256'] for p in sorted(directory.glob('chunk-*.json'))]
+    if len(payloads) != len(identity['payload_sha256']) or payloads != identity['payload_sha256']:
         raise ValueError('the replayed match stream differs from the sealed identity')
     result = finish['result']
+    if result['chunk_payloads'] != [leaf['sha256'] for leaf in index['chunks']]:
+        raise ValueError('the finish chunk ledger differs from the index')
     for key in ('ticks', 'draws', 'actions'):
         if result[key] != identity[key]:
             raise ValueError(f'the replayed match {key} count differs from the sealed identity')
