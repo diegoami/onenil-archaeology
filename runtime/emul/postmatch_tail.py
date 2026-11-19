@@ -162,6 +162,11 @@ class NumericAudit:
 
     def enter(self, g):
         if self.entry is not None:
+            if self.final is not None:
+                # [T93] The week's full-time route invokes the processor for
+                # every fixture of the round; an audit that has already sealed
+                # one caller stands down for the route's remaining calls.
+                return
             raise ValueError('second enclosing caller before stop')
         self.entry = prior.registers(g)
         self.timer_start = (g.timer_ticks, g.game_timer_ticks)
