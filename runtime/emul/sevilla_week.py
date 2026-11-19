@@ -223,14 +223,28 @@ def observe_week_route(week, stages):
         raise ValueError('the week route did not reach the management menu')
 
 
-def week_facts(week, stages, cash_before, boundary_players):
+def week_facts(week, stages, cash_before, boundary_projection):
     """The advanced state projected and its observed facts typed; refuses a
-    cash screen that disagrees with the projection or a transplanted week."""
+    cash screen that disagrees with the projection or a transplanted week.
+    [confirmed: the r0002 boundary checkpoint, scratch decode] The fixture
+    triples are indexed by week (slot 0 = week 0, slot 1 = the Sevilla week,
+    slot 2 = Celtic, T82's "slot 2"); the following fixture is the slot of the
+    live week byte, cross-checked against the projection's next fixture. The
+    week byte is already 2 at the caller boundary (T89's pre-advance finding):
+    the boundary's next fixture is recorded beside the menu's."""
     g = week.g
     after = project(week)
     memory = admission.memory_save(g)
     fixtures = week_completion.decode_fixture_triples(memory, MANAGED_CLUB, weeks=4)
     week_byte = week_completion.decode_week_byte(memory)
+    if not 0 <= week_byte < len(fixtures) or fixtures[week_byte]['week'] != week_byte:
+        raise ValueError('the live week byte names no decoded fixture slot')
+    slot = fixtures[week_byte]
+    if slot['opponent'] != after['next_fixture']['opponent'] \
+            or slot['competition'] != after['next_fixture']['competition_code']:
+        raise ValueError('the decoded following fixture differs from the projected next fixture')
+    following = dict(week=week_byte, competition=slot['competition'],
+                     opponent=slot['opponent'], flags=slot['flags'])
     cash_facts = None
     for stage in reversed(stages):
         if 'CASH FLOW' in stage['text']:
@@ -238,19 +252,17 @@ def week_facts(week, stages, cash_before, boundary_players):
             break
     if cash_facts is None or cash_facts['club_funds'] != after['cash']:
         raise ValueError('the cash screen movement differs from the projected week-2 funds')
-    authenticate_week_facts(cash_facts['total_in'], cash_facts['total_out'],
-                            dict(week=week_byte, competition=fixtures[1]['competition'],
-                                 opponent=fixtures[1]['opponent'], flags=fixtures[1]['flags']))
+    authenticate_week_facts(cash_facts['total_in'], cash_facts['total_out'], following)
     return dict(
         cash_before=cash_before,
         cash_after=after['cash'],
         total_in=cash_facts['total_in'], total_out=cash_facts['total_out'],
-        following=dict(week=week_byte, competition=fixtures[1]['competition'],
-                       opponent=fixtures[1]['opponent'], flags=fixtures[1]['flags'],
-                       name=fixtures[1].get('name', '')),
+        following=dict(following, name=after['next_fixture'].get('opponent_name', '')),
         week_byte=week_byte,
+        fixtures=fixtures,
+        boundary_next_fixture=boundary_projection['next_fixture'],
         conditions_before={p['id']: p['availability']['condition_signed']
-                           for p in boundary_players},
+                           for p in boundary_projection['players']},
         conditions_after={p['id']: p['availability']['condition_signed']
                           for p in after['players']},
         next_fixture=after['next_fixture'], seed_word=g.word_at(g.far(0xDE84)),
@@ -331,7 +343,7 @@ def resume(receipt_path, directory):
     try:
         observe_week_route(week, stages)
         record = week_facts(week, stages, progress['projected_cash'],
-                            progress['caller_boundary']['projection']['players'])
+                            progress['caller_boundary']['projection'])
     except (Exception, KeyboardInterrupt) as exc:
         status, error = 'aborted', f'{type(exc).__name__}: {exc}'
     prior.write(directory / 'finish.json', dict(
@@ -550,7 +562,7 @@ def run(directory, state_path, max_ticks=0):
             # A disagreeing cash screen or a transplanted week aborts with the
             # observed stages still recorded in finish.json.
             week_record = week_facts(week, stages, projected['cash'],
-                                     caller_boundary['projection']['players'])
+                                     caller_boundary['projection'])
     except (Exception, KeyboardInterrupt) as exc:
         status, error = 'aborted', f'{type(exc).__name__}: {exc}'
     chunks = sorted(directory.glob('chunk-*.json'))
@@ -618,8 +630,9 @@ def check(directory):
     for key in ('frame', 'census', 'preservation'):
         if result['caller'][key] != sealed_caller[key]:
             raise ValueError(f'the replayed caller {key} differs from the sealed T89 record')
+    following = result['week']['following']
     authenticate_week_facts(result['week']['total_in'], result['week']['total_out'],
-                            result['week']['following'])
+                            {k: following[k] for k in ('week', 'competition', 'opponent', 'flags')})
     if result['week']['cash_after'] != result['week']['projection']['cash']:
         raise ValueError('the week-2 projection cash differs from the observed movement')
     if result['week']['week_byte'] != 2:

@@ -199,3 +199,44 @@ def test_the_cash_screen_reads_each_labelled_field_to_the_next_label():
         '║ Club funds      │ │ │ │ │1│0│0,2│0│0│ Overdraft facility │ │ │ │3,0│0│0,0│0│0║'])
     assert sevilla_week.cash_screen_facts(rows) == dict(total_in=12_345, total_out=67_890,
                                                         club_funds=100_200)
+
+
+def _complete_record(directory):
+    """A record that satisfies check(): the sealed T89 chunks and caller, with
+    synthetic week facts (no private file, no original byte)."""
+    sealed_dir = ROOT / 'runs/T89/sevilla-r0001'
+    sealed = t89_finish()['result']
+    leaves = []
+    for leaf in t89_index()['chunks']:
+        data = (sealed_dir / leaf['path']).read_bytes()
+        (directory / leaf['path']).write_bytes(data)
+        leaves.append(dict(path=leaf['path'], sha256=SHA(data)))
+    (directory / 'start.json').write_text(json.dumps(dict(schema='sevilla-week-start/1')))
+    week = dict(total_in=1_000, total_out=900, cash_before=500, cash_after=600, week_byte=2,
+                following=dict(week=2, competition=1, opponent=28, flags=0, name='Celtic'),
+                projection=dict(cash=600))
+    (directory / 'finish.json').write_text(json.dumps(dict(
+        schema='sevilla-week-finish/1', status='completed',
+        result=dict(ticks=sealed['ticks'], draws=sealed['draws'], actions=sealed['actions'],
+                    match_return=sealed['match_return'], caller=sealed['caller'],
+                    chunk_payloads=[l['sha256'] for l in leaves], week=week,
+                    stages=[dict(text='CASH FLOW'), dict(text='TRANSFER NEWS')]))))
+    (directory / 'index.json').write_text(json.dumps(dict(chunks=leaves)))
+    return week
+
+
+def test_the_check_accepts_a_complete_record_with_a_named_following_fixture(tmp_path):
+    # The recorded following fixture carries its name; the Celtic triple is
+    # authenticated on its four typed fields.
+    _complete_record(tmp_path)
+    accepted = sevilla_week.check(tmp_path)
+    assert accepted['status'] == 'accepted' and accepted['following']['name'] == 'Celtic'
+
+
+def test_the_check_refuses_a_week_that_did_not_reach_the_celtic_slot(tmp_path):
+    week = _complete_record(tmp_path)
+    finish = json.loads((tmp_path / 'finish.json').read_text())
+    finish['result']['week']['following']['opponent'] = 176
+    (tmp_path / 'finish.json').write_text(json.dumps(finish))
+    with pytest.raises(ValueError):
+        sevilla_week.check(tmp_path)
