@@ -101,16 +101,26 @@ def authenticate_week_facts(cash_in, cash_out, following):
 
 def cash_screen_facts(text):
     """The cash flow screen's typed movement: TOTAL IN, TOTAL OUT and the club
-    funds, parsed from the boxed display (the digits survive the cell split)."""
+    funds, parsed from the boxed display (the digits survive the cell split).
+    [confirmed: runs/T93/week-suffix-r0001] Each row carries two labelled
+    fields (TOTAL IN | TOTAL OUT, Club funds | Overdraft facility): a field's
+    digits end where the row's next label begins."""
     flat = re.sub(r'[^\w\d,:\n ]', ' ', text)
+
+    def field(line, label, stop=None):
+        rest = line.split(label, 1)[1]
+        if stop is not None:
+            rest = rest.split(stop, 1)[0]
+        return int(re.sub(r'\D', '', rest) or 0)
+
     total_in = total_out = funds = None
     for line in flat.splitlines():
         if 'TOTAL IN' in line:
-            total_in = int(re.sub(r'\D', '', line.split('TOTAL IN', 1)[1]) or 0)
+            total_in = field(line, 'TOTAL IN', 'TOTAL OUT')
         if 'TOTAL OUT' in line:
-            total_out = int(re.sub(r'\D', '', line.split('TOTAL OUT', 1)[1]) or 0)
+            total_out = field(line, 'TOTAL OUT')
         if 'Club funds' in line:
-            funds = int(re.sub(r'\D', '', line.split('Club funds', 1)[1]) or 0)
+            funds = field(line, 'Club funds', 'Overdraft')
     if total_in is None or total_out is None or funds is None:
         raise ValueError('the cash flow screen lacks its typed movement')
     return dict(total_in=total_in, total_out=total_out, club_funds=funds)

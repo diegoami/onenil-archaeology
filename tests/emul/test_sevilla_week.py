@@ -189,3 +189,13 @@ def test_the_fresh_instance_handoff_is_part_of_the_full_route():
     import inspect
     source = inspect.getsource(sevilla_week.run)
     assert source.index('fresh_instance(week)') < source.index('observe_week_route(week, stages)')
+
+
+def test_the_cash_screen_reads_each_labelled_field_to_the_next_label():
+    # [T93 week-suffix-r0001] Two labelled fields share each boxed row; a
+    # field's digits stop at the row's next label (synthetic digits here).
+    rows = '\n'.join([
+        '║ TOTAL IN        │ │ │ │ │ │1│2,3│4│5│ TOTAL OUT          │ │ │ │ │ │6│7,8│9│0║',
+        '║ Club funds      │ │ │ │ │1│0│0,2│0│0│ Overdraft facility │ │ │ │3,0│0│0,0│0│0║'])
+    assert sevilla_week.cash_screen_facts(rows) == dict(total_in=12_345, total_out=67_890,
+                                                        club_funds=100_200)
