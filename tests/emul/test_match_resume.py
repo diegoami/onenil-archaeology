@@ -40,8 +40,18 @@ class SyntheticWeek(match.Week):
         return {"synthetic-memory": hashlib.sha256(self.g.mem(0, 0x110000)).hexdigest()}
 
 
+def synthetic_utc():
+    """A deterministic, strictly increasing receipt clock (#106): the host UTC clock can step
+    backwards, which made a synthetic receipt's started > ended and failed its validator."""
+    from datetime import datetime, timedelta, timezone
+    ticks = iter(range(10**9))
+    base = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    return lambda: (base + timedelta(seconds=next(ticks))).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 def run(root, args):
     with patch.object(match, "ROOT", root), patch.object(match, "Week", SyntheticWeek), \
+         patch.object(match, "utc", synthetic_utc()), \
          patch.object(match, "signature", return_value={"unicorn": "test", "constants": {}}), \
          patch.object(match, "git", side_effect=lambda *a: {"rev-parse": "abc123", "branch": "fix/test"}.get(a[0], "")), \
          patch.object(match, "find_state", return_value=(root / "state.sav", b"synthetic state")):
@@ -194,3 +204,20 @@ def test_resume_rejects_same_length_chunk_content_change(tmp_path):
     path.write_bytes(b"!" + content[1:])
     with pytest.raises(SystemExit, match="chunk digest differs"):
         run(tmp_path, ["--resume", str(receipt)])
+
+
+def test_synthetic_receipts_do_not_read_the_host_clock(tmp_path):
+    # #106: a backwards host clock step must not reach the synthetic receipts.
+    from datetime import datetime, timezone
+    future = datetime(2099, 1, 1, tzinfo=timezone.utc)
+    clock = iter([future, datetime(2000, 1, 1, tzinfo=timezone.utc)] * 10**4)
+
+    class BackwardsClock(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return next(clock)
+
+    with patch("datetime.datetime", BackwardsClock):
+        assert run(tmp_path, ["--state", "abc"]) == 0
+    rec = json.loads((tmp_path / "runs/T06/T06-r0001.json").read_text())
+    assert rec["started"] < rec["ended"] < "2027"
