@@ -131,3 +131,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T88 Original fresh-friendly caller and authenticated recovery](T88.md)
 
 - [T89 Capture the authenticated Sevilla friendly — stream and post-match caller](T89.md)
+
+- [T93 Capture the Sevilla week full-time route — cash, news, week transaction and week-2](T93.md)
