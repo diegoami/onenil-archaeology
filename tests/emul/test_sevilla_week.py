@@ -100,3 +100,66 @@ def test_the_check_binds_the_sealed_identity_through_the_payload_layer(tmp_path)
         sevilla_week.check(tmp_path)
     assert 'count differs from the sealed identity' in str(caught.value)
     assert 'stream differs' not in str(caught.value)
+
+
+class _FaultyGuest:
+    """A stand-in guest for the play-segment wrapper: no private machine."""
+    keys_delivered = []
+
+    def where(self):
+        return '0AB9:1234'
+
+    def lin(self, where):
+        return 0
+
+    def mem(self, address, size):
+        return bytes(size)
+
+
+def test_the_fault_wrapper_passes_the_sealed_caller_return_through():
+    # [T93, found on review of c44b8c0] tail.Complete is an Exception: it is the
+    # route's control signal when the sealed caller returns, never a fault. The
+    # diagnostics wrapper must re-raise it unchanged or every full run aborts at
+    # the match return after the 2.5-hour replay.
+    def returned():
+        raise sevilla_week.tail.Complete()
+    with pytest.raises(sevilla_week.tail.Complete):
+        sevilla_week.diagnosed(_FaultyGuest(), [], returned)
+
+
+def test_the_fault_wrapper_annotates_a_real_fault_with_the_guest_position():
+    def fault():
+        raise ValueError('Invalid instruction')
+    stages = [dict(text='FRIENDLY #2 commentary')]
+    with pytest.raises(RuntimeError) as caught:
+        sevilla_week.diagnosed(_FaultyGuest(), stages, fault)
+    assert 'Invalid instruction at 0AB9:1234 bytes ' + '00' * 16 in str(caught.value)
+    assert 'FRIENDLY #2' in str(caught.value)
+
+
+def test_a_new_capture_never_reuses_a_recorded_run_directory():
+    # Rule 13: an interrupted run stays as recorded; the next attempt is a new run.
+    fresh = sevilla_week.next_run('sevilla-week')
+    assert fresh.parent == sevilla_week.RUNS and not fresh.exists()
+    assert (fresh.parent / fresh.name.replace(fresh.name[-4:], '0001')).exists()
+
+
+def test_the_default_check_names_only_a_run_with_a_finish_record():
+    latest = sevilla_week.latest_complete('sevilla-week')
+    assert latest is None or (latest / 'finish.json').exists()
+
+
+def test_the_boundary_checkpoint_never_stops_the_capture(tmp_path):
+    receipt = sevilla_week.save_boundary(tmp_path, object(), dict(producer='0' * 40), {})
+    assert set(receipt) == {'error'}
+    assert not (tmp_path / 'checkpoint-caller.json').exists()
+
+
+def test_the_suffix_resume_refuses_an_unsealed_receipt(tmp_path):
+    # An unpublished receipt is no authority for unpickling a private machine.
+    receipt = tmp_path / 'checkpoint-caller.json'
+    receipt.write_text(json.dumps(dict(schema='sevilla-week-checkpoint/1')))
+    with pytest.raises(ValueError) as caught:
+        sevilla_week.resume(receipt, tmp_path / 'suffix')
+    assert 'unsealed' in str(caught.value)
+    assert not (tmp_path / 'suffix').exists()

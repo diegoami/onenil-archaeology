@@ -15,6 +15,7 @@ week-2 Celtic fixture advance, the weekly condition refresh, the week-2
 campaign projection), counts observed, never transplanted.
 """
 import argparse
+import copy
 import hashlib
 import json
 import re
@@ -22,6 +23,8 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+
+import unicorn
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'runtime/emul'))
@@ -34,8 +37,10 @@ import week_completion  # noqa: E402
 import campaign_admission as admission  # noqa: E402
 import postmatch_tail as tail  # noqa: E402
 import watched_complete as prior  # noqa: E402
+import checkpoint  # noqa: E402
 
 RUNS = ROOT / 'runs/T93'
+CHECKPOINTS = ROOT / '.cache/T93'
 sha = lambda data: hashlib.sha256(data).hexdigest()
 encoded = lambda value: json.dumps(value, sort_keys=True, separators=(',', ':')).encode()
 
@@ -116,19 +121,200 @@ def project(week):
                                   admission.seed.names(week.files_at_start['ENGL-95.DAT']))
 
 
-def run(directory, state_path, max_ticks=0):
-    """The full route. Replays the witnessed match from the pinned preparation
-    savestate under the sealed observer, then continues the same machine
-    through the week's full-time route to the advanced week-2 state."""
-    directory = Path(directory)
-    if (directory / 'finish.json').exists():
-        raise ValueError('capture directory already complete')
-    sealed = match_identity()
+def next_run(prefix):
+    """The first unused run directory: an interrupted or aborted run stays exactly
+    as recorded (rule 13), so a new attempt is always a new run."""
+    number = 1
+    while (RUNS / f'{prefix}-r{number:04d}').exists():
+        number += 1
+    return RUNS / f'{prefix}-r{number:04d}'
+
+
+def latest_complete(prefix):
+    """The newest run of this kind that wrote its finish record, or None."""
+    done = sorted(p for p in RUNS.glob(f'{prefix}-r[0-9][0-9][0-9][0-9]')
+                  if (p / 'finish.json').exists())
+    return done[-1] if done else None
+
+
+def producer_meta():
+    """The committed observer: every census file must equal HEAD before a run."""
     meta = dict(producer=base.git('rev-parse', 'HEAD').decode().strip(),
                 producer_files={p: sha((ROOT / p).read_bytes()) for p in base.watcher_census()})
     for name, digest in meta['producer_files'].items():
         if sha(base.git('show', meta['producer'] + ':' + name)) != digest:
             raise ValueError('commit the observer before the capture: ' + name)
+    return meta
+
+
+def diagnosed(g, stages, play):
+    """Run a play segment; annotate an emulator fault with the exact guest
+    position and instruction bytes so a route gap is diagnosable from the
+    record alone. tail.Complete — the sealed caller's return — is the route's
+    control signal, not a fault, and passes through unchanged."""
+    try:
+        play()
+    except tail.Complete:
+        raise
+    except Exception as error:
+        where = g.where()
+        segment = g.mem(g.lin(where), 16) if where else []
+        screens = [stage['text'].replace('\n', ' ')[-60:] for stage in stages[-3:]]
+        raise RuntimeError(f'{error} at {where} bytes {bytes(segment).hex()} '
+                           f'key {len(g.keys_delivered)} stages {screens}') from error
+
+
+def caller_record(audit):
+    return None if audit is None else {k: getattr(audit, k) for k in
+                                       ('entry', 'returned', 'frame', 'initial', 'final', 'ops',
+                                        'regions', 'draw_start', 'draw_end', 'census',
+                                        'preservation', 'timer_effects', 'service_effects')}
+
+
+def condition_record(condition):
+    return None if condition is None else dict(calls=condition.calls, contexts=condition.contexts)
+
+
+def observe_week_route(week, stages):
+    """The week's full-time route in the same machine, every key-wait screen
+    recorded, until the management menu returns."""
+    observing = lambda w: stages.append(dict(
+        screen=w.screen_i, digest=w.g.screen().digest(), text=w.g.screen().text()))
+    diagnosed(week.g, stages, lambda: week.play(max_run_on=500000, on_boundary=observing))
+    if not week.finished:
+        raise ValueError('the week route did not reach the management menu')
+
+
+def week_facts(week, stages, cash_before, boundary_players):
+    """The advanced state projected and its observed facts typed; refuses a
+    cash screen that disagrees with the projection or a transplanted week."""
+    g = week.g
+    after = project(week)
+    memory = admission.memory_save(g)
+    fixtures = week_completion.decode_fixture_triples(memory, MANAGED_CLUB, weeks=4)
+    week_byte = week_completion.decode_week_byte(memory)
+    cash_facts = None
+    for stage in reversed(stages):
+        if 'CASH FLOW' in stage['text']:
+            cash_facts = cash_screen_facts(stage['text'])
+            break
+    if cash_facts is None or cash_facts['club_funds'] != after['cash']:
+        raise ValueError('the cash screen movement differs from the projected week-2 funds')
+    authenticate_week_facts(cash_facts['total_in'], cash_facts['total_out'],
+                            dict(week=week_byte, competition=fixtures[1]['competition'],
+                                 opponent=fixtures[1]['opponent'], flags=fixtures[1]['flags']))
+    return dict(
+        cash_before=cash_before,
+        cash_after=after['cash'],
+        total_in=cash_facts['total_in'], total_out=cash_facts['total_out'],
+        following=dict(week=week_byte, competition=fixtures[1]['competition'],
+                       opponent=fixtures[1]['opponent'], flags=fixtures[1]['flags'],
+                       name=fixtures[1].get('name', '')),
+        week_byte=week_byte,
+        conditions_before={p['id']: p['availability']['condition_signed']
+                           for p in boundary_players},
+        conditions_after={p['id']: p['availability']['condition_signed']
+                          for p in after['players']},
+        next_fixture=after['next_fixture'], seed_word=g.word_at(g.far(0xDE84)),
+        state_digests=week.state_digests(), files_written=week.files_written(),
+        projection=after)
+
+
+def progress_digest(progress):
+    # Insertion order is preserved by pickle, so the same object digests alike.
+    return sha(json.dumps(progress, separators=(',', ':')).encode())
+
+
+def save_boundary(directory, week, meta, progress):
+    """[designed: T93 restored-repeat milestone] The safe boundary: the sealed
+    caller has returned and the machine is outside Unicorn between play
+    segments — exactly the state the full run continues from. A private
+    checkpoint (git-ignored .cache; the owner's Drive) plus a public receipt let
+    the week suffix repeat, or a route gap be diagnosed, without replaying the
+    2.5-hour match. Failing to write it never stops the capture."""
+    try:
+        g = week.g
+        private = CHECKPOINTS / Path(directory).name / 'caller-boundary.pkl.gz'
+        digest = checkpoint.write_private(private, dict(
+            machine=checkpoint.capture(week), progress=progress, producer=meta['producer']))
+        receipt = dict(schema='sevilla-week-checkpoint/1', producer=meta['producer'],
+                       unicorn=unicorn.__version__,
+                       safe_boundary='the sealed caller returned; between play segments',
+                       private_path=str(private.relative_to(ROOT)), private_sha256=digest,
+                       site=g.where(), registers=tail.prior.registers(g),
+                       memory_sha256=sha(g.mem(0, 0x110000)), draws=week.draws,
+                       screen=week.screen_i, progress_sha256=progress_digest(progress))
+        prior.write(Path(directory) / 'checkpoint-caller.json', receipt)
+        print(f'sevilla week caller-boundary checkpoint: {digest[:12]}', flush=True)
+        return receipt
+    except Exception as error:
+        print(f'caller-boundary checkpoint skipped: {error}', flush=True)
+        return dict(error=f'{type(error).__name__}: {error}')
+
+
+def resume(receipt_path, directory):
+    """Repeat the week suffix from a published caller-boundary checkpoint into
+    a new run directory. The receipt must be committed at HEAD and the private
+    image must match its digest and runtime before anything is unpickled."""
+    receipt_path = Path(receipt_path).resolve()
+    try:
+        relative = receipt_path.relative_to(ROOT)
+        sealed = relative.parts[:2] == ('runs', 'T93') \
+            and receipt_path.read_bytes() == base.git('show', 'HEAD:' + str(relative))
+    except (ValueError, subprocess.CalledProcessError):
+        sealed = False
+    if not sealed:
+        raise ValueError('unsealed public checkpoint receipt; not deserializing')
+    receipt = json.loads(receipt_path.read_text())
+    private = ROOT / receipt['private_path']
+    if receipt['schema'] != 'sevilla-week-checkpoint/1' or unicorn.__version__ != receipt['unicorn'] \
+            or sha(private.read_bytes()) != receipt['private_sha256']:
+        raise ValueError('private checkpoint digest/runtime differs; not deserializing')
+    directory = Path(directory)
+    if directory.exists():
+        raise ValueError('the suffix run directory already exists')
+    meta = producer_meta()
+    saved = checkpoint.read_private(private)
+    progress = saved['progress']
+    if saved['producer'] != receipt['producer'] or progress_digest(progress) != receipt['progress_sha256']:
+        raise ValueError('private/public checkpoint identity differs')
+    week = checkpoint.restore(saved['machine'], tail.full.match.Week, [])
+    g = week.g
+    if g.where() != receipt['site'] or tail.prior.registers(g) != receipt['registers'] \
+            or sha(g.mem(0, 0x110000)) != receipt['memory_sha256'] or week.draws != receipt['draws']:
+        raise ValueError('the restored machine differs from the checkpoint receipt')
+    prior.write(directory / 'start.json', dict(
+        schema='sevilla-week-suffix-start/1', **meta,
+        checkpoint=dict(receipt=str(relative), receipt_sha256=sha(receipt_path.read_bytes()),
+                        source_producer=receipt['producer']),
+        interventions=[]))
+    status, error, record = 'completed', None, None
+    stages, began = [], time.monotonic()
+    try:
+        observe_week_route(week, stages)
+        record = week_facts(week, stages, progress['projected_cash'],
+                            progress['caller_boundary']['projection']['players'])
+    except (Exception, KeyboardInterrupt) as exc:
+        status, error = 'aborted', f'{type(exc).__name__}: {exc}'
+    prior.write(directory / 'finish.json', dict(
+        schema='sevilla-week-suffix-finish/1', status=status, error=error, producer=meta['producer'],
+        result=dict(stages=stages, week=record, draws=week.draws,
+                    seconds=round(time.monotonic() - began, 1)),
+        keys_delivered=g.keys_delivered, unsupported=g.unsupported))
+    if status != 'completed':
+        raise ValueError(error)
+    print(f'sevilla week suffix repeated: week byte {record["week_byte"]}', flush=True)
+
+
+def run(directory, state_path, max_ticks=0):
+    """The full route. Replays the witnessed match from the pinned preparation
+    savestate under the sealed observer, then continues the same machine
+    through the week's full-time route to the advanced week-2 state."""
+    directory = Path(directory)
+    if directory.exists():
+        raise ValueError('the capture directory already exists; a new run is a new directory')
+    sealed = match_identity()
+    meta = producer_meta()
     week, projected, context = base.boot(state_path)
     g = week.g
     watch = g.mem(g.far(0xD7D2) + 0xF2, 1)[0]
@@ -288,25 +474,12 @@ def run(directory, state_path, max_ticks=0):
 
     status, error = 'completed', None
     began = time.monotonic()
-    caller_boundary = None
+    caller_boundary = boundary_receipt = week_record = None
     stages = []
-
-    def diagnosed(play):
-        """Run a play segment; annotate an emulator fault with the exact guest
-        position and instruction bytes so a route gap is diagnosable from the
-        record alone."""
-        try:
-            play()
-        except Exception as error:
-            where = g.where()
-            segment = g.mem(g.lin(where), 16) if where else []
-            screens = [stage['text'].replace('\n', ' ')[-60:] for stage in stages[-3:]]
-            raise RuntimeError(f'{error} at {where} bytes {bytes(segment).hex()} '
-                               f'key {len(g.keys_delivered)} stages {screens}') from error
 
     try:
         try:
-            diagnosed(lambda: week.play(max_run_on=500000))
+            diagnosed(g, stages, lambda: week.play(max_run_on=500000))
         except tail.Complete:
             pass
         else:
@@ -328,66 +501,40 @@ def run(directory, state_path, max_ticks=0):
             # writes sit between the projections.
             if caller_boundary['projection']['cash'] != 421_491:
                 raise ValueError('the caller boundary cash differs from the committed week-1 state')
-            observing = lambda w: stages.append(dict(
-                screen=w.screen_i, digest=w.g.screen().digest(), text=w.g.screen().text()))
-            diagnosed(lambda: week.play(max_run_on=500000, on_boundary=observing))
-            if not week.finished:
-                raise ValueError('the week route did not reach the management menu')
+            boundary_receipt = save_boundary(directory, week, meta, copy.deepcopy(dict(
+                ticks=ticks, draws=week.draws, actions=len(all_actions), final=final,
+                first_entry=first_entry, entry_draws=entry_draws, match_return=match_return,
+                caller=caller_record(audit), condition=condition_record(condition),
+                caller_boundary=caller_boundary, projected_cash=projected['cash'])))
+            observe_week_route(week, stages)
+            # A disagreeing cash screen or a transplanted week aborts with the
+            # observed stages still recorded in finish.json.
+            week_record = week_facts(week, stages, projected['cash'],
+                                     caller_boundary['projection']['players'])
     except (Exception, KeyboardInterrupt) as exc:
         status, error = 'aborted', f'{type(exc).__name__}: {exc}'
     chunks = sorted(directory.glob('chunk-*.json'))
-    caller = None if audit is None else {k: getattr(audit, k) for k in
-                                         ('entry', 'returned', 'frame', 'initial', 'final', 'ops',
-                                          'regions', 'draw_start', 'draw_end', 'census',
-                                          'preservation', 'timer_effects', 'service_effects')}
-    cond = None if condition is None else dict(calls=condition.calls, contexts=condition.contexts)
     result = dict(chunk_payloads=[sha(p.read_bytes()) for p in chunks], final=final,
                   ticks=ticks, draws=week.draws, actions=len(all_actions),
                   first_entry=first_entry, entry_draws=entry_draws,
-                  match_return=match_return, caller=caller, condition=cond,
-                  caller_boundary=caller_boundary, stages=stages,
+                  match_return=match_return, caller=caller_record(audit),
+                  condition=condition_record(condition),
+                  caller_boundary=caller_boundary, checkpoint=boundary_receipt, stages=stages,
                   seconds=round(time.monotonic() - began, 1), smoke=bool(max_ticks))
-    if not max_ticks and status == 'completed':
-        # The week route ran: project the advanced state and observe its facts.
-        after = project(week)
-        memory = admission.memory_save(g)
-        fixtures = week_completion.decode_fixture_triples(memory, MANAGED_CLUB, weeks=4)
-        week_byte = week_completion.decode_week_byte(memory)
-        cash_facts = None
-        for stage in reversed(stages):
-            if 'CASH FLOW' in stage['text']:
-                cash_facts = cash_screen_facts(stage['text'])
-                break
-        if cash_facts is None or cash_facts['club_funds'] != after['cash']:
-            raise ValueError('the cash screen movement differs from the projected week-2 funds')
-        authenticate_week_facts(cash_facts['total_in'], cash_facts['total_out'],
-                                dict(week=week_byte, competition=fixtures[1]['competition'],
-                                     opponent=fixtures[1]['opponent'], flags=fixtures[1]['flags']))
-        result['week'] = dict(
-            cash_before=projected['cash'],
-            cash_after=after['cash'],
-            total_in=cash_facts['total_in'], total_out=cash_facts['total_out'],
-            following=dict(week=week_byte, competition=fixtures[1]['competition'],
-                           opponent=fixtures[1]['opponent'], flags=fixtures[1]['flags'],
-                           name=fixtures[1].get('name', '')),
-            week_byte=week_byte,
-            conditions_before={p['id']: p['availability']['condition_signed']
-                               for p in caller_boundary['projection']['players']},
-            conditions_after={p['id']: p['availability']['condition_signed']
-                              for p in after['players']},
-            next_fixture=after['next_fixture'], seed_word=g.word_at(g.far(0xDE84)),
-            state_digests=week.state_digests(), files_written=week.files_written(),
-            projection=after)
+    if week_record is not None:
+        result['week'] = week_record
     prior.write(directory / 'finish.json',
                 dict(schema='sevilla-week-finish/1', status=status, error=error,
                      producer=meta['producer'], result=result,
                      keys_delivered=g.keys_delivered, unsupported=g.unsupported))
     if status != 'completed':
         raise ValueError(error)
-    prior.write(directory / 'index.json',
-                dict(start_sha256=sha((directory / 'start.json').read_bytes()),
-                     chunks=[dict(path=p.name, sha256=sha(p.read_bytes())) for p in chunks],
-                     finish_sha256=sha((directory / 'finish.json').read_bytes())))
+    index = dict(start_sha256=sha((directory / 'start.json').read_bytes()),
+                 chunks=[dict(path=p.name, sha256=sha(p.read_bytes())) for p in chunks],
+                 finish_sha256=sha((directory / 'finish.json').read_bytes()))
+    if (directory / 'checkpoint-caller.json').exists():
+        index['checkpoint_sha256'] = sha((directory / 'checkpoint-caller.json').read_bytes())
+    prior.write(directory / 'index.json', index)
     print(f'sevilla week captured: ticks{ticks}, draw{week.draws}, '
           f'actions{len(all_actions)}, week byte {result.get("week", {}).get("week_byte")}',
           flush=True)
@@ -454,14 +601,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--state', type=Path,
                         default=ROOT / '.cache/T89/states/sevilla-preparation-0001.sav')
-    parser.add_argument('--directory', type=Path, default=RUNS / 'sevilla-week-r0001')
+    parser.add_argument('--directory', type=Path,
+                        help='capture: default the next unused sevilla-week-rNNNN (week-suffix-rNNNN '
+                             'with --resume); --check: default the newest run with a finish record')
     parser.add_argument('--smoke-ticks', type=int, default=0)
     parser.add_argument('--check', action='store_true')
+    parser.add_argument('--resume', type=Path, metavar='RECEIPT',
+                        help="repeat the week suffix from a committed checkpoint-caller.json")
     args = parser.parse_args()
     if args.check:
-        print(json.dumps(check(args.directory), indent=1))
+        print(json.dumps(check(args.directory or latest_complete('sevilla-week')), indent=1))
+    elif args.resume:
+        resume(args.resume, args.directory or next_run('week-suffix'))
     else:
-        run(args.directory, args.state, max_ticks=args.smoke_ticks)
+        run(args.directory or next_run('sevilla-week'), args.state, max_ticks=args.smoke_ticks)
 
 
 if __name__ == '__main__':
