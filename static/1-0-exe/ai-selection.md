@@ -17,6 +17,19 @@ cell; later eligible players overwrite earlier players with the same style.
 `1998:0B76–0B99` adds 11, the zero-extended allowance and the table byte at
 `0D58 + sign_extend(allowance)`.
 
+[confirmed: `seg_0AB9_16.asm`, `0AB9:A8BF–A8DD`; qualification of #122] "The current
+scene player" is the **side-normalized** scene row, not the physical one: A8BF–A8D8
+read the caller frame's side byte (frame+6), look up its offset byte at `0D56+side`,
+and subtract it from the caller's scene argument (frame+8); A8DA–A8DD then read word
+14 of the row at `CCEF + 25*(scene − offset)`. The two readings coincide only for
+offset 0; for offset 11, physical scene 19 selects normalized row 8, not row 19.
+[confirmed: runs/T23 r0001–r0006 at a317cfb] Every T23 call records offsets
+`0D56 = (11, 0)`; of the 494 candidate scans, 283 are on side-0 calls (offset 11,
+physical scenes 13–22) and 211 on side-1 calls (offset 0, scenes 2–11).
+[derived] The measured corpus therefore exercises the offset-11 subtraction, under
+the listing's reading that A8A0's side byte is the A94B call's side; no record
+changes and no new original run is implied.
+
 [confirmed: `0AB9:9882–99C1`] A player's P8+6 selects an eight-byte preference
 row at 0BF6. 9882 retains the last nonzero candidate in preference order, filtering
 by `1B55:4E81` when the position character occurs in D9A. The handedness
