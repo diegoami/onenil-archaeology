@@ -51,13 +51,24 @@ EMULATED_HARDWARE = dict(
 
 def match_identity():
     """The committed sevilla-r0001 identity the replay must reproduce chunk for
-    chunk: the digest chain, the observed counts and the return boundary."""
+    chunk: the file-digest chain (the record's integrity), the payload digests
+    (what the replay's flush computes — the wrapper is not part of a chunk's
+    self digest), the observed counts and the return boundary."""
     finish = json.loads((base.ROOT / 'runs/T89/sevilla-r0001/finish.json').read_text())
     index = json.loads((base.ROOT / 'runs/T89/sevilla-r0001/index.json').read_text())
     result = finish['result']
     if finish['status'] != 'completed' or result['entry_draws'] != 0:
         raise ValueError('the committed sevilla capture is not a complete natural run')
+    payloads = []
+    for leaf in index['chunks']:
+        chunk = json.loads((base.ROOT / 'runs/T89/sevilla-r0001' / leaf['path']).read_text())
+        if sha(chunk['payload']) != chunk['payload_sha256'] \
+                or sha((base.ROOT / 'runs/T89/sevilla-r0001' / leaf['path']).read_bytes()) \
+                != leaf['sha256']:
+            raise ValueError('the committed sevilla chunk ledger differs')
+        payloads.append(chunk['payload_sha256'])
     return dict(chunk_sha256=[leaf['sha256'] for leaf in index['chunks']],
+                payload_sha256=payloads,
                 ticks=result['ticks'], draws=result['draws'], actions=result['actions'],
                 match_return=dict(site=result['match_return']['site'],
                                   draw=result['match_return']['draw'],
@@ -165,7 +176,10 @@ def run(directory, state_path, max_ticks=0):
         digest = sha(encoded(payload))
         if not max_ticks:
             # Fail fast: the replay must reproduce the witnessed match exactly.
-            if chunk_index >= len(sealed['chunk_sha256']) or digest != sealed['chunk_sha256'][chunk_index]:
+            # The comparison is on the chunk payload digests — the same layer
+            # the sealed record's own chunks pin.
+            if chunk_index >= len(sealed['payload_sha256']) \
+                    or digest != sealed['payload_sha256'][chunk_index]:
                 raise ValueError('the replayed match stream diverges from the '
                                  'sealed sevilla-r0001 identity')
         path = directory / f'chunk-{chunk_index:06d}.json'

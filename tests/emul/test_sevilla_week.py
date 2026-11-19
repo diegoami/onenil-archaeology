@@ -46,6 +46,12 @@ def test_the_sealed_match_identity_binds_the_committed_capture():
     assert index['start_sha256'] == SHA((ROOT / 'runs/T89/sevilla-r0001/start.json').read_bytes())
     pinned = sevilla_week.match_identity()
     assert pinned['chunk_sha256'] == [leaf['sha256'] for leaf in index['chunks']]
+    # [T93] The flush compares the payload-digest layer: the first replayed
+    # chunk's payload digest is the sealed chunk's own payload pin.
+    first = json.loads((ROOT / 'runs/T89/sevilla-r0001/chunk-000000.json').read_text())
+    assert pinned['payload_sha256'][0] == first['payload_sha256']
+    assert pinned['payload_sha256'][0] == \
+        '6330040397d724b84c1d1e9f498de76c71e3f378658bd399aca583166c4ca530'
     assert pinned['ticks'] == 3927
     assert pinned['match_return']['seed'] == result['match_return']['seed']
 
