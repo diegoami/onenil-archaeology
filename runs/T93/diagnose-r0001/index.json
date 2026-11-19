@@ -1,0 +1,14 @@
+{
+  "start_sha256": "2bda0182892e9d6c089b0bb9ce3a54719cef840c6a5b3bdc33a178d569dd7889",
+  "chunks": [
+    {
+      "path": "chunk-000000.json",
+      "sha256": "e650de57814231cc565ac384ff0207c5fab96abf87a6d560fb2036be92c15720"
+    },
+    {
+      "path": "chunk-000001.json",
+      "sha256": "235d17485ce41575663b4f58a375238dfdf04763d9a2466db567d6759d491127"
+    }
+  ],
+  "finish_sha256": "7f32a9054c049780dcafb79883a3a71783f5be0ac3fe7a41f9d89954d27ccbaa"
+}
