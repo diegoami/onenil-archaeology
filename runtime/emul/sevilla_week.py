@@ -290,9 +290,23 @@ def run(directory, state_path, max_ticks=0):
     began = time.monotonic()
     caller_boundary = None
     stages = []
+
+    def diagnosed(play):
+        """Run a play segment; annotate an emulator fault with the exact guest
+        position and instruction bytes so a route gap is diagnosable from the
+        record alone."""
+        try:
+            play()
+        except Exception as error:
+            where = g.where()
+            segment = g.mem(g.lin(where), 16) if where else []
+            screens = [stage['text'].replace('\n', ' ')[-60:] for stage in stages[-3:]]
+            raise RuntimeError(f'{error} at {where} bytes {bytes(segment).hex()} '
+                               f'key {len(g.keys_delivered)} stages {screens}') from error
+
     try:
         try:
-            week.play(max_run_on=500000)
+            diagnosed(lambda: week.play(max_run_on=500000))
         except tail.Complete:
             pass
         else:
@@ -316,7 +330,7 @@ def run(directory, state_path, max_ticks=0):
                 raise ValueError('the caller boundary cash differs from the committed week-1 state')
             observing = lambda w: stages.append(dict(
                 screen=w.screen_i, digest=w.g.screen().digest(), text=w.g.screen().text()))
-            week.play(max_run_on=500000, on_boundary=observing)
+            diagnosed(lambda: week.play(max_run_on=500000, on_boundary=observing))
             if not week.finished:
                 raise ValueError('the week route did not reach the management menu')
     except (Exception, KeyboardInterrupt) as exc:
