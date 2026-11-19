@@ -17,6 +17,9 @@ The runner checks new observations and commits local checkpoints at least every 
 retrying an in-progress writer snapshot. Receipts under `runs/T71/checkpoints/` bind precisely
 which verified leaves were committed. These are retained-prefix counts, not an assertion of a
 new attempt's replay position. No git push or network operation exists in the runner.
+[designed: #188] The control file's `last_checkpoint` is the newest committed checkpoint,
+whether periodic, a phase's terminal one or the last one attempted on failure; a call that
+commits nothing leaves it unchanged. Git history and the final check remain authoritative.
 
 [designed] Checkpoints refuse foreign/symlinked/non-JSON leaves, changed tracked files, an existing
 staged index, wrong branches, failed proof validation and file changes during verification.
