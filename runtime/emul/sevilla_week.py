@@ -18,6 +18,7 @@ import argparse
 import copy
 import hashlib
 import json
+import pickle
 import re
 import subprocess
 import sys
@@ -175,9 +176,36 @@ def condition_record(condition):
     return None if condition is None else dict(calls=condition.calls, contexts=condition.contexts)
 
 
+def fresh_instance(week):
+    """[designed: T93, after runs/T93/aborted-r0002 and sevilla-week-r0002] The
+    week route continues the identical machine on a fresh Unicorn instance.
+    The observers stay installed after the sealed caller: the NumericAudit's
+    two memory-read hooks exclude only the first caller's stack window, and in
+    Unicorn 2.1.4 a read hook over the live stack can re-enter RETF (T84). Both
+    long-lived runs died on the sixth key at 2864:B941 (DS data, FF bytes);
+    restored from the r0002 boundary checkpoint, the route reaches the
+    management menu, and the same two no-op read hooks alone reproduce the
+    fault at the same address and key. Only emulator-side hooks and
+    translation caches are discarded; position, registers, all memory and the
+    draw count are verified identical."""
+    g = week.g
+    state = pickle.loads(pickle.dumps(checkpoint.capture(week), protocol=pickle.HIGHEST_PROTOCOL))
+    fresh = checkpoint.restore(state, tail.full.match.Week, [])
+    h = fresh.g
+    if h.where() != g.where() or tail.prior.registers(h) != tail.prior.registers(g) \
+            or h.mem(0, 0x110000) != g.mem(0, 0x110000) or fresh.draws != week.draws:
+        raise ValueError('the fresh emulator instance differs from the boundary machine')
+    return fresh
+
+
 def observe_week_route(week, stages):
     """The week's full-time route in the same machine, every key-wait screen
     recorded, until the management menu returns."""
+    # The route booted from the preparation savestate at PLAY GAME, so
+    # Week.play never saw PLAY NEXT GAME: without this the week-2 management
+    # menu is taken for the first one and the next fixture (Friendly #3 at
+    # Celtic) starts. The week began at PLAY GAME; the next menu ends it.
+    week.started = True
     observing = lambda w: stages.append(dict(
         screen=w.screen_i, digest=w.g.screen().digest(), text=w.g.screen().text()))
     diagnosed(week.g, stages, lambda: week.play(max_run_on=500000, on_boundary=observing))
@@ -506,6 +534,8 @@ def run(directory, state_path, max_ticks=0):
                 first_entry=first_entry, entry_draws=entry_draws, match_return=match_return,
                 caller=caller_record(audit), condition=condition_record(condition),
                 caller_boundary=caller_boundary, projected_cash=projected['cash'])))
+            week = fresh_instance(week)
+            g = week.g
             observe_week_route(week, stages)
             # A disagreeing cash screen or a transplanted week aborts with the
             # observed stages still recorded in finish.json.

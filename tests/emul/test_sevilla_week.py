@@ -163,3 +163,29 @@ def test_the_suffix_resume_refuses_an_unsealed_receipt(tmp_path):
         sevilla_week.resume(receipt, tmp_path / 'suffix')
     assert 'unsealed' in str(caught.value)
     assert not (tmp_path / 'suffix').exists()
+
+
+def test_the_week_route_treats_the_next_management_menu_as_the_end_of_the_week():
+    # [T93, diagnosed from the sevilla-week-r0002 checkpoint] The route boots
+    # from the preparation savestate at PLAY GAME, never through PLAY NEXT
+    # GAME: unless the week counts as started, Week.play takes the week-2
+    # menu for the first one and starts Friendly #3 at Celtic.
+    class _Week:
+        started = False
+        finished = False
+        g = _FaultyGuest()
+
+        def play(self, max_run_on, on_boundary):
+            self.seen_started = self.started
+            self.finished = self.started
+    week = _Week()
+    sevilla_week.observe_week_route(week, [])
+    assert week.seen_started is True
+
+
+def test_the_fresh_instance_handoff_is_part_of_the_full_route():
+    # The long-lived instance keeps the audit's stack-excluding read hooks;
+    # the week route must run on a verified fresh instance (see fresh_instance).
+    import inspect
+    source = inspect.getsource(sevilla_week.run)
+    assert source.index('fresh_instance(week)') < source.index('observe_week_route(week, stages)')
