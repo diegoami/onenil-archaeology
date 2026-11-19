@@ -1,0 +1,28 @@
+{
+  "schema": "sevilla-week-checkpoint/1",
+  "producer": "a41848fa633ae5471d602816bdf86b1a285750e0",
+  "unicorn": "2.1.4",
+  "safe_boundary": "the sealed caller returned; between play segments",
+  "private_path": ".cache/T93/sevilla-week-r0003/caller-boundary.pkl.gz",
+  "private_sha256": "d93edf93cacb0b29f33e35ab3f6df4fdb2b76ee52bf33045b1845697d84823c0",
+  "site": "0AB9:EBE6",
+  "registers": {
+    "ax": 40,
+    "bx": 31421,
+    "cx": 4,
+    "dx": 65519,
+    "si": 42270,
+    "di": 30453,
+    "bp": 16092,
+    "sp": 16078,
+    "cs": 4828,
+    "ds": 12423,
+    "es": 25590,
+    "ss": 16447,
+    "eflags": 29331
+  },
+  "memory_sha256": "adec22dd65d044a09c555e1699285e8b71376f1843554ff221781a816f7e63ae",
+  "draws": 169996,
+  "screen": 5,
+  "progress_sha256": "fa74a77a8dd87941ee78ee4199b736fffdd9ae75e6eb11b0f6f28e8820b068fc"
+}
