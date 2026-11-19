@@ -182,6 +182,17 @@ def run(directory, state_path, max_ticks=0):
         chunk_index += 1
         export_draw, export_action, export_tick = week.draws, len(all_actions), ticks + 1
         tick_rows, action_rows = [], []
+        if not max_ticks and chunk_index % 10 == 0:
+            # Long-run rule (#58/#212): the append-only records leave the machine
+            # while the capture runs; a failed push never stops the capture.
+            try:
+                subprocess.run(['git', 'add', str(directory)], check=True, cwd=ROOT)
+                subprocess.run(['git', 'commit', '-q', '-m',
+                                f'T93: capture progress, chunk {chunk_index} (automated milestone)'],
+                               check=True, cwd=ROOT)
+                subprocess.run(['git', 'push'], check=True, cwd=ROOT)
+            except Exception as error:
+                print(f'progress push skipped: {error}', flush=True)
 
     def entry(current):
         nonlocal joined, first_entry, entry_draws
