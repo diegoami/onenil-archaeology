@@ -619,9 +619,16 @@ def check(directory):
     result = finish['result']
     if result['chunk_payloads'] != [leaf['sha256'] for leaf in index['chunks']]:
         raise ValueError('the finish chunk ledger differs from the index')
+    # The sealed identity's draws are counted at the caller's return (T89 ends
+    # there); the run's own total continues through the week route. The match
+    # count is the last digest-verified chunk's draw_end [T93 sevilla-week-r0003].
+    last = json.loads(sorted(directory.glob('chunk-*.json'))[-1].read_text())['payload']
+    counts = dict(ticks=result['ticks'], draws=last['draw_end'], actions=result['actions'])
     for key in ('ticks', 'draws', 'actions'):
-        if result[key] != identity[key]:
+        if counts[key] != identity[key]:
             raise ValueError(f'the replayed match {key} count differs from the sealed identity')
+    if result['draws'] < counts['draws']:
+        raise ValueError('the route draw total precedes the match return')
     if result['match_return']['site'] != identity['match_return']['site'] \
             or result['match_return']['seed'] != identity['match_return']['seed']:
         raise ValueError('the replayed match return differs from the sealed identity')

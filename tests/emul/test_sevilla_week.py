@@ -203,7 +203,9 @@ def test_the_cash_screen_reads_each_labelled_field_to_the_next_label():
 
 def _complete_record(directory):
     """A record that satisfies check(): the sealed T89 chunks and caller, with
-    synthetic week facts (no private file, no original byte)."""
+    synthetic week facts (no private file, no original byte). The route's draw
+    total continues past the match (r0003: 186,963 against the match's
+    169,996)."""
     sealed_dir = ROOT / 'runs/T89/sevilla-r0001'
     sealed = t89_finish()['result']
     leaves = []
@@ -217,7 +219,7 @@ def _complete_record(directory):
                 projection=dict(cash=600))
     (directory / 'finish.json').write_text(json.dumps(dict(
         schema='sevilla-week-finish/1', status='completed',
-        result=dict(ticks=sealed['ticks'], draws=sealed['draws'], actions=sealed['actions'],
+        result=dict(ticks=sealed['ticks'], draws=sealed['draws'] + 16_967, actions=sealed['actions'],
                     match_return=sealed['match_return'], caller=sealed['caller'],
                     chunk_payloads=[l['sha256'] for l in leaves], week=week,
                     stages=[dict(text='CASH FLOW'), dict(text='TRANSFER NEWS')]))))
