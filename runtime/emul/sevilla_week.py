@@ -62,7 +62,7 @@ def match_identity():
     payloads = []
     for leaf in index['chunks']:
         chunk = json.loads((base.ROOT / 'runs/T89/sevilla-r0001' / leaf['path']).read_text())
-        if sha(chunk['payload']) != chunk['payload_sha256'] \
+        if sha(encoded(chunk['payload'])) != chunk['payload_sha256'] \
                 or sha((base.ROOT / 'runs/T89/sevilla-r0001' / leaf['path']).read_bytes()) \
                 != leaf['sha256']:
             raise ValueError('the committed sevilla chunk ledger differs')
