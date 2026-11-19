@@ -93,3 +93,18 @@ uncommitted changes under `runtime/driver/`, so a record's `code_commit` names t
 Run them one at a time: they share the game folder `.cache/driver/game`. Savestates go to
 `.cache/states/T04/` and to the owner's Drive (`rclone copy .cache/states/T04 onenildrive:states/T04`),
 never to git. Never press F1 under the driver (goal2: the help viewer breaks every later savestate).
+
+## Long captures and host memory
+
+[confirmed: 2026-11-19, the host's kernel journal and the T93 capture logs]
+The capture host is a WSL2 VM with 7.8 GB RAM and 2 GB swap. A full watched
+capture (`runtime/emul/sevilla_week.py`, about 2.5 hours) holds about 1.2 GB
+resident throughout. At 13:36 that day, two parallel `cargo` builds in the
+same VM (17 `rustc` and 11 `ld` processes, about 5.7 GB) exhausted RAM and
+swap. The OOM killer then took the whole `init.scope`: every session, and the
+capture at its chunk 59 (`runs/T93/sevilla-week-r0001`, kept as recorded).
+
+[designed: from that incident] While a capture runs on this host, do not start
+concurrent Rust builds or other multi-GB jobs. Run at most one build, with
+`CARGO_BUILD_JOBS` capped, and check `free -m` first. A capture that dies is
+followed by a new run (process.md §4), never a rewrite of the old directory.
