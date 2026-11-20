@@ -141,3 +141,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T98 Remove the numeric audit's hooks when its caller returns](T98.md) (#214).
 
 - [T99 Never track the private cache; restore what needs no credentials](T99.md) (#221).
+
+- [T100 A league fixture's preparation savestate, then its watched week](T100.md) (#223).
