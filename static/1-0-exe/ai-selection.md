@@ -10,12 +10,26 @@ candidate cells, scans reserves through A8A0 and chooses through 9882, optionall
 copies the outgoing P8+6 to the chosen player's P8+6, swaps two roster words, two
 event-total words and two cache-selector bytes, then calls AEB8.
 
-[confirmed: `0AB9:A8A0–A948`] The reserve scan starts at roster slot 12 and
-ends at the unsigned result of `1998:0B76`. It excludes the current scene player
-and players rejected by `1B55:4F89`. Each eligible player's P8+7 selects a candidate
-cell; later eligible players overwrite earlier players with the same style.
-`1998:0B76–0B99` adds 11, the zero-extended allowance and the table byte at
-`0D58 + sign_extend(allowance)`.
+[confirmed: `0AB9:A8BF–A8DD`] The reserve scan starts at roster slot 12 and ends
+at the unsigned result of `1998:0B76`. It skips players rejected by `1B55:4F89`
+and the player named by word 14 of one 25-byte `DS:CCEF` scene row. That row is
+not the caller's physical scene argument: A94B calls A8A0 as
+`push bp; call 0xa8a0`, so A8A0 reads A94B's own frame (side byte at `+6`, scene
+word at `+8`), loads the side offset at `DS:0D56[side]`, subtracts it from the
+scene word and indexes `CCEF + 25*normalized` before reading word14. [derived]
+With offset 11 the physical rows 13–22 index normalized rows 2–11, so "the
+current scene player" must be read as the normalized row's player. Each eligible
+player's P8+7 selects a candidate cell; later eligible players overwrite earlier
+players with the same style. `1998:0B76–0B99` adds 11, the zero-extended allowance
+and the table byte at `0D58 + sign_extend(allowance)`.
+
+[confirmed: T96 audit `runs/T23/audit_scene_offsets.py`] The six retained T23
+runs visit both offsets: 556 A94B calls, 313 with side0/offset11 and 243 with
+side1/offset0. Of the 494 candidate scans, 283 run at offset11, where the
+normalized and physical rows name different players. In none of the 494 scans is
+either row's player inside the scanned reserve slots, so no retained observation
+separates the two readings: this qualification rests on the listing, and the
+corpus neither confirms nor contradicts it dynamically.
 
 [confirmed: `0AB9:9882–99C1`] A player's P8+6 selects an eight-byte preference
 row at 0BF6. 9882 retains the last nonzero candidate in preference order, filtering

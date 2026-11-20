@@ -201,6 +201,14 @@ def validate_helpers(events, call, parent=None):
             roster = call['input']['clubs'][call['side']]['roster']
             player = call['input']['scenes'][call['scene']-1]['player']
             # Verify the observed reserve-scan footprint, not candidate choice/results.
+            # [#122, T96] Only the exclusion's footprint is checked, not which row
+            # produced it: the listing (0AB9:A8BF-A8DD) excludes the player of the
+            # side-normalized scene row. In all 494 retained scans neither that row's
+            # player nor the physical row's player lies in the scanned slots, so this
+            # derived expectation is insensitive to the difference (see
+            # runs/T23/audit_scene_offsets.py). Do not read it as evidence for either
+            # reading, and do not rebuild the expectation from the listing alone while
+            # every record also matches the physical row.
             expected = [[roster[i-1]] for i in range(12, limit+1) if roster[i-1] != player]
             if [child['arguments'] for child in e['children'][1:]] != expected:
                 raise ValueError('missing/reordered reserve availability observations')
