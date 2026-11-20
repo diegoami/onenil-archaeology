@@ -16,7 +16,13 @@ league week. Keys: `Y` (load), `Enter` (PLAY NEXT GAME), `Enter` (first half),
 | Management | funds 1,691,393, next opponents Chelsea, `League match #29`, away |
 
 The funds join: 1,045,060 at preparation + 726,972 − 80,639 = 1,691,393, so the
-route's own screens account for the movement. [designed] The menu's `LEAGUE POS.`
+route's own screens account for the movement.
+
+[confirmed:T102 arithmetic] The captured table fixes the points rule without any
+modern assumption: Newcastle's row (12-2-0 home, 9-1-4 away) is 21 wins and 3
+draws for 45 points, and Blackburn's (8-3-3, 9-1-4) is 17 wins and 4 draws for 38,
+so a win is **2 points**, a draw **1**, exactly as the manual's T54 observation
+said - not three for a win. [designed] The menu's `LEAGUE POS.`
 reads 9 after the match although the captured table shows Blackburn 2nd; the
 receipt records both as observed and interprets neither. The score, the table
 and the cash are this run's facts, not predictions or a points-rule formula.
