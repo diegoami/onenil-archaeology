@@ -45,6 +45,11 @@ def validate(directory,source=True):
         data=(directory/name).read_bytes()
         require(data.startswith(b'\x89PNG\r\n\x1a\n') and data.endswith(b'IEND\xaeB`\x82'),'PNG')
         require(sha(data)==step['screenshot_sha256'],'screenshot digest')
+        if step.get('savestate') is not None:
+            require(step['savestate'].endswith('.sav'),'savestate path')
+            require(re.fullmatch('[0-9a-f]{64}',step['savestate_sha256']) is not None,'savestate digest')
+            private=Path(step['savestate'])
+            if private.exists():require(sha(private.read_bytes())==step['savestate_sha256'],'savestate file digest')
         previous=sha(path.read_bytes())
     require(previous==end['last_step'],'final chain')
     if header.get('requires_restart'):
@@ -73,7 +78,7 @@ def check_route(steps,route):
         raise ValueError('missing setup prompt')
 
 
-def run(out,persistence=False):
+def run(out,persistence=False,save=None,state_dir=None):
     sys.path.insert(0,str(ROOT/'runtime/driver'))
     import driver
     import screens
@@ -96,9 +101,19 @@ def run(out,persistence=False):
     scratch=Path('/tmp')/f'onenil-manual-{out.name}-{directory.name}'
     if scratch.exists():raise ValueError(f'scratch exists: {scratch}')
     d=ManualDriver(workdir=scratch,game_dir=scratch/'game')
+    # [T100] A restored league save is loaded as the supplied save: record the
+    # replacement explicitly, since the release set ships its own SAVE1.1-0.
+    source_save=None
+    if save is not None:
+        data=Path(save).read_bytes()
+        d.preload_saves={'SAVE1.1-0':data}
+        source_save=dict(path=str(Path(save).resolve()),sha256=sha(data),size=len(data))
     write(directory/'session.json',dict(schema='original-ui-session/1',edition='96',game_files=release(),
         code_commit=git('rev-parse','HEAD').decode().strip(),source_sha256=sha(Path(__file__).read_bytes()),
         dosbox_version=driver.require_dosbox() and driver.WANT_DOSBOX,started=driver.host_times()['utc'],requires_restart=persistence,
+        source_save=source_save,
+        interventions=[] if source_save is None else
+            ['replaced the shipped SAVE1.1-0 with the recorded source save before DOSBox-X started'],
         scope='Fresh original process; host clock and seed uncontrolled; savestate reads and emulator screenshots are observational interventions.'))
     number=0;previous=None;status='aborted';error=None
     def capture(command,screen):
@@ -116,7 +131,8 @@ def run(out,persistence=False):
         with (directory/image).open('xb') as f:f.write(data)
         text=screen.text()
         step=dict(number=number,previous=previous,id=command['id'],keys=command.get('keys',[]),
-            wait=command.get('wait',1),restart=command.get('restart_receipt'),text=text,text_sha256=sha(text.encode()),screen_sha256=screen.digest(),
+            wait=command.get('wait',1),restart=command.get('restart_receipt'),text=text,
+            savestate=command.get('savestate_file'),savestate_sha256=command.get('savestate_sha256'),text_sha256=sha(text.encode()),screen_sha256=screen.digest(),
             highlighted=screens.highlighted(screen),screenshot=image,screenshot_sha256=sha(data),time=driver.host_times()['utc'])
         path=directory/f'step-{number:04d}.json';write(path,step);previous=sha(path.read_bytes());number+=1
         print(json.dumps(dict(directory=str(directory),step=number-1,text=text,highlighted=step['highlighted'])),flush=True)
@@ -144,6 +160,15 @@ def run(out,persistence=False):
                 if key=='F1':raise ValueError('F1 crashes calibrated savestate reader')
                 d.keys(key)
             time.sleep(min(max(float(command.get('wait',1)),0),30))
+            if command.get('savestate'):
+                if state_dir is None:raise ValueError('--state-dir is required for a savestate command')
+                name=command['savestate']
+                if not re.fullmatch(r'[a-z0-9-]+',name):raise ValueError('savestate name')
+                target=Path(state_dir)/f'{name}.sav'
+                target.parent.mkdir(parents=True,exist_ok=True)
+                if target.exists():raise ValueError('private savestate exists; a new read is a new file')
+                data=d.save_state();target.write_bytes(data)
+                command['savestate_file']=str(target);command['savestate_sha256']=sha(data)
             capture(command,d.screen())
     except Exception as exc:
         error=f'{type(exc).__name__}: {exc}';raise
@@ -157,12 +182,15 @@ if __name__=='__main__':
     parser.add_argument('--run',action='store_true');parser.add_argument('--out',type=Path)
     parser.add_argument('--persistence',action='store_true')
     parser.add_argument('--route',choices=['setup','supplied'],default='setup')
-    parser.add_argument('--check',type=Path);args=parser.parse_args()
+    parser.add_argument('--check',type=Path)
+    parser.add_argument('--save',type=Path,help='replace the shipped SAVE1.1-0 with this recorded save')
+    parser.add_argument('--state-dir',type=Path,help='where a savestate command writes its private bytes')
+    args=parser.parse_args()
     if args.check:
         sessions=[p for p in args.check.glob('session-r*') if (p/'end.json').exists() and json.loads((p/'end.json').read_text())['status']=='completed']
         if not sessions:raise ValueError('no completed sessions')
         steps=[s for p in sessions for s in validate(p)]
         check_route(steps,args.route)
         print(f'{len(sessions)} sessions, {len(steps)} screens verified')
-    elif args.run and args.out:run(args.out,args.persistence)
+    elif args.run and args.out:run(args.out,args.persistence,args.save,args.state_dir)
     else:parser.error('choose --run --out PATH or --check PATH')
