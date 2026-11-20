@@ -147,3 +147,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T101 Boot the league preparation state in the emulator harness](T101.md) (#225).
 
 - [T102 The league week route after League match #28](T102.md) (#227).
+
+- [T103 Decode the league table block and prove it against the captured round](T103.md) (#229).
