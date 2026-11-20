@@ -1,0 +1,8 @@
+{
+  "id": "S003-match-preparation",
+  "keys": [
+    "Enter"
+  ],
+  "wait": 2,
+  "savestate": "league-preparation-0001"
+}
