@@ -2,6 +2,10 @@
 """[designed: owner, 2026-10-29] No byte of the original game is tracked: refuse any tracked file
 with one of its file types (CLAUDE.md, docs/artifacts.md). Exit 0 when clean, 1 otherwise.
 
+[incident 2026-11-20, #221] The private `.cache` is never tracked, not even as a symlink:
+`.gitignore`'s `.cache/` matches a directory but not a symlink of that name, so one `git add -A`
+committed `.cache` and the next checkout replaced the real artifact directory with the link.
+
     python3 tools/check_originals.py
 """
 import subprocess
@@ -13,13 +17,28 @@ ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN = {".exe", ".dat", ".pif", ".bat", ".pal", ".tfn", ".1-0", ".sav", ".com", ".ovl"}
 
 
+def tracked(root):
+    """Every tracked path of `root`, decoded, in git's own order."""
+    out = subprocess.run(["git", "ls-files", "-z"], cwd=root, capture_output=True, check=True).stdout
+    return [name.decode() for name in out.split(b"\0") if name]
+
+
+def violations(names):
+    """Original-game file types and private cache paths among tracked `names`."""
+    originals = [name for name in names if Path(name).suffix.lower() in FORBIDDEN]
+    cache = [name for name in names if name == ".cache" or name.startswith(".cache/")]
+    return originals, cache
+
+
 def main() -> int:
-    files = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True).stdout.split(b"\0")
-    bad = [f.decode() for f in files if f and Path(f.decode()).suffix.lower() in FORBIDDEN]
-    for name in bad:
+    originals, cache = violations(tracked(ROOT))
+    for name in originals:
         print(f"original-game file type tracked: {name}")
-    print("original-file check: " + ("FAIL" if bad else "ok"))
-    return 1 if bad else 0
+    for name in cache:
+        print(f"private cache path tracked: {name}")
+    ok = not originals and not cache
+    print("original-file check: " + ("ok" if ok else "FAIL"))
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

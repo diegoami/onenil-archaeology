@@ -72,6 +72,13 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     target, runs start from DOSBox-X savestates, and a run confirms that it loads saved games and
     never stops (T04); if it does stop, the target is decided again.
 
+17. **Never track the private cache.** `.cache` holds game bytes and savestates and is ignored as a
+    directory, but `.gitignore`'s `.cache/` does not match a *symlink* of that name: on 2026-11-20 a
+    `git add -A` committed one, and the next checkout replaced the real 41 GB artifact directory
+    with the link (#221). Ignore `.cache` as a directory, a file and a link;
+    `tools/check_originals.py` refuses any tracked cache path; and name every path in `git add` —
+    never `git add -A` or `git add .` — in a checkout that holds artifacts.
+
 [designed: owner, 2026-11-05, explicit manual-workflow clarification] Readable decoded UI
 text may coincide with literal executable menu strings. The original-byte scanner may exclude
 only the bounded display text field of a completed, authenticated original manual-session step:
