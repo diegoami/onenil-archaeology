@@ -143,3 +143,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T99 Never track the private cache; restore what needs no credentials](T99.md) (#221).
 
 - [T100 A league fixture's preparation savestate, then its watched week](T100.md) (#223).
+
+- [T101 Boot the league preparation state in the emulator harness](T101.md) (#225).
