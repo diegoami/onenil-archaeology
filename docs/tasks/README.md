@@ -145,3 +145,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T100 A league fixture's preparation savestate, then its watched week](T100.md) (#223).
 
 - [T101 Boot the league preparation state in the emulator harness](T101.md) (#225).
+
+- [T102 The league week route after League match #28](T102.md) (#227).
