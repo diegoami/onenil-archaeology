@@ -12,6 +12,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT/'runtime/emul'))
+# `postmatch_tail` imports modules that put `tools/static` on sys.path, which
+# shadows the emulator's `replacement` module for every later import in a shared
+# pytest process (match_continuity.py documents the same hazard). Resolve that
+# name first so this test cannot reorder the suite; `ratings` and `listing`
+# must keep resolving to `tools/static` for their own tests.
+import replacement  # noqa: E402,F401
 import postmatch_tail as tail  # noqa: E402
 
 

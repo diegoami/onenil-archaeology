@@ -189,15 +189,18 @@ def condition_record(condition):
 def fresh_instance(week):
     """[designed: T93, after runs/T93/aborted-r0002 and sevilla-week-r0002] The
     week route continues the identical machine on a fresh Unicorn instance.
-    The observers stay installed after the sealed caller: the NumericAudit's
-    two memory-read hooks exclude only the first caller's stack window, and in
-    Unicorn 2.1.4 a read hook over the live stack can re-enter RETF (T84). Both
-    long-lived runs died on the sixth key at 2864:B941 (DS data, FF bytes);
-    restored from the r0002 boundary checkpoint, the route reaches the
-    management menu, and the same two no-op read hooks alone reproduce the
-    fault at the same address and key. Only emulator-side hooks and
-    translation caches are discarded; position, registers, all memory and the
-    draw count are verified identical."""
+    T93 recorded the fault before T98: the NumericAudit's two memory-read hooks
+    excluded only the first caller's stack window and stayed installed after it
+    stood down, and in Unicorn 2.1.4 a read hook over the live stack can
+    re-enter RETF (T84). Both long-lived runs died on the sixth key at
+    2864:B941 (DS data, FF bytes); restored from the r0002 boundary checkpoint,
+    the route reaches the management menu, and the same two no-op read hooks
+    alone reproduce the fault at the same address and key. [#214, T98] The
+    audit now deletes its hooks when the caller returns, and records/T98 shows
+    the same machine reaching the menu after `close()`; this switch is kept
+    until a full route run proves the live instance needs no new emulator. Only
+    emulator-side hooks and translation caches are discarded; position,
+    registers, all memory and the draw count are verified identical."""
     g = week.g
     state = pickle.loads(pickle.dumps(checkpoint.capture(week), protocol=pickle.HIGHEST_PROTOCOL))
     fresh = checkpoint.restore(state, tail.full.match.Week, [])
