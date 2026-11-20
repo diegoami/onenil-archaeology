@@ -75,8 +75,8 @@ separate process, and the complete r0003 run observe the same week facts
 
 **The emulator fault.** [derived: scratch diagnostics from the r0002 checkpoint, no records]
 The fault was the harness's, not the game's. The NumericAudit's two
-memory-read hooks exclude only the first caller's stack window and stay
-installed after it stands down; in Unicorn 2.1.4 a read hook over the live
+memory-read hooks exclude only the first caller's stack window and stayed
+installed after it stood down; in Unicorn 2.1.4 a read hook over the live
 stack can re-enter RETF (the T84 note in `postmatch_tail.py`). Restored on a
 fresh instance the route completes; the same two no-op read hooks alone
 reproduce the fault at the same address and key; the global write hook alone
@@ -84,6 +84,15 @@ does not. [designed] After the boundary checkpoint the run continues the
 identical machine on a fresh Unicorn instance (`fresh_instance`): position,
 registers, all memory and the draw count are verified equal; only emulator
 hooks and translation caches are dropped.
+
+[confirmed:T98, issue 214] The leak itself is fixed: the audit keeps its three
+hook handles and the drivers delete them once `Complete` has left `emu_start`
+(`records/T98/hooks-r0001.json` reproduces the `2864:B941` fault with the hooks
+installed, and `records/T98/closed-r0001.json` shows the same restored machine
+reaching the menu with the committed week facts after `close()`). The T93 driver
+keeps `fresh_instance` because dropping it needs a full ~2.5-hour re-run of this
+route on the live instance; the switch stays a verified-equal belt-and-braces
+step rather than a load-bearing workaround.
 
 **Driver corrections, each with a control that failed before:** the fault
 wrapper passes `tail.Complete` through; the route counts the week as started

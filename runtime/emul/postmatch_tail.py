@@ -144,6 +144,7 @@ class NumericAudit:
     def __init__(self, week):
         self.week = week
         self.active = False
+        self.hooks = []
         self.entry = self.returned = self.frame = None
         self.timer_effects = None
         self.service_effects = None
@@ -202,10 +203,30 @@ class NumericAudit:
         for r in self.regions:
             if max(r['base'], self.stack_lo) < min(r['base'] + r['count'] * r['stride'], self.stack_hi):
                 raise ValueError('scratch window overlaps declared semantic pool')
-        g.mu.hook_add(UC_HOOK_MEM_READ, self.read, begin=0, end=self.stack_lo - 1)
-        g.mu.hook_add(UC_HOOK_MEM_READ, self.read, begin=self.stack_hi, end=0x10FFFF)
-        g.mu.hook_add(UC_HOOK_MEM_WRITE, self.write)
+        self.install()
         self.active = True
+
+    def install(self):
+        """[#214] Register the three operand hooks and keep their handles.
+
+        `enter` calls this once the stack window is known; T98's probe calls it
+        with `active=False` to install the same no-op hooks over a restored
+        machine without running the caller."""
+        mu = self.week.g.mu
+        self.hooks = [mu.hook_add(UC_HOOK_MEM_READ, self.read, begin=0, end=self.stack_lo - 1),
+                      mu.hook_add(UC_HOOK_MEM_READ, self.read, begin=self.stack_hi, end=0x10FFFF),
+                      mu.hook_add(UC_HOOK_MEM_WRITE, self.write)]
+
+    def close(self):
+        """[#214] Delete the operand hooks once `Complete` has left `emu_start`.
+
+        Unicorn 2.1.4 faults later guest code that reaches the live stack through
+        a read hook (runs/T93/aborted-r0002, sevilla-week-r0002: UC_ERR_INSN_INVALID
+        at 2864:B941). A hook is never deleted from inside its own callback, so the
+        driver calls this after the play segment returns; repeated calls are safe."""
+        handles, self.hooks = self.hooks, []
+        for handle in handles:
+            self.week.g.mu.hook_del(handle)
 
     def describe(self, address, size):
         if size not in (1, 2, 4):
@@ -361,6 +382,10 @@ def run(out, private):
             pass
         else:
             raise ValueError('original ended without E679 return')
+        # [#214] The caller is sealed: delete the operand hooks before any later
+        # guest code runs on this instance.
+        if audit is not None:
+            audit.close()
         if match_return is None or observer.parent is not None or observer.pending is not None \
                 or week.g.unsupported or prior.authenticate_code(week.g) != record['code']:
             raise ValueError('incomplete/unsupported original caller continuation')
