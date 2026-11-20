@@ -1,0 +1,49 @@
+{
+  "schema": "league-preparation-receipt/1",
+  "issue": 223,
+  "task": "T100",
+  "source_save": {
+    "name": "pre-league28",
+    "path": ".cache/saves/pre-league28/SAVE1.1-0",
+    "sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275",
+    "bytes": 194426
+  },
+  "session": {
+    "directory": "runs/T100/session-r0005",
+    "session_sha256": "128e8d6dbaf06494fcf892fc07cfd97dff0ff140774e1aa98cdca20996cb6bda",
+    "code_commit": "54af5316493a6d7251891537f91bf74bfa978f35",
+    "steps": 3,
+    "last_step": "524b0ecdf0947e1381ad3891322229124b0bb46bca3f8a1c2460c89aab754998"
+  },
+  "preparation": {
+    "step": 2,
+    "id": "S003-match-preparation",
+    "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4",
+    "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a",
+    "highlighted": [
+      "PLAY GAME"
+    ],
+    "competition": "League match #28",
+    "opponent": "Newcastle Utd",
+    "managed": "Blackburn R",
+    "versus": "versus",
+    "subs": "Remaining subs 3"
+  },
+  "context": {
+    "step": 1,
+    "venue": "VENUE       away",
+    "money": "1,045,060",
+    "season": "SEASON  1994/95",
+    "league_position": "LEAGUE POS.   2"
+  },
+  "savestate": {
+    "path": ".cache/T100/states/league-preparation-0001.sav",
+    "sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8",
+    "bytes": 292954
+  },
+  "keys": [
+    "y",
+    "Enter"
+  ],
+  "scope": "A real original process booted from a restored league save; the savestate is the match preparation screen, before PLAY GAME. The host clock and seed are uncontrolled, and this claims no result."
+}
