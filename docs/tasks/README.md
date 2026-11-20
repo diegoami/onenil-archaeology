@@ -135,3 +135,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T93 Capture the Sevilla week full-time route — cash, news, week transaction and week-2](T93.md)
 
 - [T96 Qualify the A8A0 normalized-scene exclusion wording](T96.md) (#122).
+
+- [T97 Keep the T96 scene-offset audit enforced in CI](T97.md) (#122).
