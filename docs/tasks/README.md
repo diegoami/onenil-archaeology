@@ -139,3 +139,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T97 Keep the T96 scene-offset audit enforced in CI](T97.md) (#122).
 
 - [T98 Remove the numeric audit's hooks when its caller returns](T98.md) (#214).
+
+- [T99 Never track the private cache; restore what needs no credentials](T99.md) (#221).
