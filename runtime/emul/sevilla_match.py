@@ -376,6 +376,9 @@ def capture(directory, state_path, max_ticks=0):
             pass
         else:
             raise ValueError('the sevilla match and its caller did not return')
+        # [#214] The sealed caller returned: no operand hook outlives it.
+        if audit is not None:
+            audit.close()
         if max_ticks:
             # A bounded smoke verifies the plumbing: joined, ticking, chunking.
             # It has no match return; check_capture refuses smoke directories.

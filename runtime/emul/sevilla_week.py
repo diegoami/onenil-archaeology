@@ -534,6 +534,10 @@ def run(directory, state_path, max_ticks=0):
             pass
         else:
             raise ValueError('the sevilla week match and its caller did not return')
+        # [#214] The sealed caller returned: no operand hook outlives it, so the
+        # week route may continue on this same instance.
+        if audit is not None:
+            audit.close()
         if max_ticks:
             if not joined:
                 raise ValueError('the smoke run did not join the sevilla week match')

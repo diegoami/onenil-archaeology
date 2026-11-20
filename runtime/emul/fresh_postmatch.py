@@ -213,6 +213,7 @@ def run(directory,resume=None,stop_ticks=0,checkpoint_seconds=300):
     try:
         try:week.play(max_run_on=500000,on_boundary=safe_boundary)
         except tail.Complete:pass
+        if audit is not None:audit.close()  # [#214] no hook outlives the sealed caller
         if audit is None or audit.returned is None:raise ValueError('original caller did not return')
         result['status']='completed'
     except Paused:result['status']='paused'
