@@ -33,6 +33,28 @@ storage order from the displayed position. `python3 runs/T103/table.py --check`
 re-reads the private state, re-decodes and re-applies the round, and prints
 `ready`.
 
+## The display order (T110)
+
+[confirmed:T110, findings/F41-league-order.md, runs/T110/order-r0001.json] The
+order the screens show is a **per-division sort descending by (points, goal
+difference, goals for)** — with the goal difference compared as the **signed
+8-bit low byte of F−A** and goals for as unsigned 16-bit. One quicksort on the
+points byte (01EF:4227) is followed by a bubble pass that orders equal-points
+neighbours (01EF:4305); five groups of 16 clubs are sorted independently
+(01EF:4450), positions 1..16 land in each club record at offset 0x36 of the
+`[DS:D7C2]` block, and the table screen (01EF:4743 -> 467A -> 44D1) renders the
+index array at `DS:D7D5` in array order. The re-sort runs inside week
+processing, and the screen reads no arithmetic of its own.
+
+[confirmed:T110, runs/T105/seed-r0001.json, runs/T106] The captured tables
+decide the rule on their own at six points ties across weeks 28 and 29, all on
+goal difference — goals-for descending is excluded (Q.P.R F40 displayed above
+Chelsea F41 at 31 points) and fewest-goals-against is excluded (Wimbledon A49
+displayed above both). Goal average is excluded only by the static reading.
+`python3 runs/T110/order.py --check` re-derives the comparator from the
+committed listing (49 anchored instructions) and requires both weeks' 16
+displayed positions; it prints `T110 league table display order: ready`.
+
 [confirmed:T103 arithmetic] The captured table also fixes the points rule on its
 own: Newcastle's 21 wins and 3 draws make 45, Blackburn's 17 wins and 4 draws
 make 38, so a win is 2 points and a draw 1.
