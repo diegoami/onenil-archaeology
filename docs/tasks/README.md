@@ -155,3 +155,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T106 The second league week - match #29 captured from the post-week machine](T106.md) (#233).
 
 - [T110 The league table's display order](T110.md) (#235).
+
+- [T112 The third league week - match #30 captured from the post-league29 machine](T112.md) (#238).
