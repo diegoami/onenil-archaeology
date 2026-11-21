@@ -60,12 +60,18 @@ formatter include:
 | 15,16 | cross | primary |
 | 17,18,19,20 | shot,volley,quick shot,header | primary |
 | 25 | possession | primary |
-| 28 | save | primary |
-| 29,30 | block,deflection | primary |
+| 28 | possession | primary |
+| 29,30,31 | save,block,deflection | primary |
 | 33,34,35 | knocking on,interception,collection | primary |
 | 38,39 | goal,own goal | primary |
 | 49 | kickoff taker | primary |
 | 50,51,52 | booking,dismissal,injury | primary |
+
+[confirmed: ds_2864_01.hex at d9e20a4, DS:0382+21*code; correction of #134] An
+earlier version of this table read 28 as save and 29,30 as block,deflection. The
+templates are 28 at05CE "has the ball" (possession), 29 at05E3 "saved by",
+30 at05F8 "blocked by" and 31 at060D "deflected by". Only this summary changed;
+the numeric original traces and every measured record are unaffected.
 
 [designed] New wording can describe these actual emitted actions in English.
 It must preserve player identity,chronology and outcome;it must not add a

@@ -77,3 +77,37 @@ def test_mutable_job_control_uses_complete_atomic_replacement(tmp_path):
     module.control_write(path,{'status':'failed','error':'synthetic'})
     assert json.loads(path.read_text())=={'status':'failed','error':'synthetic'}
     assert not path.with_suffix('.tmp').exists()
+
+class Child:
+    """A synthetic observer process: running for `polls` polls, then exited."""
+    def __init__(self,polls,returncode=0):self.polls,self.returncode=polls,returncode
+    def poll(self):
+        if self.polls:self.polls-=1;return None
+        return self.returncode
+
+def test_terminal_checkpoint_supersedes_the_periodic_pointer(repository,tmp_path):
+    # #188: the terminal checkpoint's commit, not an older periodic one, ends in control state.
+    root,stream,receipts=repository;control=tmp_path/'control.json';state={'status':'running'}
+    def save():
+        leaf=stream/f'chunk-{len(list(stream.glob("chunk-*.json"))):06d}.json';leaf.write_text('{"synthetic":true}')
+        return module.checkpoint(root,stream,receipts,validate)
+    ticks=iter(range(0,10_000,600))
+    code=module.supervise(Child(2),state,save,control,interval=600,poll=0,clock=lambda:next(ticks),sleep=lambda s:None)
+    assert code==0
+    periodic=state['last_checkpoint']
+    assert json.loads(control.read_text())['last_checkpoint']==periodic
+    terminal=module.remember(state,save())
+    assert terminal['commit']!=periodic
+    assert state['last_checkpoint']==terminal['commit']==command(root,'rev-parse','HEAD').strip()
+
+def test_remember_keeps_the_pointer_when_nothing_new_was_committed():
+    state={'last_checkpoint':'a'*40}
+    assert module.remember(state,None) is None
+    assert state=={'last_checkpoint':'a'*40}
+
+def test_supervise_retries_busy_checkpoints_and_reports_the_exit_code(tmp_path):
+    state={};calls=[]
+    def busy():calls.append(1);raise module.Busy('writer advanced')
+    ticks=iter(range(0,10_000,600))
+    assert module.supervise(Child(2,returncode=3),state,busy,tmp_path/'c.json',clock=lambda:next(ticks),sleep=lambda s:None)==3
+    assert calls and 'last_checkpoint' not in state

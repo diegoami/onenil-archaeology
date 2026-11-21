@@ -124,6 +124,27 @@ def validator(module):
     return validate
 
 
+def remember(state, saved):
+    """Keep the newest committed checkpoint, periodic or terminal (#188)."""
+    if saved:
+        state['last_checkpoint'] = saved['commit']
+    return saved
+
+
+def supervise(child, state, save, control, interval=600, poll=30, clock=time.monotonic, sleep=time.sleep):
+    """Checkpoint periodically while the observer runs; return its exit code."""
+    last = clock()
+    while child.poll() is None:
+        if clock()-last >= interval:
+            try:
+                remember(state, save())
+                last = clock(); control_write(control, state)
+            except Busy as exc:
+                print('checkpoint retry:', exc, flush=True)
+        sleep(poll)
+    return child.returncode
+
+
 def control_write(path, state):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix('.tmp')
@@ -153,18 +174,11 @@ def main():
                 command=[sys.executable,str(ROOT/'runtime/emul/edited_watched.py'),'--run',str(args.state.resolve()),'--directory',str(stream),'--continue-full',*extra]
                 child=subprocess.Popen(command,cwd=ROOT)
                 state['child_pid']=child.pid;control_write(args.control,state)
-                last=time.monotonic()
-                while child.poll() is None:
-                    if time.monotonic()-last>=600:
-                        try:
-                            saved=checkpoint(ROOT,stream,receipts,validate)
-                            if saved:state['last_checkpoint']=saved['commit']
-                            last=time.monotonic();control_write(args.control,state)
-                        except Busy as exc:print('checkpoint retry:',exc,flush=True)
-                    time.sleep(30)
-                if child.returncode:
-                    raise RuntimeError(f'{phase} observer exited {child.returncode}')
-                checkpoint(ROOT,stream,receipts,validate)
+                save=lambda:checkpoint(ROOT,stream,receipts,validate)
+                returncode=supervise(child,state,save,args.control)
+                if returncode:
+                    raise RuntimeError(f'{phase} observer exited {returncode}')
+                remember(state,save())
         module.check(stream,require_repeat=True)
         state.update(status='completed',phase='verified',child_pid=None)
     except BaseException as exc:
@@ -173,7 +187,7 @@ def main():
             try:child.wait(timeout=30)
             except subprocess.TimeoutExpired:child.kill();child.wait()
         state.update(status='interrupted' if isinstance(exc,KeyboardInterrupt) else 'failed',error=f'{type(exc).__name__}: {exc}',child_pid=None)
-        try:checkpoint(ROOT,stream,receipts,validate)
+        try:remember(state,checkpoint(ROOT,stream,receipts,validate))
         except Exception as failure:state['checkpoint_error']=str(failure)
         control_write(args.control,state)
         raise
