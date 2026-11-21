@@ -24,6 +24,7 @@ import postmatch_tail as tail  # noqa: E402
 class Mu:
     def __init__(self):
         self.added, self.deleted = [], []
+        self.flushes = 0
 
     def hook_add(self, kind, callback, begin=None, end=None):
         self.added.append(dict(kind=kind, begin=begin, end=end))
@@ -31,6 +32,9 @@ class Mu:
 
     def hook_del(self, handle):
         self.deleted.append(handle)
+
+    def ctl_flush_tb(self):
+        self.flushes += 1
 
 
 def audit_with_hooks():
@@ -54,6 +58,19 @@ def test_install_keeps_the_three_handles_and_close_deletes_them():
     audit.close()
     assert audit.hooks == []
     assert mu.deleted == [1, 2, 3]
+
+
+def test_install_flushes_the_translation_cache_after_the_hooks():
+    # [209] Unicorn 2.1.4 does not fire memory hooks for accesses inside
+    # translation blocks cached before hook_add: the T88 caller audit missed
+    # exactly one seed read per draw because the seed-read block at 24BC:0CE6
+    # was cached long before the audit attached. install() must flush the
+    # cache once, after the three hooks are registered, so every later
+    # translation carries them.
+    audit = audit_with_hooks()
+    mu = audit.week.g.mu
+    assert mu.flushes == 1
+    assert len(mu.added) == 3
 
 
 def test_close_is_safe_twice():

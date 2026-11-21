@@ -216,6 +216,13 @@ class NumericAudit:
         self.hooks = [mu.hook_add(UC_HOOK_MEM_READ, self.read, begin=0, end=self.stack_lo - 1),
                       mu.hook_add(UC_HOOK_MEM_READ, self.read, begin=self.stack_hi, end=0x10FFFF),
                       mu.hook_add(UC_HOOK_MEM_WRITE, self.write)]
+        # [209] Unicorn 2.1.4 does not fire memory hooks for accesses inside
+        # translation blocks that were already cached before hook_add (the T88
+        # finding: the seed-read block at 24BC:0CE6 was cached long before the
+        # caller audit attached, so one seed read per draw went unrecorded
+        # while the sealed receipts stayed otherwise identical). Flushing the
+        # cache at attach makes every later translation carry the new hooks.
+        mu.ctl_flush_tb()
 
     def close(self):
         """[#214] Delete the operand hooks once `Complete` has left `emu_start`.
