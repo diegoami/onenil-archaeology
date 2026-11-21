@@ -1,0 +1,7 @@
+{
+  "id": "S049-menu-down",
+  "keys": [
+    "Down"
+  ],
+  "wait": 1
+}
