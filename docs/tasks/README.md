@@ -151,3 +151,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T103 Decode the league table block and prove it against the captured round](T103.md) (#229).
 
 - [T105 The league campaign seed](T105.md) (#231).
+
+- [T106 The second league week - match #29 captured from the post-week machine](T106.md) (#233).

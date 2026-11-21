@@ -1,0 +1,390 @@
+{
+ "schema": "league-week-receipt-2/1",
+ "issue": 233,
+ "task": "T106",
+ "source_save": {
+  "path": ".cache/saves/pre-league28/SAVE1.1-0",
+  "sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275"
+ },
+ "session": {
+  "directory": "runs/T106/session-r0014",
+  "session_sha256": "f3cabc78ed26fba9cf4ccad3b6d95ed6c7a17ea5da62d7f05f7f3c5bc1b81d69",
+  "steps": 54,
+  "last_step": "ee7b0fec38c7f1bc152924d8161259948daf354330d76fb293d186c1bb7c54ad"
+ },
+ "keys": [
+  [
+   "y"
+  ],
+  [
+   "Enter"
+  ],
+  [
+   "Enter"
+  ],
+  [
+   "space"
+  ],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "Enter"
+  ],
+  [
+   "space"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Return"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Return"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Return"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Return"
+  ],
+  [
+   "Escape"
+  ],
+  [
+   "Enter"
+  ],
+  [
+   "space"
+  ],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  []
+ ],
+ "screens": [
+  {
+   "step": 44,
+   "id": "S021-half-time-29",
+   "text_sha256": "ef3b16aecf26dc8001572b3b7cb38c5232b2177fc7b6a63e22eb62bc8b5e2580",
+   "screen_sha256": "c1c5e115d377c207b79d5018f8c8b09de715b52ef7ac78bb7a3d748f2abbabfd"
+  },
+  {
+   "step": 46,
+   "id": "S023-second-half-29",
+   "text_sha256": "e485367c6cf4d0311c36edeaaa7a56e255204dfae94982b08649aa7f11647cfb",
+   "screen_sha256": "b6a1cce7d1a4108fce08b1e217c4c879d453ab5bcf619ee361d4cffb0d03566e"
+  },
+  {
+   "step": 48,
+   "id": "S025-league-results-29",
+   "text_sha256": "530808dee98efd7168099a9513ea01e70284be5388a68be09591ef92af84235f",
+   "screen_sha256": "b3e5977a661d542dd7b16c67f11c93ae16b4bd418e78e8d8c7ac95f2b1f7430b"
+  },
+  {
+   "step": 49,
+   "id": "S026-league-table-29",
+   "text_sha256": "4995c52de30e16c29ee5ea3b1c0ff0ff02f320afb40af998bb0aaa53912ca9b7",
+   "screen_sha256": "342be4651f691ee523623d3c3316f6bc40575fd3a9831e2204fd55ce18e44dc1"
+  },
+  {
+   "step": 50,
+   "id": "S027-cash-flow-29",
+   "text_sha256": "950421f6fd99b189b37219c10b833809679f0c5bf37161cfa72897ddd82c1675",
+   "screen_sha256": "1ccd7d17638fd097f98bed3c00871adc7f68504cdf79238963751cd7ee594524"
+  },
+  {
+   "step": 51,
+   "id": "S028-transfer-news-29",
+   "text_sha256": "4173a27c8d1ea24d26274f4e6cf0abd79529cce9852d1085d1bd837185be77ba",
+   "screen_sha256": "0282be0b5f71b22b57173dfdca663f006b6d2cd1f9c232051af07870033a4ba5"
+  },
+  {
+   "step": 52,
+   "id": "S029-management-30",
+   "text_sha256": "ffc7165d3908d2cbb5db9fe6d079288f42e5210d5a3cab118fb374abbef5ec58",
+   "screen_sha256": "332ad7b7cc77f58f01eb9b86b291729f34e9373c0f54b05cc84eec5f60e9de6c"
+  }
+ ],
+ "squad": {
+  "players_out": [
+   "H Berg",
+   "C Hendry"
+  ],
+  "players_in": [
+   "A Wright",
+   "M Newell"
+  ],
+  "reason": "PLAY GAME refused League match #29 with \"Blackburn R has an ineligible player in the first team\"; the retained superseded sessions record the refusal, and the recorded exchange of the two players the week-28 processing flagged (decoded statuses 1->3 via the T105 projection) cleared it",
+  "refusal": [
+   {
+    "session": "session-r0002",
+    "step": 14,
+    "id": "S016-half-time-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0002",
+    "step": 16,
+    "id": "S018-second-half-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0002",
+    "step": 17,
+    "id": "S019-full-time-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0003",
+    "step": 13,
+    "id": "S016-half-time-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0003",
+    "step": 15,
+    "id": "S018-second-half-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0003",
+    "step": 16,
+    "id": "S019-full-time-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0004",
+    "step": 13,
+    "id": "S016-half-time-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0004",
+    "step": 15,
+    "id": "S016-half-time-29",
+    "text_sha256": "f480d933841eb94cdd0151eb4590fb64d225468591d59b5850ec2a4f4c0cc233",
+    "screen_sha256": "7b7d5921949c98641e4827d79cdfc07526e6a40eaf19ca404be35eac3672453f"
+   },
+   {
+    "session": "session-r0013",
+    "step": 43,
+    "id": "S021-half-time-29",
+    "text_sha256": "9764148413d5f887a90743fd9bd36faae54fcfb99b6488cdfc3ae05e3563a2ed",
+    "screen_sha256": "de74a9b3dce3f36c23c8748cdc3b917b3fd80f742f986d3d7de62c1b70e99db5"
+   }
+  ],
+  "screens": [
+   {
+    "step": 12,
+    "id": "S014-prep29",
+    "text_sha256": "e872c1419eafb24091394894d3a382f034ae2c1480db4b8be0944519e7a645ec",
+    "screen_sha256": "d41f64a291264b1b8399a0907bf7c7efc45393f83cd3d73304170f8cf6287097"
+   },
+   {
+    "step": 31,
+    "id": "S017-swap-wright",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "6036549184f3c1d96697b446e19a569c8867b88d9fc9cd86a45e15078705f1fb"
+   },
+   {
+    "step": 41,
+    "id": "S018-down-newell",
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d",
+    "screen_sha256": "e2d46f7202416194ed527b5af25741f72e0e14fc118c3682722001b2b5d894a4"
+   },
+   {
+    "step": 42,
+    "id": "S019-swap-newell",
+    "text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1",
+    "screen_sha256": "3ea4c7603a046c3332d31185d6b3d57b47237ffd7db5a40c272a97de6908b711"
+   }
+  ]
+ },
+ "savestates": {
+  "preparation_29": {
+   "session": "session-r0002",
+   "step": 13,
+   "path": ".cache/T106/states/league-preparation-29-0001.sav",
+   "sha256": "d6662455a90d605b6cf5b8bd012059e5a28f734041722f20d37b72fbeda729b4"
+  },
+  "post_league29": {
+   "session": "session-r0014",
+   "step": 53,
+   "path": ".cache/T106/states/post-league29-0003.sav",
+   "sha256": "4584c0d9507c2c2c54a435df1f526ed98f04f820f8811f3a43bb8865b3b9845f"
+  }
+ },
+ "score": {
+  "home": "Chelsea",
+  "away": "Blackburn R",
+  "home_goals": 3,
+  "away_goals": 3,
+  "scorers": {
+   "home": [
+    "J Spencer 23",
+    "D Rocastle 25",
+    "C Burley 88"
+   ],
+   "away": [
+    "M Newell 14",
+    "P Warhurst 16",
+    "P Warhurst 78"
+   ]
+  },
+  "attendance": 29158,
+  "stage": "FULL TIME"
+ },
+ "results": {
+  "match_no": 29,
+  "line": "\u2502 --------Chelsea  3v3  Blackburn R---- \u2502"
+ },
+ "table": {
+  "line": "\u2502 2\u2502 Blackburn R---- \u2502 29 \u2502  8 \u2502  3 \u2502  3 \u2502  9 \u2502  2 \u2502  4 \u2502  63 \u2502  38 \u2502  39 \u2502",
+  "position": 2,
+  "club": "Blackburn R----",
+  "played": 29,
+  "home": [
+   8,
+   3,
+   3
+  ],
+  "away": [
+   9,
+   2,
+   4
+  ],
+  "goals_for": 63,
+  "goals_against": 38,
+  "points": 39
+ },
+ "cash": {
+  "total_in": 58316,
+  "total_out": 80631,
+  "club_funds": 1669078,
+  "line_in": "\u2551 TOTAL IN        \u2502 \u2502 \u2502 \u2502 \u2502 \u25025\u25028,3\u25021\u25026\u2502",
+  "line_funds": "\u2551 Club funds      \u2502 \u2502 \u2502 \u25021,6\u25026\u25029,0\u25027\u25028\u2502"
+ },
+ "transfer_news": [
+  "\u2502 M.Shail.......       Bristol City---      Chesterfield---  \u2502"
+ ],
+ "next_fixture": {
+  "competition": "League match #30",
+  "opponent": "Wimbledon",
+  "venue": "home",
+  "funds": 1669078
+ },
+ "scope": "One real original process from the restored pre-league28 save; the host clock and seed are uncontrolled, so the score, the squad transaction and the table are this run's facts, not a prediction. The manager's own squad exchange answers the game's eligibility refusal; no eligibility rule is decoded here."
+}
