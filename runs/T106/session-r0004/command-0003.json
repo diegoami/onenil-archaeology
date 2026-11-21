@@ -1,0 +1,12 @@
+{
+  "id": "S004-half-time",
+  "keys": [
+    "Enter"
+  ],
+  "wait": 3,
+  "retry": {
+    "id": "S004-half-time",
+    "keys": [],
+    "wait": 2
+  }
+}
