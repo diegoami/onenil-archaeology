@@ -13,6 +13,20 @@ fresh clone (a cloud session included) has it, except private original-game arti
 The repositories are public and the game is copyrighted: its bytes never enter git or a release
 (`tools/check_originals.py` refuses tracked files of its types).
 
+**The cache is never tracked, not even as a link.** [incident 2026-11-20, #221] `.gitignore`'s
+`.cache/` matches a directory but not a symlink of the same name, so one `git add -A` committed
+`.cache -> /abs/path/.cache`; the next checkout in the primary directory replaced the real
+artifact directory with that link and deleted its 41 GB of ignored contents. Now `.cache` is ignored
+as a directory, a file and a link, and `tools/check_originals.py` (run by CI) refuses any tracked
+cache path. Name every path in `git add` here; never `git add -A` or `git add .`.
+
+Restoring after such a loss needs the owner's remote: `python3 tools/artifacts.py pull` returns
+`One-Nil95/`, `One-Nil96/` and `states/`, and `.cache/venv` is recreated with
+`python3 -m venv .cache/venv && .cache/venv/bin/pip install -r requirements.txt`. Task savestates and
+boundary checkpoints written by a run (T75, T80, T81, T89, T93) are **not** on the remote and are
+lost; the committed receipts they produced are unaffected, but reproducing those routes again needs
+new captures.
+
 ## The Google Drive folder
 
 [The folder](https://drive.google.com/drive/folders/1IyIUQBE_Clkv6aBizULKIymRzHBLd4U8) (`My Drive/1-0`,

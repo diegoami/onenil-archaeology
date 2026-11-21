@@ -31,6 +31,19 @@ availability calls, including zero-player entries. Candidate scratch differs
 between A94B entry and return in 28 cases; scratch writes are not equivalent to
 the 25 changes of T22's narrower projection.
 
+`[confirmed: listings at b54a8d4, 0AB9:A8BF–A8DD]` A8A0's exclusion is the player
+named by word14 of the scene row indexed by the **side-adjusted** scene value, not
+by the caller's physical scene argument: A94B passes its own frame pointer
+(`push bp; call 0xa8a0`), A8A0 reads the side byte and scene word from it,
+subtracts `DS:0D56[side]`, indexes `CCEF + 25*normalized` and reads word14. The
+earlier wording "excludes the current scene player" is qualified accordingly
+(#122). [confirmed: T96 audit `runs/T23/audit_scene_offsets.py`] The corpus does
+visit nonzero offsets - 313 of 556 calls use side0/offset11 - and 283 of the 494
+scans run there with the two rows naming different players. But neither row's
+player lies in the scanned reserve slots in any of the 494 scans, so the retained
+records do not distinguish the readings. This is a static-reading correction; no
+dynamic confirmation of the exclusion is claimed, and no record changed.
+
 `[confirmed: listings at b54a8d4, 26C9:0BFE–0C41 and 0C6F–0C7E]` The string
 helper is Pascal substring search: construct a one-character string from P8+6,
 search D9A, and use its one-based index (or zero). D9A is a sequence of position

@@ -133,3 +133,25 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T89 Capture the authenticated Sevilla friendly — stream and post-match caller](T89.md)
 
 - [T93 Capture the Sevilla week full-time route — cash, news, week transaction and week-2](T93.md)
+
+- [T96 Qualify the A8A0 normalized-scene exclusion wording](T96.md) (#122).
+
+- [T97 Keep the T96 scene-offset audit enforced in CI](T97.md) (#122).
+
+- [T98 Remove the numeric audit's hooks when its caller returns](T98.md) (#214).
+
+- [T99 Never track the private cache; restore what needs no credentials](T99.md) (#221).
+
+- [T100 A league fixture's preparation savestate, then its watched week](T100.md) (#223).
+
+- [T101 Boot the league preparation state in the emulator harness](T101.md) (#225).
+
+- [T102 The league week route after League match #28](T102.md) (#227).
+
+- [T103 Decode the league table block and prove it against the captured round](T103.md) (#229).
+
+- [T105 The league campaign seed](T105.md) (#231).
+
+- [T106 The second league week - match #29 captured from the post-week machine](T106.md) (#233).
+
+- [T110 The league table's display order](T110.md) (#235).

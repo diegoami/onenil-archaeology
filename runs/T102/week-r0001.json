@@ -1,0 +1,150 @@
+{
+  "schema": "league-week-receipt/1",
+  "issue": 227,
+  "task": "T102",
+  "source_save": {
+    "path": ".cache/saves/pre-league28/SAVE1.1-0",
+    "sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275"
+  },
+  "session": {
+    "directory": "runs/T102/session-r0002",
+    "session_sha256": "9ed3931792d9754a7e31366d0c0be0e6522f0a95668d167da92fe902f15baf37",
+    "steps": 12,
+    "last_step": "40b5901cae1d8c2b5449e97ae10fdc12938bbb223912d05dcc65eec2e76f45e8"
+  },
+  "keys": [
+    [
+      "y"
+    ],
+    [
+      "Enter"
+    ],
+    [
+      "Enter"
+    ],
+    [
+      "space"
+    ],
+    [
+      "Enter"
+    ],
+    [],
+    [
+      "space"
+    ],
+    [
+      "space"
+    ],
+    [
+      "space"
+    ],
+    [
+      "space"
+    ],
+    [
+      "space"
+    ]
+  ],
+  "screens": [
+    {
+      "step": 3,
+      "id": "S004-half-time",
+      "text_sha256": "8203ed07ed37f485d7c602d1f7466845d7a118aca68d6229678d8097753680fa",
+      "screen_sha256": "d26c88f7a5d5540a436d0500f7ec0719072370a62e670484bd033df9938f932d"
+    },
+    {
+      "step": 6,
+      "id": "S007-full-time",
+      "text_sha256": "cdc89371e975ea3d8adcf0c3e081e39b117721a549fd7610770b893390f7db68",
+      "screen_sha256": "50c9ab351cc288d1652872afc01aa4a9e72b29c02453e7017e20f1f917332522"
+    },
+    {
+      "step": 7,
+      "id": "S008-league-results",
+      "text_sha256": "8dc5ef0208c27c48df9d58125e4ff682fb181213ec5d2b7745e30a014c6f416a",
+      "screen_sha256": "6b9317176b5c41f1b97ff65d3d2cce90f1526283553032034fb3cc4c5d8e4f15"
+    },
+    {
+      "step": 8,
+      "id": "S009-league-table",
+      "text_sha256": "87851fa47ad98251b9b8593ef9b66e2283d20c4eaefba37821240789bae4da59",
+      "screen_sha256": "352ec668173eff5a7b8fd3d37b2dac860c2e1bfea3253bc9261a426da7fed0ac"
+    },
+    {
+      "step": 9,
+      "id": "S010-cash-flow",
+      "text_sha256": "d5f94636aa0cb63250b4f08aa3f3e023a07857a07779e66fac064ec31d5cf70e",
+      "screen_sha256": "d3743399b661249ff576e3fa161ec48868a4e5bea78eaea662c0bb1098794bfe"
+    },
+    {
+      "step": 10,
+      "id": "S011-transfer-news",
+      "text_sha256": "98f456ac0e717e25e585cdddb96d320945b58cc2212fdbdf4ceab1b70777d7db",
+      "screen_sha256": "9d7cc48fe820863efa80e48d442f36c1e7d1511115a8d31f7809c56fe9d9b0fe"
+    },
+    {
+      "step": 11,
+      "id": "S012-management",
+      "text_sha256": "8481c5734ef44cc63498fd0e7f6823251541711c10c9a46a7b851f29358345ae",
+      "screen_sha256": "bd4981ae288cc5183d755ce49851727c05e6642ee68e74a37b9bad0cc03bb7a4"
+    }
+  ],
+  "score": {
+    "home": "Newcastle Utd",
+    "away": "Blackburn R----",
+    "home_goals": 2,
+    "away_goals": 0,
+    "scorers": [
+      "R Fox 29",
+      "S Howey 33"
+    ],
+    "substitutions": [
+      "Clark on for Venison",
+      "Watson on for Albert"
+    ],
+    "attendance": 36986,
+    "stage": "FULL TIME"
+  },
+  "results": {
+    "match_no": 28,
+    "line": "\u2502 --Newcastle Utd  2v0  Blackburn R---- \u2502"
+  },
+  "table": {
+    "line": "\u2502 2\u2502 Blackburn R---- \u2502 28 \u2502  8 \u2502  3 \u2502  3 \u2502  9 \u2502  1 \u2502  4 \u2502  60 \u2502  35 \u2502  38 \u2502",
+    "position": 2,
+    "club": "Blackburn R----",
+    "played": 28,
+    "home": [
+      8,
+      3,
+      3
+    ],
+    "away": [
+      9,
+      1,
+      4
+    ],
+    "goals_for": 60,
+    "goals_against": 35,
+    "points": 38
+  },
+  "cash": {
+    "total_in": 726972,
+    "total_out": 80639,
+    "club_funds": 1691393,
+    "line_in": "\u2551 TOTAL IN        \u2502 \u2502 \u2502 \u2502 \u25027\u25022\u25026,9\u25027\u25022\u2502",
+    "line_funds": "\u2551 Club funds      \u2502 \u2502 \u2502 \u25021,6\u25029\u25021,3\u25029\u25023\u2502"
+  },
+  "transfer_news": [
+    "\u2502 A.Thompson....       Bolton W-------      Grimsby Town---  \u2502",
+    "\u2502 M.Ielpo.......       AC Milan-------      Sampdoria------  \u2502",
+    "\u2502 M.Jimenez.....       Sevilla--------      Besiktas-------  \u2502"
+  ],
+  "next_fixture": {
+    "competition": "League match #29",
+    "opponent": "Chelsea",
+    "venue": "away",
+    "funds": 1691393
+  },
+  "scope": "One real original process from the restored pre-league28 save; the host clock and seed are uncontrolled, so the score and table are this run's facts, not a prediction. The menu position after the match is recorded as shown, not interpreted."
+}

@@ -1,0 +1,518 @@
+{
+  "schema": "t98-hook-lifetime-probe/1",
+  "issue": 214,
+  "phase": "closed",
+  "python": "3.12.3",
+  "unicorn": "2.1.4",
+  "checkpoint": {
+    "path": "runs/T93/sevilla-week-r0002/checkpoint-caller.json",
+    "sha256": "86e84fa3e220ea9de3cbad9709fe8f895c7e3027c3aca267ba6861a5930fb92e",
+    "private_path": ".cache/T93/sevilla-week-r0002/caller-boundary.pkl.gz",
+    "private_sha256": "baae80ac96d3698e063c91dbb7c58d4256f3852f45fcbf4767a40f86af52cc7c",
+    "producer": "b39767b2fe7f3ff8775c17a58cc195bacf5cfa5f",
+    "site": "0AB9:EBE6",
+    "draws": 169996
+  },
+  "hooks": {
+    "hooks": 3,
+    "stack_lo": 278202,
+    "stack_hi": 279232,
+    "hooks_after_close": 0
+  },
+  "seconds": 4.44,
+  "stages": [
+    {
+      "screen": 5,
+      "digest": "09b1bfb2ac346d4d283dce5299519fa8d8c1a9b10ebe4467ac9832acbc2f298c",
+      "text": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2510  ONE   \u250c\u2500\u2500\u2500\u2510 \u2584\u2580\u2580\u2580\u2584 \u250cFRIENDLY #2\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500commentary\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502SEVILLA--------\u2502 1\u2502\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2510\u2502   \u2502 \u2588   \u2588 \u2502Tevenet on the ball                  \u2502\n\u251cversus\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2524\u2502 34705\u2502\u251c\u2500\u2500\u2500\u2524 \u2584\u2500\u2500\u2500\u2584 \u2502Tevenet makes a run                  \u2502\n\u2502BLACKBURN R----\u2502 1\u2502\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2518\u2502   \u2502 \u2588   \u2588 \u2502---- FULL TIME ----                  \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2518  NIL   \u2514\u2500\u2500\u2500\u2518 \u2514\u2580\u2580\u2580\u2580 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n (half time  0:1 ) \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2502 Sevilla-------- \u2502\u2500\u2510\u250c\u2500\u2502 Blackburn R---- \u2502\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u2502                 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502\u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518                 \u2502\n \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510         Corners      0  \u2502\u2502  Corners      1     \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510     \u2502\n \u2502 \u2502 Scorers \u2502         Free kicks   5  \u2502\u2502  Free kicks   7     \u2502 Scorers \u2502     \u2502\n\u250c\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u252cmin\u2510  Penalties    0  \u2502\u2502  Penalties    0  \u250c\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u252cmin\u2510\n\u2502D Suker        \u2502 52\u2502  Shots        6  \u2502\u2502  Shots        7  \u2502C Sutton       \u2502 27\u2502\n\u2502               \u2502   \u2502  On target    2  \u2502\u2502  On target    6  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Saves        5  \u2502\u2502  Saves        2  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Fouls        0  \u2502\u2502  Fouls        0  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Bookings     0  \u2502\u2502  Bookings     0  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Red cards    0  \u2514\u2518  Red cards    0  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502            \u250c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u250050\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2510\u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Possession:\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0:\u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Territory :\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0:\u2502               \u2502   \u2502\n\u2502               \u2502   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502 \u2502  MAN OF THE MATCH D Suker        \u2502 \u2502               \u2502   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2518 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2518\n \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                press any key"
+    },
+    {
+      "screen": 6,
+      "digest": "09b1bfb2ac346d4d283dce5299519fa8d8c1a9b10ebe4467ac9832acbc2f298c",
+      "text": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2510  ONE   \u250c\u2500\u2500\u2500\u2510 \u2584\u2580\u2580\u2580\u2584 \u250cFRIENDLY #2\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500commentary\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502SEVILLA--------\u2502 1\u2502\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2510\u2502   \u2502 \u2588   \u2588 \u2502Tevenet on the ball                  \u2502\n\u251cversus\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2524\u2502 34705\u2502\u251c\u2500\u2500\u2500\u2524 \u2584\u2500\u2500\u2500\u2584 \u2502Tevenet makes a run                  \u2502\n\u2502BLACKBURN R----\u2502 1\u2502\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2518\u2502   \u2502 \u2588   \u2588 \u2502---- FULL TIME ----                  \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2518  NIL   \u2514\u2500\u2500\u2500\u2518 \u2514\u2580\u2580\u2580\u2580 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n (half time  0:1 ) \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510    \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2502 Sevilla-------- \u2502\u2500\u2510\u250c\u2500\u2502 Blackburn R---- \u2502\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u2502                 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502\u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518                 \u2502\n \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510         Corners      0  \u2502\u2502  Corners      1     \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510     \u2502\n \u2502 \u2502 Scorers \u2502         Free kicks   5  \u2502\u2502  Free kicks   7     \u2502 Scorers \u2502     \u2502\n\u250c\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u252cmin\u2510  Penalties    0  \u2502\u2502  Penalties    0  \u250c\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u252cmin\u2510\n\u2502D Suker        \u2502 52\u2502  Shots        6  \u2502\u2502  Shots        7  \u2502C Sutton       \u2502 27\u2502\n\u2502               \u2502   \u2502  On target    2  \u2502\u2502  On target    6  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Saves        5  \u2502\u2502  Saves        2  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Fouls        0  \u2502\u2502  Fouls        0  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Bookings     0  \u2502\u2502  Bookings     0  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Red cards    0  \u2514\u2518  Red cards    0  \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502            \u250c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u250050\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2510\u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Possession:\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0:\u2502               \u2502   \u2502\n\u2502               \u2502   \u2502  Territory :\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0:\u2502               \u2502   \u2502\n\u2502               \u2502   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502               \u2502   \u2502\n\u2502               \u2502   \u2502 \u2502  MAN OF THE MATCH D Suker        \u2502 \u2502               \u2502   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2518 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2518\n \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                press any key"
+    },
+    {
+      "screen": 7,
+      "digest": "0f83b1de00229af38257298292d4f07aab36e0e196b8c2b1c7cace24e5b2d2f9",
+      "text": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 CASH FLOW FOR     Blackburn R---- \u2502 \u250c\u2500Cash out\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2556\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u2562\n\u2553\u2500Cash in\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524 Player salaries        \u2502 \u2502 \u2502 \u25025\u25027,3\u25022\u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u252c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 Gate receipts       \u2502 \u2502 \u2502 \u25026\u25029,4\u25021\u25020\u2502 Win bonuses            \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 Prize money         \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2502 Staff salaries         \u2502 \u2502 \u2502 \u2502 \u25024,2\u25020\u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 TV coverage         \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2502 Ground maintenance     \u2502 \u2502 \u2502 \u2502 \u25027,7\u25025\u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 Radio coverage      \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2502 Players bought         \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 Players sold        \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2502 Contracts              \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 Sponsorship         \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2502 Interest               \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 Directors hand-out  \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2502 Sundries               \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u2502 \u25020\u2551\n\u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u252c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u252c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u253c\u2500\u2562\n\u2551 TOTAL IN        \u2502 \u2502 \u2502 \u2502 \u2502 \u25026\u25029,4\u25021\u25020\u2502 TOTAL OUT          \u2502 \u2502 \u2502 \u2502 \u2502 \u25026\u25029,2\u25027\u25020\u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u255d\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2564\u2550\u2557\n\u2551 Club funds      \u2502 \u2502 \u2502 \u2502 \u25024\u25022\u25021,6\u25023\u25021\u2502 Overdraft facility \u2502 \u2502 \u2502 \u25022,9\u25022\u25020,0\u25020\u25020\u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u2567\u2550\u255d\n      Hit INS to increase your stadium capacity or any other key to continue"
+    },
+    {
+      "screen": 8,
+      "digest": "e7278f6fb1ef546d94a3e65c31a4ba0c5c3cc819f2ff85d952a0aa9859f480c0",
+      "text": "         \u250c\u2500TRANSFER\u2500NEWS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n         \u251c\u2500PLAYER\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500FROM\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500TO\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n         \u2502 G.Popescu.....       Tottenham H----      Chelsea--------  \u2502\n         \u2502 S.Smith.......       Crewe Alexandra      Huddersfield T-  \u2502\n         \u2502 L.Howarth.....       Mansfield T----      Walsall--------  \u2502\n         \u2502 J.Byrne.......       Dundalk--------      Southend Utd---  \u2502\n         \u2502 K.Ing'risten..       Lillestrom-----      Viking---------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2502 ..............       ---------------      ---------------  \u2502\n         \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n\n\n\n\n\n\n\n\n\n                                press any key"
+    }
+  ],
+  "keys_delivered": [
+    [
+      "Return",
+      "24BC:0C58"
+    ],
+    [
+      "space",
+      "24BC:0C58"
+    ],
+    [
+      "Return",
+      "24BC:0C58"
+    ],
+    [
+      "space",
+      "24BC:0C58"
+    ],
+    [
+      "n",
+      "24BC:0C58"
+    ],
+    [
+      "space",
+      "24BC:0C58"
+    ],
+    [
+      "space",
+      "24BC:0C58"
+    ],
+    [
+      "space",
+      "24BC:0C58"
+    ]
+  ],
+  "draws": 186963,
+  "finished": true,
+  "fault": null,
+  "week": {
+    "cash_before": 421491,
+    "cash_after": 421631,
+    "total_in": 69410,
+    "total_out": 69270,
+    "following": {
+      "week": 2,
+      "competition": 1,
+      "opponent": 28,
+      "flags": 0,
+      "name": "Celtic"
+    },
+    "week_byte": 2,
+    "fixtures": [
+      {
+        "week": 0,
+        "competition": 1,
+        "opponent": 17,
+        "flags": 65
+      },
+      {
+        "week": 1,
+        "competition": 1,
+        "opponent": 176,
+        "flags": 64
+      },
+      {
+        "week": 2,
+        "competition": 1,
+        "opponent": 28,
+        "flags": 0
+      },
+      {
+        "week": 3,
+        "competition": 1,
+        "opponent": 49,
+        "flags": 1
+      }
+    ],
+    "boundary_next_fixture": {
+      "slot": 3,
+      "club": 130,
+      "opponent": 28,
+      "opponent_name": "Celtic",
+      "competition_code": 1,
+      "flags": 0,
+      "venue_code": 0,
+      "opponent_flags": 1
+    },
+    "conditions_before": {
+      "2581": 15,
+      "2582": 31,
+      "2583": 28,
+      "2584": 18,
+      "2585": 31,
+      "2586": 25,
+      "2587": 12,
+      "2588": 31,
+      "2589": 21,
+      "2590": 31,
+      "2591": 31,
+      "2592": 19,
+      "2593": 6,
+      "2594": 11,
+      "2595": 25,
+      "2596": 7,
+      "2597": 26,
+      "2598": 14
+    },
+    "conditions_after": {
+      "2581": 15,
+      "2582": 31,
+      "2583": 28,
+      "2584": 18,
+      "2585": 31,
+      "2586": 25,
+      "2587": 12,
+      "2588": 31,
+      "2589": 21,
+      "2590": 31,
+      "2591": 31,
+      "2592": 19,
+      "2593": 6,
+      "2594": 11,
+      "2595": 25,
+      "2596": 7,
+      "2597": 26,
+      "2598": 14
+    },
+    "next_fixture": {
+      "slot": 3,
+      "club": 130,
+      "opponent": 28,
+      "opponent_name": "Celtic",
+      "competition_code": 1,
+      "flags": 0,
+      "venue_code": 0,
+      "opponent_flags": 1
+    },
+    "seed_word": 54255,
+    "state_digests": {
+      "DS:DCD8": "2b4c342f5433ebe591a1da77e013d1b72475562d48578dca8b84bac6651c3cb9",
+      "DS:DCDA": "2478f80dfeeb8baa2ddf7ff28ac8daf29188bead47cc4cd78a69c76a84621cec",
+      "[DS:D7BA]": "3c53c5ec7068b633eecd7111916fe7e296edb2213523bdba8577d471163dda25",
+      "[DS:D7BE]": "f34a2eab47be5b49d25ade1ab09d47762fae9a569a3bba331fcf7c47a7a6bdd7",
+      "[DS:D7C2]": "d8bb18f719c4a61c549b003e310c8381158ece8472a4ab7f8f8852b8e70fe237",
+      "[DS:D7C6]": "80b67b115f8e28f3b67fddcd4cd1daac24a054603d1dd0cb13793a299a5dadfc",
+      "[DS:D7CA]": "65220ec5949b3e5906e34b6691efa3379ad2847cf0533e220e02261cc71c6a34",
+      "[DS:D7CE]": "f600422d39e808a1a38daf790d17a7f5aaff67ebda646ae33591ce0053af6597",
+      "[DS:D7D2]": "e566e5b7b9bb7aa64540bb851bc4da94b72f4b718c1deaa04b0722e1465cc5ee",
+      "DS:D7D6": "7d93e243cccdd63c9f0f949d296bdf5f2e1e7b5fe450e52400c2e0e17da2e7f4",
+      "DS:DCA6": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "DS:DCAE": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "[DS:DCB6]": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4",
+      "DS:DCBA": "1c53d1a46b3330cc470eecfb6a3d9b8d61cebe92f81c6551c5c6afe5a35071d5",
+      "[DS:DE84]": "2eb6d37f9b85c8475c97e346ba8f81e6ff9e1dea0aa232cd5a75ad28e8675b59",
+      "[DS:DCBC]": "bafc18df12054b6ca45e71fe7142ff1759e1707e6b2ac4c3fa03f5e56cbcf2b3",
+      "[DS:DCC0]": "25fa099c215c316e4df3ed2fbc6eaf019ec67c7e23cdd2a4d4a90e5bce3e2a32",
+      "[DS:DCC4]": "e3294a9640febabb184bc8d8c8e4b6cfcb9b4997cfefb8aefc846794846c5667",
+      "[DS:DCC8]": "4c89ee10bc150dac35e0bd33eeaf0dec919f7aeb279e19e00aa182b99fdb1163",
+      "[DS:DCD4]": "457e30c6e9909c60e9d7c2c4cdab4bbdccdfb087c24fd28e211aed0b8a8fd7c1",
+      "[DS:DCCC]": "e7604388afc9c2a9bd7f854e5cd9127a7e80d9a1b94aba11f1b43756ce3d82d7",
+      "[DS:DCD0]": "a541eeef2cd7e9af7b285ccbe311555c2cebd6f6afa74ed419bf6a681b55ecfe",
+      "[DS:D7AA]": "eb8ff05a5cfd7e144e4384f7d02bb80da193511dc1cc72945f0f897938d0e0bd",
+      "DS:D936": "f5cdb7000d05aeb72a4958faabf68c347ab7e4180f92852070ac8a1ac286b998",
+      "DS:D9E6": "4bdc6ab7058bfb77791c7ad404f673839e34d028afb2d78ff5ae96edbd7e0742",
+      "[DS:DCDC]": "9142ab904f5e52f5c78075d7bed155c4b17d3b4ed45ed2f56c8eefafacaf4b75",
+      "DS:DCE0": "dbc1b4c900ffe48d575b5da5c638040125f65db0fe3e24494b76ea986457d986",
+      "[DS:DCE2]": "75d4f9914c3617abfd32bb3da36b0c2a1fe054967d6aca8166238836b77623a3"
+    },
+    "files_written": [
+      {
+        "name": "SAVE1.1-0",
+        "size": 194426,
+        "sha256": "c0c3a6a336e4cc8c53f947fff6f4058a0fd3e37b3977fa9a1fc5863f154c4e7e"
+      }
+    ],
+    "projection": {
+      "schema": "original-club-seed/1",
+      "namespace": {
+        "edition": 96,
+        "league": "ENGL-95.DAT",
+        "league_year": 1995
+      },
+      "season": {
+        "counter": 1,
+        "start_year": 1994,
+        "end_year": 1995
+      },
+      "week_index": 2,
+      "manager": {
+        "slot": 1,
+        "name_id": 130,
+        "name": "Dalglish"
+      },
+      "club": {
+        "id": 130,
+        "name": "Blackburn R",
+        "first_team": [
+          2581,
+          2582,
+          2583,
+          2584,
+          2585,
+          2586,
+          2587,
+          2588,
+          2589,
+          2590,
+          2591,
+          2592,
+          2593,
+          2594,
+          2595,
+          2596,
+          2597,
+          2598,
+          0,
+          0
+        ],
+        "reserves": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "team_instructions": 75
+      },
+      "cash": 421631,
+      "next_fixture": {
+        "slot": 3,
+        "club": 130,
+        "opponent": 28,
+        "opponent_name": "Celtic",
+        "competition_code": 1,
+        "flags": 0,
+        "venue_code": 0,
+        "opponent_flags": 1
+      },
+      "players": [
+        {
+          "id": 2581,
+          "name": "T Flowers",
+          "age": 27,
+          "current_position": 0,
+          "club_position": 0,
+          "individual_instructions": 17,
+          "availability": {
+            "condition_signed": 15,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2582,
+          "name": "I Pearce",
+          "age": 20,
+          "current_position": 2,
+          "club_position": 2,
+          "individual_instructions": 178,
+          "availability": {
+            "condition_signed": 31,
+            "status_bits": 0
+          }
+        },
+        {
+          "id": 2583,
+          "name": "C Hendry",
+          "age": 29,
+          "current_position": 2,
+          "club_position": 2,
+          "individual_instructions": 50,
+          "availability": {
+            "condition_signed": 28,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2584,
+          "name": "G Le Saux",
+          "age": 26,
+          "current_position": 3,
+          "club_position": 3,
+          "individual_instructions": 17,
+          "availability": {
+            "condition_signed": 18,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2585,
+          "name": "H Berg",
+          "age": 25,
+          "current_position": 4,
+          "club_position": 4,
+          "individual_instructions": 17,
+          "availability": {
+            "condition_signed": 31,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2586,
+          "name": "M Atkins",
+          "age": 26,
+          "current_position": 5,
+          "club_position": 5,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 25,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2587,
+          "name": "T Sherwood",
+          "age": 25,
+          "current_position": 6,
+          "club_position": 6,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 12,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2588,
+          "name": "J Wilcox",
+          "age": 23,
+          "current_position": 10,
+          "club_position": 10,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 31,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2589,
+          "name": "S Ripley",
+          "age": 27,
+          "current_position": 11,
+          "club_position": 11,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 21,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2590,
+          "name": "C Sutton",
+          "age": 21,
+          "current_position": 12,
+          "club_position": 12,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 31,
+            "status_bits": 0
+          }
+        },
+        {
+          "id": 2591,
+          "name": "A Shearer",
+          "age": 24,
+          "current_position": 13,
+          "club_position": 13,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 31,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2592,
+          "name": "T Gale",
+          "age": 35,
+          "current_position": 2,
+          "club_position": 2,
+          "individual_instructions": 50,
+          "availability": {
+            "condition_signed": 19,
+            "status_bits": 0
+          }
+        },
+        {
+          "id": 2593,
+          "name": "P Warhurst",
+          "age": 25,
+          "current_position": 12,
+          "club_position": 12,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 6,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2594,
+          "name": "R Slater",
+          "age": 30,
+          "current_position": 5,
+          "club_position": 5,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 11,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2595,
+          "name": "N Marker",
+          "age": 29,
+          "current_position": 2,
+          "club_position": 2,
+          "individual_instructions": 50,
+          "availability": {
+            "condition_signed": 25,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2596,
+          "name": "M Newell",
+          "age": 29,
+          "current_position": 13,
+          "club_position": 13,
+          "individual_instructions": 0,
+          "availability": {
+            "condition_signed": 7,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2597,
+          "name": "A Wright",
+          "age": 23,
+          "current_position": 4,
+          "club_position": 4,
+          "individual_instructions": 145,
+          "availability": {
+            "condition_signed": 26,
+            "status_bits": 1
+          }
+        },
+        {
+          "id": 2598,
+          "name": "B Mimms",
+          "age": 31,
+          "current_position": 0,
+          "club_position": 0,
+          "individual_instructions": 17,
+          "availability": {
+            "condition_signed": 14,
+            "status_bits": 1
+          }
+        }
+      ]
+    }
+  },
+  "scope": "One emulated machine restored from a private digest-pinned boundary; no DOSBox, no original capture, no committed record changed."
+}
