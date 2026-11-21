@@ -1,0 +1,1074 @@
+{
+ "schema": "league-week-receipt-3/1",
+ "issue": 238,
+ "task": "T112",
+ "source_save": {
+  "path": ".cache/saves/pre-league28/SAVE1.1-0",
+  "sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275"
+ },
+ "session": {
+  "directory": "runs/T112/session-r0019",
+  "session_sha256": "d3c2986b9aeb7f544bab8c574b3a075e8806698621020dfffcff717b6e007865",
+  "steps": 116,
+  "last_step": "49b6a7067d166e1d6e20f892abd403ba84296c6b0e3b81cd6b192639e2c1a280"
+ },
+ "keys": [
+  [],
+  [],
+  [
+   "y"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Return"
+  ],
+  [],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Return"
+  ],
+  [],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Up"
+  ],
+  [
+   "Return"
+  ],
+  [],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Down"
+  ],
+  [
+   "Return"
+  ],
+  [],
+  [
+   "Escape"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [
+   "space"
+  ],
+  [],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [],
+  [
+   "Enter"
+  ],
+  [
+   "Enter"
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  [
+   "space"
+  ],
+  []
+ ],
+ "replay": {
+  "invariant": "every replayed step screen digest equals the committed T106 session-r0014 step; the route replays the T106 keys exactly, so weeks 28 and 29 are re-witnessed per step",
+  "t106_session_sha256": "f3cabc78ed26fba9cf4ccad3b6d95ed6c7a17ea5da62d7f05f7f3c5bc1b81d69",
+  "pairs": [
+   {
+    "my_step": 2,
+    "my_id": "S002-y-1",
+    "t106_step": 1,
+    "t106_id": "S002-loaded",
+    "text_sha256": "daeef63217ade3818e2cb9389649f64728538bf1d7cdc2870771879350dd2e53"
+   },
+   {
+    "my_step": 4,
+    "my_id": "S003-match-preparation",
+    "t106_step": 2,
+    "t106_id": "S003-match-preparation",
+    "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4"
+   },
+   {
+    "my_step": 6,
+    "my_id": "S004-half-time",
+    "t106_step": 3,
+    "t106_id": "S004-half-time",
+    "text_sha256": "8203ed07ed37f485d7c602d1f7466845d7a118aca68d6229678d8097753680fa"
+   },
+   {
+    "my_step": 8,
+    "my_id": "S005-bench",
+    "t106_step": 4,
+    "t106_id": "S005-bench",
+    "text_sha256": "4d0401c6c4003a751088bae1b50ee6a5d70961be9beaf63b7635cd9c09f2bbf5"
+   },
+   {
+    "my_step": 10,
+    "my_id": "S006-second-half",
+    "t106_step": 5,
+    "t106_id": "S006-second-half",
+    "text_sha256": "cdc89371e975ea3d8adcf0c3e081e39b117721a549fd7610770b893390f7db68"
+   },
+   {
+    "my_step": 12,
+    "my_id": "S007-full-time",
+    "t106_step": 6,
+    "t106_id": "S007-full-time",
+    "text_sha256": "cdc89371e975ea3d8adcf0c3e081e39b117721a549fd7610770b893390f7db68"
+   },
+   {
+    "my_step": 13,
+    "my_id": "S008-league-results",
+    "t106_step": 7,
+    "t106_id": "S008-league-results",
+    "text_sha256": "8dc5ef0208c27c48df9d58125e4ff682fb181213ec5d2b7745e30a014c6f416a"
+   },
+   {
+    "my_step": 15,
+    "my_id": "S009-league-table",
+    "t106_step": 8,
+    "t106_id": "S009-league-table",
+    "text_sha256": "87851fa47ad98251b9b8593ef9b66e2283d20c4eaefba37821240789bae4da59"
+   },
+   {
+    "my_step": 17,
+    "my_id": "S010-cash-flow",
+    "t106_step": 9,
+    "t106_id": "S010-cash-flow",
+    "text_sha256": "d5f94636aa0cb63250b4f08aa3f3e023a07857a07779e66fac064ec31d5cf70e"
+   },
+   {
+    "my_step": 19,
+    "my_id": "S011-transfer-news",
+    "t106_step": 10,
+    "t106_id": "S011-transfer-news",
+    "text_sha256": "98f456ac0e717e25e585cdddb96d320945b58cc2212fdbdf4ceab1b70777d7db"
+   },
+   {
+    "my_step": 21,
+    "my_id": "S012-management",
+    "t106_step": 11,
+    "t106_id": "S012-management",
+    "text_sha256": "8481c5734ef44cc63498fd0e7f6823251541711c10c9a46a7b851f29358345ae"
+   },
+   {
+    "my_step": 23,
+    "my_id": "S014-prep29",
+    "t106_step": 12,
+    "t106_id": "S014-prep29",
+    "text_sha256": "e872c1419eafb24091394894d3a382f034ae2c1480db4b8be0944519e7a645ec"
+   },
+   {
+    "my_step": 25,
+    "my_id": "S015-squad29",
+    "t106_step": 13,
+    "t106_id": "S015-squad29",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 27,
+    "my_id": "S016-down-berg",
+    "t106_step": 14,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 28,
+    "my_id": "S016-down-berg",
+    "t106_step": 15,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 29,
+    "my_id": "S016-down-berg",
+    "t106_step": 16,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 30,
+    "my_id": "S016-down-berg",
+    "t106_step": 17,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 31,
+    "my_id": "S016-down-berg",
+    "t106_step": 18,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 32,
+    "my_id": "S016-down-berg",
+    "t106_step": 19,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 33,
+    "my_id": "S016-down-berg",
+    "t106_step": 20,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 34,
+    "my_id": "S016-down-berg",
+    "t106_step": 21,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 35,
+    "my_id": "S016-down-berg",
+    "t106_step": 22,
+    "t106_id": "S016-down-berg",
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589"
+   },
+   {
+    "my_step": 36,
+    "my_id": "S017-mark-berg",
+    "t106_step": 23,
+    "t106_id": "S017-mark-berg",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 38,
+    "my_id": "S017-down-wright",
+    "t106_step": 24,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 39,
+    "my_id": "S017-down-wright",
+    "t106_step": 25,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 40,
+    "my_id": "S017-down-wright",
+    "t106_step": 26,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 41,
+    "my_id": "S017-down-wright",
+    "t106_step": 27,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 42,
+    "my_id": "S017-down-wright",
+    "t106_step": 28,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 43,
+    "my_id": "S017-down-wright",
+    "t106_step": 29,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 44,
+    "my_id": "S017-down-wright",
+    "t106_step": 30,
+    "t106_id": "S017-down-wright",
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4"
+   },
+   {
+    "my_step": 45,
+    "my_id": "S017-swap-wright",
+    "t106_step": 31,
+    "t106_id": "S017-swap-wright",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 47,
+    "my_id": "S018-up-hendry",
+    "t106_step": 32,
+    "t106_id": "S018-up-hendry",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 48,
+    "my_id": "S018-up-hendry",
+    "t106_step": 33,
+    "t106_id": "S018-up-hendry",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 49,
+    "my_id": "S018-up-hendry",
+    "t106_step": 34,
+    "t106_id": "S018-up-hendry",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 50,
+    "my_id": "S018-up-hendry",
+    "t106_step": 35,
+    "t106_id": "S018-up-hendry",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 51,
+    "my_id": "S018-up-hendry",
+    "t106_step": 36,
+    "t106_id": "S018-up-hendry",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 52,
+    "my_id": "S018-up-hendry",
+    "t106_step": 37,
+    "t106_id": "S018-up-hendry",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513"
+   },
+   {
+    "my_step": 53,
+    "my_id": "S018-mark-hendry",
+    "t106_step": 38,
+    "t106_id": "S018-mark-hendry",
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d"
+   },
+   {
+    "my_step": 55,
+    "my_id": "S018-down-newell",
+    "t106_step": 39,
+    "t106_id": "S018-down-newell",
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d"
+   },
+   {
+    "my_step": 56,
+    "my_id": "S018-down-newell",
+    "t106_step": 40,
+    "t106_id": "S018-down-newell",
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d"
+   },
+   {
+    "my_step": 57,
+    "my_id": "S018-down-newell",
+    "t106_step": 41,
+    "t106_id": "S018-down-newell",
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d"
+   },
+   {
+    "my_step": 58,
+    "my_id": "S019-swap-newell",
+    "t106_step": 42,
+    "t106_id": "S019-swap-newell",
+    "text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1"
+   },
+   {
+    "my_step": 60,
+    "my_id": "S020-escape",
+    "t106_step": 43,
+    "t106_id": "S020-escape",
+    "text_sha256": "baae3e0ca784695e62553eb30503c3aa8c026cf1c350a66d6b77d8d11e3447a1"
+   },
+   {
+    "my_step": 62,
+    "my_id": "S021-half-time-29",
+    "t106_step": 44,
+    "t106_id": "S021-half-time-29",
+    "text_sha256": "ef3b16aecf26dc8001572b3b7cb38c5232b2177fc7b6a63e22eb62bc8b5e2580"
+   },
+   {
+    "my_step": 64,
+    "my_id": "S022-bench-29",
+    "t106_step": 45,
+    "t106_id": "S022-bench-29",
+    "text_sha256": "da6029b68d27afd5b7494716c57a8983c23d5bec634ce7a732fd63bc4759d973"
+   },
+   {
+    "my_step": 66,
+    "my_id": "S023-second-half-29",
+    "t106_step": 46,
+    "t106_id": "S023-second-half-29",
+    "text_sha256": "e485367c6cf4d0311c36edeaaa7a56e255204dfae94982b08649aa7f11647cfb"
+   },
+   {
+    "my_step": 68,
+    "my_id": "S024-full-time-29",
+    "t106_step": 47,
+    "t106_id": "S024-full-time-29",
+    "text_sha256": "e485367c6cf4d0311c36edeaaa7a56e255204dfae94982b08649aa7f11647cfb"
+   },
+   {
+    "my_step": 69,
+    "my_id": "S025-league-results-29",
+    "t106_step": 48,
+    "t106_id": "S025-league-results-29",
+    "text_sha256": "530808dee98efd7168099a9513ea01e70284be5388a68be09591ef92af84235f"
+   },
+   {
+    "my_step": 71,
+    "my_id": "S026-league-table-29",
+    "t106_step": 49,
+    "t106_id": "S026-league-table-29",
+    "text_sha256": "4995c52de30e16c29ee5ea3b1c0ff0ff02f320afb40af998bb0aaa53912ca9b7"
+   },
+   {
+    "my_step": 73,
+    "my_id": "S027-cash-flow-29",
+    "t106_step": 50,
+    "t106_id": "S027-cash-flow-29",
+    "text_sha256": "950421f6fd99b189b37219c10b833809679f0c5bf37161cfa72897ddd82c1675"
+   },
+   {
+    "my_step": 75,
+    "my_id": "S028-transfer-news-29",
+    "t106_step": 51,
+    "t106_id": "S028-transfer-news-29",
+    "text_sha256": "4173a27c8d1ea24d26274f4e6cf0abd79529cce9852d1085d1bd837185be77ba"
+   },
+   {
+    "my_step": 77,
+    "my_id": "S029-management-30",
+    "t106_step": 52,
+    "t106_id": "S029-management-30",
+    "text_sha256": "ffc7165d3908d2cbb5db9fe6d079288f42e5210d5a3cab118fb374abbef5ec58"
+   },
+   {
+    "my_step": 79,
+    "my_id": "S030-post-league29",
+    "t106_step": 53,
+    "t106_id": "S030-post-league29",
+    "text_sha256": "ffc7165d3908d2cbb5db9fe6d079288f42e5210d5a3cab118fb374abbef5ec58"
+   }
+  ]
+ },
+ "screens": [
+  {
+   "id": "S032-kickoff",
+   "step": 82,
+   "text_sha256": "753028a6d621c446a8ada3791d72c4d870d3558a2fb2d7c0f2207401c818325c",
+   "screen_sha256": "eb2e312345831a56df013d4537a8b0c68e3bf7422fb8b866133d0ecb775a33db"
+  },
+  {
+   "id": "S036-full-time-22",
+   "step": 108,
+   "text_sha256": "014922d6abf1d2d386cb38105f53dd1d0020328559642fa103fe21514ba61fe7",
+   "screen_sha256": "93dd3dca334b2f7ae0b461eac14c2cc6e1cf5febc31243214acd7e2a68d5755a"
+  },
+  {
+   "id": "S037-walk-1",
+   "step": 109,
+   "text_sha256": "2331116c06226dc7387d223b7588337c75bfc4b4d928342eeb0e374cbb719aa0",
+   "screen_sha256": "62df4c5445a2899933ced524936b17a86bfd16589905522dee0d7e4e166b9f96"
+  },
+  {
+   "id": "S037-walk-2",
+   "step": 110,
+   "text_sha256": "7d6dd9891270e4328474de424f7d1dd4869f563b0744f32bd9dfa86ddc4e5781",
+   "screen_sha256": "699fe78e0721788570f943644a6cff40d93f64b9deace3724d927bbadf0b01ef"
+  },
+  {
+   "id": "S037-walk-3",
+   "step": 111,
+   "text_sha256": "149bca8c300f15e27e1cd9ce883dec723910a88d0a44fcb2a81bc1d3c3ad21e1",
+   "screen_sha256": "f8d3c149e08e36e23a1dc8558982f923bcd84bc366c177bc5f6aa54053376237"
+  },
+  {
+   "id": "S037-walk-4",
+   "step": 112,
+   "text_sha256": "9aaf4c616e5b9d5583ea5ef328ffed53372dccb71d3153e93f79725818e3b345",
+   "screen_sha256": "d62e4e6238ce1811404344a1e6ec27698c752a68a6c84f2b39dcb74b9363fd95"
+  },
+  {
+   "id": "S037-walk-5",
+   "step": 113,
+   "text_sha256": "483a56ec12d6231d260d5eaa444222d19478b04db5b66cef21c0760234365145",
+   "screen_sha256": "955406ffa456c859c0b1a51bc1a8397aec552560b1dcddae9cf8ee4dea354b1d"
+  },
+  {
+   "id": "S039-post-league30-t112",
+   "step": 115,
+   "text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1",
+   "screen_sha256": "d703097dab74d285a318e29db1280450505d9cb624ec7d84bce356ac8b55682d"
+  }
+ ],
+ "score": {
+  "home": "Blackburn R",
+  "away": "Wimbledon",
+  "home_goals": 5,
+  "away_goals": 3,
+  "scorers": {
+   "home": [
+    "I Pearce 3",
+    "M Atkins 29",
+    "T Gale 30",
+    "M Atkins 55",
+    "T Sherwood 61"
+   ],
+   "away": [
+    "E Ekoku 34",
+    "K Cunningham 68",
+    "E Ekoku 73"
+   ]
+  },
+  "attendance": 28666,
+  "stage": "FULL TIME"
+ },
+ "results": {
+  "match_no": 30,
+  "rows": [
+   {
+    "home": "Arsenal",
+    "home_goals": 3,
+    "away_goals": 0,
+    "away": "Southampton"
+   },
+   {
+    "home": "Blackburn R",
+    "home_goals": 5,
+    "away_goals": 3,
+    "away": "Wimbledon"
+   },
+   {
+    "home": "Everton",
+    "home_goals": 1,
+    "away_goals": 4,
+    "away": "Coventry City"
+   },
+   {
+    "home": "Leeds Utd",
+    "home_goals": 0,
+    "away_goals": 5,
+    "away": "Liverpool"
+   },
+   {
+    "home": "Manchester Utd",
+    "home_goals": 3,
+    "away_goals": 0,
+    "away": "Chelsea"
+   },
+   {
+    "home": "Newcastle Utd",
+    "home_goals": 2,
+    "away_goals": 3,
+    "away": "Nottingham F"
+   },
+   {
+    "home": "Tottenham H",
+    "home_goals": 1,
+    "away_goals": 0,
+    "away": "Sheffield Wed"
+   },
+   {
+    "home": "West Ham Utd",
+    "home_goals": 1,
+    "away_goals": 3,
+    "away": "Q.P.R"
+   }
+  ]
+ },
+ "table": [
+  {
+   "position": 1,
+   "club": "Newcastle Utd",
+   "played": 30,
+   "home": [
+    12,
+    2,
+    1
+   ],
+   "away": [
+    9,
+    1,
+    5
+   ],
+   "goals_for": 69,
+   "goals_against": 34,
+   "points": 45
+  },
+  {
+   "position": 2,
+   "club": "Blackburn R",
+   "played": 30,
+   "home": [
+    9,
+    3,
+    3
+   ],
+   "away": [
+    9,
+    2,
+    4
+   ],
+   "goals_for": 68,
+   "goals_against": 41,
+   "points": 41
+  },
+  {
+   "position": 3,
+   "club": "Manchester Utd",
+   "played": 30,
+   "home": [
+    10,
+    3,
+    2
+   ],
+   "away": [
+    8,
+    1,
+    6
+   ],
+   "goals_for": 64,
+   "goals_against": 42,
+   "points": 40
+  },
+  {
+   "position": 4,
+   "club": "Nottingham F",
+   "played": 30,
+   "home": [
+    9,
+    3,
+    3
+   ],
+   "away": [
+    6,
+    6,
+    3
+   ],
+   "goals_for": 51,
+   "goals_against": 27,
+   "points": 39
+  },
+  {
+   "position": 5,
+   "club": "Liverpool",
+   "played": 30,
+   "home": [
+    10,
+    2,
+    3
+   ],
+   "away": [
+    7,
+    2,
+    6
+   ],
+   "goals_for": 59,
+   "goals_against": 44,
+   "points": 38
+  },
+  {
+   "position": 6,
+   "club": "Leeds Utd",
+   "played": 30,
+   "home": [
+    10,
+    0,
+    5
+   ],
+   "away": [
+    6,
+    4,
+    5
+   ],
+   "goals_for": 57,
+   "goals_against": 45,
+   "points": 36
+  },
+  {
+   "position": 7,
+   "club": "Tottenham H",
+   "played": 30,
+   "home": [
+    9,
+    2,
+    4
+   ],
+   "away": [
+    5,
+    4,
+    6
+   ],
+   "goals_for": 53,
+   "goals_against": 44,
+   "points": 34
+  },
+  {
+   "position": 8,
+   "club": "Wimbledon",
+   "played": 30,
+   "home": [
+    9,
+    3,
+    3
+   ],
+   "away": [
+    5,
+    2,
+    8
+   ],
+   "goals_for": 64,
+   "goals_against": 54,
+   "points": 33
+  },
+  {
+   "position": 9,
+   "club": "Q.P.R",
+   "played": 30,
+   "home": [
+    8,
+    2,
+    5
+   ],
+   "away": [
+    6,
+    3,
+    6
+   ],
+   "goals_for": 44,
+   "goals_against": 40,
+   "points": 33
+  },
+  {
+   "position": 10,
+   "club": "Chelsea",
+   "played": 30,
+   "home": [
+    5,
+    8,
+    2
+   ],
+   "away": [
+    6,
+    2,
+    7
+   ],
+   "goals_for": 44,
+   "goals_against": 46,
+   "points": 32
+  },
+  {
+   "position": 11,
+   "club": "Southampton",
+   "played": 30,
+   "home": [
+    6,
+    4,
+    5
+   ],
+   "away": [
+    2,
+    8,
+    5
+   ],
+   "goals_for": 29,
+   "goals_against": 35,
+   "points": 28
+  },
+  {
+   "position": 12,
+   "club": "Coventry City",
+   "played": 30,
+   "home": [
+    5,
+    5,
+    5
+   ],
+   "away": [
+    1,
+    4,
+    10
+   ],
+   "goals_for": 44,
+   "goals_against": 63,
+   "points": 21
+  },
+  {
+   "position": 13,
+   "club": "Arsenal",
+   "played": 30,
+   "home": [
+    4,
+    3,
+    8
+   ],
+   "away": [
+    3,
+    4,
+    8
+   ],
+   "goals_for": 30,
+   "goals_against": 50,
+   "points": 21
+  },
+  {
+   "position": 14,
+   "club": "Sheffield Wed",
+   "played": 30,
+   "home": [
+    4,
+    4,
+    7
+   ],
+   "away": [
+    4,
+    1,
+    10
+   ],
+   "goals_for": 29,
+   "goals_against": 52,
+   "points": 21
+  },
+  {
+   "position": 15,
+   "club": "Everton",
+   "played": 30,
+   "home": [
+    1,
+    4,
+    10
+   ],
+   "away": [
+    1,
+    2,
+    12
+   ],
+   "goals_for": 30,
+   "goals_against": 72,
+   "points": 10
+  },
+  {
+   "position": 16,
+   "club": "West Ham Utd",
+   "played": 30,
+   "home": [
+    1,
+    1,
+    13
+   ],
+   "away": [
+    1,
+    3,
+    11
+   ],
+   "goals_for": 34,
+   "goals_against": 80,
+   "points": 8
+  }
+ ],
+ "cash": {
+  "total_in": 58332,
+  "total_out": 90827,
+  "club_funds": 1636583
+ },
+ "transfer_news": [
+  "K.McPherson...       Reading--------      Bolton W-------",
+  "H.Aune........       Rosenborg------      Peterbro Utd---"
+ ],
+ "management": {
+  "league_pos": 2,
+  "funds": 1636583,
+  "next_opponent_box_blank": true,
+  "observed": "the NEXT OPPONENTS box reads blank at P30: the league schedule of 16 clubs is complete at 30 matches"
+ },
+ "savestates": {
+  "post_league29": {
+   "session": "session-r0019",
+   "path": ".cache/T112/states/post-league29-t112.sav",
+   "sha256": "77495b33fa83c8b7d6547dd874956ee0c032aa83030a5582f4c7a28cef14a848"
+  },
+  "post_league30": {
+   "session": "session-r0019",
+   "step": 115,
+   "path": ".cache/T112/states/post-league30-t112.sav",
+   "sha256": "334c2d0c8a0941e407bd7aafbfb3bc5cc33586a5a0776a95c69647a90fbb1823"
+  }
+ },
+ "scope": "One real original process from the restored pre-league28 save; the host clock and seed are uncontrolled, so the score, the injury substitution and the table are this run's facts. The route replays the T106 keys exactly and every replayed screen digest is checked against the committed T106 session before week 30 is played."
+}
