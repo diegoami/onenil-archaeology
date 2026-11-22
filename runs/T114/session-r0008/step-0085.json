@@ -1,6 +1,10 @@
 {
   "number": 85,
+<<<<<<< Updated upstream
   "previous": "ef216fd5c650c94c28cef11737e2a6d8a5a398318fce6da833afb17960ad2568",
+=======
+  "previous": "b83cdc69be9b848dc06034aa53d37dea8e6760225c7ef1e58bd1a64500bb9ecb",
+>>>>>>> Stashed changes
   "id": "S034-resume",
   "keys": [
     "Enter"
@@ -19,6 +23,11 @@
     ]
   ],
   "screenshot": "step-0085.png",
+<<<<<<< Updated upstream
   "screenshot_sha256": "d4cebd966fbfb45267e3a9557e91daf3585d6a5f8be35f652a42ab7dd731ee64",
   "time": "2026-11-22T11:58:37.282Z"
+=======
+  "screenshot_sha256": "4896395ca10180503b36f79907fc4a4cc8593ed41f8ae25842ffb359e46cbc90",
+  "time": "2026-11-22T16:21:30.266Z"
+>>>>>>> Stashed changes
 }

@@ -1,6 +1,10 @@
 {
   "number": 73,
+<<<<<<< Updated upstream
   "previous": "af03f7581b7ccaece16bf952de36d60440584fba2fe39254cd8f2371e274600f",
+=======
+  "previous": "0eb5e94fcb46251496717e2cdc764380703f1dac6f9b7c9b88dfb0503439a8cb",
+>>>>>>> Stashed changes
   "id": "S027-cash-flow-29",
   "keys": [
     "space"
@@ -15,5 +19,9 @@
   "highlighted": [],
   "screenshot": "step-0073.png",
   "screenshot_sha256": "5142ef53f4b2111e8d9d627bb90458d173fca0df1a378f0b3053d7af9dfd1a68",
+<<<<<<< Updated upstream
   "time": "2026-11-22T11:57:52.529Z"
+=======
+  "time": "2026-11-22T16:20:45.193Z"
+>>>>>>> Stashed changes
 }

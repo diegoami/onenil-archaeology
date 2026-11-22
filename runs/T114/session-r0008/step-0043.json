@@ -1,6 +1,10 @@
 {
   "number": 43,
+<<<<<<< Updated upstream
   "previous": "09ad9e2f13111dde83eb5f582ba61281dbd1b7a773e5d309baef7dc5d6670002",
+=======
+  "previous": "a3430e9ae09042593cf6b535ec04e74265655bc1a2d28ceadce8043441fc05d5",
+>>>>>>> Stashed changes
   "id": "S017-down-wright",
   "keys": [
     "Down"
@@ -14,6 +18,11 @@
   "screen_sha256": "11c3cac98445fa992494954a0c3685790b61b5008551a3ff3af9619df7a517cf",
   "highlighted": [],
   "screenshot": "step-0043.png",
+<<<<<<< Updated upstream
   "screenshot_sha256": "8f8746ed324c04836db934d6a80beb9734c6aebeabbd9fca36e99f6d3a66d6fb",
   "time": "2026-11-22T11:56:16.064Z"
+=======
+  "screenshot_sha256": "d8093ef0687e50d36bfd7c2fdcd781a1507e24bfcc786f59de9c327b10c2e961",
+  "time": "2026-11-22T16:19:08.072Z"
+>>>>>>> Stashed changes
 }

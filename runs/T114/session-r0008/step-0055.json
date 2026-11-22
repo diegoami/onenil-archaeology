@@ -1,6 +1,10 @@
 {
   "number": 55,
+<<<<<<< Updated upstream
   "previous": "1de017c143a853d16868ef4079e99d2dbe7b249373164ed19906b56444647226",
+=======
+  "previous": "81ec00c104cc58e069b8a2b668bdada440150e5ccad3fe0b8b09a61d6df34649",
+>>>>>>> Stashed changes
   "id": "S018-down-newell",
   "keys": [
     "Down"
@@ -15,5 +19,9 @@
   "highlighted": [],
   "screenshot": "step-0055.png",
   "screenshot_sha256": "d7e4711f4296c5970ecfe48dea2c2e675406821845268df48c02f938084c51fa",
+<<<<<<< Updated upstream
   "time": "2026-11-22T11:56:49.685Z"
+=======
+  "time": "2026-11-22T16:19:42.181Z"
+>>>>>>> Stashed changes
 }

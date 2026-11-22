@@ -1,6 +1,10 @@
 {
   "number": 62,
+<<<<<<< Updated upstream
   "previous": "aed6e6ed0ce3747e631e0c9018641734343b6a7c3c8e5bd9184d3531c4bd20f4",
+=======
+  "previous": "3e0f1f234123d67e34fac72cf285ce797f4d82355f9172995b9a14c6243ee83c",
+>>>>>>> Stashed changes
   "id": "S021-half-time-29",
   "keys": [
     "Enter"
@@ -15,5 +19,9 @@
   "highlighted": [],
   "screenshot": "step-0062.png",
   "screenshot_sha256": "30a52a9ea09f21694515eb548f9d0e4dcf40ddac870f9fbe365d1b97cbd1104a",
+<<<<<<< Updated upstream
   "time": "2026-11-22T11:57:13.622Z"
+=======
+  "time": "2026-11-22T16:20:06.222Z"
+>>>>>>> Stashed changes
 }

@@ -1,6 +1,10 @@
 {
   "number": 1,
+<<<<<<< Updated upstream
   "previous": "65c1b4a91ef722397665f4755a7dd21c32a393ef6bc961df2f83d2225ab121d0",
+=======
+  "previous": "d425dc839213a5dd7463d65aeec595b7793642b042c59bcff0758304530383d4",
+>>>>>>> Stashed changes
   "id": "S001-launch",
   "keys": [],
   "wait": 1,
@@ -12,6 +16,11 @@
   "screen_sha256": "bd2633ced0d7d0e307c4ed14cc0ed1c9d796a872d184d2ba4289cebf94fcbbe5",
   "highlighted": [],
   "screenshot": "step-0001.png",
+<<<<<<< Updated upstream
   "screenshot_sha256": "0dfc06b1371ab334e85754f5cc48155bd789b0f3de5f98aca29c87c781de96a9",
   "time": "2026-11-22T11:53:59.858Z"
+=======
+  "screenshot_sha256": "484fe112b233746ac52350e60e362f746ae81e6785578be30cd85af2b1cef51f",
+  "time": "2026-11-22T16:16:51.680Z"
+>>>>>>> Stashed changes
 }

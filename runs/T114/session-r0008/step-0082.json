@@ -1,6 +1,10 @@
 {
   "number": 82,
+<<<<<<< Updated upstream
   "previous": "22d4f8a415e7aa6b2441195f8a383df381db55c7521252a1d477c0755560a918",
+=======
+  "previous": "c894512bac1c0b947449421db3015246d0327267597411b564b4f35b6b509f93",
+>>>>>>> Stashed changes
   "id": "S032-kickoff",
   "keys": [
     "Enter"
@@ -15,5 +19,9 @@
   "highlighted": [],
   "screenshot": "step-0082.png",
   "screenshot_sha256": "6f4c5fcc376fc22a9474b5c3bcaba38b7c5a0dbcc516957c997d7d3a31762896",
+<<<<<<< Updated upstream
   "time": "2026-11-22T11:58:24.322Z"
+=======
+  "time": "2026-11-22T16:21:17.316Z"
+>>>>>>> Stashed changes
 }

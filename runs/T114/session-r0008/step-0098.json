@@ -1,6 +1,10 @@
 {
   "number": 98,
+<<<<<<< Updated upstream
   "previous": "0b494a7a09d63d7f3e4df73d37c821dbf51edc10462d66a211edd710d999d611",
+=======
+  "previous": "fc392b8fac7fa8404824d7f25f05ac49e80aaf86613e7db682dd0f931663e187",
+>>>>>>> Stashed changes
   "id": "S037-down-9",
   "keys": [
     "Down"
@@ -36,5 +40,9 @@
   ],
   "screenshot": "step-0098.png",
   "screenshot_sha256": "7b542649f231eaf96cff7bca7005980338d784110289e5fd1b91d9f6a8784dbb",
+<<<<<<< Updated upstream
   "time": "2026-11-22T11:59:13.459Z"
+=======
+  "time": "2026-11-22T16:22:06.637Z"
+>>>>>>> Stashed changes
 }

@@ -17,10 +17,17 @@
     "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
     "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
   },
+<<<<<<< Updated upstream
   "code_commit": "77cfbad75a9bdef7125e39e2cae5d57088370433",
   "source_sha256": "5e402fba7c187b79a3eb291ae9bced826f613567a1cdeaabf5b9e61a74c274e3",
   "dosbox_version": "2024.03.01",
   "started": "2026-11-22T11:53:52.990Z",
+=======
+  "code_commit": "fc2d296761def70fcafb1e06e33c80759f84f076",
+  "source_sha256": "5e402fba7c187b79a3eb291ae9bced826f613567a1cdeaabf5b9e61a74c274e3",
+  "dosbox_version": "2024.03.01",
+  "started": "2026-11-22T16:16:44.884Z",
+>>>>>>> Stashed changes
   "requires_restart": false,
   "source_save": {
     "path": "/home/diego/projects/onenil-archaeology/.cache/saves/pre-league28/SAVE1.1-0",

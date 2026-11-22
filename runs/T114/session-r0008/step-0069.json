@@ -1,6 +1,10 @@
 {
   "number": 69,
+<<<<<<< Updated upstream
   "previous": "7072478c2efdf5f71b2feb0f62c37d10ed09e10a74e4ca846a428d783616d7b5",
+=======
+  "previous": "236edb70101003762af7e3448d260ce2449ef3df3a6d6778e219a1792cb867a1",
+>>>>>>> Stashed changes
   "id": "S025-league-results-29",
   "keys": [
     "space"
@@ -15,5 +19,9 @@
   "highlighted": [],
   "screenshot": "step-0069.png",
   "screenshot_sha256": "93716d74dd49e51c81f40a1d8b2f6e09a768df5ec3f1c0d9d0d5353124175ad6",
+<<<<<<< Updated upstream
   "time": "2026-11-22T11:57:37.770Z"
+=======
+  "time": "2026-11-22T16:20:30.309Z"
+>>>>>>> Stashed changes
 }
