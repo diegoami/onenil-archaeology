@@ -79,6 +79,15 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     `tools/check_originals.py` refuses any tracked cache path; and name every path in `git add` —
     never `git add -A` or `git add .` — in a checkout that holds artifacts.
 
+18. **Captures take the capture lock.** Original-game captures on this machine boot emulators
+    (DOSBox-X under Xvfb here, Wine in the parallel session) and compete for it: before booting
+    any emulator, take the exclusive advisory lock `.cache/capture.lock` via `flock` and hold it
+    for the whole capture; it auto-releases on exit, so crashed captures cannot deadlock it
+    (the protocol and an implementation: `runs/T115/drive.py`, commit 4b81aae on
+    `task/T115-league-menu`; the parallel Wine session honors it too). Review sessions that run
+    captures or the heavier emulated checks take it as well, and review prompts and PR bodies
+    say so. Checkers that only parse committed records need no lock. [designed: owner, 2026-11-22]
+
 [designed: owner, 2026-11-05, explicit manual-workflow clarification] Readable decoded UI
 text may coincide with literal executable menu strings. The original-byte scanner may exclude
 only the bounded display text field of a completed, authenticated original manual-session step:
