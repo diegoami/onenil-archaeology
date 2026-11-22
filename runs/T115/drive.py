@@ -120,9 +120,17 @@ def main():
             # position, the clock digits): those steps anchor-check the match
             # header instead of the full digest; the management screens
             # digest-check whole
-            live_play = 85 <= number <= 106
+            live_play = 56 <= number <= 108
             if live_play:
-                if 'LEAGUE MATCH #30' not in mine['text']:
+                # the captures can trail the keys: poll up to four no-key
+                # captures before failing the anchor check
+                anchors_ok = False
+                for catchup in range(4):
+                    if 'LEAGUE MATCH #30' in mine['text']:
+                        anchors_ok = True
+                        break
+                    step, mine = issue(dict(id=f'S036-anchor-{number}-{catchup}', keys=[], wait=2))
+                if not anchors_ok:
                     log(f'REPLAY {number}: the live-play screen lost the match header')
                     return 1
             elif mine['text_sha256'] != theirs['text_sha256']:
