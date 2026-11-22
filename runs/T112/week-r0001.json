@@ -886,12 +886,282 @@
    }
   ]
  },
+ "injury": {
+  "observed": "the second half paused with SUBSTITUTION OPPORTUNITY offered (T Sherwood injured); the opportunity cleared before the next recorded gameplay key and what cleared it is not established",
+  "screens": [
+   {
+    "id": "S034-resume",
+    "step": 85,
+    "text_sha256": "e1e8b2e24befd6e4b20ed5a2b07e173ab6ece41a08ab7d296cb85e8c42069e0b",
+    "screen_sha256": "b65e74eff59629966df45d3444f6a88cd18240335b313884313cd227902a92ed"
+   },
+   {
+    "id": "S036-full-time-0",
+    "step": 86,
+    "text_sha256": "96e5dc73aa63e3b614515fe0f83cf00898b408d618025733200ec4396b074ebf",
+    "screen_sha256": "625aaf75717e7b54ceb8a5f6f607473cc0a7999a8508a1424919cfb772a217ef"
+   },
+   {
+    "id": "S036-full-time-1",
+    "step": 87,
+    "text_sha256": "b025d38a1f7ce69ea37826cf5bab3687eff7cd9d6fc78761e3329acd7cba73d9",
+    "screen_sha256": "ad8af138c54887f76e5865a1aac435395a0f009e319464d1b8a5d6093e80d427"
+   },
+   {
+    "id": "S036-full-time-2",
+    "step": 88,
+    "text_sha256": "49cd3562c4241f9b666d0836db522a7a298438624352ce46238957f17ed753d3",
+    "screen_sha256": "04122207ffa3c03dfeb8850a00c396da6d9df9690ae35f5ab4fe503f60c5e606"
+   },
+   {
+    "id": "S036-full-time-3",
+    "step": 89,
+    "text_sha256": "d717149dd2e7b506a5c6e69a5b1f99879e4e0d8d9936e5bcfa2a7cbd809d645b",
+    "screen_sha256": "b3ffcd1c2c4ae346f4434da24300b8c0691cc8a07f8a35048c37d200d322707b"
+   },
+   {
+    "id": "S036-full-time-4",
+    "step": 90,
+    "text_sha256": "fea263ec72f546f2b5346f9b5a291ab868321f9f52d9bec3a4cce746268c37ae",
+    "screen_sha256": "7e774519d0c060a6677dffa57de455da62eac313b3bebd1466acb8406c7977cb"
+   },
+   {
+    "id": "S036-full-time-5",
+    "step": 91,
+    "text_sha256": "dd47435c5ff15066f6cd16670a413db405aac9698d9e4648568f53646e93ea06",
+    "screen_sha256": "52e5b110199a7ff1fa059fd0295ed5bd4dab12bdb337e8b8ee068443eb73625d"
+   },
+   {
+    "id": "S036-full-time-6",
+    "step": 92,
+    "text_sha256": "8b78d82218ffd5373034fbc972fe34a5ee2c300334f01ed481fd56141edaff77",
+    "screen_sha256": "03b1bed6b7e64760910f044efb528a388046b4698c8354d59113604c9ab905c2"
+   },
+   {
+    "id": "S036-full-time-7",
+    "step": 93,
+    "text_sha256": "f5b5bb27a14d45e39a3a1e1569c8ad476fe32542eb188ec07da500ae52c1d146",
+    "screen_sha256": "1a8d3853702962dc4d185cea1d92a63be6fae37fc9c1c09dad6235a76515aef0"
+   },
+   {
+    "id": "S036-full-time-8",
+    "step": 94,
+    "text_sha256": "681b6827e3f0f4bfe95eebb1205ca1e7764a04eeca35f7626f1a8b889401dfa1",
+    "screen_sha256": "eb54bcf26431e5d28231182a544f65b1f1d28725a9477c52fd42fafa0937f4ba"
+   },
+   {
+    "id": "S036-full-time-9",
+    "step": 95,
+    "text_sha256": "b0d71584ea3dd3b730a4501496d26a90281d42dc331fa1266e2395f6f75e3877",
+    "screen_sha256": "5aef75ef67322514769dda6e375b02ed015f243c694ad3a6e35f366ffe4f88f1"
+   },
+   {
+    "id": "S036-full-time-10",
+    "step": 96,
+    "text_sha256": "80564559ab38d80aee940027cd21050625319ebc60e8c3cc54fc7cae453b8a34",
+    "screen_sha256": "414499fdea045204ae326c5dd0de21491e102c3f8ea0e26baa8b7b39a054e7fd"
+   },
+   {
+    "id": "S036-full-time-11",
+    "step": 97,
+    "text_sha256": "722281ba6bac6ac748303ef8fd81ad494f98e9cc0cccf4c98b4dcdf2a2bd8dd8",
+    "screen_sha256": "dd4b7119833e454aa4ad08da9e5a549b2eef95a6cfd7e4719f2e83f69fe89e46"
+   },
+   {
+    "id": "S036-full-time-12",
+    "step": 98,
+    "text_sha256": "e080ac7f70c762edea6a204ad502ad191ae5e517cec69703e2beac86699f4ae8",
+    "screen_sha256": "f54e6896af28a86294d9b6955b237ab0c23c2374e3b3622f6c1cf3a74d7fa2a3"
+   },
+   {
+    "id": "S036-full-time-13",
+    "step": 99,
+    "text_sha256": "3e7e13766857214c25d2dd0d66e32c26318b3e09f8ccf873e5d68e23eb5d37ab",
+    "screen_sha256": "9f2c79bffbe0e079c3ed6af38cc22e657eef5ca9a570575689ddaa965bf6f096"
+   },
+   {
+    "id": "S036-full-time-14",
+    "step": 100,
+    "text_sha256": "9325e81fa8f2795f90add997c90befcd6e3adea4f23bf4bf3b1c731d4dfa710b",
+    "screen_sha256": "d6ae986b23fbe1feb946d870060b2192ab18f831bfe50b7fc4faf1ec394af374"
+   },
+   {
+    "id": "S036-full-time-15",
+    "step": 101,
+    "text_sha256": "4760d965100e4ba051c5bac901d0b73eb350197b709f939235f84579a6f97c42",
+    "screen_sha256": "969a4c877543f812c6c4410e136d5c0a37bb3ca18545de93b5f66a16c7491ca6"
+   },
+   {
+    "id": "S036-full-time-16",
+    "step": 102,
+    "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+    "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+   },
+   {
+    "id": "S036-full-time-17",
+    "step": 103,
+    "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+    "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+   },
+   {
+    "id": "S036-full-time-18",
+    "step": 104,
+    "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+    "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+   },
+   {
+    "id": "S036-full-time-19",
+    "step": 105,
+    "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+    "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+   },
+   {
+    "id": "S036-full-time-20",
+    "step": 106,
+    "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+    "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+   }
+  ],
+  "score_note": "the paused match later finished 5-3; the substitution was declined"
+ },
  "screens": [
   {
    "id": "S032-kickoff",
    "step": 82,
    "text_sha256": "753028a6d621c446a8ada3791d72c4d870d3558a2fb2d7c0f2207401c818325c",
    "screen_sha256": "eb2e312345831a56df013d4537a8b0c68e3bf7422fb8b866133d0ecb775a33db"
+  },
+  {
+   "id": "S034-resume",
+   "step": 85,
+   "text_sha256": "e1e8b2e24befd6e4b20ed5a2b07e173ab6ece41a08ab7d296cb85e8c42069e0b",
+   "screen_sha256": "b65e74eff59629966df45d3444f6a88cd18240335b313884313cd227902a92ed"
+  },
+  {
+   "id": "S036-full-time-0",
+   "step": 86,
+   "text_sha256": "96e5dc73aa63e3b614515fe0f83cf00898b408d618025733200ec4396b074ebf",
+   "screen_sha256": "625aaf75717e7b54ceb8a5f6f607473cc0a7999a8508a1424919cfb772a217ef"
+  },
+  {
+   "id": "S036-full-time-1",
+   "step": 87,
+   "text_sha256": "b025d38a1f7ce69ea37826cf5bab3687eff7cd9d6fc78761e3329acd7cba73d9",
+   "screen_sha256": "ad8af138c54887f76e5865a1aac435395a0f009e319464d1b8a5d6093e80d427"
+  },
+  {
+   "id": "S036-full-time-2",
+   "step": 88,
+   "text_sha256": "49cd3562c4241f9b666d0836db522a7a298438624352ce46238957f17ed753d3",
+   "screen_sha256": "04122207ffa3c03dfeb8850a00c396da6d9df9690ae35f5ab4fe503f60c5e606"
+  },
+  {
+   "id": "S036-full-time-3",
+   "step": 89,
+   "text_sha256": "d717149dd2e7b506a5c6e69a5b1f99879e4e0d8d9936e5bcfa2a7cbd809d645b",
+   "screen_sha256": "b3ffcd1c2c4ae346f4434da24300b8c0691cc8a07f8a35048c37d200d322707b"
+  },
+  {
+   "id": "S036-full-time-4",
+   "step": 90,
+   "text_sha256": "fea263ec72f546f2b5346f9b5a291ab868321f9f52d9bec3a4cce746268c37ae",
+   "screen_sha256": "7e774519d0c060a6677dffa57de455da62eac313b3bebd1466acb8406c7977cb"
+  },
+  {
+   "id": "S036-full-time-5",
+   "step": 91,
+   "text_sha256": "dd47435c5ff15066f6cd16670a413db405aac9698d9e4648568f53646e93ea06",
+   "screen_sha256": "52e5b110199a7ff1fa059fd0295ed5bd4dab12bdb337e8b8ee068443eb73625d"
+  },
+  {
+   "id": "S036-full-time-6",
+   "step": 92,
+   "text_sha256": "8b78d82218ffd5373034fbc972fe34a5ee2c300334f01ed481fd56141edaff77",
+   "screen_sha256": "03b1bed6b7e64760910f044efb528a388046b4698c8354d59113604c9ab905c2"
+  },
+  {
+   "id": "S036-full-time-7",
+   "step": 93,
+   "text_sha256": "f5b5bb27a14d45e39a3a1e1569c8ad476fe32542eb188ec07da500ae52c1d146",
+   "screen_sha256": "1a8d3853702962dc4d185cea1d92a63be6fae37fc9c1c09dad6235a76515aef0"
+  },
+  {
+   "id": "S036-full-time-8",
+   "step": 94,
+   "text_sha256": "681b6827e3f0f4bfe95eebb1205ca1e7764a04eeca35f7626f1a8b889401dfa1",
+   "screen_sha256": "eb54bcf26431e5d28231182a544f65b1f1d28725a9477c52fd42fafa0937f4ba"
+  },
+  {
+   "id": "S036-full-time-9",
+   "step": 95,
+   "text_sha256": "b0d71584ea3dd3b730a4501496d26a90281d42dc331fa1266e2395f6f75e3877",
+   "screen_sha256": "5aef75ef67322514769dda6e375b02ed015f243c694ad3a6e35f366ffe4f88f1"
+  },
+  {
+   "id": "S036-full-time-10",
+   "step": 96,
+   "text_sha256": "80564559ab38d80aee940027cd21050625319ebc60e8c3cc54fc7cae453b8a34",
+   "screen_sha256": "414499fdea045204ae326c5dd0de21491e102c3f8ea0e26baa8b7b39a054e7fd"
+  },
+  {
+   "id": "S036-full-time-11",
+   "step": 97,
+   "text_sha256": "722281ba6bac6ac748303ef8fd81ad494f98e9cc0cccf4c98b4dcdf2a2bd8dd8",
+   "screen_sha256": "dd4b7119833e454aa4ad08da9e5a549b2eef95a6cfd7e4719f2e83f69fe89e46"
+  },
+  {
+   "id": "S036-full-time-12",
+   "step": 98,
+   "text_sha256": "e080ac7f70c762edea6a204ad502ad191ae5e517cec69703e2beac86699f4ae8",
+   "screen_sha256": "f54e6896af28a86294d9b6955b237ab0c23c2374e3b3622f6c1cf3a74d7fa2a3"
+  },
+  {
+   "id": "S036-full-time-13",
+   "step": 99,
+   "text_sha256": "3e7e13766857214c25d2dd0d66e32c26318b3e09f8ccf873e5d68e23eb5d37ab",
+   "screen_sha256": "9f2c79bffbe0e079c3ed6af38cc22e657eef5ca9a570575689ddaa965bf6f096"
+  },
+  {
+   "id": "S036-full-time-14",
+   "step": 100,
+   "text_sha256": "9325e81fa8f2795f90add997c90befcd6e3adea4f23bf4bf3b1c731d4dfa710b",
+   "screen_sha256": "d6ae986b23fbe1feb946d870060b2192ab18f831bfe50b7fc4faf1ec394af374"
+  },
+  {
+   "id": "S036-full-time-15",
+   "step": 101,
+   "text_sha256": "4760d965100e4ba051c5bac901d0b73eb350197b709f939235f84579a6f97c42",
+   "screen_sha256": "969a4c877543f812c6c4410e136d5c0a37bb3ca18545de93b5f66a16c7491ca6"
+  },
+  {
+   "id": "S036-full-time-16",
+   "step": 102,
+   "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+   "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+  },
+  {
+   "id": "S036-full-time-17",
+   "step": 103,
+   "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+   "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+  },
+  {
+   "id": "S036-full-time-18",
+   "step": 104,
+   "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+   "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+  },
+  {
+   "id": "S036-full-time-19",
+   "step": 105,
+   "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+   "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
+  },
+  {
+   "id": "S036-full-time-20",
+   "step": 106,
+   "text_sha256": "59dfb71e633775105ed91378992a486eee217eb3ee23647c90eb1716b0cc0c61",
+   "screen_sha256": "affaf938e180bcb6d033347644a38616bbb7c41bdfd2811486d0f3321ac2f464"
   },
   {
    "id": "S036-full-time-22",

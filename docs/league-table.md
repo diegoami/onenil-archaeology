@@ -27,9 +27,11 @@ shape:
 | Newcastle Utd | P27, 43 pts, home 11-2-0, away 9-1-4, F65 A30 | P28, 45 pts, home 12-2-0, away 9-1-4, F67 A30 |
 | Blackburn R | P27, 38 pts, home 8-3-3, away 9-1-3, F60 A33 | P28, 38 pts, home 8-3-3, away 9-1-4, F60 A35 |
 
-[designed] The receipt records the 16 clubs in club-number order with both their
-decoded and captured rows; it claims no ranking tie-break and does not infer the
-storage order from the displayed position. `python3 runs/T103/table.py --check`
+[designed] The receipt records the 16 clubs in the captured table's displayed
+order (its club ids follow the screen's positions — 122, 130, 104, …), each row
+carrying its explicit club id; it claims no ranking tie-break and does not infer
+the storage order from the displayed position. [review #253: an earlier wording
+claimed club-number order, which the committed receipt does not follow] `python3 runs/T103/table.py --check`
 re-reads the private state, re-decodes and re-applies the round, and prints
 `ready`.
 
