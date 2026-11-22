@@ -245,6 +245,14 @@ def build(save_sha=None, post29_sha=None):
         raise ValueError('the management screen has no NEXT OPPONENTS box')
     next_opponent_blank = not re.search(r'[A-Za-z]{3,}', next_opponent_cell)
 
+    # the injury stoppage is a recorded fact: the polls must show the
+    # substitution opportunity with Sherwood injured (review #254)
+    injury_polls = find_step(steps, 'SUBSTITUTION OPPORTUNITY')
+    if not injury_polls:
+        raise ValueError('the session shows no injury substitution opportunity')
+    if 'Sherwood INJURED' not in injury_polls[0]['text']:
+        raise ValueError('the injury stoppage does not name Sherwood INJURED')
+
     outcome = dict(
         schema='league-week-receipt-3/1', issue=238, task='T112',
         source_save=dict(path=SAVE.relative_to(ROOT).as_posix(),
@@ -258,9 +266,17 @@ def build(save_sha=None, post29_sha=None):
                               'exactly, so weeks 28 and 29 are re-witnessed per step',
                     t106_session_sha256=sha((T106/'session.json').read_bytes()),
                     pairs=pairs),
+        injury=dict(
+            observed='the second half paused with SUBSTITUTION OPPORTUNITY offered '
+                     '(T Sherwood injured); the opportunity cleared before the next '
+                     'recorded gameplay key and what cleared it is not established',
+            screens=[dict(id=step['id'], step=step['number'], text_sha256=step['text_sha256'],
+                          screen_sha256=step['screen_sha256'])
+                     for step in injury_polls],
+            score_note='the paused match later finished 5-3; the substitution was declined'),
         screens=[dict(id=step['id'], step=step['number'], text_sha256=step['text_sha256'],
                       screen_sha256=step['screen_sha256'])
-                 for step in (kickoff, full, results, table, cash, news, menu, state)],
+                 for step in (kickoff, *injury_polls, full, results, table, cash, news, menu, state)],
         score=dict(home='Blackburn R', away='Wimbledon', home_goals=blackburn_goals,
                    away_goals=wimbledon_goals, scorers=dict(home=home_scorers, away=away_scorers),
                    attendance=attendance, stage='FULL TIME'),
