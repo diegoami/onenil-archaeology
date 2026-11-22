@@ -51,11 +51,25 @@ def main():
             session_dir[0] = ROOT/step['directory']
         return step, json.loads((session_dir[0]/f'step-{step["step"]:04d}.json').read_text())
 
-    def cursor_name(mine):
+    def cursor_name_highlights(mine):
         for entry in mine.get('highlighted') or []:
-            if len(entry) == 2 and re.fullmatch(r"[A-Za-z][A-Za-z. ']+", str(entry[1]) or ''):
-                return str(entry[1]).strip()
+            if len(entry) == 2:
+                candidate = str(entry[1]).strip()
+                words = candidate.split()
+                if len(words) >= 2 and all(
+                        word[0].isupper() and not (len(word) > 1 and word.isupper())
+                        for word in words):
+                    return candidate
         return None
+
+    def cursor_name(mine):
+        # the selected player is named in the details pane's header row:
+        # '│ T Flowers       Age 27  Team Blackburn R----'
+        for line in mine['text'].splitlines():
+            match = re.match(r'│\s*([A-Z][A-Za-z. \'-]+?)\s+Age\s+\d', line)
+            if match:
+                return match.group(1).strip()
+        return cursor_name_highlights(mine)
 
     try:
         # boot until the load prompt, then load with y (retried if the prompt
