@@ -73,6 +73,38 @@ def check():
     next_line = next(line for line in menu['text'].splitlines() if 'League match #' in line)
     if receipt['next_fixture']['competition'] not in next_line:
         raise ValueError('the next competition differs from the receipt')
+    # the review's #249: the scorers, the attendance and the next fixture's
+    # opponent/venue/funds are derived from the screens, not trusted from the
+    # receipt's own fields.
+    home_scorers, away_scorers = [], []
+    for line in facts['text'].splitlines():
+        cells = [cell.strip() for cell in line.split('│')]
+        if len(cells) >= 6:
+            if cells[1] and re.fullmatch(r"[A-Za-z. ']+", cells[1]) \
+                    and re.fullmatch(r'\d+', cells[2] or ''):
+                home_scorers.append(f'{cells[1]} {cells[2]}')
+            if cells[-3] and re.fullmatch(r"[A-Za-z. ']+", cells[-3]) \
+                    and re.fullmatch(r'\d+', cells[-2] or ''):
+                away_scorers.append(f'{cells[-3]} {cells[-2]}')
+    if home_scorers != score['scorers']:
+        raise ValueError('the scorer tables differ from the receipt')
+    attendance = None
+    for line in facts['text'].splitlines():
+        for cell in line.split('│'):
+            hit = re.fullmatch(r'(\d{4,6})', cell.strip())
+            if hit and attendance is None:
+                attendance = int(hit.group(1))
+    if attendance != score['attendance']:
+        raise ValueError('the attendance differs from the receipt')
+    venue_line = next(line for line in menu['text'].splitlines() if 'VENUE' in line)
+    if receipt['next_fixture']['venue'] not in venue_line:
+        raise ValueError('the next venue differs from the receipt')
+    menu_lines = menu['text'].splitlines()
+    money_i = next(i for i, line in enumerate(menu_lines) if 'MONEY' in line)
+    funds_line = next(line for line in menu_lines[money_i:money_i + 3]
+                      if re.search(r'[0-9],[0-9]{3}', line))
+    if digits(funds_line) != receipt['next_fixture']['funds']:
+        raise ValueError('the management screen funds differ from the receipt')
     if not any(f for f in receipt['transfer_news'] if f in steps[10]['text']):
         raise ValueError('the transfer news differs from the receipt')
     return dict(schema='league-week-check/1', session=receipt['session']['directory'],

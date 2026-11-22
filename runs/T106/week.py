@@ -52,6 +52,30 @@ def scorers(text):
     return home, away
 
 
+def squad_steps_verified():
+    """Re-read the four cited squad screens from the committed session and
+    require their stored digests to equal the files' own digests: a mutated
+    step (its text changed while the digests stayed stale) fails here. Also
+    require the last exchange screen to show the completed swap (Newell in,
+    Hendry moved to the bench)."""
+    verified = []
+    for number in (12, 31, 41, 42):
+        record = step(number)
+        # the recorded digests must match the screen text the file itself
+        # carries: a mutated text with stale digests fails here
+        if sha(record['text'].encode()) != record['text_sha256']:
+            raise ValueError(f'step {number}: the text does not match its stored digest')
+        verified.append(dict(step=record['number'], id=record['id'],
+                             text_sha256=record['text_sha256'],
+                             screen_sha256=record['screen_sha256']))
+    last = step(42)['text']
+    if 'M Newell' not in last or 'C Hendry' not in last:
+        raise ValueError('step 42 does not show the Newell/Hendry exchange')
+    if step(12)['text'].count('A Wright') == 0 and step(31)['text'].count('A Wright') == 0:
+        raise ValueError('the Wright exchange screens are missing Wright')
+    return verified
+
+
 def refusal_citations():
     """The retained superseded sessions whose screens show the refusal."""
     found = []
@@ -105,6 +129,7 @@ def build():
                  for row in (half, full, results, table, cash, news, menu)],
         squad=dict(
             players_out=['H Berg', 'C Hendry'], players_in=['A Wright', 'M Newell'],
+            squad_steps_verified=squad_steps_verified(),
             reason='PLAY GAME refused League match #29 with "Blackburn R has an '
                    'ineligible player in the first team"; the retained superseded '
                    'sessions record the refusal, and the recorded exchange of the '
