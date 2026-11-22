@@ -157,3 +157,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T110 The league table's display order](T110.md) (#235).
 
 - [T112 The third league week - match #30 captured from the post-league29 machine](T112.md) (#238).
+
+- [T114 The injury substitution witnessed - the PUT HERE flow from the pitch's stoppage menu](T114.md) (#251).
