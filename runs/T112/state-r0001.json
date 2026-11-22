@@ -1,0 +1,256 @@
+{
+ "schema": "post-league30-projection/1",
+ "task": "T112",
+ "source_state": {
+  "path": ".cache/T112/states/post-league30-t112.sav",
+  "sha256": "334c2d0c8a0941e407bd7aafbfb3bc5cc33586a5a0776a95c69647a90fbb1823"
+ },
+ "week_index": 56,
+ "season_counter": 1,
+ "manager": {
+  "slot": 1,
+  "name_id": 130,
+  "name": "Dalglish"
+ },
+ "club": {
+  "id": 130,
+  "name": "Blackburn R",
+  "first_team": [
+   2581,
+   2582,
+   2592,
+   2584,
+   2597,
+   2586,
+   2587,
+   2588,
+   2593,
+   2591,
+   2596,
+   0,
+   2589,
+   2583,
+   0,
+   0,
+   2585,
+   2598,
+   0,
+   0
+  ],
+  "reserves": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "cash": 1636583,
+ "next_fixture": null,
+ "fixture_table_end": {
+  "slot": 57,
+  "raw_bytes": [
+   5,
+   0,
+   0
+  ],
+  "observed": "the fixture table's next slot carries no opponent (opponent byte 0, competition 5): the 16-club league schedule is complete at 30 matches"
+ },
+ "players": [
+  {
+   "id": 2581,
+   "name": "T Flowers",
+   "age": 27,
+   "current_position": 0,
+   "club_position": 0,
+   "individual_instructions": 17,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2582,
+   "name": "I Pearce",
+   "age": 20,
+   "current_position": 2,
+   "club_position": 2,
+   "individual_instructions": 178,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 0
+   }
+  },
+  {
+   "id": 2583,
+   "name": "C Hendry",
+   "age": 29,
+   "current_position": 2,
+   "club_position": 2,
+   "individual_instructions": 50,
+   "availability": {
+    "condition_signed": 28,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2584,
+   "name": "G Le Saux",
+   "age": 26,
+   "current_position": 3,
+   "club_position": 3,
+   "individual_instructions": 17,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2585,
+   "name": "H Berg",
+   "age": 25,
+   "current_position": 4,
+   "club_position": 4,
+   "individual_instructions": 17,
+   "availability": {
+    "condition_signed": 28,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2586,
+   "name": "M Atkins",
+   "age": 26,
+   "current_position": 5,
+   "club_position": 5,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2587,
+   "name": "T Sherwood",
+   "age": 25,
+   "current_position": 6,
+   "club_position": 6,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 27,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2588,
+   "name": "J Wilcox",
+   "age": 23,
+   "current_position": 10,
+   "club_position": 10,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2589,
+   "name": "S Ripley",
+   "age": 27,
+   "current_position": 11,
+   "club_position": 11,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 23,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2591,
+   "name": "A Shearer",
+   "age": 24,
+   "current_position": 13,
+   "club_position": 13,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2592,
+   "name": "T Gale",
+   "age": 35,
+   "current_position": 2,
+   "club_position": 2,
+   "individual_instructions": 50,
+   "availability": {
+    "condition_signed": 24,
+    "status_bits": 8
+   }
+  },
+  {
+   "id": 2593,
+   "name": "P Warhurst",
+   "age": 25,
+   "current_position": 12,
+   "club_position": 12,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2596,
+   "name": "M Newell",
+   "age": 29,
+   "current_position": 13,
+   "club_position": 13,
+   "individual_instructions": 0,
+   "availability": {
+    "condition_signed": 31,
+    "status_bits": 9
+   }
+  },
+  {
+   "id": 2597,
+   "name": "A Wright",
+   "age": 23,
+   "current_position": 4,
+   "club_position": 4,
+   "individual_instructions": 145,
+   "availability": {
+    "condition_signed": 28,
+    "status_bits": 1
+   }
+  },
+  {
+   "id": 2598,
+   "name": "B Mimms",
+   "age": 31,
+   "current_position": 0,
+   "club_position": 0,
+   "individual_instructions": 17,
+   "availability": {
+    "condition_signed": 25,
+    "status_bits": 1
+   }
+  }
+ ]
+}

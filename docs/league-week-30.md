@@ -50,3 +50,14 @@ captured with their own digests. The retained superseded sessions (r0002–
 r0018) record the honest failures: boot-timing races, a swallowed key, the
 halftime bench navigation and the injury pause's discovery. Savestates stay
 private in `.cache/T112/states/`.
+
+[confirmed:T112, runs/T112/state-r0001.json] **The machine agrees with the
+blank box.** The private post-league30 savestate, projected through the T105
+machinery with the fixture slot left unvalidated, reads week byte **56** (the
+T109 machine's 55 plus the week that was played), cash 1,636,583, and a
+fixture table whose next slot (57) carries **opponent byte 0** (competition 5)
+- no opponent is scheduled after the league's 30 matches. The projector's own
+validation refuses that state ("missing/invalid next opponent"), which is the
+machine-side confirmation of the blank NEXT OPPONENTS box.
+`python3 runs/T112/state.py --check` re-projects the private state and prints
+`post-league30 projection: ready`.
