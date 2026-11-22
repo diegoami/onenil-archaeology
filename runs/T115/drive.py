@@ -113,15 +113,21 @@ def main():
         for number in range(2, 116):
             command = json.loads((T112/f'command-{number:04d}.json').read_text())
             if command.get('savestate'):
-                command['savestate'] = 'post-league30-t115'
+                command['savestate'] = f'post-league30-t115-poll-{number}'
             theirs = json.loads((T112/f'step-{number:04d}.json').read_text())
             step, mine = issue(command)
             # the live-play and pause screens are timing-sensitive (the ball
             # position, the clock digits): those steps anchor-check the match
             # header instead of the full digest; the management screens
             # digest-check whole
-            live_play = 56 <= number <= 108
-            if live_play:
+            # the match-30 live-play region: the T112 session's steps 82-108
+            # (the kickoff through the full-time polls) - the timing-sensitive
+            # screens anchor-check the match header instead of the full digest
+            exempt_ids = set()
+            for n in range(82, 109):
+                exempt_ids.add(json.loads(
+                    (T112/f'step-{n:04d}.json').read_text())['id'])
+            if theirs['id'] in exempt_ids:
                 # the captures can trail the keys: poll up to four no-key
                 # captures before failing the anchor check
                 anchors_ok = False
@@ -149,21 +155,21 @@ def main():
         # the menu's remaining entries, sighted: the menu items are entered
         # with Enter and dismissed with Escape; the F7 save happens at the
         # management menu itself.
-        for target in ('Cup results', 'Weekly fixtures', 'Fixture list', 'Statistics'):
+        for t_idx, target in enumerate(('Cup results', 'Weekly fixtures', 'Fixture list', 'Statistics'), start=1):
             found = False
             for press in range(1, 12):
                 highlight = menu_highlight(mine)
                 if target.lower() in highlight.lower():
                     found = True
                     break
-                step, mine = issue(dict(id=f'S1-down-{target}-{press}', keys=['Down'], wait=1))
+                step, mine = issue(dict(id=f'S200-down-{t_idx}-{press}', keys=['Down'], wait=1))
                 highlight = menu_highlight(mine)
             if not found:
                 log(f'MENU: {target} never highlighted in 11 downs')
                 return 1
-            step, mine = issue(dict(id=f'S1-enter-{target}', keys=['Enter'], wait=3))
+            step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3))
             log(f'{target} screen: {mine["text"][:90]!r}')
-            step, mine = issue(dict(id=f'S1-back-{target}', keys=['Escape'], wait=2))
+            step, mine = issue(dict(id=f'S202-back-{t_idx}', keys=['Escape'], wait=2))
             log(f'{target} dismissed: {mine["text"][:60]!r}')
 
         # F7 saves the named game (the manual's W005: overwrites without a
