@@ -1,5 +1,5 @@
 {
- "schema": "injury-sub-receipt-1/1",
+ "schema": "injury-sub-receipt-1/2",
  "issue": 251,
  "task": "T114",
  "source_save": {
@@ -14,15 +14,679 @@
  },
  "replay": {
   "route": "runs/T106/session-r0014",
-  "route_steps": 52,
-  "digest_matched": 52
+  "route_steps": 53,
+  "matched": 53,
+  "id_mapping": {
+   "S002-loaded": "S002-y-1"
+  },
+  "pairs": [
+   {
+    "my_step": 2,
+    "my_id": "S002-y-1",
+    "t106_step": 1,
+    "t106_id": "S002-loaded",
+    "keys": [
+     "y"
+    ],
+    "wait": 3,
+    "text_sha256": "daeef63217ade3818e2cb9389649f64728538bf1d7cdc2870771879350dd2e53",
+    "screen_sha256": "a088f36dd473159b09c1b9a04a3b1d91f9f6f11eee52e800076e89a98f4c2de7"
+   },
+   {
+    "my_step": 4,
+    "my_id": "S003-match-preparation",
+    "t106_step": 2,
+    "t106_id": "S003-match-preparation",
+    "keys": [
+     "Enter"
+    ],
+    "wait": 2,
+    "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4",
+    "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+   },
+   {
+    "my_step": 6,
+    "my_id": "S004-half-time",
+    "t106_step": 3,
+    "t106_id": "S004-half-time",
+    "keys": [
+     "Enter"
+    ],
+    "wait": 3,
+    "text_sha256": "8203ed07ed37f485d7c602d1f7466845d7a118aca68d6229678d8097753680fa",
+    "screen_sha256": "d26c88f7a5d5540a436d0500f7ec0719072370a62e670484bd033df9938f932d"
+   },
+   {
+    "my_step": 8,
+    "my_id": "S005-bench",
+    "t106_step": 4,
+    "t106_id": "S005-bench",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "4d0401c6c4003a751088bae1b50ee6a5d70961be9beaf63b7635cd9c09f2bbf5",
+    "screen_sha256": "27284d9d31f7d04ff39f56ddfb5ee255902dfaf9dc8be01d825441e800c1e08b"
+   },
+   {
+    "my_step": 10,
+    "my_id": "S006-second-half",
+    "t106_step": 5,
+    "t106_id": "S006-second-half",
+    "keys": [
+     "Enter"
+    ],
+    "wait": 3,
+    "text_sha256": "cdc89371e975ea3d8adcf0c3e081e39b117721a549fd7610770b893390f7db68",
+    "screen_sha256": "50c9ab351cc288d1652872afc01aa4a9e72b29c02453e7017e20f1f917332522"
+   },
+   {
+    "my_step": 12,
+    "my_id": "S007-full-time",
+    "t106_step": 6,
+    "t106_id": "S007-full-time",
+    "keys": [],
+    "wait": 2,
+    "text_sha256": "cdc89371e975ea3d8adcf0c3e081e39b117721a549fd7610770b893390f7db68",
+    "screen_sha256": "50c9ab351cc288d1652872afc01aa4a9e72b29c02453e7017e20f1f917332522"
+   },
+   {
+    "my_step": 13,
+    "my_id": "S008-league-results",
+    "t106_step": 7,
+    "t106_id": "S008-league-results",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "8dc5ef0208c27c48df9d58125e4ff682fb181213ec5d2b7745e30a014c6f416a",
+    "screen_sha256": "6b9317176b5c41f1b97ff65d3d2cce90f1526283553032034fb3cc4c5d8e4f15"
+   },
+   {
+    "my_step": 15,
+    "my_id": "S009-league-table",
+    "t106_step": 8,
+    "t106_id": "S009-league-table",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "87851fa47ad98251b9b8593ef9b66e2283d20c4eaefba37821240789bae4da59",
+    "screen_sha256": "352ec668173eff5a7b8fd3d37b2dac860c2e1bfea3253bc9261a426da7fed0ac"
+   },
+   {
+    "my_step": 17,
+    "my_id": "S010-cash-flow",
+    "t106_step": 9,
+    "t106_id": "S010-cash-flow",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "d5f94636aa0cb63250b4f08aa3f3e023a07857a07779e66fac064ec31d5cf70e",
+    "screen_sha256": "d3743399b661249ff576e3fa161ec48868a4e5bea78eaea662c0bb1098794bfe"
+   },
+   {
+    "my_step": 19,
+    "my_id": "S011-transfer-news",
+    "t106_step": 10,
+    "t106_id": "S011-transfer-news",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "98f456ac0e717e25e585cdddb96d320945b58cc2212fdbdf4ceab1b70777d7db",
+    "screen_sha256": "9d7cc48fe820863efa80e48d442f36c1e7d1511115a8d31f7809c56fe9d9b0fe"
+   },
+   {
+    "my_step": 21,
+    "my_id": "S012-management",
+    "t106_step": 11,
+    "t106_id": "S012-management",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "8481c5734ef44cc63498fd0e7f6823251541711c10c9a46a7b851f29358345ae",
+    "screen_sha256": "bd4981ae288cc5183d755ce49851727c05e6642ee68e74a37b9bad0cc03bb7a4"
+   },
+   {
+    "my_step": 23,
+    "my_id": "S014-prep29",
+    "t106_step": 12,
+    "t106_id": "S014-prep29",
+    "keys": [
+     "Enter"
+    ],
+    "wait": 2,
+    "text_sha256": "e872c1419eafb24091394894d3a382f034ae2c1480db4b8be0944519e7a645ec",
+    "screen_sha256": "d41f64a291264b1b8399a0907bf7c7efc45393f83cd3d73304170f8cf6287097"
+   },
+   {
+    "my_step": 25,
+    "my_id": "S015-squad29",
+    "t106_step": 13,
+    "t106_id": "S015-squad29",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "2b6af113eda4aa72d32c661e2a69cf1363161258ce631b650d36c6525cda1a9f"
+   },
+   {
+    "my_step": 27,
+    "my_id": "S016-down-berg",
+    "t106_step": 14,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "0d10db64c3c34afdc27cb467dddd13302c2555c04cb3d1f22841ad7e1b1c6855"
+   },
+   {
+    "my_step": 28,
+    "my_id": "S016-down-berg",
+    "t106_step": 15,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "cddc2276cabe2e3465b30de0278a58cc933d04de4f032132a8f70b894f658347"
+   },
+   {
+    "my_step": 29,
+    "my_id": "S016-down-berg",
+    "t106_step": 16,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "7ee1f7208a5201d1faf1398fc20be27be144a2824bf71917bc22b30a8445b641"
+   },
+   {
+    "my_step": 30,
+    "my_id": "S016-down-berg",
+    "t106_step": 17,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "888f4a5688df6acedc8ba958cb77ebca78c38689cd38523d21d83f62ab65ca25"
+   },
+   {
+    "my_step": 31,
+    "my_id": "S016-down-berg",
+    "t106_step": 18,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "d11cf45fbd827941d648e4b57ace28f1cf2e804e31652267c12f8aadd1646ce0"
+   },
+   {
+    "my_step": 32,
+    "my_id": "S016-down-berg",
+    "t106_step": 19,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "8e2add88a369753cd9da25b68ce43b5c92263c2eca4d07ac619fb097e23a3e47"
+   },
+   {
+    "my_step": 33,
+    "my_id": "S016-down-berg",
+    "t106_step": 20,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "87d3aa7aaa3dee21a6496f69088ab5bc60ef3a6e2d6400d1239eaaae93ed6cbb"
+   },
+   {
+    "my_step": 34,
+    "my_id": "S016-down-berg",
+    "t106_step": 21,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "5733a8874ee37113747bf35e8c6cf7bde2c81f08ff231592dc2c12e90a8d900f"
+   },
+   {
+    "my_step": 35,
+    "my_id": "S016-down-berg",
+    "t106_step": 22,
+    "t106_id": "S016-down-berg",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "42c0390cd09540819c3f106e2de75850e50d83dd6ac3db70eb5fa0f1ddb1a589",
+    "screen_sha256": "5d5442e93d9e7a1084a7eb6904ad17c292fd17e74cdf2363a420608b49367b15"
+   },
+   {
+    "my_step": 36,
+    "my_id": "S017-mark-berg",
+    "t106_step": 23,
+    "t106_id": "S017-mark-berg",
+    "keys": [
+     "Return"
+    ],
+    "wait": 2,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "7bd2faecfd1941c80f24316eac078b0ceaffa766d54a1398a6f9dcf75a6f2b18"
+   },
+   {
+    "my_step": 38,
+    "my_id": "S017-down-wright",
+    "t106_step": 24,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "b50d005f3a719d11e7373b9336101c13cf5dc820539fff96b8314892a598e53d"
+   },
+   {
+    "my_step": 39,
+    "my_id": "S017-down-wright",
+    "t106_step": 25,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "f493582dece71dad0be81645a98db28464a9dfc4d1c0d972a08a62b559481e07"
+   },
+   {
+    "my_step": 40,
+    "my_id": "S017-down-wright",
+    "t106_step": 26,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "4c361eb96abf452d63ef170a992cbc9526eb4a5f810b828e9ac861d67648eebb"
+   },
+   {
+    "my_step": 41,
+    "my_id": "S017-down-wright",
+    "t106_step": 27,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "50c53bfea045aecf6772c1b343f78c0f629a2b4860a0fcfb22f17112357db37f"
+   },
+   {
+    "my_step": 42,
+    "my_id": "S017-down-wright",
+    "t106_step": 28,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "91658fb84fc4bde446c5cfa3f80fecb0d418d7a7aa0aef35d5b66a46ecc35134"
+   },
+   {
+    "my_step": 43,
+    "my_id": "S017-down-wright",
+    "t106_step": 29,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "11c3cac98445fa992494954a0c3685790b61b5008551a3ff3af9619df7a517cf"
+   },
+   {
+    "my_step": 44,
+    "my_id": "S017-down-wright",
+    "t106_step": 30,
+    "t106_id": "S017-down-wright",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "463acd76427f98de36568b50088eb4a2fabb0dfbef06d1a62bf3de4b18dbe6c4",
+    "screen_sha256": "55ed173a8af97099ebeab2fd0ae5963027f921da990cecb30835885238993e73"
+   },
+   {
+    "my_step": 45,
+    "my_id": "S017-swap-wright",
+    "t106_step": 31,
+    "t106_id": "S017-swap-wright",
+    "keys": [
+     "Return"
+    ],
+    "wait": 2,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "6036549184f3c1d96697b446e19a569c8867b88d9fc9cd86a45e15078705f1fb"
+   },
+   {
+    "my_step": 47,
+    "my_id": "S018-up-hendry",
+    "t106_step": 32,
+    "t106_id": "S018-up-hendry",
+    "keys": [
+     "Up"
+    ],
+    "wait": 1,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "a3cd3550f8331a02621f9597ff1eaa1b0530ef5db44bffd6bb91466b4c8e7b50"
+   },
+   {
+    "my_step": 48,
+    "my_id": "S018-up-hendry",
+    "t106_step": 33,
+    "t106_id": "S018-up-hendry",
+    "keys": [
+     "Up"
+    ],
+    "wait": 1,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "9c8285ac1464bab5ad6545dd7abe24ae058c1f5f433cf17e6cd94e2e7227c674"
+   },
+   {
+    "my_step": 49,
+    "my_id": "S018-up-hendry",
+    "t106_step": 34,
+    "t106_id": "S018-up-hendry",
+    "keys": [
+     "Up"
+    ],
+    "wait": 1,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "2dee60b3115a14858bfe5cd7769e6d68d13c50ed1b05e2d6cea8f6cf3c16a91b"
+   },
+   {
+    "my_step": 50,
+    "my_id": "S018-up-hendry",
+    "t106_step": 35,
+    "t106_id": "S018-up-hendry",
+    "keys": [
+     "Up"
+    ],
+    "wait": 1,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "b4266bfd90552b2c407966221b83574e153d8a0a785a9b94249b171580b3f88b"
+   },
+   {
+    "my_step": 51,
+    "my_id": "S018-up-hendry",
+    "t106_step": 36,
+    "t106_id": "S018-up-hendry",
+    "keys": [
+     "Up"
+    ],
+    "wait": 1,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "4b8ef61765e3d9859ce277b95c7e33e2a76700a799a49e555a8a5e5e0c4c82c7"
+   },
+   {
+    "my_step": 52,
+    "my_id": "S018-up-hendry",
+    "t106_step": 37,
+    "t106_id": "S018-up-hendry",
+    "keys": [
+     "Up"
+    ],
+    "wait": 1,
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "d1da675f3584a4ff1fb12e32442cb917e0b00d68f28fe4fa0e682c8c68641c10"
+   },
+   {
+    "my_step": 53,
+    "my_id": "S018-mark-hendry",
+    "t106_step": 38,
+    "t106_id": "S018-mark-hendry",
+    "keys": [
+     "Return"
+    ],
+    "wait": 2,
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d",
+    "screen_sha256": "c8dba773ca3c09ef172afa969944098d576f184a116c5c78b5e30610f7d03917"
+   },
+   {
+    "my_step": 55,
+    "my_id": "S018-down-newell",
+    "t106_step": 39,
+    "t106_id": "S018-down-newell",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d",
+    "screen_sha256": "79c091cb0bfbeaa98449050be546e70fd39da9e0f802955d6003c54b51843e4b"
+   },
+   {
+    "my_step": 56,
+    "my_id": "S018-down-newell",
+    "t106_step": 40,
+    "t106_id": "S018-down-newell",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d",
+    "screen_sha256": "e6f58d68968493c257529b05f48e5531222926b707457d66540a3506da265807"
+   },
+   {
+    "my_step": 57,
+    "my_id": "S018-down-newell",
+    "t106_step": 41,
+    "t106_id": "S018-down-newell",
+    "keys": [
+     "Down"
+    ],
+    "wait": 1,
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d",
+    "screen_sha256": "e2d46f7202416194ed527b5af25741f72e0e14fc118c3682722001b2b5d894a4"
+   },
+   {
+    "my_step": 58,
+    "my_id": "S019-swap-newell",
+    "t106_step": 42,
+    "t106_id": "S019-swap-newell",
+    "keys": [
+     "Return"
+    ],
+    "wait": 2,
+    "text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1",
+    "screen_sha256": "3ea4c7603a046c3332d31185d6b3d57b47237ffd7db5a40c272a97de6908b711"
+   },
+   {
+    "my_step": 60,
+    "my_id": "S020-escape",
+    "t106_step": 43,
+    "t106_id": "S020-escape",
+    "keys": [
+     "Escape"
+    ],
+    "wait": 2,
+    "text_sha256": "baae3e0ca784695e62553eb30503c3aa8c026cf1c350a66d6b77d8d11e3447a1",
+    "screen_sha256": "e164109c937cbf7f36186c9a697051aafadcb35a947c92534a2858de1712fe1a"
+   },
+   {
+    "my_step": 62,
+    "my_id": "S021-half-time-29",
+    "t106_step": 44,
+    "t106_id": "S021-half-time-29",
+    "keys": [
+     "Enter"
+    ],
+    "wait": 3,
+    "text_sha256": "ef3b16aecf26dc8001572b3b7cb38c5232b2177fc7b6a63e22eb62bc8b5e2580",
+    "screen_sha256": "c1c5e115d377c207b79d5018f8c8b09de715b52ef7ac78bb7a3d748f2abbabfd"
+   },
+   {
+    "my_step": 64,
+    "my_id": "S022-bench-29",
+    "t106_step": 45,
+    "t106_id": "S022-bench-29",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "da6029b68d27afd5b7494716c57a8983c23d5bec634ce7a732fd63bc4759d973",
+    "screen_sha256": "45d3231a8c104c76a41a6c853182cfd0246f23946817412b180430b090965e78"
+   },
+   {
+    "my_step": 66,
+    "my_id": "S023-second-half-29",
+    "t106_step": 46,
+    "t106_id": "S023-second-half-29",
+    "keys": [
+     "Enter"
+    ],
+    "wait": 3,
+    "text_sha256": "e485367c6cf4d0311c36edeaaa7a56e255204dfae94982b08649aa7f11647cfb",
+    "screen_sha256": "b6a1cce7d1a4108fce08b1e217c4c879d453ab5bcf619ee361d4cffb0d03566e"
+   },
+   {
+    "my_step": 68,
+    "my_id": "S024-full-time-29",
+    "t106_step": 47,
+    "t106_id": "S024-full-time-29",
+    "keys": [],
+    "wait": 2,
+    "text_sha256": "e485367c6cf4d0311c36edeaaa7a56e255204dfae94982b08649aa7f11647cfb",
+    "screen_sha256": "b6a1cce7d1a4108fce08b1e217c4c879d453ab5bcf619ee361d4cffb0d03566e"
+   },
+   {
+    "my_step": 69,
+    "my_id": "S025-league-results-29",
+    "t106_step": 48,
+    "t106_id": "S025-league-results-29",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "530808dee98efd7168099a9513ea01e70284be5388a68be09591ef92af84235f",
+    "screen_sha256": "b3e5977a661d542dd7b16c67f11c93ae16b4bd418e78e8d8c7ac95f2b1f7430b"
+   },
+   {
+    "my_step": 71,
+    "my_id": "S026-league-table-29",
+    "t106_step": 49,
+    "t106_id": "S026-league-table-29",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "4995c52de30e16c29ee5ea3b1c0ff0ff02f320afb40af998bb0aaa53912ca9b7",
+    "screen_sha256": "342be4651f691ee523623d3c3316f6bc40575fd3a9831e2204fd55ce18e44dc1"
+   },
+   {
+    "my_step": 73,
+    "my_id": "S027-cash-flow-29",
+    "t106_step": 50,
+    "t106_id": "S027-cash-flow-29",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "950421f6fd99b189b37219c10b833809679f0c5bf37161cfa72897ddd82c1675",
+    "screen_sha256": "1ccd7d17638fd097f98bed3c00871adc7f68504cdf79238963751cd7ee594524"
+   },
+   {
+    "my_step": 75,
+    "my_id": "S028-transfer-news-29",
+    "t106_step": 51,
+    "t106_id": "S028-transfer-news-29",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "4173a27c8d1ea24d26274f4e6cf0abd79529cce9852d1085d1bd837185be77ba",
+    "screen_sha256": "0282be0b5f71b22b57173dfdca663f006b6d2cd1f9c232051af07870033a4ba5"
+   },
+   {
+    "my_step": 77,
+    "my_id": "S029-management-30",
+    "t106_step": 52,
+    "t106_id": "S029-management-30",
+    "keys": [
+     "space"
+    ],
+    "wait": 2,
+    "text_sha256": "ffc7165d3908d2cbb5db9fe6d079288f42e5210d5a3cab118fb374abbef5ec58",
+    "screen_sha256": "332ad7b7cc77f58f01eb9b86b291729f34e9373c0f54b05cc84eec5f60e9de6c"
+   },
+   {
+    "my_step": 79,
+    "my_id": "S030-post-league29",
+    "t106_step": 53,
+    "t106_id": "S030-post-league29",
+    "keys": [],
+    "wait": 1,
+    "text_sha256": "ffc7165d3908d2cbb5db9fe6d079288f42e5210d5a3cab118fb374abbef5ec58",
+    "screen_sha256": "332ad7b7cc77f58f01eb9b86b291729f34e9373c0f54b05cc84eec5f60e9de6c"
+   }
+  ]
  },
  "flow": {
+  "inputs": {
+   "spaces": [
+    "S036-space-1",
+    "S036-space-2"
+   ],
+   "downs": [
+    "S037-down-1",
+    "S037-down-2",
+    "S037-down-3",
+    "S037-down-4",
+    "S037-down-5",
+    "S037-down-6",
+    "S037-down-7",
+    "S037-down-8",
+    "S037-down-9",
+    "S037-down-10"
+   ],
+   "put_here": [
+    "Enter"
+   ],
+   "substitute_downs": [
+    "S039-sub-down-1",
+    "S039-sub-down-2"
+   ],
+   "confirm": [
+    "Enter"
+   ]
+  },
   "pause": {
    "number": 86,
    "facts": {
     "SUBSTITUTION OPPORTUNITY": "SUBSTITUTION OPPORTUNITY                                        press any key",
-    "press any key": "SUBSTITUTION OPPORTUNITY                                        press any key"
+    "press any key": "SUBSTITUTION OPPORTUNITY                                        press any key",
+    "Sherwood INJURED": "\u251cversus\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2524\u2502 28666\u2502\u251c\u2500\u2500\u2500\u2584 \u251c\u2500\u2500\u2500\u2584 \u2502Sherwood INJURED                     \u2502"
    }
   },
   "make_substitution": {
@@ -61,8 +725,30 @@
   "swap": {
    "number": 119,
    "facts": {
-    "S Ripley": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 goalkeeper     \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 S Ripley     \u2551W\u2551",
-    "T Sherwood": "\u2551 Match stats     \u2551 \u251c\u2500TACTICS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2524  \u2551 T Sherwood   \u2551\u00c7\u2551"
+    "Remaining subs": "\u2502 Remaining subs 1\u2502 \u2502 defence        \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 P Warhurst   \u2551\u00a2\u2551"
+   },
+   "first_team": [
+    "T Flowers",
+    "I Pearce",
+    "T Gale",
+    "G Le Saux",
+    "A Wright",
+    "M Atkins",
+    "J Wilcox",
+    "S Ripley",
+    "P Warhurst",
+    "M Newell",
+    "A Shearer"
+   ],
+   "substitutes": [
+    "T Sherwood",
+    "C Hendry",
+    "H Berg",
+    "B Mimms"
+   ],
+   "remaining_subs": {
+    "before": 2,
+    "after": 1
    }
   }
  },
@@ -78,15 +764,11 @@
  "cash_chain": {
   "route": "runs/T112/week-r0001.json",
   "t112_club_funds": 1636583,
-  "funds_value": 1636583,
-  "cash_screen_digits": "1,6\u25023\u25026,5\u25028\u25023",
-  "facts": {
-   "Club funds": "\u2551 Club funds      \u2502 \u2502 \u2502 \u25021,6\u25023\u25026,5\u25028\u25023\u2502 Overdraft facility \u2502 \u2502 \u2502 \u25022,9\u25022\u25020,0\u25020\u25020\u2551"
-  },
-  "management_facts": {
-   "1,636,583": "\u251c 1,636,583       \u2524 \u2502 hardness                average \u2502  \u2551 Players            \u2551",
-   "LEAGUE POS.   2": "\u2502 LEAGUE POS.   2 \u2502 \u251c\u2500RATINGS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2524  \u2551 Next opponents     \u2551"
-  }
+  "cash_screen_funds": 1636583,
+  "management_funds": 1636583,
+  "league_pos": 2,
+  "cash_fact": "\u2551 Club funds      \u2502 \u2502 \u2502 \u25021,6\u25023\u25026,5\u25028\u25023\u2502 Overdraft facility \u2502 \u2502 \u2502 \u25022,9\u25022\u25020,0\u25020\u25020\u2551",
+  "management_fact": "\u251c 1,636,583       \u2524 \u2502 hardness                average \u2502  \u2551 Players            \u2551"
  },
  "savestate": {
   "step_id": "S045-post-league30-t114",
