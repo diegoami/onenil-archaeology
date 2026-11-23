@@ -17,6 +17,7 @@ import argparse
 import hashlib
 import json
 import platform
+import re
 import subprocess
 import sys
 import time
@@ -32,6 +33,19 @@ RECEIPT = ROOT/'runs/T93/sevilla-week-r0002/checkpoint-caller.json'
 CALLER_RUN = ROOT/'runs/T93/sevilla-week-r0002'
 SUFFIX = ROOT/'runs/T93/week-suffix-r0003'
 RECORDS = ROOT/'records/T98'
+DOCUMENTED_SITE = '2864:B941'
+
+
+def documented_fault(fault):
+    """[review #256] The hooks phase's contract is the T93 fault itself: an
+    invalid instruction at the documented site. Matching the fault name alone
+    (or the site alone) would pass phases that fail differently, so both are
+    required, and the site is matched as a whole address - '12864:B941' is a
+    different address and does not satisfy it."""
+    if not fault or 'UC_ERR_INSN_INVALID' not in fault:
+        return False
+    return re.search(r'(?<![0-9A-Fa-f])2864:B941(?![0-9A-Fa-f])',
+                     fault, re.IGNORECASE) is not None
 
 
 def ran(data):
@@ -153,9 +167,10 @@ def probe(phase):
                 return 1
         return 0
     if phase == 'hooks':
-        # the documented fault: UC_ERR_INSN_INVALID at 2864:B941 (the T93
-        # finding) - an unrelated error does not satisfy the phase
-        if fault is None or 'UC_ERR_INSN_INVALID' not in fault:
+        # the documented fault at the documented site (T93's finding); an
+        # unrelated error or the same fault at another address does not
+        # satisfy the phase
+        if not documented_fault(fault):
             return 1
     return 0
 
