@@ -163,6 +163,52 @@ has separate demonstrated procedures.
 ![S044: transfer news](../../runs/T48/session-r0001/step-0064.png)
 ![Management return: next friendly](../../runs/T48/session-r0001/step-0065.png)
 
+## W031: the in-play injury substitution from the stoppage menu
+
+[confirmed] In league match #30's second half the injury did not stop play. The
+live display keeps its statistics overlay — scorers and commentary show “Jones
+BOOKED”, “Sherwood INJURED” and “**** GOAL **** by Ekoku”, with the score
+already 5–3 — and its footer reads **SUBSTITUTION OPPORTUNITY** with “press any
+key” (step 86). The offer sits on the display while the match continues: the
+T112 capture pressed no key and carried the offer through 21 consecutive polls
+to full time ([runs/T112/session-r0019](../../runs/T112/session-r0019), steps
+86–106), which ended 5–3 with Sherwood still in the eleven. An unaccepted
+offer therefore lapses when the match ends, not on a timer.
+
+[confirmed] Space from the offer opened the bench, which showed PLAY GAME and
+**Remaining subs 2** (steps 87–88). Space from that bench opened Players with
+**MAKE SUBSTITUTION** in its footer (steps 89–90) — the substitution mode of
+the interval route in W028, reached from an in-play offer.
+
+[confirmed] The selection already stood on T Flowers, the first XI's top row.
+Ten Downs walked it in order — I Pearce, T Gale, G Le Saux, A Wright,
+M Atkins, J Wilcox, P Warhurst, A Shearer, M Newell, then **T Sherwood**, the
+injured player, at the tenth (steps 92–111, each name read from the screen).
+Enter started **PUT HERE**, named in the footer (step 113). Two Downs under
+SUBS selected **S Ripley**; Enter confirmed (steps 116–118). Escape returned to
+the bench with S Ripley in the active eleven, T Sherwood demoted to the
+substitutes list and **Remaining subs 1** (step 119). Enter on PLAY GAME
+resumed; the next capture was full time — Blackburn R 5 Wimbledon 3, attendance
+28,666, with “Sherwood INJURED” still on the commentary panel (steps 120–121).
+
+[confirmed] The substitution is not automatic: the injured player stays in the
+eleven unless the offer is taken. This capture took it; T112's capture let it
+lapse and the match finished with the same injury unresolved.
+
+[confirmed] Method: on the MAKE SUBSTITUTION screen the OCR merges the skills
+bars with the name box into one highlighted row, so the selected player is that
+row's last ║-delimited segment, not the Age header line used on the plain squad
+screen. Screens read after a keypress can trail it, including after settling;
+the selections above were confirmed from no-key follower captures. Evidence:
+steps 92–117.
+
+![The injury stoppage offer on the live display](../../runs/T114/session-r0015/step-0086.png)
+![MAKE SUBSTITUTION from the in-play bench](../../runs/T114/session-r0015/step-0090.png)
+![T Sherwood selected at the tenth Down](../../runs/T114/session-r0015/step-0111.png)
+![PUT HERE started](../../runs/T114/session-r0015/step-0113.png)
+![The bench after the swap: S Ripley in the eleven, Remaining subs 1](../../runs/T114/session-r0015/step-0119.png)
+![Full time with the substitution made](../../runs/T114/session-r0015/step-0121.png)
+
 ## Remaining coverage
 
 R-result was not used to complete this watched fixture; that route and Watch-off
