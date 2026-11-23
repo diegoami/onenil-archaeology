@@ -163,3 +163,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T115 The league menu's remaining screens at the season boundary](T115.md) (#260).
 
 - [T116 The season boundary - what the original does after league match #30](T116.md) (#271).
+
+- [T117 The league week in the emulator harness - the T100 machine replays T102's route](T117.md) (#273).
