@@ -187,34 +187,40 @@ def main():
             log('PAUSE: never appeared in 30 polls')
             return 1
 
-        # W028's route: the pause screen's any key opens the bench, and a
-        # second Space opens Players with MAKE SUBSTITUTION in its footer.
-        # r0009's lesson: the reads trail the keys (its loop broke one press
-        # late on a lagged read and made the downs on the plain squad
-        # screen, where Down does nothing) - every decision read here is
-        # stabilized, and the mode marker is re-verified with a fresh
-        # no-key capture before anything navigates.
+        # W028's route, content-routed with follower reads (the r0011/r0009
+        # lesson compounded: a capture can trail its own key AND the reads
+        # can be stable-stale - r0011's loop broke on space-3's lagged read
+        # while space-3 was dismissing the very screen it named). Every key
+        # here is followed by a no-key follower capture, the layer is
+        # identified by content, and the substitution mode is accepted only
+        # when TWO consecutive followers show MAKE SUBSTITUTION.
         players = False
-        for press in range(1, 4):
+        for press in range(1, 5):
             step, mine = issue(dict(id=f'S036-space-{press}', keys=['space'], wait=2),
                                stabilize=True)
-            if 'MAKE SUBSTITUTION' in mine['text']:
-                step, mine = issue(dict(id=f'S036-verify-{press}', keys=[], wait=2),
-                                   stabilize=True)
-                if 'MAKE SUBSTITUTION' in mine['text']:
-                    players = True
-                    log(f'PLAYERS opened at space {press} and verified '
-                        f'(step {step["step"]})')
-                    break
-                log(f'space {press}: the footer read lagged - it is gone '
-                    f'on the fresh capture ({mine["text"][:80]!r})')
-                return 1
+            step, mine = issue(dict(id=f'S036-follow-{press}', keys=[], wait=2),
+                               stabilize=True)
+            marks = [m for m in ('MAKE SUBSTITUTION', 'PLAY GAME',
+                                 'SUBSTITUTION OPPORTUNITY', 'PLAYER DETAILS')
+                     if m in mine['text']]
+            log(f'space {press}: the follower reads {marks} '
+                f'({mine["text"][:60]!r})')
             if 'TRANSFER NEWS' in mine['text'] or 'FULL TIME' in mine['text']:
                 log(f'SUB: the walk advanced past Players: {mine["text"][:120]!r}')
                 return 1
-            log(f'space {press}: not Players yet ({mine["text"][:60]!r})')
+            if 'MAKE SUBSTITUTION' in mine['text']:
+                step, mine = issue(dict(id=f'S036-confirm-{press}', keys=[], wait=2),
+                                   stabilize=True)
+                if 'MAKE SUBSTITUTION' in mine['text']:
+                    players = True
+                    log(f'the substitution squad screen verified at space '
+                        f'{press} (step {step["step"]})')
+                    break
+                log(f'space {press}: the footer is not stable across '
+                    f'followers ({mine["text"][:80]!r})')
+                return 1
         if not players:
-            log('SUB: Players never appeared in 3 spaces')
+            log('SUB: the substitution squad screen never verified in 4 spaces')
             return 1
 
         downs = 0
@@ -222,6 +228,8 @@ def main():
         while cursor != INJURED and downs < 12:
             downs += 1
             step, mine = issue(dict(id=f'S037-down-{downs}', keys=['Down'], wait=1),
+                               stabilize=True)
+            step, mine = issue(dict(id=f'S037-follow-{downs}', keys=[], wait=2),
                                stabilize=True)
             cursor = cursor_name(mine)
         if cursor != INJURED:
@@ -237,6 +245,8 @@ def main():
         chosen = None
         for subs_down in range(1, 13):
             step, mine = issue(dict(id=f'S039-sub-down-{subs_down}', keys=['Down'], wait=1),
+                               stabilize=True)
+            step, mine = issue(dict(id=f'S039-sub-follow-{subs_down}', keys=[], wait=2),
                                stabilize=True)
             cursor = cursor_name(mine)
             if cursor in SUBS:
