@@ -7,6 +7,7 @@ Reads the private preparation state and the committed T100/T101/T102/T103
 receipts; the output holds decoded values only, never an original byte.
 """
 import hashlib
+import importlib.util
 import json
 import sys
 from pathlib import Path
@@ -52,7 +53,9 @@ def project():
         raise ValueError('the savestate digest differs from the T100 receipt')
     week = tail.full.match.Week(data)
     names = admission.seed.names(week.files_at_start['ENGL-95.DAT'])
-    campaign = admission.seed.project(admission.memory_save(week.g), names)
+    memory = admission.memory_save(week.g)
+    campaign = admission.seed.project(memory, names)
+
     boot = json.loads(BOOT.read_text())
     if campaign['week_index'] != boot['campaign']['week_byte']:
         raise ValueError('the projected week differs from the T101 boot fact')
@@ -60,6 +63,21 @@ def project():
         raise ValueError('the projected funds differ from the T101 boot fact')
     if campaign['next_fixture'] != boot['campaign']['next_fixture']:
         raise ValueError('the projected next fixture differs from the T101 boot fact')
+    # [review #248] the table is re-decoded from the restored machine's own
+    # memory, independently of the T103 receipt's stored rows: a drift shared
+    # between the T103 receipt and this seed fails here.
+    table = json.loads(TABLE.read_text())
+    table103_spec = importlib.util.spec_from_file_location(
+        'table103_checked', ROOT/'runs/T103/table.py')
+    table103 = importlib.util.module_from_spec(table103_spec)
+    table103_spec.loader.exec_module(table103)
+    base = table103.find_table(memory)
+    for club in table['clubs']:
+        decoded = table103.decode(memory, base, club['id'])
+        if decoded != club['pre']:
+            raise ValueError(f"the restored state's row for {club['club']} differs "
+                             f"from the T103 receipt: {decoded} vs {club['pre']}")
+
     return preparation, campaign, boot
 
 

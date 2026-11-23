@@ -1,0 +1,19 @@
+{
+  "number": 162,
+  "previous": "ff2e4be632d339de43c1f3c786dde657ae073c442b9dc52358fdef655e1aa2d9",
+  "id": "S201-enter-1",
+  "keys": [
+    "Enter"
+  ],
+  "wait": 3,
+  "restart": null,
+  "text": "\nLeague Cup Round 1\n\n\n\n ----Blackburn R  3v0  Portsmouth-----   -------Millwall  3v1  Birmingham City\n ---Nottingham F  4v3  Aston Villa----   ------Port Vale  2v1  Derby County---\n ------Liverpool  5v0  Swansea City---   ---Charlton Ath  2v3  Chelsea--------\n ----------Q.P.R  5v4  Watford--------   --------Burnley  1v2  Barnsley-------\n ----Southampton\u221a 1v1  Newcastle Utd--   -----Oldham Ath  0v1  W.B.A----------\n --------Arsenal  7v0  Notts County---   ------Brentford  0v1  Crystal Palace-\n ---West Ham Utd  0v2  Sheffield Wed--   -Huddersfield T  0v1  Luton Town-----\n Manchester City  4v1  Grimsby Town---   ------York City  3v2  Bristol City---\n ---Ipswich Town  7v0  Bradford City--   -----Oxford Utd\u221a 2v2  Crewe Alexandra\n -Leicester City  3v2  Everton--------   -Bristol Rovers  3v1  Peterbro Utd---\n --------Reading  0v1  Tottenham H----   ---Stockport Co\u221a 2v2  Blackpool------\n -----Middlesbro  2v1  Wolves---------   -Wycombe Wandrs  1v4  Coventry City--\n -------Bolton W  2v1  Swindon Town---   ------Hull City  0v3  Manchester Utd-\n Tranmere Rovers  0v4  Leeds Utd------   --Rotherham Utd  0v2  Norwich City---\n -----Stoke City  2v1  Sheffield Utd--   --------Wrexham  1v7  Wimbledon------\n ---Southend Utd  2v0  Shrewsbury Town   --Brighton & HA  0v3  Sunderland-----\n\n\n\n \u25c4\u2518,\u2193-next Del,\u2191-last  L.C  F.A  UEFA  C.W.C  E.C              F5-Print Esc-exit",
+  "savestate": null,
+  "savestate_sha256": null,
+  "text_sha256": "4ad035475e5ae17d5f1cc65dfbc2bec36f26b856e1285f2d17435a4e9ae0ee58",
+  "screen_sha256": "6fadb632b6e85364266dcdce201df7072ab687b8ef02c922fcaafca47f2cd78c",
+  "highlighted": [],
+  "screenshot": "step-0162.png",
+  "screenshot_sha256": "77532b253a26d33d0515feb00c3f9e3c8673ad6316a5b02af7b5e737429d0c0a",
+  "time": "2026-11-23T03:28:29.986Z"
+}

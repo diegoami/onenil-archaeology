@@ -23,12 +23,11 @@ news: K.McPherson (Reading → Bolton W), H.Aune (Rosenborg → Peterbro Utd).
 
 [confirmed:T112] **An injury stoppage offers the substitution menu on the
 pitch.** The second half paused with **SUBSTITUTION OPPORTUNITY** offered on
-the live pitch (T Sherwood injured, Jones booked) and waited indefinitely —
-the pause does not expire on its own. The opportunity sits in the pitch's own
-menu; this capture declines it by waiting and the match resumed and finished
-5–3 when the pause lifted (the retained superseded sessions show the pause
-lasting through 36+ seconds of polling). The substitution flow itself — the
-squad screen's PUT HERE route (W028) — is not exercised here.
+the live pitch (T Sherwood injured, Jones booked). The pause persisted across
+roughly 36 seconds of no-key polls and **cleared before the next recorded
+gameplay key**; what condition cleared it is not established by this capture.
+The match then finished 5–3. The substitution flow itself — the squad screen's
+PUT HERE route (W028) — is not exercised here. [review #241]
 
 [confirmed:T112] **The management screen at P30 advertises no next
 opponent.** The NEXT OPPONENTS box reads blank: the league schedule of 16
@@ -50,6 +49,13 @@ captured with their own digests. The retained superseded sessions (r0002–
 r0018) record the honest failures: boot-timing races, a swallowed key, the
 halftime bench navigation and the injury pause's discovery. Savestates stay
 private in `.cache/T112/states/`.
+
+[designed, review #245] The superseded sessions' savestate citations share
+paths (`post-league29-t112.sav`, `post-league30-t112.sav`) whose bytes each
+later attempt overwrote: only r0019's digests match the files now at those
+paths, and the earlier sessions' digests preserve the identity of bytes no
+longer there. Later captures give each attempt its own savestate names
+(T114's `pre-pause-t114` and friends).
 
 [confirmed:T112, runs/T112/state-r0001.json] **The machine agrees with the
 blank box.** The private post-league30 savestate, projected through the T105

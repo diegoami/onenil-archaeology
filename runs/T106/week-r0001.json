@@ -220,6 +220,32 @@
    "A Wright",
    "M Newell"
   ],
+  "squad_steps_verified": [
+   {
+    "step": 12,
+    "id": "S014-prep29",
+    "text_sha256": "e872c1419eafb24091394894d3a382f034ae2c1480db4b8be0944519e7a645ec",
+    "screen_sha256": "d41f64a291264b1b8399a0907bf7c7efc45393f83cd3d73304170f8cf6287097"
+   },
+   {
+    "step": 31,
+    "id": "S017-swap-wright",
+    "text_sha256": "7562078ea8a8f4cddc94087b3182f9122df46b1a0e0c8427e546565d374d7513",
+    "screen_sha256": "6036549184f3c1d96697b446e19a569c8867b88d9fc9cd86a45e15078705f1fb"
+   },
+   {
+    "step": 41,
+    "id": "S018-down-newell",
+    "text_sha256": "201b3db011d668e4bf4e8bf2aa5d867c13e5da7975f8a339aff4f2116c9d505d",
+    "screen_sha256": "e2d46f7202416194ed527b5af25741f72e0e14fc118c3682722001b2b5d894a4"
+   },
+   {
+    "step": 42,
+    "id": "S019-swap-newell",
+    "text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1",
+    "screen_sha256": "3ea4c7603a046c3332d31185d6b3d57b47237ffd7db5a40c272a97de6908b711"
+   }
+  ],
   "reason": "PLAY GAME refused League match #29 with \"Blackburn R has an ineligible player in the first team\"; the retained superseded sessions record the refusal, and the recorded exchange of the two players the week-28 processing flagged (decoded statuses 1->3 via the T105 projection) cleared it",
   "refusal": [
    {

@@ -1,0 +1,24 @@
+{
+  "number": 174,
+  "previous": "81afa2ba04e322717e34f43c1a918ac2a8058d23a4dd5ba886d36718d4e801b5",
+  "id": "S201-enter-3",
+  "keys": [
+    "Enter"
+  ],
+  "wait": 3,
+  "restart": null,
+  "text": "\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502 PREMIER LEAGUE  \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2502  30,961 Everton-------- home    League match #25  \u2502 2 1 \u2502\n\u2502 Newcastle Utd-- \u2502  \u2502  33,294 Arsenal-------- away    League match #26  \u2502 4 1 \u2502\n\u2502 Blackburn R---- \u2502  \u2502  Mch 20                         FA Cup Final      \u2502     \u2502\n\u2502 Manchester Utd- \u2502  \u2502  30,976 Tottenham H---- home    League match #27  \u2502 2 1 \u2502\n\u2502 Nottingham F--- \u2502  \u2502  Mch 31                         Euro cups         \u2502     \u2502\n\u2502 Liverpool------ \u2502  \u2502  36,986 Newcastle Utd-- away    League match #28  \u2502 0 2 \u2502\n\u2502 Leeds Utd------ \u2502  \u2502  29,158 Chelsea-------- away    League match #29  \u2502 3 3 \u2502\n\u2502 Tottenham H---- \u2502  \u2502  28,666 Wimbledon------ home    League match #30  \u2502 5 3 \u2502\n\u2502 Wimbledon------ \u2502  \u2502\u221a Apr 24                         Euro cups         \u2502     \u2502\n\u2502 Q.P.R---------- \u2502  \u2502                                 End of season     \u2502     \u2502\n\u2502 Chelsea-------- \u2502  \u2502                                                   \u2502     \u2502\n\u2502 Southampton---- \u2502  \u2502                                                   \u2502     \u2502\n\u2502 Coventry City-- \u2502  \u2502                                                   \u2502     \u2502\n\u2502 Arsenal-------- \u2502  \u2502                                                   \u2502     \u2502\n\u2502 Sheffield Wed-- \u2502  \u2502                                                   \u2502     \u2502\n\u2502 Everton-------- \u2502  \u2502                                                   \u2502     \u2502\n\u2502 West Ham Utd--- \u2502  \u2502                                                   \u2502     \u2502\n\u251c\u2500\u2191\u2193-move\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2514\u2500\u2500PgDn,PgUp-more\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2518\n\u251c\u2500\u2190\u2192-division\u2500\u2500\u2500\u2500\u2500\u2524\n\u2514\u2500\u25c4\u2518-watch game\u2500\u2500\u2500\u2518\n\n                                                                       Esc-exit",
+  "savestate": null,
+  "savestate_sha256": null,
+  "text_sha256": "6ec42f019625531da253747c6918d73c9fd3ec6bff3e69ad06c4eb8515e9f7dc",
+  "screen_sha256": "13b36369771a56adde3a9a43f0aec0176d9281b6ba2dfa32393c03e68172dfc7",
+  "highlighted": [
+    [
+      5,
+      "Blackburn R----"
+    ]
+  ],
+  "screenshot": "step-0174.png",
+  "screenshot_sha256": "f5e18cd9510932a9f5cfcf1f03e8d60fa1a151854cce602b057277fde69e0829",
+  "time": "2026-11-23T03:29:07.980Z"
+}

@@ -1,0 +1,81 @@
+{
+ "schema": "league-menu-receipt-1/1",
+ "issue": 260,
+ "task": "T115",
+ "source_save": {
+  "path": ".cache/saves/pre-league28/SAVE1.1-0",
+  "sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275"
+ },
+ "session": {
+  "directory": "runs/T115/session-r0017",
+  "session_sha256": "028bc419712a2fa65e88fe62635bb209ad9ae259ea3c4224ea328a303edac90b",
+  "steps": 186,
+  "last_step": "ee01ebce93db0d58cf3570576c98273e0d0d553f235a183af1e22423fc2d2fbf"
+ },
+ "binding": {
+  "replay_ends_on": "runs/T112/session-r0019/step-0115.json",
+  "route": "runs/T112/session-r0019",
+  "route_steps": 114,
+  "digest_matched": 97,
+  "header_anchored": 17,
+  "anchor": "LEAGUE MATCH #30",
+  "exempt_ids": 27,
+  "replay_text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1"
+ },
+ "anchor": {
+  "number": 153,
+  "row_as_shown": "Players"
+ },
+ "screens": {
+  "Cup results": {
+   "row": 13,
+   "row_as_shown": "[[13, '1\u25025,9\u25026\u25024,0\u25020\u25020\u2502  \u2551 Cup results']]",
+   "number": 162,
+   "text_sha256": "4ad035475e5ae17d5f1cc65dfbc2bec36f26b856e1285f2d17435a4e9ae0ee58",
+   "screenshot_sha256": "77532b253a26d33d0515feb00c3f9e3c8673ad6316a5b02af7b5e737429d0c0a",
+   "facts": {
+    "League Cup Round 1": "League Cup Round 1",
+    "Blackburn R  3v0  Portsmouth": "----Blackburn R  3v0  Portsmouth-----   -------Millwall  3v1  Birmingham City"
+   }
+  },
+  "Weekly fixtures": {
+   "row": 14,
+   "row_as_shown": "[[14, 'Weekly fixtures']]",
+   "number": 168,
+   "text_sha256": "2948e6746f4e83ac08534464f6bfcb49fa65583d8518f2577f563872ff3cbb9e",
+   "screenshot_sha256": "c025bdddc6f906eec22b68ab482687d4e1dc1634d67132079d9168ccb2c72b43",
+   "facts": {
+    "FIXTURES FOR GAME # 57": "\u2502 FIXTURES FOR GAME # 57 \u2502                               \u2502 GAME NAME:          \u2502",
+    "Eurpn Cup Final": "\u2502             \u2502 1\u2502\u221a\u2502 ----------Lazio   v   P St Germain--- \u2502 Eurpn Cup Final   \u2502"
+   }
+  },
+  "Fixture list": {
+   "row": 15,
+   "row_as_shown": "[[15, 'Fixture list']]",
+   "number": 174,
+   "text_sha256": "6ec42f019625531da253747c6918d73c9fd3ec6bff3e69ad06c4eb8515e9f7dc",
+   "screenshot_sha256": "f5e18cd9510932a9f5cfcf1f03e8d60fa1a151854cce602b057277fde69e0829",
+   "facts": {
+    "PREMIER LEAGUE": "\u2502 PREMIER LEAGUE  \u2502  \u2502                                                   \u2502     \u2502",
+    "League match #25": "\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2502  30,961 Everton-------- home    League match #25  \u2502 2 1 \u2502"
+   }
+  },
+  "Statistics": {
+   "row": 16,
+   "row_as_shown": "[[16, 'Statistics']]",
+   "number": 180,
+   "text_sha256": "34d364b56ed83d1a8aedf9f49fc4a4ab01fe0f2f057b5a76287191f0d08dfb92",
+   "screenshot_sha256": "a181de9d05327e196cb4c17b20bdfc952422d05dc8265de952a09f8eacd85db1",
+   "facts": {
+    "Top scorers (league and cups)": "Top scorers (league and cups)         PREMIER LEAGUE",
+    "Best attack": "\u2502 \u00a2 Hughes      Manchester Utd-  25 \u2502  Best attack          Newcastle Utd--  69"
+   }
+  }
+ },
+ "f7_save": {
+  "step_id": "S050-f7-save",
+  "path": ".cache/saves/post-league30-t115/SAVE1.1-0",
+  "sha256": "cd4ce002f78af5ea761cca2c42b9492a31adad887b84c340a89d14aca402e306",
+  "post_save_number": 185
+ }
+}

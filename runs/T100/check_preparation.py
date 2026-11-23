@@ -43,6 +43,10 @@ def check(receipt_path=RECEIPT):
                                             receipt['session']['last_step']):
         raise ValueError('session length or chain differs')
     steps = manual_session().validate(session)
+    # the review's #250: the delivered key sequence is checked against the
+    # ordered step records, not trusted from the receipt.
+    if receipt.get('keys') != [key for row in steps for key in row['keys']]:
+        raise ValueError("the receipt's delivered keys differ from the session steps")
     preparation = receipt['preparation']
     step = next(row for row in steps if row['number'] == preparation['step'])
     if (step['text_sha256'], step['screen_sha256']) != (preparation['text_sha256'],
@@ -70,6 +74,11 @@ def check(receipt_path=RECEIPT):
         if sha(save) != receipt['source_save']['sha256']:
             raise ValueError('source save digest differs')
         verified.append('source save')
+    if sorted(verified) != ['savestate', 'source save']:
+        # [review #250] the ready line must establish the private-verified
+        # state the Done-when describes; a missing private file fails the check
+        raise ValueError('the private bytes are missing on this machine: '
+                         f'verified {verified}')
     return dict(schema='league-preparation-check/1', receipt=str(RECEIPT.name),
                 session=str(session.relative_to(ROOT)), steps=len(steps),
                 competition=preparation['competition'], opponent=preparation['opponent'],

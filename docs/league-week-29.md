@@ -29,10 +29,14 @@ exchanges the two - the route T46's retained save used for Flowers/Mimms
 came in for H Berg, M Newell for C Hendry, and PLAY GAME then admitted match
 #29. [derived:T106] Decoding the private post-league28 state through the T105
 projection flags exactly Hendry and Berg (status values 1 -> 3, the week-28
-processing's own change) and shows Ripley with condition 0 - which is why the
-first attempted pair (Wright, Ripley) was refused again and the second
-(Wright, Newell) played. The eligibility rule itself is not decoded here; the
-screens and the outcome are the record.
+processing's own change) and shows Ripley with condition 0. The attempts
+establish the narrower observed facts: after Wright replaced Berg, fielding
+Ripley for Hendry still produced the ineligible-player refusal, while fielding
+Newell for Hendry admitted match 29. Ripley and Newell differ in more than the
+projected condition byte, and the eligibility rule itself is not decoded here -
+the capture does not isolate condition 0 as the original's criterion. The
+screens and the outcome are the record. [review #255: an earlier wording stated
+the condition byte as the cause of the refused pair]
 
 [designed] The superseded sessions (r0002-r0013) are retained: each records an
 honest attempt - the lost-key and blank-row navigations, the refusal, and the

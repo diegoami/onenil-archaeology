@@ -53,6 +53,18 @@ def verify_facts(facts):
     return problems
 
 
+def cross_check_layout(receipt):
+    """The block layout the checker sorts by must be the one the anchors
+    decode: the stride-12 rows whose points byte sits at +1 and whose goal
+    columns sit at +8/+10 (the receipt's data_blocks and table facts)."""
+    block = receipt.get('data_blocks', {}).get('table', {})
+    if block.get('row_stride') != 12 or block.get('clubs') != 176:
+        fail("the receipt's table block is not the 176 x 12 rows the listing decodes")
+    layout = block.get('layout', [])
+    if layout[:2] != ['P:u8', 'PTS:u8'] or layout[8:] != ['F:u16', 'A:u16']:
+        fail(f"the receipt's row layout differs: {layout}")
+
+
 def gd8(row):
     """The comparator's goal difference: the signed 8-bit low byte of F - A."""
     value = (row['F'] - row['A']) & 0xFF
@@ -118,8 +130,17 @@ def main():
     problems = verify_facts(receipt['facts'])
     if problems:
         fail('the committed listing does not carry the receipt:\n  ' + '\n  '.join(problems))
+    if len(receipt['facts']) != 49:
+        fail(f"the receipt carries {len(receipt['facts'])} anchored facts, not the 49 the "
+             "decode recorded; an emptied or trimmed anchor list is not a verification")
+    comparator = receipt.get('comparator', {})
+    claim = comparator.get('claim', '')
+    if 'signed 8-bit' not in claim or 'F - A' not in claim:
+        fail("the receipt's comparator claim does not state the decoded rule "
+             "(points, the signed 8-bit low byte of goal difference, goals for)")
     print(f"listing: {len(receipt['facts'])} anchored instructions verified")
 
+    cross_check_layout(receipt)
     seed = json.loads(SEED.read_text())
     week28 = {club['club']: dict(club=club['club'], played=club['post']['P'],
                                  F=club['post']['F'], A=club['post']['A'],

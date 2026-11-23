@@ -140,6 +140,23 @@ def probe(phase):
     tail.full.write(out, record)
     print(json.dumps(dict(path=str(out.relative_to(ROOT)), fault=fault,
                           finished=week.finished, keys=week.g.keys_delivered), indent=1))
+    # [review #256] the phase contract decides the exit code: the closed phase
+    # must complete without a fault and reproduce the T93 suffix facts; the
+    # hooks phase must reproduce the documented fault. The receipt is written
+    # either way; the exit code says whether the run matched its phase.
+    if phase == 'closed':
+        if fault is not None or not week.finished or record.get('week') is None:
+            return 1
+        suffix = json.loads((SUFFIX/'finish.json').read_text())['result']
+        for key, value in suffix.get('week', {}).items():
+            if record['week'].get(key) != value:
+                return 1
+        return 0
+    if phase == 'hooks':
+        # the documented fault: UC_ERR_INSN_INVALID at 2864:B941 (the T93
+        # finding) - an unrelated error does not satisfy the phase
+        if fault is None or 'UC_ERR_INSN_INVALID' not in fault:
+            return 1
     return 0
 
 

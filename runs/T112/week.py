@@ -3,6 +3,10 @@
     python3 runs/T112/week.py            write runs/T112/week-r0001.json
     python3 runs/T112/week.py --check    re-read and require equality; prints ready
 
+Note (review #245): the superseded sessions' savestate citations share paths
+whose bytes later attempts overwrote - their digests preserve the identity of
+bytes no longer at those paths.
+
 Reads the completed manual session (runs/T112/session-r0019) and requires the
 deterministic replay invariant: every replayed step's screen digest equals the
 committed T106 session's corresponding step (the route replays the T106 keys
@@ -35,9 +39,19 @@ def step(number, session=SESSION):
     return json.loads((session/f'step-{number:04d}.json').read_text())
 
 
-def session_steps(session=SESSION):
+def session_steps(session=SESSION, verify_chain=False):
     paths = sorted(session.glob('step-*.json'))
-    return [json.loads(p.read_text()) for p in paths]
+    steps = [json.loads(p.read_text()) for p in paths]
+    if verify_chain:
+        previous = None
+        for path, step in zip(paths, steps):
+            if step['previous'] != previous:
+                raise ValueError(f'{path.name}: the action chain is broken')
+            previous = sha(path.read_bytes())
+        end = json.loads((session/'end.json').read_text())
+        if end['steps'] != len(steps) or end['last_step'] != previous:
+            raise ValueError(f'{session.name}: the end record disagrees with the chain')
+    return steps
 
 
 def digits(line):
@@ -108,8 +122,8 @@ def replay_pairs():
     session's own ids, so walking both sessions in step consumes each T106
     replay step against my matching step (catch-up and boot steps, which carry
     their own ids, are skipped)."""
-    mine = session_steps()
-    theirs = session_steps(T106)
+    mine = session_steps(verify_chain=True)
+    theirs = session_steps(T106, verify_chain=True)
     replay_theirs = theirs[1:]
     # the control script's boot/load ids differ from T106's own ('S002-y-1'
     # against 'S002-loaded'); the loaded screen is the same committed digest
@@ -122,13 +136,23 @@ def replay_pairs():
         target = replay_theirs[t]
         expected_id = target.get('my_id', target['id'])
         if step['id'] == expected_id:
+            for field in ('screen_sha256', 'keys', 'wait'):
+                if step[field] != target[field]:
+                    raise ValueError(f'the replay diverges at my step {step["number"]} '
+                                     f'({step["id"]}): {field} differs from T106')
             if step['text_sha256'] != target['text_sha256']:
                 raise ValueError(f'the replay diverges at my step {step["number"]} '
                                  f'({step["id"]})')
             pairs.append(dict(my_step=step['number'], my_id=step['id'],
                               t106_step=target['number'], t106_id=target['id'],
-                              text_sha256=step['text_sha256']))
+                              keys=step['keys'], wait=step['wait'],
+                              text_sha256=step['text_sha256'],
+                              screen_sha256=step['screen_sha256']))
             t += 1
+        elif step.get('keys'):
+            # a skipped step that sent gameplay input would break the route
+            raise ValueError(f'an unmatched step sent gameplay input: my step '
+                             f'{step["number"]} ({step["id"]}), keys {step["keys"]}')
     if t != len(replay_theirs):
         raise ValueError(f'the replay covers only {t} of {len(replay_theirs)} T106 steps')
     return pairs, mine, theirs, replay_theirs
@@ -141,7 +165,10 @@ def find_step(steps, anchor):
     return found
 
 
-def build():
+def build(save_sha=None, post29_sha=None):
+    # save_sha / post29_sha: the recorded digests carried by --check when the
+    # private bytes are absent on this machine (finding #244); the write mode
+    # reads the files and raises when they are missing.
     end = json.loads((SESSION/'end.json').read_text())
     if end['status'] != 'completed' or not end['processes_exited']:
         raise SystemExit('the session did not complete cleanly')
@@ -193,9 +220,45 @@ def build():
     menu_funds = digits(next(line for line in menu['text'].splitlines()
                              if re.search(r'[0-9],[0-9]{3}', line)))
 
+    match_no = None
+    for line in results['text'].splitlines():
+        hit = re.search(r'MATCH NO #(\d+)', line)
+        if hit:
+            match_no = int(hit.group(1))
+    if match_no is None:
+        raise ValueError('the results screen does not carry the match number')
+    attendance = None
+    for line in full['text'].splitlines():
+        for cell in line.split('│'):
+            hit = re.fullmatch(r'(\d{4,6})', cell.strip())
+            if hit and attendance is None:
+                attendance = int(hit.group(1))
+    if attendance is None:
+        raise ValueError('the full-time pitch does not carry the attendance')
+    next_opponent_cell = None
+    menu_lines = menu['text'].splitlines()
+    for i, line in enumerate(menu_lines):
+        if 'NEXT OPPONENTS' in line and i + 1 < len(menu_lines):
+            next_opponent_cell = menu_lines[i + 1].strip().strip('│').strip()
+            break
+    if next_opponent_cell is None:
+        raise ValueError('the management screen has no NEXT OPPONENTS box')
+    next_opponent_blank = not re.search(r'[A-Za-z]{3,}', next_opponent_cell)
+
+    # the injury stoppage is a recorded fact: the polls must show the
+    # substitution opportunity with Sherwood injured (review #254)
+    injury_polls = find_step(steps, 'SUBSTITUTION OPPORTUNITY')
+    if not injury_polls:
+        raise ValueError('the session shows no injury substitution opportunity')
+    if 'Sherwood INJURED' not in injury_polls[0]['text']:
+        raise ValueError('the injury stoppage does not name Sherwood INJURED')
+
     outcome = dict(
         schema='league-week-receipt-3/1', issue=238, task='T112',
-        source_save=dict(path=SAVE.relative_to(ROOT).as_posix(), sha256=sha(SAVE.read_bytes())),
+        source_save=dict(path=SAVE.relative_to(ROOT).as_posix(),
+                         sha256=save_sha if save_sha is not None else
+                         (sha(SAVE.read_bytes()) if SAVE.exists()
+                          else 'unverified: the private save is absent')),
         session=dict(directory=SESSION.relative_to(ROOT).as_posix(),
                      session_sha256=sha((SESSION/'session.json').read_bytes()),
                      steps=end['steps'], last_step=end['last_step']),
@@ -205,26 +268,38 @@ def build():
                               'exactly, so weeks 28 and 29 are re-witnessed per step',
                     t106_session_sha256=sha((T106/'session.json').read_bytes()),
                     pairs=pairs),
+        injury=dict(
+            observed='the second half paused with SUBSTITUTION OPPORTUNITY offered '
+                     '(T Sherwood injured); the opportunity cleared before the next '
+                     'recorded gameplay key and what cleared it is not established',
+            screens=[dict(id=step['id'], step=step['number'], text_sha256=step['text_sha256'],
+                          screen_sha256=step['screen_sha256'])
+                     for step in injury_polls],
+            score_note='the paused match later finished 5-3; the substitution was declined'),
         screens=[dict(id=step['id'], step=step['number'], text_sha256=step['text_sha256'],
                       screen_sha256=step['screen_sha256'])
-                 for step in (kickoff, full, results, table, cash, news, menu, state)],
+                 for step in (kickoff, *injury_polls, full, results, table, cash, news, menu, state)],
         score=dict(home='Blackburn R', away='Wimbledon', home_goals=blackburn_goals,
                    away_goals=wimbledon_goals, scorers=dict(home=home_scorers, away=away_scorers),
-                   attendance=28666, stage='FULL TIME'),
-        results=dict(match_no=30,
+                   attendance=attendance, stage='FULL TIME'),
+        results=dict(match_no=match_no,
                      rows=[dict(home=home, home_goals=hg, away_goals=ag, away=away)
                            for home, hg, ag, away in result_rows]),
         table=table_rows,
         cash=dict(total_in=total_in, total_out=total_out, club_funds=funds),
         transfer_news=news_rows,
         management=dict(league_pos=int(league_pos), funds=menu_funds,
-                        next_opponent_box_blank=True,
+                        next_opponent_box_blank=next_opponent_blank,
+                        next_opponent_cell=next_opponent_cell,
                         observed='the NEXT OPPONENTS box reads blank at P30: the league '
                                  'schedule of 16 clubs is complete at 30 matches'),
         savestates=dict(
             post_league29=dict(session=SESSION.name,
                                path='.cache/T112/states/post-league29-t112.sav',
-                               sha256=sha((ROOT/'.cache/T112/states/post-league29-t112.sav').read_bytes())),
+                               sha256=post29_sha if post29_sha is not None else
+                               (sha((ROOT/'.cache/T112/states/post-league29-t112.sav').read_bytes())
+                                if (ROOT/'.cache/T112/states/post-league29-t112.sav').exists()
+                                else 'unverified: the private savestate is absent')),
             post_league30=dict(session=SESSION.name, step=state['number'],
                                path=state['savestate'], sha256=state['savestate_sha256'])),
         scope='One real original process from the restored pre-league28 save; the '
@@ -265,6 +340,8 @@ def build():
 
 
 def write():
+    if not SAVE.exists():
+        raise SystemExit(f'{SAVE.relative_to(ROOT)} is missing; the write mode reads it')
     if OUT.exists():
         raise SystemExit(f'{OUT.relative_to(ROOT)} exists; a new reading is a new file')
     value = build()
@@ -274,13 +351,29 @@ def write():
 
 def check():
     value = json.loads(OUT.read_text())
-    rebuilt = build()
-    if value != rebuilt:
-        # the receipt is compared field by field to name the first difference
-        for key in value:
-            if value[key] != rebuilt.get(key):
-                raise SystemExit(f'the receipt\'s {key} differs from the re-read session')
-        raise SystemExit('the receipt differs from the re-read session')
+    save_sha = value['source_save']['sha256'] if SAVE.exists() else None
+    post29 = (ROOT/value['savestates']['post_league29']['path'])
+    post29_sha = value['savestates']['post_league29']['sha256'] if post29.exists() else None
+    if SAVE.exists() and sha(SAVE.read_bytes()) != save_sha:
+        raise SystemExit('the private source save differs from the recorded digest')
+    if post29.exists() and sha(post29.read_bytes()) != post29_sha:
+        raise SystemExit('the private post-league29 savestate differs from the recorded digest')
+    rebuilt = build(save_sha=save_sha, post29_sha=post29_sha)
+    def differs(stored, rebuilt, path=''):
+        """Field-by-field comparison; the private-byte digests are skipped when
+        the rebuilt values carry the unverifiable sentinel (the private files
+        absent on this machine)."""
+        if isinstance(stored, dict) and isinstance(rebuilt, dict):
+            for key in stored:
+                differs(stored[key], rebuilt.get(key), path + '/' + key)
+            return
+        if stored == rebuilt:
+            return
+        if isinstance(rebuilt, str) and rebuilt.startswith('unverified'):
+            return
+        raise SystemExit(f'the receipt\'s {path or "root"} differs from the re-read session')
+
+    differs(value, rebuilt)
     print('third league week: ready')
 
 

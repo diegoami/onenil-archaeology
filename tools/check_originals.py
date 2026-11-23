@@ -26,7 +26,10 @@ def tracked(root):
 def violations(names):
     """Original-game file types and private cache paths among tracked `names`."""
     originals = [name for name in names if Path(name).suffix.lower() in FORBIDDEN]
-    cache = [name for name in names if name == ".cache" or name.startswith(".cache/")]
+    # any path component named .cache, at any depth (rule 17's backstop):
+    # `nested/.cache` and `nested/.cache/x` are caught like the root cache
+    cache = [name for name in names
+             if ".cache" in Path(name).parts or name == ".cache"]
     return originals, cache
 
 

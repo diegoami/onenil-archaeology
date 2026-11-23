@@ -1,5 +1,5 @@
 """Synthetic git/filesystem tests: never execute the original or claim source measurements."""
-import importlib.util,json,subprocess
+import argparse,importlib.util,json,subprocess,sys,types
 from pathlib import Path
 import pytest
 ROOT=Path(__file__).resolve().parents[1]
@@ -80,10 +80,14 @@ def test_mutable_job_control_uses_complete_atomic_replacement(tmp_path):
 
 class Child:
     """A synthetic observer process: running for `polls` polls, then exited."""
+    pid = 424242
     def __init__(self,polls,returncode=0):self.polls,self.returncode=polls,returncode
     def poll(self):
         if self.polls:self.polls-=1;return None
         return self.returncode
+    def send_signal(self,signal):pass
+    def wait(self,timeout=None):return self.returncode
+    def kill(self):pass
 
 def test_terminal_checkpoint_supersedes_the_periodic_pointer(repository,tmp_path):
     # #188: the terminal checkpoint's commit, not an older periodic one, ends in control state.
@@ -111,3 +115,39 @@ def test_supervise_retries_busy_checkpoints_and_reports_the_exit_code(tmp_path):
     ticks=iter(range(0,10_000,600))
     assert module.supervise(Child(2,returncode=3),state,busy,tmp_path/'c.json',clock=lambda:next(ticks),sleep=lambda s:None)==3
     assert calls and 'last_checkpoint' not in state
+
+def test_main_phase_terminal_checkpoint_reaches_control(repository,tmp_path,monkeypatch):
+    # [review #257] #188 protects the per-phase terminal call site inside
+    # main(); the regression test must drive main() itself, not the helper.
+    # With the call site reverted to a bare save() the control state keeps the
+    # supervise-periodic pointer and this test fails.
+    root,stream,receipts=repository
+    control=tmp_path/'control.json';state_path=tmp_path/'state.sav'
+    monkeypatch.setattr(module,'ROOT',root)
+    monkeypatch.setattr(module,'BRANCH',module.BRANCH)
+    class ObserverStub:
+        def check(self,stream_,require_repeat=False):return validate(stream_)
+    monkeypatch.setattr(module,'observer',lambda:ObserverStub())
+    monkeypatch.setattr(module,'validator',lambda stub:validate(stream))
+    commits=[]
+    def fake_checkpoint(root_,stream_,receipts_,validate_):
+        leaf=stream_/f'chunk-{len(list(stream_.glob("chunk-*.json"))):06d}.json';leaf.write_text('{"synthetic":true}')
+        command(root_,'add',str(leaf));command(root_,'commit','-m','synthetic chunk','-q')
+        head=command(root_,'rev-parse','HEAD').strip();commits.append(head)
+        return {'commit': head}
+    monkeypatch.setattr(module,'checkpoint',fake_checkpoint)
+    # the tool's subprocess binding: Popen is stubbed; git()'s check_output
+    # and the TimeoutExpired exception stay real
+    monkeypatch.setattr(module,'subprocess',types.SimpleNamespace(
+        Popen=lambda *a,**k:Child(1),
+        check_output=subprocess.check_output,
+        TimeoutExpired=subprocess.TimeoutExpired))
+    monkeypatch.setattr(sys,'argv',['job','--state',str(state_path),'--control',str(control)])
+    module.main()
+    state=json.loads(control.read_text())
+    assert state['status']=='completed'
+    head=command(root,'rev-parse','HEAD').strip()
+    assert commits, 'the terminal checkpoint must have committed'
+    assert state['last_checkpoint']==commits[-1]==head, (
+        'the control state must end at the terminal checkpoint commit, not an '
+        'older periodic one')
