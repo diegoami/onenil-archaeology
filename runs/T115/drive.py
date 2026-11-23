@@ -42,8 +42,13 @@ def main():
             'auto-releases when that capture exits)')
         fcntl.flock(lock_file, fcntl.LOCK_EX)
         log('capture lock acquired after waiting')
-    # this task's own private scratch from earlier attempts; never a record
-    (ROOT/'.cache/T115/states/post-league30-t115.sav').unlink(missing_ok=True)
+    # this task's own private scratch from earlier attempts; never a record;
+    # the replay renames its savestate commands to the poll-suffixed names
+    # (stale ones make the driver refuse the run: a new read is a new file)
+    states = ROOT/'.cache/T115/states'
+    (states/'post-league30-t115.sav').unlink(missing_ok=True)
+    for stale in states.glob('post-league30-t115-poll-*.sav'):
+        stale.unlink()
     SAVE_DEST.parent.mkdir(parents=True, exist_ok=True)
     process = subprocess.Popen(
         ['python3', 'runtime/driver/manual_session.py', '--run', '--out', str(OUT.relative_to(ROOT)),
@@ -152,25 +157,48 @@ def main():
                     return 1
         log('REPLAY COMPLETE 114/114 digest-identical (weeks 28-30 re-witnessed)')
 
-        # the menu's remaining entries, sighted: the menu items are entered
-        # with Enter and dismissed with Escape; the F7 save happens at the
-        # management menu itself.
+        # the replay ends on the squad screen (the T112 route's own final
+        # screen, digest-identical): its legend is Esc-exit, and the
+        # management menu shows PLAY NEXT GAME in its right-hand column.
+        step, mine = issue(dict(id='S040-esc-to-menu', keys=['Escape'], wait=2))
+        for poll in range(3):
+            if 'PLAY NEXT GAME' in mine['text']:
+                break
+            step, mine = issue(dict(id=f'S040-esc-again-{poll}', keys=['Escape'], wait=2))
+        if 'PLAY NEXT GAME' not in mine['text']:
+            log(f'MENU: management menu not reached from the squad screen: '
+                f'{mine["text"][:120]!r}')
+            return 1
+        log('MENU: on the management menu')
         for t_idx, target in enumerate(('Cup results', 'Weekly fixtures', 'Fixture list', 'Statistics'), start=1):
             found = False
             for press in range(1, 12):
                 highlight = menu_highlight(mine)
-                if target.lower() in highlight.lower():
+                if highlight and target.lower() in highlight.lower():
                     found = True
                     break
                 step, mine = issue(dict(id=f'S200-down-{t_idx}-{press}', keys=['Down'], wait=1))
                 highlight = menu_highlight(mine)
+                if highlight and target.lower() in highlight.lower():
+                    found = True
+                    break
             if not found:
                 log(f'MENU: {target} never highlighted in 11 downs')
                 return 1
             step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3))
             log(f'{target} screen: {mine["text"][:90]!r}')
             step, mine = issue(dict(id=f'S202-back-{t_idx}', keys=['Escape'], wait=2))
+            for poll in range(4):
+                if 'PLAY NEXT GAME' in mine['text']:
+                    break
+                step, mine = issue(dict(id=f'S202-back-{t_idx}-poll-{poll}', keys=['Escape'], wait=2))
+            if 'PLAY NEXT GAME' not in mine['text']:
+                log(f'MENU: {target} dismissed but the menu did not return')
+                return 1
             log(f'{target} dismissed: {mine["text"][:60]!r}')
+        if 'PLAY NEXT GAME' not in mine['text']:
+            log('MENU: not back on the management menu before the save')
+            return 1
 
         # F7 saves the named game (the manual's W005: overwrites without a
         # prompt); the scratch game dir's SAVE1.1-0 becomes the first
