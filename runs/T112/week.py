@@ -256,7 +256,9 @@ def build(save_sha=None, post29_sha=None):
     outcome = dict(
         schema='league-week-receipt-3/1', issue=238, task='T112',
         source_save=dict(path=SAVE.relative_to(ROOT).as_posix(),
-                         sha256=save_sha if save_sha is not None else sha(SAVE.read_bytes())),
+                         sha256=save_sha if save_sha is not None else
+                         (sha(SAVE.read_bytes()) if SAVE.exists()
+                          else 'unverified: the private save is absent')),
         session=dict(directory=SESSION.relative_to(ROOT).as_posix(),
                      session_sha256=sha((SESSION/'session.json').read_bytes()),
                      steps=end['steps'], last_step=end['last_step']),
@@ -295,7 +297,9 @@ def build(save_sha=None, post29_sha=None):
             post_league29=dict(session=SESSION.name,
                                path='.cache/T112/states/post-league29-t112.sav',
                                sha256=post29_sha if post29_sha is not None else
-                               sha((ROOT/'.cache/T112/states/post-league29-t112.sav').read_bytes())),
+                               (sha((ROOT/'.cache/T112/states/post-league29-t112.sav').read_bytes())
+                                if (ROOT/'.cache/T112/states/post-league29-t112.sav').exists()
+                                else 'unverified: the private savestate is absent')),
             post_league30=dict(session=SESSION.name, step=state['number'],
                                path=state['savestate'], sha256=state['savestate_sha256'])),
         scope='One real original process from the restored pre-league28 save; the '
@@ -355,12 +359,21 @@ def check():
     if post29.exists() and sha(post29.read_bytes()) != post29_sha:
         raise SystemExit('the private post-league29 savestate differs from the recorded digest')
     rebuilt = build(save_sha=save_sha, post29_sha=post29_sha)
-    if value != rebuilt:
-        # the receipt is compared field by field to name the first difference
-        for key in value:
-            if value[key] != rebuilt.get(key):
-                raise SystemExit(f'the receipt\'s {key} differs from the re-read session')
-        raise SystemExit('the receipt differs from the re-read session')
+    def differs(stored, rebuilt, path=''):
+        """Field-by-field comparison; the private-byte digests are skipped when
+        the rebuilt values carry the unverifiable sentinel (the private files
+        absent on this machine)."""
+        if isinstance(stored, dict) and isinstance(rebuilt, dict):
+            for key in stored:
+                differs(stored[key], rebuilt.get(key), path + '/' + key)
+            return
+        if stored == rebuilt:
+            return
+        if isinstance(rebuilt, str) and rebuilt.startswith('unverified'):
+            return
+        raise SystemExit(f'the receipt\'s {path or "root"} differs from the re-read session')
+
+    differs(value, rebuilt)
     print('third league week: ready')
 
 

@@ -152,8 +152,11 @@ def probe(phase):
             if record['week'].get(key) != value:
                 return 1
         return 0
-    if phase == 'hooks' and fault is None:
-        return 1
+    if phase == 'hooks':
+        # the documented fault: UC_ERR_INSN_INVALID at 2864:B941 (the T93
+        # finding) - an unrelated error does not satisfy the phase
+        if fault is None or 'UC_ERR_INSN_INVALID' not in fault:
+            return 1
     return 0
 
 
