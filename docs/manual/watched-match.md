@@ -171,7 +171,8 @@ BOOKED”, “Sherwood INJURED” and “**** GOAL **** by Ekoku”, with the sc
 already 5–3 — and its footer reads **SUBSTITUTION OPPORTUNITY** with “press any
 key” (step 86). The offer sits on the display while the match continues: the
 T112 capture pressed no key and carried the offer through 21 consecutive polls
-to full time, which ended 5–3 with Sherwood still in the eleven. An unaccepted
+to full time ([runs/T112/session-r0019](../../runs/T112/session-r0019), steps
+86–106), which ended 5–3 with Sherwood still in the eleven. An unaccepted
 offer therefore lapses when the match ends, not on a timer.
 
 [confirmed] Space from the offer opened the bench, which showed PLAY GAME and
