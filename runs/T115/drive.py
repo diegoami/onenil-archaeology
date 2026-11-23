@@ -228,9 +228,18 @@ def main():
             log(f'MENU: {target} cursor {cursor}, the screen shows '
                 f'{menu_highlight(mine)!r}')
             step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3), stabilize=True)
+            # the enter may sit behind the queued Downs in the game's input
+            # backlog: poll with fresh captures before judging, and if the
+            # row genuinely refuses to open (a season-boundary row with no
+            # cup run may), the polls are the as-shown record of the refusal
+            for poll in range(4):
+                if 'PLAY NEXT GAME' not in mine['text']:
+                    break
+                step, mine = issue(dict(id=f'S201-enter-{t_idx}-poll-{poll}',
+                                        keys=[], wait=2), stabilize=True)
             if 'PLAY NEXT GAME' in mine['text']:
-                log(f'MENU: {target} enter did not open a sub-screen: '
-                    f'{mine["text"][:90]!r}')
+                log(f'MENU: {target} enter did not open a sub-screen in 4 '
+                    f'polls: {mine["text"][:90]!r}')
                 return 1
             log(f'{target} screen: {mine["text"][:90]!r}')
             step, mine = issue(dict(id=f'S202-back-{t_idx}', keys=['Escape'], wait=2), stabilize=True)
