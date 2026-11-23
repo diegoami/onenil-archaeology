@@ -209,6 +209,36 @@ steps 92–117.
 ![The bench after the swap: S Ripley in the eleven, Remaining subs 1](../../runs/T114/session-r0015/step-0119.png)
 ![Full time with the substitution made](../../runs/T114/session-r0015/step-0121.png)
 
+## W032: the season boundary - the next scheduled game after the league season
+
+[confirmed] With the league season's 30 matches played (T112) and the
+management screen's next-opponents box empty, one Enter on **PLAY NEXT GAME**
+opens the next fixture in the game's calendar rather than a Blackburn match, and
+asks no question: it is the **European Cup Final**, shown as the home club's
+preparation screen (steps 5–11). The left panel names the competition
+(“Eurpn Cup Final”) and the pairing — “Lazio---------- versus P St Germain---”
+with **Remaining subs 3** — and the centre and right columns are Lazio's
+formation, averages, ratings, tactics and squad (FIRST TEAM and SUBS). Its menu
+offers Match stats, PLAY GAME and Change tactics, with INS-Change information
+and SPACEBAR-Squad in the footer.
+
+[confirmed] Blackburn R is not a participant in that final: the game schedules
+other clubs' matches, as the T115 Fixture list's Eurpn Cup Final row already
+suggested. The pairing is named by the screen; nothing here establishes a
+following league season, promotion or scheduling rule.
+
+[confirmed] Opening the boundary screen changes no machine state: F7 there
+rewrites a save byte-identical to the source (sha256
+`cd4ce002f78af5ea761cca2c42b9492a31adad887b84c340a89d14aca402e306`), so the
+post-season management machine is the same before and after the transition.
+The receipt binds that identity to the T115 lineage save.
+
+[confirmed] Evidence: steps 2–11 of `runs/T116/session-r0001`; receipt
+`runs/T116/boundary-r0001.json`.
+
+![PLAY NEXT GAME opens the European Cup Final](../../runs/T116/session-r0001/step-0006.png)
+![The next fixture's preparation screen, Lazio's squad](../../runs/T116/session-r0001/step-0007.png)
+
 ## Remaining coverage
 
 R-result was not used to complete this watched fixture; that route and Watch-off
