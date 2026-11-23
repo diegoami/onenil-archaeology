@@ -251,6 +251,7 @@ def main():
         log(f'SUB: {INJURED} highlighted after {downs} downs')
         step, mine = issue(dict(id='S038-put-here', keys=['Enter'], wait=2),
                            stabilize=True)
+        step, mine = issue(dict(id='S038-follow', keys=[], wait=2), stabilize=True)
         if 'PUT HERE' not in mine['text']:
             log(f'PUT HERE: not started: {mine["text"][:200]!r}')
             return 1
