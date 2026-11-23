@@ -161,3 +161,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T114 The injury substitution witnessed - the PUT HERE flow from the pitch's stoppage menu](T114.md) (#251).
 
 - [T115 The league menu's remaining screens at the season boundary](T115.md) (#260).
+
+- [T116 The season boundary - what the original does after league match #30](T116.md) (#271).
