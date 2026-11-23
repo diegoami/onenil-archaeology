@@ -7,6 +7,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path('/home/diego/projects/onenil-archaeology')
@@ -34,7 +35,7 @@ def main():
         stderr=subprocess.STDOUT, text=True, bufsize=1)
     session_dir = [None]
 
-    def issue(command):
+    def issue(command, stabilize=False):
         process.stdin.write(json.dumps(command) + '\n')
         process.stdin.flush()
         while True:
@@ -49,7 +50,26 @@ def main():
                 log(f'{command.get("id")}: non-json line: {line.strip()[:100]}')
         if session_dir[0] is None:
             session_dir[0] = ROOT/step['directory']
-        return step, json.loads((session_dir[0]/f'step-{step["step"]:04d}.json').read_text())
+        path = session_dir[0]/f'step-{step["step"]:04d}.json'
+        mine = json.loads(path.read_text())
+        if stabilize:
+            # the walk and the substitution flow decide on what the screen
+            # shows NOW: the T115 probe proved the capture can trail the
+            # game's input processing by one (r0009's space loop broke one
+            # press late on a lagged read and made the downs on the wrong
+            # screen), so poll until two spaced reads agree before trusting
+            stable = 0
+            for _ in range(8):
+                time.sleep(0.5)
+                again = json.loads(path.read_text())
+                if again == mine:
+                    stable += 1
+                    if stable == 2:
+                        break
+                else:
+                    mine = again
+                    stable = 0
+        return step, mine
 
     def cursor_name_highlights(mine):
         for entry in mine.get('highlighted') or []:
@@ -161,20 +181,34 @@ def main():
             if 'FULL TIME' in mine['text']:
                 log('FULL TIME appeared without the pause; the flow cannot be witnessed here')
                 return 1
-            step, mine = issue(dict(id=f'S035-poll-{tick}', keys=[], wait=2))
+            step, mine = issue(dict(id=f'S035-poll-{tick}', keys=[], wait=2),
+                               stabilize=True)
         if paused_step is None:
             log('PAUSE: never appeared in 30 polls')
             return 1
 
         # W028's route: the pause screen's any key opens the bench, and a
         # second Space opens Players with MAKE SUBSTITUTION in its footer.
+        # r0009's lesson: the reads trail the keys (its loop broke one press
+        # late on a lagged read and made the downs on the plain squad
+        # screen, where Down does nothing) - every decision read here is
+        # stabilized, and the mode marker is re-verified with a fresh
+        # no-key capture before anything navigates.
         players = False
         for press in range(1, 4):
-            step, mine = issue(dict(id=f'S036-space-{press}', keys=['space'], wait=2))
+            step, mine = issue(dict(id=f'S036-space-{press}', keys=['space'], wait=2),
+                               stabilize=True)
             if 'MAKE SUBSTITUTION' in mine['text']:
-                players = True
-                log(f'PLAYERS opened at space {press} (step {step["step"]})')
-                break
+                step, mine = issue(dict(id=f'S036-verify-{press}', keys=[], wait=2),
+                                   stabilize=True)
+                if 'MAKE SUBSTITUTION' in mine['text']:
+                    players = True
+                    log(f'PLAYERS opened at space {press} and verified '
+                        f'(step {step["step"]})')
+                    break
+                log(f'space {press}: the footer read lagged - it is gone '
+                    f'on the fresh capture ({mine["text"][:80]!r})')
+                return 1
             if 'TRANSFER NEWS' in mine['text'] or 'FULL TIME' in mine['text']:
                 log(f'SUB: the walk advanced past Players: {mine["text"][:120]!r}')
                 return 1
@@ -187,20 +221,23 @@ def main():
         cursor = cursor_name(mine)
         while cursor != INJURED and downs < 12:
             downs += 1
-            step, mine = issue(dict(id=f'S037-down-{downs}', keys=['Down'], wait=1))
+            step, mine = issue(dict(id=f'S037-down-{downs}', keys=['Down'], wait=1),
+                               stabilize=True)
             cursor = cursor_name(mine)
         if cursor != INJURED:
             log(f'SUB: {INJURED} never highlighted (cursor {cursor!r})')
             return 1
         log(f'SUB: {INJURED} highlighted after {downs} downs')
-        step, mine = issue(dict(id='S038-put-here', keys=['Enter'], wait=2))
+        step, mine = issue(dict(id='S038-put-here', keys=['Enter'], wait=2),
+                           stabilize=True)
         if 'PUT HERE' not in mine['text']:
             log(f'PUT HERE: not started: {mine["text"][:200]!r}')
             return 1
         log('PUT HERE started')
         chosen = None
         for subs_down in range(1, 13):
-            step, mine = issue(dict(id=f'S039-sub-down-{subs_down}', keys=['Down'], wait=1))
+            step, mine = issue(dict(id=f'S039-sub-down-{subs_down}', keys=['Down'], wait=1),
+                               stabilize=True)
             cursor = cursor_name(mine)
             if cursor in SUBS:
                 chosen = cursor
@@ -208,16 +245,20 @@ def main():
         if chosen is None:
             log('SUB: no substitute highlighted in 12 downs')
             return 1
-        step, mine = issue(dict(id='S040-confirm', keys=['Enter'], wait=2))
+        step, mine = issue(dict(id='S040-confirm', keys=['Enter'], wait=2),
+                           stabilize=True)
         log(f'SUB: {chosen} confirmed after {subs_down} downs')
-        step, mine = issue(dict(id='S041-esc-bench', keys=['Escape'], wait=2))
+        step, mine = issue(dict(id='S041-esc-bench', keys=['Escape'], wait=2),
+                           stabilize=True)
         log(f'BACK ON BENCH: {mine["text"][:80]!r}')
-        step, mine = issue(dict(id='S042-resume', keys=['Enter'], wait=4))
+        step, mine = issue(dict(id='S042-resume', keys=['Enter'], wait=4),
+                           stabilize=True)
         log(f'RESUMED: {mine["text"][:80]!r}')
 
         full = False
         for tick in range(20):
-            step, mine = issue(dict(id=f'S043-full-time-{tick}', keys=[], wait=3))
+            step, mine = issue(dict(id=f'S043-full-time-{tick}', keys=[], wait=3),
+                               stabilize=True)
             if 'FULL TIME' in mine['text']:
                 full = True
                 log(f'FULL TIME at step {step["step"]} (tick {tick})')
@@ -230,7 +271,8 @@ def main():
             return 1
         reached = False
         for number in range(1, 9):
-            step, mine = issue(dict(id=f'S044-walk-{number}', keys=['space'], wait=2))
+            step, mine = issue(dict(id=f'S044-walk-{number}', keys=['space'], wait=2),
+                               stabilize=True)
             first = next((l for l in mine['text'].splitlines() if l.strip()), '')
             log(f'walk {number} (step {step["step"]}): {first[:70]!r}')
             if 'PLAY NEXT GAME' in mine['text']:
