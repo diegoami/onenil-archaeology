@@ -83,8 +83,21 @@ def main():
         return None
 
     def cursor_name(mine):
-        # the selected player is named in the details pane's header row:
-        # '│ T Flowers       Age 27  Team Blackburn R----'
+        # on the MAKE SUBSTITUTION squad screen the selected row is the
+        # highlighted entry, and the OCR merges the skills bars with the
+        # name box into one entry ('■■■■...│   ║ I Pearce'): the selection
+        # is the last ║-delimited segment. On the plain squad screen the
+        # details header names it ('│ T Flowers       Age 27  ...').
+        for entry in mine.get('highlighted') or []:
+            if len(entry) == 2:
+                text = str(entry[1])
+                if '║' in text:
+                    tail = text.rsplit('║', 1)[-1].strip()
+                    words = tail.split()
+                    if len(words) >= 2 and all(
+                            word[0].isupper() and not (len(word) > 1 and word.isupper())
+                            for word in words):
+                        return tail
         for line in mine['text'].splitlines():
             match = re.match(r'│\s*([A-Z][A-Za-z. \'-]+?)\s+Age\s+\d', line)
             if match:
