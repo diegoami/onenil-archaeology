@@ -1,0 +1,22 @@
+{
+ "schema": "harness-league-probe-1/1",
+ "issue": 273,
+ "task": "T117",
+ "state": {
+  "sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8",
+  "path": ".cache/states/t100/league-preparation-0001.sav"
+ },
+ "boot": {
+  "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4",
+  "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a",
+  "text_head": "Blackburn R----     \u250c\u2500Blackburn R----\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u2554\u2550F"
+ },
+ "binding": {
+  "receipt": "runs/T100/preparation-r0001.json",
+  "step": 2,
+  "id": "S003-match-preparation",
+  "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4",
+  "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+ },
+ "scope": "The savestate is decoded, not executed: the screen comes straight from its memory and equals the T100 receipt's preparation step."
+}
