@@ -309,7 +309,16 @@ def main():
                                 savestate='post-league30-t114'))
         log(f'savestate written at step {step["step"]}')
         log('WEEK 30 WITH THE SUBSTITUTION CAPTURED')
-        process.wait(timeout=120)
+        # the driver records status='completed' only on an explicit finish;
+        # r0014 never sent one (and its emulator wedged at shutdown with
+        # seven stray dosbox instances overloading the machine)
+        issue(dict(finish=True))
+        try:
+            process.wait(timeout=300)
+        except subprocess.TimeoutExpired:
+            log('FINISH: the driver hung at shutdown; killing the tree')
+            process.kill()
+            return 1
         return 0
     finally:
         try:
