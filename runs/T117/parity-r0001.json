@@ -1,0 +1,76 @@
+{
+ "schema": "harness-league-parity-1/1",
+ "issue": 273,
+ "task": "T117",
+ "record": {
+  "path": "runs/T117/T117-r0001.json",
+  "code_commit": "4723d7c",
+  "status": "completed"
+ },
+ "trace": {
+  "path": "traces/T117/3abfd6b00f802490-week-r0001.jsonl",
+  "sha256": "ae6c1dc2e5a598ef7daa8f7d60fc67487f0b524d28169fce04f588567db8c38d",
+  "state_sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8",
+  "draws": 20734,
+  "screens": 9
+ },
+ "result": {
+  "goals": [
+   2,
+   0
+  ],
+  "board_digest": "50c9ab351cc288d1652872afc01aa4a9e72b29c02453e7017e20f1f917332522"
+ },
+ "t102_binding": {
+  "receipt": "runs/T102/week-r0001.json",
+  "score_goals": [
+   2,
+   0
+  ],
+  "full_time_screen": "50c9ab351cc288d1652872afc01aa4a9e72b29c02453e7017e20f1f917332522"
+ },
+ "screens_in_order": [
+  {
+   "id": "S004-half-time",
+   "screen_sha256": "d26c88f7a5d5540a436d0500f7ec0719072370a62e670484bd033df9938f932d",
+   "key_wait": 1
+  },
+  {
+   "id": "S007-full-time",
+   "screen_sha256": "50c9ab351cc288d1652872afc01aa4a9e72b29c02453e7017e20f1f917332522",
+   "key_wait": 3
+  },
+  {
+   "id": "S008-league-results",
+   "screen_sha256": "6b9317176b5c41f1b97ff65d3d2cce90f1526283553032034fb3cc4c5d8e4f15",
+   "key_wait": 4
+  },
+  {
+   "id": "S009-league-table",
+   "screen_sha256": "352ec668173eff5a7b8fd3d37b2dac860c2e1bfea3253bc9261a426da7fed0ac",
+   "key_wait": 5
+  },
+  {
+   "id": "S010-cash-flow",
+   "screen_sha256": "d3743399b661249ff576e3fa161ec48868a4e5bea78eaea662c0bb1098794bfe",
+   "key_wait": 6
+  },
+  {
+   "id": "S011-transfer-news",
+   "screen_sha256": "9d7cc48fe820863efa80e48d442f36c1e7d1511115a8d31f7809c56fe9d9b0fe",
+   "key_wait": 7
+  },
+  {
+   "id": "S012-management",
+   "screen_sha256": "bd4981ae288cc5183d755ce49851727c05e6642ee68e74a37b9bad0cc03bb7a4",
+   "key_wait": 8
+  }
+ ],
+ "save_written": {
+  "name": "SAVE1.1-0",
+  "sha256": "b5914eaa1421f001c3abafbef25c8acbefa240deac0a7918de1e584a98a061e4",
+  "size": 194426,
+  "note": "the first harness-written post-league28 machine; no DOSBox counterpart was ever recorded"
+ },
+ "scope": "The harness reproduced the DOSBox league week: the full-time board is byte-identical and every settled week screen appears in order with the same text-page digest."
+}

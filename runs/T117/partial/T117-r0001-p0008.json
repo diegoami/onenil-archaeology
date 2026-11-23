@@ -1,0 +1,233 @@
+{
+  "schema": "run/1",
+  "run_id": "T117-r0001-p0008",
+  "experiment": "T117",
+  "arm": "unicorn-week",
+  "rep": 1,
+  "code_commit": "4723d7c",
+  "machine": "ubuntu-24-04-wsl2",
+  "artifact": {
+    "set": "One-Nil96 (records/T01/inventory.json)",
+    "variant": null
+  },
+  "runtime": {
+    "harness": "runtime/emul/match.py@4723d7c",
+    "unicorn": "2.1.4",
+    "python": "3.12.3",
+    "settings": {
+      "INSTR_PER_S": 20000000,
+      "PIT_HZ": 1193182,
+      "KEY_HOLD": 1600000,
+      "STALL_POLLS": 3,
+      "OTHER_STALL_POLLS": 200000,
+      "IF_RETRY": 200,
+      "SLICE_MAX": 1000,
+      "dos_clock": {
+        "date": [
+          1995,
+          8,
+          1,
+          2
+        ],
+        "time": [
+          10,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "interventions": [
+    {
+      "level": "I3",
+      "what": "the guest serves keys, the timer, the mouse and DOS itself (runtime/emul/guest.py); the original's code runs as is"
+    }
+  ],
+  "start_state": {
+    "id": ".cache/states/t100/league-preparation-0001.sav",
+    "sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8",
+    "restore": "memory, CPU state and text page of the savestate loaded into Unicorn"
+  },
+  "seed": null,
+  "actions": {
+    "script": "runtime/emul/match.py",
+    "args": [
+      "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8"
+    ],
+    "game_files": {
+      "1-0.EXE": "89ff9c5f238f24e81a0c2440a46cdd8997280a65fc3cc3d97cb974f55280a80a",
+      "1-0.PAL": "438b08987f9e09034787fe7b2fe9441cf7889a57e9e1deafc73acf2fda1247e4",
+      "1-0.PIF": "d3cbcbc35df6f29b6a84384a0555c79f428aad5eea8b13a63f297a480b5eeeb4",
+      "1-0.TFN": "9934df2b3a4225e1a22ae0846c5b954e7919fc41400f4dee78e83266b7e31465",
+      "ALTER.EXE": "8dc12e825026c226dad79790d65a80f0b1859936ef8534420fc6c7874dd54373",
+      "ALTER.PIF": "641e95bc8077cbfe058aee339445d9364fb136320b1cf25510e7cf6d340a1cac",
+      "ENGL-94.DAT": "88d970b94aa00e7a77e75e1b9fa9db53e997d8eeef75a9faae0998ed914d0515",
+      "ENGL-95.DAT": "fc4bfa045b71ddede9692f40d6a4c0e3b29cc7334c1ec6e910c275f63f714352",
+      "INSTALL.EXE": "ba4211946371f864cd48e7f6d06be7f1390260ba5f233c2e4ea2cbcc3c2816e5",
+      "ITAL-94.DAT": "c0ac09985d63cfbfed44334b59e3119174766a0ef9127dadcc23a9bd458941a2",
+      "RUN.BAT": "eda6774b47d1ccde504365308cff5c5363e0fbb5dc521c39e2ebd0abe661f045",
+      "RUN.PIF": "d0d60d041d2cdb2cf9c35f1f8feed3c68e40e18e2328548b536eb2d7a6e50615",
+      "SAVE1.1-0": "6ef61bcf78af17a78cbbdc50b68839be169552464b4f2ee9eec5ea9b3740bc36",
+      "SCOT-94.DAT": "66c18f1106777e58ca202393b1dff633632cea03c9e57be8e830caacd5eeb6f8"
+    }
+  },
+  "observations": [],
+  "outputs": [
+    {
+      "name": "checkpoint",
+      "value": {
+        "private_path": ".cache/checkpoints/T117/T117-r0001-p0008.pkl.gz",
+        "private_sha256": "34782001560abaeb845ef2504e88149fb59795ed2d17ad7fef753c0d93d90368",
+        "drive_path": "checkpoints/T117/T117-r0001-p0008.pkl.gz",
+        "signature": {
+          "sources": {
+            "runtime/emul/ai_selection.py": "9ccc2190fdc3f046251572fce43c5f57a726bdde7157088c19806757c238851d",
+            "runtime/emul/campaign_admission.py": "11841b40bf309dced816bb6653befba5f678a19c3f0f2df1cc65c3db977415cb",
+            "runtime/emul/campaign_watched.py": "1a8b1df6bfc499fefb0aa625210a42fa573afa82ad5ef0f8eb825670955175fb",
+            "runtime/emul/checkpoint.py": "a690e3b0f1b7044ce879fec214d4787cc49f35ca58b9d9dd45b27a0dfef5d908",
+            "runtime/emul/condition_handoff.py": "8e3400a0d4ead0e69b2718de9dddba35568985dcc86d122306f7e6c45e704b21",
+            "runtime/emul/condition_refresh.py": "bd61e6559d72ddfd32f533a227622a2367c0e93743e642a9649e165e05648ba9",
+            "runtime/emul/contests.py": "ef8df25217ac40ac75f932cd6f739763c72978f906de6307667394908b433057",
+            "runtime/emul/corpus.py": "041367c025c724932f6b16f71c3860e2dfae4670cafaf7605b1b2046fb13cdca",
+            "runtime/emul/edited_admission.py": "39955cefb2f6f139f0e72249289e949cd47a4c4faf0428e57ae6ba67b5a6c71f",
+            "runtime/emul/edited_lookup_support.py": "fa456d90e2147775f8a86f515a36ae0105aabe6863ab9344ba5a5c4cca046d66",
+            "runtime/emul/edited_support.py": "713a80b0daa9271bea09f83f2b2e021cf2d01b4168aa5a01b107241c6c1f81fd",
+            "runtime/emul/edited_watched.py": "b50754fd36e0d60a7b3ad06e3f6b8c9bcb4bb1903d3b173dad69d8bd53d92b9c",
+            "runtime/emul/event_effects.py": "43f6e7dd03c5a6b47a188b3d064a52b45cfd3595ae3108d44bffe55a03d7483c",
+            "runtime/emul/extra_event.py": "24a17a350979f3496f00817bb397f0c7b2480ac510c2f05e6b1d41fc011f4819",
+            "runtime/emul/extra_event_inputs.py": "7a9462944a4c562aa4554a3e7062a971fb461a6b88b3150796b6eade66797aa4",
+            "runtime/emul/fresh_postmatch.py": "752133bb5dd76634cd23a01bca58ab1ba69c6c3c0419d3180dee4c247a1c860d",
+            "runtime/emul/fresh_support.py": "e9d12916854e365e56e5ee23db804fc975331cc5e57c28e7b170100119fa3beb",
+            "runtime/emul/goal_effects.py": "9566ef9f43defff7abcc511110db6846f6eee24b78e53735936506c6e022255e",
+            "runtime/emul/guest.py": "45b12121ad07d29f4ee82270cf55515317477dc7c9fa4feee24e68f7e559ecb3",
+            "runtime/emul/halftime_continuity.py": "e9e236dead55e5bbfaeafae5a8209fadf2559b01525aa105aebe02f2b7183ac1",
+            "runtime/emul/league_week.py": "3f06fc63bace5b4a4d52ba7fdd0b1efb219e712e27db26c14ec337bc8255f318",
+            "runtime/emul/listing.py": "ccb3235c458a681a183724e07f5457fcebc521189e7111ae28f6fe4481c1027b",
+            "runtime/emul/match.py": "f3a87e0d6ffc92f9e194e4bb0ae6d8dfe8fff174e5eecfeb9a09f7a40b196507",
+            "runtime/emul/match_continuity.py": "873c6e69ef39fd295aab9437f960fb5499102ad04435a5377cf0c91d0c78320a",
+            "runtime/emul/match_setup.py": "97181974bb63531d8988e8c5d56eae62403ed607af85b4c7c105644ebab5dafb",
+            "runtime/emul/placement.py": "1b612e8f7325112213659fcd69b60849250feb7217eea16eb852bf34350578b1",
+            "runtime/emul/player_cache.py": "1447a43f89f32f7152b790ad58511a833049bbc9a1fc9baa3405bb4c2ed966f8",
+            "runtime/emul/post_score.py": "029d2534d397a21e317b4413d171105e8e752049c1bdd00adbb0c4b93394bd99",
+            "runtime/emul/postmatch_incoming.py": "2f4418310f050e0d79391a282395c2cfccb0d4f825bedcf776de9d41b71f7031",
+            "runtime/emul/postmatch_tail.py": "4fca50487cb9e8568e008479508f964e80cad4706f2e69d0dcb67a2902f6bf00",
+            "runtime/emul/proximity_selectors.py": "88bbb7a20d9b091a218a279222de32367046649d9ca5d412e1f77b987298924c",
+            "runtime/emul/quick_reset.py": "c96f1f7f25a6f70dcdec628b756eb1253ad238b8d6596beddfe29e30fd170a09",
+            "runtime/emul/quick_step.py": "ea33d158fa205221d86eec9028542bc2300a6f370c2a67c6198ee88619696dd8",
+            "runtime/emul/ratings.py": "cf322903eb47d77b8f8627e1cd497590333f796dd8ae85ce31ef56cd93eeb286",
+            "runtime/emul/rearrangement.py": "9e11252d10de007aa1b8b3bdfb9ec82a133eca5c641924bc2c7133ff6d9e70c2",
+            "runtime/emul/rebuild.py": "44aca9f1b84ab832bbfd813ee41bbd034a650dc85c95410856b49bee2b0a457c",
+            "runtime/emul/replacement.py": "02e5fb89daad261de088c94b378285b6d132e8a8da441bab9d657cad78c938be",
+            "runtime/emul/role_pairing.py": "c5edad872cf1097337b1cacf1cf05583fadcb74fc51da5faf323c5f6003cc2e4",
+            "runtime/emul/role_scoring.py": "96904897bce3f35de4a920d87b88307aaa7c520048779d50899c1cc37332a259",
+            "runtime/emul/scene_codes.py": "9b0e822058f04992de9a811999d7e1919817519dfddecef8b79ba0c008f140e2",
+            "runtime/emul/scene_positions.py": "01619f3bbb42531156048fde185fb1a38cb700170954f8f49fff13b4154d84ff",
+            "runtime/emul/sevilla_match.py": "30482835ef457d6c96f0d0107109fd9e8ff0726c52ed4a1b95e323d4b42046da",
+            "runtime/emul/sevilla_week.py": "758bcb6bba5c5ac3378e4cabd7a9fa6f821917382443a318d2142b29aaea210d",
+            "runtime/emul/step_tail.py": "376dc9c3f6b562fe586f6676eec1f72274816d015651c48f10a1a3134aaa6d56",
+            "runtime/emul/substitution.py": "486c535fd0c4c62ed57759d2a272e9c47f65c4bad5813ee4dab88e8fbae4a946",
+            "runtime/emul/watched_actions.py": "4a2523bba05a2818766364e7f388cc6bec92a89d02b72b96e1c7583410881dea",
+            "runtime/emul/watched_complete.py": "2f6ef03215fed165c8cd644e6f284beacebe090a3fb1fd179799674060edf527",
+            "runtime/driver/cycle.py": "39f0ac6bae470622dba9384025124f0312f32f9f25831edff737ce845c290a83",
+            "runtime/driver/driver.py": "67f088736de3dbba99f9eb650f958bc6e5877b9f948c315d99d29aa42fea2dbf",
+            "runtime/driver/halftime_editor_support.py": "6f46bf60457ca22d3bc26cda76fae548bff83bc522983b263192b5d17785418f",
+            "runtime/driver/halftime_replacement.py": "f8d9d2fa227893f237a1d6a4083b7431194d36b88884e3eda4d524168c14e7dc",
+            "runtime/driver/halftime_support_query.py": "a14fd692a37f19b32f953a86d4bfc409e601c10863fee4d4350c7d3a3dd6a65a",
+            "runtime/driver/manual.py": "4486db23561c83987f24ae783b07f5cd149618e7d6062fbda254a0680ae94467",
+            "runtime/driver/manual_session.py": "5e402fba7c187b79a3eb291ae9bced826f613567a1cdeaabf5b9e61a74c274e3",
+            "runtime/driver/saved_roster.py": "6c9be070d7bba23bbdfee78d3b931959a008860258184d9514df119d1f5e8e8f",
+            "runtime/driver/savestate.py": "3fb1e0d68424ce9ad8076c2b76ed46e080263474f765a829792e52cc24c6c169",
+            "runtime/driver/screens.py": "ba06ad4f003ff624792f22191363d40dae924dd0b6b0ef565d270f4470fced1a",
+            "runtime/driver/sevilla_entry.py": "7989e3460f8d92173ada26abf19f75cd7ca1637f5dab234a04b36a4b5a025428",
+            "runtime/driver/watched.py": "dbd2081de5fc642ab40cf78b54d99c6c5f57a1578a7c1a25174f61434c5616ca",
+            "runtime/driver/week_completion.py": "fd4d7d1ec99f1dd3e8b096031a6cf9c9affba81d8b00a2f4fca0d44f053cedeb",
+            "runtime/driver/weeks.py": "a03db02cd17b707f93336a99fd3c9172ecbc4d965d395c71202f24f0f769d682",
+            "runtime/driver/xkeys.py": "a89c96c37f7bdf9c85f0ba91636cb170cd9dd0905375d4703fb595728b83b036",
+            "tools/data/save.py": "34f632699a6bf637a85c664d1595fca4b0d4a1e4c1405f8db331bae5fe367045"
+          },
+          "unicorn": "2.1.4",
+          "python": "3.12.3",
+          "constants": {
+            "INSTR_PER_S": 20000000,
+            "PIT_HZ": 1193182,
+            "KEY_HOLD": 1600000,
+            "STALL_POLLS": 3,
+            "OTHER_STALL_POLLS": 200000,
+            "IF_RETRY": 200,
+            "SLICE_MAX": 1000
+          }
+        },
+        "chunks": [
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0001.jsonl",
+            "index": 0,
+            "sha256": "60b13faa6ed8ceca362bb08956776f383e9d966d42e335434592e0d937361384",
+            "offset": 0,
+            "length": 519
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0002.jsonl",
+            "index": 1,
+            "sha256": "6ab16024db1f1d5b47ee759c1a6ec384df2ee3c0d81973e105b901b78de0e1eb",
+            "offset": 519,
+            "length": 282246
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0003.jsonl",
+            "index": 2,
+            "sha256": "07c66aaa464a4d6b0de6c2dfb5237ab95acba975e61b6494ec591808bafe215e",
+            "offset": 282765,
+            "length": 40452
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0004.jsonl",
+            "index": 3,
+            "sha256": "fdba5dd812f0febc01c4733ac5fd14f83a294793d005c2928ad7b9b9b580433d",
+            "offset": 323217,
+            "length": 122958
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0005.jsonl",
+            "index": 4,
+            "sha256": "003b9a161d6363a12792e7e380cb9e2a77e6bcd21dea6ff60b4f89ad124dc017",
+            "offset": 446175,
+            "length": 1008
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0006.jsonl",
+            "index": 5,
+            "sha256": "edfaba27c51428de40e4bbeed30e83118a2227b1627bbc97f3750d3c974041fa",
+            "offset": 447183,
+            "length": 1152
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0007.jsonl",
+            "index": 6,
+            "sha256": "0c551a8dd12be0a9dc9447635603785109f8533470b558c058715c3a44642d70",
+            "offset": 448335,
+            "length": 433226
+          },
+          {
+            "path": "traces/T117/partial/3abfd6b00f802490-week-r0001-p0008.jsonl",
+            "index": 7,
+            "sha256": "ff66040a1d418475c41d65e94efa171f34f5ca37f206ab436cc1a3015283ff66",
+            "offset": 881561,
+            "length": 1296
+          }
+        ],
+        "trace_bytes": 882857,
+        "draws": 5493,
+        "screens": 3,
+        "run_on_stops": 57,
+        "instruction_budget": 2374476788,
+        "out": "traces/T117",
+        "runs": "runs/T117",
+        "compare": null
+      }
+    }
+  ],
+  "started": "2026-11-23T18:18:44Z",
+  "ended": "2026-11-23T18:57:05Z",
+  "status": "aborted: partial checkpoint; run may still be active"
+}
