@@ -1,10 +1,6 @@
 {
   "number": 77,
-<<<<<<< Updated upstream
   "previous": "9a0f44832ac486dd58bfb8235376b4baf51383c9410cb1c7be55c0a81ba7a464",
-=======
-  "previous": "84f7c7484637d28dacc88b7add30c34ad57f455443010844501343d9777e6ad5",
->>>>>>> Stashed changes
   "id": "S029-management-30",
   "keys": [
     "space"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0077.png",
   "screenshot_sha256": "46a8e02787b4d9ff78f188080dc723bdc8d266b213c38f367857e673134e5e7c",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:58:05.758Z"
-=======
-  "time": "2026-11-22T16:20:58.409Z"
->>>>>>> Stashed changes
 }

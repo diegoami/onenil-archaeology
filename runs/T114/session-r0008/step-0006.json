@@ -1,10 +1,6 @@
 {
   "number": 6,
-<<<<<<< Updated upstream
   "previous": "1a4e745c59e63450f97cd020fdba15d64ad04e98301f8490439c66c5c915201b",
-=======
-  "previous": "46324f852af2cad4b526893b23af2f973b2f71462fcfc7344ea5933db1fe047b",
->>>>>>> Stashed changes
   "id": "S004-half-time",
   "keys": [
     "Enter"
@@ -19,9 +15,5 @@
   "highlighted": [],
   "screenshot": "step-0006.png",
   "screenshot_sha256": "300124610613e425851022d7ef5feea85763a3d9483af86ba5090339b527ccf8",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:54:21.105Z"
-=======
-  "time": "2026-11-22T16:17:13.209Z"
->>>>>>> Stashed changes
 }

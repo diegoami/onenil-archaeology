@@ -1,10 +1,6 @@
 {
   "number": 13,
-<<<<<<< Updated upstream
   "previous": "fe095566796a361dffc87af8315aa235a7e09d45725f18f829f30b245347c306",
-=======
-  "previous": "556bafeb26b658121996946577fe7c117c5f56d6af18dac4a847ef51129d7cab",
->>>>>>> Stashed changes
   "id": "S008-league-results",
   "keys": [
     "space"
@@ -19,9 +15,5 @@
   "highlighted": [],
   "screenshot": "step-0013.png",
   "screenshot_sha256": "6dd975c0602c25dce66dce92ffd08162b745b942e8051aa1167ea4ffb169d918",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:54:45.195Z"
-=======
-  "time": "2026-11-22T16:17:37.299Z"
->>>>>>> Stashed changes
 }

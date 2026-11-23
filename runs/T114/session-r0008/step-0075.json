@@ -1,10 +1,6 @@
 {
   "number": 75,
-<<<<<<< Updated upstream
   "previous": "6ce044caa3a018ce3d60fa25e12e0342c09afdd2ed6a893883bca7c1db92c40d",
-=======
-  "previous": "3be06545b1a7f6b1bd0c96522d4cc02131d48d2bd0e2865f4c71f55b8d644f09",
->>>>>>> Stashed changes
   "id": "S028-transfer-news-29",
   "keys": [
     "space"
@@ -19,9 +15,5 @@
   "highlighted": [],
   "screenshot": "step-0075.png",
   "screenshot_sha256": "332bd4f92523b8e49711980cef24bb584a667487f7bc9acd13111bc7adaddafc",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:57:59.143Z"
-=======
-  "time": "2026-11-22T16:20:51.798Z"
->>>>>>> Stashed changes
 }

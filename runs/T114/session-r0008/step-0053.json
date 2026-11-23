@@ -1,10 +1,6 @@
 {
   "number": 53,
-<<<<<<< Updated upstream
   "previous": "ae890b1fddd01422335c937813d4853881b1f31e9f5e0b0340ef755e77280e9c",
-=======
-  "previous": "605376777be1cbe1292e14ee6c792f593ebb755fd681bed8a9c469832523f92e",
->>>>>>> Stashed changes
   "id": "S018-mark-hendry",
   "keys": [
     "Return"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0053.png",
   "screenshot_sha256": "9071de393d296454e664c1f057ee4825533ec7dca9545639b447a452d68bbd5d",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:56:44.018Z"
-=======
-  "time": "2026-11-22T16:19:36.549Z"
->>>>>>> Stashed changes
 }

@@ -1,10 +1,6 @@
 {
   "number": 89,
-<<<<<<< Updated upstream
   "previous": "ee706a20c0905688dffd8d057adcc7fc2445307ddb948540bfb381e5b340cf5b",
-=======
-  "previous": "8f425774aad60011f61e2cd85e4ea54778ab8925db54dde905060accf8d9cff0",
->>>>>>> Stashed changes
   "id": "S036-space-3",
   "keys": [
     "space"
@@ -40,9 +36,5 @@
   ],
   "screenshot": "step-0089.png",
   "screenshot_sha256": "a59f90bd96b7d75e34a96796ee19113c28f3b377fa23e74760383ae13b9d4be5",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:58:52.191Z"
-=======
-  "time": "2026-11-22T16:21:45.519Z"
->>>>>>> Stashed changes
 }

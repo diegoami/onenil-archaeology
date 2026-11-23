@@ -1,10 +1,6 @@
 {
   "number": 80,
-<<<<<<< Updated upstream
   "previous": "cfe5b3643cc6a636c16a3e6c90e2e92dd26a0fb29473006e4e0d819d09475935",
-=======
-  "previous": "1207a4bd9a48586de1786ce65764b5346374752e3bdc4f20c8e1495fc26fd85a",
->>>>>>> Stashed changes
   "id": "S031-prep30-1",
   "keys": [
     "Enter"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0080.png",
   "screenshot_sha256": "46a5d352b082dfc482c298731aa26a71bbb8c0019f762f6fa8b1415c0631e38b",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:58:16.695Z"
-=======
-  "time": "2026-11-22T16:21:09.712Z"
->>>>>>> Stashed changes
 }

@@ -1,10 +1,6 @@
 {
   "number": 36,
-<<<<<<< Updated upstream
   "previous": "7f6d75f9176382577744d762c28f9086865f9e17ec302873153d89823b32d8c2",
-=======
-  "previous": "daf2292963cf5b1d8509f50e87731f514eaf63dbe96cf10cf2e482b7cc2e2f29",
->>>>>>> Stashed changes
   "id": "S017-mark-berg",
   "keys": [
     "Return"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0036.png",
   "screenshot_sha256": "96ce96e3db446ef0c1f2c1765d01cbafe968678d045c4e0cbfb11a11d81dabbe",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:55:58.626Z"
-=======
-  "time": "2026-11-22T16:18:48.613Z"
->>>>>>> Stashed changes
 }

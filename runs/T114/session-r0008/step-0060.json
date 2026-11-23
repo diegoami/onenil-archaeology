@@ -1,10 +1,6 @@
 {
   "number": 60,
-<<<<<<< Updated upstream
   "previous": "09087b3047ed4808b6eb3c82bd69da31ccb00aefd2fa134d94c4a0d3fc52118c",
-=======
-  "previous": "b30094d814ec0beef7f2935c754d3592721dffe2eedd944236746904faffd127",
->>>>>>> Stashed changes
   "id": "S020-escape",
   "keys": [
     "Escape"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0060.png",
   "screenshot_sha256": "87f2acb3b2e668682d73157ff97893f52fc557a901dd9f731209029c51c0edab",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:57:06.003Z"
-=======
-  "time": "2026-11-22T16:19:56.900Z"
->>>>>>> Stashed changes
 }

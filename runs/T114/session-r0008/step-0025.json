@@ -1,10 +1,6 @@
 {
   "number": 25,
-<<<<<<< Updated upstream
   "previous": "658e63599ae98b2f7283d08dacfa6a40e28156c2ccea52d19df0754a863cbbf4",
-=======
-  "previous": "b8d874a8b0421d13b90611868f0e68ea6462f7b342cc56c1c79596659cf53dc4",
->>>>>>> Stashed changes
   "id": "S015-squad29",
   "keys": [
     "space"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0025.png",
   "screenshot_sha256": "fbadbcbe7e8caeabcd271732fb2e824dffc2187b3fb9884887b10fee71f0ead8",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:55:28.739Z"
-=======
-  "time": "2026-11-22T16:18:20.611Z"
->>>>>>> Stashed changes
 }

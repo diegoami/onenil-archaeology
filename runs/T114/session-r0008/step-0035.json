@@ -1,10 +1,6 @@
 {
   "number": 35,
-<<<<<<< Updated upstream
   "previous": "5accb86d3e35f5deb64d52eb961c5d703201b9220771770bd2f63f15b7e10b54",
-=======
-  "previous": "f2dc11f06401d2d8e0acfe65ab563b81feeacc87491d103f32f5107edda8e6aa",
->>>>>>> Stashed changes
   "id": "S016-down-berg",
   "keys": [
     "Down"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0035.png",
   "screenshot_sha256": "5839db5f6840e63d63669e6bd1fa0edb9432428459dc91b8a32e9e4788bb8863",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:55:53.382Z"
-=======
-  "time": "2026-11-22T16:18:45.252Z"
->>>>>>> Stashed changes
 }

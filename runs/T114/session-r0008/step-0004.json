@@ -1,10 +1,6 @@
 {
   "number": 4,
-<<<<<<< Updated upstream
   "previous": "62534794a7193f661e2d12b571f08a47c9460832157190077fcffa5182bf006d",
-=======
-  "previous": "40e519fb2d3d8ba29c330c78278dd8092f9ac8d1d0dd3a0fae3711c8d90be45d",
->>>>>>> Stashed changes
   "id": "S003-match-preparation",
   "keys": [
     "Enter"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0004.png",
   "screenshot_sha256": "31115935e76dd6fca665ee1bc3fde2fecc9dcab6f0a001287b856e535d1baf73",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:54:11.839Z"
-=======
-  "time": "2026-11-22T16:17:03.666Z"
->>>>>>> Stashed changes
 }

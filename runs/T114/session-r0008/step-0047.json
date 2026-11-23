@@ -1,10 +1,6 @@
 {
   "number": 47,
-<<<<<<< Updated upstream
   "previous": "c75767c8e22dc8e87a8ee5117789c1e1b87ddcfe1769468d8106fec6692a967c",
-=======
-  "previous": "c342e520de22ba471b98bc060f1296895c7e49558997527babe53d67b263447b",
->>>>>>> Stashed changes
   "id": "S018-up-hendry",
   "keys": [
     "Up"
@@ -19,9 +15,5 @@
   "highlighted": [],
   "screenshot": "step-0047.png",
   "screenshot_sha256": "416b4c5a12f3c72781760c6716b2a2804edb629111bcc955ebf8b6b21549aca9",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:56:27.471Z"
-=======
-  "time": "2026-11-22T16:19:19.433Z"
->>>>>>> Stashed changes
 }

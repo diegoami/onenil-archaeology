@@ -1,10 +1,6 @@
 {
   "number": 66,
-<<<<<<< Updated upstream
   "previous": "b4fbd7b8b3f8a5fd188fe9af0fb648daa9a62ad62aaea936c4239e839b159b3d",
-=======
-  "previous": "9c438639aae7d3ec14c99919a0749391cd66624f78fd1f60ab136581035ea941",
->>>>>>> Stashed changes
   "id": "S023-second-half-29",
   "keys": [
     "Enter"
@@ -18,11 +14,6 @@
   "screen_sha256": "b6a1cce7d1a4108fce08b1e217c4c879d453ab5bcf619ee361d4cffb0d03566e",
   "highlighted": [],
   "screenshot": "step-0066.png",
-<<<<<<< Updated upstream
   "screenshot_sha256": "c59bca0bab210b3725b1b01e70866a04db740161fe19a30c2b6a6798a005c688",
   "time": "2026-11-22T11:57:27.900Z"
-=======
-  "screenshot_sha256": "fb0f96c976804edac4418ed17cc2decc8875de2f5e866f196ea1ceb409c5741f",
-  "time": "2026-11-22T16:20:20.445Z"
->>>>>>> Stashed changes
 }

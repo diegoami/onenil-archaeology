@@ -1,10 +1,6 @@
 {
   "number": 83,
-<<<<<<< Updated upstream
   "previous": "7889d4c96212ccc865d64f81158be51c7c7d328c8ad8f6c46b8c7a2a6bac4874",
-=======
-  "previous": "da92cc1cb71d18c757873a2a2359d0211cde12688bee009aa64f9824b09b3b59",
->>>>>>> Stashed changes
   "id": "S032-catchup",
   "keys": [],
   "wait": 3,
@@ -17,9 +13,5 @@
   "highlighted": [],
   "screenshot": "step-0083.png",
   "screenshot_sha256": "8352f6e8c9b5a720f3d826c22bcf000a55b65424763394bb025e6fdf144aa402",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:58:28.584Z"
-=======
-  "time": "2026-11-22T16:21:21.575Z"
->>>>>>> Stashed changes
 }

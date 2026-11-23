@@ -1,10 +1,6 @@
 {
   "number": 45,
-<<<<<<< Updated upstream
   "previous": "416184f84e338a1d97c4df38a5dfb05707049f39d93b1a63b5b50c1e09e46508",
-=======
-  "previous": "8486539a329d9384f5d991b1b574fb600e1ba87c3e8fe3862be2a43d2c822aca",
->>>>>>> Stashed changes
   "id": "S017-swap-wright",
   "keys": [
     "Return"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0045.png",
   "screenshot_sha256": "a1495d9501482ef81c1ffde0e18f03bce871849e4d9ccf5d11a8265b26162e82",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:56:21.816Z"
-=======
-  "time": "2026-11-22T16:19:13.807Z"
->>>>>>> Stashed changes
 }

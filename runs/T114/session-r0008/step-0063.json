@@ -1,10 +1,6 @@
 {
   "number": 63,
-<<<<<<< Updated upstream
   "previous": "4b0d0d946779eebcdf37ef6070d27f600130ef743f053fd1e0ddd7999cbfac25",
-=======
-  "previous": "d2e9348b48c230f41dbe23320e8bed3932ab171e1c78274957bf0218afed0cae",
->>>>>>> Stashed changes
   "id": "S900-catchup-44",
   "keys": [],
   "wait": 2,
@@ -16,11 +12,6 @@
   "screen_sha256": "c1c5e115d377c207b79d5018f8c8b09de715b52ef7ac78bb7a3d748f2abbabfd",
   "highlighted": [],
   "screenshot": "step-0063.png",
-<<<<<<< Updated upstream
   "screenshot_sha256": "30a52a9ea09f21694515eb548f9d0e4dcf40ddac870f9fbe365d1b97cbd1104a",
   "time": "2026-11-22T11:57:16.902Z"
-=======
-  "screenshot_sha256": "f66101554f7cc1173dfa7fd6fec76e52a244ac24e8dcdac4d2c2b7a0ecf60298",
-  "time": "2026-11-22T16:20:09.490Z"
->>>>>>> Stashed changes
 }

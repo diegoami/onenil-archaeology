@@ -1,10 +1,6 @@
 {
   "number": 58,
-<<<<<<< Updated upstream
   "previous": "9eded2e45771b2ff4bd4ccc927e04e734218c6f1c0de31215d2dd818bf3d48ea",
-=======
-  "previous": "50b1622e1e5ac1ade226ce192713ba09c2bbd3eb70553ce98a4d42b69193dc06",
->>>>>>> Stashed changes
   "id": "S019-swap-newell",
   "keys": [
     "Return"
@@ -24,9 +20,5 @@
   ],
   "screenshot": "step-0058.png",
   "screenshot_sha256": "046f0e6b46a009144e3bb0e03acb91700c800050202ada229ad2a801974bc07a",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:56:57.837Z"
-=======
-  "time": "2026-11-22T16:19:50.268Z"
->>>>>>> Stashed changes
 }

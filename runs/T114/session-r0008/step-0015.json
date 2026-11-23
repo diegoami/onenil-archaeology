@@ -1,10 +1,6 @@
 {
   "number": 15,
-<<<<<<< Updated upstream
   "previous": "b68384e594bb308de325f4cb0b6194f555cdaecaf496706bce40ab9c02ff161e",
-=======
-  "previous": "4b49dbc0d307f1c48ace6c2f49d28451510c5f7bec879a266dce09cb16fa6e9c",
->>>>>>> Stashed changes
   "id": "S009-league-table",
   "keys": [
     "space"
@@ -19,9 +15,5 @@
   "highlighted": [],
   "screenshot": "step-0015.png",
   "screenshot_sha256": "fab3e1c76de1a53284a56cbd2cdce9a99cbde3781a83efcf358fe1faa3b82803",
-<<<<<<< Updated upstream
   "time": "2026-11-22T11:54:53.602Z"
-=======
-  "time": "2026-11-22T16:17:45.760Z"
->>>>>>> Stashed changes
 }
