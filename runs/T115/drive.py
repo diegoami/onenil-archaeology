@@ -194,30 +194,32 @@ def main():
             return bool(menu_highlight(state)) and 'PLAY NEXT GAME' in state['text']
 
         for t_idx, target in enumerate(('Cup results', 'Weekly fixtures', 'Fixture list', 'Statistics'), start=1):
+            # the search verifies every candidate with a fresh no-key
+            # capture and RESYNCS on a mismatch instead of failing: the
+            # probe session proved the game's highlight can trail the keys
+            # by one (every capture showed the previous key's row until a
+            # no-key poll caught up) and can also be current (r0013's
+            # walk) - verify-then-continue handles both
             found = False
-            for direction in ('Down', 'Up'):
-                for press in range(1, 24):
-                    highlight = menu_highlight(mine)
-                    if highlight and target.lower() in highlight.lower():
+            for attempt in range(24):
+                direction = 'Down' if attempt < 12 else 'Up'
+                highlight = menu_highlight(mine)
+                if highlight and target.lower() in highlight.lower():
+                    step, mine = issue(dict(
+                        id=f'S201-verify-{t_idx}-{attempt}', keys=[], wait=1),
+                        stabilize=True)
+                    verified = menu_highlight(mine)
+                    if verified and target.lower() in verified.lower():
                         found = True
                         break
-                    step, mine = issue(dict(
-                        id=f'S200-{direction.lower()}-{t_idx}-{press}',
-                        keys=[direction], wait=1), stabilize=True)
-                if found:
-                    break
-                step, mine = issue(dict(id=f'S200-idle-{t_idx}', keys=[], wait=1),
-                                   stabilize=True)
+                    log(f'MENU: {target} resync {attempt}: the fresh capture '
+                        f'reads {verified!r}')
+                    continue
+                step, mine = issue(dict(
+                    id=f'S200-{direction.lower()}-{t_idx}-{attempt}',
+                    keys=[direction], wait=1), stabilize=True)
             if not found:
-                log(f'MENU: {target} never highlighted in the sweeps')
-                return 1
-            # the entry is confirmed against a fresh no-key capture: the
-            # r0012 walk pressed Enter on the highlight as it HAD been, and
-            # opened the neighbouring entries
-            step, mine = issue(dict(id=f'S201-verify-{t_idx}', keys=[], wait=1), stabilize=True)
-            highlight = menu_highlight(mine)
-            if not (highlight and target.lower() in highlight.lower()):
-                log(f'MENU: {target} highlight moved before the enter: {highlight!r}')
+                log(f'MENU: {target} not located in 24 search steps')
                 return 1
             step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3), stabilize=True)
             if 'PLAY NEXT GAME' in mine['text']:
