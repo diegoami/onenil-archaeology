@@ -193,34 +193,40 @@ def main():
         def on_menu(state):
             return bool(menu_highlight(state)) and 'PLAY NEXT GAME' in state['text']
 
+        # the walk steers by the game's internal cursor, not by the OCR
+        # highlight: the probe and the r0012-r0014 attempts established that
+        # the highlight read can trail the keys by one or thrash under a
+        # backlog, while the cursor itself is deterministic (r0012's cursor
+        # math is exact: from Players, seven Downs landed on Cup results).
+        # Anchor once, count Downs exactly, record the row as shown, and
+        # let the opened-screen check catch a wrong entry honestly.
+        MENU_ROWS = {'Players': 6, 'Next opponents': 7, 'Transfer market': 8,
+                     'Use scout': 9, 'New staff': 10, 'League tables': 11,
+                     'League results': 12, 'Cup results': 13,
+                     'Weekly fixtures': 14, 'Fixture list': 15,
+                     'Statistics': 16}
+        step, mine = issue(dict(id='S041-anchor', keys=[], wait=1), stabilize=True)
+        anchor = menu_highlight(mine)
+        if anchor != 'Players':
+            step, mine = issue(dict(id='S041-anchor-2', keys=[], wait=2), stabilize=True)
+            anchor = menu_highlight(mine)
+        if anchor != 'Players':
+            log(f'MENU: the anchor row reads {anchor!r}, expected Players')
+            return 1
+        log('MENU: anchored at Players (row 6)')
+        cursor = MENU_ROWS['Players']
         for t_idx, target in enumerate(('Cup results', 'Weekly fixtures', 'Fixture list', 'Statistics'), start=1):
-            # the search verifies every candidate with a fresh no-key
-            # capture and RESYNCS on a mismatch instead of failing: the
-            # probe session proved the game's highlight can trail the keys
-            # by one (every capture showed the previous key's row until a
-            # no-key poll caught up) and can also be current (r0013's
-            # walk) - verify-then-continue handles both
-            found = False
-            for attempt in range(24):
-                direction = 'Down' if attempt < 12 else 'Up'
-                highlight = menu_highlight(mine)
-                if highlight and target.lower() in highlight.lower():
-                    step, mine = issue(dict(
-                        id=f'S201-verify-{t_idx}-{attempt}', keys=[], wait=1),
-                        stabilize=True)
-                    verified = menu_highlight(mine)
-                    if verified and target.lower() in verified.lower():
-                        found = True
-                        break
-                    log(f'MENU: {target} resync {attempt}: the fresh capture '
-                        f'reads {verified!r}')
-                    continue
-                step, mine = issue(dict(
-                    id=f'S200-{direction.lower()}-{t_idx}-{attempt}',
-                    keys=[direction], wait=1), stabilize=True)
-            if not found:
-                log(f'MENU: {target} not located in 24 search steps')
-                return 1
+            downs = MENU_ROWS[target] - cursor
+            for k in range(downs):
+                step, mine = issue(dict(id=f'S200-down-{t_idx}-{k + 1}',
+                                        keys=['Down'], wait=1))
+            cursor = MENU_ROWS[target]
+            # the row as shown is recorded, interpreted nothing: the read
+            # may trail the keys, and the divergence is itself evidence
+            step, mine = issue(dict(id=f'S201-show-{t_idx}', keys=[], wait=1),
+                               stabilize=True)
+            log(f'MENU: {target} cursor {cursor}, the screen shows '
+                f'{menu_highlight(mine)!r}')
             step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3), stabilize=True)
             if 'PLAY NEXT GAME' in mine['text']:
                 log(f'MENU: {target} enter did not open a sub-screen: '
