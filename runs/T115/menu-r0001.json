@@ -14,6 +14,12 @@
  },
  "binding": {
   "replay_ends_on": "runs/T112/session-r0019/step-0115.json",
+  "route": "runs/T112/session-r0019",
+  "route_steps": 114,
+  "digest_matched": 97,
+  "header_anchored": 17,
+  "anchor": "LEAGUE MATCH #30",
+  "exempt_ids": 27,
   "replay_text_sha256": "8936972d7da0383a02840b37b7e61200c90d5f9e930b9e37c029c5efe38e1aa1"
  },
  "anchor": {
