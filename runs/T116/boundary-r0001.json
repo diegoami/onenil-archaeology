@@ -1,0 +1,68 @@
+{
+ "schema": "season-boundary-receipt-1/1",
+ "issue": 271,
+ "task": "T116",
+ "source_save": {
+  "path": ".cache/saves/post-league30-t115/SAVE1.1-0",
+  "sha256": "cd4ce002f78af5ea761cca2c42b9492a31adad887b84c340a89d14aca402e306",
+  "t115_binding": {
+   "receipt": "runs/T115/menu-r0001.json",
+   "f7_sha256": "cd4ce002f78af5ea761cca2c42b9492a31adad887b84c340a89d14aca402e306"
+  }
+ },
+ "session": {
+  "directory": "runs/T116/session-r0001",
+  "session_sha256": "7860f261b0b65e30f8d1fcad08b392ef4db8a53524b0a502ac25f0932b9fe266",
+  "steps": 12,
+  "last_step": "ed550e121d4eba7816f20c6cad97dc0d0360dcf854604cb2dc1a389a219c8834"
+ },
+ "boot": {
+  "number": 2,
+  "text_sha256": "483a56ec12d6231d260d5eaa444222d19478b04db5b66cef21c0760234365145",
+  "facts": {
+   "PLAY NEXT GAME": "\u251c Dalglish        \u2524 \u2502 fitness                 supreme \u2502  \u2551 PLAY NEXT GAME     \u2551",
+   "1,636,583": "\u251c 1,636,583       \u2524 \u2502 hardness                average \u2502  \u2551 Players            \u2551",
+   "SEASON  1994/95": "\u2502 SEASON  1994/95 \u2502 \u2502 goalkeeper     \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 Transfer market    \u2551"
+  }
+ },
+ "boundary": {
+  "number": 7,
+  "text_sha256": "14fd063c6b3e9a7265c073ff1a2a842a204f316c3542d350c54f45fbb13456ac",
+  "facts": {
+   "Eurpn Cup Final": "\u2502Eurpn Cup Final  \u2502 \u251c\u2500FIRST TEAM AVERAGES\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524  \u2551 C Bergodi    \u2551S\u2551",
+   "Lazio----------": "Lazio----------     \u250c\u2500Lazio----------\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u2554\u2550FIRST TEAM\u2550\u2550\u2550\u2566\u2550\u2557",
+   "P St Germain---": "\u2502 P St Germain--- \u2502 \u2502 hardness              assertive \u2502  \u2551 G Venturin   \u2551D\u2551",
+   "Remaining subs 3": "\u2502 Remaining subs 3\u2502 \u2502 defence        \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 R Bacci      \u2551$\u2551",
+   "PLAY GAME": "\u2551 PLAY GAME       \u2551 \u2502 possession         pass quickly \u2502  \u255f\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256b\u2500\u2562"
+  },
+  "question": false,
+  "note": "the next scheduled fixture after the completed league season: the European Cup Final, Lazio versus P St Germain, opened as the home club's preparation screen; Blackburn R is not a participant"
+ },
+ "stability": [
+  {
+   "id": "S012-boundary-settle-0",
+   "number": 8,
+   "text_sha256": "14fd063c6b3e9a7265c073ff1a2a842a204f316c3542d350c54f45fbb13456ac"
+  },
+  {
+   "id": "S012-boundary-settle-1",
+   "number": 9,
+   "text_sha256": "14fd063c6b3e9a7265c073ff1a2a842a204f316c3542d350c54f45fbb13456ac"
+  }
+ ],
+ "inputs": {
+  "load": "y",
+  "boundary": [
+   "Enter"
+  ],
+  "save": [
+   "F7"
+  ]
+ },
+ "lineage_save": {
+  "path": ".cache/saves/post-league30-t116/SAVE1.1-0",
+  "sha256": "cd4ce002f78af5ea761cca2c42b9492a31adad887b84c340a89d14aca402e306",
+  "identical_to_source": true,
+  "note": "F7 at the boundary rewrote the same bytes: the transition opened a screen without changing the machine state"
+ }
+}
