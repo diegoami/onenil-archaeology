@@ -260,9 +260,13 @@ def main():
         # committed post-league30 lineage point.
         step, mine = issue(dict(id='S050-f7-save', keys=['F7'], wait=3), stabilize=True)
         log(f'F7 pressed: {mine["text"][:100]!r}')
-        game_dir = next(session_dir[0].parent.glob('game'), None)
-        if game_dir is None or not (game_dir/'SAVE1.1-0').exists():
-            log('F7: the scratch game dir has no SAVE1.1-0')
+        # the driver's scratch game dir (the F7 save lands there, not under
+        # runs/): /tmp/onenil-manual-T115-<session-name>/game - r0016's walk
+        # completed all four screens and the save was written; only this
+        # check path was wrong
+        game_dir = Path('/tmp')/f'onenil-manual-T115-{session_dir[0].name}'/'game'
+        if not (game_dir/'SAVE1.1-0').exists():
+            log(f'F7: no SAVE1.1-0 in {game_dir}')
             return 1
         digest = hashlib.sha256((game_dir/'SAVE1.1-0').read_bytes()).hexdigest()
         shutil.copyfile(game_dir/'SAVE1.1-0', SAVE_DEST)

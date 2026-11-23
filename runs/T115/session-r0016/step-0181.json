@@ -1,0 +1,17 @@
+{
+  "number": 181,
+  "previous": "aea1f92939cabc9adc97258c3088aa231406fab924532aec4da2350c185649ce",
+  "id": "S201-enter-4-poll-0",
+  "keys": [],
+  "wait": 2,
+  "restart": null,
+  "text": "  Top scorers (league and cups)         PREMIER LEAGUE\n\n \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n \u2502 $ Cole        Manchester Utd-  28 \u2502  Team league statistics\n \u2502 $ Walters     Liverpool------  28 \u2502  ----------------------\n \u2502 \u00a2 Hughes      Manchester Utd-  25 \u2502  Best attack          Newcastle Utd--  69\n \u2502 $ Klinsmann   Tottenham H----  21 \u2502  Worst attack         Southampton----  29\n \u2502 \u00a2 Clough      Liverpool------  21 \u2502  Best defence         Nottingham F---  27\n \u2502 $ Mathie      Newcastle Utd--  21 \u2502  Worst defence        West Ham Utd---  80\n \u2502 \u00a2 Ferdinand   Q.P.R----------  20 \u2502  Most home wins       Newcastle Utd--  12\n \u2502 \u00a2 Warhurst    Blackburn R----  20 \u2502  Most home defeats    West Ham Utd---  13\n \u2502 $ Rosenthal   Tottenham H----  20 \u2502  Most away wins       Newcastle Utd--   9\n \u2502 \u00a2 Ekoku       Wimbledon------  18 \u2502  Most away defeats    Everton--------  12\n \u2502 $ Blissett    Wimbledon------  17 \u2502\n \u2502 $ Penrice     Q.P.R----------  17 \u2502  Current form\n \u2502 $ Spencer     Chelsea--------  17 \u2502  --------------------\n \u2502 \u00a2 Kitson      Newcastle Utd--  16 \u2502  Consecutive wins     Manchester Utd-   3\n \u2502 $ Wegerle     Coventry City--  16 \u2502  Consecutive defeats  Newcastle Utd--   2\n \u2502 W Ripley      Blackburn R----  16 \u2502  Games without a win  Sheffield Wed--   3\n \u2502 $ Dublin      Coventry City--  14 \u2502  Games without defeat Manchester Utd-   6\n \u2502 $ Newell      Blackburn R----  14 \u2502\n \u2502 \u00a2 Campbell    Arsenal--------  14 \u2502   \u25c4\u2518,\u2193-next division\n \u2502 \u00a2 Rosario     Nottingham F---  14 \u2502  Del,\u2191-previous division\n \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                                                                       Esc-exit",
+  "savestate": null,
+  "savestate_sha256": null,
+  "text_sha256": "34d364b56ed83d1a8aedf9f49fc4a4ab01fe0f2f057b5a76287191f0d08dfb92",
+  "screen_sha256": "99a4b3a733bdba200c9a53d80bf30815c4e36ab95593bb236285b290186d81dd",
+  "highlighted": [],
+  "screenshot": "step-0181.png",
+  "screenshot_sha256": "a181de9d05327e196cb4c17b20bdfc952422d05dc8265de952a09f8eacd85db1",
+  "time": "2026-11-23T03:17:26.903Z"
+}
