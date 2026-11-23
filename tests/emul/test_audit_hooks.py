@@ -93,3 +93,32 @@ def test_every_driver_closes_the_audit_after_its_play_segment():
         window = lines[max(0, close - 8):close]
         assert any('except Complete' in line or 'except tail.Complete' in line
                    for line in window), name
+
+
+def _t98_probe():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('t98_probe', ROOT/'runs/T98/probe.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_the_hooks_phase_requires_the_documented_fault_at_its_site():
+    # [review #256] the phase accept-predicate: RuntimeError('UC_ERR_INSN_INVALID
+    # at 1234:5678 (wrong site)') once exited 0. The contract is the T93 fault
+    # itself - the invalid instruction at 2864:B941 - so a stub with the name
+    # but a foreign site, the site without the fault, or a neighbouring
+    # address must all fail the phase.
+    probe = _t98_probe()
+    assert probe.documented_fault(
+        'RuntimeError: Invalid instruction (UC_ERR_INSN_INVALID) at '
+        '2864:B941 bytes ffffffffffffffffffffffffffffffff key 6')
+    for wrong in (
+            None,
+            '',
+            'RuntimeError: Invalid instruction (UC_ERR_INSN_INVALID)',
+            'RuntimeError: UC_ERR_INSN_INVALID at 1234:5678 (wrong site)',
+            'RuntimeError: UC_ERR_INSN_INVALID at 12864:B941',
+            'RuntimeError: UC_ERR_INSN_INVALID at 2864:B94',
+            'RuntimeError: memory fault at 2864:B941'):
+        assert not probe.documented_fault(wrong), wrong
