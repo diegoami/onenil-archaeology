@@ -10,6 +10,7 @@ import json
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path('/home/diego/projects/onenil-archaeology')
@@ -58,7 +59,7 @@ def main():
         stderr=subprocess.STDOUT, text=True, bufsize=1)
     session_dir = [None]
 
-    def issue(command):
+    def issue(command, stabilize=False):
         process.stdin.write(json.dumps(command) + '\n')
         process.stdin.flush()
         while True:
@@ -73,7 +74,25 @@ def main():
                 log(f'{command.get("id")}: non-json line: {line.strip()[:100]}')
         if session_dir[0] is None:
             session_dir[0] = ROOT/step['directory']
-        return step, json.loads((session_dir[0]/f'step-{step["step"]:04d}.json').read_text())
+        path = session_dir[0]/f'step-{step["step"]:04d}.json'
+        mine = json.loads(path.read_text())
+        if stabilize:
+            # the walk's decisions must name the screen as it is now: the
+            # r0012 trace showed the controller reading one capture behind
+            # the final files (its Enter opened the neighbouring entries),
+            # so poll until two spaced reads agree before trusting the read
+            stable = 0
+            for _ in range(8):
+                time.sleep(0.5)
+                again = json.loads(path.read_text())
+                if again == mine:
+                    stable += 1
+                    if stable == 2:
+                        break
+                else:
+                    mine = again
+                    stable = 0
+        return step, mine
 
     def menu_highlight(mine):
         for entry in mine.get('highlighted') or []:
@@ -160,50 +179,69 @@ def main():
         # the replay ends on the squad screen (the T112 route's own final
         # screen, digest-identical): its legend is Esc-exit, and the
         # management menu shows PLAY NEXT GAME in its right-hand column.
-        step, mine = issue(dict(id='S040-esc-to-menu', keys=['Escape'], wait=2))
+        step, mine = issue(dict(id='S040-esc-to-menu', keys=['Escape'], wait=2), stabilize=True)
         for poll in range(3):
-            if 'PLAY NEXT GAME' in mine['text']:
+            if menu_highlight(mine) and 'PLAY NEXT GAME' in mine['text']:
                 break
-            step, mine = issue(dict(id=f'S040-esc-again-{poll}', keys=['Escape'], wait=2))
-        if 'PLAY NEXT GAME' not in mine['text']:
+            step, mine = issue(dict(id=f'S040-esc-again-{poll}', keys=['Escape'], wait=2), stabilize=True)
+        if not (menu_highlight(mine) and 'PLAY NEXT GAME' in mine['text']):
             log(f'MENU: management menu not reached from the squad screen: '
                 f'{mine["text"][:120]!r}')
             return 1
         log('MENU: on the management menu')
+
+        def on_menu(state):
+            return bool(menu_highlight(state)) and 'PLAY NEXT GAME' in state['text']
+
         for t_idx, target in enumerate(('Cup results', 'Weekly fixtures', 'Fixture list', 'Statistics'), start=1):
             found = False
-            for press in range(1, 12):
-                highlight = menu_highlight(mine)
-                if highlight and target.lower() in highlight.lower():
-                    found = True
+            for direction in ('Down', 'Up'):
+                for press in range(1, 24):
+                    highlight = menu_highlight(mine)
+                    if highlight and target.lower() in highlight.lower():
+                        found = True
+                        break
+                    step, mine = issue(dict(
+                        id=f'S200-{direction.lower()}-{t_idx}-{press}',
+                        keys=[direction], wait=1), stabilize=True)
+                if found:
                     break
-                step, mine = issue(dict(id=f'S200-down-{t_idx}-{press}', keys=['Down'], wait=1))
-                highlight = menu_highlight(mine)
-                if highlight and target.lower() in highlight.lower():
-                    found = True
-                    break
+                step, mine = issue(dict(id=f'S200-idle-{t_idx}', keys=[], wait=1),
+                                   stabilize=True)
             if not found:
-                log(f'MENU: {target} never highlighted in 11 downs')
+                log(f'MENU: {target} never highlighted in the sweeps')
                 return 1
-            step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3))
+            # the entry is confirmed against a fresh no-key capture: the
+            # r0012 walk pressed Enter on the highlight as it HAD been, and
+            # opened the neighbouring entries
+            step, mine = issue(dict(id=f'S201-verify-{t_idx}', keys=[], wait=1), stabilize=True)
+            highlight = menu_highlight(mine)
+            if not (highlight and target.lower() in highlight.lower()):
+                log(f'MENU: {target} highlight moved before the enter: {highlight!r}')
+                return 1
+            step, mine = issue(dict(id=f'S201-enter-{t_idx}', keys=['Enter'], wait=3), stabilize=True)
+            if 'PLAY NEXT GAME' in mine['text']:
+                log(f'MENU: {target} enter did not open a sub-screen: '
+                    f'{mine["text"][:90]!r}')
+                return 1
             log(f'{target} screen: {mine["text"][:90]!r}')
-            step, mine = issue(dict(id=f'S202-back-{t_idx}', keys=['Escape'], wait=2))
+            step, mine = issue(dict(id=f'S202-back-{t_idx}', keys=['Escape'], wait=2), stabilize=True)
             for poll in range(4):
-                if 'PLAY NEXT GAME' in mine['text']:
+                if on_menu(mine):
                     break
-                step, mine = issue(dict(id=f'S202-back-{t_idx}-poll-{poll}', keys=['Escape'], wait=2))
-            if 'PLAY NEXT GAME' not in mine['text']:
+                step, mine = issue(dict(id=f'S202-back-{t_idx}-poll-{poll}', keys=['Escape'], wait=2), stabilize=True)
+            if not on_menu(mine):
                 log(f'MENU: {target} dismissed but the menu did not return')
                 return 1
-            log(f'{target} dismissed: {mine["text"][:60]!r}')
-        if 'PLAY NEXT GAME' not in mine['text']:
+            log(f'{target} dismissed: highlight {menu_highlight(mine)!r}')
+        if not on_menu(mine):
             log('MENU: not back on the management menu before the save')
             return 1
 
         # F7 saves the named game (the manual's W005: overwrites without a
         # prompt); the scratch game dir's SAVE1.1-0 becomes the first
         # committed post-league30 lineage point.
-        step, mine = issue(dict(id='S050-f7-save', keys=['F7'], wait=3))
+        step, mine = issue(dict(id='S050-f7-save', keys=['F7'], wait=3), stabilize=True)
         log(f'F7 pressed: {mine["text"][:100]!r}')
         game_dir = next(session_dir[0].parent.glob('game'), None)
         if game_dir is None or not (game_dir/'SAVE1.1-0').exists():
@@ -212,7 +250,7 @@ def main():
         digest = hashlib.sha256((game_dir/'SAVE1.1-0').read_bytes()).hexdigest()
         shutil.copyfile(game_dir/'SAVE1.1-0', SAVE_DEST)
         log(f'F7 saved: {SAVE_DEST} sha256={digest}')
-        step, mine = issue(dict(id='S051-post-save', keys=[], wait=2))
+        step, mine = issue(dict(id='S051-post-save', keys=[], wait=2), stabilize=True)
         log(f'POST-SAVE: {mine["text"][:100]!r}')
         log('LEAGUE MENU CAPTURED')
         issue(dict(finish=True))
