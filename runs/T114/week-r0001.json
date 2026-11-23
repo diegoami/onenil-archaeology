@@ -1,0 +1,96 @@
+{
+ "schema": "injury-sub-receipt-1/1",
+ "issue": 251,
+ "task": "T114",
+ "source_save": {
+  "path": ".cache/saves/pre-league28/SAVE1.1-0",
+  "sha256": "d8354f5b70de5b7a5b9aac0eb54e151501350720e793c50c20179e1d41bb0275"
+ },
+ "session": {
+  "directory": "runs/T114/session-r0015",
+  "session_sha256": "b5509849fefcef0ad8a3ffe4313facf2e8e9ec2336e0d1da2cabcdc81f8dd749",
+  "steps": 129,
+  "last_step": "bc57d46a57f1c18ec3b408a5600d97061aff7c289bfa00958d28e0e83cba0086"
+ },
+ "replay": {
+  "route": "runs/T106/session-r0014",
+  "route_steps": 52,
+  "digest_matched": 52
+ },
+ "flow": {
+  "pause": {
+   "number": 86,
+   "facts": {
+    "SUBSTITUTION OPPORTUNITY": "SUBSTITUTION OPPORTUNITY                                        press any key",
+    "press any key": "SUBSTITUTION OPPORTUNITY                                        press any key"
+   }
+  },
+  "make_substitution": {
+   "number": 91,
+   "text_sha256": "8f4ee701a42663bbf19e7b721ad2a3fd48214cff1a47a4961d6931340ea1aa1a",
+   "facts": {
+    "MAKE SUBSTITUTION": "\u25c4\u2518-MAKE SUBSTITUTION    spacebar-more options    H-hire youth player   Esc-exit"
+   }
+  },
+  "selection_walk": {
+   "down_count": 10,
+   "names": [
+    "I Pearce",
+    "T Gale",
+    "G Le Saux",
+    "A Wright",
+    "M Atkins",
+    "J Wilcox",
+    "P Warhurst",
+    "A Shearer",
+    "M Newell",
+    "T Sherwood"
+   ]
+  },
+  "put_here": {
+   "number": 113,
+   "facts": {
+    "PUT HERE": "\u25c4\u2518-PUT HERE                                      H-hire youth player   Esc-exit"
+   }
+  },
+  "chosen": {
+   "name": "S Ripley",
+   "number": 117,
+   "downs": 2
+  },
+  "swap": {
+   "number": 119,
+   "facts": {
+    "S Ripley": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 goalkeeper     \u2502\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u2502  \u2551 S Ripley     \u2551W\u2551",
+    "T Sherwood": "\u2551 Match stats     \u2551 \u251c\u2500TACTICS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2534\u2500\u2524  \u2551 T Sherwood   \u2551\u00c7\u2551"
+   }
+  }
+ },
+ "full_time": {
+  "number": 121,
+  "facts": {
+   "BLACKBURN R----\u2502 5\u2502": "\u2502BLACKBURN R----\u2502 5\u2502\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2510\u2502   \u2502 \u2588   \u2588 \u2502Sherwood INJURED                     \u2502",
+   "WIMBLEDON------\u2502 3\u2502": "\u2502WIMBLEDON------\u2502 3\u2502\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2518\u2502   \u2502 \u2588   \u2588 \u2502---- FULL TIME ----                  \u2502",
+   "FULL TIME": "\u2502WIMBLEDON------\u2502 3\u2502\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2518\u2502   \u2502 \u2588   \u2588 \u2502---- FULL TIME ----                  \u2502",
+   "Sherwood INJURED": "\u2502BLACKBURN R----\u2502 5\u2502\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2510\u2502   \u2502 \u2588   \u2588 \u2502Sherwood INJURED                     \u2502"
+  }
+ },
+ "cash_chain": {
+  "route": "runs/T112/week-r0001.json",
+  "t112_club_funds": 1636583,
+  "funds_value": 1636583,
+  "cash_screen_digits": "1,6\u25023\u25026,5\u25028\u25023",
+  "facts": {
+   "Club funds": "\u2551 Club funds      \u2502 \u2502 \u2502 \u25021,6\u25023\u25026,5\u25028\u25023\u2502 Overdraft facility \u2502 \u2502 \u2502 \u25022,9\u25022\u25020,0\u25020\u25020\u2551"
+  },
+  "management_facts": {
+   "1,636,583": "\u251c 1,636,583       \u2524 \u2502 hardness                average \u2502  \u2551 Players            \u2551",
+   "LEAGUE POS.   2": "\u2502 LEAGUE POS.   2 \u2502 \u251c\u2500RATINGS\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2524  \u2551 Next opponents     \u2551"
+  }
+ },
+ "savestate": {
+  "step_id": "S045-post-league30-t114",
+  "path": ".cache/T114/states/post-league30-t114.sav",
+  "sha256": "a91ee8d7ca8f7342ac3f3160054969a147f1d52399f7a5b5cc014cbff0e32080"
+ }
+}
