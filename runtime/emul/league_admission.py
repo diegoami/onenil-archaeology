@@ -191,7 +191,9 @@ def check(record_path):
         elif corruption == 'club':
             bad['payload']['admission']['clubs'][1]['id'] = 134
         elif corruption == 'position':
-            bad['payload']['admission']['players'][0]['p8_6'] ^= 1
+            player = next(row for row in bad['payload']['admission']['players']
+                          if row['id'] == 2581)
+            player['p8_6'] ^= 1
         else:
             bad['payload']['state']['screen_sha256'] = '0' * 64
         bad['payload_sha256'] = sha(encoded(bad['payload']))
