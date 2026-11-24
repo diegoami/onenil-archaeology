@@ -20,6 +20,10 @@ of implementation is split. The main session edits task files on `main`, with th
    their choice. No session starts a review.
 4. Merge pinned to the checked head (`gh pr merge <pr> --match-head-commit <sha>`).
 
+[designed: owner, 2026-11-24, rule 19] The loop continues from one merged ticket to the next
+candidate without asking at the boundary; a session stops only for an owner decision, a milestone
+review, a blocker it cannot resolve, or the end of the named work.
+
 ## 3. Milestones and reviews
 
 A milestone is a coherent set of merged work. Its issue (label `milestone`) lists the PRs merged

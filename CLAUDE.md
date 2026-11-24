@@ -88,6 +88,11 @@ rclone remote `onenildrive` ([docs/artifacts.md](docs/artifacts.md)). They never
     captures or the heavier emulated checks take it as well, and review prompts and PR bodies
     say so. Checkers that only parse committed records need no lock. [designed: owner, 2026-11-22]
 
+19. [designed: owner, 2026-11-24] **Keep going between tickets.** A session does not stop after
+    each merged task to ask which comes next: it continues to the next candidate it already named,
+    one task at a time, and stops only for an owner decision, a milestone review, a blocker it
+    cannot resolve, or when the named work is done. Report each merge as it lands.
+
 [designed: owner, 2026-11-05, explicit manual-workflow clarification] Readable decoded UI
 text may coincide with literal executable menu strings. The original-byte scanner may exclude
 only the bounded display text field of a completed, authenticated original manual-session step:
