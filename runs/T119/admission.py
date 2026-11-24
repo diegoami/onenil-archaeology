@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RECORD = ROOT / 'runs/T119/admission-r0001.json'
+RECORD = ROOT / 'runs/T119/admission-r0003.json'
 spec = importlib.util.spec_from_file_location(
     'league_admission', ROOT / 'runtime/emul/league_admission.py')
 tool = importlib.util.module_from_spec(spec)

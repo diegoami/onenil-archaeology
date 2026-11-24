@@ -1,0 +1,8 @@
+{
+  "id": "S002-config-menu",
+  "keys": [
+    "Up",
+    "Up"
+  ],
+  "wait": 1
+}

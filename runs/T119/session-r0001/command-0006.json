@@ -1,0 +1,9 @@
+{
+  "id": "S006-prepare",
+  "keys": [
+    "Down",
+    "Down",
+    "Return"
+  ],
+  "wait": 2
+}
