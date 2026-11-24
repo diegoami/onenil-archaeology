@@ -1,6 +1,6 @@
 {
   "schema": "manual-coverage-catalog/1",
-  "research_commit": "566fb4cf13c87d3665bfb7f289494a92ba2b4126",
+  "research_commit": "63abe40a7562972432cce1bdc2d5cac1159fef45",
   "native_commit": "a634fb27a2d438c67d20e95cf66aa11bc0737732",
   "workflow_count": 85,
   "native_status_counts": {
@@ -786,7 +786,7 @@
       "id": "W024",
       "title": "start, open the bench and resume",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0003.png",
@@ -816,7 +816,7 @@
       "id": "W025",
       "title": "request and cancel a substitution",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0007.png",
@@ -846,7 +846,7 @@
       "id": "W026",
       "title": "display and speed controls",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0010.png",
@@ -869,7 +869,7 @@
       "id": "W027",
       "title": "read detailed commentary history",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0020.png",
@@ -899,7 +899,7 @@
       "id": "W028",
       "title": "halftime and a legal replacement",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0035.png",
@@ -957,7 +957,7 @@
       "id": "W029",
       "title": "fulltime, commentary and final statistics",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0051.png",
@@ -994,7 +994,7 @@
       "id": "W030",
       "title": "return to the next management week",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T48/session-r0001/step-0061.png",
@@ -3125,7 +3125,7 @@
       "id": "W084",
       "title": "the in-play injury substitution from the stoppage menu",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T114/session-r0015/step-0086.png",
@@ -3176,7 +3176,7 @@
       "id": "W085",
       "title": "the season boundary - the next scheduled game after the league season",
       "chapter": "docs/manual/watched-match.md",
-      "chapter_sha256": "54de011088ce1b2d9fc4c954e4cfe97117ac94a4aeafc857d52ebaecffb0aaf9",
+      "chapter_sha256": "377145836167b386e0a2377b21e023759c6151d4c6e9c5963f28932935bcafe0",
       "screenshots": [
         {
           "screenshot": "runs/T116/session-r0001/step-0006.png",

@@ -243,7 +243,7 @@ same boundary in an earlier campaign: T61's completed session4 (steps 1–18;
 [W080–W083](season-rollover.md)). Enter on the blank Euro cups week opens
 Lazio's preparation against P St Germain (step 3), as here; Enter runs the
 first half, Space after halftime continues the observer final, which is still
-processing after an A 2–2 FULL TIME display and ends Lazio 2–3 P St Germain
+processing after the 2–2 FULL TIME display and ends Lazio 2–3 P St Germain
 with Colleter scoring at 101 (steps 4–6). Space walks European results, then
 accounts and news, to the management screen explicitly labelled **End of
 season** (steps 7–11). Enter there opens the accounts and the transfer news;
