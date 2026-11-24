@@ -93,3 +93,24 @@ uncommitted changes under `runtime/driver/`, so a record's `code_commit` names t
 Run them one at a time: they share the game folder `.cache/driver/game`. Savestates go to
 `.cache/states/T04/` and to the owner's Drive (`rclone copy .cache/states/T04 onenildrive:states/T04`),
 never to git. Never press F1 under the driver (goal2: the help viewer breaks every later savestate).
+
+## Long captures and host memory
+
+[confirmed: 2026-11-19 and 2026-11-23, the host's kernel journal and the
+capture logs] Until 2026-11-24 the capture host was a WSL2 VM with 7.8 GB RAM
+and 2 GB swap. A full watched capture (`runtime/emul/sevilla_week.py`, about
+2.5 hours) holds about 1.2 GB resident throughout. At 13:36 on 2026-11-19, two
+parallel `cargo` builds in the same VM (17 `rustc` and 11 `ld` processes, about
+5.7 GB) exhausted RAM and swap. The OOM killer then took the whole
+`init.scope`: every session, and the capture at its chunk 59
+(`runs/T93/sevilla-week-r0001`, kept as recorded). On 2026-11-23 the same thing
+happened again with a single `funnel-check` process ballooning to about 7 GB;
+the journal shows the OOM kill and then systemd tearing down `init.scope`.
+
+[designed: from those incidents, 2026-11-24] Since 2026-11-24 the VM runs with
+10 GB RAM and 16 GB swap (`C:\Users\diego\.wslconfig`: `memory=10GB`,
+`swap=16GB`). The extra headroom is not permission to overlap work: while a
+capture runs on this host, do not start concurrent Rust builds or other
+multi-GB jobs. Run at most one build, with `CARGO_BUILD_JOBS` capped, and check
+`free -m` first. A capture that dies is followed by a new run (process.md §4),
+never a rewrite of the old directory.
