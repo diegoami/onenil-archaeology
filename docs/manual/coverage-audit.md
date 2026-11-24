@@ -1,13 +1,15 @@
 # Original manual: coverage and remaining branches
 
-[confirmed: T62 catalog] The [inventory](../../runs/T62/catalog-r0001.json),
-produced from research `67dd355b4d4e5b646422fc1fdd922064bf6868d7`, covers
-W001–W083 without gaps or duplicates. It links 338 distinct illustrated screens
-to their decoded records and screenshot digests. The 27 referenced sessions
-include 24 completed sessions authenticated by their original capture validators
-and 3 aborted attempts (two T61 sessions and one T42 setup exploration), retained
-explicitly as incomplete evidence. No failed
-attempt is relabelled completed. Native comparison is pinned separately in
+[confirmed: T62 catalog, T118 revision] The [inventory](../../runs/T118/catalog-r0001.json),
+extending T62's [original](../../runs/T62/catalog-r0001.json) from research
+`67dd355b4d4e5b646422fc1fdd922064bf6868d7`, covers W001–W085 without gaps or
+duplicates; W084/W085 were appended by the T118 revision and no earlier entry
+changed apart from watched-match.md's whole-file chapter digests. It links 350
+illustrated screens to their decoded records and screenshot digests. The 29
+referenced sessions include 26 completed sessions authenticated by their original
+capture validators and 3 aborted attempts (two T61 sessions and one T42 setup
+exploration), retained explicitly as incomplete evidence. No failed attempt is
+relabelled completed. Native comparison is pinned separately in
 [the workflow gap matrix](native-gaps.md).
 
 [designed] This is a bounded UI/workflow manual, with one observed season and
@@ -32,7 +34,7 @@ completed-session authentication are retained rather than normalizing records.
 screens and scoped screen key provide a reproducible transition reference.
 Adjacent keypresses sometimes land at an unintended item; those observations
 are retained, and the instructions explicitly inspect the highlight before
-activation. All338 linked PNG hashes were checked; original binary/font/palette
+activation. All350 linked PNG hashes were checked; original binary/font/palette
 bytes are not product assets.
 
 ## All executable main-menu slots
@@ -48,15 +50,15 @@ and configuration templates with original captures; T58 compares five squad and
 preparation components,93 fixed spans and1057 border cells. T57's146 decodable
 callsites are candidate components, not146 verified whole screens. Resources
 2864:7076 and2864:136A remain unresolved under the strict decoder; no guard was
-relaxed. The338 illustrated states and83 procedures are a different measure from
+relaxed. The350 illustrated states and85 procedures are a different measure from
 the count of executable template components. These unresolved static cases stay
 visible alongside G14's remaining presentation/output work.
 
 | Slot | Action | Illustrated transition evidence | Current boundary / remaining case |
 | --- | --- | --- | --- |
-| 1 | PLAY NEXT GAME / NEXT PLAYER | W007 two-manager handover; W019/W024/W030/W031 preparation and next week; W051–W083 season progression | Single-manager play and first-to-second manager handover observed. Full two-manager match/week progression remains G02. |
+| 1 | PLAY NEXT GAME / NEXT PLAYER | W007 two-manager handover; W019/W024/W030/W031 preparation and next week; W051–W085 season progression | Single-manager play and first-to-second manager handover observed. Full two-manager match/week progression remains G02. |
 | 2 | Previous player | W007 shows the conditional second-manager label; static dispatch decrements manager | Visible/static only; actual activation is unvisited,G02. |
-| 3 | Players | W010–W017 browse/details/move/cancel/instructions/save; W054/W067/W071 availability and substitutions | Observed. Full squads, further role limits and untested option variants remain G04/G05. |
+| 3 | Players | W010–W017 browse/details/move/cancel/instructions/save; W054/W067/W071/W084 availability and in-play substitutions | Observed. Full squads, further role limits and untested option variants remain G04/G05. |
 | 4 | Next opponents | W018 opens opponent information/configuration and returns | Observed when a fixture exists. Blank/no-fixture or unmanaged-club boundary is static, not an exercised refusal,G03. |
 | 5 | Transfer market | W036/W037 browse, bid cancel/refusal, accepted purchase and changed squad | Observed limited purchase route; negotiation extremes and financial/full-squad cases remain G06. |
 | 6 | Use scout | W039 criteria, successful search, results and cancel | Observed. Empty results, combinations and all criteria bounds remain G06. |

@@ -1,7 +1,7 @@
 # Native workflow gaps and dependency roadmap
 
 [derived: T62 catalog] The full original management procedures currently map to
-**11 partial / 72 missing / 0 implemented / 0 uncertain** native workflows.
+**11 partial / 74 missing / 0 implemented / 0 uncertain** native workflows.
 This measures the complete procedures, not the amount of engine code already
 ported. The native watched exhibition is playable; it does not yet provide a
 campaign load→squad→match→results→next-week loop.
@@ -12,9 +12,10 @@ uploads and provenance publication are now owner-approved and recorded in the
 completed receipts; pinned merges and exact-head CI remain required. Native source is pinned
 to `a634fb27a2d438c67d20e95cf66aa11bc0737732`. The inspected checkout
 `6253ec222f0e80d56d2795163500a365ce422c9c` has an identical tree. The
-[catalog](../../runs/T62/catalog-r0001.json) records all 83 workflow headings,
-338 screenshot/record references, 27 referenced sessions and 173 native source
-file digests. Of the referenced sessions, 24 authenticate as completed and 3 are
+[catalog](../../runs/T118/catalog-r0001.json) records all 85 workflow headings,
+350 screenshot/record references, 29 referenced sessions and 173 native source
+file digests; it is the append-only revision over [T62](../../runs/T62/catalog-r0001.json)
+and T64. Of the referenced sessions, 26 authenticate as completed and 3 are
 retained aborted attempts. Their scope is explicit in [coverage](coverage-audit.md).
 
 ## Native evidence and interpretation
@@ -126,6 +127,8 @@ whose dependency column applies to every row assigned to it.
 | W081 | [Save seasonal information, promotion and retirement](season-rollover.md) | missing | N0: campaign procedure absent from inspected application | B10 |
 | W082 | [Inspect populated history and the new-season state](season-rollover.md) | missing | N0: campaign procedure absent from inspected application | B10 |
 | W083 | [Verify next-season persistence with a fresh process](season-rollover.md) | missing | N0: campaign procedure absent from inspected application | B1 |
+| W084 | [The in-play injury substitution from the stoppage menu](watched-match.md) | missing | N0: campaign procedure absent from inspected application | B3 |
+| W085 | [The season boundary - the next scheduled game after the league season](watched-match.md) | missing | N0: campaign procedure absent from inspected application | B6 |
 
 ## Bounded next tasks
 

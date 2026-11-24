@@ -163,7 +163,7 @@ has separate demonstrated procedures.
 ![S044: transfer news](../../runs/T48/session-r0001/step-0064.png)
 ![Management return: next friendly](../../runs/T48/session-r0001/step-0065.png)
 
-## W031: the in-play injury substitution from the stoppage menu
+## W084: the in-play injury substitution from the stoppage menu
 
 [confirmed] In league match #30's second half the injury did not stop play. The
 live display keeps its statistics overlay — scorers and commentary show “Jones
@@ -209,7 +209,7 @@ steps 92–117.
 ![The bench after the swap: S Ripley in the eleven, Remaining subs 1](../../runs/T114/session-r0015/step-0119.png)
 ![Full time with the substitution made](../../runs/T114/session-r0015/step-0121.png)
 
-## W032: the season boundary - the next scheduled game after the league season
+## W085: the season boundary - the next scheduled game after the league season
 
 [confirmed] With the league season's 30 matches played (T112) and the
 management screen's next-opponents box empty, one Enter on **PLAY NEXT GAME**
@@ -224,8 +224,9 @@ and SPACEBAR-Squad in the footer.
 
 [confirmed] Blackburn R is not a participant in that final: the game schedules
 other clubs' matches, as the T115 Fixture list's Eurpn Cup Final row already
-suggested. The pairing is named by the screen; nothing here establishes a
-following league season, promotion or scheduling rule.
+suggested. The pairing is named by the screen; this capture alone establishes no
+following league season, promotion or scheduling rule — the route already
+recorded from the same boundary does, below.
 
 [confirmed] Opening the boundary screen changes no machine state: F7 there
 rewrites a save byte-identical to the source (sha256
@@ -236,8 +237,42 @@ The receipt binds that identity to the T115 lineage save.
 [confirmed] Evidence: steps 2–11 of `runs/T116/session-r0001`; receipt
 `runs/T116/boundary-r0001.json`.
 
+[confirmed:T61] What follows this boundary, and whether a new league season
+ever forms, is already answered by a completed, authenticated capture of the
+same boundary in an earlier campaign: T61's completed session4 (steps 1–18;
+[W080–W083](season-rollover.md)). Enter on the blank Euro cups week opens
+Lazio's preparation against P St Germain (step 3), as here; Enter runs the
+first half, Space after halftime continues the observer final, which is still
+processing after an A 2–2 FULL TIME display and ends Lazio 2–3 P St Germain
+with Colleter scoring at 101 (steps 4–6). Space walks European results, then
+accounts and news, to the management screen explicitly labelled **End of
+season** (steps 7–11). Enter there opens the accounts and the transfer news;
+Space then asks “Do you want to save the full seasonal information?” — a Y/N
+question — and Y writes a separate `SAVE1.95` beside the game save, after which
+the promoted-teams and relegated-teams summaries and Gale's retirement follow
+(steps 12–18). The next management screen is labelled **1995/96**, funds
+1,559,955, **Friendly #1** at home against Partizan Belgrade (step 18). The
+fixture list begins Aug 3 Partizan at home, Aug 7 Wimbledon away, Aug 10 Rangers
+at home and Aug 14 Sevilla at home, with League1 at Aston Villa on Aug 17 and
+UEFA Round 1 against Napoli on September 4/11, and the Premier League table
+shows every club on zero played, scored, conceded and points (steps 26–30). A
+fresh process reloads the same 1995/96 management text (steps 34–36). A new
+league season therefore does form: a new schedule and reset counters, not only
+a changed year label. Both next-season saves are preserved privately
+(`SAVE1.1-0` sha256 `9a027f4b…`, `SAVE1.95` `d1652e79…`).
+
+[derived:T61, T115/T116] T61's post-league30 save is `b246c62f…` and the T115
+lineage save is `cd4ce002…`: different campaigns, the same post-league30 state
+class and the same observer final. The rollover is therefore documented once,
+by T61, and was not re-captured here. What the modern lineage adds is the
+witnessed league weeks that produce the boundary, not a different answer at it.
+
 ![PLAY NEXT GAME opens the European Cup Final](../../runs/T116/session-r0001/step-0006.png)
 ![The next fixture's preparation screen, Lazio's squad](../../runs/T116/session-r0001/step-0007.png)
+![The observer final's European Cup Final after extra time](../../runs/T61/session-r0004/step-0006.png)
+![The actual End of season management entry](../../runs/T61/session-r0004/step-0011.png)
+![The first 1995/96 fixture list](../../runs/T61/session-r0004/step-0027.png)
+![The reset 1995/96 league table](../../runs/T61/session-r0004/step-0030.png)
 
 ## Remaining coverage
 
