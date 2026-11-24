@@ -1,0 +1,28 @@
+{
+ "schema": "league-route-probe-1/1",
+ "issue": 277,
+ "task": "T119",
+ "state": {
+  "path": ".cache/states/t100/league-preparation-0001.sav",
+  "sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8"
+ },
+ "start": {
+  "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4",
+  "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+ },
+ "keys": [
+  "Escape"
+ ],
+ "after": {
+  "text_sha256": "f2228795aaca4b1e0c923f44e81499f07c3b6e524ba3d50c890417885dac8ab4",
+  "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+ },
+ "binding": {
+  "receipt": "runs/T100/preparation-r0001.json",
+  "receipt_sha256": "4de153d3523b87d868cbc0652689c157cf3466b853060d9a0ced40455c1e3917",
+  "step": 2,
+  "screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+ },
+ "conclusion": "Escape leaves the T100 preparation screen unchanged: the screen, the highlight and the text are identical, so the harness cannot reach the management menu to turn Watch on.",
+ "scope": "One observed backtrack key only; no other key is scanned."
+}
