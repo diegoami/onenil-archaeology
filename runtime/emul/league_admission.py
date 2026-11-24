@@ -64,9 +64,10 @@ def require_campaign(value):
 
 def validate_payload(payload):
     require_campaign(payload['campaign'])
-    # [confirmed:T100] The league machine's own display setting is Watch off;
-    # the admission input does not depend on it, and nothing else may intervene.
-    if payload['watch_setting'] != 0 or payload['interventions']:
+    # [confirmed:T119 session-r0001; W031] The T100 machine is Watch off, so the
+    # captured route turns Watch on through Game configuration before PLAY GAME.
+    # The record must show the watched setting and no other intervention.
+    if payload['watch_setting'] != 1 or payload['interventions']:
         raise ValueError('unexpected display setting or input intervention')
     if payload['fixture_request']['club'] != 130:
         raise ValueError('caller fixture is not the managed club')
@@ -170,8 +171,8 @@ def capture(state, out):
     names = admission.seed.names(week.files_at_start['ENGL-95.DAT'])
     require_campaign(admission.seed.project(admission.memory_save(g), names))
     watch = g.mem(g.far(0xD7D2) + 0xF2, 1)[0]
-    if watch != 0:
-        raise ValueError('the T100 machine\'s display setting differs')
+    if watch != 1:
+        raise ValueError('the captured preparation state does not request watched play')
     payload = dict(campaign=seed_campaign(), watch_setting=watch, interventions=[],
                    fixture_request=None, incoming=None, points=[], draws=[],
                    selected_admission=None, supplement=None, first_entry=None, income_inputs=None)
