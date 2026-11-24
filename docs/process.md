@@ -29,6 +29,13 @@ through GitHub, never only through chat: the review is posted on the milestone i
 reviewer, or verbatim by the main session when the owner pastes it), each finding becomes an issue
 labelled `review`, and the fixes are a PR that closes those issues and is merged like a task's
 (its checks, CI green, a merge commit). The main session relays the findings in full.
+[designed: owner, 2026-11-23, after asking why reviews kept running] On top of the owner's own
+review runs, the main session itself runs one structural review pass per milestone — triggered by
+new capture machinery or a new receipt schema, never periodically and never per-PR. The session
+posts the pass on the milestone issue, fixes structural findings in one batch with one
+re-verification, and records wording-level findings on the issue without a fix cycle. This does
+not replace the owner's milestone review (the "no session starts a review" rule above is about
+that one); the passes so far are on #240.
 
 ## 4. Stop and resume
 
