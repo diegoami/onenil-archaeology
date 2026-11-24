@@ -225,7 +225,7 @@ def capture(state, out):
         producer_files={name: sha((ROOT / name).read_bytes()) for name in producer_files},
         source=dict(state_sha256=sha(data), state_size=len(data),
                     save_sha256=receipt['source_save']['sha256'],
-                    league_sha256=json.loads(SEED_RECORD.read_text())['campaign']['origin']['league_sha256'],
+                    league_sha256=sha(week.files_at_start['ENGL-95.DAT']),
                     release={p['name']: p['sha256'] for p in
                              json.loads((ROOT / 'records/T01/inventory.json').read_text())['files']
                              if p['edition'] == '96'},
