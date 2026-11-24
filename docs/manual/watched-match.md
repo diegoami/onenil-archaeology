@@ -239,8 +239,8 @@ The receipt binds that identity to the T115 lineage save.
 
 [confirmed:T61] What follows this boundary, and whether a new league season
 ever forms, is already answered by a completed, authenticated capture of the
-same boundary in an earlier campaign: T61's completed session4 (steps 1–18;
-[W080–W083](season-rollover.md)). Enter on the blank Euro cups week opens
+same boundary in an earlier campaign: T61's completed session4
+([W080–W083](season-rollover.md); steps 1–36). Enter on the blank Euro cups week opens
 Lazio's preparation against P St Germain (step 3), as here; Enter runs the
 first half, Space after halftime continues the observer final, which is still
 processing after the 2–2 FULL TIME display and ends Lazio 2–3 P St Germain
