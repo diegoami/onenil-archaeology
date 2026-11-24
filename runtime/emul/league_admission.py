@@ -31,9 +31,10 @@ import match_setup as setup  # noqa: E402
 import watched_complete as watched  # noqa: E402
 
 TOOL = 'runtime/emul/league_admission.py'
-STATE_SHA = '3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8'
+STATE_SHA = 'a0637ed9682b9249eae0852040ce86a925cd5d965e250c7f53e6251234758fc4'
 T100_RECEIPT = ROOT / 'runs/T100/preparation-r0001.json'
 SEED_RECORD = ROOT / 'runs/T105/seed-r0001.json'
+SESSION = ROOT / 'runs/T119/session-r0001'
 SITES = ('0AB9:E24C', '0AB9:E24F', '0AB9:86E9', '0AB9:E2D4', '0AB9:E2D9',
          '0AB9:E2EF', '0AB9:E303', '0AB9:E008', '0AB9:7D86', '0AB9:7DC8', '0AB9:7C67')
 
@@ -134,6 +135,8 @@ def validate_record(record):
         raise ValueError('T100 receipt step differs')
     if source['preparation_screen_sha256'] != receipt['preparation']['screen_sha256']:
         raise ValueError('preparation screen identity differs')
+    if source['t119_session_sha256'] != sha((SESSION / 'session.json').read_bytes()):
+        raise ValueError('T119 capture session identity differs')
     if source['save_sha256'] != receipt['source_save']['sha256']:
         raise ValueError('source save identity differs')
     release = {p['name']: p['sha256'] for p in
@@ -230,6 +233,8 @@ def capture(state, out):
                              json.loads((ROOT / 'records/T01/inventory.json').read_text())['files']
                              if p['edition'] == '96'},
                     t100_receipt_sha256=sha(T100_RECEIPT.read_bytes()),
+                    t119_session=str(SESSION.relative_to(ROOT)),
+                    t119_session_sha256=sha((SESSION / 'session.json').read_bytes()),
                     t105_record_sha256=sha(SEED_RECORD.read_bytes()),
                     receipt_step=receipt['preparation']['step'],
                     preparation_screen_sha256=receipt['preparation']['screen_sha256']),
