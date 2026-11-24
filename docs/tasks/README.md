@@ -167,3 +167,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T117 The league week in the emulator harness - the T100 machine replays T102's route](T117.md) (#273).
 
 - [T118 The manual's late chapters get their numbers, and T61 answers the season question](T118.md) (#275).
+
+- [T119 The league fixture's preparation input from the T100 machine](T119.md) (#276).
