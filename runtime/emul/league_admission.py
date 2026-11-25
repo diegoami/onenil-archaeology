@@ -140,7 +140,7 @@ def derive_full(data):
     state = setup.state(week)
     if setup.admission(state) != payload['admission']:
         raise ValueError('the full state and the projection disagree')
-    payload['state'] = state
+    payload['setup_state'] = state
     payload['supplement'] = setup.input_fields(
         g, {'outputs': [{'name': 'admission', 'value': payload['admission']}]})
     payload['income_inputs'] = [setup.income_input(g, club['id'])
@@ -158,9 +158,9 @@ def derive_full(data):
 
 def validate_full(payload):
     validate_payload(payload)
-    if set(payload['state']) != {'initial', 'caller', 'setup_cells'}:
+    if set(payload['setup_state']) != {'initial', 'caller', 'setup_cells'}:
         raise ValueError('full setup state shape differs')
-    if setup.admission(payload['state']) != payload['admission']:
+    if setup.admission(payload['setup_state']) != payload['admission']:
         raise ValueError('the state and the admission projection disagree')
     if set(payload['supplement']) != {'capacities', 'start_gate', 'club_factors', 'fixture_factors'}:
         raise ValueError('supplement shape differs')
