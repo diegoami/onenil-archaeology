@@ -23,7 +23,12 @@ D1CE/D1CF, criterion,09FB+criterion and D29. Raw P15+6 in0–31 initializes
 its baseline to signed-byte+1. Other signed values below32 also initialize it,
 but are outside this capture's admitted domain. Signed values32–127 take the
 club/flag branch: nonzero flag sets0, zero flag adds32 to an uninitialized
-local. No zero scratch or arbitrary-state replay claim is made.
+local. [confirmed: T120 `runs/T120/branch-r0001.json`] The T100 league match's20
+high-branch calls (players2435/2436/2438, raw32, P8+0=122) all read the
+selected flag as1, so their baseline is0; the stale local at SS:BP-4 varied
+(44,94,100,113,163,194,201,11487,24776) and is not used on that path. The
+zero-flag high case, where the stale word would matter, did not occur; it
+remains unestablished and is diagnosed.
 
 Criterion>=21 adds32; otherwise signed P15+8 is added. The nested9F6E return
 is logically halved when scene.byte22 is nonzero. The original adds its logical

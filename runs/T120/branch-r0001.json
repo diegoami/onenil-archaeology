@@ -1,0 +1,229 @@
+{
+ "schema": "role-score-high-branch/1",
+ "issue": 278,
+ "task": "T120",
+ "status": "completed",
+ "source": {
+  "state_sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8",
+  "state_size": 292954,
+  "t100_receipt_sha256": "4de153d3523b87d868cbc0652689c157cf3466b853060d9a0ced40455c1e3917",
+  "receipt_screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+ },
+ "outcome": {
+  "receipt": "runs/T102/week-r0001.json",
+  "score": [
+   0,
+   2
+  ],
+  "opponent": "Newcastle Utd"
+ },
+ "contract": {
+  "low": "raw 0..31: baseline = signed + 1",
+  "high_nonzero_flag": "baseline = 0",
+  "high_zero_flag": "baseline = uninitialized local + 32 (not established): diagnose"
+ },
+ "calls_before_stop": 86,
+ "cases": [
+  {
+   "player": 2435,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 113,
+   "baseline": 0,
+   "call": 2
+  },
+  {
+   "player": 2436,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 201,
+   "baseline": 0,
+   "call": 18
+  },
+  {
+   "player": 2435,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 94,
+   "baseline": 0,
+   "call": 20
+  },
+  {
+   "player": 2436,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 163,
+   "baseline": 0,
+   "call": 36
+  },
+  {
+   "player": 2435,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 100,
+   "baseline": 0,
+   "call": 38
+  },
+  {
+   "player": 2436,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 194,
+   "baseline": 0,
+   "call": 54
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 55
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 57
+  },
+  {
+   "player": 2435,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 194,
+   "baseline": 0,
+   "call": 58
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 59
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 61
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 63
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 65
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 67
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 69
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 71
+  },
+  {
+   "player": 2438,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 24776,
+   "baseline": 0,
+   "call": 73
+  },
+  {
+   "player": 2436,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 194,
+   "baseline": 0,
+   "call": 74
+  },
+  {
+   "player": 2436,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 11487,
+   "baseline": 0,
+   "call": 75
+  },
+  {
+   "player": 2436,
+   "p15_6": 32,
+   "p8_0": 122,
+   "selected": 1,
+   "flag": 1,
+   "stale_local": 44,
+   "baseline": 0,
+   "call": 86
+  }
+ ],
+ "scope": "The T100 machine runs the league match only until the high-branch calls; the witnessed T102 score is the outcome binding, not recomputed here."
+}
