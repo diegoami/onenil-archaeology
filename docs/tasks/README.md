@@ -175,3 +175,5 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 - [T121 The league machine's incoming support facts](T121.md) (#280).
 
 - [T122 The league fixture-title presentation pair](T122.md) (#281).
+
+- [T123 The league fixture's original action stream](T123.md) (#282).
