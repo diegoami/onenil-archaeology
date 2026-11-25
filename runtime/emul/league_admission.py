@@ -86,7 +86,8 @@ def validate_payload(payload):
 
 
 def validate_record(record):
-    if record['schema'] != 'original-league-admission/1' or record['status'] != 'completed':
+    if record['schema'] not in ('original-league-admission/1',
+                                'original-league-admission/2') or record['status'] != 'completed':
         raise ValueError('incomplete league admission')
     source = record['source']
     receipt = json.loads(T100_RECEIPT.read_text())
@@ -107,7 +108,10 @@ def validate_record(record):
         raise ValueError('release/runtime identity differs')
     if sha(encoded(record['payload'])) != record['payload_sha256']:
         raise ValueError('payload digest differs')
-    validate_payload(record['payload'])
+    if record['schema'] == 'original-league-admission/2':
+        validate_full(record['payload'])
+    else:
+        validate_payload(record['payload'])
 
 
 def derive(data):
@@ -127,6 +131,47 @@ def derive(data):
     )
 
 
+def derive_full(data):
+    """The complete decode: admission projection plus the setup state and its
+    inputs, as the native import consumes them. Still no guest instruction."""
+    payload = derive(data)
+    week = league_week.LeagueWeek(data)
+    g = week.g
+    state = setup.state(week)
+    if setup.admission(state) != payload['admission']:
+        raise ValueError('the full state and the projection disagree')
+    payload['state'] = state
+    payload['supplement'] = setup.input_fields(
+        g, {'outputs': [{'name': 'admission', 'value': payload['admission']}]})
+    payload['income_inputs'] = [setup.income_input(g, club['id'])
+                                for club in payload['admission']['clubs']]
+    payload['incoming'] = dict(ball_byte6=g.rd(0xCF4C, 1), ball_word7=g.rd(0xCF4D),
+                               ball_word9=g.rd(0xCF4F),
+                               scores=[g.rd(0xD086, 1), g.rd(0xD087, 1)])
+    payload['incoming_fields'] = dict(
+        managed_selection_mode=g.mem(g.far(0xD7D2) + 0xF6, 1)[0],
+        legacy_income_total=g.rd(0xD6E8, 4),
+        legacy_queue_zero=dict(index=0, code=g.rd(0xA52A, 1), first_player=g.rd(0xA52B),
+                               second_player=g.rd(0xA52D), side=g.rd(0xA52F, 1)))
+    return payload
+
+
+def validate_full(payload):
+    validate_payload(payload)
+    if set(payload['state']) != {'initial', 'caller', 'setup_cells'}:
+        raise ValueError('full setup state shape differs')
+    if setup.admission(payload['state']) != payload['admission']:
+        raise ValueError('the state and the admission projection disagree')
+    if set(payload['supplement']) != {'capacities', 'start_gate', 'club_factors', 'fixture_factors'}:
+        raise ValueError('supplement shape differs')
+    if len(payload['income_inputs']) != 2:
+        raise ValueError('income inputs differ')
+    if set(payload['incoming']) != {'ball_byte6', 'ball_word7', 'ball_word9', 'scores'}:
+        raise ValueError('incoming witness differs')
+    if set(payload['incoming_fields']) != {'managed_selection_mode', 'legacy_income_total', 'legacy_queue_zero'}:
+        raise ValueError('incoming field shape differs')
+
+
 def require_campaign(value):
     if value != seed_campaign():
         raise ValueError('start campaign differs from the T105 league seed')
@@ -134,7 +179,7 @@ def require_campaign(value):
         raise ValueError('not the week-54 Blackburn R league machine')
 
 
-def capture(state_path, out):
+def capture(state_path, out, full=False):
     if out.exists():
         raise ValueError('record path already exists')
     producer_files = [str(p.relative_to(ROOT)) for p in sorted((ROOT / 'runtime/emul').glob('*.py'))]
@@ -143,11 +188,12 @@ def capture(state_path, out):
     if git('status', '--porcelain', '--', *producer_files).strip():
         raise ValueError('commit observer and dependencies first')
     data = state_path.read_bytes()
-    payload = derive(data)
-    validate_payload(payload)
+    payload = derive_full(data) if full else derive(data)
+    validate_full(payload) if full else validate_payload(payload)
     receipt = json.loads(T100_RECEIPT.read_text())
     record = dict(
-        schema='original-league-admission/1', issue=277, task='T119',
+        schema='original-league-admission/2' if full else 'original-league-admission/1',
+        issue=277, task='T119',
         producer=git('rev-parse', 'HEAD').decode().strip(),
         producer_files={name: sha((ROOT / name).read_bytes()) for name in producer_files},
         source=dict(state_sha256=sha(data), state_size=len(data),
@@ -181,7 +227,9 @@ def check(record_path):
     if saved:
         path = ROOT / saved
         if path.exists() and sha(path.read_bytes()) == STATE_SHA:
-            rebuilt = derive(path.read_bytes())
+            rebuilt = (derive_full(path.read_bytes())
+                       if record['schema'] == 'original-league-admission/2'
+                       else derive(path.read_bytes()))
             if rebuilt != record['payload']:
                 raise ValueError('the private savestate no longer yields the recorded projection')
     for corruption in ('roster', 'club', 'position', 'screen'):
@@ -212,11 +260,12 @@ def main():
     group.add_argument('--run', type=Path)
     group.add_argument('--check', type=Path)
     parser.add_argument('--record', type=Path)
+    parser.add_argument('--full', action='store_true')
     args = parser.parse_args()
     if args.run:
         if args.record is None:
             parser.error('--run needs --record')
-        capture(args.run, args.record)
+        capture(args.run, args.record, full=args.full)
     else:
         check(args.check)
 
