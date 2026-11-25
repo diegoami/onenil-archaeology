@@ -43,6 +43,14 @@ values32–127 with a zero selected flag add to an uninitialized local; arbitrar
 scratch is outside this contract. The observer diagnoses unsupported raw values
 rather than inventing zero. Negative raw signed domains are also excluded.
 
+[confirmed: T120 `runs/T120/branch-r0001.json`, the T100 league match] The raw
+values32 are not hypothetical: Newcastle players2435/2436/2438 carry raw P15+6=32
+and are scored20 times before the86th point call. Every one takes the high
+branch with the selected flag at1 (P8+0=122, D1CE/D1CF), so the baseline is0
+and the uninitialized local at SS:BP-4 — which really is stale, varying44…24776
+across calls — is never added. The zero-flag high case did not occur; it stays
+unestablished and must be diagnosed, not emulated.
+
 [designed] Python records original helper returns and taken store branches,
 then validates schema, literal continuity, read sets, pointer identities and
 provenance. It does not compute scores,availability,winners or comparisons.
