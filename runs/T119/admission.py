@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-RECORD = ROOT / 'runs/T119/admission-r0003.json'
+FULL = ROOT / 'runs/T119/admission-r0004.json'
 spec = importlib.util.spec_from_file_location(
     'league_admission', ROOT / 'runtime/emul/league_admission.py')
 tool = importlib.util.module_from_spec(spec)
@@ -23,7 +23,7 @@ spec.loader.exec_module(tool)
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--check', action='store_true')
-    parser.add_argument('--record', type=Path, default=RECORD)
+    parser.add_argument('--record', type=Path, default=FULL)
     args = parser.parse_args()
     if not args.record.exists():
         raise SystemExit('the admission record does not exist yet')
