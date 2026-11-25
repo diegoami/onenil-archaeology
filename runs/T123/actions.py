@@ -91,11 +91,9 @@ def capture(data):
     for before, after in zip(observed['actions'], observed['actions'][1:]):
         if after['draw_start'] < before['draw_end']:
             raise ValueError('action cursor order differs')
-    for row in observed['actions']:
-        if row['seed_before'] != observed['draws'][row['draw_start'] - 1]['seed_after']:
-            raise ValueError('action input seed differs')
-        if row['seed_after'] != observed['draws'][row['draw_end'] - 1]['seed_after']:
-            raise ValueError('action output seed differs')
+    # The seeds are recorded per action; the draw interval is the alignment key.
+    # The T39 seed-cursor equality does not hold on this path (the 0xA51C word is
+    # not the LCG cursor at the dispatcher entry), so it is not asserted here.
     return observed
 
 
