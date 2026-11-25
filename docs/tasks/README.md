@@ -168,12 +168,12 @@ One line per task: `- [T<nn>](T<nn>.md): <title> (#<issue>).`
 
 - [T118 The manual's late chapters get their numbers, and T61 answers the season question](T118.md) (#275).
 
-- [T119 The league fixture's preparation input from the T100 machine](T119.md) (#277).
+- [T119 The league fixture's preparation input from the T100 machine](T119.md) (#277). (folded under T117)
 
-- [T120 The P15+6≥32 role-scoring branch](T120.md) (#278).
+- [T120 The P15+6≥32 role-scoring branch](T120.md) (#278). (folded under T117)
 
-- [T121 The league machine's incoming support facts](T121.md) (#280).
+- [T121 The league machine's incoming support facts](T121.md) (#280). (folded under T117)
 
-- [T122 The league fixture-title presentation pair](T122.md) (#281).
+- [T122 The league fixture-title presentation pair](T122.md) (#281). (folded under T117)
 
-- [T123 The league fixture's original action stream](T123.md) (#282).
+- [T123 The league fixture's original action stream](T123.md) (#282). (folded under T117)

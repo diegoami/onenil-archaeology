@@ -9,6 +9,10 @@
 command can run: it fails before the task and passes after. A task likely to outlast about an hour
 of implementation is split. The main session edits task files on `main`, with the reason.
 
+[designed: owner, 2026-11-25] A small evidence record that serves an existing task is
+**folded under that task** - a milestone in its file and an issue comment - instead of
+taking a new T-number. The record keeps its own file and checker; the task stays the parent's.
+
 ## 2. The loop
 
 `ready → implement → checks → merge → follow-ups → report`
