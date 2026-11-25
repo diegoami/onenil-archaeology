@@ -40,22 +40,15 @@ def capture(data):
     pending = None
     last_score = [0, 0]
 
-    def tick(g):
-        nonlocal last_score
-        observed['ticks'] += 1
+    def enter(g):
+        nonlocal pending, last_score
+        if pending is not None:
+            raise ValueError('nested commentary request')
         score = [g.rd(0xD086, 1), g.rd(0xD087, 1)]
         if score != last_score:
             observed['score_changes'].append(dict(
-                tick=observed['ticks'], minute=g.rd(0xD0B2), score=score,
-                draw=week.draws))
+                draw=week.draws, minute=g.rd(0xD0B2), score=score))
             last_score = score
-
-    def enter(g):
-        nonlocal pending
-        if not observed['ticks']:
-            return
-        if pending is not None:
-            raise ValueError('nested commentary request')
         args = actions_tool.arguments(g)
         code, first, second, side = [args[k] for k in ('code', 'actor_slot', 'secondary_slot', 'side')]
         club = g.rd(0xD6E4 + 2 * side)
@@ -66,7 +59,7 @@ def capture(data):
 
         pending = dict(code=code, actor_slot=first, secondary_slot=second, side=side, club=club,
                        player=player(first), secondary=player(second), minute=g.rd(0xD0B2),
-                       tick=observed['ticks'], draw_start=week.draws,
+                       tick=week.draws, draw_start=week.draws,
                        seed_before=g.rd(0xA51C), head_before=g.rd(0x380),
                        caller=g.image_address(g.reg('cs'), g.stack_word(0)))
 
@@ -84,12 +77,12 @@ def capture(data):
         if len(observed['actions']) % 100 == 0:
             print('action', len(observed['actions']), 'tick', observed['ticks'], flush=True)
 
-    g.code_hook('0AB9:7A02', tick)
     g.code_hook('0AB9:0F94', enter)
     g.code_hook('0AB9:0FFC', leave)
     started = time.monotonic()
     week.play(on_boundary=lambda w: print('screen', w.screen_i, 'draws', w.draws, flush=True))
     observed['draws'] = [e for e in week.events if e['kind'] == 'draw']
+    observed['ticks'] = week.draws
     observed['elapsed_seconds'] = round(time.monotonic() - started, 1)
     if not observed['actions']:
         raise ValueError('no original action was captured')
