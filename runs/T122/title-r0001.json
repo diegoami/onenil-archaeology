@@ -1,0 +1,28 @@
+{
+ "schema": "league-fixture-title/1",
+ "issue": 281,
+ "task": "T122",
+ "status": "completed",
+ "source": {
+  "state_sha256": "3abfd6b00f8024900b93a20d1ff1eec60cfd2d570e927a00eca495d7f7b1d1c8",
+  "state_size": 292954,
+  "t100_receipt_sha256": "4de153d3523b87d868cbc0652689c157cf3466b853060d9a0ced40455c1e3917",
+  "receipt_screen_sha256": "ac0e084ebed8f0481e1d6638e12fff1a5cc2b6caa2ddd576d727b230c1d71f5a"
+ },
+ "call": {
+  "site": "1B55:142B",
+  "week": 54,
+  "stage": 0,
+  "caller_ip_image": "0AB9:D75D",
+  "caller_cs": 4828,
+  "caller_ip": 55133,
+  "output_offset": 15762,
+  "output_segment": 16447,
+  "bp": 16024,
+  "ss": 16447,
+  "keys": [
+   "Return"
+  ]
+ },
+ "scope": "First title call only; the arguments are stack bytes and the caller/ABI checks are the fresh case's own."
+}
