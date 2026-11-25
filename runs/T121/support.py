@@ -85,7 +85,7 @@ def capture(data):
     facts = []
     far = dict(config=g.far(0xD7D2), counts=g.far(0xDCC8))
     for area, offset in domains():
-        base = g.DS * 16 if area == 'ds' else far[area] * 16
+        base = g.DS * 16 if area == 'ds' else far[area]
         facts.append(dict(area=area, offset=offset, value=g.mem(base + offset, 1)[0]))
     if len({(f['area'], f['offset']) for f in facts}) != len(facts):
         raise ValueError('duplicate incoming fact')
