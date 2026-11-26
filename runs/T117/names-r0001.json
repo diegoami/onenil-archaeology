@@ -1,0 +1,135 @@
+{
+ "schema": "display-player-names/1",
+ "task": "T117",
+ "status": "completed",
+ "sources": {
+  "records/T03/leagues.json": "45be319938382e691ddb9b2ea3ea4067ce81e457b18adf7860fb3752d4be574c",
+  "runs/T119/admission-r0004.json": "bacaf4c5adba07499a4d7086091ab1edf59e1a442bf77c24007b2921d1f7770b",
+  "runs/T49/session-r0002/step-0012.json": "4db433712c6e80c217e15d3e392657f63e59a7053f504defd0c560e87b58f407",
+  "runs/T102/session-r0002/step-0003.json": "3b4d594d9328842b3ae59ff073220d6a6c0f5ed9599aa466cb00cfe06b85730d",
+  "runs/T102/session-r0002/step-0005.json": "688799f0a4556e8d3625aeb15f0847fd3602ccf5faf51d85f94e8a9061ac31d1"
+ },
+ "league": "ENGL-95.DAT",
+ "pool_index": {
+  "save_id_minus_pool_index": 1,
+  "witness": "campaign save 2581 T Flowers = pool 2580 Flowers"
+ },
+ "matches": {
+  "league": {
+   "players": [
+    {
+     "save_id": 2429,
+     "display": "R Fox",
+     "minute": 29,
+     "role": "scorer",
+     "surname": "Fox"
+    },
+    {
+     "save_id": 2426,
+     "display": "S Howey",
+     "minute": 33,
+     "role": "scorer",
+     "surname": "Howey"
+    },
+    {
+     "save_id": 2434,
+     "display": "Clark",
+     "minute": null,
+     "role": "substitute_on",
+     "surname": "Clark"
+    },
+    {
+     "save_id": 2427,
+     "display": "Venison",
+     "minute": null,
+     "role": "substitute_off",
+     "surname": "Venison"
+    },
+    {
+     "save_id": 2423,
+     "display": "Watson",
+     "minute": null,
+     "role": "substitute_on",
+     "surname": "Watson"
+    },
+    {
+     "save_id": 2435,
+     "display": "Albert",
+     "minute": null,
+     "role": "substitute_off",
+     "surname": "Albert"
+    }
+   ],
+   "pairs": [
+    {
+     "on": 2434,
+     "off": 2427,
+     "screen": "Clark on for Venison"
+    },
+    {
+     "on": 2423,
+     "off": 2435,
+     "screen": "Watson on for Albert"
+    }
+   ]
+  },
+  "friendly": {
+   "players": [
+    {
+     "save_id": 333,
+     "display": "D Bravo",
+     "minute": 27,
+     "role": "scorer",
+     "surname": "Bravo"
+    },
+    {
+     "save_id": 325,
+     "display": "J Cobos",
+     "minute": 45,
+     "role": "scorer",
+     "surname": "Cobos"
+    },
+    {
+     "save_id": 334,
+     "display": "Allou",
+     "minute": null,
+     "role": "substitute_on",
+     "surname": "Allou"
+    },
+    {
+     "save_id": 327,
+     "display": "Le Guen",
+     "minute": null,
+     "role": "substitute_off",
+     "surname": "Le Guen"
+    },
+    {
+     "save_id": 335,
+     "display": "Kombouare",
+     "minute": null,
+     "role": "substitute_on",
+     "surname": "Kombouare"
+    },
+    {
+     "save_id": 323,
+     "display": "Colleter",
+     "minute": null,
+     "role": "substitute_off",
+     "surname": "Colleter"
+    }
+   ],
+   "pairs": [
+    {
+     "on": 334,
+     "off": 327,
+     "screen": "Allou on for Le Guen"
+    },
+    {
+     "on": 335,
+     "off": 323,
+     "screen": "Kombouare on for Colleter"
+    }
+   ]
+  }
+ }
+}
