@@ -39,7 +39,8 @@ def test_a_quick_or_shifted_start_is_rejected(field, value):
 
 
 def test_the_intervention_is_the_t100_watch_flag():
-    assert league.INTERVENTION == {'site': 'T100 preparation config+F2', 'before': 0, 'after': 1}
+    assert league.INTERVENTION['watch'] == {'site': 'T100 preparation config+F2', 'before': 0, 'after': 1}
+    assert league.INTERVENTION['timer'] == {'site': 'first watched tick PIT divisor', 'before': 65536, 'after': 1024}
 
 
 def test_the_quick_census_is_not_a_watched_match():

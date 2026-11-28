@@ -35,7 +35,12 @@ T102_WEEK = ROOT / 'runs/T102/week-r0001.json'
 FIRST_SEED = 18521
 QUICK_ACTIONS = 7
 QUICK_DRAWS = 20734
-INTERVENTION = {'site': 'T100 preparation config+F2', 'before': 0, 'after': 1}
+INTERVENTION = {
+    'watch': {'site': 'T100 preparation config+F2', 'before': 0, 'after': 1},
+    # The quick path never programs the match timer; the watched friendly's
+    # match setup uses 1024. The state carries the unprogrammed 65536.
+    'timer': {'site': 'first watched tick PIT divisor', 'before': 65536, 'after': 1024},
+}
 
 sha = full.sha
 encoded = full.encoded
@@ -125,7 +130,7 @@ def check():
         raise ValueError('finish digest differs')
     finish = json.loads(finish_path.read_text())
     if finish.get('intervention') != INTERVENTION:
-        raise ValueError('watch intervention differs')
+        raise ValueError('watch/timer intervention differs')
     if finish['status'] != 'completed' or finish['boundary'] != match.MATCH_RETURN:
         raise ValueError('original match return not completed')
     if (finish['ticks'], finish['draws'], finish['actions']) != (cursor['tick'] - 1, cursor['draw'], cursor['action']):
@@ -155,7 +160,7 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
     if config_before != 0:
         raise ValueError('the T100 state does not start with watch off')
     week.g.put(config, b'\x01')
-    intervention = dict(INTERVENTION)
+    intervention = {'watch': dict(INTERVENTION['watch']), 'timer': None}
     producer = match.git('rev-parse', 'HEAD')
     RUNS.mkdir(parents=True, exist_ok=True)
     INDEX.parent.mkdir(parents=True, exist_ok=True)
@@ -262,12 +267,18 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
         pending_tick = {'tick': tick_number, 'draw_start': week.draws, 'before': state(g)}
 
     def tick_leave(g):
-        nonlocal pending_tick
+        nonlocal pending_tick, intervention
         if pending_tick is None:
             return
         pending_tick.update(draw_end=week.draws, after=state(g))
         if tick_number == 1:
             validate_league_start(pending_tick['before'])
+            before = week.g.divisor
+            if before != INTERVENTION['timer']['after']:
+                week.g.divisor = INTERVENTION['timer']['after']
+                week.g._retime = True
+            intervention['timer'] = {'site': 'first watched tick PIT divisor',
+                                     'before': before, 'after': week.g.divisor}
         tick_rows.append(pending_tick)
         pending_tick = None
         if len(tick_rows) == CHUNK_TICKS:
