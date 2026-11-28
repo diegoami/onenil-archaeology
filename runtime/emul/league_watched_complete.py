@@ -2,9 +2,10 @@
 """T124: the league fixture's original watched match,chunked decoded reference.
 
 The unforced T100 league run is the quick path (T123:7 actions,2-0,20734 draws).
-This observer forces the original watch configuration at match entry with the
-T39/T40 `0AB9:E24C`/`config+F2` intervention and records the actual watched
-league match from the T100 preparation state to the first `0AB9:E1F2` return.
+This observer sets the same `config+F2` watch flag the T39/T40 friendly
+observer patches at `0AB9:E24C`; the league quick path decides before that site,
+so the flag is set on the T100 preparation state before the week runs. It records
+the actual watched league match to the first `0AB9:E1F2` return.
 It is reference evidence only,never a native runtime backend.
 
     .cache/venv/bin/python runtime/emul/league_watched_complete.py --run
@@ -34,6 +35,7 @@ T102_WEEK = ROOT / 'runs/T102/week-r0001.json'
 FIRST_SEED = 18521
 QUICK_ACTIONS = 7
 QUICK_DRAWS = 20734
+INTERVENTION = {'site': 'T100 preparation config+F2', 'before': 0, 'after': 1}
 
 sha = full.sha
 encoded = full.encoded
@@ -85,7 +87,7 @@ def validate_league_start(first):
 def finish_count(actions, ticks, draws):
     if len(actions) <= QUICK_ACTIONS or draws <= QUICK_DRAWS:
         raise ValueError('the stream is the quick path, not a watched league match')
-    if len(ticks) < 3000:
+    if ticks < 3000:
         raise ValueError('the watched league tick census is too small')
 
 
@@ -117,12 +119,12 @@ def check():
     if not ticks or not actions:
         raise ValueError('no watched league ticks or actions')
     validate_league_start(ticks[0]['before'])
-    finish_count(actions, ticks, len(draws))
+    finish_count(actions, len(ticks), len(draws))
     finish_path = ROOT / index['finish']['path']
     if sha(finish_path.read_bytes()) != index['finish']['sha256']:
         raise ValueError('finish digest differs')
     finish = json.loads(finish_path.read_text())
-    if finish.get('intervention') != {'site': '0AB9:E24C', 'field': 'config+F2', 'before': 0, 'after': 1}:
+    if finish.get('intervention') != INTERVENTION:
         raise ValueError('watch intervention differs')
     if finish['status'] != 'completed' or finish['boundary'] != match.MATCH_RETURN:
         raise ValueError('original match return not completed')
@@ -148,6 +150,12 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
     binding = reference()
     state_file = ROOT / STATE_PATH
     week = league_week.LeagueWeek(state_file.read_bytes())
+    config = week.g.far(0xD7D2) + 0xF2
+    config_before = week.g.mem(config, 1)[0]
+    if config_before != 0:
+        raise ValueError('the T100 state does not start with watch off')
+    week.g.put(config, b'\x01')
+    intervention = dict(INTERVENTION)
     producer = match.git('rev-parse', 'HEAD')
     RUNS.mkdir(parents=True, exist_ok=True)
     INDEX.parent.mkdir(parents=True, exist_ok=True)
@@ -203,7 +211,6 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
     tick_rows = []
     action_rows = []
     all_actions = []
-    intervention = None
 
     def flush():
         nonlocal cursor, chunk_index, export_draw, export_action, export_tick
@@ -244,14 +251,6 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
         pass
 
     final = None
-
-    def enable(g):
-        nonlocal intervention
-        if intervention is None:
-            address = g.far(0xD7D2) + 0xF2
-            intervention = {'site': '0AB9:E24C', 'field': 'config+F2',
-                            'before': g.mem(address, 1)[0], 'after': 1}
-            g.put(address, b'\x01')
 
     def tick_enter(g):
         nonlocal tick_number, pending_tick
@@ -318,7 +317,6 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
             final = state(g)
             raise Complete()
 
-    week.g.code_hook('0AB9:E24C', enable)
     week.g.code_hook('0AB9:7A02', tick_enter)
     week.g.code_hook('0AB9:7B79', tick_leave)
     week.g.code_hook('0AB9:0F94', action_enter)
@@ -335,9 +333,8 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
             raise ValueError('week ended without watched match return')
         if week.g.unsupported or final is None:
             raise ValueError('unsupported/incomplete watched run')
-        validate_league_start(ticks_start(week, tick_rows, all_actions))
         validate_finish(final, all_actions)
-        finish_count(all_actions, [1] * tick_number, week.draws)
+        finish_count(all_actions, tick_number, week.draws)
         flush()
     except (Exception, KeyboardInterrupt) as exc:
         status = 'aborted'
@@ -366,13 +363,6 @@ def run(publish=False, max_ticks=10000, max_draws=1000000):
     print(status, reason, flush=True)
     if status != 'completed':
         raise SystemExit(1)
-
-
-def ticks_start(week, tick_rows, all_actions):
-    """The first recorded tick, for the post-run validation."""
-    if tick_rows:
-        return tick_rows[0]['before']
-    raise ValueError('no watched tick was recorded')
 
 
 def main():

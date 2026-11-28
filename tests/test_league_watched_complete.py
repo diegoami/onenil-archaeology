@@ -38,7 +38,11 @@ def test_a_quick_or_shifted_start_is_rejected(field, value):
         league.validate_league_start(start)
 
 
+def test_the_intervention_is_the_t100_watch_flag():
+    assert league.INTERVENTION == {'site': 'T100 preparation config+F2', 'before': 0, 'after': 1}
+
+
 def test_the_quick_census_is_not_a_watched_match():
     with pytest.raises(ValueError):
-        league.finish_count([{}] * league.QUICK_ACTIONS, [{}] * 4000, league.QUICK_DRAWS)
-    league.finish_count([{}] * 600, [{}] * 4000, 150000)
+        league.finish_count([{}] * league.QUICK_ACTIONS, 4000, league.QUICK_DRAWS)
+    league.finish_count([{}] * 600, 4000, 150000)
