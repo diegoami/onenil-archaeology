@@ -1,0 +1,15 @@
+{
+  "schema": "watched-complete-finish/1",
+  "attempt": 2,
+  "code_commit": "87bb0f030e0de4976db15d191df54ea4a9768d39",
+  "status": "aborted",
+  "reason": "ValueError: week ended without watched match return",
+  "ended": "2026-11-28T00:02:03Z",
+  "boundary": null,
+  "ticks": 0,
+  "draws": 20734,
+  "actions": 0,
+  "intervention": null,
+  "final": null,
+  "scope": "Original watched league match #28, decoded reference only; never a native runtime backend."
+}
